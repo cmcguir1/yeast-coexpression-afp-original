@@ -13,6 +13,9 @@ class Student:
     def giveInformation(self):
         return self.name + self.x
 
+    def tellMeSomething():
+        print("This should not need an instance to be called")
+
     
 
     
