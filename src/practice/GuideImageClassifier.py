@@ -109,7 +109,7 @@ def main():
 
     def trainNetwork():
         #We create our trainig loop that will run for a certain number of epochs
-        for epoch in range(1):
+        for epoch in range(30):
             
             #running loss will keep track of the total loss for every 2000 minibatches
             running_loss = 0.0
@@ -118,7 +118,7 @@ def main():
             for i, data in enumerate(trainloader,0):
                 
                 #gettign the put: data is a list of [inputs, labels]
-                inputs, labels = data
+                inputs, labels = data[0].to(device), data[1].to(device)
 
                 #Zeros out gradients of all weights before next backwards
                 optimizer.zero_grad()
@@ -153,50 +153,49 @@ def main():
     net = Net()
     #Loads in trained network
     net.load_state_dict(torch.load(PATH))
-    #trainNetwork()
+
+    #Moves net to GPU for faster training
+    device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
+    net.to(device)
+    trainNetwork()
 
     #makes an iterator of test data, then passes the next of that iterator throught the network
     dataiter = iter(testloader)
-    images, labels = dataiter.next()
+    images, labels
+    dataTemp = dataiter.next()
+    images, labels = dataTemp[0].to(device), dataTemp[1].to(device)
     outputs = net(images)
 
     images, labels = dataiter.next()
 
-    singleOutput = net.forwardPrintDims(images)
+    testNetwork()
+
+    #singleOutput = net.forwardPrintDims(images)
 
     #Displays images
     #imshow(torchvision.utils.make_grid(images))
     #print('Groundtruth: ', ' '.join(f'{classes[labels[j]]:5s}' for j in range(4)))
 
     #Stores max output value in predicted
-    _, predicted = torch.max(outputs,1)
-    print(predicted)
+    def testNetwork():
+        
+        _, predicted = torch.max(outputs,1)
+        print(predicted)
 
-    print('Predicted: ', ' '.join(f'{classes[predicted[j]]:5s}' for j in range(4)))
+        print('Predicted: ', ' '.join(f'{classes[predicted[j]]:5s}' for j in range(4)))
 
-    correct = 0
-    total = 0
-    with torch.no_grad():
-        #loops over all data in testloader
-        for data in testloader:
-            images, labels = data
-            #Feeds test images through network
-            output = net(images)
-            _, predicted = torch.max(outputs.data, 1) #max takes two arguments, the tensor you want to max, and the dimension of the tensor you want to max on
-            total += labels.size(0)
-            correct += (predicted == labels).sum().item()
-    print(f'Accuracy of the network on the 10000 test images: {100 * correct // total}%')
-
-
-
-    
-
-    
-
-
-
-
-
+        correct = 0
+        total = 0
+        with torch.no_grad():
+            #loops over all data in testloader
+            for data in testloader:
+                images, labels = data[0].to(device), data[1].to(device)
+                #Feeds test images through network
+                output = net(images)
+                _, predicted = torch.max(outputs.data, 1) #max takes two arguments, the tensor you want to max, and the dimension of the tensor you want to max on
+                total += labels.size(0)
+                correct += (predicted == labels).sum().item()
+        print(f'Accuracy of the network on the 10000 test images: {100 * correct // total}%')
 
 
 
