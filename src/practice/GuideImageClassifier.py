@@ -1,3 +1,4 @@
+from cProfile import label
 from unittest import TestLoader
 from sklearn import neural_network
 import torch
@@ -75,6 +76,24 @@ def main():
             x = self.fc3(x)
             return x
 
+        def forwardPrintDims(self,x):
+            print('Input Layer: ' + str(x.shape))
+            #These first two steps pass the input x through the conv layers and apply the maxpool activation function to them
+            x = self.pool(F.relu(self.conv1(x)))
+            print('Hidden Layer 1 (Conv): ' + str(x.shape))
+            x = self.pool(F.relu(self.conv2(x)))
+            print('Hidden Layer 2 (Conv): ' + str(x.shape))
+            #The output of the conv layers is flattened so that it can be passed into a linear layer
+            x = torch.flatten(x,1)
+            #These next two layers pass the flattened tensor through two linear layers with relu activaiton functions
+            x = F.relu(self.fc1(x))
+            print('Hidden Layer 3 (Linear): ' + str(x.shape))
+            x = F.relu(self.fc2(x))
+            print('Hidden Layer 4 (Linear): ' + str(x.shape))
+            #The last layer produces ouptut tensor
+            x = self.fc3(x)
+            print('Output Layer: ' + str(x.shape))
+
     net = Net()
 
     #Step 3: Defining a Loss function
@@ -88,44 +107,86 @@ def main():
 
     #Step 4: Train the network
 
-    #We create our trainig loop that will run for a certain number of epochs
-    for epoch in range(2):
-        
-        #running loss will keep track of the total loss for every 2000 minibatches
-        running_loss = 0.0
-
-        #This is the loop for 
-        for i, data in enumerate(trainloader,0):
+    def trainNetwork():
+        #We create our trainig loop that will run for a certain number of epochs
+        for epoch in range(1):
             
-            #gettign the put: data is a list of [inputs, labels]
-            inputs, labels = data
+            #running loss will keep track of the total loss for every 2000 minibatches
+            running_loss = 0.0
 
-            #Zeros out gradients of all weights before next backwards
-            optimizer.zero_grad()
+            #This is the loop for 
+            for i, data in enumerate(trainloader,0):
+                
+                #gettign the put: data is a list of [inputs, labels]
+                inputs, labels = data
 
-            #Feeding the input mini batch into the neural network and storing the output tensor in outputs
-            outputs = net(inputs)
-            #Calculating the loss of this mini batch
-            loss = criterion(outputs,labels)
-            #Backpropagates, calculates gradients of each tensor of weights
-            loss.backward()
-            #Optimzer adjusts weights and biases using gradients
-            optimizer.step()
+                #Zeros out gradients of all weights before next backwards
+                optimizer.zero_grad()
 
-            #Print statistics
-            running_loss += loss.item() #sums total loss of 2000 mini batches
-            if i % 2000 == 1999:
-                print(f'[{epoch + 1}, {i + 1:5d}] loss: {running_loss / 2000:.3f}')
-                running_loss = 0.0
+                #Feeding the input mini batch into the neural network and storing the output tensor in outputs
+                outputs = net(inputs)
+                #Calculating the loss of this mini batch
+                loss = criterion(outputs,labels)
+                #Backpropagates, calculates gradients of each tensor of weights
+                loss.backward()
+                #Optimzer adjusts weights and biases using gradients
+                optimizer.step()
 
-    print('Finished training')
+                #Print statistics
+                running_loss += loss.item() #sums total loss of 2000 mini batches
+                if i % 2000 == 1999:
+                    print(f'[{epoch + 1}, {i + 1:5d}] loss: {running_loss / 2000:.3f}')
+                    running_loss = 0.0
+
+    #trainNetwork()
+    #print('Finished training')
     
     #Saving neural network
     PATH = './cifar_net.pth'
-    torch.save(net.state_dict(), PATH)
+    #torch.save(net.state_dict(), PATH)
 
     #Step 5: Testing the network
     
+
+
+    #This resets the trained neural network back to a random network
+    net = Net()
+    #Loads in trained network
+    net.load_state_dict(torch.load(PATH))
+    #trainNetwork()
+
+    #makes an iterator of test data, then passes the next of that iterator throught the network
+    dataiter = iter(testloader)
+    images, labels = dataiter.next()
+    outputs = net(images)
+
+    images, labels = dataiter.next()
+
+    singleOutput = net.forwardPrintDims(images)
+
+    #Displays images
+    #imshow(torchvision.utils.make_grid(images))
+    #print('Groundtruth: ', ' '.join(f'{classes[labels[j]]:5s}' for j in range(4)))
+
+    #Stores max output value in predicted
+    _, predicted = torch.max(outputs,1)
+    print(predicted)
+
+    print('Predicted: ', ' '.join(f'{classes[predicted[j]]:5s}' for j in range(4)))
+
+    correct = 0
+    total = 0
+    with torch.no_grad():
+        #loops over all data in testloader
+        for data in testloader:
+            images, labels = data
+            #Feeds test images through network
+            output = net(images)
+            _, predicted = torch.max(outputs.data, 1) #max takes two arguments, the tensor you want to max, and the dimension of the tensor you want to max on
+            total += labels.size(0)
+            correct += (predicted == labels).sum().item()
+    print(f'Accuracy of the network on the 10000 test images: {100 * correct // total}%')
+
 
 
     
