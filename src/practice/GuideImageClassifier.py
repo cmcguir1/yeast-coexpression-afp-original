@@ -96,6 +96,12 @@ def main():
 
     net = Net()
 
+    PATH = './test_network.pth'
+
+    net.load_state_dict(torch.load(PATH))
+
+
+
     #Step 3: Defining a Loss function
 
     #We define criterion as our loss function, because our outputs are categorial, we choose cross entropy as our loss function
@@ -138,26 +144,56 @@ def main():
                     print(f'[{epoch + 1}, {i + 1:5d}] loss: {running_loss / 2000:.3f}')
                     running_loss = 0.0
 
+    
+    def testNetwork():
+        
+        _, predicted = torch.max(outputs,1)
+        print(predicted)
+
+        print('Predicted: ', ' '.join(f'{classes[predicted[j]]:5s}' for j in range(4)))
+
+        correct = 0
+        total = 0
+        with torch.no_grad():
+            #loops over all data in testloader
+            for data in testloader:
+                images, labels = data[0].to(device), data[1].to(device)
+                #Feeds test images through network
+                output = net(images)
+                print('Input dimensions: ' + str(images.shape))
+                print('Output dimensions: ' + str(output.shape))
+                _, predicted = torch.max(output.data, 1) #max takes two arguments, the tensor you want to max, and the dimension of the tensor you want to max on
+                print('Predicted labels dimensions: ' + str(predicted.shape))
+                print('Labels dimensions: ' + str(labels.shape))
+                total += labels.size(0)
+                correct += (predicted == labels).sum().item()
+        print(f'Accuracy of the network on the 10000 test images: {100 * correct // total}%')
+
+
+
     #trainNetwork()
     #print('Finished training')
     
     #Saving neural network
-    PATH = './cifar_net.pth'
-    #torch.save(net.state_dict(), PATH)
+    
+    
 
     #Step 5: Testing the network
     
 
 
     #This resets the trained neural network back to a random network
-    net = Net()
+    #net = Net()
     #Loads in trained network
-    net.load_state_dict(torch.load(PATH))
+    #net.load_state_dict(torch.load(PATH))
 
     #Moves net to GPU for faster training
+    print('Is cuda available: ' + str(torch.cuda.is_available()))
     device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
+    device = 'cpu'
     net.to(device)
-    trainNetwork()
+    #trainNetwork()
+    #torch.save(net.state_dict(), PATH)
 
     #makes an iterator of test data, then passes the next of that iterator throught the network
     dataiter = iter(testloader)
@@ -177,27 +213,7 @@ def main():
     #print('Groundtruth: ', ' '.join(f'{classes[labels[j]]:5s}' for j in range(4)))
 
     #Stores max output value in predicted
-    def testNetwork():
-        
-        _, predicted = torch.max(outputs,1)
-        print(predicted)
-
-        print('Predicted: ', ' '.join(f'{classes[predicted[j]]:5s}' for j in range(4)))
-
-        correct = 0
-        total = 0
-        with torch.no_grad():
-            #loops over all data in testloader
-            for data in testloader:
-                images, labels = data[0].to(device), data[1].to(device)
-                #Feeds test images through network
-                output = net(images)
-                _, predicted = torch.max(outputs.data, 1) #max takes two arguments, the tensor you want to max, and the dimension of the tensor you want to max on
-                total += labels.size(0)
-                correct += (predicted == labels).sum().item()
-        print(f'Accuracy of the network on the 10000 test images: {100 * correct // total}%')
-
-
+    
 
 
 
