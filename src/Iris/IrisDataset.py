@@ -9,21 +9,21 @@ import numpy as np
 class IrisDataset(Dataset):
     def __init__(self,dataArray):
         #Intializes labels as the 4th column of the dataArray
-        self.labels = torch.from_numpy(dataArray[:,4]) #1D Tensor of strings, Iris labels
-        self.features = torch.from_numpy(np.delete(dataArray,4,1)) #2D Tensor of doubles, Iris features
+        self.labels = dataArray[:,4] #1D Array of strings, Iris labels
+        self.features = np.delete(dataArray,4,1) #2D Array of doubles, Iris features
 
         #Dictionary that maps species name to a number
-        self.speciesToNumber = {'Iris-vericolor': 0, 'Iris-setosa': 1, 'Iris-virginica':2}
+        self.speciesToNumber = {'Iris-versicolor': 0, 'Iris-setosa': 1, 'Iris-virginica':2}
 
     def __getitem__(self,idx):
         #For now, I think I am going to maps species name to a number
         
         #Creates tensor of 0's, then makes creates an output tensor based on the species of an iris of a given idx
         tempLabel = torch.zeros(3)
-        tempLabel[self.speciesToNumber(self.labels[idx])] = 1
+        tempLabel[self.speciesToNumber[self.labels[idx]]] = 1
 
         #Creates return tensor that is the features of an iris at a given idx
-        tempFeature = self.features[idx]
+        tempFeature = torch.from_numpy(self.features[idx].astype('float32'))
 
         return tempFeature, tempLabel
 

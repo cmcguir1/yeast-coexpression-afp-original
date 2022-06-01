@@ -1,5 +1,6 @@
 import pandas as pd
 import numpy as np
+import torch
 
 file = pd.read_csv('resources/IRIS.csv')
 print(file)
@@ -14,4 +15,9 @@ print(x)
 
 y = np.delete(x,4,1)
 print(y)
+
+z = torch.from_numpy(y.astype('float32'))
+print(z)
+
+
 
