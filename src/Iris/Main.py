@@ -14,9 +14,10 @@ def main():
     test4x3 = ModelTester('4x3')
     test4x2x3 = ModelTester('4x2x3')
     test4x3x3x3 = ModelTester('4x3x3x3')
-    test4x3.testModel(5,30,'./resources/IRIS_4x3_train_6_2.csv','./resources/IRIS_4x3_test_6_2.csv')
-    test4x2x3.testModel(5,30,'./resources/IRIS_4x2x3_train_6_2.csv','./resources/IRIS_4x2x3_test_6_2.csv')
-    test4x3x3x3.testModel(5,30,'./resources/IRIS_4x3x3x3_train_6_2.csv','./resources/IRIS_4x3x3x3_test_6_2.csv')
+    test4x3.testModel(5,3)
+    # test4x3.testModel(5,30,'./resources/IRIS_4x3_train_6_2.csv','./resources/IRIS_4x3_test_6_2.csv')
+    # test4x2x3.testModel(5,30,'./resources/IRIS_4x2x3_train_6_2.csv','./resources/IRIS_4x2x3_test_6_2.csv')
+    # test4x3x3x3.testModel(5,30,'./resources/IRIS_4x3x3x3_train_6_2.csv','./resources/IRIS_4x3x3x3_test_6_2.csv')
     
 
 if __name__ == '__main__':

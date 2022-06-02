@@ -15,7 +15,8 @@ class ModelTester():
 
     #This network resets the model back to a random state with new data
     def resetModel(self):
-        self.model.resetModel()
+        #self.__init__(self.structure)
+        self.model = IrisModel(network=self.netStructureDict[self.structure])
 
     def testModel(self,runs,epochs,trainP='null',testP='null'):
         #Intialize numpy arrays to store accuracy from each epoch of each run
