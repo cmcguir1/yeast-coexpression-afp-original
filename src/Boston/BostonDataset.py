@@ -10,8 +10,8 @@ class BostonDataset(Dataset):
     
     #Returns the a tuples of a tensor of features and a tensor of labels at a given index
     def __getitem__(self,idx):
-        features = torch.from_numpy(np.delete(self.dataArray,13,1)[idx])
-        labels = torch.tensor([self.dataArray[idx,13]])
+        features = torch.from_numpy(np.delete(self.dataArray,13,1)[idx]).type(torch.float32)
+        labels = torch.tensor([self.dataArray[idx,13]]).type(torch.float64)
         return features, labels
 
     #Returns length of dataset

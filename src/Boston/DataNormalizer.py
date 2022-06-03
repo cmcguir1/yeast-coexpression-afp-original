@@ -9,7 +9,7 @@ bostonDataArray = bostonData.to_numpy()
 #Normalize Data
 for i in range(len(bostonDataArray[0])):
     mean = bostonDataArray[:,i].sum() / len(bostonDataArray[:,i])
-    for j in range(len(bostonDataArray)):
+    for j in range(len(bostonDataArray) - 1):
         if (bostonDataArray[j,i] != 0):
             bostonDataArray[j,i] = math.log2(bostonDataArray[j,i]/mean)
 

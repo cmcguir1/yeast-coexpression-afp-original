@@ -10,12 +10,14 @@ class ModelTester():
     def __init__(self,structure):
         #I am going to write a dictionary that converts a structure string into its associated network
         self.structure = structure
+        #A new instance of the dictionary  needs to be amde each time you reset the network, or it will pass the same instance of a network
         self.netStructureDict = {'4x3': IrisNet4x3(), '4x2x3': IrisNet4x2x3(), '4x3x3x3': IrisNet4x3x3x3()}
         self.model: IrisModel = IrisModel(network=self.netStructureDict[self.structure])
 
     #This network resets the model back to a random state with new data
     def resetModel(self):
         #self.__init__(self.structure)
+        self.netStructureDict = {'4x3': IrisNet4x3(), '4x2x3': IrisNet4x2x3(), '4x3x3x3': IrisNet4x3x3x3()}
         self.model = IrisModel(network=self.netStructureDict[self.structure])
 
     def testModel(self,runs,epochs,trainP='null',testP='null'):
