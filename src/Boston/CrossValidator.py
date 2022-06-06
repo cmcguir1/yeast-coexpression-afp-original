@@ -40,6 +40,7 @@ class CrossValidator():
                 dataTable[i*3,epoch+1] = self.models[i].testNetworkTrain()
                 dataTable[(i*3)+1,epoch+1] = self.models[i].testNetworkVal()
                 dataTable[(i*3)+2,epoch+1] = self.models[i].testNetwork(self.testingLoader)
+                print(f'Epoch {epoch+1}')
             print(f'Finished Model {i+1}')
         #Convert the numpy array data table into a pandas dataframe
         dataFrame = pd.DataFrame(dataTable)
@@ -49,5 +50,5 @@ class CrossValidator():
             name = input('What is the name of this file: ')
             dataFrame.to_csv(f'./resources/{name}')
         else:
-            dataFrame.to_csv(f'./resources/{name}')
+            dataFrame.to_csv(f'./resources/{fileName}')
 

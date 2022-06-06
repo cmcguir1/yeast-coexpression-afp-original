@@ -9,8 +9,14 @@ ssl._create_default_https_context = ssl._create_unverified_context
 
 def main():
     #Ask Hibbs if I should normalize my outputs in the dataset
-    crossVal = CrossValidator(4,'13x5x5x1')
-    crossVal.crossValidate(3)
+    crossVal1 = CrossValidator(4,'13x3x1')
+    crossVal1.crossValidate(50,'Boston_13x3x1.csv')
+    print('13x5x1')
+    crossVal2 = CrossValidator(4,'13x5x1')
+    crossVal2.crossValidate(50,'Boston_13x5x1.csv')
+    print('13x5x5x1')
+    crossVal3 = CrossValidator(4,'13x5x5x1')
+    crossVal3.crossValidate(50,'Boston_13x5x5x1.csv')
     # data = BostonData(4)
     # train, val = data.getFoldDatasets(0)
     # model = BostonModel(train,val,'')

@@ -24,6 +24,3 @@ class BostonData():
         trainingSet = BostonDataset(trainingSetArray)
         return (trainingSet, validationSet)
 
-
-
-
