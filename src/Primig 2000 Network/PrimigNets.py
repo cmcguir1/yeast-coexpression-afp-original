@@ -1,3 +1,4 @@
+import torch
 import torch.nn as nn
 import torch.nn.functional as F
 
@@ -29,6 +30,9 @@ class PrimegNet(nn.Module):
         #Feeds last hidden layer output to output layer
             # x = self.layers[-1](x)
 
+
         #Applies sequential function
         x = self.layers(x)
+        #You need to squish with a sigmoid because Binary Cross Entropy needs to output values to be normalized between 0 and 1
+        x = torch.sigmoid(x)
         return x

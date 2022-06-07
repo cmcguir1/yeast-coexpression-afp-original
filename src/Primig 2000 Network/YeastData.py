@@ -53,7 +53,7 @@ class YeastData():
         for i in range(folds):
             #Uses foldPart to calculate what part of the data array each partition will contain
             posPartition = self.posData[i*int(foldPart/self.folds):(i+1)*int(foldPart/self.folds)]
-            negPartition = self.posData[i*int(foldPart/self.folds):(i+1)*int(foldPart/self.folds)]
+            negPartition = self.negData[i*int(foldPart/self.folds):(i+1)*int(foldPart/self.folds)]
             #Appends a tuple of the positive and negative partitions to the partitions list
             self.partitions.append((posPartition,negPartition))
             #On the last partition, store the testStart index
