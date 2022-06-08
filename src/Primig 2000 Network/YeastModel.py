@@ -1,18 +1,22 @@
 from cProfile import label
 from random import random
+import statistics
 from tokenize import String
+from aiohttp import TraceRequestExceptionParams
+from sklearn.metrics import precision_recall_curve
 import torch
 from YeastData import YeastData
 from PrimigNets import PrimegNet
 import torch.nn as nn
 import torch.optim as optim
 import numpy as np
+import pandas as pd
 
 
 class YeastModel():
-    def __init__(self,fold,percentTest,numFolds,structure,lr,momentum,batch_size):
+    def __init__(self,fold,percentTest,numFolds,dataPath,structure,lr,momentum,batch_size,dataName):
         #Initialize a yeast dataset, then retrieve partions
-        self.data = YeastData(percentTest,numFolds)
+        self.data = YeastData(percentTest,numFolds,dataPath)
         #Retrieve training and validation data from dataset, all of these variables are tensors
         self.posTrain, self.negTrain, self.posVal, self.negVal = self.data.getFold(fold)
         
@@ -28,13 +32,18 @@ class YeastModel():
         self.opt = optim.SGD(self.net.parameters(),lr=lr,momentum=momentum)
         self.batch = batch_size
 
+        #File path where data table and network should be saved
+        self.dataFilePath = f'./Yeast Resources/{dataName}_{structure}_fold{fold+1}'
+        self.networkFilePath = f'./Yeast Networks/{dataName}_{structure}_fold{fold+1}'
+
     #Training with replacement
-    def trainNetwork(self,epochs):
+    def trainNetwork(self,epochs,collectData=False,filePath=''):
         #Loop over the number of epochs, which in this case, is the number of batches
         running_loss = 0.0
+        runningLossList = []
         for epoch in range(epochs):
             #Create input and labels array
-            inputArray, labelsArray = YeastModel.createNetworkArrays(self.posTrain,self.negTrain,self.batch)
+            inputArray, labelsArray = YeastModel.createTrainArrays(self.posTrain,self.negTrain,self.batch)
             #Convert those arrays into tensors
             inputTensor, labelsTensor = YeastModel.createNetworkTensors(inputArray,labelsArray)
             #Move those tensor to same device as network
@@ -53,15 +62,103 @@ class YeastModel():
             self.opt.step()
             
             if(epoch % 100 == 0):
-                print(f'Loss: {running_loss/100}')
+                runningLossList.append(np.array([epoch,running_loss]))
                 running_loss = 0.0
+        if(collectData):
+            runningLossArray = np.array(runningLossList)
+            lossData = pd.DataFrame(runningLossArray,columns=['Batches','Loss'])
+            lossData.to_csv(filePath)
 
-
-
+    def testNetwork(self,inputs,labels,testingType):
+        #Takes inputs and labels arrays and converts them to tensors, then moves those tensors to device
+        inputTensor, labelsTensor = YeastModel.createNetworkTensors(inputs,labels)
+        inputTensor = inputTensor.to(self.device)
+        labelsTensor = labelsTensor.to(self.device)
         
+        with torch.no_grad():
+            #Forward feeds inputs through network
+            outputs = self.net(inputTensor.float())
+            #Flattens output tensor, then converts it into a numpy array
+            outputs = torch.flatten(outputs)
+            outputsArray = outputs.numpy()
+            #Flattens labels tensor, then convert Labels tensor into array to be used in data table
+            labelsTensor = torch.flatten(labelsTensor)
+            labelsArray = labelsTensor.numpy()
+
+            #Creates array of gene name, labels, and output value arrays, then flips rows and columns of array
+            rawData = np.array((labels,labelsArray,outputsArray),dtype=object)
+            rawDataList = []
+            for i in range(len(outputsArray)):
+                rawDataList.append(rawData[:,i])
+            rawData = np.array(rawDataList,dtype=object)
+            #Sorts rawData array by the output value of each row
+            sortedRawData = rawData[rawData[:,2].argsort()]
+
+            confusionMatrixList = []
+            truePos = 0
+            falsePos = 0
+            trueNeg = 0
+            falseNeg = 0
+            #In this loop, i represents the cutoff for what we consider a true postiive or negative
+            for i in range(len(sortedRawData)):
+                #Loops over all genes determines where that gene is in the confusion matrix
+                for j in range(len(sortedRawData)):
+                    #If gene is negative and below the line, it is a true negative
+                    if(sortedRawData[j,1] == 0.0 and j <= i):
+                        trueNeg += 1
+                    #If gene is positive and below the line, it is a false positive
+                    elif(sortedRawData[j,1] == 1.0 and j <= i):
+                        falsePos += 1
+                    #If gene is negative and above the line, it is a false negative
+                    elif(sortedRawData[j,1] == 0.0 and j > i):
+                        falseNeg += 1
+                    #If the gene is positive and above the line, it is a true positive
+                    else:
+                        truePos += 1
+                #Appends an array of the confusion matrix value to a confusion matrix list
+                confusionMatrixList.append(np.array([truePos,falsePos,trueNeg,falseNeg]))
+                #Reset confusion matrix values
+                truePos, trueNeg, falsePos, falseNeg = 0, 0 ,0 ,0
+            #Makes confusion matrix list into array
+            confusionMatrix = np.array(confusionMatrixList)
+            
+            #Calculate statistics for confusion matrix array
+            statisticsList = []
+            for mat in confusionMatrix:
+                accuracy = (mat[0] + mat[2]) / mat.sum()
+                precision = (mat[0]) / (mat[0] + mat[1])
+                recall =  1 if(mat[0] + mat[3] == 0) else mat[0] / (mat[0] + mat[3])
+                falsePositiveRate = mat[1] / (mat[1] + mat[2])
+                selectivity = mat[2] /(mat[2] + mat[1])
+                statisticsList.append(np.array([accuracy,precision,recall,falsePositiveRate,selectivity]))
+            #Converts stats list into array to be concatenated
+            statisticsArray = np.array(statisticsList)
+
+            #Concatenate data arrays together to form final data table
+            dataTable = np.concatenate((sortedRawData,confusionMatrix,statisticsArray),1)
+            
+            #Create DataFrame from array, then save it to dataFilePath
+            dataFrame = pd.DataFrame(dataTable,columns=['Name','+/-','Score','True Positive', 'False Positive', 'True Negative', 'False Negative', 'Accuracy', 'Precision', 'Recall', 'False Positive Rate', 'Selectivity'])
+            dataFrame.to_csv(f'{self.dataFilePath}_{testingType}.csv')
+
+            #Save network to networkFilePath
+            torch.save(self.net.state_dict(), f'{self.networkFilePath}_{testingType}.pth')
+
+    #Three methods that pass that help pass the right data arrays to testNetwork
+    def testNetworkTrain(self):
+        inputs, labels = YeastModel.createTestArrayDouble(self.posTrain,self.negTrain)
+        self.testNetwork(inputs,labels,'Train')
+
+    def testNetworkVal(self):
+        inputs, labels = YeastModel.createTestArrayDouble(self.posVal,self.negVal)
+        self.testNetwork(inputs,labels,'Val')
+
+    def testNetworkTest(self):
+        inputs, labels = YeastModel.createTestArraySingle(self.data.testingData)
+        self.testNetwork(inputs,labels,'Test')
 
     #Creates input and output numpy array for 1 batch of network training
-    def createNetworkArrays(positiveTraining,negativeTraining,batch_size):
+    def createTrainArrays(positiveTraining,negativeTraining,batch_size):
         #Initializes arrays of ranges of indecies for positive and negative training arrays that will be used to index training tensors
         posList = np.arange(len(positiveTraining))
         negList = np.arange(len(negativeTraining))
@@ -79,9 +176,36 @@ class YeastModel():
         #Returns inputs and labeels as a tuple
         return (inputs,labels)
 
+    #Version of function that combines the positive and negative data into an input and labels array
+    def createTestArrayDouble(positiveTest,negativeTest):
+        inputsList = []
+        labelsList = []
+        for i in range(len(positiveTest)):
+            inputsList.append(positiveTest[i,1:])
+            labelsList.append(positiveTest[i,0])
+        for i in range(len(negativeTest)):
+            inputsList.append(negativeTest[i,1:])
+            labelsList.append(negativeTest[i,0])
+        inputArray = np.array(inputsList)
+        labelsArray = np.array(labelsList)
+        return (inputArray,labelsArray)
+
+    #Version of function converts a single input array into an input and labels array
+    def createTestArraySingle(testData):
+        inputList = []
+        labelsList = []
+        for i in range(len(testData)):
+            inputList.append(testData[i,1:])
+            labelsList.append(testData[i,0])
+        #Because inputList is a list of arrays, calling np.array creates a
+        inputArray = np.array(inputList)
+        labelsArray = np.array(labelsList)
+        return (inputArray,labelsArray)
+        
+
     def createNetworkTensors(inputArray,labelsArray):
-        #Converts numpy input array into numpy input tensor
-        inputTensor = torch.from_numpy(inputArray)
+        #Converts numpy input array into numpy input tensor, must convert input array into float64 array
+        inputTensor = torch.from_numpy(inputArray.astype('float64'))
         #Creates a tensor with all zeros that is the same length as the labels array
 
         labelsTensor = torch.zeros((len(labelsArray),1))
