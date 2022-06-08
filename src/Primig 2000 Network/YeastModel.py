@@ -19,6 +19,11 @@ class YeastModel():
         self.data = YeastData(percentTest,numFolds,dataPath)
         #Retrieve training and validation data from dataset, all of these variables are tensors
         self.posTrain, self.negTrain, self.posVal, self.negVal = self.data.getFold(fold)
+        print(f'Pos Train: {len(self.posTrain)}')
+        print(f'Neg Train: {len(self.negTrain)}')
+        print(f'Pos Val: {len(self.posVal)}')
+        print(f'Neg Val: {len(self.negVal)}')
+        print(f'Test: {len(self.data.testingData)}')
         
         #Initialize network of a specified structure, then moves network to gpu if available
         self.net = PrimegNet(structure)
@@ -108,10 +113,10 @@ class YeastModel():
                         trueNeg += 1
                     #If gene is positive and below the line, it is a false positive
                     elif(sortedRawData[j,1] == 1.0 and j <= i):
-                        falsePos += 1
+                        falseNeg += 1
                     #If gene is negative and above the line, it is a false negative
                     elif(sortedRawData[j,1] == 0.0 and j > i):
-                        falseNeg += 1
+                        falsePos += 1
                     #If the gene is positive and above the line, it is a true positive
                     else:
                         truePos += 1

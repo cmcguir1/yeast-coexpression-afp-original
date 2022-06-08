@@ -17,7 +17,7 @@ class PrimegNet(nn.Module):
             #Adds a new layer
             self.layers.add_module(f'Layer {i + 1}',nn.Linear(int(sizes[i]),int(sizes[i+1])))
             #Performs a ReLU after that layer, unless it is the final layer before the output nodes
-            if(i == len(sizes) - 2):
+            if(i != len(sizes) - 2):
                 self.layers.add_module(f'ReLU',nn.ReLU())
 
             # self.layers.append(nn.parameter.Parameter(nn.Linear(int(sizes[i]),int(sizes[i+1]))))

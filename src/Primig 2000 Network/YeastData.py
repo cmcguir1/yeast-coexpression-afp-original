@@ -47,22 +47,25 @@ class YeastData():
         # self.testingData = np.concatenate([testPos,testNeg],0)
 
         #Calculates the portion of the dataset each fold should contain
-        foldPart = len(self.posData)*(1-percentTest)
+        foldPartPos = len(self.posData)*(1-percentTest)
+        foldPartNeg = len(self.negData)*(1-percentTest)
         self.partitions = []
-        testStart = 0 #testStart will eventually store the value of the end of the last fold
+        testStartPos = 0 #testStart will eventually store the value of the end of the last fold
+        testStartNeg = 0
         for i in range(folds):
             #Uses foldPart to calculate what part of the data array each partition will contain
-            posPartition = self.posData[i*int(foldPart/self.folds):(i+1)*int(foldPart/self.folds)]
-            negPartition = self.negData[i*int(foldPart/self.folds):(i+1)*int(foldPart/self.folds)]
+            posPartition = self.posData[i*int(foldPartPos/self.folds):(i+1)*int(foldPartPos/self.folds)]
+            negPartition = self.negData[i*int(foldPartNeg/self.folds):(i+1)*int(foldPartNeg/self.folds)]
             #Appends a tuple of the positive and negative partitions to the partitions list
             self.partitions.append((posPartition,negPartition))
             #On the last partition, store the testStart index
             if(i == folds - 1):
-                testStart = (i+1)*int(foldPart/self.folds)
+                testStartPos = (i+1)*int(foldPartPos/self.folds)
+                testStartNeg = (i+1)*int(foldPartNeg/self.folds)
         
         #Take what is leftover from fold partitions from positive and negative datasets, then concats them together into testing array
-        testPos = self.posData[testStart:-1]
-        testNeg = self.negData[testStart:-1]
+        testPos = self.posData[testStartPos:]
+        testNeg = self.negData[testStartNeg:]
         self.testingData = np.concatenate([testPos,testNeg])
 
     def getFold(self,x):
