@@ -1,0 +1,101 @@
+import glob
+from YeastDataFile import YeastDataFile
+import pandas as pd
+import numpy as np
+
+class PairwiseYeastData():
+    def __init__(self,folder,numFolds,posGenes='./Yeast Resources/positives_00_go04-15-07.txt',negGenes='./Yeast Resources/negatives_00_go04-15-07.txt'):
+        #Initializing dataset list that will hold all datafiles within the passed in folder
+        self.datasets = []
+        #Makes a list of all files within a specified folder, the files names are their absolute path
+        files = [file for file in glob.glob(f'{folder}/*')]
+        #For each file, add a YeastDataFile to the datasets list
+        for f in files:
+            self.datasets.append(YeastDataFile(f))
+
+        #Reads in lists of positive and negatice genes, then turns each data frame into an array, flattens that array, then turns it into a list
+        self.posDataList = pd.read_csv(posGenes).to_numpy().flatten().tolist()
+        self.negDataList = pd.read_csv(negGenes).to_numpy().flatten().tolist()
+        #Set of all positive genes
+        self.posDataSet = set(self.posDataList)
+        #Filters all genes that are not in all datasets out of lists
+        self.filterGenes()
+        #Conversts genes lists into gene arrays
+        self.posArray = np.array(self.posDataList)
+        self.negArray = np.array(self.negDataList)
+
+        #Intializes empty list that will hold each fold of data, each fold will be a tuple of (pos data, neg data)
+        #Each fold of the data will contain a tuple of a set of positive genes and a set of negative genes
+        self.folds = []
+        for i in range(numFolds):
+            #Calculate start and end index for positive and negative arrays
+            startPos = int(i * len(self.posArray) / numFolds)
+            startNeg = int(i * len(self.negArray) / numFolds)
+            endPos = int((i+1) * len(self.posArray) / numFolds)
+            endNeg = int((i+1) * len(self.negArray) / numFolds)
+            #If last fold, go from start position to the end of the each array,
+            if (i == numFolds - 1):
+                self.folds.append((set(self.posArray[startPos:]),set(self.negArray[startNeg:])))
+            #Otherwise, go to end position
+            else:
+                self.folds.append((set(self.posArray[startPos:endPos]),set(self.negArray[startNeg:endNeg])))
+
+    #Returns a specified fold as validation data, and the other folds as training data
+    def getFold(self,fold):
+        #Makes lists of positive and negative training folds, then concatentates them together
+        posTrainList  = []
+        negTrainList = []
+        for i in range(len(self.folds)):
+            if(i != fold):
+                posTrainList.append(list(self.folds[i][0]))
+                negTrainList.append(list(self.folds[i][1]))
+        posTrain = np.concatenate(posTrainList)
+        negTrain = np.concatenate(negTrainList)
+        #Gets validation data from specified fold
+        posVal, negVal = list(self.folds[fold][0]), list(self.folds[fold][1])
+        #Returns data as a tuple
+        return (posTrain,negTrain,posVal,negVal)
+
+    #This method filters out any genes that are not found in all datasets, because this may cause a problem when training a network
+    def filterGenes(self):
+        #Initializes empty sets that will hold genes that need to be removed
+        posRemove = set()
+        negRemove = set()
+        #For all positive and negative genes, loops over all dataset dictionaries, and adds gene to repsective remove set if gene is not found in any dictionary
+        for gene in self.posDataList:
+            for dataset in self.datasets:
+                if(not(gene in dataset.geneDict)):
+                    posRemove.add(gene)
+        for gene in self.negDataList:
+            for dataset in self.datasets:
+                if(not(gene in dataset.geneDict)):
+                    negRemove.add(gene)
+        #Removes genes from remove lists from data lists
+        for gene in posRemove:
+            self.posDataList.remove(gene)
+        for gene in negRemove:
+            self.negDataList.remove(gene)
+
+    #Takes in arrays of positive and negative genes, and returns arrays of all positive and negative genes pairs
+    def makePairs(posGenes,negGenes,makeAgnositc=False):
+        posGenePairs = []
+        #Loops over a genes in posGenes
+        for i in range(len(posGenes)):
+            #Loops over all other remaining genes after gene i
+            for j in range(i+1,len(posGenes)):
+                #Appends a tuple of (gene i, gene j) to positive gene pairs list
+                posGenePairs.append((posGenes[i],posGenes[j]))
+        #This section of code does the same thing but for negative genes
+        negGenePairs = []
+        for i in range(len(negGenes)):
+            for j in range(i+1,len(negGenes)):
+                negGenePairs.append((negGenes[i],negGenes[j]))
+        #If makeAgnostic is true, adds all pairs of positive and negative genes to the negative genes list
+        if(makeAgnositc):
+            for i in range(len(posGenes)):
+                for j in range(len(negGenes)):
+                    negGenePairs.append((posGenes[i],negGenes[j]))
+        #Returns arrays of pairs
+        return (np.array(posGenePairs),np.array(negGenePairs))
+
+    
