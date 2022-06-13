@@ -18,6 +18,7 @@ class PairwiseModel():
         self.net = FlexNet(f'{len(self.data.datasets)}x{structure}')
         #Determines device the network will train on, then moves network to that device
         self.device = 'cuda:0' if torch.cuda.is_available() else 'cpu'
+        # self.device = 'cpu'
         self.net.to(self.device)
 
         #Initializes loss function, Binary Cross Entropy loss
@@ -31,10 +32,10 @@ class PairwiseModel():
         self.batch = batch
 
         #Locations to save files
-        self.dataTableLocation = f'./Yeast Resources/Datasets/{folderName}/{modelName}_{structure}_fold{fold+1}'
+        self.dataTableLocation = f'./Yeast Resources/Pairwise/{folderName}/{modelName}_{structure}_fold{fold+1}'
         self.networkLocation = f'./Yeast Networks/{folderName}/{modelName}_{structure}_fold{fold+1}'
 
-    def trainNetwork(self,epochs,printLoss=False):
+    def trainNetwork(self,epochs,printLoss=False,printTensors=False):
         #Make gene pairs from positive and negative training sets
         posPairs, negPairs = PairwiseYeastData.makePairs(self.posTrain,self.negTrain)
         running_loss = 0.0
@@ -52,12 +53,20 @@ class PairwiseModel():
 
             #Feed forward features tensor
             outputs = self.net(features.float())
+
+            if(epoch == 0 and printTensors):
+                print(f'Input Array: {inputArray}')
+                print(f'Features: {features}')
+                print(f'Labels: {labels}')
+                print(f'Outputs: {outputs}')
+
             #Calculate loss, the add loss to toal running loss
             loss = self.lossFunc(outputs.float(),labels.float())
             running_loss += loss.item()
             #Backpropagate, then update weights
             loss.backward()
             self.opt.step()
+            
 
             #If printLoss is true, prints the running loss every 100 batches
             if(epoch % 100 == 0 and printLoss):
@@ -92,12 +101,8 @@ class PairwiseModel():
                     if(genePair[1] in fold[0] or genePair[1] in fold[1]):
                         gene2 = f'{i+1}'
                 foldsList.append(f'{gene1}_{gene2}')
-
-
             namesArray = np.array(namesList)
             foldsArray = np.array(foldsList)
-
-            
 
             #Moves labels and output tensors to cpu, then turns them into arrays and flattens them
             labelsArray = labels.cpu().numpy().flatten()
@@ -149,7 +154,6 @@ class PairwiseModel():
             dataTable = np.concatenate((sortedData,confusionMatrix,statisticsArray),1)
             if(save):
                 dataFrame = pd.DataFrame(dataTable,columns=['Name','+/-','Folds','Score','True Positive', 'False Positive', 'True Negative', 'False Negative', 'Accuracy', 'Precision', 'Recall', 'False Positive Rate', 'Selectivity'])
-                print(dataFrame)
                 dataFrame.to_csv(f'{self.dataTableLocation}_{testingType}.csv')
 
                 torch.save(self.net.state_dict(), f'{self.networkLocation}_{testingType}.pth')

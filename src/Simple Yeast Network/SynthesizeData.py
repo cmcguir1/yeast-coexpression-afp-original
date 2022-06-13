@@ -12,7 +12,7 @@ def synthesize(totalPos,totalNeg,fileName,templateFile="./Yeast Resources/2010.P
     templateArray = template.to_numpy()
 
     #Variables for the signal strength and noise of the data
-    signal = 1
+    signal = 0.25
     noise = 1
     pos = 0
     neg = 0
@@ -23,7 +23,7 @@ def synthesize(totalPos,totalNeg,fileName,templateFile="./Yeast Resources/2010.P
         #If gene in row is positive, then introduce a signal with some noise to each item in the row
         if(templateArray[i,0] in YeastData.posSet and pos < totalPos):
             for j in range(len(templateArray[i])-3):
-                templateArray[i,j+3] = signal * math.sin((2/24)*2*math.pi) + noise * np.random.normal()
+                templateArray[i,j+3] = signal * math.sin((j/24)*2*math.pi) + noise * np.random.normal()
             templateList.append(templateArray[i])
             pos += 1
 
@@ -40,4 +40,4 @@ def synthesize(totalPos,totalNeg,fileName,templateFile="./Yeast Resources/2010.P
     syntheticData.to_csv(fileName,sep='\t',index=False)
 
 for i in range(5):
-    synthesize(12,88,f'./Yeast Resources/Datasets/Synthetic/Medium_{i+1}.txt')
+    synthesize(36,264,f'./Yeast Resources/Datasets/Synthetic/Small 36-264/Small_36-264_{i+1}.txt')

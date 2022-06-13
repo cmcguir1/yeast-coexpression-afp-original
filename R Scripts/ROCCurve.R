@@ -12,11 +12,11 @@ plotROC <- function(files,colorsList,graphName) {
   #Sorts data table by the Score column in ascending order
   data <- data[order(data[,"Score"],decreasing = FALSE),]
   #Creates a plot of the first data series
-  plot(data[,12], data[,11], ylim= c(0,1), type="l", col=colorsList[1],
+  plot(data[,"False.Positive.Rate"], data[,"Recall"], ylim= c(0,1), type="l", col=colorsList[1],
        lwd=width, main=graphName, xlab="False Positive Rate", ylab = "Recall")
   
-  #Calculates AUC for first curve, the format function rounds the AUC off at decimalPlaces
-  legendAUC <- append(legendAUC,format(round(mean(data[,11]),decimalPlaces) , nsmall=decimalPlaces))
+  #Calculates AUC for first curve, the format function rounds the AUC off at decimal Places
+  legendAUC <- append(legendAUC,format(round(mean(data[,"Recall"]),decimalPlaces) , nsmall=decimalPlaces))
   legendLabels <- append(legendLabels,paste("Fold 1 (AUC =",legendAUC[1],")"))
   
   #Draws black linear line to represent the control
@@ -29,10 +29,10 @@ plotROC <- function(files,colorsList,graphName) {
     data <- data[order(data[,"Score"],decreasing = FALSE),]
     
     #Plot data from table
-    lines(data[,12],data[,11],lwd=width,col=colorsList[i])
+    lines(data[,"False.Positive.Rate"],data[,"Recall"],lwd=width,col=colorsList[i])
     
     #Calculate AUC, then add to legends collections
-    legendAUC <- append(legendAUC,format(round(mean(data[,11]),decimalPlaces) , nsmall=decimalPlaces))
+    legendAUC <- append(legendAUC,format(round(mean(data[,"Recall"]),decimalPlaces) , nsmall=decimalPlaces))
     legendLabels <- append(legendLabels,paste("Fold",i,"(AUC =",legendAUC[i],")"))
   }
   
@@ -46,10 +46,10 @@ files = choose.files(default=paste0(getwd(),"/*.*"))
 
 colorsList <- c("#FC0303","#14A63B","#5D87F0","#7713BA","#FAEF16","#E09704")
 
-graphName <- "Primig 2000 Dataset 10: 24x20x8x1 Validation"
+graphName <- "Pairwise Syntheitc Small 36-264: 5x1 Validation"
 
 
-pdf("Primig_Dataset10_24x20x8x1_Val_ROC.pdf",width=6,height=6)
+pdf("Pair_Small-36-264_5x1_Val_ROC.pdf",width=6,height=6)
 plotROC(files=files,colorsList=colorsList,graphName=graphName)
 dev.off()
 

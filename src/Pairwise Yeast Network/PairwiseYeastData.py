@@ -90,12 +90,39 @@ class PairwiseYeastData():
         for i in range(len(negGenes)):
             for j in range(i+1,len(negGenes)):
                 negGenePairs.append((negGenes[i],negGenes[j]))
-        #If makeAgnostic is true, adds all pairs of positive and negative genes to the negative genes list
+        #If makeAgnostic is true, adds all pairs of positive and negative genes to agnostic pair list, then returns all gene pairs
         if(makeAgnositc):
+            agnGenePairs = []
             for i in range(len(posGenes)):
                 for j in range(len(negGenes)):
-                    negGenePairs.append((posGenes[i],negGenes[j]))
-        #Returns arrays of pairs
-        return (np.array(posGenePairs),np.array(negGenePairs))
+                    agnGenePairs.append((posGenes[i],negGenes[j]))
+            return (np.array(posGenePairs),np.array(negGenePairs),np.array(agnGenePairs))
+        #If not, then only return positive pairs and negative pairs
+        else:
+            return (np.array(posGenePairs),np.array(negGenePairs))
+
+    #Calculates correlation coefficent between all gene pairs for all datasets
+    def calculateCorrelations(self):
+        #Creates positive, negative, and agnostic gene pairs
+        posPairs, negPairs, agnPairs = PairwiseYeastData.makePairs(self.posArray,self.negArray,makeAgnositc=True)
+        #Loop over all datasest
+        for dataset in self.datasets:
+            #Create empty dataTable list
+            dataTable = []
+            #Loop over all gene pairs in each array, and calculate correlation coefficent, then add all information to list
+            for genePair in posPairs:
+                dataTable.append([genePair[0],genePair[1],'P-P',np.corrcoef(dataset.geneDict[genePair[0]],dataset.geneDict[genePair[1]])[1,0]])
+            for genePair in negPairs:
+                dataTable.append([genePair[0],genePair[1],'P-N',np.corrcoef(dataset.geneDict[genePair[0]],dataset.geneDict[genePair[1]])[1,0]])
+            for genePair in agnPairs:
+                dataTable.append([genePair[0],genePair[1],'N-N',np.corrcoef(dataset.geneDict[genePair[0]],dataset.geneDict[genePair[1]])[1,0]])
+            #Turn list into dataframe
+            dataFrame = pd.DataFrame(dataTable,columns=['Gene A', 'Gene B', 'Type', 'Correlation'])
+            #Uses string methods to isolate part of the file name we want for saving the dataframe
+            fileName = dataset.dataFile[dataset.dataFile.find('\\')+1:dataset.dataFile.find('.')]
+            dataFrame.to_csv(f'./Yeast Resources/Histogram Data/Corr_{fileName}.csv',index=False)
+            
+
+
 
     
