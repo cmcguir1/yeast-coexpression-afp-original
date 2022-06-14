@@ -189,7 +189,10 @@ class PairwiseModel():
             #Loops over all datasets
             for dataset in self.data.datasets:
                 #Calculates the correlation coefficient between the expresssion levels of the two genes in a given data set, [0,1] is used because corrcoeff returns a matrix
-                correlations.append(np.corrcoef(dataset.geneDict[genePair[0]],dataset.geneDict[genePair[1]])[1,0])
+                if(genePair[0] in dataset.geneDict and genePair[1] in dataset.geneDict):
+                    correlations.append(np.corrcoef(dataset.geneDict[genePair[0]],dataset.geneDict[genePair[1]])[1,0])
+                else:
+                    correlations.append(0.0)
             #Appends list of correlations to features list
             featuresList.append(correlations)
 

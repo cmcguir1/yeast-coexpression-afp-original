@@ -4,25 +4,38 @@ import pandas as pd
 import numpy as np
 
 class PairwiseYeastData():
-    def __init__(self,folder,numFolds,posGenes='./Yeast Resources/positives_00_go04-15-07.txt',negGenes='./Yeast Resources/negatives_00_go04-15-07.txt'):
-        #Initializing dataset list that will hold all datafiles within the passed in folder
-        self.datasets = []
-        #Makes a list of all files within a specified folder, the files names are their absolute path
-        files = [file for file in glob.glob(f'{folder}/*')]
-        #For each file, add a YeastDataFile to the datasets list
-        for f in files:
-            self.datasets.append(YeastDataFile(f))
+    def __init__(self,folder,numFolds,subset=100000,posGenes='./Yeast Resources/positives_00_go04-15-07.txt',negGenes='./Yeast Resources/negatives_00_go04-15-07.txt'):
 
         #Reads in lists of positive and negatice genes, then turns each data frame into an array, flattens that array, then turns it into a list
         self.posDataList = pd.read_csv(posGenes).to_numpy().flatten().tolist()
         self.negDataList = pd.read_csv(negGenes).to_numpy().flatten().tolist()
         #Set of all positive genes
         self.posDataSet = set(self.posDataList)
-        #Filters all genes that are not in all datasets out of lists
-        self.filterGenes()
+
+        #Filters all genes that are not in all datasets out of lists, this is commented out because we no longer do this
+        #self.filterGenes()
+
         #Conversts genes lists into gene arrays
         self.posArray = np.array(self.posDataList)
         self.negArray = np.array(self.negDataList)
+        #Randomly shuffles gene arrays
+        np.random.shuffle(self.posArray)
+        np.random.shuffle(self.negArray)
+
+        #Generate all possible gene pairs, concatentate them into one array
+        #This array is used to calculate the mean and std of each dataset
+        posPairs, negPairs, agnPairs = PairwiseYeastData.makePairs(self.posArray,self.negArray,makeAgnositc=True)
+        pairs = np.concatenate((posPairs,negPairs,agnPairs))
+
+
+        #Initializing dataset list that will hold all datafiles within the passed in folder
+        self.datasets = []
+        #Makes a list of all files within a specified folder, the files names are their absolute path
+        files = [file for file in glob.glob(f'{folder}/*')]
+        print(files)
+        #For each file, add a YeastDataFile to the datasets list
+        for f in files:
+            self.datasets.append(YeastDataFile(f,pairs,subset=subset))
 
         #Intializes empty list that will hold each fold of data, each fold will be a tuple of (pos data, neg data)
         #Each fold of the data will contain a tuple of a set of positive genes and a set of negative genes
@@ -119,7 +132,8 @@ class PairwiseYeastData():
             #Turn list into dataframe
             dataFrame = pd.DataFrame(dataTable,columns=['Gene A', 'Gene B', 'Type', 'Correlation'])
             #Uses string methods to isolate part of the file name we want for saving the dataframe
-            fileName = dataset.dataFile[dataset.dataFile.find('\\')+1:dataset.dataFile.find('.')]
+            #.rfind() finds last occurance of character
+            fileName = dataset.dataFile[dataset.dataFile.find('\\')+1:dataset.dataFile.rfind('.')]
             dataFrame.to_csv(f'./Yeast Resources/Histogram Data/Corr_{fileName}.csv',index=False)
             
 

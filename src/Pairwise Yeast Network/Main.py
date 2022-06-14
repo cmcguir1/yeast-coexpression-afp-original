@@ -8,7 +8,7 @@ import ssl
 ssl._create_default_https_context = ssl._create_unverified_context
 
 def main():
-    # start = time.time()
+    start = time.time()
     # data = PairwiseYeastData('./Yeast Resources/Datasets/Synthetic/Small 36-264', 4)
     # models = []
     # for i in range(4):
@@ -18,11 +18,22 @@ def main():
     #     model.testNetworkValidation()
     #     current = time.time()
     #     print(f'Total time in minutes: {(current-start)/60}')
-
-    printModelData = PairwiseYeastData('Yeast Resources/Datasets/Synthetic/Medium 36-264',4)
-    printModelData.calculateCorrelations()
+    for i in range(5):
+        printModelData = PairwiseYeastData('Yeast Resources/Datasets/Primig and Brem',4,subset=10000)
+    print(f'Time: {(time.time()-start)/60}')
+    start = time.time()
+    for i in range(3):
+        printModelData = PairwiseYeastData('Yeast Resources/Datasets/Primig and Brems',4,subset=100000)
+    print(f'Time: {(time.time()-start)/60}')
+    start = time.time()
+    printModelData = PairwiseYeastData('Yeast Resources/Datasets/Primig and Brem',4,subset=1000000)
+    print(f'Time: {(time.time()-start)/60}')
+    start = time.time()
+    printModelData = PairwiseYeastData('Yeast Resources/Datasets/Primig and Brem',4,subset=1100000)
+    print(f'Time: {(time.time()-start)/60}')
+    # printModelData.calculateCorrelations()
     # printModel = PairwiseModel(printModelData,0,'1','Synthetic/Medium 36-264','PrintTest')
-    # printModel.trainNetwork(10000,printLoss=True,printTensors=True)
+    # printModel.trainNetwork(1000,printLoss=True,printTensors=True)
     # printModel.testNetworkValidation(save=False)
     
 

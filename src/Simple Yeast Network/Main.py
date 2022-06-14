@@ -15,21 +15,23 @@ ssl._create_default_https_context = ssl._create_unverified_context
 
 def main():
     start = time.time()
-    prim = []
-    brem24 = []
-    epochs = 5000
-    for j in range(10):
-        primData = YeastData(0.2,4,'./Yeast Resources/2010.Primig00.filter.flt.knn.avg.div.log.pcl')
-        bremData = YeastData(0.2,4,'./Yeast Resources/2010.Brem05_orig.flt.knn.avg.24.txt')
-        for i in range(4):
-            prim.append(YeastModel(fold=i,yeastData=primData,structure='24x20x8x1',lr=0.01,momentum=0.9,batch_size=20,dataName=f'Primeg_dataset{j+1}'))
-            brem24.append(YeastModel(fold=i,yeastData=bremData,structure='24x20x8x1',lr=0.01,momentum=0.9,batch_size=20,dataName=f'Brem24_dataset{j+1}'))
-    for model in prim:
-        model.trainNetwork(epochs)
-        model.testNetworkVal(save=True)
-    for model in brem24:
-        model.trainNetwork(epochs)
-        model.testNetworkVal(save=True)
+    # prim = []
+    # brem24 = []
+    # epochs = 5000
+    # for j in range(10):
+    #     primData = YeastData(0.2,4,'./Yeast Resources/2010.Primig00.filter.flt.knn.avg.div.log.pcl')
+    #     bremData = YeastData(0.2,4,'./Yeast Resources/2010.Brem05_orig.flt.knn.avg.24.txt')
+    #     for i in range(4):
+    #         prim.append(YeastModel(fold=i,yeastData=primData,structure='24x20x8x1',lr=0.01,momentum=0.9,batch_size=20,dataName=f'Primeg_dataset{j+1}'))
+    #         brem24.append(YeastModel(fold=i,yeastData=bremData,structure='24x20x8x1',lr=0.01,momentum=0.9,batch_size=20,dataName=f'Brem24_dataset{j+1}'))
+    # for model in prim:
+    #     model.trainNetwork(epochs)
+    #     model.testNetworkVal(save=True)
+    # for model in brem24:
+    #     model.trainNetwork(epochs)
+    #     model.testNetworkVal(save=True)
+
+    primData = YeastData(0.2,4,'./Yeast Resources/2010.Primig00.filter.flt.knn.avg.div.log.pcl')
         
     # prim = []
     # brem24 = []

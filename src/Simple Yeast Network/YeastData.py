@@ -35,6 +35,8 @@ class YeastData():
         #Shuffles contents of arrays
         np.random.shuffle(self.posData)
         np.random.shuffle(self.negData)
+        print(f'Positive genes: {len(self.posData)}')
+        print(f'Negatie genes: {len(self.negData)}')
 
 
         #Variables for the percentage of data that will be folded

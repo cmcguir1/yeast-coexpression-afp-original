@@ -1,12 +1,41 @@
 
-plotCorr <- function(file) {
+plotCorr <- function(file,graphName) {
+  table <- read.csv(file)
   
+  pos <- table[table[["Type"]] %in% c("P-P"),c("Gene.A","Gene.B","Type","Correlation")]
+  neg <- table[table[["Type"]] %in% c("N-N"),c("Gene.A","Gene.B","Type","Correlation")]
+  agn <- table[table[["Type"]] %in% c("P-N"),c("Gene.A","Gene.B","Type","Correlation")]
+  r <- rgb(255,0,0,maxColorValue=255,alpha = 255)
+  g <- rgb(0,255,0,maxColorValue=255,alpha = 255)
+  b <- rgb(0,0,255,maxColorValue=255,alpha = 255)
+  
+  lb <-rgb(145, 198, 255,maxColorValue=255,alpha=128)
+  lg <-rgb(54, 173, 100,maxColorValue=255,alpha=128)
+  p <- rgb(255, 176, 193,maxColorValue=255,alpha=128)
+  
+  legendlb <-rgb(145, 198, 255,maxColorValue=255,alpha=255)
+  legendlg <- rgb(54, 173, 100,maxColorValue=255,alpha=255)
+  legendp <- rgb(255, 176, 193,maxColorValue=255,alpha=255)
+  
+  numBreaks <- 24
+  
+  hist(agn[,"Correlation"],col=p,breaks=numBreaks,xlim=c(-1,1),ylim=c(0,2),xlab="Pearson Correlation",ylab="Percentage",main=graphName,freq = FALSE)
+  
+  hist(neg[,"Correlation"],col=lb,add=TRUE,breaks=numBreaks,freq=FALSE)
+  
+  hist(pos[,"Correlation"],col=lg,add=TRUE,breaks=numBreaks,freq=FALSE)
+  
+  legend("topright",c("Positive Pairs","Negative Pairs","Agnositc Pairs"),pch=15,col = c(legendlg,legendp,legendlb),pt.cex = 2)
 }
 
 file <- file.choose()
-table <- read.csv(file)
 
-pos <- table[table[["Type"]] %in% c("P-P"),c("Gene.A","Gene.B","Type","Correlation")]
-neg <- table[table[["Type"]] %in% c("N-N"),c("Gene.A","Gene.B","Type","Correlation")]
-agn <- table[table[["Type"]] %in% c("P-N"),c("Gene.A","Gene.B","Type","Correlation")]
-hist(agn[,"Correlation"])
+fileName = ""
+graphName = "Title"
+
+#pdf(fileName,width=6,height=6)
+plotCorr(file = file,graphName=graphName)
+#dev.off()
+
+
+
