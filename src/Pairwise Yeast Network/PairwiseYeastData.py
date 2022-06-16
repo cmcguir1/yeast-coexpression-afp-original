@@ -5,7 +5,7 @@ import numpy as np
 import time as time
 
 class PairwiseYeastData():
-    def __init__(self,folder,numFolds,statsDictLoc,numDatasets=50,subset=100000,recur=True,posGenes='./Yeast Resources/positives_00_go04-15-07.txt',negGenes='./Yeast Resources/negatives_00_go04-15-07.txt'):
+    def __init__(self,folder,numFolds,filterMissingGenes=False,sort=True,recalc=False,statsDictLoc='',numDatasets=50,subset=100000,recur=True,posGenes='./Yeast Resources/positives_00_go04-15-07.txt',negGenes='./Yeast Resources/negatives_00_go04-15-07.txt'):
 
         #Reads in lists of positive and negatice genes, then turns each data frame into an array, flattens that array, then turns it into a list
         self.posDataList = pd.read_csv(posGenes).to_numpy().flatten().tolist()
@@ -22,8 +22,19 @@ class PairwiseYeastData():
 
         #Generate all possible gene pairs, concatentate them into one array
         #This array is used to calculate the mean and std of each dataset
+
         posPairs, negPairs, agnPairs = PairwiseYeastData.makePairs(self.posArray,self.negArray,makeAgnositc=True)
         pairs = np.concatenate((posPairs,negPairs,agnPairs))
+        
+
+        
+
+
+        #Make a dictionary of statisitcs for each datafile from a precalculated values
+        if(statsDictLoc == ''):
+            self.statsDict = {}
+        else:
+            self.statsDict = self.makeStatsDict(statsDictLoc)
 
         #This conditional determines whether the glob function will search recursively or not
         if (recur):
@@ -38,23 +49,35 @@ class PairwiseYeastData():
             year = fileName[fileName.find('PMID')-5:fileName.find('PMID')-1]
             return int(year)
 
-        #Sorts files based on year
-        sortedFiles = sorted(files,key=sortByYear)
+        if(sort):
+            #Sorts files based on year
+            sortedFiles = sorted(files,key=sortByYear)
+        else:
+            sortedFiles = files
         #Chops off all by the first numDatasets datasets
         sortedFiles = sortedFiles[0:numDatasets]
-
 
         #Initializing dataset list that will hold all datafiles within the passed in folder
         self.datasets = []
         #For each file, add a YeastDataFile to the datasets list
         for f in sortedFiles:
             start = time.time()
-            self.datasets.append(YeastDataFile(f,pairs,subset=subset))
+            #The data's stats dict is passed to each datafile, and recalc determines whether stats are recalculated or not
+            self.datasets.append(YeastDataFile(f,pairs,self.statsDict,subset=subset,recalc=recalc))
             #If dataset mean and standard devation still turn out to be nan, remove it from the datasets list
-            # if(self.datasets[-1].mean == np.nan or self.datasets[-1].std == np.nan):
-            #     del self.datasets[-1]
+            if(not isinstance(self.datasets[-1].mean,float) or not isinstance(self.datasets[-1].std,float)):
+                del self.datasets[-1]
             print(f'Time in minutes: {(time.time() - start)/60}')
-        self.makeStatsDict(statsDictLoc)
+
+        if(filterMissingGenes):
+            self.filterGenes()
+            #Conversts genes lists into gene arrays
+            self.posArray = np.array(self.posDataList)
+            self.negArray = np.array(self.negDataList)
+            #Randomly shuffles gene arrays
+            np.random.shuffle(self.posArray)
+            np.random.shuffle(self.negArray)
+
 
 
         #Intializes empty list that will hold each fold of data, each fold will be a tuple of (pos data, neg data)
@@ -156,15 +179,17 @@ class PairwiseYeastData():
             fileName = dataset.dataFile[dataset.dataFile.find('\\')+1:dataset.dataFile.rfind('.')]
             dataFrame.to_csv(f'./Yeast Resources/Histogram Data/Corr_{fileName}.csv',index=False)
 
+    #Method that saves all calculated statisitcs for each datast to a csv file, this csv file is used to make a statisitcs dictionary in another function
     def saveStatistics(self,location):
         dataTable = []
         for dataset in self.datasets:
-            dataTable.append([dataset.dataFile,self.mean,self.std])
+            dataTable.append([dataset.dataFile,dataset.mean,dataset.std])
         dataFrame = pd.DataFrame(dataTable,columns=['File Name', 'Mean', 'Standard Deviation'])
         dataFrame.to_csv(location,index=False)
 
+    #Function that reads in a csv file, then creates a dictionary with file name keys and (mean,std) values
     def makeStatsDict(self,fileName):
-        dataTable = pd.read_csv(fileName).to_numpy()
+        dataTable = pd.read_csv(fileName).to_numpy(dtype=object)
         geneDict = {}
         for row in dataTable:
             geneDict[row[0]] = (row[1],row[2])

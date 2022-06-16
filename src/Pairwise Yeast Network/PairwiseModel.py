@@ -1,3 +1,4 @@
+from cProfile import label
 import torch
 from PairwiseYeastData import PairwiseYeastData
 from FlexNet import FlexNet
@@ -18,7 +19,8 @@ class PairwiseModel():
         self.net = FlexNet(f'{len(self.data.datasets)}x{structure}')
         #Determines device the network will train on, then moves network to that device
         self.device = 'cuda:0' if torch.cuda.is_available() else 'cpu'
-        # self.device = 'cpu'
+        self.device = 'cpu'
+        
         self.net.to(self.device)
 
         #Initializes loss function, Binary Cross Entropy loss
@@ -54,15 +56,20 @@ class PairwiseModel():
             #Feed forward features tensor
             outputs = self.net(features.float())
 
-            if(epoch == 0 and printTensors):
+            if(epoch %100 == 0 and printTensors):
                 print(f'Input Array: {inputArray}')
-                print(f'Features: {features}')
+                print(f'Features:')
+                for i in range(len(features)):
+                    print(features[i])
                 print(f'Labels: {labels}')
                 print(f'Outputs: {outputs}')
 
             #Calculate loss, the add loss to toal running loss
+            
             loss = self.lossFunc(outputs.float(),labels.float())
             running_loss += loss.item()
+            
+
             #Backpropagate, then update weights
             loss.backward()
             self.opt.step()
@@ -189,10 +196,15 @@ class PairwiseModel():
             #Loops over all datasets
             for dataset in self.data.datasets:
                 #Calculates the correlation coefficient between the expresssion levels of the two genes in a given data set, [0,1] is used because corrcoeff returns a matrix
+                
                 if(regularize):
                     correlations.append((np.arctanh(dataset.customCorrelation(genePair)) - dataset.mean)/dataset.std)
                 else:
                     correlations.append(dataset.customCorrelation(genePair))
+                # if(genePair[0] in dataset.geneDict and genePair[1] in dataset.geneDict):
+                #     correlations.append(np.corrcoef(dataset.geneDict[genePair[0]],dataset.geneDict[genePair[1]])[1,0])
+                # else:
+                #     correlations.append(0.0)
 
 
                 # if(genePair[0] in dataset.geneDict and genePair[1] in dataset.geneDict and dataset.validGeneData(genePair)):

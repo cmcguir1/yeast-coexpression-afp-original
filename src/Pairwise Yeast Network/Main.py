@@ -27,20 +27,33 @@ def main():
 
     start = time.time()
     epoch = 100000
-    modelData = PairwiseYeastData('Yeast Resources/Datasets/All Spell/all spell datasets',4,subset=100000,numDatasets=50)
-    print(f'Time to load datasets: {(time.time()-start)/50} minutes')
+    modelData = PairwiseYeastData('Yeast Resources/Datasets/All Spell/all spell datasets',4,subset=100000,numDatasets=60,statsDictLoc='./Yeast Resources/Datasets/All Spell/statsDict.csv',recalc=True)
+    #modelData.saveStatistics('./Yeast Resources/Datasets/All Spell/statsDict.csv')
+    print(f'Time to load datasets: {(time.time()-start)/60} minutes')
 
-    regularTest = []
-    noRegularTest = []
-    for i in range(4):
-        regularTest.append(PairwiseModel(modelData,i,'20x1','Pairwise Test','Regular'))
-        noRegularTest.append(PairwiseModel(modelData,i,'20x1','Pairwise Test','NoRegular'))
-    for model in noRegularTest:
-        model.trainNetwork(epoch,regularize=False)
-        model.testNetworkValidation(regularize=False)
-    for model in regularTest:
-        model.trainNetwork(epoch)
-        model.testNetwork()
+    # regularTest = []
+    # noRegularTest = []
+    # for i in range(4):
+    #     regularTest.append(PairwiseModel(modelData,i,'20x1','Pairwise Test','Regular'))
+    #     noRegularTest.append(PairwiseModel(modelData,i,'20x1','Pairwise Test','NoRegular'))
+    # for model in noRegularTest:
+    #     model.trainNetwork(epoch,printLoss=True,printTensors=True,regularize=False)
+    #     model.testNetworkValidation(regularize=False)
+    # for model in regularTest:
+    #     model.trainNetwork(epoch)
+    #     model.testNetwork()
+
+    # syntheticData = PairwiseYeastData('./Yeast Resources/Datasets/Synthetic/Medium 36-264',4,subset=10000,numDatasets=5,recur=False,sort=False,filterMissingGenes=True)
+    # syntheticModel = PairwiseModel(syntheticData,0,'1','Pairwise/Synthetic/Test','MedTest')
+    # syntheticModel.trainNetwork(1000,printLoss=True,printTensors=True)
+    # syntheticModel.testNetworkValidation()
+
+    # smallData = PairwiseYeastData('./Yeast Resources/Datasets/Primig and Brem',4,subset=100000,numDatasets=3,recur=False,sort=False,filterMissingGenes=True)
+    # smallModel = PairwiseModel(smallData,0,'10x10x1','Pairwise/Primig and Brem Test','TestResult')
+    # smallModel.trainNetwork(10000,printLoss=True,printTensors=True)
+    # smallModel.testNetworkValidation()
+
+
 
     # printModel = PairwiseModel(printModelData,0,'20x1','Spell/Test','TestRun')
     # printModel.trainNetwork(10000,printLoss=True)
@@ -48,13 +61,7 @@ def main():
     # GalitskiData = PairwiseYeastData('Yeast Resources/Datasets/All Spell/all spell datasets/Wyrick_1999_PMID_10586882',4,subset=100000,numDatasets=1,recur=False)
 
 
-    
 
-
-    # printModelData.calculateCorrelations()
-    # printModel = PairwiseModel(printModelData,0,'1','Synthetic/Medium 36-264','PrintTest')
-    # printModel.trainNetwork(1000,printLoss=True,printTensors=True)
-    # printModel.testNetworkValidation(save=False)
     
 
 if __name__ == '__main__':
