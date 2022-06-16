@@ -1,0 +1,4 @@
+Yeast[[:space:]]Resources/Histogram[[:space:]]Data/*.csv* filter=lfs diff=lfs merge=lfs -text
+Yeast[[:space:]]Resources/Histogram[[:space:]]Data/*.csv filter=lfs diff=lfs merge=lfs -text
+Yeast[[:space:]]Resources/Datasets/all_spell_datasets_20150217[[:space:]](1).tar.gz filter=lfs diff=lfs merge=lfs -text
+data/* filter=lfs diff=lfs merge=lfs -text

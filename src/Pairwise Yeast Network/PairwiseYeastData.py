@@ -5,7 +5,7 @@ import numpy as np
 import time as time
 
 class PairwiseYeastData():
-    def __init__(self,folder,numFolds,numDatasets=50,subset=100000,recur=True,posGenes='./Yeast Resources/positives_00_go04-15-07.txt',negGenes='./Yeast Resources/negatives_00_go04-15-07.txt'):
+    def __init__(self,folder,numFolds,statsDictLoc,numDatasets=50,subset=100000,recur=True,posGenes='./Yeast Resources/positives_00_go04-15-07.txt',negGenes='./Yeast Resources/negatives_00_go04-15-07.txt'):
 
         #Reads in lists of positive and negatice genes, then turns each data frame into an array, flattens that array, then turns it into a list
         self.posDataList = pd.read_csv(posGenes).to_numpy().flatten().tolist()
@@ -51,9 +51,11 @@ class PairwiseYeastData():
             start = time.time()
             self.datasets.append(YeastDataFile(f,pairs,subset=subset))
             #If dataset mean and standard devation still turn out to be nan, remove it from the datasets list
-            if(self.datasets[-1].mean == np.nan or self.datasets[-1].std == np.nan):
-                del self.datasets[-1]
+            # if(self.datasets[-1].mean == np.nan or self.datasets[-1].std == np.nan):
+            #     del self.datasets[-1]
             print(f'Time in minutes: {(time.time() - start)/60}')
+        self.makeStatsDict(statsDictLoc)
+
 
         #Intializes empty list that will hold each fold of data, each fold will be a tuple of (pos data, neg data)
         #Each fold of the data will contain a tuple of a set of positive genes and a set of negative genes
@@ -153,6 +155,20 @@ class PairwiseYeastData():
             #.rfind() finds last occurance of character
             fileName = dataset.dataFile[dataset.dataFile.find('\\')+1:dataset.dataFile.rfind('.')]
             dataFrame.to_csv(f'./Yeast Resources/Histogram Data/Corr_{fileName}.csv',index=False)
+
+    def saveStatistics(self,location):
+        dataTable = []
+        for dataset in self.datasets:
+            dataTable.append([dataset.dataFile,self.mean,self.std])
+        dataFrame = pd.DataFrame(dataTable,columns=['File Name', 'Mean', 'Standard Deviation'])
+        dataFrame.to_csv(location,index=False)
+
+    def makeStatsDict(self,fileName):
+        dataTable = pd.read_csv(fileName).to_numpy()
+        geneDict = {}
+        for row in dataTable:
+            geneDict[row[0]] = (row[1],row[2])
+        return geneDict
             
 
 
