@@ -19,11 +19,19 @@ plotCorr <- function(file,graphName) {
   
   numBreaks <- 24
   
-  hist(agn[,"Correlation"],col=p,breaks=numBreaks,xlim=c(-1,1),ylim=c(0,2),xlab="Pearson Correlation",ylab="Percentage",main=graphName,freq = FALSE)
+  h1 <- hist(agn[,"Correlation"],col=p,breaks=numBreaks,xlim=c(-1,1),ylim=c(0,2),xlab="Pearson Correlation",ylab="Percentage",main=graphName,freq = FALSE)
   
-  hist(neg[,"Correlation"],col=lb,add=TRUE,breaks=numBreaks,freq=FALSE)
+  h2 <- hist(neg[,"Correlation"],col=lb,add=TRUE,breaks=numBreaks,freq=FALSE)
   
-  hist(pos[,"Correlation"],col=lg,add=TRUE,breaks=numBreaks,freq=FALSE)
+  h3 <- hist(pos[,"Correlation"],col=lg,add=TRUE,breaks=numBreaks,freq=FALSE)
+  
+  
+  w <- 5
+  lo <- loess(h1$density~h1$mids)
+  
+  plot(predict(lo),type='l',col=legendp,lwd=w,xlim=c(-1,1),ylim=c(0,2.5),main=graphName)
+  lines(h2$mids, h2$density,type='l',col=legendlb,lwd=w)
+  lines(h3$mids, h3$density,type='l',col=legendlg,lwd=w)
   
   legend("topright",c("Positive Pairs","Negative Pairs","Agnositc Pairs"),pch=15,col = c(legendlg,legendp,legendlb),pt.cex = 2)
 }

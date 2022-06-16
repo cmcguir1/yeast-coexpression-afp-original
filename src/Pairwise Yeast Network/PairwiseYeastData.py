@@ -2,18 +2,16 @@ import glob
 from YeastDataFile import YeastDataFile
 import pandas as pd
 import numpy as np
+import time as time
 
 class PairwiseYeastData():
-    def __init__(self,folder,numFolds,subset=100000,posGenes='./Yeast Resources/positives_00_go04-15-07.txt',negGenes='./Yeast Resources/negatives_00_go04-15-07.txt'):
+    def __init__(self,folder,numFolds,numDatasets=50,subset=100000,recur=True,posGenes='./Yeast Resources/positives_00_go04-15-07.txt',negGenes='./Yeast Resources/negatives_00_go04-15-07.txt'):
 
         #Reads in lists of positive and negatice genes, then turns each data frame into an array, flattens that array, then turns it into a list
         self.posDataList = pd.read_csv(posGenes).to_numpy().flatten().tolist()
         self.negDataList = pd.read_csv(negGenes).to_numpy().flatten().tolist()
         #Set of all positive genes
         self.posDataSet = set(self.posDataList)
-
-        #Filters all genes that are not in all datasets out of lists, this is commented out because we no longer do this
-        #self.filterGenes()
 
         #Conversts genes lists into gene arrays
         self.posArray = np.array(self.posDataList)
@@ -27,15 +25,34 @@ class PairwiseYeastData():
         posPairs, negPairs, agnPairs = PairwiseYeastData.makePairs(self.posArray,self.negArray,makeAgnositc=True)
         pairs = np.concatenate((posPairs,negPairs,agnPairs))
 
+        #This conditional determines whether the glob function will search recursively or not
+        if (recur):
+            stub = '/**/*'
+        else:
+            stub = '/*'
+        #Makes a list of all files within a specified folder, the files names are their absolute path
+        files = [file for file in glob.glob(f'{folder}{stub}')]
+        
+        #Sub function to help sort files based on year
+        def sortByYear(fileName):
+            year = fileName[fileName.find('PMID')-5:fileName.find('PMID')-1]
+            return int(year)
+
+        #Sorts files based on year
+        sortedFiles = sorted(files,key=sortByYear)
+        print(len(sortedFiles))
+        print(len(files))
+        #Chops off all by the first numDatasets datasets
+        sortedFiles = sortedFiles[0:numDatasets]
+
 
         #Initializing dataset list that will hold all datafiles within the passed in folder
         self.datasets = []
-        #Makes a list of all files within a specified folder, the files names are their absolute path
-        files = [file for file in glob.glob(f'{folder}/*')]
-        print(files)
         #For each file, add a YeastDataFile to the datasets list
-        for f in files:
+        for f in sortedFiles:
+            start = time.time()
             self.datasets.append(YeastDataFile(f,pairs,subset=subset))
+            print(f'Time in minutes: {(time.time() - start)/60}')
 
         #Intializes empty list that will hold each fold of data, each fold will be a tuple of (pos data, neg data)
         #Each fold of the data will contain a tuple of a set of positive genes and a set of negative genes
@@ -114,7 +131,7 @@ class PairwiseYeastData():
         else:
             return (np.array(posGenePairs),np.array(negGenePairs))
 
-    #Calculates correlation coefficent between all gene pairs for all datasets
+    #Calculates correlation coefficent between all gene pairs for all datasets, this is used to generate hisogram distributions of pearson correlation for a dataset
     def calculateCorrelations(self):
         #Creates positive, negative, and agnostic gene pairs
         posPairs, negPairs, agnPairs = PairwiseYeastData.makePairs(self.posArray,self.negArray,makeAgnositc=True)

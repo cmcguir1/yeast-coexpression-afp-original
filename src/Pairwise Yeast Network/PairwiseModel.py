@@ -180,7 +180,7 @@ class PairwiseModel():
         #Returns the batch as an array of gene pairs
         return np.array(batchList)
 
-    def makeBatchTensors(self,inputArray):
+    def makeBatchTensors(self,inputArray,regularize=True):
         #Loop over all gene pairs in the input array
         featuresList = []
         labelsList = []
@@ -189,10 +189,23 @@ class PairwiseModel():
             #Loops over all datasets
             for dataset in self.data.datasets:
                 #Calculates the correlation coefficient between the expresssion levels of the two genes in a given data set, [0,1] is used because corrcoeff returns a matrix
-                if(genePair[0] in dataset.geneDict and genePair[1] in dataset.geneDict):
-                    correlations.append(np.corrcoef(dataset.geneDict[genePair[0]],dataset.geneDict[genePair[1]])[1,0])
+                if(regularize):
+                    correlations.append((np.arctanh(dataset.customCorrelation(genePair)) - dataset.mean)/dataset.std)
                 else:
-                    correlations.append(0.0)
+                    correlations.append(dataset.customCorrelation(genePair))
+
+
+                # if(genePair[0] in dataset.geneDict and genePair[1] in dataset.geneDict and dataset.validGeneData(genePair)):
+                #     #If regularize is true, z-score the fisher transform of the pearson correlation
+                #     if(regularize):
+                #         correlations.append((np.arctanh(np.corrcoef(dataset.geneDict[genePair[0]],dataset.geneDict[genePair[1]])[1,0]) - dataset.mean)/dataset.std)
+                #     #Otherwise, just calculate the correlation between the data of the gene pair
+                #     else:
+                #         correlations.append(np.corrcoef(dataset.geneDict[genePair[0]],dataset.geneDict[genePair[1]])[1,0])
+                # else:
+                #     correlations.append(0.0)
+
+                
             #Appends list of correlations to features list
             featuresList.append(correlations)
 

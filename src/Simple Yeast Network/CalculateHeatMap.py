@@ -3,7 +3,7 @@ import glob
 import pandas as pd
 import numpy as np
 
-def calcHeatMap(folder,totalPos,totalNeg,outputName):
+def calcHeatMap(folder,totalPos,totalNeg,outputName,numDatasets,numFolds):
     #Read in all files from a specified folder
     files = [file for file in glob.glob(f'{folder}/*')]
     #For each data file, create a numpy array, then add it to the dataset list
@@ -31,20 +31,25 @@ def calcHeatMap(folder,totalPos,totalNeg,outputName):
         #Append each set to the respective set list
         posSets.append(posGenes)
         negSets.append(negGenes)
-    
+
+    #Intializie empty arrays of zeros to be filled in with calculated p values
     posDataTable = np.zeros((len(datasets),len(datasets)))
     negDataTable = np.zeros((len(datasets),len(datasets)))
-    for i in range(len(datasets)):
-        for j in range(len(datasets)):
+    #Loop over all datasets
+    for i in range(numDatasets):
+        #Loop over all datasets again so every dataset is copared with one another
+        for j in range(numFolds):
+            #Calculate the p value for the overlap in genes for both positive and negative genes of two datasets
             posDataTable[i,j] = 1 - stats.hypergeom.cdf(len(posSets[i] & posSets[j]),totalPos,len(posSets[i]),len(posSets[j]))
             negDataTable[i,j] = 1 - stats.hypergeom.cdf(len(negSets[i] & negSets[j]),totalNeg,len(negSets[i]),len(negSets[j]))
     
+    #Generate list of labels that will be uesd for both columns and rows, this process is currently hardcoded
     labels = []
     for i in range(10):
         for j in range(4):
             labels.append(f'Run {i+1}, Fold {j+1}')
-    #labels = ['1','2','3']
 
+    #Create dataframes from 
     posDataFrame = pd.DataFrame(posDataTable, columns=labels,index=labels)
     negDataFrame = pd.DataFrame(negDataTable,columns=labels,index=labels)
     posDataFrame.to_csv(f'./Yeast Resources/Heatmap Data/{outputName}_Pos.csv')
@@ -56,8 +61,8 @@ def calcHeatMap(folder,totalPos,totalNeg,outputName):
     
 totalPosGenes = 100
 totalNegGenes = 5958
-calcHeatMap('./Yeast Resources/June-9-Reruns/Primig',totalPosGenes,totalNegGenes,'Test')
-calcHeatMap('./Yeast Resources/June-9-Reruns/Brem24',totalPosGenes,totalNegGenes,'Brem24')
+calcHeatMap('./Yeast Resources/June-9-Reruns/Primig',totalPosGenes,totalNegGenes,'Test',10,4)
+calcHeatMap('./Yeast Resources/June-9-Reruns/Brem24',totalPosGenes,totalNegGenes,'Brem24',10,4)
 # x = {1,2,3}
 # y = {1,2,3}
 # print(len(x.intersection(y)))
