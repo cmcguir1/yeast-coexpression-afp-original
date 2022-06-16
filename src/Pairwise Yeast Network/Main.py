@@ -25,14 +25,27 @@ def main():
     # print(f'Time: {(time.time()-start)/60}')
 
 
-    # start = time.time()
-    # printModelData = PairwiseYeastData('Yeast Resources/Datasets/All Spell/all spell datasets',4,subset=10000,numDatasets=25)
-    # print(f'Time to load datasets: {(time.time()-start)/50} minutes')
+    start = time.time()
+    epoch = 100000
+    modelData = PairwiseYeastData('Yeast Resources/Datasets/All Spell/all spell datasets',4,subset=100000,numDatasets=50)
+    print(f'Time to load datasets: {(time.time()-start)/50} minutes')
+
+    regularTest = []
+    noRegularTest = []
+    for i in range(4):
+        regularTest.append(PairwiseModel(modelData,i,'20x1','Pairwise Test','Regular'))
+        noRegularTest.append(PairwiseModel(modelData,i,'20x1','Pairwise Test','NoRegular'))
+    for model in noRegularTest:
+        model.trainNetwork(epoch,regularize=False)
+        model.testNetworkValidation(regularize=False)
+    for model in regularTest:
+        model.trainNetwork(epoch)
+        model.testNetwork()
 
     # printModel = PairwiseModel(printModelData,0,'20x1','Spell/Test','TestRun')
     # printModel.trainNetwork(10000,printLoss=True)
 
-    GalitskiData = PairwiseYeastData('Yeast Resources/Datasets/All Spell/all spell datasets/Wyrick_1999_PMID_10586882',4,subset=100000,numDatasets=1,recur=False)
+    # GalitskiData = PairwiseYeastData('Yeast Resources/Datasets/All Spell/all spell datasets/Wyrick_1999_PMID_10586882',4,subset=100000,numDatasets=1,recur=False)
 
 
     

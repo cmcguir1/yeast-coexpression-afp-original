@@ -49,8 +49,8 @@ class YeastDataFile():
         #Convert list to numpy array, then used numpym methods to calculate mean and standard deviation
         corrArray = np.array(correlations)
         #nanmean and nanstd ingnores nan values
-        self.mean = np.mean(corrArray)
-        self.std = np.std(corrArray)
+        self.mean = np.nanmean(corrArray)
+        self.std = np.nanstd(corrArray)
         # print(f'File: {self.dataFile}')
         # print(f'Numpy array:')
         # print(self.data)
@@ -64,9 +64,14 @@ class YeastDataFile():
             geneB = self.geneDict[genePair[1]]
             validIndicies = []
             #Loop over all elements of geneA and geneB, and append the index of each element to a list if both elements are valid
+            geneSetA = set()
+            geneSetB = set()
             for i in range(len(geneA)):
+                geneSetA.add(geneA[i])
+                geneSetB.add(geneB[i])
                 if not(geneA[i] == np.nan or geneA[i] == 1.0 or geneA[i] == 0.0 or geneB[i] == np.nan or geneB[i] == 1.0 or geneB[i] == 0.0):
                     validIndicies.append(i)
+                
             #If there are half or less valid indicies, return 0
             if len(validIndicies) <= float(len(geneA)) / 2.0:
                 return 0.0

@@ -40,8 +40,6 @@ class PairwiseYeastData():
 
         #Sorts files based on year
         sortedFiles = sorted(files,key=sortByYear)
-        print(len(sortedFiles))
-        print(len(files))
         #Chops off all by the first numDatasets datasets
         sortedFiles = sortedFiles[0:numDatasets]
 
@@ -52,6 +50,9 @@ class PairwiseYeastData():
         for f in sortedFiles:
             start = time.time()
             self.datasets.append(YeastDataFile(f,pairs,subset=subset))
+            #If dataset mean and standard devation still turn out to be nan, remove it from the datasets list
+            if(self.datasets[-1].mean == np.nan or self.datasets[-1].std == np.nan):
+                del self.datasets[-1]
             print(f'Time in minutes: {(time.time() - start)/60}')
 
         #Intializes empty list that will hold each fold of data, each fold will be a tuple of (pos data, neg data)

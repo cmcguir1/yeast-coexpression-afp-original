@@ -35,7 +35,7 @@ class PairwiseModel():
         self.dataTableLocation = f'./Yeast Resources/Pairwise/{folderName}/{modelName}_{structure}_fold{fold+1}'
         self.networkLocation = f'./Yeast Networks/{folderName}/{modelName}_{structure}_fold{fold+1}'
 
-    def trainNetwork(self,epochs,printLoss=False,printTensors=False):
+    def trainNetwork(self,epochs,printLoss=False,printTensors=False,regularize=True):
         #Make gene pairs from positive and negative training sets
         posPairs, negPairs = PairwiseYeastData.makePairs(self.posTrain,self.negTrain)
         running_loss = 0.0
@@ -46,7 +46,7 @@ class PairwiseModel():
             #Get list input batch array, which is an array of gene pairs
             inputArray = self.makeBatchArray(posPairs,negPairs)
             #Convert array of gene pairs into features and labels tensor for this batch of training
-            features, labels = self.makeBatchTensors(inputArray)
+            features, labels = self.makeBatchTensors(inputArray,regularize=regularize)
             #Send features and labels to same device as network
             features = features.to(self.device)
             labels = labels.to(self.device)
@@ -73,14 +73,14 @@ class PairwiseModel():
                 print(f'Batch {epoch} Loss\t {running_loss}')
                 running_loss = 0.0
 
-    def testNetwork(self,save,testingType):
+    def testNetwork(self,save,testingType,regularize=True):
         with torch.no_grad():
             #Create positive and negative pairs from the validation data
             posPairs, negPairs = PairwiseYeastData.makePairs(self.posVal,self.negVal)
             #Create an input array to make batch tensor by concatentating 
             inputArray = np.concatenate((posPairs,negPairs))
             #Create features and labels tensors, then move them both to the gpu
-            features, labels = self.makeBatchTensors(inputArray)
+            features, labels = self.makeBatchTensors(inputArray,regularize=regularize)
             features = features.to(self.device)
             labels = labels.to(self.device)
 
@@ -160,11 +160,11 @@ class PairwiseModel():
 
 
 
-    def testNetworkTraining(self,save=True):
-        self.testNetwork(save,'Train')
+    def testNetworkTraining(self,save=True,regularize=True):
+        self.testNetwork(save,'Train',regularize=regularize)
     
-    def testNetworkValidation(self,save=True):
-        self.testNetwork(save,'Val')
+    def testNetworkValidation(self,save=True,regularize=True):
+        self.testNetwork(save,'Val',regularize=regularize)
 
 
     def makeBatchArray(self,posPairs,negPairs):
