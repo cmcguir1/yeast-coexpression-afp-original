@@ -1,4 +1,5 @@
 from cProfile import label
+
 import pandas as pd
 import numpy as np
 import time
@@ -18,7 +19,12 @@ class YeastDataFile():
         self.data = self.data[1:]
 
         #dataFile stores the name of the data file, including which folder the file is found within Yeast Resources
-        self.dataFile = filePath[filePath.find('\\')+1:]
+        #If running locally on a laptop, the file path with use \ to seperate folders, so search for the first \ to determine file name
+        if '\\' in filePath:
+            self.dataFile = filePath[filePath.find('\\')+1:]
+        #If running on Google Colab, the file path will only use /, so search for the last / before 'PMID' to determine file name
+        else:
+            self.dataFile = filePath[filePath[0:filePath.find('PMID')].rfind('/')+1:]
 
 
         #Intializes an empty gene dictionary that will take in a gene in return its expression data for this dataset

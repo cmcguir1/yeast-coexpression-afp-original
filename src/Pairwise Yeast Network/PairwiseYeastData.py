@@ -5,7 +5,7 @@ import numpy as np
 import time as time
 
 class PairwiseYeastData():
-    def __init__(self,folder,numFolds,filterMissingGenes=False,sort=True,recalc=False,statsDictLoc='',numDatasets=50,subset=100000,recur=True,posGenes='./Yeast Resources/positives_00_go04-15-07.txt',negGenes='./Yeast Resources/negatives_00_go04-15-07.txt'):
+    def __init__(self,folder,numFolds,foldFile='',filterMissingGenes=False,sort=True,recalc=False,statsDictLoc='',numDatasets=50,subset=100000,recur=True,posGenes='./Yeast Resources/positives_00_go04-15-07.txt',negGenes='./Yeast Resources/negatives_00_go04-15-07.txt'):
 
         #Reads in lists of positive and negatice genes, then turns each data frame into an array, flattens that array, then turns it into a list
         self.posDataList = pd.read_csv(posGenes).to_numpy().flatten().tolist()
@@ -85,18 +85,34 @@ class PairwiseYeastData():
         #Intializes empty list that will hold each fold of data, each fold will be a tuple of (pos data, neg data)
         #Each fold of the data will contain a tuple of a set of positive genes and a set of negative genes
         self.folds = []
-        for i in range(numFolds):
-            #Calculate start and end index for positive and negative arrays
-            startPos = int(i * len(self.posArray) / numFolds)
-            startNeg = int(i * len(self.negArray) / numFolds)
-            endPos = int((i+1) * len(self.posArray) / numFolds)
-            endNeg = int((i+1) * len(self.negArray) / numFolds)
-            #If last fold, go from start position to the end of the each array,
-            if (i == numFolds - 1):
-                self.folds.append((set(self.posArray[startPos:]),set(self.negArray[startNeg:])))
-            #Otherwise, go to end position
-            else:
-                self.folds.append((set(self.posArray[startPos:endPos]),set(self.negArray[startNeg:endNeg])))
+        if(not(foldFile == '')):
+            foldData = pd.read_csv(foldFile).to_numpy()
+            posList = []
+            negList = []
+            for i in range(numFolds):
+                posList.append(set())
+                negList.append(set())
+            for gene in foldData:
+                if(gene[1] == 1):
+                    posList[gene[2]].add(gene[0])
+                else:
+                    negList[gene[2]].add(gene[0])
+            for i in range(numFolds):
+                self.folds.append((posList[i],negList[i]))
+
+        else:
+            for i in range(numFolds):
+                #Calculate start and end index for positive and negative arrays
+                startPos = int(i * len(self.posArray) / numFolds)
+                startNeg = int(i * len(self.negArray) / numFolds)
+                endPos = int((i+1) * len(self.posArray) / numFolds)
+                endNeg = int((i+1) * len(self.negArray) / numFolds)
+                #If last fold, go from start position to the end of the each array,
+                if (i == numFolds - 1):
+                    self.folds.append((set(self.posArray[startPos:]),set(self.negArray[startNeg:])))
+                #Otherwise, go to end position
+                else:
+                    self.folds.append((set(self.posArray[startPos:endPos]),set(self.negArray[startNeg:endNeg])))
 
     #Returns a specified fold as validation data, and the other folds as training data
     def getFold(self,fold):

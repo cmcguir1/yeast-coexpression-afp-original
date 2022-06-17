@@ -38,11 +38,12 @@ class PairwiseModel():
         self.dataTableLocation = f'./Yeast Resources/Pairwise/{folderName}/{modelName}_{structure}_fold{fold+1}'
         self.networkLocation = f'./Yeast Networks/{folderName}/{modelName}_{structure}_fold{fold+1}'
 
-    def trainNetwork(self,epochs,printLoss=False,printTensors=False,regularize=True):
+    def trainNetwork(self,epochs,printLoss=False,printTensors=False,regularize=True,lossFile=''):
         start = time.time()
         #Make gene pairs from positive and negative training sets
         posPairs, negPairs = PairwiseYeastData.makePairs(self.posTrain,self.negTrain)
         running_loss = 0.0
+        lossList = []
         #Loop over the number of epochs, which is really the number of batches
         for epoch in range(epochs):
             #Zeros out optimizer before each epoch
@@ -58,7 +59,7 @@ class PairwiseModel():
             #Feed forward features tensor
             outputs = self.net(features.float())
 
-            if(epoch %100 == 0 and printTensors):
+            if(epoch %100 == 0 and epoch != 0 and printTensors):
                 print(f'Input Array: {inputArray}')
                 print(f'Features:')
                 for i in range(len(features)):
@@ -78,11 +79,15 @@ class PairwiseModel():
             
 
             #If printLoss is true, prints the running loss every 100 batches
+
             if(epoch % 100 == 0 and printLoss):
                 print(f'Batch {epoch} Loss:\t{running_loss}')
+                lossList.append(running_loss)
                 running_loss = 0.0
                 print(f'Batch {epoch} Time:\t{(time.time()-start)/60} minutes')
                 start = time.time()
+        if(lossFile != ''):
+            pd.DataFrame(lossList,columns=['Loss']).to_csv(lossFile,index=False)
 
     def testNetwork(self,save,testingType,limitNegative,regularize=True):
         with torch.no_grad():

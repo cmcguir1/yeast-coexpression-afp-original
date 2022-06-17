@@ -2,6 +2,7 @@ from PairwiseYeastData import PairwiseYeastData
 from PairwiseModel import PairwiseModel
 import numpy as np
 import time
+from GeneFolds import GeneFolds
 
 # This import should fix the ssl import verificiation error
 import ssl
@@ -24,29 +25,33 @@ def main():
     # printModelData = PairwiseYeastData('Yeast Resources/Datasets/Primig and Brem',4,subset=11179356,recur=False)
     # print(f'Time: {(time.time()-start)/60}')
 
-    primAndBrem = PairwiseYeastData('./Yeast Resources/Datasets/Primig and Brem',4,subset=10,recur=False,sort=False,filterMissingGenes=True)
-    primAndBrem.calculateCorrelations()
+    # primAndBrem = PairwiseYeastData('./Yeast Resources/Datasets/Primig and Brem',4,subset=10,recur=False,sort=False,filterMissingGenes=True)
+    # primAndBrem.calculateCorrelations()
 
     #This comment should appear on github now
 
+    # folds = GeneFolds(numFolds=4)
+    # folds.writeToCsv('./Yeast Resources/Datasets/All Spell/GeneFolds1.csv')
 
-    # start = time.time()
-    # epoch = 20000
-    # modelData = PairwiseYeastData('Yeast Resources/Datasets/All Spell/all spell datasets',4,subset=200000,numDatasets=50,statsDictLoc='./Yeast Resources/Datasets/All Spell/statsDict.csv',recalc=False)
-    # #modelData.saveStatistics('./Yeast Resources/Datasets/All Spell/statsDict.csv')
-    # print(f'Time to load datasets: {(time.time()-start)/60} minutes')
+
+
+    start = time.time()
+    epoch = 20000
+    modelData = PairwiseYeastData('Yeast Resources/Datasets/All Spell/all spell datasets',4,subset=200000,numDatasets=200,statsDictLoc='./Yeast Resources/Datasets/All Spell/statsDict.csv',recalc=False,foldFile='./Yeast Resources/Datasets/All Spell/GeneFolds1.csv')
+    #modelData.saveStatistics('./Yeast Resources/Datasets/All Spell/statsDict.csv')
+    print(f'Time to load datasets: {(time.time()-start)/60} minutes')
 
     # regularTest = []
-    # noRegularTest = []
-    # for i in range(4):
-    #     regularTest.append(PairwiseModel(modelData,i,'20x1','Spell/Test','Regular50'))
-    #     noRegularTest.append(PairwiseModel(modelData,i,'20x1','Spell/Test','NoRegular50'))
+    noRegularTest = []
+    for i in range(4):
+        # regularTest.append(PairwiseModel(modelData,i,'20x1','Spell/Test','Regular50'))
+        noRegularTest.append(PairwiseModel(modelData,i,'20x10x1','Spell/Test','NoRegular50'))
     # for model in regularTest:
     #     model.trainNetwork(epoch,printLoss=True)
     #     model.testNetworkValidation(limitNegative=True)
-    # for model in noRegularTest:
-    #     model.trainNetwork(epoch,printLoss=True,regularize=False)
-    #     model.testNetworkValidation(regularize=False,limitNegative=True)
+    for model in noRegularTest:
+        model.trainNetwork(epoch,printLoss=True,regularize=False)
+        model.testNetworkValidation(regularize=False,limitNegative=True)
     
 
     # syntheticData = PairwiseYeastData('./Yeast Resources/Datasets/Synthetic/Medium 36-264',4,subset=10000,numDatasets=5,recur=False,sort=False,filterMissingGenes=True)
