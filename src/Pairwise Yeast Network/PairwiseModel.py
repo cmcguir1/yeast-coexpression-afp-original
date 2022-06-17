@@ -7,6 +7,7 @@ import torch.nn as nn
 import torch.optim as optim
 import numpy as np
 import pandas as pd
+import time
 
 class PairwiseModel():
     def __init__(self,data,fold,structure,folderName,modelName,lr=0.01,momentum=0.9,batch=20):
@@ -19,7 +20,7 @@ class PairwiseModel():
         self.net = FlexNet(f'{len(self.data.datasets)}x{structure}')
         #Determines device the network will train on, then moves network to that device
         self.device = 'cuda:0' if torch.cuda.is_available() else 'cpu'
-        self.device = 'cpu'
+        
         
         self.net.to(self.device)
 
@@ -38,6 +39,7 @@ class PairwiseModel():
         self.networkLocation = f'./Yeast Networks/{folderName}/{modelName}_{structure}_fold{fold+1}'
 
     def trainNetwork(self,epochs,printLoss=False,printTensors=False,regularize=True):
+        start = time.time()
         #Make gene pairs from positive and negative training sets
         posPairs, negPairs = PairwiseYeastData.makePairs(self.posTrain,self.negTrain)
         running_loss = 0.0
@@ -77,15 +79,21 @@ class PairwiseModel():
 
             #If printLoss is true, prints the running loss every 100 batches
             if(epoch % 100 == 0 and printLoss):
-                print(f'Batch {epoch} Loss\t {running_loss}')
+                print(f'Batch {epoch} Loss:\t{running_loss}')
                 running_loss = 0.0
+                print(f'Batch {epoch} Time:\t{(time.time()-start)/60} minutes')
+                start = time.time()
 
-    def testNetwork(self,save,testingType,regularize=True):
+    def testNetwork(self,save,testingType,limitNegative,regularize=True):
         with torch.no_grad():
             #Create positive and negative pairs from the validation data
             posPairs, negPairs = PairwiseYeastData.makePairs(self.posVal,self.negVal)
-            #Create an input array to make batch tensor by concatentating 
-            inputArray = np.concatenate((posPairs,negPairs))
+            #Create an input array to make batch tensor by concatentating
+            if(limitNegative):
+                np.random.shuffle(negPairs)
+                inputArray = np.concatenate((posPairs,negPairs[0:int(len(posPairs)*10)]))
+            else:
+                inputArray = np.concatenate((posPairs,negPairs))
             #Create features and labels tensors, then move them both to the gpu
             features, labels = self.makeBatchTensors(inputArray,regularize=regularize)
             features = features.to(self.device)
@@ -167,11 +175,11 @@ class PairwiseModel():
 
 
 
-    def testNetworkTraining(self,save=True,regularize=True):
-        self.testNetwork(save,'Train',regularize=regularize)
+    def testNetworkTraining(self,save=True,regularize=True,limitNegative=False):
+        self.testNetwork(save,'Train',regularize=regularize,limitNegative=limitNegative)
     
-    def testNetworkValidation(self,save=True,regularize=True):
-        self.testNetwork(save,'Val',regularize=regularize)
+    def testNetworkValidation(self,save=True,regularize=True,limitNegative=False):
+        self.testNetwork(save,'Val',regularize=regularize,limitNegative=limitNegative)
 
 
     def makeBatchArray(self,posPairs,negPairs):
@@ -196,11 +204,16 @@ class PairwiseModel():
             #Loops over all datasets
             for dataset in self.data.datasets:
                 #Calculates the correlation coefficient between the expresssion levels of the two genes in a given data set, [0,1] is used because corrcoeff returns a matrix
-                
+                p = dataset.customCorrelation(genePair)
+                #If p is 1 or -1, then there will be in error in arctanh, so make them 0.99 and -0.99
+                if p == 1:
+                    p = 0.99
+                elif p == -1:
+                    p = -0.99
                 if(regularize):
-                    correlations.append((np.arctanh(dataset.customCorrelation(genePair)) - dataset.mean)/dataset.std)
+                    correlations.append((np.arctanh(p) - dataset.mean)/dataset.std)
                 else:
-                    correlations.append(dataset.customCorrelation(genePair))
+                    correlations.append(p)
                 # if(genePair[0] in dataset.geneDict and genePair[1] in dataset.geneDict):
                 #     correlations.append(np.corrcoef(dataset.geneDict[genePair[0]],dataset.geneDict[genePair[1]])[1,0])
                 # else:

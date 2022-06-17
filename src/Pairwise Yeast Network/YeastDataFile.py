@@ -2,6 +2,7 @@ from cProfile import label
 import pandas as pd
 import numpy as np
 import time
+import math
 
 #Takes a filePath, then creates a gene dictionary
 class YeastDataFile():
@@ -29,6 +30,8 @@ class YeastDataFile():
             self.geneDict[self.data[i,0]] = self.data[i,1:].astype('float64')
         
         #If the stats dict contains the stats for this datafile and recalculate is false, get statistics from stats dictionary
+        # print(f'Not recalc: {not(recalc)}')
+        # print(f'In Dictionary: {self.dataFile in statsDict}')
         if(self.dataFile in statsDict and not(recalc)):
             self.mean, self.std = statsDict[self.dataFile]
         #Otherwise, calculate stats from random sample of gene pairs
@@ -42,7 +45,13 @@ class YeastDataFile():
             #Loop over all pairs in subset
             for genePair in sub:
                 #Uses custom correlation to calculate pearson correlation, then takes that value and takes the Fisher Z transform
-                correlations.append(np.arctanh(self.customCorrelation(genePair=genePair)))
+                p = self.customCorrelation(genePair=genePair)
+                #If p is 1 or -1, then there will be in error in arctanh, so make them 0.99 and -0.99
+                if p == 1:
+                    p = 0.99
+                elif p == -1:
+                    p = -.099
+                correlations.append(np.arctanh(p))
             #Convert list to numpy array, then used numpym methods to calculate mean and standard deviation
             corrArray = np.array(correlations)
             #nanmean and nanstd ingnores nan values
@@ -64,11 +73,11 @@ class YeastDataFile():
                 geneSetA.add(geneA[i])
                 geneSetB.add(geneB[i])
                 
-                if not(geneA[i] == np.nan or geneA[i] == 1.0 or geneA[i] == 0.0 or geneB[i] == np.nan or geneB[i] == 1.0 or geneB[i] == 0.0):
+                if not(math.isnan(geneA[i]) or geneA[i] == 1.0 or geneA[i] == 0.0 or math.isnan(geneB[i]) or geneB[i] == 1.0 or geneB[i] == 0.0):
                     validIndicies.append(i)
                 
             #If there are half or less valid indicies, return 0
-            if len(validIndicies) <= float(len(geneA)) / 2.0:
+            if len(validIndicies) <= float(len(geneA)) / 2.0 or len(geneSetA) == 1 or len(geneSetB) == 1:
                 return 0.0
             #Otherwise, construct filtered arrays for gene A and B, then return their pearson correlation
             else:
@@ -79,12 +88,17 @@ class YeastDataFile():
                     geneBList.append(geneB[index])
                 geneAFilter = np.array(geneAList)
                 geneBFilter = np.array(geneBList)
-                if(np.corrcoef(geneAFilter,geneBFilter)[1,0] == np.nan):
-                    print(f'Gene List A: {geneAList}')
-                    print(f'Gene List B: {geneBList}')
-                    print(f'Gene Array A: {geneAFilter}')
-                    print(f'Gene Array B: {geneBFilter}')
-                    print(f'Corr Coeff: {np.corrcoef(geneAFilter,geneBFilter)[1,0]}')
+                if(np.std(geneAFilter) == 0 or np.std(geneBFilter) == 0):
+                    return 0.0
+                # if(np.corrcoef(geneAFilter,geneBFilter)[1,0] == np.nan):
+                #     print(f'Gene List A: {geneAList}')
+                #     print(f'Gene List B: {geneBList}')
+                #     print(f'Gene Array A: {geneAFilter}')
+                #     print(f'Gene Array B: {geneBFilter}')
+                #     print(f'Corr Coeff: {np.corrcoef(geneAFilter,geneBFilter)[1,0]}')
+                # print(f'Gene A Filter: {geneAFilter}')
+                # print(f'Gene B Filter:{geneBFilter}')
+                # print(f'Correlation: {np.corrcoef(geneAFilter,geneBFilter)[1,0]}')
                 return np.corrcoef(geneAFilter,geneBFilter)[1,0]
         #If gene pair is not in this dataset's dictionary, return 0, i. e. there is no correlation between these genes
         else:

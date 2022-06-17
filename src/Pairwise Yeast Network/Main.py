@@ -24,24 +24,28 @@ def main():
     # printModelData = PairwiseYeastData('Yeast Resources/Datasets/Primig and Brem',4,subset=11179356,recur=False)
     # print(f'Time: {(time.time()-start)/60}')
 
+    primAndBrem = PairwiseYeastData('./Yeast Resources/Datasets/Primig and Brem',4,subset=10,recur=False,sort=False,filterMissingGenes=True)
+    primAndBrem.calculateCorrelations()
 
-    start = time.time()
-    epoch = 100000
-    modelData = PairwiseYeastData('Yeast Resources/Datasets/All Spell/all spell datasets',4,subset=100000,numDatasets=60,statsDictLoc='./Yeast Resources/Datasets/All Spell/statsDict.csv',recalc=True)
-    #modelData.saveStatistics('./Yeast Resources/Datasets/All Spell/statsDict.csv')
-    print(f'Time to load datasets: {(time.time()-start)/60} minutes')
+
+    # start = time.time()
+    # epoch = 20000
+    # modelData = PairwiseYeastData('Yeast Resources/Datasets/All Spell/all spell datasets',4,subset=200000,numDatasets=50,statsDictLoc='./Yeast Resources/Datasets/All Spell/statsDict.csv',recalc=False)
+    # #modelData.saveStatistics('./Yeast Resources/Datasets/All Spell/statsDict.csv')
+    # print(f'Time to load datasets: {(time.time()-start)/60} minutes')
 
     # regularTest = []
     # noRegularTest = []
     # for i in range(4):
-    #     regularTest.append(PairwiseModel(modelData,i,'20x1','Pairwise Test','Regular'))
-    #     noRegularTest.append(PairwiseModel(modelData,i,'20x1','Pairwise Test','NoRegular'))
-    # for model in noRegularTest:
-    #     model.trainNetwork(epoch,printLoss=True,printTensors=True,regularize=False)
-    #     model.testNetworkValidation(regularize=False)
+    #     regularTest.append(PairwiseModel(modelData,i,'20x1','Spell/Test','Regular50'))
+    #     noRegularTest.append(PairwiseModel(modelData,i,'20x1','Spell/Test','NoRegular50'))
     # for model in regularTest:
-    #     model.trainNetwork(epoch)
-    #     model.testNetwork()
+    #     model.trainNetwork(epoch,printLoss=True)
+    #     model.testNetworkValidation(limitNegative=True)
+    # for model in noRegularTest:
+    #     model.trainNetwork(epoch,printLoss=True,regularize=False)
+    #     model.testNetworkValidation(regularize=False,limitNegative=True)
+    
 
     # syntheticData = PairwiseYeastData('./Yeast Resources/Datasets/Synthetic/Medium 36-264',4,subset=10000,numDatasets=5,recur=False,sort=False,filterMissingGenes=True)
     # syntheticModel = PairwiseModel(syntheticData,0,'1','Pairwise/Synthetic/Test','MedTest')

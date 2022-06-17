@@ -46,10 +46,10 @@ files = choose.files(default=paste0(getwd(),"/*.*"))
 
 colorsList <- c("#FC0303","#14A63B","#5D87F0","#7713BA","#FAEF16","#E09704")
 
-graphName <- "Pairwise Syntheitc Small 36-264: 5x1 Validation"
+graphName <- "SPELL Network 50 Dataset: 50x20x1 Validation"
 
 
-pdf("Pair_Small-36-264_5x1_Val_ROC.pdf",width=6,height=6)
+pdf("Spell_50_50x20x1_Val_ROC.pdf",width=6,height=6)
 plotROC(files=files,colorsList=colorsList,graphName=graphName)
 dev.off()
 

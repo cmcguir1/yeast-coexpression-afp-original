@@ -55,7 +55,9 @@ class PairwiseYeastData():
         else:
             sortedFiles = files
         #Chops off all by the first numDatasets datasets
+        print(f'Length of sorted files: {len(sortedFiles)}')
         sortedFiles = sortedFiles[0:numDatasets]
+        
 
         #Initializing dataset list that will hold all datafiles within the passed in folder
         self.datasets = []
