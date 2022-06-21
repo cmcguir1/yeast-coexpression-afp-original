@@ -9,7 +9,6 @@ import math
 class YeastDataFile():
     def __init__(self,filePath,pairs,statsDict,subset,recalc=False):
         #Reads in file from filePath, expected to be tab delimited, then drops the NAME and GWEIGHT columns can converts to numpy
-        print(filePath)
         self.data = pd.read_csv(filePath,sep='\t').to_numpy()       #.drop(labels=['NAME','GWEIGHT'],axis=1).to_numpy()
         self.data = np.delete(self.data,1,1)
         self.data = np.delete(self.data,1,1)
@@ -63,8 +62,8 @@ class YeastDataFile():
             #nanmean and nanstd ingnores nan values
             self.mean = np.nanmean(corrArray)
             self.std = np.nanstd(corrArray)
-            print(f'Subset {subset} std: {self.std}')
-            print(f'Subset {subset} mean: {self.mean}')
+            # print(f'Subset {subset} std: {self.std}')
+            # print(f'Subset {subset} mean: {self.mean}')
 
     def customCorrelation(self,genePair):
         #First checks if the gene pair is in this dataset's gene library
