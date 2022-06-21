@@ -6,7 +6,7 @@ from PairwiseModel import PairwiseModel
 from PairwiseYeastData import PairwiseYeastData
 
 class YeastGraph(PairwiseModel):
-    def __init__(self,networkPath,data,structure,posFile,negFile,agnFile):
+    def __init__(self,networkPath,data,structure,posFile,negFile,agnFile,includeAll=True):
         #Intialize PairwiseYeastData as data
         self.data : PairwiseYeastData = data
 
@@ -21,11 +21,17 @@ class YeastGraph(PairwiseModel):
         negGenes = pd.read_csv(negFile).to_numpy().flatten()
         agnGenes = pd.read_csv(agnFile).to_numpy().flatten()
         self.genes = np.concatenate([posGenes,negGenes,agnGenes],0)
-        #Create gene pairs
-        self.pairs = self.makePairs(self.genes)
+        #If includeAll is true, make every gene pair
+        if(includeAll):
+            self.pairs = self.makePairs(self.genes)
+        #Otherwise, only make gene pairs that include at least 1 positive
+        else:
+            self.pairs = self.makePosPairs(posGenes,self.genes)
 
         #Create a positive gene set from positive gene array
-        self.posSet = set(self.posGenes)
+        self.posSet = set(posGenes)
+        self.agnSet= set(agnGenes)
+        self.negSet = set(negGenes)
 
         #Make the batch size equal to the number of gene pairs
         self.batch = len(self.pairs)
@@ -35,8 +41,8 @@ class YeastGraph(PairwiseModel):
         features, labels = self.makeBatchTensors(self.pairs)
         features = features.to(self.device)
         with torch.no_grad():
-            outputs = self.net(features)
-        self.dataTable = np.array([self.pairs[:,0],self.pairs[:,1],outputs.cpu()]).transpose()
+            outputs = self.net(features.float())
+        self.dataTable = np.array([self.pairs[:,0],self.pairs[:,1],outputs.cpu().flatten().numpy()],dtype=object).transpose()
         if(save):
             dataFrame = pd.DataFrame(self.dataTable,columns=['Gene A', 'Gene B', 'Score'])
             dataFrame.to_csv(fileLocation,index=False)
@@ -58,13 +64,20 @@ class YeastGraph(PairwiseModel):
         #Turn of genes and score into list
         dataTable = []
         for gene in self.genes:
-            dataTable.append([gene,scoreDict[gene]])
+            #This conditional determines what the sign of each gene is
+            if(gene in self.posSet):
+                sign = 1
+            elif(gene in self.agnSet):
+                sign = 0
+            else:
+                sign = -1
+            dataTable.append([gene,sign,scoreDict[gene]])
 
-        #Convert list to array, then sort it by score
+        #Convert list to array, then sort it by score in reverse order
         dataArray = np.array(dataTable)
-        sortedArray = dataArray[dataArray[:,2].argsort()]
+        sortedArray = dataArray[dataArray[:,2].argsort()[::-1]]
         #Save dataframe to file path
-        dataFrame = pd.DataFrame(sortedArray,columns=['Gene','Score'])
+        dataFrame = pd.DataFrame(sortedArray,columns=['Gene','+/0/1','Score'])
         dataFrame.to_csv(filePath)
 
 
@@ -81,3 +94,11 @@ class YeastGraph(PairwiseModel):
                 pairs.append((genes[i],genes[j+i]))
         #Return all pairs as an array
         return np.array(pairs)
+
+    #Creates all pairs of genes that contain atleast 1 positive
+    def makePosPairs(self,posGenes,allGenes):
+        pairs = []
+        for i in range(len(posGenes)):
+            for j in range(len(allGenes)):
+                pairs.append((posGenes[i],allGenes[j]))
+        return(np.array(pairs))

@@ -25,15 +25,19 @@ plotPrecRecall <- function(files,colorsList,graphName) {
   plot(data[,"Recall"], data[,"Precision"], ylim= c(0,1), type="l", col=colorsList[1],
        lwd=width, main=graphName, xlab="Recall", ylab = "Precision",log='x')
   
+  splice <- data[,11:12]
+  uSplice <- unique(splice)
+  
+  
   
   
   #Calculates AUC for first curve, the format function rounds the AUC off at decimal Places
-  legendAUC <- append(legendAUC,format(round(mean(data[,"Precision"]),decimalPlaces) , nsmall=decimalPlaces))
+  legendAUC <- append(legendAUC,format(round(mean(uSplice[,1]),decimalPlaces) , nsmall=decimalPlaces))
   legendLabels <- append(legendLabels,paste("Fold 1 (AUC =",legendAUC[1],")"))
   
   #Draws black linear line to represent the control
-  control <- sum(as.numeric(data[,3]))/length(data[,3])
-  lines(c(0,1),c(control,control),lwd=width)
+  #control <- sum(as.numeric(data[,3]))/length(data[,3])
+  #lines(c(0,1),c(control,control),lwd=width)
   
   #Loops over rest of data files
   for (i in 2:length(files)) {
@@ -53,13 +57,16 @@ plotPrecRecall <- function(files,colorsList,graphName) {
     #Plot data from table
     lines(data[,"Recall"],data[,"Precision"],lwd=width,col=colorsList[i])
     
+    splice <- data[,11:12]
+    uSplice <- unique(splice)
+    
     #Calculate AUC, then add to legends collections
-    legendAUC <- append(legendAUC,format(round(mean(data[,"Precision"]),decimalPlaces) , nsmall=decimalPlaces))
+    legendAUC <- append(legendAUC,format(round(mean(uSplice[,1]),decimalPlaces) , nsmall=decimalPlaces))
     legendLabels <- append(legendLabels,paste("Fold",i,"(AUC =",legendAUC[i],")"))
   }
   
   #Adds control AUC to legend list, the format function is there to round off decimal
-  legendLabels <- append(legendLabels,paste("Control (AUC =",format(round(control,decimalPlaces) , nsmall=decimalPlaces),")"))
+  #legendLabels <- append(legendLabels,paste("Control (AUC =",format(round(control,decimalPlaces) , nsmall=decimalPlaces),")"))
   
   #Adds legend
   legend("topright",legendLabels,lty=1,lwd=width, seg.len = 4,col = append(colorsList[1:length(files)],c("#000000")))
@@ -71,9 +78,9 @@ files = choose.files(default=paste0(getwd(),"/*.*"))
 
 colorsList <- c("#FC0303","#14A63B","#5D87F0","#7713BA","#FAEF16","#E09704")
 
-graphName <- "Pairwise Syntheitc Medium 12-88: 5x20x20x1 Validation"
+graphName <- "SPELL Network 50 Dataset: 50x20x1 Validation"
 
 
-#pdf("Pair_Syn_Medium-12-88_Val_ROC.pdf",width=6,height=6)
+pdf("SPELL_50_50x20x1_Val_PR.pdf",width=8,height=6)
 plotPrecRecall(files=files,colorsList=colorsList,graphName=graphName)
-#dev.off()
+dev.off()
