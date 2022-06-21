@@ -12,6 +12,8 @@ ssl._create_default_https_context = ssl._create_unverified_context
 def main():
     #This comment should appear on github now
 
+    #This comment was made from the virtual machine vi
+
     # folds = GeneFolds(numFolds=4)
     # folds.writeToCsv('./Yeast Resources/Datasets/All Spell/GeneFolds1.csv')
 
