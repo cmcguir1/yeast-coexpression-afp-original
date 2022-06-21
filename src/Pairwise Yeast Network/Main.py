@@ -36,22 +36,22 @@ def main():
 
 
     start = time.time()
-    epoch = 20000
-    modelData = PairwiseYeastData('Yeast Resources/Datasets/All Spell/all spell datasets',4,subset=200000,numDatasets=200,statsDictLoc='./Yeast Resources/Datasets/All Spell/statsDict.csv',recalc=False,foldFile='./Yeast Resources/Datasets/All Spell/GeneFolds1.csv')
+    epoch = 10000
+    modelData = PairwiseYeastData('Yeast Resources/Datasets/All Spell/all spell datasets',4,subset=200000,numDatasets=430,statsDictLoc='./Yeast Resources/Datasets/All Spell/statsDict.csv',recalc=False,foldFile='./Yeast Resources/Datasets/All Spell/GeneFolds1.csv')
     #modelData.saveStatistics('./Yeast Resources/Datasets/All Spell/statsDict.csv')
     print(f'Time to load datasets: {(time.time()-start)/60} minutes')
 
-    # regularTest = []
-    noRegularTest = []
+    regularTest = []
+    # noRegularTest = []
     for i in range(4):
-        # regularTest.append(PairwiseModel(modelData,i,'20x1','Spell/Test','Regular50'))
-        noRegularTest.append(PairwiseModel(modelData,i,'20x10x1','Spell/Test','NoRegular50'))
-    # for model in regularTest:
-    #     model.trainNetwork(epoch,printLoss=True)
-    #     model.testNetworkValidation(limitNegative=True)
-    for model in noRegularTest:
-        model.trainNetwork(epoch,printLoss=True,regularize=False)
-        model.testNetworkValidation(regularize=False,limitNegative=True)
+        regularTest.append(PairwiseModel(modelData,i,'20x1','Spell/Test','Regular430'))
+        # noRegularTest.append(PairwiseModel(modelData,i,'20x10x1','Spell/Test','NoRegular50'))
+    for model in regularTest:
+        model.trainNetwork(epoch,printLoss=True,lossFile='./Yeast Resources/Datasets/All Spell/Regular430_Loss.csv')
+        model.testNetworkValidation(limitNegative=True)
+    # for model in noRegularTest:
+    #     model.trainNetwork(epoch,printLoss=True,regularize=False)
+    #     model.testNetworkValidation(regularize=False,limitNegative=True)
     
 
     # syntheticData = PairwiseYeastData('./Yeast Resources/Datasets/Synthetic/Medium 36-264',4,subset=10000,numDatasets=5,recur=False,sort=False,filterMissingGenes=True)

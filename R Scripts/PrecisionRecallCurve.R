@@ -23,7 +23,7 @@ plotPrecRecall <- function(files,colorsList,graphName) {
   
   #Creates a plot of the first data series
   plot(data[,"Recall"], data[,"Precision"], ylim= c(0,1), type="l", col=colorsList[1],
-       lwd=width, main=graphName, xlab="Recall", ylab = "Precision")
+       lwd=width, main=graphName, xlab="Recall", ylab = "Precision",log='x')
   
   
   
