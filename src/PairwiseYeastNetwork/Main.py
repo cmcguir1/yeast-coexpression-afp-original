@@ -21,13 +21,15 @@ def main():
 
     # start = time.time()
     # epoch = 10000
-    modelData = PairwiseYeastData('Yeast Resources/Datasets/All Spell/all spell datasets',4,subset=200000,numDatasets=430,statsDictLoc='./Yeast Resources/Datasets/All Spell/statsDict.csv',recalc=False,foldFile='./Yeast Resources/Datasets/All Spell/GeneFolds1.csv')
+    modelData = PairwiseYeastData('Yeast Resources/Datasets/All Spell/all spell datasets',4,subset=200000,numDatasets=50,statsDictLoc='./Yeast Resources/Datasets/All Spell/statsDict.csv',recalc=False,foldFile='./Yeast Resources/Datasets/All Spell/GeneFolds1.csv')
     # #modelData.saveStatistics('./Yeast Resources/Datasets/All Spell/statsDict.csv')
     # print(f'Time to load datasets: {(time.time()-start)/60} minutes')
 
     # regularTest = []
     # for i in range(4):
-    #     regularTest.append(PairwiseModel(modelData,i,'20x1','Spell/Test','Regular430'))
+    regularTest = PairwiseModel(modelData,0,'20x1','Spell/Test','Spell430')
+    regularTest.trainNetwork(10000)
+    regularTest.testNetworkValidation()
     #     # noRegularTest.append(PairwiseModel(modelData,i,'20x10x1','Spell/Test','NoRegular50'))
     # for model in regularTest:
     #     model.trainNetwork(epoch,printLoss=True,lossFile='./Yeast Resources/Datasets/All Spell/Regular430_Loss.csv')
@@ -37,9 +39,9 @@ def main():
     #     model.testNetworkValidation(regularize=False,limitNegative=True)
 
     #data = PairwiseYeastData('./Yeast Resources/Datasets/Primig and Brem',4,'./Yeast Resources/Datasets/All Spell/GeneFolds1.csv',sort=False,recur=False,numDatasets=430,subset=10000)
-    graph = YeastGraph('./Yeast Networks/Spell/Test/Regular430_20x1_fold1_Val.pth',modelData,'430x20x1',posFile='./Yeast Resources/test_positives.txt',negFile='./Yeast Resources/test_negatives.txt',agnFile='./Yeast Resources/test_agnostics.txt')
-    graph.feedForward('./Yeast Resources/Test_Graph.csv')
-    graph.rankGenes('./Yeast Resources/Test_Rank.csv')
+    # graph = YeastGraph('./Yeast Networks/Spell/Test/Regular430_20x1_fold1_Val.pth',modelData,'430x20x1',posFile='./Yeast Resources/test_positives.txt',negFile='./Yeast Resources/test_negatives.txt',agnFile='./Yeast Resources/test_agnostics.txt')
+    # graph.feedForward('./Yeast Resources/Test_Graph.csv')
+    # graph.rankGenes('./Yeast Resources/Test_Rank.csv')
 
     # dataArray = np.array([[13,5],[12,23],[20,21]])
     # print(dataArray)
