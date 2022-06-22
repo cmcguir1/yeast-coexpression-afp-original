@@ -28,7 +28,7 @@ def main():
     # regularTest = []
     # for i in range(4):
     regularTest = PairwiseModel(modelData,1,'20x1','Spell/Test','ClusterTest')
-    regularTest.trainNetwork(10000)
+    regularTest.trainNetwork(1000)
     regularTest.testNetworkValidation()
     print(f'Total Time: {(time.time()-start)/60} minutes')
     #     # noRegularTest.append(PairwiseModel(modelData,i,'20x10x1','Spell/Test','NoRegular50'))
