@@ -55,7 +55,7 @@ class PairwiseYeastData():
         else:
             sortedFiles = files
         #Chops off all by the first numDatasets datasets
-        print(f'Length of sorted files: {len(sortedFiles)}')
+        #print(f'Length of sorted files: {len(sortedFiles)}')
         sortedFiles = sortedFiles[0:numDatasets]
         
 
@@ -69,7 +69,7 @@ class PairwiseYeastData():
             #If dataset mean and standard devation still turn out to be nan, remove it from the datasets list
             if(not isinstance(self.datasets[-1].mean,float) or not isinstance(self.datasets[-1].std,float)):
                 del self.datasets[-1]
-            print(f'Time in minutes: {(time.time() - start)/60}')
+            #print(f'Time in minutes: {(time.time() - start)/60}')
 
         if(filterMissingGenes):
             self.filterGenes()
