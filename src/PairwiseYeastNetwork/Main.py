@@ -19,17 +19,18 @@ def main():
 
 
 
-    # start = time.time()
+    start = time.time()
     # epoch = 10000
-    modelData = PairwiseYeastData('Yeast Resources/Datasets/All Spell/all spell datasets',4,subset=200000,numDatasets=50,statsDictLoc='./Yeast Resources/Datasets/All Spell/statsDict.csv',recalc=False,foldFile='./Yeast Resources/Datasets/All Spell/GeneFolds1.csv')
+    modelData = PairwiseYeastData('Yeast Resources/Datasets/All Spell/all spell datasets',4,subset=200000,numDatasets=10,statsDictLoc='./Yeast Resources/Datasets/All Spell/statsDict.csv',recalc=False,foldFile='./Yeast Resources/Datasets/All Spell/GeneFolds1.csv')
     # #modelData.saveStatistics('./Yeast Resources/Datasets/All Spell/statsDict.csv')
-    # print(f'Time to load datasets: {(time.time()-start)/60} minutes')
+    
 
     # regularTest = []
     # for i in range(4):
-    regularTest = PairwiseModel(modelData,0,'20x1','Spell/Test','Spell430')
+    regularTest = PairwiseModel(modelData,1,'20x1','Spell/Test','ClusterTest')
     regularTest.trainNetwork(10000)
     regularTest.testNetworkValidation()
+    print(f'Total Time: {(time.time()-start)/60} minutes')
     #     # noRegularTest.append(PairwiseModel(modelData,i,'20x10x1','Spell/Test','NoRegular50'))
     # for model in regularTest:
     #     model.trainNetwork(epoch,printLoss=True,lossFile='./Yeast Resources/Datasets/All Spell/Regular430_Loss.csv')
