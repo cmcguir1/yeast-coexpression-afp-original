@@ -36,9 +36,9 @@ def calcHeatMap(folder,totalPos,totalNeg,outputName,numDatasets,numFolds):
     posDataTable = np.zeros((len(datasets),len(datasets)))
     negDataTable = np.zeros((len(datasets),len(datasets)))
     #Loop over all datasets
-    for i in range(numDatasets):
+    for i in range(numDatasets*numFolds):
         #Loop over all datasets again so every dataset is copared with one another
-        for j in range(numFolds):
+        for j in range(numDatasets*numFolds):
             #Calculate the p value for the overlap in genes for both positive and negative genes of two datasets
             posDataTable[i,j] = 1 - stats.hypergeom.cdf(len(posSets[i] & posSets[j]),totalPos,len(posSets[i]),len(posSets[j]))
             negDataTable[i,j] = 1 - stats.hypergeom.cdf(len(negSets[i] & negSets[j]),totalNeg,len(negSets[i]),len(negSets[j]))
@@ -61,7 +61,7 @@ def calcHeatMap(folder,totalPos,totalNeg,outputName,numDatasets,numFolds):
     
 totalPosGenes = 100
 totalNegGenes = 5958
-calcHeatMap('./Yeast Resources/June-9-Reruns/Primig',totalPosGenes,totalNegGenes,'Test',10,4)
+calcHeatMap('./Yeast Resources/June-9-Reruns/Primig',totalPosGenes,totalNegGenes,'Primig',10,4)
 calcHeatMap('./Yeast Resources/June-9-Reruns/Brem24',totalPosGenes,totalNegGenes,'Brem24',10,4)
 # x = {1,2,3}
 # y = {1,2,3}

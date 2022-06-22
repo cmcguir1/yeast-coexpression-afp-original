@@ -21,14 +21,16 @@ def main():
 
     start = time.time()
     # epoch = 10000
-    modelData = PairwiseYeastData('Yeast Resources/Datasets/All Spell/all spell datasets',4,subset=200000,numDatasets=10,statsDictLoc='./Yeast Resources/Datasets/All Spell/statsDict.csv',recalc=False,foldFile='./Yeast Resources/Datasets/All Spell/GeneFolds1.csv')
+    modelData = PairwiseYeastData('Yeast Resources/Datasets/All Spell/all spell datasets',4,subset=200000,numDatasets=50,statsDictLoc='./Yeast Resources/Datasets/All Spell/statsDict.csv',recalc=False,foldFile='./Yeast Resources/Datasets/All Spell/GeneFolds1.csv')
     # #modelData.saveStatistics('./Yeast Resources/Datasets/All Spell/statsDict.csv')
     
 
     # regularTest = []
     # for i in range(4):
-    regularTest = PairwiseModel(modelData,1,'20x1','Spell/Test','ClusterTest')
-    regularTest.trainNetwork(1000)
+    regularTest = PairwiseModel(modelData,0,'20x10x1','Spell/Test','SpeedTest')
+    regularTest.trainNetwork(10000,printLoss=True)
+    print(f'Training Time: {(time.time()-start)/60} minutes')
+    start = time.time()
     regularTest.testNetworkValidation()
     print(f'Total Time: {(time.time()-start)/60} minutes')
     #     # noRegularTest.append(PairwiseModel(modelData,i,'20x10x1','Spell/Test','NoRegular50'))
