@@ -31,7 +31,7 @@ def main():
     regularTest.trainNetwork(10000,printLoss=True,lossFile='./Yeast Resources/Datasets/All Spell/SpeedTestLoss1.csv')
     print(f'Training Time: {(time.time()-start)/60} minutes')
     start = time.time()
-    regularTest.testNetworkValidation()
+    regularTest.testNetworkValidation(limitNegative=True,negProportion=10)
     print(f'Total Time: {(time.time()-start)/60} minutes')
     #     # noRegularTest.append(PairwiseModel(modelData,i,'20x10x1','Spell/Test','NoRegular50'))
     # for model in regularTest:
