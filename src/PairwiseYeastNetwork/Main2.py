@@ -16,7 +16,7 @@ def main():
     modelData = PairwiseYeastData('Yeast Resources/Datasets/All Spell/all spell datasets',4,subset=200000,numDatasets=50,statsDictLoc='./Yeast Resources/Datasets/All Spell/statsDict.csv',recalc=False,foldFile='./Yeast Resources/Datasets/All Spell/GeneFolds1.csv')
     #modelData.saveStatistics('./Yeast Resources/Datasets/All Spell/statsDict.csv')
     regularTest = PairwiseModel(modelData,1,'20x10x1','Spell/Test','SpeedTest',lr=0.1,batch=50)
-    regularTest.trainNetwork(10000,printLoss=True,lossFile='./Yeast Resources/All Spell/SpeedTestLoss2.csv')
+    regularTest.trainNetwork(10000,printLoss=True,lossFile='./Yeast Resources/Datasets/All Spell/SpeedTestLoss2.csv')
     print(f'Training Time: {(time.time()-start)/60} minutes')
     start = time.time()
     regularTest.testNetworkValidation()

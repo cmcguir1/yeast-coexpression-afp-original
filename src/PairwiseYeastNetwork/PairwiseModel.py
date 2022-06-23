@@ -89,14 +89,14 @@ class PairwiseModel():
         if(lossFile != ''):
             pd.DataFrame(lossList,columns=['Loss']).to_csv(lossFile,index=False)
 
-    def testNetwork(self,save,testingType,limitNegative,regularize=True):
+    def testNetwork(self,save,testingType,limitNegative,negProportion=10,regularize=True):
         with torch.no_grad():
             #Create positive and negative pairs from the validation data
             posPairs, negPairs = PairwiseYeastData.makePairs(self.posVal,self.negVal)
             #Create an input array to make batch tensor by concatentating
             if(limitNegative):
                 np.random.shuffle(negPairs)
-                inputArray = np.concatenate((posPairs,negPairs[0:int(len(posPairs)*10)]))
+                inputArray = np.concatenate((posPairs,negPairs[0:int(len(posPairs)*negProportion)]))
             else:
                 inputArray = np.concatenate((posPairs,negPairs))
             #Create features and labels tensors, then move them both to the gpu
@@ -180,11 +180,11 @@ class PairwiseModel():
 
 
 
-    def testNetworkTraining(self,save=True,regularize=True,limitNegative=False):
-        self.testNetwork(save,'Train',regularize=regularize,limitNegative=limitNegative)
+    def testNetworkTraining(self,save=True,regularize=True,limitNegative=False,negProportion=10):
+        self.testNetwork(save,'Train',regularize=regularize,limitNegative=limitNegative,negProportion=negProportion)
     
-    def testNetworkValidation(self,save=True,regularize=True,limitNegative=False):
-        self.testNetwork(save,'Val',regularize=regularize,limitNegative=limitNegative)
+    def testNetworkValidation(self,save=True,regularize=True,limitNegative=False,negProportion=10):
+        self.testNetwork(save,'Val',regularize=regularize,limitNegative=limitNegative,negProportion=negProportion)
 
 
     def makeBatchArray(self,posPairs,negPairs):

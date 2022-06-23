@@ -13,26 +13,26 @@ def confusionMatrix(dataArray,col):
         elif(row[2] == 0):
             neg += 1
     
-    #We will start by asserting all genes are true, so truePos is the number of positive genes and trueNeg is the number of negative genes
-    truePos = pos
-    falsePos = neg
-    trueNeg = 0
-    falseNeg = 0
+    #We will start by asserting all genes are false, so falseNeg is the number of positive genes and trueNeg is the number of negative genes
+    truePos = 0
+    falsePos = 0
+    trueNeg = neg
+    falseNeg = pos
 
     dataTable = []
     #Loop over all rows of the dataset
     for row in dataArray:
         if(not math.isnan(row[col])):
-            #If the next gene is positive, then increment false negative and decrement true positive
+            #If the next gene is positive, then increment truePos and decrement falseNeg
             if(row[4] == 1):
-                truePos -= 1
-                falseNeg += 1
+                truePos += 1
+                falseNeg -= 1
                 acc, pre, recall, fpr, select = calcStats(truePos=truePos,falsePos=falsePos,trueNeg=trueNeg,falseNeg=falseNeg)
                 dataTable.append([row[0],row[col],truePos,falsePos,trueNeg,falseNeg,acc,pre,recall,fpr,select])
-            #If the next gene is negative, then increment true negative, and decrement false positive
+            #If the next gene is negative, then increment falsePos and decrement trueNeg
             elif(row[2] == 0):
-                falsePos -= 1
-                trueNeg += 1
+                falsePos += 1
+                trueNeg -= 1
                 acc, pre, recall, fpr, select = calcStats(truePos=truePos,falsePos=falsePos,trueNeg=trueNeg,falseNeg=falseNeg)
                 dataTable.append([row[0],row[col],truePos,falsePos,trueNeg,falseNeg,acc,pre,recall,fpr,select])
     #Return dataTable as an array

@@ -28,7 +28,7 @@ def main():
     # regularTest = []
     # for i in range(4):
     regularTest = PairwiseModel(modelData,0,'20x10x1','Spell/Test','SpeedTest',lr=0.1,batch=50)
-    regularTest.trainNetwork(10000,printLoss=True,lossFile='./Yeast Resources/All Spell/SpeedTestLoss1.csv')
+    regularTest.trainNetwork(10000,printLoss=True,lossFile='./Yeast Resources/Datasets/All Spell/SpeedTestLoss1.csv')
     print(f'Training Time: {(time.time()-start)/60} minutes')
     start = time.time()
     regularTest.testNetworkValidation()
