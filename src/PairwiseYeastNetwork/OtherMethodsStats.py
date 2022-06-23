@@ -1,16 +1,18 @@
 import math
 import pandas as pd
 import numpy as np
-from sqlalchemy import false
 
 def confusionMatrix(dataArray,col):
+    positives = set(pd.read_csv('./Yeast Resources/positives_00_go04-15-07.txt').to_numpy().flatten())
+    negatives = set(pd.read_csv('./Yeast Resources/negatives_00_go04-15-07.txt').to_numpy().flatten())
+    
     #This section calculate how many positives and negatives there are in the dataset so truePos and trueNeg can be initialized
     pos = 0
     neg = 0
     for row in dataArray:
-        if(row[4] == 1):
+        if(row[0] in positives):
             pos += 1
-        elif(row[2] == 0):
+        elif(row[0] in negatives):
             neg += 1
     
     #We will start by asserting all genes are false, so falseNeg is the number of positive genes and trueNeg is the number of negative genes
@@ -24,13 +26,13 @@ def confusionMatrix(dataArray,col):
     for row in dataArray:
         if(not math.isnan(row[col])):
             #If the next gene is positive, then increment truePos and decrement falseNeg
-            if(row[4] == 1):
+            if(row[0] in positives):
                 truePos += 1
                 falseNeg -= 1
                 acc, pre, recall, fpr, select = calcStats(truePos=truePos,falsePos=falsePos,trueNeg=trueNeg,falseNeg=falseNeg)
                 dataTable.append([row[0],row[col],truePos,falsePos,trueNeg,falseNeg,acc,pre,recall,fpr,select])
             #If the next gene is negative, then increment falsePos and decrement trueNeg
-            elif(row[2] == 0):
+            elif(row[0] in negatives):
                 falsePos += 1
                 trueNeg -= 1
                 acc, pre, recall, fpr, select = calcStats(truePos=truePos,falsePos=falsePos,trueNeg=trueNeg,falseNeg=falseNeg)
@@ -48,19 +50,20 @@ def calcStats(truePos,falsePos,trueNeg,falseNeg):
     return (accuracy,precision,recall,fpr,selectivity)
 
 #Read in a ensemble data file with no index
-data = pd.read_csv('./Yeast Resources/ensembleData.csv',index_col=False)
+data = pd.read_csv('./Yeast Resources/ensembleData_membership.csv',index_col=False)
+
 names = data.columns
 #Convert dataframe to numpy array
-data = data.to_numpy()
+data = data.to_numpy(dtype=object)
 #Sort the data by the respective confidence of pixie and mefit in descending order
-pixie = data[data[:,5].argsort()][::-1]
-mefit = data[data[:,7].argsort()][::-1]
+pixie = data[data[:,8].argsort()][::-1]
+mefit = data[data[:,10].argsort()][::-1]
 #Sort the data by Spell's rank in ascending order as rank 1 is spell's most confident prediction
-spell = data[data[:,9].argsort()]
+spell = data[data[:,12].argsort()]
 #Pass sorted data into confusion matrix function, then convert to data frames
-pixieFrame = pd.DataFrame(confusionMatrix(pixie,5),columns=['Gene','Confidence','True Positive','False Positive','True Negative','False Negative','Accuracy','Precision','Recall','False Positive Rate','Selectivity'])
-mefitFrame = pd.DataFrame(confusionMatrix(mefit,7),columns=['Gene','Confidence','True Positive','False Positive','True Negative','False Negative','Accuracy','Precision','Recall','False Positive Rate','Selectivity'])
-spellFrame = pd.DataFrame(confusionMatrix(spell,9),columns=['Gene','Rank','True Positive','False Positive','True Negative','False Negative','Accuracy','Precision','Recall','False Positive Rate','Selectivity'])
+pixieFrame = pd.DataFrame(confusionMatrix(pixie,8),columns=['Gene','Confidence','True Positive','False Positive','True Negative','False Negative','Accuracy','Precision','Recall','False Positive Rate','Selectivity'])
+mefitFrame = pd.DataFrame(confusionMatrix(mefit,10),columns=['Gene','Confidence','True Positive','False Positive','True Negative','False Negative','Accuracy','Precision','Recall','False Positive Rate','Selectivity'])
+spellFrame = pd.DataFrame(confusionMatrix(spell,12),columns=['Gene','Rank','True Positive','False Positive','True Negative','False Negative','Accuracy','Precision','Recall','False Positive Rate','Selectivity'])
 #Save Data Frame
 pixieFrame.to_csv('./Yeast Resources/ConfusionMatrixPixie.csv',index=False)
 mefitFrame.to_csv('./Yeast Resources/ConfusionMatrixMefit.csv',index=False)
