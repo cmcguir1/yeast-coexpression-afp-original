@@ -19,7 +19,7 @@ def main():
     regularTest.trainNetwork(1000,printLoss=True)
     print(f'Training Time: {(time.time()-start)/60} minutes')
     start = time.time()
-    regularTest.testNetworkValidation()
+    regularTest.testNetworkValidation(limitNegative=True,negProportion=5)
     print(f'Total Time: {(time.time()-start)/60} minutes')
     
 
