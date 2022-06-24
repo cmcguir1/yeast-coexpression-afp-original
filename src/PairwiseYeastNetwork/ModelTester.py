@@ -13,9 +13,9 @@ def test(fold,modelName,lr=0.01,batch_size=20,epoch=20000,datasets=430):
 
     start = time.time()
     # epoch = 10000
-	print('Began Loading Data')
+    print('Began Loading Data')
     modelData = PairwiseYeastData('Yeast Resources/Datasets/All Spell/all spell datasets',4,subset=200000,numDatasets=datasets,statsDictLoc='./Yeast Resources/Datasets/All Spell/statsDict.csv',recalc=False,foldFile='./Yeast Resources/Datasets/All Spell/GeneFolds1.csv')
-	print('Finished Loading Data')
+    print('Finished Loading Data')
     regularTest = PairwiseModel(modelData,fold,'20x10x1','Spell/Test',modelName,lr=lr,batch=batch_size)
     regularTest.trainNetwork(epoch,printLoss=True,saveLoss=True)
     print(f'Training Time: {(time.time()-start)/60} minutes')
