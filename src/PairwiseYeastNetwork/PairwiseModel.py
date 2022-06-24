@@ -37,7 +37,7 @@ class PairwiseModel():
         #Locations to save files
         self.dataTableLocation = f'./Yeast Resources/Pairwise/{folderName}/{modelName}_{structure}_fold{fold+1}'
         self.networkLocation = f'./Yeast Networks/{folderName}/{modelName}_{structure}_fold{fold+1}'
-        self.lossLocation = f'./Yeast Resources/{folderName}/{modelName}_{structure}_fold{fold+1}_Loss.csv'
+        self.lossLocation = f'./Yeast Resources/Pairwise/{folderName}/{modelName}_{structure}_fold{fold+1}_Loss.csv'
 
     def trainNetwork(self,epochs,printLoss=False,printTensors=False,regularize=True,lossFile='',saveLoss=True):
         start = time.time()
@@ -88,7 +88,8 @@ class PairwiseModel():
                 print(f'Batch {epoch} Time:\t{(time.time()-start)/60} minutes')
                 start = time.time()
         if(saveLoss):
-            pd.DataFrame(self.lossLocation,columns=['Loss']).to_csv(lossFile,index=False)
+            frame = pd.DataFrame(lossList,columns=['Loss'])
+            frame.to_csv(self.lossLocation,index=False)
 
     def testNetwork(self,save,testingType,limitNegative,negProportion=10,regularize=True):
         with torch.no_grad():
