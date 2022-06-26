@@ -17,23 +17,25 @@ def main():
     # folds = GeneFolds(numFolds=4)
     # folds.writeToCsv('./Yeast Resources/Datasets/All Spell/GeneFolds1.csv')
 
+    dnaRepairFolds = GeneFolds(4, posGenes='./Yeast Resources/GeneSets/GO0007127_Pos.txt',negGenes='./Yeast Resources/GeneSets/GO0007127_Neg.txt')
+    dnaRepairFolds.writeToCsv('./Yeast Resources/GeneSets/GO0007127Folds1.csv')
 
 
-    start = time.time()
-    # epoch = 10000
-    modelData = PairwiseYeastData('Yeast Resources/Datasets/All Spell/all spell datasets',4,subset=200000,numDatasets=50,statsDictLoc='./Yeast Resources/Datasets/All Spell/statsDict.csv',recalc=False,foldFile='./Yeast Resources/Datasets/All Spell/GeneFolds1.csv')
-    # #modelData.saveStatistics('./Yeast Resources/Datasets/All Spell/statsDict.csv')
+    # start = time.time()
+    # # epoch = 10000
+    # modelData = PairwiseYeastData('Yeast Resources/Datasets/All Spell/all spell datasets',4,subset=200000,numDatasets=50,statsDictLoc='./Yeast Resources/Datasets/All Spell/statsDict.csv',recalc=False,foldFile='./Yeast Resources/Datasets/All Spell/GeneFolds1.csv')
+    # # #modelData.saveStatistics('./Yeast Resources/Datasets/All Spell/statsDict.csv')
     
 
-    # regularTest = []
-    # for i in range(4):
-    regularTest = PairwiseModel(modelData,0,'20x10x1','Spell/Test','SpeedTest',lr=0.1,batch=50)
-    regularTest.trainNetwork(10000,printLoss=True,lossFile='./Yeast Resources/Datasets/All Spell/SpeedTestLoss1.csv')
-    print(f'Training Time: {(time.time()-start)/60} minutes')
-    start = time.time()
-    regularTest.testNetworkValidation(limitNegative=True,negProportion=10)
-    print(f'Total Time: {(time.time()-start)/60} minutes')
-    #     # noRegularTest.append(PairwiseModel(modelData,i,'20x10x1','Spell/Test','NoRegular50'))
+    # # regularTest = []
+    # # for i in range(4):
+    # regularTest = PairwiseModel(modelData,0,'20x10x1','Spell/Test','SpeedTest',lr=0.1,batch=50)
+    # regularTest.trainNetwork(10000,printLoss=True,lossFile='./Yeast Resources/Datasets/All Spell/SpeedTestLoss1.csv')
+    # print(f'Training Time: {(time.time()-start)/60} minutes')
+    # start = time.time()
+    # regularTest.testNetworkValidation(limitNegative=True,negProportion=10)
+    # print(f'Total Time: {(time.time()-start)/60} minutes')
+    # #     # noRegularTest.append(PairwiseModel(modelData,i,'20x10x1','Spell/Test','NoRegular50'))
     # for model in regularTest:
     #     model.trainNetwork(epoch,printLoss=True,lossFile='./Yeast Resources/Datasets/All Spell/Regular430_Loss.csv')
     #     model.testNetworkValidation(limitNegative=True)

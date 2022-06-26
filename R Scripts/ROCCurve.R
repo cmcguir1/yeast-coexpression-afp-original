@@ -46,10 +46,10 @@ files = choose.files(default=paste0(getwd(),"/*.*"))
 
 colorsList <- c("#FC0303","#14A63B","#5D87F0","#7713BA","#FAEF16","#E09704")
 
-graphName <- "SPELL Network 430 Dataset: 430x20x10x1 Validation"
+graphName <- "SPELL Network 430 Dataset: 430x20x10x1 lr 0.1 Validation"
 
 
-pdf("Spell_430_430x20x10x1_Val_ROC.pdf",width=6,height=6)
+pdf("Spell_430_430x20x10x1_lr0.1_Val_ROC.pdf",width=6,height=6)
 plotROC(files=files,colorsList=colorsList,graphName=graphName)
 dev.off()
 

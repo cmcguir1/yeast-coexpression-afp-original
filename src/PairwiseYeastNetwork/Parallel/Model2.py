@@ -7,7 +7,7 @@ import ssl
 ssl._create_default_https_context = ssl._create_unverified_context
 
 def main():
-    test(1,'Spell_lr0.1',lr=0.1)
+    test(1,'Spell_lr0.005',lr=0.005)
 
 if __name__ == '__main__':
     main()
