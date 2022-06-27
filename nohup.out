@@ -1,0 +1,3703 @@
+Traceback (most recent call last):
+  File "src/PairwiseYeastNetwork/Parallel/Model1.py", line 3, in <module>
+    from ModelTester import test
+  File "./src/PairwiseYeastNetwork/ModelTester.py", line 1, in <module>
+    from PairwiseYeastData import PairwiseYeastData
+  File "./src/PairwiseYeastNetwork/PairwiseYeastData.py", line 2, in <module>
+    from YeastDataFile import YeastDataFile
+  File "./src/PairwiseYeastNetwork/YeastDataFile.py", line 3, in <module>
+    import pandas as pd
+  File "/users/cmcguir1/.local/lib/python3.7/site-packages/pandas/__init__.py", line 17, in <module>
+    "Unable to import required dependencies:\n" + "\n".join(missing_dependencies)
+ImportError: Unable to import required dependencies:
+numpy: cannot import name 'core' from 'numpy' (/users/cmcguir1/.local/lib/python3.7/site-packages/numpy/__init__.py)
+Traceback (most recent call last):
+  File "src/PairwiseYeastNetwork/Parallel/Model2.py", line 3, in <module>
+    from ModelTester import test
+  File "./src/PairwiseYeastNetwork/ModelTester.py", line 1, in <module>
+    from PairwiseYeastData import PairwiseYeastData
+  File "./src/PairwiseYeastNetwork/PairwiseYeastData.py", line 2, in <module>
+    from YeastDataFile import YeastDataFile
+  File "./src/PairwiseYeastNetwork/YeastDataFile.py", line 3, in <module>
+    import pandas as pd
+  File "/users/cmcguir1/.local/lib/python3.7/site-packages/pandas/__init__.py", line 17, in <module>
+    "Unable to import required dependencies:\n" + "\n".join(missing_dependencies)
+ImportError: Unable to import required dependencies:
+numpy: cannot import name 'core' from 'numpy' (/users/cmcguir1/.local/lib/python3.7/site-packages/numpy/__init__.py)
+Traceback (most recent call last):
+  File "src/PairwiseYeastNetwork/Parallel/Model3.py", line 3, in <module>
+    from ModelTester import test
+  File "./src/PairwiseYeastNetwork/ModelTester.py", line 1, in <module>
+    from PairwiseYeastData import PairwiseYeastData
+  File "./src/PairwiseYeastNetwork/PairwiseYeastData.py", line 2, in <module>
+    from YeastDataFile import YeastDataFile
+  File "./src/PairwiseYeastNetwork/YeastDataFile.py", line 3, in <module>
+    import pandas as pd
+  File "/users/cmcguir1/.local/lib/python3.7/site-packages/pandas/__init__.py", line 17, in <module>
+    "Unable to import required dependencies:\n" + "\n".join(missing_dependencies)
+ImportError: Unable to import required dependencies:
+numpy: cannot import name 'core' from 'numpy' (/users/cmcguir1/.local/lib/python3.7/site-packages/numpy/__init__.py)
+Traceback (most recent call last):
+  File "src/PairwiseYeastNetwork/Parallel/Model5.py", line 3, in <module>
+    from ModelTester import test
+  File "./src/PairwiseYeastNetwork/ModelTester.py", line 1, in <module>
+    from PairwiseYeastData import PairwiseYeastData
+  File "./src/PairwiseYeastNetwork/PairwiseYeastData.py", line 2, in <module>
+    from YeastDataFile import YeastDataFile
+  File "./src/PairwiseYeastNetwork/YeastDataFile.py", line 3, in <module>
+    import pandas as pd
+  File "/users/cmcguir1/.local/lib/python3.7/site-packages/pandas/__init__.py", line 17, in <module>
+    "Unable to import required dependencies:\n" + "\n".join(missing_dependencies)
+ImportError: Unable to import required dependencies:
+numpy: cannot import name 'core' from 'numpy' (/users/cmcguir1/.local/lib/python3.7/site-packages/numpy/__init__.py)
+Traceback (most recent call last):
+  File "src/PairwiseYeastNetwork/Parallel/Model4.py", line 3, in <module>
+    from ModelTester import test
+  File "./src/PairwiseYeastNetwork/ModelTester.py", line 1, in <module>
+    from PairwiseYeastData import PairwiseYeastData
+  File "./src/PairwiseYeastNetwork/PairwiseYeastData.py", line 2, in <module>
+    from YeastDataFile import YeastDataFile
+  File "./src/PairwiseYeastNetwork/YeastDataFile.py", line 3, in <module>
+    import pandas as pd
+  File "/users/cmcguir1/.local/lib/python3.7/site-packages/pandas/__init__.py", line 17, in <module>
+    "Unable to import required dependencies:\n" + "\n".join(missing_dependencies)
+ImportError: Unable to import required dependencies:
+numpy: cannot import name 'core' from 'numpy' (/users/cmcguir1/.local/lib/python3.7/site-packages/numpy/__init__.py)
+Traceback (most recent call last):
+  File "src/PairwiseYeastNetwork/Parallel/Model6.py", line 3, in <module>
+    from ModelTester import test
+  File "./src/PairwiseYeastNetwork/ModelTester.py", line 1, in <module>
+    from PairwiseYeastData import PairwiseYeastData
+  File "./src/PairwiseYeastNetwork/PairwiseYeastData.py", line 2, in <module>
+    from YeastDataFile import YeastDataFile
+  File "./src/PairwiseYeastNetwork/YeastDataFile.py", line 3, in <module>
+    import pandas as pd
+  File "/users/cmcguir1/.local/lib/python3.7/site-packages/pandas/__init__.py", line 17, in <module>
+    "Unable to import required dependencies:\n" + "\n".join(missing_dependencies)
+ImportError: Unable to import required dependencies:
+numpy: cannot import name 'core' from 'numpy' (/users/cmcguir1/.local/lib/python3.7/site-packages/numpy/__init__.py)
+Traceback (most recent call last):
+  File "src/PairwiseYeastNetwork/Parallel/Model7.py", line 3, in <module>
+    from ModelTester import test
+  File "./src/PairwiseYeastNetwork/ModelTester.py", line 1, in <module>
+    from PairwiseYeastData import PairwiseYeastData
+  File "./src/PairwiseYeastNetwork/PairwiseYeastData.py", line 2, in <module>
+    from YeastDataFile import YeastDataFile
+  File "./src/PairwiseYeastNetwork/YeastDataFile.py", line 3, in <module>
+    import pandas as pd
+  File "/users/cmcguir1/.local/lib/python3.7/site-packages/pandas/__init__.py", line 17, in <module>
+    "Unable to import required dependencies:\n" + "\n".join(missing_dependencies)
+ImportError: Unable to import required dependencies:
+numpy: cannot import name 'core' from 'numpy' (/users/cmcguir1/.local/lib/python3.7/site-packages/numpy/__init__.py)
+Traceback (most recent call last):
+  File "src/PairwiseYeastNetwork/Parallel/Model8.py", line 3, in <module>
+    from ModelTester import test
+  File "./src/PairwiseYeastNetwork/ModelTester.py", line 1, in <module>
+    from PairwiseYeastData import PairwiseYeastData
+  File "./src/PairwiseYeastNetwork/PairwiseYeastData.py", line 2, in <module>
+    from YeastDataFile import YeastDataFile
+  File "./src/PairwiseYeastNetwork/YeastDataFile.py", line 3, in <module>
+    import pandas as pd
+  File "/users/cmcguir1/.local/lib/python3.7/site-packages/pandas/__init__.py", line 17, in <module>
+    "Unable to import required dependencies:\n" + "\n".join(missing_dependencies)
+ImportError: Unable to import required dependencies:
+numpy: cannot import name 'core' from 'numpy' (/users/cmcguir1/.local/lib/python3.7/site-packages/numpy/__init__.py)
+Traceback (most recent call last):
+  File "src/PairwiseYeastNetwork/Parallel/Model9.py", line 3, in <module>
+    from ModelTester import test
+  File "./src/PairwiseYeastNetwork/ModelTester.py", line 1, in <module>
+    from PairwiseYeastData import PairwiseYeastData
+  File "./src/PairwiseYeastNetwork/PairwiseYeastData.py", line 2, in <module>
+    from YeastDataFile import YeastDataFile
+  File "./src/PairwiseYeastNetwork/YeastDataFile.py", line 3, in <module>
+    import pandas as pd
+  File "/users/cmcguir1/.local/lib/python3.7/site-packages/pandas/__init__.py", line 17, in <module>
+    "Unable to import required dependencies:\n" + "\n".join(missing_dependencies)
+ImportError: Unable to import required dependencies:
+numpy: cannot import name 'core' from 'numpy' (/users/cmcguir1/.local/lib/python3.7/site-packages/numpy/__init__.py)
+Traceback (most recent call last):
+  File "src/PairwiseYeastNetwork/Parallel/Model11.py", line 3, in <module>
+    from ModelTester import test
+  File "./src/PairwiseYeastNetwork/ModelTester.py", line 1, in <module>
+    from PairwiseYeastData import PairwiseYeastData
+  File "./src/PairwiseYeastNetwork/PairwiseYeastData.py", line 2, in <module>
+    from YeastDataFile import YeastDataFile
+  File "./src/PairwiseYeastNetwork/YeastDataFile.py", line 3, in <module>
+    import pandas as pd
+  File "/users/cmcguir1/.local/lib/python3.7/site-packages/pandas/__init__.py", line 17, in <module>
+    "Unable to import required dependencies:\n" + "\n".join(missing_dependencies)
+ImportError: Unable to import required dependencies:
+numpy: cannot import name 'core' from 'numpy' (/users/cmcguir1/.local/lib/python3.7/site-packages/numpy/__init__.py)
+Traceback (most recent call last):
+  File "src/PairwiseYeastNetwork/Parallel/Model12.py", line 3, in <module>
+    from ModelTester import test
+  File "./src/PairwiseYeastNetwork/ModelTester.py", line 1, in <module>
+    from PairwiseYeastData import PairwiseYeastData
+  File "./src/PairwiseYeastNetwork/PairwiseYeastData.py", line 2, in <module>
+    from YeastDataFile import YeastDataFile
+  File "./src/PairwiseYeastNetwork/YeastDataFile.py", line 3, in <module>
+    import pandas as pd
+  File "/users/cmcguir1/.local/lib/python3.7/site-packages/pandas/__init__.py", line 17, in <module>
+    "Unable to import required dependencies:\n" + "\n".join(missing_dependencies)
+ImportError: Unable to import required dependencies:
+numpy: cannot import name 'core' from 'numpy' (/users/cmcguir1/.local/lib/python3.7/site-packages/numpy/__init__.py)
+Traceback (most recent call last):
+  File "src/PairwiseYeastNetwork/Parallel/Model13.py", line 3, in <module>
+    from ModelTester import test
+  File "./src/PairwiseYeastNetwork/ModelTester.py", line 1, in <module>
+    from PairwiseYeastData import PairwiseYeastData
+  File "./src/PairwiseYeastNetwork/PairwiseYeastData.py", line 2, in <module>
+    from YeastDataFile import YeastDataFile
+  File "./src/PairwiseYeastNetwork/YeastDataFile.py", line 3, in <module>
+    import pandas as pd
+  File "/users/cmcguir1/.local/lib/python3.7/site-packages/pandas/__init__.py", line 17, in <module>
+    "Unable to import required dependencies:\n" + "\n".join(missing_dependencies)
+ImportError: Unable to import required dependencies:
+numpy: cannot import name 'core' from 'numpy' (/users/cmcguir1/.local/lib/python3.7/site-packages/numpy/__init__.py)
+Traceback (most recent call last):
+  File "src/PairwiseYeastNetwork/Parallel/Model14.py", line 3, in <module>
+    from ModelTester import test
+  File "./src/PairwiseYeastNetwork/ModelTester.py", line 1, in <module>
+    from PairwiseYeastData import PairwiseYeastData
+  File "./src/PairwiseYeastNetwork/PairwiseYeastData.py", line 2, in <module>
+    from YeastDataFile import YeastDataFile
+  File "./src/PairwiseYeastNetwork/YeastDataFile.py", line 3, in <module>
+    import pandas as pd
+  File "/users/cmcguir1/.local/lib/python3.7/site-packages/pandas/__init__.py", line 17, in <module>
+    "Unable to import required dependencies:\n" + "\n".join(missing_dependencies)
+ImportError: Unable to import required dependencies:
+numpy: cannot import name 'core' from 'numpy' (/users/cmcguir1/.local/lib/python3.7/site-packages/numpy/__init__.py)
+Traceback (most recent call last):
+  File "src/PairwiseYeastNetwork/Parallel/Model15.py", line 3, in <module>
+    from ModelTester import test
+  File "./src/PairwiseYeastNetwork/ModelTester.py", line 1, in <module>
+    from PairwiseYeastData import PairwiseYeastData
+  File "./src/PairwiseYeastNetwork/PairwiseYeastData.py", line 2, in <module>
+    from YeastDataFile import YeastDataFile
+  File "./src/PairwiseYeastNetwork/YeastDataFile.py", line 3, in <module>
+    import pandas as pd
+  File "/users/cmcguir1/.local/lib/python3.7/site-packages/pandas/__init__.py", line 17, in <module>
+    "Unable to import required dependencies:\n" + "\n".join(missing_dependencies)
+ImportError: Unable to import required dependencies:
+numpy: cannot import name 'core' from 'numpy' (/users/cmcguir1/.local/lib/python3.7/site-packages/numpy/__init__.py)
+Traceback (most recent call last):
+  File "src/PairwiseYeastNetwork/Parallel/Model16.py", line 3, in <module>
+    from ModelTester import test
+  File "./src/PairwiseYeastNetwork/ModelTester.py", line 1, in <module>
+    from PairwiseYeastData import PairwiseYeastData
+  File "./src/PairwiseYeastNetwork/PairwiseYeastData.py", line 2, in <module>
+    from YeastDataFile import YeastDataFile
+  File "./src/PairwiseYeastNetwork/YeastDataFile.py", line 3, in <module>
+    import pandas as pd
+  File "/users/cmcguir1/.local/lib/python3.7/site-packages/pandas/__init__.py", line 17, in <module>
+    "Unable to import required dependencies:\n" + "\n".join(missing_dependencies)
+ImportError: Unable to import required dependencies:
+numpy: cannot import name 'core' from 'numpy' (/users/cmcguir1/.local/lib/python3.7/site-packages/numpy/__init__.py)
+Traceback (most recent call last):
+  File "src/PairwiseYeastNetwork/Parallel/Model17.py", line 3, in <module>
+    from ModelTester import test
+  File "./src/PairwiseYeastNetwork/ModelTester.py", line 1, in <module>
+    from PairwiseYeastData import PairwiseYeastData
+  File "./src/PairwiseYeastNetwork/PairwiseYeastData.py", line 2, in <module>
+    from YeastDataFile import YeastDataFile
+  File "./src/PairwiseYeastNetwork/YeastDataFile.py", line 3, in <module>
+    import pandas as pd
+  File "/users/cmcguir1/.local/lib/python3.7/site-packages/pandas/__init__.py", line 17, in <module>
+    "Unable to import required dependencies:\n" + "\n".join(missing_dependencies)
+ImportError: Unable to import required dependencies:
+numpy: cannot import name 'core' from 'numpy' (/users/cmcguir1/.local/lib/python3.7/site-packages/numpy/__init__.py)
+Traceback (most recent call last):
+  File "src/PairwiseYeastNetwork/Parallel/Model18.py", line 3, in <module>
+    from ModelTester import test
+  File "./src/PairwiseYeastNetwork/ModelTester.py", line 1, in <module>
+    from PairwiseYeastData import PairwiseYeastData
+  File "./src/PairwiseYeastNetwork/PairwiseYeastData.py", line 2, in <module>
+    from YeastDataFile import YeastDataFile
+  File "./src/PairwiseYeastNetwork/YeastDataFile.py", line 3, in <module>
+    import pandas as pd
+  File "/users/cmcguir1/.local/lib/python3.7/site-packages/pandas/__init__.py", line 17, in <module>
+    "Unable to import required dependencies:\n" + "\n".join(missing_dependencies)
+ImportError: Unable to import required dependencies:
+numpy: cannot import name 'core' from 'numpy' (/users/cmcguir1/.local/lib/python3.7/site-packages/numpy/__init__.py)
+Traceback (most recent call last):
+  File "src/PairwiseYeastNetwork/Parallel/Model19.py", line 3, in <module>
+    from ModelTester import test
+  File "./src/PairwiseYeastNetwork/ModelTester.py", line 1, in <module>
+    from PairwiseYeastData import PairwiseYeastData
+  File "./src/PairwiseYeastNetwork/PairwiseYeastData.py", line 2, in <module>
+    from YeastDataFile import YeastDataFile
+  File "./src/PairwiseYeastNetwork/YeastDataFile.py", line 3, in <module>
+    import pandas as pd
+  File "/users/cmcguir1/.local/lib/python3.7/site-packages/pandas/__init__.py", line 17, in <module>
+    "Unable to import required dependencies:\n" + "\n".join(missing_dependencies)
+ImportError: Unable to import required dependencies:
+numpy: cannot import name 'core' from 'numpy' (/users/cmcguir1/.local/lib/python3.7/site-packages/numpy/__init__.py)
+Traceback (most recent call last):
+  File "src/PairwiseYeastNetwork/Parallel/Model20.py", line 3, in <module>
+    from ModelTester import test
+  File "./src/PairwiseYeastNetwork/ModelTester.py", line 1, in <module>
+    from PairwiseYeastData import PairwiseYeastData
+  File "./src/PairwiseYeastNetwork/PairwiseYeastData.py", line 2, in <module>
+    from YeastDataFile import YeastDataFile
+  File "./src/PairwiseYeastNetwork/YeastDataFile.py", line 3, in <module>
+    import pandas as pd
+  File "/users/cmcguir1/.local/lib/python3.7/site-packages/pandas/__init__.py", line 17, in <module>
+    "Unable to import required dependencies:\n" + "\n".join(missing_dependencies)
+ImportError: Unable to import required dependencies:
+numpy: cannot import name 'core' from 'numpy' (/users/cmcguir1/.local/lib/python3.7/site-packages/numpy/__init__.py)
+Began Loading Data
+Traceback (most recent call last):
+  File "src/PairwiseYeastNetwork/Parallel/Model1.py", line 14, in <module>
+    main()
+  File "src/PairwiseYeastNetwork/Parallel/Model1.py", line 10, in main
+    test(0,'DNARepair',posGenes='./Yeast Resources/GeneSets/GO0006302_Pos.txt',negGenes='./Yeast Resources\GeneSets\GO0006302_Neg.txt',foldFile='./Yeast Resources/GeneSets/GO0006302Folds1.csv')
+  File "./src/PairwiseYeastNetwork/ModelTester.py", line 17, in test
+    modelData = PairwiseYeastData('Yeast Resources/Datasets/All Spell/all spell datasets',4,subset=200000,numDatasets=datasets,statsDictLoc='./Yeast Resources/Datasets/All Spell/statsDict.csv',recalc=False,foldFile=foldFile,posGenes=posGenes,negGenes=negGenes)
+  File "./src/PairwiseYeastNetwork/PairwiseYeastData.py", line 12, in __init__
+    self.negDataList = pd.read_csv(negGenes).to_numpy().flatten().tolist()
+  File "/users/cmcguir1/.local/lib/python3.7/site-packages/pandas/util/_decorators.py", line 311, in wrapper
+    return func(*args, **kwargs)
+  File "/users/cmcguir1/.local/lib/python3.7/site-packages/pandas/io/parsers/readers.py", line 586, in read_csv
+    return _read(filepath_or_buffer, kwds)
+  File "/users/cmcguir1/.local/lib/python3.7/site-packages/pandas/io/parsers/readers.py", line 482, in _read
+    parser = TextFileReader(filepath_or_buffer, **kwds)
+  File "/users/cmcguir1/.local/lib/python3.7/site-packages/pandas/io/parsers/readers.py", line 811, in __init__
+    self._engine = self._make_engine(self.engine)
+  File "/users/cmcguir1/.local/lib/python3.7/site-packages/pandas/io/parsers/readers.py", line 1040, in _make_engine
+    return mapping[engine](self.f, **self.options)  # type: ignore[call-arg]
+  File "/users/cmcguir1/.local/lib/python3.7/site-packages/pandas/io/parsers/c_parser_wrapper.py", line 51, in __init__
+    self._open_handles(src, kwds)
+  File "/users/cmcguir1/.local/lib/python3.7/site-packages/pandas/io/parsers/base_parser.py", line 229, in _open_handles
+    errors=kwds.get("encoding_errors", "strict"),
+  File "/users/cmcguir1/.local/lib/python3.7/site-packages/pandas/io/common.py", line 707, in get_handle
+    newline="",
+FileNotFoundError: [Errno 2] No such file or directory: './Yeast Resources\\GeneSets\\GO0006302_Neg.txt'
+Began Loading Data
+Traceback (most recent call last):
+  File "src/PairwiseYeastNetwork/Parallel/Model2.py", line 14, in <module>
+    main()
+  File "src/PairwiseYeastNetwork/Parallel/Model2.py", line 10, in main
+    test(1,'DNARepair',posGenes='./Yeast Resources/GeneSets/GO0006302_Pos.txt',negGenes='./Yeast Resources\GeneSets\GO0006302_Neg.txt',foldFile='./Yeast Resources/GeneSets/GO0006302Folds1.csv')
+  File "./src/PairwiseYeastNetwork/ModelTester.py", line 17, in test
+    modelData = PairwiseYeastData('Yeast Resources/Datasets/All Spell/all spell datasets',4,subset=200000,numDatasets=datasets,statsDictLoc='./Yeast Resources/Datasets/All Spell/statsDict.csv',recalc=False,foldFile=foldFile,posGenes=posGenes,negGenes=negGenes)
+  File "./src/PairwiseYeastNetwork/PairwiseYeastData.py", line 12, in __init__
+    self.negDataList = pd.read_csv(negGenes).to_numpy().flatten().tolist()
+  File "/users/cmcguir1/.local/lib/python3.7/site-packages/pandas/util/_decorators.py", line 311, in wrapper
+    return func(*args, **kwargs)
+  File "/users/cmcguir1/.local/lib/python3.7/site-packages/pandas/io/parsers/readers.py", line 586, in read_csv
+    return _read(filepath_or_buffer, kwds)
+  File "/users/cmcguir1/.local/lib/python3.7/site-packages/pandas/io/parsers/readers.py", line 482, in _read
+    parser = TextFileReader(filepath_or_buffer, **kwds)
+  File "/users/cmcguir1/.local/lib/python3.7/site-packages/pandas/io/parsers/readers.py", line 811, in __init__
+    self._engine = self._make_engine(self.engine)
+  File "/users/cmcguir1/.local/lib/python3.7/site-packages/pandas/io/parsers/readers.py", line 1040, in _make_engine
+    return mapping[engine](self.f, **self.options)  # type: ignore[call-arg]
+  File "/users/cmcguir1/.local/lib/python3.7/site-packages/pandas/io/parsers/c_parser_wrapper.py", line 51, in __init__
+    self._open_handles(src, kwds)
+  File "/users/cmcguir1/.local/lib/python3.7/site-packages/pandas/io/parsers/base_parser.py", line 229, in _open_handles
+    errors=kwds.get("encoding_errors", "strict"),
+  File "/users/cmcguir1/.local/lib/python3.7/site-packages/pandas/io/common.py", line 707, in get_handle
+    newline="",
+FileNotFoundError: [Errno 2] No such file or directory: './Yeast Resources\\GeneSets\\GO0006302_Neg.txt'
+Began Loading Data
+Traceback (most recent call last):
+  File "src/PairwiseYeastNetwork/Parallel/Model3.py", line 14, in <module>
+    main()
+  File "src/PairwiseYeastNetwork/Parallel/Model3.py", line 10, in main
+    test(2,'DNARepair',posGenes='./Yeast Resources/GeneSets/GO0006302_Pos.txt',negGenes='./Yeast Resources\GeneSets\GO0006302_Neg.txt',foldFile='./Yeast Resources/GeneSets/GO0006302Folds1.csv')
+  File "./src/PairwiseYeastNetwork/ModelTester.py", line 17, in test
+    modelData = PairwiseYeastData('Yeast Resources/Datasets/All Spell/all spell datasets',4,subset=200000,numDatasets=datasets,statsDictLoc='./Yeast Resources/Datasets/All Spell/statsDict.csv',recalc=False,foldFile=foldFile,posGenes=posGenes,negGenes=negGenes)
+  File "./src/PairwiseYeastNetwork/PairwiseYeastData.py", line 12, in __init__
+    self.negDataList = pd.read_csv(negGenes).to_numpy().flatten().tolist()
+  File "/users/cmcguir1/.local/lib/python3.7/site-packages/pandas/util/_decorators.py", line 311, in wrapper
+    return func(*args, **kwargs)
+  File "/users/cmcguir1/.local/lib/python3.7/site-packages/pandas/io/parsers/readers.py", line 586, in read_csv
+    return _read(filepath_or_buffer, kwds)
+  File "/users/cmcguir1/.local/lib/python3.7/site-packages/pandas/io/parsers/readers.py", line 482, in _read
+    parser = TextFileReader(filepath_or_buffer, **kwds)
+  File "/users/cmcguir1/.local/lib/python3.7/site-packages/pandas/io/parsers/readers.py", line 811, in __init__
+    self._engine = self._make_engine(self.engine)
+  File "/users/cmcguir1/.local/lib/python3.7/site-packages/pandas/io/parsers/readers.py", line 1040, in _make_engine
+    return mapping[engine](self.f, **self.options)  # type: ignore[call-arg]
+  File "/users/cmcguir1/.local/lib/python3.7/site-packages/pandas/io/parsers/c_parser_wrapper.py", line 51, in __init__
+    self._open_handles(src, kwds)
+  File "/users/cmcguir1/.local/lib/python3.7/site-packages/pandas/io/parsers/base_parser.py", line 229, in _open_handles
+    errors=kwds.get("encoding_errors", "strict"),
+  File "/users/cmcguir1/.local/lib/python3.7/site-packages/pandas/io/common.py", line 707, in get_handle
+    newline="",
+FileNotFoundError: [Errno 2] No such file or directory: './Yeast Resources\\GeneSets\\GO0006302_Neg.txt'
+Began Loading Data
+Traceback (most recent call last):
+  File "src/PairwiseYeastNetwork/Parallel/Model4.py", line 14, in <module>
+    main()
+  File "src/PairwiseYeastNetwork/Parallel/Model4.py", line 10, in main
+    test(3,'DNARepair',posGenes='./Yeast Resources/GeneSets/GO0006302_Pos.txt',negGenes='./Yeast Resources\GeneSets\GO0006302_Neg.txt',foldFile='./Yeast Resources/GeneSets/GO0006302Folds1.csv')
+  File "./src/PairwiseYeastNetwork/ModelTester.py", line 17, in test
+    modelData = PairwiseYeastData('Yeast Resources/Datasets/All Spell/all spell datasets',4,subset=200000,numDatasets=datasets,statsDictLoc='./Yeast Resources/Datasets/All Spell/statsDict.csv',recalc=False,foldFile=foldFile,posGenes=posGenes,negGenes=negGenes)
+  File "./src/PairwiseYeastNetwork/PairwiseYeastData.py", line 12, in __init__
+    self.negDataList = pd.read_csv(negGenes).to_numpy().flatten().tolist()
+  File "/users/cmcguir1/.local/lib/python3.7/site-packages/pandas/util/_decorators.py", line 311, in wrapper
+    return func(*args, **kwargs)
+  File "/users/cmcguir1/.local/lib/python3.7/site-packages/pandas/io/parsers/readers.py", line 586, in read_csv
+    return _read(filepath_or_buffer, kwds)
+  File "/users/cmcguir1/.local/lib/python3.7/site-packages/pandas/io/parsers/readers.py", line 482, in _read
+    parser = TextFileReader(filepath_or_buffer, **kwds)
+  File "/users/cmcguir1/.local/lib/python3.7/site-packages/pandas/io/parsers/readers.py", line 811, in __init__
+    self._engine = self._make_engine(self.engine)
+  File "/users/cmcguir1/.local/lib/python3.7/site-packages/pandas/io/parsers/readers.py", line 1040, in _make_engine
+    return mapping[engine](self.f, **self.options)  # type: ignore[call-arg]
+  File "/users/cmcguir1/.local/lib/python3.7/site-packages/pandas/io/parsers/c_parser_wrapper.py", line 51, in __init__
+    self._open_handles(src, kwds)
+  File "/users/cmcguir1/.local/lib/python3.7/site-packages/pandas/io/parsers/base_parser.py", line 229, in _open_handles
+    errors=kwds.get("encoding_errors", "strict"),
+  File "/users/cmcguir1/.local/lib/python3.7/site-packages/pandas/io/common.py", line 707, in get_handle
+    newline="",
+FileNotFoundError: [Errno 2] No such file or directory: './Yeast Resources\\GeneSets\\GO0006302_Neg.txt'
+Began Loading Data
+Traceback (most recent call last):
+  File "src/PairwiseYeastNetwork/Parallel/Model5.py", line 14, in <module>
+    main()
+  File "src/PairwiseYeastNetwork/Parallel/Model5.py", line 10, in main
+    test(0,'Meiosis',posGenes='./Yeast Resources/GeneSets/GO0007127_Pos.txt',negGenes='./Yeast Resources\GeneSets\GO0007127_Neg.txt',foldFile='./Yeast Resources/GeneSets/GO0007127Folds1.csv')
+  File "./src/PairwiseYeastNetwork/ModelTester.py", line 17, in test
+    modelData = PairwiseYeastData('Yeast Resources/Datasets/All Spell/all spell datasets',4,subset=200000,numDatasets=datasets,statsDictLoc='./Yeast Resources/Datasets/All Spell/statsDict.csv',recalc=False,foldFile=foldFile,posGenes=posGenes,negGenes=negGenes)
+  File "./src/PairwiseYeastNetwork/PairwiseYeastData.py", line 12, in __init__
+    self.negDataList = pd.read_csv(negGenes).to_numpy().flatten().tolist()
+  File "/users/cmcguir1/.local/lib/python3.7/site-packages/pandas/util/_decorators.py", line 311, in wrapper
+    return func(*args, **kwargs)
+  File "/users/cmcguir1/.local/lib/python3.7/site-packages/pandas/io/parsers/readers.py", line 586, in read_csv
+    return _read(filepath_or_buffer, kwds)
+  File "/users/cmcguir1/.local/lib/python3.7/site-packages/pandas/io/parsers/readers.py", line 482, in _read
+    parser = TextFileReader(filepath_or_buffer, **kwds)
+  File "/users/cmcguir1/.local/lib/python3.7/site-packages/pandas/io/parsers/readers.py", line 811, in __init__
+    self._engine = self._make_engine(self.engine)
+  File "/users/cmcguir1/.local/lib/python3.7/site-packages/pandas/io/parsers/readers.py", line 1040, in _make_engine
+    return mapping[engine](self.f, **self.options)  # type: ignore[call-arg]
+  File "/users/cmcguir1/.local/lib/python3.7/site-packages/pandas/io/parsers/c_parser_wrapper.py", line 51, in __init__
+    self._open_handles(src, kwds)
+  File "/users/cmcguir1/.local/lib/python3.7/site-packages/pandas/io/parsers/base_parser.py", line 229, in _open_handles
+    errors=kwds.get("encoding_errors", "strict"),
+  File "/users/cmcguir1/.local/lib/python3.7/site-packages/pandas/io/common.py", line 707, in get_handle
+    newline="",
+FileNotFoundError: [Errno 2] No such file or directory: './Yeast Resources\\GeneSets\\GO0007127_Neg.txt'
+Began Loading Data
+Traceback (most recent call last):
+  File "src/PairwiseYeastNetwork/Parallel/Model6.py", line 14, in <module>
+    main()
+  File "src/PairwiseYeastNetwork/Parallel/Model6.py", line 10, in main
+    test(1,'Meiosis',posGenes='./Yeast Resources/GeneSets/GO0007127_Pos.txt',negGenes=',/Yeast Resources\GeneSets\GO0007127_Neg.txt',foldFile='./Yeast Resources/GeneSets/GO0007127Folds1.csv')
+  File "./src/PairwiseYeastNetwork/ModelTester.py", line 17, in test
+    modelData = PairwiseYeastData('Yeast Resources/Datasets/All Spell/all spell datasets',4,subset=200000,numDatasets=datasets,statsDictLoc='./Yeast Resources/Datasets/All Spell/statsDict.csv',recalc=False,foldFile=foldFile,posGenes=posGenes,negGenes=negGenes)
+  File "./src/PairwiseYeastNetwork/PairwiseYeastData.py", line 12, in __init__
+    self.negDataList = pd.read_csv(negGenes).to_numpy().flatten().tolist()
+  File "/users/cmcguir1/.local/lib/python3.7/site-packages/pandas/util/_decorators.py", line 311, in wrapper
+    return func(*args, **kwargs)
+  File "/users/cmcguir1/.local/lib/python3.7/site-packages/pandas/io/parsers/readers.py", line 586, in read_csv
+    return _read(filepath_or_buffer, kwds)
+  File "/users/cmcguir1/.local/lib/python3.7/site-packages/pandas/io/parsers/readers.py", line 482, in _read
+    parser = TextFileReader(filepath_or_buffer, **kwds)
+  File "/users/cmcguir1/.local/lib/python3.7/site-packages/pandas/io/parsers/readers.py", line 811, in __init__
+    self._engine = self._make_engine(self.engine)
+  File "/users/cmcguir1/.local/lib/python3.7/site-packages/pandas/io/parsers/readers.py", line 1040, in _make_engine
+    return mapping[engine](self.f, **self.options)  # type: ignore[call-arg]
+  File "/users/cmcguir1/.local/lib/python3.7/site-packages/pandas/io/parsers/c_parser_wrapper.py", line 51, in __init__
+    self._open_handles(src, kwds)
+  File "/users/cmcguir1/.local/lib/python3.7/site-packages/pandas/io/parsers/base_parser.py", line 229, in _open_handles
+    errors=kwds.get("encoding_errors", "strict"),
+  File "/users/cmcguir1/.local/lib/python3.7/site-packages/pandas/io/common.py", line 707, in get_handle
+    newline="",
+FileNotFoundError: [Errno 2] No such file or directory: ',/Yeast Resources\\GeneSets\\GO0007127_Neg.txt'
+Began Loading Data
+Traceback (most recent call last):
+  File "src/PairwiseYeastNetwork/Parallel/Model7.py", line 14, in <module>
+    main()
+  File "src/PairwiseYeastNetwork/Parallel/Model7.py", line 10, in main
+    test(2,'Meiosis',posGenes='./Yeast Resources/GeneSets/GO0007127_Pos.txt',negGenes=',/Yeast Resources\GeneSets\GO0007127_Neg.txt',foldFile='./Yeast Resources/GeneSets/GO0007127Folds1.csv')
+  File "./src/PairwiseYeastNetwork/ModelTester.py", line 17, in test
+    modelData = PairwiseYeastData('Yeast Resources/Datasets/All Spell/all spell datasets',4,subset=200000,numDatasets=datasets,statsDictLoc='./Yeast Resources/Datasets/All Spell/statsDict.csv',recalc=False,foldFile=foldFile,posGenes=posGenes,negGenes=negGenes)
+  File "./src/PairwiseYeastNetwork/PairwiseYeastData.py", line 12, in __init__
+    self.negDataList = pd.read_csv(negGenes).to_numpy().flatten().tolist()
+  File "/users/cmcguir1/.local/lib/python3.7/site-packages/pandas/util/_decorators.py", line 311, in wrapper
+    return func(*args, **kwargs)
+  File "/users/cmcguir1/.local/lib/python3.7/site-packages/pandas/io/parsers/readers.py", line 586, in read_csv
+    return _read(filepath_or_buffer, kwds)
+  File "/users/cmcguir1/.local/lib/python3.7/site-packages/pandas/io/parsers/readers.py", line 482, in _read
+    parser = TextFileReader(filepath_or_buffer, **kwds)
+  File "/users/cmcguir1/.local/lib/python3.7/site-packages/pandas/io/parsers/readers.py", line 811, in __init__
+    self._engine = self._make_engine(self.engine)
+  File "/users/cmcguir1/.local/lib/python3.7/site-packages/pandas/io/parsers/readers.py", line 1040, in _make_engine
+    return mapping[engine](self.f, **self.options)  # type: ignore[call-arg]
+  File "/users/cmcguir1/.local/lib/python3.7/site-packages/pandas/io/parsers/c_parser_wrapper.py", line 51, in __init__
+    self._open_handles(src, kwds)
+  File "/users/cmcguir1/.local/lib/python3.7/site-packages/pandas/io/parsers/base_parser.py", line 229, in _open_handles
+    errors=kwds.get("encoding_errors", "strict"),
+  File "/users/cmcguir1/.local/lib/python3.7/site-packages/pandas/io/common.py", line 707, in get_handle
+    newline="",
+FileNotFoundError: [Errno 2] No such file or directory: ',/Yeast Resources\\GeneSets\\GO0007127_Neg.txt'
+Began Loading Data
+Traceback (most recent call last):
+  File "src/PairwiseYeastNetwork/Parallel/Model8.py", line 14, in <module>
+    main()
+  File "src/PairwiseYeastNetwork/Parallel/Model8.py", line 10, in main
+    test(3,'Meiosis',posGenes='./Yeast Resources/GeneSets/GO0007127_Pos.txt',negGenes=',/Yeast Resources\GeneSets\GO0007127_Neg.txt',foldFile='./Yeast Resources/GeneSets/GO0007127Folds1.csv')
+  File "./src/PairwiseYeastNetwork/ModelTester.py", line 17, in test
+    modelData = PairwiseYeastData('Yeast Resources/Datasets/All Spell/all spell datasets',4,subset=200000,numDatasets=datasets,statsDictLoc='./Yeast Resources/Datasets/All Spell/statsDict.csv',recalc=False,foldFile=foldFile,posGenes=posGenes,negGenes=negGenes)
+  File "./src/PairwiseYeastNetwork/PairwiseYeastData.py", line 12, in __init__
+    self.negDataList = pd.read_csv(negGenes).to_numpy().flatten().tolist()
+  File "/users/cmcguir1/.local/lib/python3.7/site-packages/pandas/util/_decorators.py", line 311, in wrapper
+    return func(*args, **kwargs)
+  File "/users/cmcguir1/.local/lib/python3.7/site-packages/pandas/io/parsers/readers.py", line 586, in read_csv
+    return _read(filepath_or_buffer, kwds)
+  File "/users/cmcguir1/.local/lib/python3.7/site-packages/pandas/io/parsers/readers.py", line 482, in _read
+    parser = TextFileReader(filepath_or_buffer, **kwds)
+  File "/users/cmcguir1/.local/lib/python3.7/site-packages/pandas/io/parsers/readers.py", line 811, in __init__
+    self._engine = self._make_engine(self.engine)
+  File "/users/cmcguir1/.local/lib/python3.7/site-packages/pandas/io/parsers/readers.py", line 1040, in _make_engine
+    return mapping[engine](self.f, **self.options)  # type: ignore[call-arg]
+  File "/users/cmcguir1/.local/lib/python3.7/site-packages/pandas/io/parsers/c_parser_wrapper.py", line 51, in __init__
+    self._open_handles(src, kwds)
+  File "/users/cmcguir1/.local/lib/python3.7/site-packages/pandas/io/parsers/base_parser.py", line 229, in _open_handles
+    errors=kwds.get("encoding_errors", "strict"),
+  File "/users/cmcguir1/.local/lib/python3.7/site-packages/pandas/io/common.py", line 707, in get_handle
+    newline="",
+FileNotFoundError: [Errno 2] No such file or directory: ',/Yeast Resources\\GeneSets\\GO0007127_Neg.txt'
+Began Loading Data
+Finished Loading Data
+Batch 0 Loss:	0.7087843418121338
+Batch 0 Time:	0.19809637467066446 minutes
+Batch 100 Loss:	52.60558369755745
+Batch 100 Time:	2.613608988126119 minutes
+Batch 200 Loss:	46.021104514598846
+Batch 200 Time:	2.5895884950955708 minutes
+Batch 300 Loss:	40.470024794340134
+Batch 300 Time:	2.584152328968048 minutes
+Batch 400 Loss:	37.26869086921215
+Batch 400 Time:	2.614511521657308 minutes
+Batch 500 Loss:	35.13795218616724
+Batch 500 Time:	2.5962434887886046 minutes
+Batch 600 Loss:	36.29478745162487
+Batch 600 Time:	2.610465967655182 minutes
+Batch 700 Loss:	32.70680545270443
+Batch 700 Time:	2.5657378991444904 minutes
+Batch 800 Loss:	30.95083341561258
+Batch 800 Time:	2.56609232823054 minutes
+Batch 900 Loss:	31.747814532369375
+Batch 900 Time:	2.5961466868718466 minutes
+Batch 1000 Loss:	29.34663087502122
+Batch 1000 Time:	2.587221360206604 minutes
+Batch 1100 Loss:	29.713508244603872
+Batch 1100 Time:	2.594447366396586 minutes
+Batch 1200 Loss:	28.44805159047246
+Batch 1200 Time:	2.562098697821299 minutes
+Batch 1300 Loss:	24.321239944547415
+Batch 1300 Time:	2.5923583149909972 minutes
+Batch 1400 Loss:	25.985060766339302
+Batch 1400 Time:	2.581428535779317 minutes
+Batch 1500 Loss:	25.465519823133945
+Batch 1500 Time:	2.570467507839203 minutes
+Batch 1600 Loss:	23.175374260172248
+Batch 1600 Time:	2.560639580090841 minutes
+Batch 1700 Loss:	24.759011114016175
+Batch 1700 Time:	2.5587133685747783 minutes
+Batch 1800 Loss:	24.86302433349192
+Batch 1800 Time:	2.599072154362996 minutes
+Batch 1900 Loss:	25.91657998226583
+Batch 1900 Time:	2.6042423248291016 minutes
+Batch 2000 Loss:	20.666138818487525
+Batch 2000 Time:	2.56298410097758 minutes
+Batch 2100 Loss:	20.795541547238827
+Batch 2100 Time:	2.5589951316515607 minutes
+Batch 2200 Loss:	19.072666650172323
+Batch 2200 Time:	2.588654323418935 minutes
+Batch 2300 Loss:	26.326421718113124
+Batch 2300 Time:	2.578645610809326 minutes
+Batch 2400 Loss:	23.89349730592221
+Batch 2400 Time:	2.569062650203705 minutes
+Batch 2500 Loss:	27.176242111250758
+Batch 2500 Time:	2.643119982878367 minutes
+Batch 2600 Loss:	22.694828196428716
+Batch 2600 Time:	2.5813493847846987 minutes
+Batch 2700 Loss:	22.962185250595212
+Batch 2700 Time:	2.5679919521013894 minutes
+Batch 2800 Loss:	32.2367211971432
+Batch 2800 Time:	2.55625718832016 minutes
+Batch 2900 Loss:	24.03080313652754
+Batch 2900 Time:	2.5768237630526225 minutes
+Batch 3000 Loss:	19.239632844459265
+Batch 3000 Time:	2.5797563473383587 minutes
+Batch 3100 Loss:	23.611329646781087
+Batch 3100 Time:	2.5680450042088827 minutes
+Batch 3200 Loss:	29.56722137145698
+Batch 3200 Time:	2.5441609025001526 minutes
+Batch 3300 Loss:	23.89929267927073
+Batch 3300 Time:	2.567047452926636 minutes
+Batch 3400 Loss:	17.06068712938577
+Batch 3400 Time:	2.593455986181895 minutes
+Batch 3500 Loss:	21.170363357989118
+Batch 3500 Time:	2.5449578364690146 minutes
+Batch 3600 Loss:	17.07528027240187
+Batch 3600 Time:	2.58542693456014 minutes
+Batch 3700 Loss:	18.066168101970106
+Batch 3700 Time:	2.5669297496477763 minutes
+Batch 3800 Loss:	21.469091962091625
+Batch 3800 Time:	2.586109256744385 minutes
+Batch 3900 Loss:	24.17530200816691
+Batch 3900 Time:	2.565052620569865 minutes
+Batch 4000 Loss:	20.662299248040654
+Batch 4000 Time:	2.561682693163554 minutes
+Batch 4100 Loss:	22.988816334865987
+Batch 4100 Time:	2.6085936784744264 minutes
+Batch 4200 Loss:	21.190424233675003
+Batch 4200 Time:	2.5721766034762066 minutes
+Batch 4300 Loss:	18.194178318604827
+Batch 4300 Time:	2.5518993298212687 minutes
+Batch 4400 Loss:	30.577175971520774
+Batch 4400 Time:	2.5534798860549928 minutes
+Batch 4500 Loss:	19.389508908614516
+Batch 4500 Time:	2.5781960050264994 minutes
+Batch 4600 Loss:	25.775315629551187
+Batch 4600 Time:	2.5544724384943645 minutes
+Batch 4700 Loss:	23.898585556074977
+Batch 4700 Time:	2.5837263226509095 minutes
+Batch 4800 Loss:	33.829426161944866
+Batch 4800 Time:	2.5846774021784467 minutes
+Batch 4900 Loss:	17.452910837251693
+Batch 4900 Time:	2.5650809605916343 minutes
+Batch 5000 Loss:	21.08060384914279
+Batch 5000 Time:	2.5630946199099225 minutes
+Batch 5100 Loss:	17.847722905222327
+Batch 5100 Time:	2.5624248584111533 minutes
+Batch 5200 Loss:	16.241028358461335
+Batch 5200 Time:	2.5594847043355307 minutes
+Batch 5300 Loss:	23.613746046699816
+Batch 5300 Time:	2.5596783558527627 minutes
+Batch 5400 Loss:	21.440003730240278
+Batch 5400 Time:	2.5818626920382184 minutes
+Batch 5500 Loss:	13.792337350925663
+Batch 5500 Time:	2.562342377503713 minutes
+Batch 5600 Loss:	16.484510943409987
+Batch 5600 Time:	2.5989261349042256 minutes
+Batch 5700 Loss:	21.909312298870645
+Batch 5700 Time:	2.567422326405843 minutes
+Batch 5800 Loss:	16.775609212636482
+Batch 5800 Time:	2.554034439722697 minutes
+Batch 5900 Loss:	17.048306031516404
+Batch 5900 Time:	2.516034432252248 minutes
+Batch 6000 Loss:	18.204579756828025
+Batch 6000 Time:	2.6079512278238934 minutes
+Batch 6100 Loss:	21.70802385425486
+Batch 6100 Time:	2.611376325289408 minutes
+Batch 6200 Loss:	21.387137389043346
+Batch 6200 Time:	2.601261758804321 minutes
+Batch 6300 Loss:	20.2315120450221
+Batch 6300 Time:	2.602472190062205 minutes
+Batch 6400 Loss:	16.94909937644843
+Batch 6400 Time:	2.5563004771868387 minutes
+Batch 6500 Loss:	16.300153204007074
+Batch 6500 Time:	2.5525095582008364 minutes
+Batch 6600 Loss:	19.28954857616918
+Batch 6600 Time:	2.5324003219604494 minutes
+Batch 6700 Loss:	15.958063261350617
+Batch 6700 Time:	2.5603196064631146 minutes
+Batch 6800 Loss:	16.37747788755223
+Batch 6800 Time:	2.5526420791943867 minutes
+Batch 6900 Loss:	16.198249517168733
+Batch 6900 Time:	2.544837538401286 minutes
+Batch 7000 Loss:	17.295598794240505
+Batch 7000 Time:	2.5835444132486978 minutes
+Batch 7100 Loss:	12.632297394040506
+Batch 7100 Time:	2.576360309123993 minutes
+Batch 7200 Loss:	13.499073143451824
+Batch 7200 Time:	2.601298908392588 minutes
+Batch 7300 Loss:	14.371413096261676
+Batch 7300 Time:	2.5844552000363668 minutes
+Batch 7400 Loss:	9.846132896782365
+Batch 7400 Time:	2.601951229572296 minutes
+Batch 7500 Loss:	11.240340242511593
+Batch 7500 Time:	2.55345801115036 minutes
+Batch 7600 Loss:	11.21902451927599
+Batch 7600 Time:	2.5829638878504437 minutes
+Batch 7700 Loss:	9.299182944523636
+Batch 7700 Time:	2.5539752999941507 minutes
+Batch 7800 Loss:	12.195976721312036
+Batch 7800 Time:	2.559351885318756 minutes
+Batch 7900 Loss:	16.06129306738876
+Batch 7900 Time:	2.5807920654614764 minutes
+Batch 8000 Loss:	15.1377194019733
+Batch 8000 Time:	2.560852789878845 minutes
+Batch 8100 Loss:	14.838466173270717
+Batch 8100 Time:	2.5594549417495727 minutes
+Batch 8200 Loss:	12.253164305890095
+Batch 8200 Time:	2.588884695370992 minutes
+Batch 8300 Loss:	15.475217562780017
+Batch 8300 Time:	2.6252381483713787 minutes
+Batch 8400 Loss:	20.64044242131058
+Batch 8400 Time:	2.5839850664138795 minutes
+Batch 8500 Loss:	27.496893612835265
+Batch 8500 Time:	2.56508500178655 minutes
+Batch 8600 Loss:	12.259539214224787
+Batch 8600 Time:	2.5542200922966005 minutes
+Batch 8700 Loss:	15.217549638880882
+Batch 8700 Time:	2.575235172112783 minutes
+Batch 8800 Loss:	18.982560127778925
+Batch 8800 Time:	2.555343516667684 minutes
+Batch 8900 Loss:	17.77950171594057
+Batch 8900 Time:	2.5744556824366254 minutes
+Batch 9000 Loss:	19.08720294269733
+Batch 9000 Time:	2.571892313162486 minutes
+Batch 9100 Loss:	13.453323043329874
+Batch 9100 Time:	2.542872202396393 minutes
+Batch 9200 Loss:	12.813406360859517
+Batch 9200 Time:	2.550230840841929 minutes
+Batch 9300 Loss:	17.694939792068908
+Batch 9300 Time:	2.6057073990503947 minutes
+Batch 9400 Loss:	17.920888797118096
+Batch 9400 Time:	2.573547101020813 minutes
+Batch 9500 Loss:	21.603884697309695
+Batch 9500 Time:	2.5992815097173056 minutes
+Batch 9600 Loss:	12.754617802409484
+Batch 9600 Time:	2.5767996589342754 minutes
+Batch 9700 Loss:	16.108477307871453
+Batch 9700 Time:	2.634590721130371 minutes
+Batch 9800 Loss:	10.593093965675507
+Batch 9800 Time:	2.584870791435242 minutes
+Batch 9900 Loss:	12.005908662180445
+Batch 9900 Time:	2.5907364885012307 minutes
+Batch 10000 Loss:	12.886615353869274
+Batch 10000 Time:	2.598040012518565 minutes
+Batch 10100 Loss:	16.59471734732506
+Batch 10100 Time:	2.5557663559913637 minutes
+Batch 10200 Loss:	13.041834512609057
+Batch 10200 Time:	2.6072577118873594 minutes
+Batch 10300 Loss:	9.315511023887666
+Batch 10300 Time:	2.6074138323465985 minutes
+Batch 10400 Loss:	10.856508848068188
+Batch 10400 Time:	2.620582083861033 minutes
+Batch 10500 Loss:	20.375845014112656
+Batch 10500 Time:	2.6355356415112814 minutes
+Batch 10600 Loss:	26.447739946786896
+Batch 10600 Time:	2.610427765051524 minutes
+Batch 10700 Loss:	18.219888940870078
+Batch 10700 Time:	2.5864206155141196 minutes
+Batch 10800 Loss:	21.8520474753459
+Batch 10800 Time:	2.6174261728922525 minutes
+Batch 10900 Loss:	21.021062908643216
+Batch 10900 Time:	2.5848010063171385 minutes
+Batch 11000 Loss:	21.688598728738725
+Batch 11000 Time:	2.5847307284673056 minutes
+Batch 11100 Loss:	11.992445318312093
+Batch 11100 Time:	2.5893951018651324 minutes
+Batch 11200 Loss:	20.621333363713347
+Batch 11200 Time:	2.6190706928571066 minutes
+Batch 11300 Loss:	23.81568638549652
+Batch 11300 Time:	2.5816561500231425 minutes
+Batch 11400 Loss:	17.342171545322344
+Batch 11400 Time:	2.5980989138285318 minutes
+Batch 11500 Loss:	29.069062047172338
+Batch 11500 Time:	2.612803260485331 minutes
+Batch 11600 Loss:	10.739026117043977
+Batch 11600 Time:	2.5677377343177796 minutes
+Batch 11700 Loss:	9.68812599121884
+Batch 11700 Time:	2.5861501574516295 minutes
+Batch 11800 Loss:	12.470537827472072
+Batch 11800 Time:	2.613873636722565 minutes
+Batch 11900 Loss:	25.08195636072196
+Batch 11900 Time:	2.6015036980311077 minutes
+Batch 12000 Loss:	13.893302343336472
+Batch 12000 Time:	2.5779012123743694 minutes
+Batch 12100 Loss:	20.58010344929062
+Batch 12100 Time:	2.6273008704185488 minutes
+Batch 12200 Loss:	26.583159862911998
+Batch 12200 Time:	2.595693023999532 minutes
+Batch 12300 Loss:	18.865635721740546
+Batch 12300 Time:	2.5481255849202475 minutes
+Batch 12400 Loss:	20.17171521903947
+Batch 12400 Time:	2.563175574938456 minutes
+Batch 12500 Loss:	12.508359892904991
+Batch 12500 Time:	2.5866051197052 minutes
+Batch 12600 Loss:	14.886861382066854
+Batch 12600 Time:	2.556942808628082 minutes
+Batch 12700 Loss:	9.906434859544788
+Batch 12700 Time:	2.5424771745999655 minutes
+Batch 12800 Loss:	12.636999171867501
+Batch 12800 Time:	2.5789339025815328 minutes
+Batch 12900 Loss:	16.680026597179676
+Batch 12900 Time:	2.614685599009196 minutes
+Batch 13000 Loss:	12.161332018262328
+Batch 13000 Time:	2.5851012110710143 minutes
+Batch 13100 Loss:	13.0455732121045
+Batch 13100 Time:	2.565627757708232 minutes
+Batch 13200 Loss:	10.153560845565153
+Batch 13200 Time:	2.5900525490442914 minutes
+Batch 13300 Loss:	10.794265523538343
+Batch 13300 Time:	2.566141223907471 minutes
+Batch 13400 Loss:	8.583197952899354
+Batch 13400 Time:	2.5802536964416505 minutes
+Batch 13500 Loss:	17.29243877418412
+Batch 13500 Time:	2.5590385516484577 minutes
+Batch 13600 Loss:	26.34729595678664
+Batch 13600 Time:	2.5422270973523458 minutes
+Batch 13700 Loss:	11.579309580512302
+Batch 13700 Time:	2.554712649186452 minutes
+Batch 13800 Loss:	9.528503962404102
+Batch 13800 Time:	2.564336923758189 minutes
+Batch 13900 Loss:	15.670090943138348
+Batch 13900 Time:	2.5919771273930867 minutes
+Batch 14000 Loss:	19.657875150964173
+Batch 14000 Time:	2.523918664455414 minutes
+Batch 14100 Loss:	24.195484335796976
+Batch 14100 Time:	2.607389537493388 minutes
+Batch 14200 Loss:	19.623491885467956
+Batch 14200 Time:	2.546384072303772 minutes
+Batch 14300 Loss:	16.166586312487198
+Batch 14300 Time:	2.594570775826772 minutes
+Batch 14400 Loss:	14.390192781127553
+Batch 14400 Time:	2.5752779483795165 minutes
+Batch 14500 Loss:	24.490278746732656
+Batch 14500 Time:	2.572484489281972 minutes
+Batch 14600 Loss:	20.707573461394873
+Batch 14600 Time:	2.5718386928240458 minutes
+Batch 14700 Loss:	14.061592026191647
+Batch 14700 Time:	2.5981239040692645 minutes
+Batch 14800 Loss:	10.453365746963755
+Batch 14800 Time:	2.568061113357544 minutes
+Batch 14900 Loss:	20.853305742645716
+Batch 14900 Time:	2.571950296560923 minutes
+Batch 15000 Loss:	11.255727407813538
+Batch 15000 Time:	2.5668339212735494 minutes
+Batch 15100 Loss:	9.546902552958272
+Batch 15100 Time:	2.580057958761851 minutes
+Batch 15200 Loss:	14.495953760750126
+Batch 15200 Time:	2.563816154003143 minutes
+Batch 15300 Loss:	9.475768795424301
+Batch 15300 Time:	2.5756386637687685 minutes
+Batch 15400 Loss:	11.741595969111586
+Batch 15400 Time:	2.5322216709454852 minutes
+Batch 15500 Loss:	9.26822883701243
+Batch 15500 Time:	2.5491357922554014 minutes
+Batch 15600 Loss:	12.942200967351027
+Batch 15600 Time:	2.5439253648122153 minutes
+Batch 15700 Loss:	14.751021687369757
+Batch 15700 Time:	2.548146593570709 minutes
+Batch 15800 Loss:	17.20097676217847
+Batch 15800 Time:	2.5996471563975017 minutes
+Batch 15900 Loss:	14.459101198657663
+Batch 15900 Time:	2.54181094566981 minutes
+Batch 16000 Loss:	13.494588952045888
+Batch 16000 Time:	2.5504303018252057 minutes
+Batch 16100 Loss:	16.821650476498007
+Batch 16100 Time:	2.5684398889541624 minutes
+Batch 16200 Loss:	13.79651163379458
+Batch 16200 Time:	2.6266573071479797 minutes
+Batch 16300 Loss:	11.522934239903407
+Batch 16300 Time:	2.5887124021848043 minutes
+Batch 16400 Loss:	24.96962253722677
+Batch 16400 Time:	2.571246023972829 minutes
+Batch 16500 Loss:	16.89729148132028
+Batch 16500 Time:	2.572938823699951 minutes
+Batch 16600 Loss:	15.744000710401451
+Batch 16600 Time:	2.583482511838277 minutes
+Batch 16700 Loss:	16.079418626759434
+Batch 16700 Time:	2.554206836223602 minutes
+Batch 16800 Loss:	20.480870202133474
+Batch 16800 Time:	2.5900878310203552 minutes
+Batch 16900 Loss:	23.930111556977863
+Batch 16900 Time:	2.544033972422282 minutes
+Batch 17000 Loss:	26.7235604643065
+Batch 17000 Time:	2.558269965648651 minutes
+Batch 17100 Loss:	17.900707475729178
+Batch 17100 Time:	2.5758571147918703 minutes
+Batch 17200 Loss:	12.698460550350319
+Batch 17200 Time:	2.593155614535014 minutes
+Batch 17300 Loss:	17.865703026533083
+Batch 17300 Time:	2.5477189421653748 minutes
+Batch 17400 Loss:	19.648232429814925
+Batch 17400 Time:	2.5566415270169576 minutes
+Batch 17500 Loss:	19.682079880981547
+Batch 17500 Time:	2.5661310235659283 minutes
+Batch 17600 Loss:	10.129409567198309
+Batch 17600 Time:	2.6297430276870726 minutes
+Batch 17700 Loss:	17.76361975832583
+Batch 17700 Time:	2.549172039826711 minutes
+Batch 17800 Loss:	16.736488170790835
+Batch 17800 Time:	2.552199864387512 minutes
+Batch 17900 Loss:	17.721295972332882
+Batch 17900 Time:	2.598826193809509 minutes
+Batch 18000 Loss:	15.09249492881645
+Batch 18000 Time:	2.536458985010783 minutes
+Batch 18100 Loss:	16.9941663700738
+Batch 18100 Time:	2.6156128605206805 minutes
+Batch 18200 Loss:	23.4426325851382
+Batch 18200 Time:	2.5809080680211385 minutes
+Batch 18300 Loss:	21.054691738238603
+Batch 18300 Time:	2.563431493441264 minutes
+Batch 18400 Loss:	15.204346263992193
+Batch 18400 Time:	2.5672135949134827 minutes
+Batch 18500 Loss:	17.888156328204786
+Batch 18500 Time:	2.537827650705973 minutes
+Batch 18600 Loss:	17.034059429817717
+Batch 18600 Time:	2.5903419812520343 minutes
+Batch 18700 Loss:	23.587898249477803
+Batch 18700 Time:	2.6383762121200562 minutes
+Batch 18800 Loss:	12.230327709512494
+Batch 18800 Time:	2.556813851992289 minutes
+Batch 18900 Loss:	15.192915930481831
+Batch 18900 Time:	2.5376943707466126 minutes
+Batch 19000 Loss:	16.63730609695631
+Batch 19000 Time:	2.5399199684460956 minutes
+Batch 19100 Loss:	25.912600277514684
+Batch 19100 Time:	2.564298109213511 minutes
+Batch 19200 Loss:	14.814000814964857
+Batch 19200 Time:	2.581405731042226 minutes
+Batch 19300 Loss:	8.492271818475274
+Batch 19300 Time:	2.5559648434321085 minutes
+Batch 19400 Loss:	10.524569623265961
+Batch 19400 Time:	2.588290786743164 minutes
+Batch 19500 Loss:	15.793025263366872
+Batch 19500 Time:	2.56139045159022 minutes
+Batch 19600 Loss:	12.740502234248197
+Batch 19600 Time:	2.5625313997268675 minutes
+Batch 19700 Loss:	12.352114708570298
+Batch 19700 Time:	2.548421303431193 minutes
+Batch 19800 Loss:	16.518266303311748
+Batch 19800 Time:	2.540364181995392 minutes
+Batch 19900 Loss:	18.86966427866207
+Batch 19900 Time:	2.575501573085785 minutes
+Training Time: 516.0347310980161 minutes
+Test Time: 3.4549098094304402 minutes
+Total Time: 519.489641948541 minutes
+Began Loading Data
+Finished Loading Data
+Batch 0 Loss:	0.7412315011024475
+Batch 0 Time:	0.214088241259257 minutes
+Batch 100 Loss:	50.013781398534775
+Batch 100 Time:	2.670957326889038 minutes
+Batch 200 Loss:	40.63871984183788
+Batch 200 Time:	2.616498343149821 minutes
+Batch 300 Loss:	40.78554257750511
+Batch 300 Time:	2.592900355656942 minutes
+Batch 400 Loss:	35.97778722643852
+Batch 400 Time:	2.5678375442822774 minutes
+Batch 500 Loss:	32.682961612939835
+Batch 500 Time:	2.6260519504547117 minutes
+Batch 600 Loss:	31.98240063712001
+Batch 600 Time:	2.6173680384953815 minutes
+Batch 700 Loss:	34.53584957122803
+Batch 700 Time:	2.636828589439392 minutes
+Batch 800 Loss:	28.462789095938206
+Batch 800 Time:	2.699576032161713 minutes
+Batch 900 Loss:	29.146411119028926
+Batch 900 Time:	2.6808457016944884 minutes
+Batch 1000 Loss:	29.66273253969848
+Batch 1000 Time:	2.714777040481567 minutes
+Batch 1100 Loss:	24.001336857676506
+Batch 1100 Time:	2.7146655797958372 minutes
+Batch 1200 Loss:	25.726475592702627
+Batch 1200 Time:	2.7008301814397178 minutes
+Batch 1300 Loss:	30.356173541396856
+Batch 1300 Time:	2.7219174544016522 minutes
+Batch 1400 Loss:	23.166285905987024
+Batch 1400 Time:	2.693818235397339 minutes
+Batch 1500 Loss:	24.585554415360093
+Batch 1500 Time:	2.725055992603302 minutes
+Batch 1600 Loss:	26.48296496924013
+Batch 1600 Time:	2.731266359488169 minutes
+Batch 1700 Loss:	18.637752787210047
+Batch 1700 Time:	2.707606895764669 minutes
+Batch 1800 Loss:	21.151187412440777
+Batch 1800 Time:	2.7125123302141825 minutes
+Batch 1900 Loss:	21.970804374665022
+Batch 1900 Time:	2.7209597706794737 minutes
+Batch 2000 Loss:	20.65719372127205
+Batch 2000 Time:	2.7118324875831603 minutes
+Batch 2100 Loss:	25.25425881939009
+Batch 2100 Time:	2.7188318848609923 minutes
+Batch 2200 Loss:	20.26993326190859
+Batch 2200 Time:	2.690266720453898 minutes
+Batch 2300 Loss:	19.126828144304454
+Batch 2300 Time:	2.718508736292521 minutes
+Batch 2400 Loss:	19.902217655442655
+Batch 2400 Time:	2.717402748266856 minutes
+Batch 2500 Loss:	19.83979986421764
+Batch 2500 Time:	2.749719480673472 minutes
+Batch 2600 Loss:	16.395119338296354
+Batch 2600 Time:	2.704876192410787 minutes
+Batch 2700 Loss:	19.473558554891497
+Batch 2700 Time:	2.6947328805923463 minutes
+Batch 2800 Loss:	17.43737350718584
+Batch 2800 Time:	2.7199445684750874 minutes
+Batch 2900 Loss:	19.736940219299868
+Batch 2900 Time:	2.6736332337061564 minutes
+Batch 3000 Loss:	15.86315230699256
+Batch 3000 Time:	2.731730568408966 minutes
+Batch 3100 Loss:	19.787059685681015
+Batch 3100 Time:	2.7422390580177307 minutes
+Batch 3200 Loss:	15.72337844595313
+Batch 3200 Time:	2.7165021459261576 minutes
+Batch 3300 Loss:	17.98144487896934
+Batch 3300 Time:	2.683476980527242 minutes
+Batch 3400 Loss:	15.811735990922898
+Batch 3400 Time:	2.7200990160306295 minutes
+Batch 3500 Loss:	20.184495993657038
+Batch 3500 Time:	2.7114657600720724 minutes
+Batch 3600 Loss:	15.710158086556476
+Batch 3600 Time:	2.6813302874565124 minutes
+Batch 3700 Loss:	15.886673186789267
+Batch 3700 Time:	2.711440173784892 minutes
+Batch 3800 Loss:	16.43959287495818
+Batch 3800 Time:	2.7069282690684 minutes
+Batch 3900 Loss:	16.61332241562195
+Batch 3900 Time:	2.7101727445920307 minutes
+Batch 4000 Loss:	15.060000582714565
+Batch 4000 Time:	2.6978017568588255 minutes
+Batch 4100 Loss:	15.829414359410293
+Batch 4100 Time:	2.709617813428243 minutes
+Batch 4200 Loss:	13.459435722441413
+Batch 4200 Time:	2.7087055961290996 minutes
+Batch 4300 Loss:	15.826275422936305
+Batch 4300 Time:	2.6642921725908915 minutes
+Batch 4400 Loss:	15.762386780028464
+Batch 4400 Time:	2.7375073234240213 minutes
+Batch 4500 Loss:	18.40816086216364
+Batch 4500 Time:	2.711308697859446 minutes
+Batch 4600 Loss:	16.303653068607673
+Batch 4600 Time:	2.709821895758311 minutes
+Batch 4700 Loss:	13.43156328680925
+Batch 4700 Time:	2.7116029500961303 minutes
+Batch 4800 Loss:	15.015603084932081
+Batch 4800 Time:	2.7531126141548157 minutes
+Batch 4900 Loss:	15.470895966980606
+Batch 4900 Time:	2.7190961480140685 minutes
+Batch 5000 Loss:	13.539047364261933
+Batch 5000 Time:	2.701712747414907 minutes
+Batch 5100 Loss:	15.410326433193404
+Batch 5100 Time:	2.7157311995824176 minutes
+Batch 5200 Loss:	16.61835520970635
+Batch 5200 Time:	2.701452684402466 minutes
+Batch 5300 Loss:	21.80753486021422
+Batch 5300 Time:	2.697246730327606 minutes
+Batch 5400 Loss:	23.783468277499196
+Batch 5400 Time:	2.699055556456248 minutes
+Batch 5500 Loss:	14.783718087244779
+Batch 5500 Time:	2.6861550291379293 minutes
+Batch 5600 Loss:	14.973243808955885
+Batch 5600 Time:	2.6941330790519715 minutes
+Batch 5700 Loss:	14.911786535056308
+Batch 5700 Time:	2.7056275685628255 minutes
+Batch 5800 Loss:	12.172254524193704
+Batch 5800 Time:	2.7081941246986387 minutes
+Batch 5900 Loss:	11.818164771371812
+Batch 5900 Time:	2.678427298863729 minutes
+Batch 6000 Loss:	12.005788527108962
+Batch 6000 Time:	2.7038446426391602 minutes
+Batch 6100 Loss:	12.197955123498105
+Batch 6100 Time:	2.7387547373771666 minutes
+Batch 6200 Loss:	13.078205480931501
+Batch 6200 Time:	2.6681118885676067 minutes
+Batch 6300 Loss:	8.769099118071608
+Batch 6300 Time:	2.659353800614675 minutes
+Batch 6400 Loss:	18.470704751787707
+Batch 6400 Time:	2.690193502108256 minutes
+Batch 6500 Loss:	21.27756787801627
+Batch 6500 Time:	2.6538459857304892 minutes
+Batch 6600 Loss:	17.163369681453332
+Batch 6600 Time:	2.688837738831838 minutes
+Batch 6700 Loss:	12.952454855578253
+Batch 6700 Time:	2.7072771112124125 minutes
+Batch 6800 Loss:	15.56400236410991
+Batch 6800 Time:	2.737117131551107 minutes
+Batch 6900 Loss:	11.622819434734993
+Batch 6900 Time:	2.712261613210042 minutes
+Batch 7000 Loss:	11.28856857617211
+Batch 7000 Time:	2.7407931447029115 minutes
+Batch 7100 Loss:	13.565236932387052
+Batch 7100 Time:	2.709748959541321 minutes
+Batch 7200 Loss:	9.65850505916751
+Batch 7200 Time:	2.7128164172172546 minutes
+Batch 7300 Loss:	9.644898116239347
+Batch 7300 Time:	2.6666863203048705 minutes
+Batch 7400 Loss:	16.4322150775115
+Batch 7400 Time:	2.666376264890035 minutes
+Batch 7500 Loss:	10.268811567788362
+Batch 7500 Time:	2.715284359455109 minutes
+Batch 7600 Loss:	17.633257269946625
+Batch 7600 Time:	2.696265439192454 minutes
+Batch 7700 Loss:	9.573294984409586
+Batch 7700 Time:	2.70762544075648 minutes
+Batch 7800 Loss:	18.713907902092615
+Batch 7800 Time:	2.7433183272679647 minutes
+Batch 7900 Loss:	16.23053330826224
+Batch 7900 Time:	2.7435258587201434 minutes
+Batch 8000 Loss:	16.221328536921646
+Batch 8000 Time:	2.7236895124117533 minutes
+Batch 8100 Loss:	10.206234426717856
+Batch 8100 Time:	2.7064008514086404 minutes
+Batch 8200 Loss:	12.758458966505714
+Batch 8200 Time:	2.693550729751587 minutes
+Batch 8300 Loss:	9.224996998673305
+Batch 8300 Time:	2.695984653631846 minutes
+Batch 8400 Loss:	10.924734712854843
+Batch 8400 Time:	2.7028934677441914 minutes
+Batch 8500 Loss:	12.29819647208933
+Batch 8500 Time:	2.735159500439962 minutes
+Batch 8600 Loss:	26.155275354169135
+Batch 8600 Time:	2.6727108279863994 minutes
+Batch 8700 Loss:	12.960513561027255
+Batch 8700 Time:	2.7201786398887635 minutes
+Batch 8800 Loss:	13.183985279989429
+Batch 8800 Time:	2.734148891766866 minutes
+Batch 8900 Loss:	9.404482131649274
+Batch 8900 Time:	2.707596552371979 minutes
+Batch 9000 Loss:	18.805651494694757
+Batch 9000 Time:	2.7243743181228637 minutes
+Batch 9100 Loss:	8.368437047403859
+Batch 9100 Time:	2.7399641633033753 minutes
+Batch 9200 Loss:	10.300586365556228
+Batch 9200 Time:	2.779599630832672 minutes
+Batch 9300 Loss:	10.245930547709577
+Batch 9300 Time:	2.740741165479024 minutes
+Batch 9400 Loss:	8.866828759433702
+Batch 9400 Time:	2.746493371327718 minutes
+Batch 9500 Loss:	10.31183702655835
+Batch 9500 Time:	2.741403881708781 minutes
+Batch 9600 Loss:	8.865111589839216
+Batch 9600 Time:	2.714957137902578 minutes
+Batch 9700 Loss:	8.365174296784971
+Batch 9700 Time:	2.7263848582903543 minutes
+Batch 9800 Loss:	9.571994499419816
+Batch 9800 Time:	2.788222881158193 minutes
+Batch 9900 Loss:	14.12443742272444
+Batch 9900 Time:	2.7863021969795225 minutes
+Batch 10000 Loss:	11.481791624402831
+Batch 10000 Time:	2.7522192358970643 minutes
+Batch 10100 Loss:	10.983855988873984
+Batch 10100 Time:	2.7597835938135784 minutes
+Batch 10200 Loss:	10.727422274037963
+Batch 10200 Time:	2.7298817078272504 minutes
+Batch 10300 Loss:	10.454386419158254
+Batch 10300 Time:	2.707036570707957 minutes
+Batch 10400 Loss:	11.41882254423399
+Batch 10400 Time:	2.7648322661717732 minutes
+Batch 10500 Loss:	12.17612011730489
+Batch 10500 Time:	2.7326873262723286 minutes
+Batch 10600 Loss:	10.511758598484448
+Batch 10600 Time:	2.706226364771525 minutes
+Batch 10700 Loss:	8.310348852479365
+Batch 10700 Time:	2.732062542438507 minutes
+Batch 10800 Loss:	9.373801510162593
+Batch 10800 Time:	2.728360915184021 minutes
+Batch 10900 Loss:	7.321771111590351
+Batch 10900 Time:	2.720654221375783 minutes
+Batch 11000 Loss:	9.012418278736732
+Batch 11000 Time:	2.7557658314704896 minutes
+Batch 11100 Loss:	15.136683289765642
+Batch 11100 Time:	2.698438533147176 minutes
+Batch 11200 Loss:	18.955667412468756
+Batch 11200 Time:	2.742411740620931 minutes
+Batch 11300 Loss:	16.064752622354717
+Batch 11300 Time:	2.7605400244394938 minutes
+Batch 11400 Loss:	33.36458531585163
+Batch 11400 Time:	2.752394727865855 minutes
+Batch 11500 Loss:	9.995366411825671
+Batch 11500 Time:	2.7184309641520183 minutes
+Batch 11600 Loss:	19.25223147217548
+Batch 11600 Time:	2.6902196923891704 minutes
+Batch 11700 Loss:	17.97665217150643
+Batch 11700 Time:	2.7269873062769574 minutes
+Batch 11800 Loss:	11.405505766453643
+Batch 11800 Time:	2.7002379377683003 minutes
+Batch 11900 Loss:	9.060076607165684
+Batch 11900 Time:	2.6934971531232197 minutes
+Batch 12000 Loss:	13.765117768909477
+Batch 12000 Time:	2.6835838675498964 minutes
+Batch 12100 Loss:	17.430426196326152
+Batch 12100 Time:	2.714909859498342 minutes
+Batch 12200 Loss:	8.572751981595502
+Batch 12200 Time:	2.667398452758789 minutes
+Batch 12300 Loss:	6.748581515032129
+Batch 12300 Time:	2.7408671418825787 minutes
+Batch 12400 Loss:	16.846193207833494
+Batch 12400 Time:	2.6999995907147727 minutes
+Batch 12500 Loss:	7.109408524594983
+Batch 12500 Time:	2.702467699845632 minutes
+Batch 12600 Loss:	15.75821329289829
+Batch 12600 Time:	2.717188553015391 minutes
+Batch 12700 Loss:	12.309458909046953
+Batch 12700 Time:	2.717682389418284 minutes
+Batch 12800 Loss:	9.547490093649685
+Batch 12800 Time:	2.6818308234214783 minutes
+Batch 12900 Loss:	8.771260063433147
+Batch 12900 Time:	2.7012812972068785 minutes
+Batch 13000 Loss:	11.797258715327189
+Batch 13000 Time:	2.676462137699127 minutes
+Batch 13100 Loss:	8.646311499906005
+Batch 13100 Time:	2.6689452528953552 minutes
+Batch 13200 Loss:	13.296013708226383
+Batch 13200 Time:	2.6976860562960305 minutes
+Batch 13300 Loss:	14.403303375839641
+Batch 13300 Time:	2.691521608829498 minutes
+Batch 13400 Loss:	11.387107688284232
+Batch 13400 Time:	2.758476201693217 minutes
+Batch 13500 Loss:	7.802990879259596
+Batch 13500 Time:	2.7073350111643473 minutes
+Batch 13600 Loss:	9.637023279909045
+Batch 13600 Time:	2.6705816268920897 minutes
+Batch 13700 Loss:	17.887440369170235
+Batch 13700 Time:	2.6790354371070864 minutes
+Batch 13800 Loss:	14.236396229403908
+Batch 13800 Time:	2.690248350302378 minutes
+Batch 13900 Loss:	8.753839163167868
+Batch 13900 Time:	2.7224887371063233 minutes
+Batch 14000 Loss:	11.47154805701939
+Batch 14000 Time:	2.71628688176473 minutes
+Batch 14100 Loss:	10.489050715659687
+Batch 14100 Time:	2.6994313915570576 minutes
+Batch 14200 Loss:	8.071741578227375
+Batch 14200 Time:	2.708336933453878 minutes
+Batch 14300 Loss:	9.898355514764262
+Batch 14300 Time:	2.7262218991915383 minutes
+Batch 14400 Loss:	14.00713799241521
+Batch 14400 Time:	2.681364198525747 minutes
+Batch 14500 Loss:	14.081204538084421
+Batch 14500 Time:	2.701775864760081 minutes
+Batch 14600 Loss:	6.9572020512932795
+Batch 14600 Time:	2.697545607884725 minutes
+Batch 14700 Loss:	9.764812475303188
+Batch 14700 Time:	2.6629293084144594 minutes
+Batch 14800 Loss:	7.576083837648184
+Batch 14800 Time:	2.6817875266075135 minutes
+Batch 14900 Loss:	8.578477336384822
+Batch 14900 Time:	2.672779854138692 minutes
+Batch 15000 Loss:	12.478330704663676
+Batch 15000 Time:	2.7097843408584597 minutes
+Batch 15100 Loss:	6.102456035114301
+Batch 15100 Time:	2.7115408619244894 minutes
+Batch 15200 Loss:	9.034473241825253
+Batch 15200 Time:	2.7091193636258444 minutes
+Batch 15300 Loss:	9.523114219940908
+Batch 15300 Time:	2.7000338633855185 minutes
+Batch 15400 Loss:	5.421592340102507
+Batch 15400 Time:	2.717893036206563 minutes
+Batch 15500 Loss:	8.450359986206422
+Batch 15500 Time:	2.6956911444664002 minutes
+Batch 15600 Loss:	6.057865792125085
+Batch 15600 Time:	2.716983922322591 minutes
+Batch 15700 Loss:	11.035394503821408
+Batch 15700 Time:	2.6739976326624553 minutes
+Batch 15800 Loss:	5.926298959488577
+Batch 15800 Time:	2.6933263897895814 minutes
+Batch 15900 Loss:	8.808652306601289
+Batch 15900 Time:	2.7095341205596926 minutes
+Batch 16000 Loss:	12.266548673796933
+Batch 16000 Time:	2.7064929207166037 minutes
+Batch 16100 Loss:	18.448008481311263
+Batch 16100 Time:	2.6569896817207335 minutes
+Batch 16200 Loss:	15.892359336983645
+Batch 16200 Time:	2.6938922723134358 minutes
+Batch 16300 Loss:	9.390998595660449
+Batch 16300 Time:	2.665960685412089 minutes
+Batch 16400 Loss:	19.463922919947933
+Batch 16400 Time:	2.656803039709727 minutes
+Batch 16500 Loss:	10.720230122774865
+Batch 16500 Time:	2.6829387307167054 minutes
+Batch 16600 Loss:	8.52531494469622
+Batch 16600 Time:	2.6756367087364197 minutes
+Batch 16700 Loss:	9.314963489028742
+Batch 16700 Time:	2.704330897331238 minutes
+Batch 16800 Loss:	12.012192497350043
+Batch 16800 Time:	2.7127512812614443 minutes
+Batch 16900 Loss:	8.19434191979235
+Batch 16900 Time:	2.719717836380005 minutes
+Batch 17000 Loss:	16.1099160995509
+Batch 17000 Time:	2.6775615493456524 minutes
+Batch 17100 Loss:	9.86518560845434
+Batch 17100 Time:	2.6560315132141112 minutes
+Batch 17200 Loss:	7.265854721599112
+Batch 17200 Time:	2.702737851937612 minutes
+Batch 17300 Loss:	13.985087442006261
+Batch 17300 Time:	2.6692562262217203 minutes
+Batch 17400 Loss:	10.588255413435263
+Batch 17400 Time:	2.6866835236549376 minutes
+Batch 17500 Loss:	10.09206805422582
+Batch 17500 Time:	2.681627651055654 minutes
+Batch 17600 Loss:	5.701408235916233
+Batch 17600 Time:	2.6945908427238465 minutes
+Batch 17700 Loss:	17.549215943930335
+Batch 17700 Time:	2.726914381980896 minutes
+Batch 17800 Loss:	8.257440006171237
+Batch 17800 Time:	2.683012580871582 minutes
+Batch 17900 Loss:	6.537329025488361
+Batch 17900 Time:	2.700817672411601 minutes
+Batch 18000 Loss:	5.82893079369569
+Batch 18000 Time:	2.6520128806432086 minutes
+Batch 18100 Loss:	9.186532671250461
+Batch 18100 Time:	2.6912752707799275 minutes
+Batch 18200 Loss:	5.603850987943588
+Batch 18200 Time:	2.675664246082306 minutes
+Batch 18300 Loss:	12.865488634109312
+Batch 18300 Time:	2.707322657108307 minutes
+Batch 18400 Loss:	5.129530923130915
+Batch 18400 Time:	2.6493339935938516 minutes
+Batch 18500 Loss:	6.332381067184087
+Batch 18500 Time:	2.7193392833073933 minutes
+Batch 18600 Loss:	10.709773146016232
+Batch 18600 Time:	2.648673939704895 minutes
+Batch 18700 Loss:	12.075677874094254
+Batch 18700 Time:	2.73345468044281 minutes
+Batch 18800 Loss:	14.537750450335807
+Batch 18800 Time:	2.676961108048757 minutes
+Batch 18900 Loss:	13.590988787801507
+Batch 18900 Time:	2.7047951738039653 minutes
+Batch 19000 Loss:	12.728938782996522
+Batch 19000 Time:	2.704385530948639 minutes
+Batch 19100 Loss:	7.957687660398278
+Batch 19100 Time:	2.6734913984934487 minutes
+Batch 19200 Loss:	13.48428498204703
+Batch 19200 Time:	2.6956454038619997 minutes
+Batch 19300 Loss:	7.947741533355838
+Batch 19300 Time:	2.7038539171218874 minutes
+Batch 19400 Loss:	13.841043692116045
+Batch 19400 Time:	2.679235366980235 minutes
+Batch 19500 Loss:	13.476201583231841
+Batch 19500 Time:	2.6915771047274273 minutes
+Batch 19600 Loss:	10.38124904986148
+Batch 19600 Time:	2.6644259730974835 minutes
+Batch 19700 Loss:	23.282925398260147
+Batch 19700 Time:	2.6651962796847024 minutes
+Batch 19800 Loss:	8.149766642672148
+Batch 19800 Time:	2.641024927298228 minutes
+Batch 19900 Loss:	18.750975806138285
+Batch 19900 Time:	2.6712541580200195 minutes
+Training Time: 541.277804684639 minutes
+Test Time: 3.8322880705197653 minutes
+Total Time: 545.110093621413 minutes
+Began Loading Data
+Finished Loading Data
+Batch 0 Loss:	0.7172002792358398
+Batch 0 Time:	0.1952580730120341 minutes
+Batch 100 Loss:	59.6206978559494
+Batch 100 Time:	2.666048268477122 minutes
+Batch 200 Loss:	49.992563635110855
+Batch 200 Time:	2.698467965920766 minutes
+Batch 300 Loss:	44.06671252846718
+Batch 300 Time:	2.685012435913086 minutes
+Batch 400 Loss:	40.07996653020382
+Batch 400 Time:	2.6248830914497376 minutes
+Batch 500 Loss:	35.16873598098755
+Batch 500 Time:	2.667775642871857 minutes
+Batch 600 Loss:	34.60721128433943
+Batch 600 Time:	2.716440228621165 minutes
+Batch 700 Loss:	31.341775000095367
+Batch 700 Time:	2.7546971360842387 minutes
+Batch 800 Loss:	29.86874222010374
+Batch 800 Time:	2.7706709225972492 minutes
+Batch 900 Loss:	26.782889526337385
+Batch 900 Time:	2.7466965079307557 minutes
+Batch 1000 Loss:	25.77472425252199
+Batch 1000 Time:	2.7093937158584596 minutes
+Batch 1100 Loss:	24.547960497438908
+Batch 1100 Time:	2.6967215816179912 minutes
+Batch 1200 Loss:	23.196690030395985
+Batch 1200 Time:	2.744747694333394 minutes
+Batch 1300 Loss:	22.71655085682869
+Batch 1300 Time:	2.7593921701113384 minutes
+Batch 1400 Loss:	21.159651454538107
+Batch 1400 Time:	2.708724935849508 minutes
+Batch 1500 Loss:	18.887188967317343
+Batch 1500 Time:	2.760784081617991 minutes
+Batch 1600 Loss:	19.558809477835894
+Batch 1600 Time:	2.7387039343516033 minutes
+Batch 1700 Loss:	16.63659091666341
+Batch 1700 Time:	2.7304429252942404 minutes
+Batch 1800 Loss:	17.988293536007404
+Batch 1800 Time:	2.7502318183581034 minutes
+Batch 1900 Loss:	16.849018588662148
+Batch 1900 Time:	2.7690496842066445 minutes
+Batch 2000 Loss:	17.03769936412573
+Batch 2000 Time:	2.722784241040548 minutes
+Batch 2100 Loss:	17.215835846960545
+Batch 2100 Time:	2.725251344839732 minutes
+Batch 2200 Loss:	13.858399456366897
+Batch 2200 Time:	2.7520304838816325 minutes
+Batch 2300 Loss:	14.660392440855503
+Batch 2300 Time:	2.733550469080607 minutes
+Batch 2400 Loss:	13.25585313886404
+Batch 2400 Time:	2.788458760579427 minutes
+Batch 2500 Loss:	13.758724311366677
+Batch 2500 Time:	2.718364429473877 minutes
+Batch 2600 Loss:	12.766124924644828
+Batch 2600 Time:	2.759774466355642 minutes
+Batch 2700 Loss:	14.261476576328278
+Batch 2700 Time:	2.750693118572235 minutes
+Batch 2800 Loss:	13.670929632149637
+Batch 2800 Time:	2.7354865034421283 minutes
+Batch 2900 Loss:	11.000726538710296
+Batch 2900 Time:	2.7070466756820677 minutes
+Batch 3000 Loss:	13.015256703831255
+Batch 3000 Time:	2.7372498154640197 minutes
+Batch 3100 Loss:	11.567137409001589
+Batch 3100 Time:	2.730921526749929 minutes
+Batch 3200 Loss:	11.441869355738163
+Batch 3200 Time:	2.7034473180770875 minutes
+Batch 3300 Loss:	8.988160440698266
+Batch 3300 Time:	2.682015649477641 minutes
+Batch 3400 Loss:	10.122418488841504
+Batch 3400 Time:	2.7543461481730143 minutes
+Batch 3500 Loss:	10.678338792175055
+Batch 3500 Time:	2.805887258052826 minutes
+Batch 3600 Loss:	9.807046059519053
+Batch 3600 Time:	2.722714352607727 minutes
+Batch 3700 Loss:	9.572366377804428
+Batch 3700 Time:	2.7469182054201764 minutes
+Batch 3800 Loss:	11.510958194732666
+Batch 3800 Time:	2.744464302062988 minutes
+Batch 3900 Loss:	10.05586948338896
+Batch 3900 Time:	2.7006320357322693 minutes
+Batch 4000 Loss:	8.266580573283136
+Batch 4000 Time:	2.764124798774719 minutes
+Batch 4100 Loss:	9.350628513842821
+Batch 4100 Time:	2.745811331272125 minutes
+Batch 4200 Loss:	8.932921599596739
+Batch 4200 Time:	2.7529316504796344 minutes
+Batch 4300 Loss:	8.224534647073597
+Batch 4300 Time:	2.716089737415314 minutes
+Batch 4400 Loss:	9.07019572518766
+Batch 4400 Time:	2.7531609853108723 minutes
+Batch 4500 Loss:	9.331927152816206
+Batch 4500 Time:	2.7357242623964946 minutes
+Batch 4600 Loss:	8.052435748279095
+Batch 4600 Time:	2.7855422059694925 minutes
+Batch 4700 Loss:	8.231177632696927
+Batch 4700 Time:	2.734618286291758 minutes
+Batch 4800 Loss:	8.83742905035615
+Batch 4800 Time:	2.6894548694292704 minutes
+Batch 4900 Loss:	7.961625377647579
+Batch 4900 Time:	2.720711080233256 minutes
+Batch 5000 Loss:	8.476283925585449
+Batch 5000 Time:	2.748842207590739 minutes
+Batch 5100 Loss:	8.805303005035967
+Batch 5100 Time:	2.7036804795265197 minutes
+Batch 5200 Loss:	8.036898004356772
+Batch 5200 Time:	2.729681146144867 minutes
+Batch 5300 Loss:	7.68293625395745
+Batch 5300 Time:	2.7427961548169453 minutes
+Batch 5400 Loss:	7.214782474562526
+Batch 5400 Time:	2.734471523761749 minutes
+Batch 5500 Loss:	6.773492864333093
+Batch 5500 Time:	2.731175641218821 minutes
+Batch 5600 Loss:	6.981636881828308
+Batch 5600 Time:	2.726512078444163 minutes
+Batch 5700 Loss:	6.407734939362854
+Batch 5700 Time:	2.7497807502746583 minutes
+Batch 5800 Loss:	7.341328326612711
+Batch 5800 Time:	2.7947349627812703 minutes
+Batch 5900 Loss:	7.626120929606259
+Batch 5900 Time:	2.720860457420349 minutes
+Batch 6000 Loss:	7.854398776544258
+Batch 6000 Time:	2.7338988343874613 minutes
+Batch 6100 Loss:	5.17119249003008
+Batch 6100 Time:	2.686870348453522 minutes
+Batch 6200 Loss:	8.646277397638187
+Batch 6200 Time:	2.692480663458506 minutes
+Batch 6300 Loss:	6.064394921064377
+Batch 6300 Time:	2.700784949461619 minutes
+Batch 6400 Loss:	6.6044383510015905
+Batch 6400 Time:	2.7277771115303038 minutes
+Batch 6500 Loss:	6.666088034864515
+Batch 6500 Time:	2.743074850241343 minutes
+Batch 6600 Loss:	4.611610517138615
+Batch 6600 Time:	2.7663719058036804 minutes
+Batch 6700 Loss:	4.8885646616108716
+Batch 6700 Time:	2.730454103151957 minutes
+Batch 6800 Loss:	7.462565421126783
+Batch 6800 Time:	2.755576491355896 minutes
+Batch 6900 Loss:	5.913506572833285
+Batch 6900 Time:	2.7275969982147217 minutes
+Batch 7000 Loss:	5.791452824138105
+Batch 7000 Time:	2.7237786134084065 minutes
+Batch 7100 Loss:	4.678585013141856
+Batch 7100 Time:	2.683401584625244 minutes
+Batch 7200 Loss:	5.953570814803243
+Batch 7200 Time:	2.7272355437278746 minutes
+Batch 7300 Loss:	5.769147348823026
+Batch 7300 Time:	2.7098063111305235 minutes
+Batch 7400 Loss:	4.105649299104698
+Batch 7400 Time:	2.73107035557429 minutes
+Batch 7500 Loss:	6.7640419892268255
+Batch 7500 Time:	2.794248080253601 minutes
+Batch 7600 Loss:	4.805034174583852
+Batch 7600 Time:	2.7619294047355654 minutes
+Batch 7700 Loss:	10.038346824003384
+Batch 7700 Time:	2.739012861251831 minutes
+Batch 7800 Loss:	5.690854062035214
+Batch 7800 Time:	2.716443693637848 minutes
+Batch 7900 Loss:	5.297147986246273
+Batch 7900 Time:	2.8430185317993164 minutes
+Batch 8000 Loss:	6.937846592161804
+Batch 8000 Time:	2.7115065256754556 minutes
+Batch 8100 Loss:	4.939194723032415
+Batch 8100 Time:	2.728315297762553 minutes
+Batch 8200 Loss:	5.906329518184066
+Batch 8200 Time:	2.7227647423744203 minutes
+Batch 8300 Loss:	4.53865400981158
+Batch 8300 Time:	2.694245421886444 minutes
+Batch 8400 Loss:	5.225308555411175
+Batch 8400 Time:	2.713556230068207 minutes
+Batch 8500 Loss:	5.842425012146123
+Batch 8500 Time:	2.698989764849345 minutes
+Batch 8600 Loss:	3.776178313884884
+Batch 8600 Time:	2.7127972642580667 minutes
+Batch 8700 Loss:	5.5295952601591125
+Batch 8700 Time:	2.699954926967621 minutes
+Batch 8800 Loss:	4.645861591445282
+Batch 8800 Time:	2.7539937218030293 minutes
+Batch 8900 Loss:	4.955925412941724
+Batch 8900 Time:	2.6639617403348286 minutes
+Batch 9000 Loss:	4.126862814184278
+Batch 9000 Time:	2.7561935663223265 minutes
+Batch 9100 Loss:	4.7171014352934435
+Batch 9100 Time:	2.736186679204305 minutes
+Batch 9200 Loss:	4.133359493687749
+Batch 9200 Time:	2.8088398853937786 minutes
+Batch 9300 Loss:	4.937994344625622
+Batch 9300 Time:	2.7364092826843263 minutes
+Batch 9400 Loss:	6.059439342352562
+Batch 9400 Time:	2.719293010234833 minutes
+Batch 9500 Loss:	4.04460088070482
+Batch 9500 Time:	2.736829936504364 minutes
+Batch 9600 Loss:	5.36472354165744
+Batch 9600 Time:	2.7388994852701822 minutes
+Batch 9700 Loss:	5.4475985202007
+Batch 9700 Time:	2.7738255818684894 minutes
+Batch 9800 Loss:	4.194344526273198
+Batch 9800 Time:	2.8104121565818785 minutes
+Batch 9900 Loss:	4.8488153364742175
+Batch 9900 Time:	2.7626542607943216 minutes
+Batch 10000 Loss:	5.276571915950626
+Batch 10000 Time:	2.7723257740338645 minutes
+Batch 10100 Loss:	4.017296184320003
+Batch 10100 Time:	2.7695141712824505 minutes
+Batch 10200 Loss:	5.463059943227563
+Batch 10200 Time:	2.7469293157259624 minutes
+Batch 10300 Loss:	4.335888880188577
+Batch 10300 Time:	2.743082078297933 minutes
+Batch 10400 Loss:	3.6870984762208536
+Batch 10400 Time:	2.7527093092600503 minutes
+Batch 10500 Loss:	3.3238280341029167
+Batch 10500 Time:	2.755371109644572 minutes
+Batch 10600 Loss:	4.502456395886838
+Batch 10600 Time:	2.785601063569387 minutes
+Batch 10700 Loss:	4.05105661903508
+Batch 10700 Time:	2.7322136521339417 minutes
+Batch 10800 Loss:	4.313717080513015
+Batch 10800 Time:	2.7387122313181558 minutes
+Batch 10900 Loss:	4.2526919160736725
+Batch 10900 Time:	2.735769546031952 minutes
+Batch 11000 Loss:	4.074812692124397
+Batch 11000 Time:	2.765810656547546 minutes
+Batch 11100 Loss:	3.9581829545786604
+Batch 11100 Time:	2.7389706134796143 minutes
+Batch 11200 Loss:	3.107467476511374
+Batch 11200 Time:	2.778191081682841 minutes
+Batch 11300 Loss:	4.204884162754752
+Batch 11300 Time:	2.7639240701993306 minutes
+Batch 11400 Loss:	3.895046562887728
+Batch 11400 Time:	2.7275792996088666 minutes
+Batch 11500 Loss:	3.878086748183705
+Batch 11500 Time:	2.721853951613108 minutes
+Batch 11600 Loss:	4.019227663695347
+Batch 11600 Time:	2.7081390738487245 minutes
+Batch 11700 Loss:	4.567369095690083
+Batch 11700 Time:	2.77500631014506 minutes
+Batch 11800 Loss:	3.9197524789487943
+Batch 11800 Time:	2.6865107933680217 minutes
+Batch 11900 Loss:	4.318101121578366
+Batch 11900 Time:	2.718921661376953 minutes
+Batch 12000 Loss:	5.378443150548264
+Batch 12000 Time:	2.7297792474428815 minutes
+Batch 12100 Loss:	5.107848419516813
+Batch 12100 Time:	2.695677181084951 minutes
+Batch 12200 Loss:	4.028996203909628
+Batch 12200 Time:	2.727049736181895 minutes
+Batch 12300 Loss:	4.162533343071118
+Batch 12300 Time:	2.7636688311894733 minutes
+Batch 12400 Loss:	5.417377138510346
+Batch 12400 Time:	2.702175251642863 minutes
+Batch 12500 Loss:	4.547418188420124
+Batch 12500 Time:	2.771412388483683 minutes
+Batch 12600 Loss:	3.129831616184674
+Batch 12600 Time:	2.7125595609347024 minutes
+Batch 12700 Loss:	3.5737426973646507
+Batch 12700 Time:	2.706979517141978 minutes
+Batch 12800 Loss:	3.8402322565671057
+Batch 12800 Time:	2.720925017197927 minutes
+Batch 12900 Loss:	3.501242349273525
+Batch 12900 Time:	2.697633516788483 minutes
+Batch 13000 Loss:	3.835400593117811
+Batch 13000 Time:	2.7221211791038513 minutes
+Batch 13100 Loss:	3.81133410759503
+Batch 13100 Time:	2.7016138593355814 minutes
+Batch 13200 Loss:	3.902357784914784
+Batch 13200 Time:	2.7059321482976277 minutes
+Batch 13300 Loss:	3.1622838218754623
+Batch 13300 Time:	2.723534933725993 minutes
+Batch 13400 Loss:	3.857568138744682
+Batch 13400 Time:	2.741604216893514 minutes
+Batch 13500 Loss:	3.2978152242139913
+Batch 13500 Time:	2.727030698458354 minutes
+Batch 13600 Loss:	3.8754894279991277
+Batch 13600 Time:	2.702863645553589 minutes
+Batch 13700 Loss:	4.826010284246877
+Batch 13700 Time:	2.7302807768185935 minutes
+Batch 13800 Loss:	5.054818032542244
+Batch 13800 Time:	2.7302395701408386 minutes
+Batch 13900 Loss:	3.338024940690957
+Batch 13900 Time:	2.7275603731473286 minutes
+Batch 14000 Loss:	3.5003642003284767
+Batch 14000 Time:	2.7293378353118896 minutes
+Batch 14100 Loss:	3.2485898724989966
+Batch 14100 Time:	2.762170374393463 minutes
+Batch 14200 Loss:	3.8836181927472353
+Batch 14200 Time:	2.722280689080556 minutes
+Batch 14300 Loss:	4.694569271057844
+Batch 14300 Time:	2.7141286810239156 minutes
+Batch 14400 Loss:	3.5859286981867626
+Batch 14400 Time:	2.743665627638499 minutes
+Batch 14500 Loss:	2.8468195544555783
+Batch 14500 Time:	2.7292767643928526 minutes
+Batch 14600 Loss:	4.7307514277054
+Batch 14600 Time:	2.7229745904604594 minutes
+Batch 14700 Loss:	3.4744681449374184
+Batch 14700 Time:	2.6951624592145285 minutes
+Batch 14800 Loss:	3.2479025133652613
+Batch 14800 Time:	2.7078888535499575 minutes
+Batch 14900 Loss:	4.537427308037877
+Batch 14900 Time:	2.728180293242137 minutes
+Batch 15000 Loss:	3.783718940743711
+Batch 15000 Time:	2.6995807886123657 minutes
+Batch 15100 Loss:	3.0404100009182002
+Batch 15100 Time:	2.722006313006083 minutes
+Batch 15200 Loss:	3.6930963238701224
+Batch 15200 Time:	2.7354661345481874 minutes
+Batch 15300 Loss:	3.707918537198566
+Batch 15300 Time:	2.726800747712453 minutes
+Batch 15400 Loss:	2.5534270384232514
+Batch 15400 Time:	2.6945679664611815 minutes
+Batch 15500 Loss:	3.741674053191673
+Batch 15500 Time:	2.7269588192303975 minutes
+Batch 15600 Loss:	4.767467440338805
+Batch 15600 Time:	2.7264359394709268 minutes
+Batch 15700 Loss:	3.424800075532403
+Batch 15700 Time:	2.677350040276845 minutes
+Batch 15800 Loss:	2.7465429219882935
+Batch 15800 Time:	2.6801729599634805 minutes
+Batch 15900 Loss:	3.521008605166571
+Batch 15900 Time:	2.746848754088084 minutes
+Batch 16000 Loss:	5.515910606482066
+Batch 16000 Time:	2.7373474836349487 minutes
+Batch 16100 Loss:	3.478262853983324
+Batch 16100 Time:	2.7362133940060933 minutes
+Batch 16200 Loss:	2.737646654713899
+Batch 16200 Time:	2.74085613489151 minutes
+Batch 16300 Loss:	3.3981762516195886
+Batch 16300 Time:	2.726535614331563 minutes
+Batch 16400 Loss:	3.973513914796058
+Batch 16400 Time:	2.6764572779337565 minutes
+Batch 16500 Loss:	2.862524831376504
+Batch 16500 Time:	2.7016526818275453 minutes
+Batch 16600 Loss:	3.9534848215116654
+Batch 16600 Time:	2.752534584204356 minutes
+Batch 16700 Loss:	3.234019130351953
+Batch 16700 Time:	2.721045653025309 minutes
+Batch 16800 Loss:	4.597244817472529
+Batch 16800 Time:	2.7082355499267576 minutes
+Batch 16900 Loss:	4.835659913544077
+Batch 16900 Time:	2.7217506647109984 minutes
+Batch 17000 Loss:	2.1027162837272044
+Batch 17000 Time:	2.6915010690689085 minutes
+Batch 17100 Loss:	2.932067125919275
+Batch 17100 Time:	2.723395574092865 minutes
+Batch 17200 Loss:	4.2002904959372245
+Batch 17200 Time:	2.772682742277781 minutes
+Batch 17300 Loss:	3.359160807012813
+Batch 17300 Time:	2.7566073179244994 minutes
+Batch 17400 Loss:	3.8864217197406106
+Batch 17400 Time:	2.7406592845916746 minutes
+Batch 17500 Loss:	2.574238700151909
+Batch 17500 Time:	2.7140245477358502 minutes
+Batch 17600 Loss:	3.6484705800539814
+Batch 17600 Time:	2.6973955074946088 minutes
+Batch 17700 Loss:	3.4893039934395347
+Batch 17700 Time:	2.7546432971954347 minutes
+Batch 17800 Loss:	3.01486815843964
+Batch 17800 Time:	2.75497332016627 minutes
+Batch 17900 Loss:	2.7411168143735267
+Batch 17900 Time:	2.6941462755203247 minutes
+Batch 18000 Loss:	2.433989293582272
+Batch 18000 Time:	2.744309937953949 minutes
+Batch 18100 Loss:	2.439460291294381
+Batch 18100 Time:	2.741089097658793 minutes
+Batch 18200 Loss:	2.091265425668098
+Batch 18200 Time:	2.8835140824317933 minutes
+Batch 18300 Loss:	3.332060525426641
+Batch 18300 Time:	2.7886438965797424 minutes
+Batch 18400 Loss:	3.1525068220798858
+Batch 18400 Time:	2.740379532178243 minutes
+Batch 18500 Loss:	4.148996322765015
+Batch 18500 Time:	2.7723426540692646 minutes
+Batch 18600 Loss:	1.8010993898496963
+Batch 18600 Time:	2.695313501358032 minutes
+Batch 18700 Loss:	1.5438388753100298
+Batch 18700 Time:	2.702474129199982 minutes
+Batch 18800 Loss:	3.139438098995015
+Batch 18800 Time:	2.7620070219039916 minutes
+Batch 18900 Loss:	2.039420357759809
+Batch 18900 Time:	2.7604862292607626 minutes
+Batch 19000 Loss:	3.0116769067244604
+Batch 19000 Time:	2.732833989461263 minutes
+Batch 19100 Loss:	2.8669292534468696
+Batch 19100 Time:	2.712111401557922 minutes
+Batch 19200 Loss:	2.4936952671268955
+Batch 19200 Time:	2.733549114068349 minutes
+Batch 19300 Loss:	3.8599399488884956
+Batch 19300 Time:	2.6567667603492735 minutes
+Batch 19400 Loss:	2.3168263868428767
+Batch 19400 Time:	2.673308579126994 minutes
+Batch 19500 Loss:	2.672463939001318
+Batch 19500 Time:	2.6632557193438213 minutes
+Batch 19600 Loss:	3.259493343764916
+Batch 19600 Time:	2.6584587534268698 minutes
+Batch 19700 Loss:	4.369250960997306
+Batch 19700 Time:	2.6878801743189493 minutes
+Batch 19800 Loss:	2.7250090974848717
+Batch 19800 Time:	2.701523220539093 minutes
+Batch 19900 Loss:	2.683104594121687
+Batch 19900 Time:	2.716126076380412 minutes
+Training Time: 546.9175742308299 minutes
+Test Time: 3.5851560751597087 minutes
+Total Time: 550.5027309735616 minutes
+Began Loading Data
+Finished Loading Data
+Batch 0 Loss:	0.7390327453613281
+Batch 0 Time:	0.19874388774236043 minutes
+Batch 100 Loss:	54.86154463887215
+Batch 100 Time:	2.705919643243154 minutes
+Batch 200 Loss:	49.94044525921345
+Batch 200 Time:	2.6769391616185505 minutes
+Batch 300 Loss:	42.91680261492729
+Batch 300 Time:	2.6399821440378823 minutes
+Batch 400 Loss:	40.13161816447973
+Batch 400 Time:	2.704801082611084 minutes
+Batch 500 Loss:	37.51518918573856
+Batch 500 Time:	2.745933930079142 minutes
+Batch 600 Loss:	37.85802889615297
+Batch 600 Time:	2.7663554191589355 minutes
+Batch 700 Loss:	36.796167232096195
+Batch 700 Time:	2.7279260834058126 minutes
+Batch 800 Loss:	40.55033791810274
+Batch 800 Time:	2.7441707968711855 minutes
+Batch 900 Loss:	40.06876094825566
+Batch 900 Time:	2.7421966950098673 minutes
+Batch 1000 Loss:	34.345189195126295
+Batch 1000 Time:	2.736013730367025 minutes
+Batch 1100 Loss:	34.33938930556178
+Batch 1100 Time:	2.732908475399017 minutes
+Batch 1200 Loss:	30.35044201463461
+Batch 1200 Time:	2.774045447508494 minutes
+Batch 1300 Loss:	31.91702838614583
+Batch 1300 Time:	2.7508989254633587 minutes
+Batch 1400 Loss:	34.1631447263062
+Batch 1400 Time:	2.739276671409607 minutes
+Batch 1500 Loss:	33.142529889941216
+Batch 1500 Time:	2.7739015857378644 minutes
+Batch 1600 Loss:	31.610994605347514
+Batch 1600 Time:	2.7495319803555804 minutes
+Batch 1700 Loss:	25.70648900233209
+Batch 1700 Time:	2.779936476548513 minutes
+Batch 1800 Loss:	28.562606021761894
+Batch 1800 Time:	2.811136802037557 minutes
+Batch 1900 Loss:	25.951252225786448
+Batch 1900 Time:	2.775291216373444 minutes
+Batch 2000 Loss:	28.69713082537055
+Batch 2000 Time:	2.773208034038544 minutes
+Batch 2100 Loss:	27.278848903253675
+Batch 2100 Time:	2.74908234278361 minutes
+Batch 2200 Loss:	23.373555284924805
+Batch 2200 Time:	2.746016808350881 minutes
+Batch 2300 Loss:	23.449117669835687
+Batch 2300 Time:	2.808618752161662 minutes
+Batch 2400 Loss:	25.73921406827867
+Batch 2400 Time:	2.7493487636248273 minutes
+Batch 2500 Loss:	26.025482892990112
+Batch 2500 Time:	2.765388302008311 minutes
+Batch 2600 Loss:	20.025699957739562
+Batch 2600 Time:	2.7455433646837872 minutes
+Batch 2700 Loss:	25.679718946106732
+Batch 2700 Time:	2.7518524567286176 minutes
+Batch 2800 Loss:	28.35276990197599
+Batch 2800 Time:	2.7506237467130026 minutes
+Batch 2900 Loss:	24.487536588683724
+Batch 2900 Time:	2.748860001564026 minutes
+Batch 3000 Loss:	32.06796873937128
+Batch 3000 Time:	2.767229672273 minutes
+Batch 3100 Loss:	31.80822867900133
+Batch 3100 Time:	2.732201830546061 minutes
+Batch 3200 Loss:	29.889462526887655
+Batch 3200 Time:	2.7706523140271506 minutes
+Batch 3300 Loss:	23.808107359334826
+Batch 3300 Time:	2.7680824915568034 minutes
+Batch 3400 Loss:	17.899220587685704
+Batch 3400 Time:	2.782073970635732 minutes
+Batch 3500 Loss:	20.279529307037592
+Batch 3500 Time:	2.7841452876726787 minutes
+Batch 3600 Loss:	23.451315988088027
+Batch 3600 Time:	2.763291676839193 minutes
+Batch 3700 Loss:	25.968910735100508
+Batch 3700 Time:	2.744866140683492 minutes
+Batch 3800 Loss:	20.023092264775187
+Batch 3800 Time:	2.773240880171458 minutes
+Batch 3900 Loss:	24.21539160143584
+Batch 3900 Time:	2.764265827337901 minutes
+Batch 4000 Loss:	25.915687805972993
+Batch 4000 Time:	2.751550229390462 minutes
+Batch 4100 Loss:	21.499983586836606
+Batch 4100 Time:	2.7539692163467406 minutes
+Batch 4200 Loss:	16.480522628873587
+Batch 4200 Time:	2.7291239817937214 minutes
+Batch 4300 Loss:	17.587660310789943
+Batch 4300 Time:	2.7144186894098916 minutes
+Batch 4400 Loss:	20.63238728698343
+Batch 4400 Time:	2.7452024459838866 minutes
+Batch 4500 Loss:	18.70182066061534
+Batch 4500 Time:	2.7495715339978535 minutes
+Batch 4600 Loss:	19.674790183547884
+Batch 4600 Time:	2.7786579966545104 minutes
+Batch 4700 Loss:	20.17596991476603
+Batch 4700 Time:	2.7363395571708677 minutes
+Batch 4800 Loss:	16.970937854610384
+Batch 4800 Time:	2.7533680200576782 minutes
+Batch 4900 Loss:	17.537138904444873
+Batch 4900 Time:	2.693026824792226 minutes
+Batch 5000 Loss:	14.897381875605788
+Batch 5000 Time:	2.7191702445348103 minutes
+Batch 5100 Loss:	26.51814684062265
+Batch 5100 Time:	2.725614825884501 minutes
+Batch 5200 Loss:	22.108492251019925
+Batch 5200 Time:	2.713299024105072 minutes
+Batch 5300 Loss:	19.246333926101215
+Batch 5300 Time:	2.719679053624471 minutes
+Batch 5400 Loss:	22.235589096788317
+Batch 5400 Time:	2.7336877465248106 minutes
+Batch 5500 Loss:	18.215985979884863
+Batch 5500 Time:	2.7648783286412555 minutes
+Batch 5600 Loss:	15.964459305163473
+Batch 5600 Time:	2.7854419867197673 minutes
+Batch 5700 Loss:	15.922793072648346
+Batch 5700 Time:	2.7703279415766398 minutes
+Batch 5800 Loss:	17.49304220965132
+Batch 5800 Time:	2.770828378200531 minutes
+Batch 5900 Loss:	15.982277791947126
+Batch 5900 Time:	2.7301218509674072 minutes
+Batch 6000 Loss:	19.089422062272206
+Batch 6000 Time:	2.696238180001577 minutes
+Batch 6100 Loss:	16.857525917701423
+Batch 6100 Time:	2.7094180544217425 minutes
+Batch 6200 Loss:	13.164350824430585
+Batch 6200 Time:	2.705442655086517 minutes
+Batch 6300 Loss:	23.074684977706056
+Batch 6300 Time:	2.714182523886363 minutes
+Batch 6400 Loss:	25.226215889677405
+Batch 6400 Time:	2.774933628241221 minutes
+Batch 6500 Loss:	21.71909470393439
+Batch 6500 Time:	2.764097277323405 minutes
+Batch 6600 Loss:	25.989040797692724
+Batch 6600 Time:	2.7900131980578107 minutes
+Batch 6700 Loss:	22.348964563338086
+Batch 6700 Time:	2.776650802294413 minutes
+Batch 6800 Loss:	21.774216141871875
+Batch 6800 Time:	2.774174388249715 minutes
+Batch 6900 Loss:	17.556034699780867
+Batch 6900 Time:	2.755636151631673 minutes
+Batch 7000 Loss:	23.4222297181841
+Batch 7000 Time:	2.78588494459788 minutes
+Batch 7100 Loss:	19.386917305062525
+Batch 7100 Time:	2.761154381434123 minutes
+Batch 7200 Loss:	25.038014287580154
+Batch 7200 Time:	2.7492417534192404 minutes
+Batch 7300 Loss:	18.302048301702598
+Batch 7300 Time:	2.7442124406496684 minutes
+Batch 7400 Loss:	19.946673017460853
+Batch 7400 Time:	2.750404004255931 minutes
+Batch 7500 Loss:	16.407621738151647
+Batch 7500 Time:	2.7570619503657023 minutes
+Batch 7600 Loss:	15.827235085365828
+Batch 7600 Time:	2.7672347903251646 minutes
+Batch 7700 Loss:	16.383978487021523
+Batch 7700 Time:	2.7505430698394777 minutes
+Batch 7800 Loss:	17.327325494028628
+Batch 7800 Time:	2.803192404905955 minutes
+Batch 7900 Loss:	22.78690846376412
+Batch 7900 Time:	2.739102073510488 minutes
+Batch 8000 Loss:	16.515134475193918
+Batch 8000 Time:	2.7389427701632183 minutes
+Batch 8100 Loss:	19.53641698573483
+Batch 8100 Time:	2.750134825706482 minutes
+Batch 8200 Loss:	14.894244658062235
+Batch 8200 Time:	2.748002282778422 minutes
+Batch 8300 Loss:	14.469317337381653
+Batch 8300 Time:	2.747269014517466 minutes
+Batch 8400 Loss:	20.45855711537297
+Batch 8400 Time:	2.7687793493270876 minutes
+Batch 8500 Loss:	11.799474447849207
+Batch 8500 Time:	2.7447143316268923 minutes
+Batch 8600 Loss:	15.804540785233257
+Batch 8600 Time:	2.7779795050621034 minutes
+Batch 8700 Loss:	14.659951189765707
+Batch 8700 Time:	2.7421785672505696 minutes
+Batch 8800 Loss:	15.984738520579413
+Batch 8800 Time:	2.76246231396993 minutes
+Batch 8900 Loss:	21.08768830896588
+Batch 8900 Time:	2.7407636960347492 minutes
+Batch 9000 Loss:	16.234335257286148
+Batch 9000 Time:	2.7616376916567487 minutes
+Batch 9100 Loss:	16.035975347622298
+Batch 9100 Time:	2.783799135684967 minutes
+Batch 9200 Loss:	16.34045090689324
+Batch 9200 Time:	2.770914610226949 minutes
+Batch 9300 Loss:	44.33766874335561
+Batch 9300 Time:	2.74907165368398 minutes
+Batch 9400 Loss:	14.777262885239907
+Batch 9400 Time:	2.767703143755595 minutes
+Batch 9500 Loss:	33.67149505496491
+Batch 9500 Time:	2.779881453514099 minutes
+Batch 9600 Loss:	21.43294251326006
+Batch 9600 Time:	2.791215948263804 minutes
+Batch 9700 Loss:	17.487178799463436
+Batch 9700 Time:	2.7726320107777913 minutes
+Batch 9800 Loss:	17.634039190015756
+Batch 9800 Time:	2.795775469144185 minutes
+Batch 9900 Loss:	18.086479762860108
+Batch 9900 Time:	2.8152180274327594 minutes
+Batch 10000 Loss:	11.592026039958
+Batch 10000 Time:	2.8092978398005166 minutes
+Batch 10100 Loss:	17.75799780257512
+Batch 10100 Time:	2.778207329909007 minutes
+Batch 10200 Loss:	17.348392875108402
+Batch 10200 Time:	2.764258925120036 minutes
+Batch 10300 Loss:	24.878068840393098
+Batch 10300 Time:	2.785884078343709 minutes
+Batch 10400 Loss:	14.118211021330353
+Batch 10400 Time:	2.770556970437368 minutes
+Batch 10500 Loss:	11.591082596918568
+Batch 10500 Time:	2.770056919256846 minutes
+Batch 10600 Loss:	13.888903674476751
+Batch 10600 Time:	2.793380339940389 minutes
+Batch 10700 Loss:	17.377210007420217
+Batch 10700 Time:	2.7750640789667766 minutes
+Batch 10800 Loss:	25.121926709805848
+Batch 10800 Time:	2.8019029100735984 minutes
+Batch 10900 Loss:	28.19409467134392
+Batch 10900 Time:	2.7460289796193442 minutes
+Batch 11000 Loss:	17.02885923307622
+Batch 11000 Time:	2.8041460235913593 minutes
+Batch 11100 Loss:	17.077722860238282
+Batch 11100 Time:	2.764060421784719 minutes
+Batch 11200 Loss:	14.520679312117863
+Batch 11200 Time:	2.77453408241272 minutes
+Batch 11300 Loss:	10.685368750613634
+Batch 11300 Time:	2.75054980913798 minutes
+Batch 11400 Loss:	12.83941036136821
+Batch 11400 Time:	2.7667906324068707 minutes
+Batch 11500 Loss:	15.332587408804102
+Batch 11500 Time:	2.753644708792369 minutes
+Batch 11600 Loss:	20.185401977039874
+Batch 11600 Time:	2.724942207336426 minutes
+Batch 11700 Loss:	23.151282796112355
+Batch 11700 Time:	2.776142621040344 minutes
+Batch 11800 Loss:	18.747997358543216
+Batch 11800 Time:	2.744593385855357 minutes
+Batch 11900 Loss:	18.95105812244583
+Batch 11900 Time:	2.732561786969503 minutes
+Batch 12000 Loss:	12.674529885378433
+Batch 12000 Time:	2.722666041056315 minutes
+Batch 12100 Loss:	7.622666643030243
+Batch 12100 Time:	2.745159018039703 minutes
+Batch 12200 Loss:	14.07991768013926
+Batch 12200 Time:	2.7160079717636108 minutes
+Batch 12300 Loss:	13.965462109132204
+Batch 12300 Time:	2.731312386194865 minutes
+Batch 12400 Loss:	11.556617252684191
+Batch 12400 Time:	2.747128657499949 minutes
+Batch 12500 Loss:	18.553943839040585
+Batch 12500 Time:	2.7482455412546796 minutes
+Batch 12600 Loss:	25.88681438049025
+Batch 12600 Time:	2.7295164187749226 minutes
+Batch 12700 Loss:	17.13564278668491
+Batch 12700 Time:	2.7323572675387067 minutes
+Batch 12800 Loss:	36.03851033492265
+Batch 12800 Time:	2.7357458035151163 minutes
+Batch 12900 Loss:	14.51129080929968
+Batch 12900 Time:	2.73062877257665 minutes
+Batch 13000 Loss:	12.988584793172777
+Batch 13000 Time:	2.750835104783376 minutes
+Batch 13100 Loss:	15.304584473822615
+Batch 13100 Time:	2.7384843548138935 minutes
+Batch 13200 Loss:	9.473391657578759
+Batch 13200 Time:	2.764058725039164 minutes
+Batch 13300 Loss:	16.058806394110434
+Batch 13300 Time:	2.7092126568158466 minutes
+Batch 13400 Loss:	12.988027751402115
+Batch 13400 Time:	2.7384895126024884 minutes
+Batch 13500 Loss:	18.562733663333347
+Batch 13500 Time:	2.771418305238088 minutes
+Batch 13600 Loss:	13.350953485729406
+Batch 13600 Time:	2.779482372601827 minutes
+Batch 13700 Loss:	19.293287702224916
+Batch 13700 Time:	2.7512970010439557 minutes
+Batch 13800 Loss:	17.871750325604808
+Batch 13800 Time:	2.7253350615501404 minutes
+Batch 13900 Loss:	11.801781260199277
+Batch 13900 Time:	2.728817808628082 minutes
+Batch 14000 Loss:	19.7296770796529
+Batch 14000 Time:	2.7257187088330586 minutes
+Batch 14100 Loss:	13.731782725817538
+Batch 14100 Time:	2.72936571041743 minutes
+Batch 14200 Loss:	19.073819668881697
+Batch 14200 Time:	2.728325303395589 minutes
+Batch 14300 Loss:	12.914586605067598
+Batch 14300 Time:	2.7721993724505105 minutes
+Batch 14400 Loss:	22.957705928653013
+Batch 14400 Time:	2.7541128834088644 minutes
+Batch 14500 Loss:	21.02181500156803
+Batch 14500 Time:	2.756093494097392 minutes
+Batch 14600 Loss:	14.28752671505572
+Batch 14600 Time:	2.7092002749443056 minutes
+Batch 14700 Loss:	22.40007637103554
+Batch 14700 Time:	2.76884872118632 minutes
+Batch 14800 Loss:	16.241232767672045
+Batch 14800 Time:	2.714650042851766 minutes
+Batch 14900 Loss:	27.116192865933044
+Batch 14900 Time:	2.7422308683395387 minutes
+Batch 15000 Loss:	27.309150315180887
+Batch 15000 Time:	2.6901805639266967 minutes
+Batch 15100 Loss:	18.293649530853145
+Batch 15100 Time:	2.776615639527639 minutes
+Batch 15200 Loss:	13.496755460248096
+Batch 15200 Time:	2.715477764606476 minutes
+Batch 15300 Loss:	26.67771122126578
+Batch 15300 Time:	2.745412572224935 minutes
+Batch 15400 Loss:	18.189613577247655
+Batch 15400 Time:	2.7583903829256693 minutes
+Batch 15500 Loss:	20.099734369141515
+Batch 15500 Time:	2.709104832013448 minutes
+Batch 15600 Loss:	17.71551654175346
+Batch 15600 Time:	2.750262526671092 minutes
+Batch 15700 Loss:	39.89879821177419
+Batch 15700 Time:	2.7475496689478556 minutes
+Batch 15800 Loss:	30.70389853385859
+Batch 15800 Time:	2.7037543336550396 minutes
+Batch 15900 Loss:	38.39404358142929
+Batch 15900 Time:	2.756372086207072 minutes
+Batch 16000 Loss:	14.411157631915557
+Batch 16000 Time:	2.748093008995056 minutes
+Batch 16100 Loss:	18.391605720855296
+Batch 16100 Time:	2.744168217976888 minutes
+Batch 16200 Loss:	12.443823262816295
+Batch 16200 Time:	2.7410085837046307 minutes
+Batch 16300 Loss:	26.443995132704003
+Batch 16300 Time:	2.679758604367574 minutes
+Batch 16400 Loss:	18.005324725876562
+Batch 16400 Time:	2.7366388042767844 minutes
+Batch 16500 Loss:	20.101185646250087
+Batch 16500 Time:	2.785355754693349 minutes
+Batch 16600 Loss:	10.950060046245198
+Batch 16600 Time:	2.713559063275655 minutes
+Batch 16700 Loss:	24.832990652947046
+Batch 16700 Time:	2.7148381511370343 minutes
+Batch 16800 Loss:	17.20232243258215
+Batch 16800 Time:	2.6696357329686484 minutes
+Batch 16900 Loss:	21.551103284669807
+Batch 16900 Time:	2.735705316066742 minutes
+Batch 17000 Loss:	17.326868072224897
+Batch 17000 Time:	2.7600420236587526 minutes
+Batch 17100 Loss:	12.592331176414518
+Batch 17100 Time:	2.739066314697266 minutes
+Batch 17200 Loss:	22.778005515358018
+Batch 17200 Time:	2.6964071949323016 minutes
+Batch 17300 Loss:	21.192080697426718
+Batch 17300 Time:	2.704574386278788 minutes
+Batch 17400 Loss:	16.338921819959978
+Batch 17400 Time:	2.7658318360646565 minutes
+Batch 17500 Loss:	14.520145528935245
+Batch 17500 Time:	2.7202232917149862 minutes
+Batch 17600 Loss:	15.954616347138654
+Batch 17600 Time:	2.727902615070343 minutes
+Batch 17700 Loss:	17.818006307657924
+Batch 17700 Time:	2.7608928442001344 minutes
+Batch 17800 Loss:	15.052204303683538
+Batch 17800 Time:	2.7341575026512146 minutes
+Batch 17900 Loss:	17.67485518012245
+Batch 17900 Time:	2.724805204073588 minutes
+Batch 18000 Loss:	18.64212922284196
+Batch 18000 Time:	2.8855138937632243 minutes
+Batch 18100 Loss:	10.956600895297015
+Batch 18100 Time:	2.777976123491923 minutes
+Batch 18200 Loss:	16.771234690085294
+Batch 18200 Time:	2.800680073102315 minutes
+Batch 18300 Loss:	9.40239115076838
+Batch 18300 Time:	2.765269939104716 minutes
+Batch 18400 Loss:	14.25983407881722
+Batch 18400 Time:	2.7672861377398172 minutes
+Batch 18500 Loss:	11.434979684876453
+Batch 18500 Time:	2.7668360511461896 minutes
+Batch 18600 Loss:	10.978345529179933
+Batch 18600 Time:	2.7597062826156615 minutes
+Batch 18700 Loss:	9.31773869675817
+Batch 18700 Time:	2.7960087180137636 minutes
+Batch 18800 Loss:	16.24897105540731
+Batch 18800 Time:	2.7393796960512797 minutes
+Batch 18900 Loss:	20.801840094965883
+Batch 18900 Time:	2.780909089247386 minutes
+Batch 19000 Loss:	12.956693210910998
+Batch 19000 Time:	2.779503520329793 minutes
+Batch 19100 Loss:	9.440513711655512
+Batch 19100 Time:	2.7279773195584616 minutes
+Batch 19200 Loss:	16.91858680306177
+Batch 19200 Time:	2.7110841313997907 minutes
+Batch 19300 Loss:	10.075059749098727
+Batch 19300 Time:	2.6568429231643678 minutes
+Batch 19400 Loss:	7.5443373451562366
+Batch 19400 Time:	2.6694003343582153 minutes
+Batch 19500 Loss:	13.367051434834138
+Batch 19500 Time:	2.7075154145558673 minutes
+Batch 19600 Loss:	10.275871557183564
+Batch 19600 Time:	2.720659057299296 minutes
+Batch 19700 Loss:	13.58687266578454
+Batch 19700 Time:	2.7242515881856284 minutes
+Batch 19800 Loss:	8.932910570272725
+Batch 19800 Time:	2.7876641352971396 minutes
+Batch 19900 Loss:	6.594211601388508
+Batch 19900 Time:	2.638228988647461 minutes
+Training Time: 550.4623515248298 minutes
+Test Time: 3.422525918483734 minutes
+Total Time: 553.8848779916764 minutes
+Began Loading Data
+Finished Loading Data
+Batch 0 Loss:	0.7215498685836792
+Batch 0 Time:	0.20069020986557007 minutes
+Batch 100 Loss:	58.78289285302162
+Batch 100 Time:	2.7097920338312784 minutes
+Batch 200 Loss:	47.25936859846115
+Batch 200 Time:	2.7427552620569866 minutes
+Batch 300 Loss:	39.143224969506264
+Batch 300 Time:	2.7354994893074034 minutes
+Batch 400 Loss:	36.66421642899513
+Batch 400 Time:	2.668357535203298 minutes
+Batch 500 Loss:	36.37823209166527
+Batch 500 Time:	2.6740675568580627 minutes
+Batch 600 Loss:	34.96827378869057
+Batch 600 Time:	2.7032098094622294 minutes
+Batch 700 Loss:	30.112182691693306
+Batch 700 Time:	2.6917292793591816 minutes
+Batch 800 Loss:	26.574983298778534
+Batch 800 Time:	2.750211715698242 minutes
+Batch 900 Loss:	26.211420506238937
+Batch 900 Time:	2.740446396668752 minutes
+Batch 1000 Loss:	23.31920962780714
+Batch 1000 Time:	2.7908024191856384 minutes
+Batch 1100 Loss:	24.485016740858555
+Batch 1100 Time:	2.7861629048983256 minutes
+Batch 1200 Loss:	23.487640023231506
+Batch 1200 Time:	2.7549805561701457 minutes
+Batch 1300 Loss:	21.230791684240103
+Batch 1300 Time:	2.7837716221809385 minutes
+Batch 1400 Loss:	20.200252637267113
+Batch 1400 Time:	2.800282720724742 minutes
+Batch 1500 Loss:	19.129892796278
+Batch 1500 Time:	2.79770450592041 minutes
+Batch 1600 Loss:	19.277851421386003
+Batch 1600 Time:	2.8064343333244324 minutes
+Batch 1700 Loss:	18.0216297917068
+Batch 1700 Time:	2.8022846857706707 minutes
+Batch 1800 Loss:	16.505929173901677
+Batch 1800 Time:	2.8045992493629455 minutes
+Batch 1900 Loss:	15.97531085088849
+Batch 1900 Time:	2.775786324342092 minutes
+Batch 2000 Loss:	14.947448592633009
+Batch 2000 Time:	2.8410581588745116 minutes
+Batch 2100 Loss:	14.408739207312465
+Batch 2100 Time:	2.8145346999168397 minutes
+Batch 2200 Loss:	12.985309543088078
+Batch 2200 Time:	2.7944523692131042 minutes
+Batch 2300 Loss:	15.215457173064351
+Batch 2300 Time:	2.8028595089912414 minutes
+Batch 2400 Loss:	12.971236649900675
+Batch 2400 Time:	2.7897481083869935 minutes
+Batch 2500 Loss:	11.962242676876485
+Batch 2500 Time:	2.809965964158376 minutes
+Batch 2600 Loss:	12.158303523436189
+Batch 2600 Time:	2.8100868701934814 minutes
+Batch 2700 Loss:	12.556981795467436
+Batch 2700 Time:	2.8083345890045166 minutes
+Batch 2800 Loss:	9.94222198985517
+Batch 2800 Time:	2.7670109113057455 minutes
+Batch 2900 Loss:	11.627540497109294
+Batch 2900 Time:	2.7839955925941466 minutes
+Batch 3000 Loss:	10.157598169520497
+Batch 3000 Time:	2.788897903760274 minutes
+Batch 3100 Loss:	9.980620964430273
+Batch 3100 Time:	2.799172659715017 minutes
+Batch 3200 Loss:	9.797035082243383
+Batch 3200 Time:	2.8041956702868145 minutes
+Batch 3300 Loss:	10.075124684721231
+Batch 3300 Time:	2.7584596117337545 minutes
+Batch 3400 Loss:	11.116044838912785
+Batch 3400 Time:	2.85116529862086 minutes
+Batch 3500 Loss:	9.002356701064855
+Batch 3500 Time:	2.785688058535258 minutes
+Batch 3600 Loss:	6.7949078739620745
+Batch 3600 Time:	2.796219535668691 minutes
+Batch 3700 Loss:	8.907915795221925
+Batch 3700 Time:	2.8104688048362734 minutes
+Batch 3800 Loss:	7.603038376197219
+Batch 3800 Time:	2.7797495126724243 minutes
+Batch 3900 Loss:	7.625171365682036
+Batch 3900 Time:	2.791144545873006 minutes
+Batch 4000 Loss:	8.203603078611195
+Batch 4000 Time:	2.773577137788137 minutes
+Batch 4100 Loss:	8.198673704639077
+Batch 4100 Time:	2.801964298884074 minutes
+Batch 4200 Loss:	7.868506430648267
+Batch 4200 Time:	2.7999693552652993 minutes
+Batch 4300 Loss:	7.834112796932459
+Batch 4300 Time:	2.731698962052663 minutes
+Batch 4400 Loss:	8.385756447911263
+Batch 4400 Time:	2.7851304332415263 minutes
+Batch 4500 Loss:	6.814153830753639
+Batch 4500 Time:	2.8282927950223287 minutes
+Batch 4600 Loss:	6.5132792936638
+Batch 4600 Time:	2.7792743325233458 minutes
+Batch 4700 Loss:	6.961626169271767
+Batch 4700 Time:	2.7910350521405536 minutes
+Batch 4800 Loss:	6.738428306300193
+Batch 4800 Time:	2.8213805476824443 minutes
+Batch 4900 Loss:	6.1033953838050365
+Batch 4900 Time:	2.760737216472626 minutes
+Batch 5000 Loss:	5.654044089373201
+Batch 5000 Time:	2.780083127816518 minutes
+Batch 5100 Loss:	5.577197645325214
+Batch 5100 Time:	2.754042943318685 minutes
+Batch 5200 Loss:	5.72703661583364
+Batch 5200 Time:	2.758494452635447 minutes
+Batch 5300 Loss:	5.93324847240001
+Batch 5300 Time:	2.754474461078644 minutes
+Batch 5400 Loss:	5.061773574678227
+Batch 5400 Time:	2.791494325796763 minutes
+Batch 5500 Loss:	6.0792934889905155
+Batch 5500 Time:	2.773987150192261 minutes
+Batch 5600 Loss:	6.203878155909479
+Batch 5600 Time:	2.8291332205136617 minutes
+Batch 5700 Loss:	4.958565835841
+Batch 5700 Time:	2.8147578875223798 minutes
+Batch 5800 Loss:	6.309509390499443
+Batch 5800 Time:	2.756176173686981 minutes
+Batch 5900 Loss:	6.012661236221902
+Batch 5900 Time:	2.7700083454449973 minutes
+Batch 6000 Loss:	6.656985362293199
+Batch 6000 Time:	2.7471193194389345 minutes
+Batch 6100 Loss:	5.272517368197441
+Batch 6100 Time:	2.7449060042699176 minutes
+Batch 6200 Loss:	5.5708810347132385
+Batch 6200 Time:	2.7666876951853436 minutes
+Batch 6300 Loss:	5.018017095979303
+Batch 6300 Time:	2.792596900463104 minutes
+Batch 6400 Loss:	4.601500435266644
+Batch 6400 Time:	2.7899378617604573 minutes
+Batch 6500 Loss:	5.8137816686648875
+Batch 6500 Time:	2.7765902241071063 minutes
+Batch 6600 Loss:	5.525665120454505
+Batch 6600 Time:	2.8193318009376527 minutes
+Batch 6700 Loss:	4.447244038223289
+Batch 6700 Time:	2.7781054377555847 minutes
+Batch 6800 Loss:	5.051621788647026
+Batch 6800 Time:	2.8070727984110513 minutes
+Batch 6900 Loss:	5.193443445721641
+Batch 6900 Time:	2.7887629588445026 minutes
+Batch 7000 Loss:	5.540574942715466
+Batch 7000 Time:	2.8163062294324237 minutes
+Batch 7100 Loss:	6.510888007003814
+Batch 7100 Time:	2.7981516480445863 minutes
+Batch 7200 Loss:	5.480405783513561
+Batch 7200 Time:	2.770721797148387 minutes
+Batch 7300 Loss:	5.245724400738254
+Batch 7300 Time:	2.758562525113424 minutes
+Batch 7400 Loss:	4.2161055146716535
+Batch 7400 Time:	2.805586878458659 minutes
+Batch 7500 Loss:	3.468903081258759
+Batch 7500 Time:	2.8243542472521463 minutes
+Batch 7600 Loss:	4.773144733975641
+Batch 7600 Time:	2.793972547849019 minutes
+Batch 7700 Loss:	5.044891204917803
+Batch 7700 Time:	2.7990575869878134 minutes
+Batch 7800 Loss:	5.038924323394895
+Batch 7800 Time:	2.7815345247586567 minutes
+Batch 7900 Loss:	4.362448278814554
+Batch 7900 Time:	2.742748824755351 minutes
+Batch 8000 Loss:	5.9692767900414765
+Batch 8000 Time:	2.768210399150848 minutes
+Batch 8100 Loss:	2.7198211075738072
+Batch 8100 Time:	2.804741672674815 minutes
+Batch 8200 Loss:	3.6607975466176867
+Batch 8200 Time:	2.7282201528549193 minutes
+Batch 8300 Loss:	3.299311592243612
+Batch 8300 Time:	2.797543187936147 minutes
+Batch 8400 Loss:	3.324876520666294
+Batch 8400 Time:	2.781789577007294 minutes
+Batch 8500 Loss:	3.6275202978868037
+Batch 8500 Time:	2.785768191019694 minutes
+Batch 8600 Loss:	4.89045705832541
+Batch 8600 Time:	2.7784844994544984 minutes
+Batch 8700 Loss:	4.513771255966276
+Batch 8700 Time:	2.8014586091041567 minutes
+Batch 8800 Loss:	4.6093735615722835
+Batch 8800 Time:	2.8414654692014056 minutes
+Batch 8900 Loss:	3.3488125291187316
+Batch 8900 Time:	2.8081878741582234 minutes
+Batch 9000 Loss:	3.865155650419183
+Batch 9000 Time:	2.837820557753245 minutes
+Batch 9100 Loss:	4.568789468030445
+Batch 9100 Time:	2.8320366779963178 minutes
+Batch 9200 Loss:	4.141493739152793
+Batch 9200 Time:	2.798457984129588 minutes
+Batch 9300 Loss:	3.944736614706926
+Batch 9300 Time:	2.8066290537516276 minutes
+Batch 9400 Loss:	3.174613284645602
+Batch 9400 Time:	2.8092719316482544 minutes
+Batch 9500 Loss:	4.27371793880593
+Batch 9500 Time:	2.8592641512552897 minutes
+Batch 9600 Loss:	4.139556084177457
+Batch 9600 Time:	2.8641327301661175 minutes
+Batch 9700 Loss:	3.8751499437494203
+Batch 9700 Time:	2.831742302576701 minutes
+Batch 9800 Loss:	3.7973946183919907
+Batch 9800 Time:	2.866086721420288 minutes
+Batch 9900 Loss:	3.952035409573
+Batch 9900 Time:	2.82062787214915 minutes
+Batch 10000 Loss:	3.1581603697268292
+Batch 10000 Time:	2.8034778197606403 minutes
+Batch 10100 Loss:	4.168152590631507
+Batch 10100 Time:	2.8514648636182147 minutes
+Batch 10200 Loss:	3.7971131440717727
+Batch 10200 Time:	2.793803564707438 minutes
+Batch 10300 Loss:	2.607738454884384
+Batch 10300 Time:	2.8469785769780476 minutes
+Batch 10400 Loss:	2.895420986227691
+Batch 10400 Time:	2.8207974433898926 minutes
+Batch 10500 Loss:	3.3686631980817765
+Batch 10500 Time:	2.8302982687950133 minutes
+Batch 10600 Loss:	2.5833666655234993
+Batch 10600 Time:	2.795924437046051 minutes
+Batch 10700 Loss:	3.624494513613172
+Batch 10700 Time:	2.7917430877685545 minutes
+Batch 10800 Loss:	2.441180562134832
+Batch 10800 Time:	2.79377996524175 minutes
+Batch 10900 Loss:	2.6949422725010663
+Batch 10900 Time:	2.8240370829900105 minutes
+Batch 11000 Loss:	3.442858730792068
+Batch 11000 Time:	2.80813737710317 minutes
+Batch 11100 Loss:	3.469225928245578
+Batch 11100 Time:	2.7902295430501303 minutes
+Batch 11200 Loss:	3.2898216547910124
+Batch 11200 Time:	2.818599987030029 minutes
+Batch 11300 Loss:	4.419956407393329
+Batch 11300 Time:	2.795275866985321 minutes
+Batch 11400 Loss:	3.564292487804778
+Batch 11400 Time:	2.7800955216089887 minutes
+Batch 11500 Loss:	4.15029440773651
+Batch 11500 Time:	2.7949183583259583 minutes
+Batch 11600 Loss:	3.068746813572943
+Batch 11600 Time:	2.7501468539237974 minutes
+Batch 11700 Loss:	3.0244597640703432
+Batch 11700 Time:	2.800227928161621 minutes
+Batch 11800 Loss:	2.7619021104619605
+Batch 11800 Time:	2.759057132403056 minutes
+Batch 11900 Loss:	3.4745502184377983
+Batch 11900 Time:	2.788477631409963 minutes
+Batch 12000 Loss:	3.4060226548463106
+Batch 12000 Time:	2.7799809336662293 minutes
+Batch 12100 Loss:	2.694362969486974
+Batch 12100 Time:	2.753745166460673 minutes
+Batch 12200 Loss:	3.0005335137975635
+Batch 12200 Time:	2.78951416015625 minutes
+Batch 12300 Loss:	2.4707211731001735
+Batch 12300 Time:	2.782648038864136 minutes
+Batch 12400 Loss:	3.1513064180035144
+Batch 12400 Time:	2.7697669227917987 minutes
+Batch 12500 Loss:	2.7639078203355893
+Batch 12500 Time:	2.7778144319852194 minutes
+Batch 12600 Loss:	2.067636928433785
+Batch 12600 Time:	2.796197005112966 minutes
+Batch 12700 Loss:	3.661556794657372
+Batch 12700 Time:	2.7415377775828045 minutes
+Batch 12800 Loss:	2.1566616503405385
+Batch 12800 Time:	2.7575323979059854 minutes
+Batch 12900 Loss:	2.3580620824941434
+Batch 12900 Time:	2.776649244626363 minutes
+Batch 13000 Loss:	1.8137189396366011
+Batch 13000 Time:	2.768491979440053 minutes
+Batch 13100 Loss:	1.9059209466795437
+Batch 13100 Time:	2.790323309103648 minutes
+Batch 13200 Loss:	2.734260601864662
+Batch 13200 Time:	2.7911616524060565 minutes
+Batch 13300 Loss:	2.808914664463373
+Batch 13300 Time:	2.7567059636116027 minutes
+Batch 13400 Loss:	3.4236682896735147
+Batch 13400 Time:	2.797514776388804 minutes
+Batch 13500 Loss:	3.9174532300094143
+Batch 13500 Time:	2.796858779589335 minutes
+Batch 13600 Loss:	1.8525904153066222
+Batch 13600 Time:	2.787456492582957 minutes
+Batch 13700 Loss:	2.3409909632755443
+Batch 13700 Time:	2.7967217604319257 minutes
+Batch 13800 Loss:	2.018539619864896
+Batch 13800 Time:	2.8125568628311157 minutes
+Batch 13900 Loss:	2.641365451272577
+Batch 13900 Time:	2.7753429134686787 minutes
+Batch 14000 Loss:	3.817857149289921
+Batch 14000 Time:	2.776802106698354 minutes
+Batch 14100 Loss:	2.599134591553593
+Batch 14100 Time:	2.81833709081014 minutes
+Batch 14200 Loss:	2.6217344161123037
+Batch 14200 Time:	2.7588878870010376 minutes
+Batch 14300 Loss:	2.2389909005432855
+Batch 14300 Time:	2.7727947076161703 minutes
+Batch 14400 Loss:	2.234981020097621
+Batch 14400 Time:	2.7639943877855937 minutes
+Batch 14500 Loss:	3.7124037873581983
+Batch 14500 Time:	2.8132827202479045 minutes
+Batch 14600 Loss:	2.835201828274876
+Batch 14600 Time:	2.7886001070340476 minutes
+Batch 14700 Loss:	2.3539323349832557
+Batch 14700 Time:	2.7751410086949666 minutes
+Batch 14800 Loss:	3.956853621522896
+Batch 14800 Time:	2.7432706634203594 minutes
+Batch 14900 Loss:	3.255362957366742
+Batch 14900 Time:	2.7535621881484986 minutes
+Batch 15000 Loss:	2.0694835902686464
+Batch 15000 Time:	2.758703895409902 minutes
+Batch 15100 Loss:	1.598525560926646
+Batch 15100 Time:	2.801901392141978 minutes
+Batch 15200 Loss:	3.3526322664693
+Batch 15200 Time:	2.7933826724688213 minutes
+Batch 15300 Loss:	2.36837520217523
+Batch 15300 Time:	2.7823750654856365 minutes
+Batch 15400 Loss:	2.802186262968462
+Batch 15400 Time:	2.7880648970603943 minutes
+Batch 15500 Loss:	2.514698057086207
+Batch 15500 Time:	2.7365076104799906 minutes
+Batch 15600 Loss:	3.370740349171683
+Batch 15600 Time:	2.7772328933080037 minutes
+Batch 15700 Loss:	2.403750475292327
+Batch 15700 Time:	2.7983576615651446 minutes
+Batch 15800 Loss:	2.6982059705769643
+Batch 15800 Time:	2.76214021841685 minutes
+Batch 15900 Loss:	2.0603069019853137
+Batch 15900 Time:	2.7394967675209045 minutes
+Batch 16000 Loss:	2.427379596803803
+Batch 16000 Time:	2.7689003109931947 minutes
+Batch 16100 Loss:	2.7011240554857068
+Batch 16100 Time:	2.7672287185986835 minutes
+Batch 16200 Loss:	2.6414597399998456
+Batch 16200 Time:	2.787216059366862 minutes
+Batch 16300 Loss:	2.334036496002227
+Batch 16300 Time:	2.8406065940856933 minutes
+Batch 16400 Loss:	2.130130579113029
+Batch 16400 Time:	2.7543662905693056 minutes
+Batch 16500 Loss:	2.739750936074415
+Batch 16500 Time:	2.762474513053894 minutes
+Batch 16600 Loss:	2.7448378258559387
+Batch 16600 Time:	2.7407519737879436 minutes
+Batch 16700 Loss:	2.4337762817158364
+Batch 16700 Time:	2.778771372636159 minutes
+Batch 16800 Loss:	2.003470422117971
+Batch 16800 Time:	2.804399534066518 minutes
+Batch 16900 Loss:	3.0027607461670414
+Batch 16900 Time:	2.8026116092999778 minutes
+Batch 17000 Loss:	2.9025283151422627
+Batch 17000 Time:	2.74995493888855 minutes
+Batch 17100 Loss:	2.960629450972192
+Batch 17100 Time:	2.7550383528073628 minutes
+Batch 17200 Loss:	1.8376151244156063
+Batch 17200 Time:	2.763228738307953 minutes
+Batch 17300 Loss:	2.7083189371041954
+Batch 17300 Time:	2.747911500930786 minutes
+Batch 17400 Loss:	1.814303969440516
+Batch 17400 Time:	2.815834335486094 minutes
+Batch 17500 Loss:	2.5913242957904004
+Batch 17500 Time:	2.7812968095143638 minutes
+Batch 17600 Loss:	1.738063430530019
+Batch 17600 Time:	2.7613543311754865 minutes
+Batch 17700 Loss:	2.6432625844317954
+Batch 17700 Time:	2.7868885318438212 minutes
+Batch 17800 Loss:	2.846571159781888
+Batch 17800 Time:	2.7466972907384237 minutes
+Batch 17900 Loss:	2.5593160955468193
+Batch 17900 Time:	2.7829071362813314 minutes
+Batch 18000 Loss:	1.0981169300794136
+Batch 18000 Time:	2.7454947312672933 minutes
+Batch 18100 Loss:	2.203794643515721
+Batch 18100 Time:	2.8178213079770407 minutes
+Batch 18200 Loss:	1.9364547736477107
+Batch 18200 Time:	2.7619608600934344 minutes
+Batch 18300 Loss:	2.921918699343223
+Batch 18300 Time:	2.7943786938985187 minutes
+Batch 18400 Loss:	3.411649779343861
+Batch 18400 Time:	2.757180909315745 minutes
+Batch 18500 Loss:	3.017584948975127
+Batch 18500 Time:	2.826060450077057 minutes
+Batch 18600 Loss:	1.9701930957380682
+Batch 18600 Time:	2.761524303754171 minutes
+Batch 18700 Loss:	2.236224446154665
+Batch 18700 Time:	2.723643894990285 minutes
+Batch 18800 Loss:	1.8804452781914733
+Batch 18800 Time:	2.799147939682007 minutes
+Batch 18900 Loss:	2.339942439342849
+Batch 18900 Time:	2.7575677394866944 minutes
+Batch 19000 Loss:	1.9748688209510874
+Batch 19000 Time:	2.7531558831532794 minutes
+Batch 19100 Loss:	1.7564060301810969
+Batch 19100 Time:	2.744269406795502 minutes
+Batch 19200 Loss:	2.3831304072518833
+Batch 19200 Time:	2.7336703340212503 minutes
+Batch 19300 Loss:	2.25806329108309
+Batch 19300 Time:	2.715177631378174 minutes
+Batch 19400 Loss:	2.146998996846378
+Batch 19400 Time:	2.7576533277829487 minutes
+Batch 19500 Loss:	2.5156343471608125
+Batch 19500 Time:	2.820989461739858 minutes
+Batch 19600 Loss:	2.2940487219020724
+Batch 19600 Time:	2.806647415955861 minutes
+Batch 19700 Loss:	1.9866634334321134
+Batch 19700 Time:	2.6632771611213686 minutes
+Batch 19800 Loss:	2.622977605846245
+Batch 19800 Time:	2.6341589371363323 minutes
+Batch 19900 Loss:	2.017007935573929
+Batch 19900 Time:	2.620367749532064 minutes
+Training Time: 556.9235141475996 minutes
+Test Time: 3.317218542098999 minutes
+Total Time: 560.240733273824 minutes
+Began Loading Data
+Finished Loading Data
+Batch 0 Loss:	0.7308370471000671
+Batch 0 Time:	0.20509188572565715 minutes
+Batch 100 Loss:	58.67102685570717
+Batch 100 Time:	2.9235172152519224 minutes
+Batch 200 Loss:	46.549902230501175
+Batch 200 Time:	2.975265324115753 minutes
+Batch 300 Loss:	39.69885517656803
+Batch 300 Time:	2.934745236237844 minutes
+Batch 400 Loss:	34.5524917691946
+Batch 400 Time:	2.893311699231466 minutes
+Batch 500 Loss:	30.62875496596098
+Batch 500 Time:	2.966097072760264 minutes
+Batch 600 Loss:	29.570927262306213
+Batch 600 Time:	2.8924537857373553 minutes
+Batch 700 Loss:	27.17680324614048
+Batch 700 Time:	2.8935298244158427 minutes
+Batch 800 Loss:	24.476054303348064
+Batch 800 Time:	2.9004886388778686 minutes
+Batch 900 Loss:	24.397180885076523
+Batch 900 Time:	2.946527095635732 minutes
+Batch 1000 Loss:	24.963710956275463
+Batch 1000 Time:	2.991291316350301 minutes
+Batch 1100 Loss:	20.773065872490406
+Batch 1100 Time:	2.9645528316497805 minutes
+Batch 1200 Loss:	18.67615709081292
+Batch 1200 Time:	2.9950730204582214 minutes
+Batch 1300 Loss:	19.306717436760664
+Batch 1300 Time:	2.959838012854258 minutes
+Batch 1400 Loss:	17.73678958415985
+Batch 1400 Time:	2.9316431204477946 minutes
+Batch 1500 Loss:	16.913242429494858
+Batch 1500 Time:	2.920237898826599 minutes
+Batch 1600 Loss:	17.156640561297536
+Batch 1600 Time:	2.986155410607656 minutes
+Batch 1700 Loss:	16.6461906991899
+Batch 1700 Time:	3.0188218990961713 minutes
+Batch 1800 Loss:	16.619942151010036
+Batch 1800 Time:	2.9608576774597166 minutes
+Batch 1900 Loss:	14.238382313400507
+Batch 1900 Time:	2.9192896048227945 minutes
+Batch 2000 Loss:	14.331182675436139
+Batch 2000 Time:	2.9036409060160318 minutes
+Batch 2100 Loss:	14.135825609788299
+Batch 2100 Time:	2.9695298115412396 minutes
+Batch 2200 Loss:	14.50816897302866
+Batch 2200 Time:	2.9232317407925925 minutes
+Batch 2300 Loss:	14.26682667247951
+Batch 2300 Time:	2.9995229323705037 minutes
+Batch 2400 Loss:	13.524667149409652
+Batch 2400 Time:	2.9579113960266112 minutes
+Batch 2500 Loss:	11.63671132735908
+Batch 2500 Time:	2.968362728754679 minutes
+Batch 2600 Loss:	11.792478200048208
+Batch 2600 Time:	2.980510723590851 minutes
+Batch 2700 Loss:	10.124744998291135
+Batch 2700 Time:	2.896092728773753 minutes
+Batch 2800 Loss:	10.973861888051033
+Batch 2800 Time:	2.9316510876019795 minutes
+Batch 2900 Loss:	11.444845048710704
+Batch 2900 Time:	2.9422983527183533 minutes
+Batch 3000 Loss:	10.762698342092335
+Batch 3000 Time:	2.894702653090159 minutes
+Batch 3100 Loss:	11.397122723981738
+Batch 3100 Time:	2.8983593940734864 minutes
+Batch 3200 Loss:	10.351520422846079
+Batch 3200 Time:	2.945197041829427 minutes
+Batch 3300 Loss:	10.315555728040636
+Batch 3300 Time:	2.951404615243276 minutes
+Batch 3400 Loss:	9.562192684970796
+Batch 3400 Time:	2.9368137677510577 minutes
+Batch 3500 Loss:	8.928236789535731
+Batch 3500 Time:	2.849995545546214 minutes
+Batch 3600 Loss:	8.827115141786635
+Batch 3600 Time:	2.8767414172490438 minutes
+Batch 3700 Loss:	9.442304908297956
+Batch 3700 Time:	2.8907345453898112 minutes
+Batch 3800 Loss:	8.727064575068653
+Batch 3800 Time:	2.9101472973823546 minutes
+Batch 3900 Loss:	9.522414865903556
+Batch 3900 Time:	2.901455203692118 minutes
+Batch 4000 Loss:	10.843033538199961
+Batch 4000 Time:	2.867688862482707 minutes
+Batch 4100 Loss:	9.090415528044105
+Batch 4100 Time:	2.8487776438395183 minutes
+Batch 4200 Loss:	8.484062200412154
+Batch 4200 Time:	2.8803017099698383 minutes
+Batch 4300 Loss:	8.19029214209877
+Batch 4300 Time:	2.903039451440175 minutes
+Batch 4400 Loss:	7.862055915407836
+Batch 4400 Time:	2.860482939084371 minutes
+Batch 4500 Loss:	8.362449069973081
+Batch 4500 Time:	2.883851663271586 minutes
+Batch 4600 Loss:	7.461292524822056
+Batch 4600 Time:	2.9079880515734353 minutes
+Batch 4700 Loss:	7.022843179292977
+Batch 4700 Time:	2.902769668896993 minutes
+Batch 4800 Loss:	8.493747188709676
+Batch 4800 Time:	2.882312512397766 minutes
+Batch 4900 Loss:	7.1204460833687335
+Batch 4900 Time:	2.9512374917666118 minutes
+Batch 5000 Loss:	6.971797210630029
+Batch 5000 Time:	2.872727696100871 minutes
+Batch 5100 Loss:	7.332979386672378
+Batch 5100 Time:	2.944430780410767 minutes
+Batch 5200 Loss:	5.923321669921279
+Batch 5200 Time:	2.9209103624025983 minutes
+Batch 5300 Loss:	6.713617125060409
+Batch 5300 Time:	2.9490926384925844 minutes
+Batch 5400 Loss:	8.491110518574715
+Batch 5400 Time:	2.946497126420339 minutes
+Batch 5500 Loss:	8.539126983843744
+Batch 5500 Time:	2.895848759015401 minutes
+Batch 5600 Loss:	5.897389966994524
+Batch 5600 Time:	2.8796360890070596 minutes
+Batch 5700 Loss:	7.754618457285687
+Batch 5700 Time:	2.9054261604944864 minutes
+Batch 5800 Loss:	6.786141094518825
+Batch 5800 Time:	2.9105974038441977 minutes
+Batch 5900 Loss:	6.198253221809864
+Batch 5900 Time:	2.8953885078430175 minutes
+Batch 6000 Loss:	7.564753540791571
+Batch 6000 Time:	2.900234262148539 minutes
+Batch 6100 Loss:	6.419127153232694
+Batch 6100 Time:	2.878983410199483 minutes
+Batch 6200 Loss:	6.013742285314947
+Batch 6200 Time:	2.905416015783946 minutes
+Batch 6300 Loss:	5.3914604196324944
+Batch 6300 Time:	2.9092270056406657 minutes
+Batch 6400 Loss:	4.919228258077055
+Batch 6400 Time:	2.954601764678955 minutes
+Batch 6500 Loss:	5.519671966088936
+Batch 6500 Time:	2.913947029908498 minutes
+Batch 6600 Loss:	7.240182523149997
+Batch 6600 Time:	2.907970138390859 minutes
+Batch 6700 Loss:	5.424176286207512
+Batch 6700 Time:	2.939975368976593 minutes
+Batch 6800 Loss:	5.272627269849181
+Batch 6800 Time:	2.989202837149302 minutes
+Batch 6900 Loss:	4.544315852690488
+Batch 6900 Time:	3.019555115699768 minutes
+Batch 7000 Loss:	5.352234580088407
+Batch 7000 Time:	2.914796944459279 minutes
+Batch 7100 Loss:	5.056756597477943
+Batch 7100 Time:	2.927462613582611 minutes
+Batch 7200 Loss:	4.342481194529682
+Batch 7200 Time:	2.904484995206197 minutes
+Batch 7300 Loss:	5.536846235045232
+Batch 7300 Time:	2.9589683532714846 minutes
+Batch 7400 Loss:	5.497432186733931
+Batch 7400 Time:	2.9219685316085817 minutes
+Batch 7500 Loss:	4.515749494777992
+Batch 7500 Time:	2.953888237476349 minutes
+Batch 7600 Loss:	4.832938389969058
+Batch 7600 Time:	2.9235009511311847 minutes
+Batch 7700 Loss:	4.624641963862814
+Batch 7700 Time:	2.9670162717501323 minutes
+Batch 7800 Loss:	5.377082666382194
+Batch 7800 Time:	2.92606684366862 minutes
+Batch 7900 Loss:	4.660880335140973
+Batch 7900 Time:	2.8986238201459247 minutes
+Batch 8000 Loss:	6.565576742170379
+Batch 8000 Time:	2.907371926307678 minutes
+Batch 8100 Loss:	4.07711644936353
+Batch 8100 Time:	2.905462682247162 minutes
+Batch 8200 Loss:	4.579784599831328
+Batch 8200 Time:	2.880942165851593 minutes
+Batch 8300 Loss:	5.07339393964503
+Batch 8300 Time:	2.894484539826711 minutes
+Batch 8400 Loss:	4.895824487321079
+Batch 8400 Time:	2.922832957903544 minutes
+Batch 8500 Loss:	4.127332061994821
+Batch 8500 Time:	2.837731079260508 minutes
+Batch 8600 Loss:	5.217831710120663
+Batch 8600 Time:	2.88132651646932 minutes
+Batch 8700 Loss:	5.598577007418498
+Batch 8700 Time:	2.8800751407941183 minutes
+Batch 8800 Loss:	4.4336980930529535
+Batch 8800 Time:	2.9813695152600608 minutes
+Batch 8900 Loss:	4.1228642397909425
+Batch 8900 Time:	2.9674252192179362 minutes
+Batch 9000 Loss:	5.293312143301591
+Batch 9000 Time:	2.911523866653442 minutes
+Batch 9100 Loss:	3.4076494466280565
+Batch 9100 Time:	2.908658234278361 minutes
+Batch 9200 Loss:	6.363629635423422
+Batch 9200 Time:	2.8933011253674823 minutes
+Batch 9300 Loss:	3.5039058236870915
+Batch 9300 Time:	2.893618563810984 minutes
+Batch 9400 Loss:	3.662497306941077
+Batch 9400 Time:	2.9432138284047444 minutes
+Batch 9500 Loss:	4.4236126077594236
+Batch 9500 Time:	2.8943859577178954 minutes
+Batch 9600 Loss:	4.8739636718528345
+Batch 9600 Time:	2.8997847000757853 minutes
+Batch 9700 Loss:	4.0201317351311445
+Batch 9700 Time:	2.8645576278368634 minutes
+Batch 9800 Loss:	3.6442616399144754
+Batch 9800 Time:	2.836426369349162 minutes
+Batch 9900 Loss:	3.915065190405585
+Batch 9900 Time:	2.9197437087694804 minutes
+Batch 10000 Loss:	3.922674575005658
+Batch 10000 Time:	2.899584376811981 minutes
+Batch 10100 Loss:	3.894279948552139
+Batch 10100 Time:	2.9120227575302122 minutes
+Batch 10200 Loss:	2.855575918161776
+Batch 10200 Time:	2.8828987081845603 minutes
+Batch 10300 Loss:	3.4948145491071045
+Batch 10300 Time:	2.847404412428538 minutes
+Batch 10400 Loss:	3.318833220284432
+Batch 10400 Time:	2.8712119301160177 minutes
+Batch 10500 Loss:	3.2082362684886903
+Batch 10500 Time:	2.846731424331665 minutes
+Batch 10600 Loss:	4.050968611845747
+Batch 10600 Time:	2.8563971360524496 minutes
+Batch 10700 Loss:	3.9596051687258296
+Batch 10700 Time:	2.893637005488078 minutes
+Batch 10800 Loss:	3.4270235317526385
+Batch 10800 Time:	2.838490883509318 minutes
+Batch 10900 Loss:	2.872330315527506
+Batch 10900 Time:	2.8548139254252116 minutes
+Batch 11000 Loss:	4.105963895330206
+Batch 11000 Time:	2.8719467441240947 minutes
+Batch 11100 Loss:	3.441203268535901
+Batch 11100 Time:	2.8623830318450927 minutes
+Batch 11200 Loss:	3.278058242984116
+Batch 11200 Time:	2.8673601150512695 minutes
+Batch 11300 Loss:	3.7624859156785533
+Batch 11300 Time:	2.8354243278503417 minutes
+Batch 11400 Loss:	3.8595204520970583
+Batch 11400 Time:	2.859791092077891 minutes
+Batch 11500 Loss:	3.30174563662149
+Batch 11500 Time:	2.9181175112724302 minutes
+Batch 11600 Loss:	5.030198781285435
+Batch 11600 Time:	2.8842881957689923 minutes
+Batch 11700 Loss:	5.0410173336276785
+Batch 11700 Time:	2.861264983812968 minutes
+Batch 11800 Loss:	3.929346491349861
+Batch 11800 Time:	2.8637948393821717 minutes
+Batch 11900 Loss:	3.65161142492434
+Batch 11900 Time:	2.815043286482493 minutes
+Batch 12000 Loss:	5.1935726256342605
+Batch 12000 Time:	2.8343496998151143 minutes
+Batch 12100 Loss:	4.977016566379461
+Batch 12100 Time:	2.833901830514272 minutes
+Batch 12200 Loss:	3.8617207736242563
+Batch 12200 Time:	2.887282685438792 minutes
+Batch 12300 Loss:	4.22643051695195
+Batch 12300 Time:	2.8871872584025065 minutes
+Batch 12400 Loss:	4.223163081565872
+Batch 12400 Time:	2.8896229306856793 minutes
+Batch 12500 Loss:	4.331700013484806
+Batch 12500 Time:	2.9437389731407166 minutes
+Batch 12600 Loss:	2.73533076653257
+Batch 12600 Time:	2.8644810994466146 minutes
+Batch 12700 Loss:	4.013802522327751
+Batch 12700 Time:	2.8848512331644693 minutes
+Batch 12800 Loss:	2.7361847115680575
+Batch 12800 Time:	2.871440343062083 minutes
+Batch 12900 Loss:	3.4551330972462893
+Batch 12900 Time:	2.913182759284973 minutes
+Batch 13000 Loss:	2.936679699458182
+Batch 13000 Time:	2.951920183499654 minutes
+Batch 13100 Loss:	3.5103856815840118
+Batch 13100 Time:	2.8822455763816834 minutes
+Batch 13200 Loss:	3.5244772956939414
+Batch 13200 Time:	2.8908026417096457 minutes
+Batch 13300 Loss:	3.8160283274191897
+Batch 13300 Time:	2.8416237672170004 minutes
+Batch 13400 Loss:	4.035740471736062
+Batch 13400 Time:	2.880905516942342 minutes
+Batch 13500 Loss:	3.282208578370046
+Batch 13500 Time:	2.8793166399002077 minutes
+Batch 13600 Loss:	2.777754958195146
+Batch 13600 Time:	2.9144426743189493 minutes
+Batch 13700 Loss:	3.572589974035509
+Batch 13700 Time:	2.918437457084656 minutes
+Batch 13800 Loss:	3.558940522663761
+Batch 13800 Time:	2.8470415751139324 minutes
+Batch 13900 Loss:	3.73994326434331
+Batch 13900 Time:	2.833297828833262 minutes
+Batch 14000 Loss:	3.2126251147856237
+Batch 14000 Time:	2.8270164767901105 minutes
+Batch 14100 Loss:	3.20709155529039
+Batch 14100 Time:	2.8852301836013794 minutes
+Batch 14200 Loss:	3.442461013532011
+Batch 14200 Time:	2.902621026833852 minutes
+Batch 14300 Loss:	2.464953198679723
+Batch 14300 Time:	2.9064603726069134 minutes
+Batch 14400 Loss:	3.9595305471448228
+Batch 14400 Time:	2.895842758814494 minutes
+Batch 14500 Loss:	2.3615220815408975
+Batch 14500 Time:	2.879391606648763 minutes
+Batch 14600 Loss:	3.0629147710860707
+Batch 14600 Time:	2.9146509726842242 minutes
+Batch 14700 Loss:	2.4420237280864967
+Batch 14700 Time:	2.9068724870681764 minutes
+Batch 14800 Loss:	2.4981100073782727
+Batch 14800 Time:	2.907576628526052 minutes
+Batch 14900 Loss:	3.3731866417219862
+Batch 14900 Time:	2.8990890860557554 minutes
+Batch 15000 Loss:	2.7558125875657424
+Batch 15000 Time:	2.8565846880277 minutes
+Batch 15100 Loss:	2.646774514927529
+Batch 15100 Time:	2.896867314974467 minutes
+Batch 15200 Loss:	2.475113298452925
+Batch 15200 Time:	2.839641777674357 minutes
+Batch 15300 Loss:	3.5352021961007267
+Batch 15300 Time:	2.8705800056457518 minutes
+Batch 15400 Loss:	3.0740715006249957
+Batch 15400 Time:	2.842000114917755 minutes
+Batch 15500 Loss:	3.7112537508946843
+Batch 15500 Time:	2.847183609008789 minutes
+Batch 15600 Loss:	2.3783564743353054
+Batch 15600 Time:	2.9083558241526286 minutes
+Batch 15700 Loss:	2.5934756519272923
+Batch 15700 Time:	2.9033275961875917 minutes
+Batch 15800 Loss:	2.2786480830982327
+Batch 15800 Time:	2.858354882399241 minutes
+Batch 15900 Loss:	2.0786156145622954
+Batch 15900 Time:	2.8735411445299786 minutes
+Batch 16000 Loss:	2.4793149537872523
+Batch 16000 Time:	2.8422090808550515 minutes
+Batch 16100 Loss:	2.533041910006432
+Batch 16100 Time:	2.855527385075887 minutes
+Batch 16200 Loss:	2.0125958418357186
+Batch 16200 Time:	2.848774516582489 minutes
+Batch 16300 Loss:	2.905969205312431
+Batch 16300 Time:	2.825499212741852 minutes
+Batch 16400 Loss:	2.733932612813078
+Batch 16400 Time:	2.860046414534251 minutes
+Batch 16500 Loss:	3.136022532824427
+Batch 16500 Time:	2.874694621562958 minutes
+Batch 16600 Loss:	2.529348566837143
+Batch 16600 Time:	2.8650956749916077 minutes
+Batch 16700 Loss:	3.578889140248066
+Batch 16700 Time:	2.9486918807029725 minutes
+Batch 16800 Loss:	2.7898234173771925
+Batch 16800 Time:	2.8836922883987426 minutes
+Batch 16900 Loss:	2.703200296702562
+Batch 16900 Time:	2.8746599237124126 minutes
+Batch 17000 Loss:	2.599312466045376
+Batch 17000 Time:	2.926905544598897 minutes
+Batch 17100 Loss:	2.3137215300812386
+Batch 17100 Time:	2.8974029620488486 minutes
+Batch 17200 Loss:	2.973050383850932
+Batch 17200 Time:	2.8622979799906414 minutes
+Batch 17300 Loss:	3.7344891848042607
+Batch 17300 Time:	2.8997202277183534 minutes
+Batch 17400 Loss:	2.386790977558121
+Batch 17400 Time:	2.848731787999471 minutes
+Batch 17500 Loss:	3.4908344378345646
+Batch 17500 Time:	2.869102931022644 minutes
+Batch 17600 Loss:	2.547312713577412
+Batch 17600 Time:	2.8926966508229572 minutes
+Batch 17700 Loss:	1.7451667409040965
+Batch 17700 Time:	2.8824114084243773 minutes
+Batch 17800 Loss:	3.5172562756342813
+Batch 17800 Time:	2.877790602048238 minutes
+Batch 17900 Loss:	2.5862712274538353
+Batch 17900 Time:	2.8885725498199464 minutes
+Batch 18000 Loss:	2.322606080910191
+Batch 18000 Time:	2.86844623486201 minutes
+Batch 18100 Loss:	2.5487464762991294
+Batch 18100 Time:	2.8938438415527346 minutes
+Batch 18200 Loss:	2.864205285150092
+Batch 18200 Time:	2.91356281042099 minutes
+Batch 18300 Loss:	2.102988199534593
+Batch 18300 Time:	2.9050318360328675 minutes
+Batch 18400 Loss:	1.9636778915300965
+Batch 18400 Time:	2.885845971107483 minutes
+Batch 18500 Loss:	2.078164645121433
+Batch 18500 Time:	2.8223690032958983 minutes
+Batch 18600 Loss:	2.5146272193524055
+Batch 18600 Time:	2.830172594388326 minutes
+Batch 18700 Loss:	2.1729668297921307
+Batch 18700 Time:	2.8394611994425456 minutes
+Batch 18800 Loss:	1.8427905010757968
+Batch 18800 Time:	2.8546704053878784 minutes
+Batch 18900 Loss:	2.9081957210437395
+Batch 18900 Time:	2.8159122188886005 minutes
+Batch 19000 Loss:	2.8345793908229098
+Batch 19000 Time:	2.786185610294342 minutes
+Batch 19100 Loss:	3.135174658498727
+Batch 19100 Time:	2.8237552642822266 minutes
+Batch 19200 Loss:	3.010318768559955
+Batch 19200 Time:	2.870031499862671 minutes
+Batch 19300 Loss:	2.6116236954112537
+Batch 19300 Time:	2.8651385863622028 minutes
+Batch 19400 Loss:	2.8071681488654576
+Batch 19400 Time:	2.8555526415507 minutes
+Batch 19500 Loss:	2.3892105382401496
+Batch 19500 Time:	2.8093557834625242 minutes
+Batch 19600 Loss:	3.1300959028303623
+Batch 19600 Time:	2.8168636997540792 minutes
+Batch 19700 Loss:	1.9594574540969916
+Batch 19700 Time:	2.8075454036394754 minutes
+Batch 19800 Loss:	1.931536740186857
+Batch 19800 Time:	2.920113988717397 minutes
+Batch 19900 Loss:	2.1187295807758346
+Batch 19900 Time:	2.8348835190137227 minutes
+Training Time: 580.0095716675122 minutes
+Test Time: 3.9971431930859884 minutes
+Total Time: 584.0067157069842 minutes
+Began Loading Data
+Finished Loading Data
+Batch 0 Loss:	0.7016611099243164
+Batch 0 Time:	0.20086119969685873 minutes
+Batch 100 Loss:	62.75244450569153
+Batch 100 Time:	2.911924370129903 minutes
+Batch 200 Loss:	52.41967096924782
+Batch 200 Time:	2.9717267990112304 minutes
+Batch 300 Loss:	45.00667643547058
+Batch 300 Time:	2.9163978695869446 minutes
+Batch 400 Loss:	40.63004492223263
+Batch 400 Time:	2.9056924978892007 minutes
+Batch 500 Loss:	36.40096132457256
+Batch 500 Time:	2.973166592915853 minutes
+Batch 600 Loss:	38.22182382643223
+Batch 600 Time:	3.00697873433431 minutes
+Batch 700 Loss:	32.30580444633961
+Batch 700 Time:	2.9436464428901674 minutes
+Batch 800 Loss:	32.04444967210293
+Batch 800 Time:	2.955695935090383 minutes
+Batch 900 Loss:	27.460371166467667
+Batch 900 Time:	2.907506541411082 minutes
+Batch 1000 Loss:	29.135194092988968
+Batch 1000 Time:	2.966742181777954 minutes
+Batch 1100 Loss:	25.97816252708435
+Batch 1100 Time:	2.9580591201782225 minutes
+Batch 1200 Loss:	25.378518044948578
+Batch 1200 Time:	3.0051748315493265 minutes
+Batch 1300 Loss:	24.40245768800378
+Batch 1300 Time:	2.9439286470413206 minutes
+Batch 1400 Loss:	23.693621158599854
+Batch 1400 Time:	2.981295645236969 minutes
+Batch 1500 Loss:	21.885758087038994
+Batch 1500 Time:	2.9818563063939414 minutes
+Batch 1600 Loss:	20.186612967401743
+Batch 1600 Time:	3.0016732692718504 minutes
+Batch 1700 Loss:	21.386077761650085
+Batch 1700 Time:	2.9649131655693055 minutes
+Batch 1800 Loss:	19.1493018604815
+Batch 1800 Time:	2.9325198411941527 minutes
+Batch 1900 Loss:	18.012652695178986
+Batch 1900 Time:	2.9333718697230022 minutes
+Batch 2000 Loss:	17.16542074456811
+Batch 2000 Time:	2.9713528712590533 minutes
+Batch 2100 Loss:	18.063870679587126
+Batch 2100 Time:	3.0063035329182943 minutes
+Batch 2200 Loss:	18.8722759000957
+Batch 2200 Time:	2.9976032455762227 minutes
+Batch 2300 Loss:	18.44989262893796
+Batch 2300 Time:	3.009981409708659 minutes
+Batch 2400 Loss:	16.052145954221487
+Batch 2400 Time:	2.938041591644287 minutes
+Batch 2500 Loss:	15.89422395825386
+Batch 2500 Time:	2.961924982070923 minutes
+Batch 2600 Loss:	16.737037098035216
+Batch 2600 Time:	2.986682065327962 minutes
+Batch 2700 Loss:	14.359403040260077
+Batch 2700 Time:	2.934011336167653 minutes
+Batch 2800 Loss:	17.03909032791853
+Batch 2800 Time:	2.9608470797538757 minutes
+Batch 2900 Loss:	15.427565274760127
+Batch 2900 Time:	2.96064449151357 minutes
+Batch 3000 Loss:	12.484091414138675
+Batch 3000 Time:	2.873941441377004 minutes
+Batch 3100 Loss:	14.253263473510742
+Batch 3100 Time:	2.8926433444023134 minutes
+Batch 3200 Loss:	13.911752469837666
+Batch 3200 Time:	2.922013254960378 minutes
+Batch 3300 Loss:	12.075320743955672
+Batch 3300 Time:	2.950226378440857 minutes
+Batch 3400 Loss:	12.13192075677216
+Batch 3400 Time:	2.97737896045049 minutes
+Batch 3500 Loss:	13.644788635894656
+Batch 3500 Time:	2.885545508066813 minutes
+Batch 3600 Loss:	11.467940106987953
+Batch 3600 Time:	2.932497870922089 minutes
+Batch 3700 Loss:	11.489178165793419
+Batch 3700 Time:	2.909705479939779 minutes
+Batch 3800 Loss:	12.26527052000165
+Batch 3800 Time:	2.8730584422747296 minutes
+Batch 3900 Loss:	11.836227186024189
+Batch 3900 Time:	2.92761884133021 minutes
+Batch 4000 Loss:	11.321108724921942
+Batch 4000 Time:	2.9114309310913087 minutes
+Batch 4100 Loss:	12.71168277040124
+Batch 4100 Time:	2.9278868317604063 minutes
+Batch 4200 Loss:	11.77507626451552
+Batch 4200 Time:	2.9388964494069416 minutes
+Batch 4300 Loss:	8.496240585576743
+Batch 4300 Time:	2.9569517771402993 minutes
+Batch 4400 Loss:	8.954721571411937
+Batch 4400 Time:	2.9534494400024416 minutes
+Batch 4500 Loss:	10.40518411854282
+Batch 4500 Time:	2.8858882546424867 minutes
+Batch 4600 Loss:	10.172891390044242
+Batch 4600 Time:	2.930466862519582 minutes
+Batch 4700 Loss:	10.838074013590813
+Batch 4700 Time:	2.908079918225606 minutes
+Batch 4800 Loss:	9.85799676226452
+Batch 4800 Time:	2.91661186615626 minutes
+Batch 4900 Loss:	8.438106718473136
+Batch 4900 Time:	2.9148858706156413 minutes
+Batch 5000 Loss:	8.790547334589064
+Batch 5000 Time:	2.9255865693092344 minutes
+Batch 5100 Loss:	10.283799688797444
+Batch 5100 Time:	3.0054346760114035 minutes
+Batch 5200 Loss:	8.908921236172318
+Batch 5200 Time:	2.9745707233746845 minutes
+Batch 5300 Loss:	7.42090724222362
+Batch 5300 Time:	2.9421016295750935 minutes
+Batch 5400 Loss:	10.045958096161485
+Batch 5400 Time:	2.9497815012931823 minutes
+Batch 5500 Loss:	8.324039925821126
+Batch 5500 Time:	2.9164458314577737 minutes
+Batch 5600 Loss:	7.574768501333892
+Batch 5600 Time:	2.9041433334350586 minutes
+Batch 5700 Loss:	9.684627559036016
+Batch 5700 Time:	2.887318317095439 minutes
+Batch 5800 Loss:	9.138169211801142
+Batch 5800 Time:	2.9395820260047913 minutes
+Batch 5900 Loss:	7.935021398938261
+Batch 5900 Time:	2.9168691873550414 minutes
+Batch 6000 Loss:	9.055958221666515
+Batch 6000 Time:	2.925166896979014 minutes
+Batch 6100 Loss:	7.255126186646521
+Batch 6100 Time:	2.948207704226176 minutes
+Batch 6200 Loss:	6.610921815270558
+Batch 6200 Time:	2.920123489697774 minutes
+Batch 6300 Loss:	6.760934561956674
+Batch 6300 Time:	2.9649259130160015 minutes
+Batch 6400 Loss:	7.205409892369062
+Batch 6400 Time:	2.9757776896158856 minutes
+Batch 6500 Loss:	7.655921192839742
+Batch 6500 Time:	2.9520732164382935 minutes
+Batch 6600 Loss:	7.748824339359999
+Batch 6600 Time:	2.9167829513549806 minutes
+Batch 6700 Loss:	7.484458944527432
+Batch 6700 Time:	3.017412801583608 minutes
+Batch 6800 Loss:	8.937429620884359
+Batch 6800 Time:	3.0219111601511637 minutes
+Batch 6900 Loss:	6.7158455941826105
+Batch 6900 Time:	2.9964080572128298 minutes
+Batch 7000 Loss:	6.826796886511147
+Batch 7000 Time:	2.9254085659980773 minutes
+Batch 7100 Loss:	6.15685934247449
+Batch 7100 Time:	2.910788917541504 minutes
+Batch 7200 Loss:	5.3662875378504395
+Batch 7200 Time:	2.911658211549123 minutes
+Batch 7300 Loss:	5.9645296682138
+Batch 7300 Time:	2.9846795360247294 minutes
+Batch 7400 Loss:	7.41106651420705
+Batch 7400 Time:	2.9470358808835346 minutes
+Batch 7500 Loss:	5.674372089095414
+Batch 7500 Time:	2.9289389650026956 minutes
+Batch 7600 Loss:	6.59013266232796
+Batch 7600 Time:	2.9669416189193725 minutes
+Batch 7700 Loss:	6.587719992036
+Batch 7700 Time:	2.9243539055188497 minutes
+Batch 7800 Loss:	6.171093755401671
+Batch 7800 Time:	2.968546481927236 minutes
+Batch 7900 Loss:	7.611852474277839
+Batch 7900 Time:	2.894546047846476 minutes
+Batch 8000 Loss:	5.215480655664578
+Batch 8000 Time:	2.8723012526830036 minutes
+Batch 8100 Loss:	5.238885685801506
+Batch 8100 Time:	2.874066642920176 minutes
+Batch 8200 Loss:	6.963390073506162
+Batch 8200 Time:	2.9119343082110087 minutes
+Batch 8300 Loss:	6.868192671332508
+Batch 8300 Time:	2.910870401064555 minutes
+Batch 8400 Loss:	5.895094192586839
+Batch 8400 Time:	2.8880311489105224 minutes
+Batch 8500 Loss:	7.94051418825984
+Batch 8500 Time:	2.8741816798845927 minutes
+Batch 8600 Loss:	6.2762603694573045
+Batch 8600 Time:	2.887666201591492 minutes
+Batch 8700 Loss:	8.704945370322093
+Batch 8700 Time:	2.929668120543162 minutes
+Batch 8800 Loss:	6.766804583370686
+Batch 8800 Time:	2.9931610186894733 minutes
+Batch 8900 Loss:	5.483809613157064
+Batch 8900 Time:	2.9337321519851685 minutes
+Batch 9000 Loss:	6.649974235799164
+Batch 9000 Time:	2.9860754211743674 minutes
+Batch 9100 Loss:	6.268555127084255
+Batch 9100 Time:	2.956918160120646 minutes
+Batch 9200 Loss:	7.531951295211911
+Batch 9200 Time:	2.8938725113868715 minutes
+Batch 9300 Loss:	6.669939624378458
+Batch 9300 Time:	2.915200245380402 minutes
+Batch 9400 Loss:	7.41399709135294
+Batch 9400 Time:	2.8944533228874207 minutes
+Batch 9500 Loss:	6.901781112421304
+Batch 9500 Time:	2.901546359062195 minutes
+Batch 9600 Loss:	7.4818394866306335
+Batch 9600 Time:	2.906818222999573 minutes
+Batch 9700 Loss:	6.037301925942302
+Batch 9700 Time:	2.9224833369255068 minutes
+Batch 9800 Loss:	5.107276481110603
+Batch 9800 Time:	2.930099332332611 minutes
+Batch 9900 Loss:	4.334789752494544
+Batch 9900 Time:	2.9376938064893086 minutes
+Batch 10000 Loss:	5.342670226586051
+Batch 10000 Time:	2.9458255887031557 minutes
+Batch 10100 Loss:	5.482025827048346
+Batch 10100 Time:	2.8847996910413105 minutes
+Batch 10200 Loss:	4.559652224648744
+Batch 10200 Time:	2.8939775307973226 minutes
+Batch 10300 Loss:	5.596103842603043
+Batch 10300 Time:	2.8964259465535482 minutes
+Batch 10400 Loss:	5.934286342468113
+Batch 10400 Time:	2.93781373500824 minutes
+Batch 10500 Loss:	4.674834804609418
+Batch 10500 Time:	2.8969088355700174 minutes
+Batch 10600 Loss:	4.89208003343083
+Batch 10600 Time:	2.8475302616755167 minutes
+Batch 10700 Loss:	5.035449217539281
+Batch 10700 Time:	2.8798417965571086 minutes
+Batch 10800 Loss:	5.85405613691546
+Batch 10800 Time:	2.8742993235588075 minutes
+Batch 10900 Loss:	4.426663406542502
+Batch 10900 Time:	2.8179082036018372 minutes
+Batch 11000 Loss:	5.641198034165427
+Batch 11000 Time:	2.8300034920374553 minutes
+Batch 11100 Loss:	6.764102526416536
+Batch 11100 Time:	2.894918441772461 minutes
+Batch 11200 Loss:	4.520922292256728
+Batch 11200 Time:	2.908865503470103 minutes
+Batch 11300 Loss:	4.4644035793608055
+Batch 11300 Time:	2.8222865660985312 minutes
+Batch 11400 Loss:	5.594709688099101
+Batch 11400 Time:	2.876595942179362 minutes
+Batch 11500 Loss:	4.29937640146818
+Batch 11500 Time:	2.893188810348511 minutes
+Batch 11600 Loss:	4.084208400803618
+Batch 11600 Time:	2.8659146706263225 minutes
+Batch 11700 Loss:	3.5439487497787923
+Batch 11700 Time:	2.8445312857627867 minutes
+Batch 11800 Loss:	3.4345971771981567
+Batch 11800 Time:	2.847102948029836 minutes
+Batch 11900 Loss:	3.7573849672917277
+Batch 11900 Time:	2.865180194377899 minutes
+Batch 12000 Loss:	4.713686622097157
+Batch 12000 Time:	2.8881665229797364 minutes
+Batch 12100 Loss:	5.836211784975603
+Batch 12100 Time:	2.8794713815053306 minutes
+Batch 12200 Loss:	5.111426355782896
+Batch 12200 Time:	2.888712712128957 minutes
+Batch 12300 Loss:	5.675308268575463
+Batch 12300 Time:	2.8641920487085977 minutes
+Batch 12400 Loss:	5.5857944710878655
+Batch 12400 Time:	2.9293532292048137 minutes
+Batch 12500 Loss:	4.675785233266652
+Batch 12500 Time:	2.9542142271995546 minutes
+Batch 12600 Loss:	3.996772720303852
+Batch 12600 Time:	2.894142731030782 minutes
+Batch 12700 Loss:	3.9430158706381917
+Batch 12700 Time:	2.8769341389338177 minutes
+Batch 12800 Loss:	4.935019304743037
+Batch 12800 Time:	2.912238570054372 minutes
+Batch 12900 Loss:	4.35745888191741
+Batch 12900 Time:	2.961885611216227 minutes
+Batch 13000 Loss:	4.564000967366155
+Batch 13000 Time:	2.900274360179901 minutes
+Batch 13100 Loss:	4.17914581601508
+Batch 13100 Time:	2.8662051796913146 minutes
+Batch 13200 Loss:	4.96509510173928
+Batch 13200 Time:	2.8523725708325705 minutes
+Batch 13300 Loss:	5.509306930471212
+Batch 13300 Time:	2.861947063604991 minutes
+Batch 13400 Loss:	3.0685239182785153
+Batch 13400 Time:	2.9024790366490683 minutes
+Batch 13500 Loss:	5.000171894440427
+Batch 13500 Time:	2.9288644393285117 minutes
+Batch 13600 Loss:	4.5779886594973505
+Batch 13600 Time:	2.889369261264801 minutes
+Batch 13700 Loss:	5.107019705581479
+Batch 13700 Time:	2.8839874903361005 minutes
+Batch 13800 Loss:	5.329949265578762
+Batch 13800 Time:	2.8777482469876605 minutes
+Batch 13900 Loss:	4.737636105506681
+Batch 13900 Time:	2.882929599285126 minutes
+Batch 14000 Loss:	5.954353069537319
+Batch 14000 Time:	2.857055727640788 minutes
+Batch 14100 Loss:	4.568074099719524
+Batch 14100 Time:	2.8657645026842755 minutes
+Batch 14200 Loss:	4.201225875644013
+Batch 14200 Time:	2.8753461122512816 minutes
+Batch 14300 Loss:	5.895303308032453
+Batch 14300 Time:	2.8739976326624554 minutes
+Batch 14400 Loss:	4.2081680058036
+Batch 14400 Time:	2.947146244843801 minutes
+Batch 14500 Loss:	4.930764738935977
+Batch 14500 Time:	2.932424259185791 minutes
+Batch 14600 Loss:	3.8522392503509764
+Batch 14600 Time:	2.9021985967954 minutes
+Batch 14700 Loss:	3.486211343028117
+Batch 14700 Time:	2.9406534512837728 minutes
+Batch 14800 Loss:	4.459179632598534
+Batch 14800 Time:	2.8886370778083803 minutes
+Batch 14900 Loss:	3.553031797055155
+Batch 14900 Time:	2.940697733561198 minutes
+Batch 15000 Loss:	5.494563153246418
+Batch 15000 Time:	2.864160251617432 minutes
+Batch 15100 Loss:	4.501519248296972
+Batch 15100 Time:	2.9096627553304035 minutes
+Batch 15200 Loss:	2.9832112165167928
+Batch 15200 Time:	2.8603267749150594 minutes
+Batch 15300 Loss:	3.0706077511422336
+Batch 15300 Time:	2.884875750541687 minutes
+Batch 15400 Loss:	3.792633406468667
+Batch 15400 Time:	2.907581317424774 minutes
+Batch 15500 Loss:	3.6696373199811205
+Batch 15500 Time:	2.8914714097976684 minutes
+Batch 15600 Loss:	3.9943371838890016
+Batch 15600 Time:	2.9045915921529133 minutes
+Batch 15700 Loss:	5.165058897342533
+Batch 15700 Time:	2.912595800558726 minutes
+Batch 15800 Loss:	5.216353331808932
+Batch 15800 Time:	2.9158332188924154 minutes
+Batch 15900 Loss:	3.3743344465619884
+Batch 15900 Time:	2.854382050037384 minutes
+Batch 16000 Loss:	3.6981868081493303
+Batch 16000 Time:	2.8901638269424437 minutes
+Batch 16100 Loss:	3.5252726811449975
+Batch 16100 Time:	2.832985345522563 minutes
+Batch 16200 Loss:	4.0277661146828905
+Batch 16200 Time:	2.8473858912785848 minutes
+Batch 16300 Loss:	3.3350431415019557
+Batch 16300 Time:	2.867848285039266 minutes
+Batch 16400 Loss:	3.5406753954011947
+Batch 16400 Time:	2.888285195827484 minutes
+Batch 16500 Loss:	2.5726823961012997
+Batch 16500 Time:	2.874262038866679 minutes
+Batch 16600 Loss:	3.5531464987434447
+Batch 16600 Time:	2.918296158313751 minutes
+Batch 16700 Loss:	3.367596814467106
+Batch 16700 Time:	2.858855048815409 minutes
+Batch 16800 Loss:	3.3002006879542023
+Batch 16800 Time:	2.8956036011377972 minutes
+Batch 16900 Loss:	4.621171735576354
+Batch 16900 Time:	2.923803782463074 minutes
+Batch 17000 Loss:	4.021318539394997
+Batch 17000 Time:	2.8948036432266235 minutes
+Batch 17100 Loss:	3.5074023820925504
+Batch 17100 Time:	2.9495458682378133 minutes
+Batch 17200 Loss:	3.4425003970391117
+Batch 17200 Time:	2.867225933074951 minutes
+Batch 17300 Loss:	3.2877695441711694
+Batch 17300 Time:	2.922322110335032 minutes
+Batch 17400 Loss:	2.58149631973356
+Batch 17400 Time:	2.8342721462249756 minutes
+Batch 17500 Loss:	4.462313705822453
+Batch 17500 Time:	2.8876105189323424 minutes
+Batch 17600 Loss:	3.704746989533305
+Batch 17600 Time:	2.8994946757952373 minutes
+Batch 17700 Loss:	3.594387238728814
+Batch 17700 Time:	2.913594667116801 minutes
+Batch 17800 Loss:	2.5745481851045042
+Batch 17800 Time:	2.9009257674217226 minutes
+Batch 17900 Loss:	4.027511396619957
+Batch 17900 Time:	2.8777324318885804 minutes
+Batch 18000 Loss:	2.863995942811016
+Batch 18000 Time:	2.9227665185928347 minutes
+Batch 18100 Loss:	4.105290364124812
+Batch 18100 Time:	2.902896444002787 minutes
+Batch 18200 Loss:	2.525209699786501
+Batch 18200 Time:	2.891994615395864 minutes
+Batch 18300 Loss:	2.7345083266845904
+Batch 18300 Time:	2.9175494869550067 minutes
+Batch 18400 Loss:	3.7389968360075727
+Batch 18400 Time:	2.857643520832062 minutes
+Batch 18500 Loss:	4.927907842968125
+Batch 18500 Time:	2.8560691356658934 minutes
+Batch 18600 Loss:	4.651068933017086
+Batch 18600 Time:	2.8603196024894713 minutes
+Batch 18700 Loss:	4.278810855757911
+Batch 18700 Time:	2.919268532594045 minutes
+Batch 18800 Loss:	4.300569839426316
+Batch 18800 Time:	2.8626071055730185 minutes
+Batch 18900 Loss:	3.4419989439775236
+Batch 18900 Time:	2.8659622073173523 minutes
+Batch 19000 Loss:	8.41892861953238
+Batch 19000 Time:	2.8563279787699383 minutes
+Batch 19100 Loss:	3.083348169689998
+Batch 19100 Time:	2.8677539467811584 minutes
+Batch 19200 Loss:	2.704330316017149
+Batch 19200 Time:	2.9476418614387514 minutes
+Batch 19300 Loss:	3.144894487108104
+Batch 19300 Time:	2.8909408330917357 minutes
+Batch 19400 Loss:	3.179365837655496
+Batch 19400 Time:	2.873753853638967 minutes
+Batch 19500 Loss:	4.425466793472879
+Batch 19500 Time:	2.8618159612019856 minutes
+Batch 19600 Loss:	4.848324405844323
+Batch 19600 Time:	2.853329602877299 minutes
+Batch 19700 Loss:	4.208119291928597
+Batch 19700 Time:	2.844695552190145 minutes
+Batch 19800 Loss:	3.9249075446277857
+Batch 19800 Time:	2.925318936506907 minutes
+Batch 19900 Loss:	3.1559060129220597
+Batch 19900 Time:	2.880643347899119 minutes
+Training Time: 583.378704170386 minutes
+Test Time: 3.550748936335246 minutes
+Total Time: 586.9294539928436 minutes
+Began Loading Data
+Finished Loading Data
+Batch 0 Loss:	0.6936399340629578
+Batch 0 Time:	0.20672128597895303 minutes
+Batch 100 Loss:	47.74264335632324
+Batch 100 Time:	3.003903019428253 minutes
+Batch 200 Loss:	42.98689451813698
+Batch 200 Time:	2.982028905550639 minutes
+Batch 300 Loss:	34.644250489771366
+Batch 300 Time:	2.9833317319552104 minutes
+Batch 400 Loss:	33.079104382544756
+Batch 400 Time:	2.9489277482032774 minutes
+Batch 500 Loss:	29.86556461825967
+Batch 500 Time:	2.9770594954490663 minutes
+Batch 600 Loss:	28.41462030261755
+Batch 600 Time:	2.9766708532969157 minutes
+Batch 700 Loss:	27.573241591453552
+Batch 700 Time:	2.9762147863705954 minutes
+Batch 800 Loss:	28.09049417823553
+Batch 800 Time:	3.02362300157547 minutes
+Batch 900 Loss:	29.053515050560236
+Batch 900 Time:	2.9813379526138304 minutes
+Batch 1000 Loss:	25.02349365502596
+Batch 1000 Time:	3.011515808105469 minutes
+Batch 1100 Loss:	25.177444310858846
+Batch 1100 Time:	3.0772492488225303 minutes
+Batch 1200 Loss:	21.71897724410519
+Batch 1200 Time:	2.980332108338674 minutes
+Batch 1300 Loss:	21.104818595573306
+Batch 1300 Time:	2.9733964602152505 minutes
+Batch 1400 Loss:	24.00015940889716
+Batch 1400 Time:	2.9951563676198325 minutes
+Batch 1500 Loss:	21.176659991964698
+Batch 1500 Time:	3.074452273050944 minutes
+Batch 1600 Loss:	21.996619073674083
+Batch 1600 Time:	2.9959184646606447 minutes
+Batch 1700 Loss:	19.97660354571417
+Batch 1700 Time:	3.0243775606155396 minutes
+Batch 1800 Loss:	23.571532527916133
+Batch 1800 Time:	2.964453864097595 minutes
+Batch 1900 Loss:	22.18806635774672
+Batch 1900 Time:	2.977623919645945 minutes
+Batch 2000 Loss:	22.08224909566343
+Batch 2000 Time:	3.0202090978622436 minutes
+Batch 2100 Loss:	18.792823552154005
+Batch 2100 Time:	2.9992825984954834 minutes
+Batch 2200 Loss:	25.308170177973807
+Batch 2200 Time:	3.023859429359436 minutes
+Batch 2300 Loss:	29.361540225334466
+Batch 2300 Time:	2.9866275946299234 minutes
+Batch 2400 Loss:	19.973953703069128
+Batch 2400 Time:	3.039222168922424 minutes
+Batch 2500 Loss:	17.942746471147984
+Batch 2500 Time:	2.9785772840181988 minutes
+Batch 2600 Loss:	15.062012216076255
+Batch 2600 Time:	2.9698121627171834 minutes
+Batch 2700 Loss:	15.090019018389285
+Batch 2700 Time:	2.98175048828125 minutes
+Batch 2800 Loss:	19.047503436217085
+Batch 2800 Time:	2.9546765526135763 minutes
+Batch 2900 Loss:	14.008076749742031
+Batch 2900 Time:	2.9618765393892925 minutes
+Batch 3000 Loss:	16.00239553116262
+Batch 3000 Time:	3.011830449104309 minutes
+Batch 3100 Loss:	15.778796084690839
+Batch 3100 Time:	2.9988782246907553 minutes
+Batch 3200 Loss:	16.42380904557649
+Batch 3200 Time:	2.9477324644724527 minutes
+Batch 3300 Loss:	17.687216768972576
+Batch 3300 Time:	3.0164151469866436 minutes
+Batch 3400 Loss:	15.52477163495496
+Batch 3400 Time:	2.953939851125081 minutes
+Batch 3500 Loss:	12.581167190335691
+Batch 3500 Time:	2.93422962029775 minutes
+Batch 3600 Loss:	13.457764330552891
+Batch 3600 Time:	2.929159613450368 minutes
+Batch 3700 Loss:	14.587945642415434
+Batch 3700 Time:	2.9527835130691527 minutes
+Batch 3800 Loss:	14.812681534560397
+Batch 3800 Time:	2.9541249752044676 minutes
+Batch 3900 Loss:	15.912746912799776
+Batch 3900 Time:	2.9550413290659585 minutes
+Batch 4000 Loss:	16.022490683477372
+Batch 4000 Time:	2.9133081634839377 minutes
+Batch 4100 Loss:	12.961587148834951
+Batch 4100 Time:	2.9526594201723735 minutes
+Batch 4200 Loss:	10.258050342090428
+Batch 4200 Time:	2.9473464687665305 minutes
+Batch 4300 Loss:	11.467874019872397
+Batch 4300 Time:	2.919843649864197 minutes
+Batch 4400 Loss:	12.859299450763501
+Batch 4400 Time:	2.955968141555786 minutes
+Batch 4500 Loss:	15.110519399517216
+Batch 4500 Time:	3.006013508637746 minutes
+Batch 4600 Loss:	19.789306606631726
+Batch 4600 Time:	2.9023539741834004 minutes
+Batch 4700 Loss:	13.035946149844676
+Batch 4700 Time:	2.9284642815589903 minutes
+Batch 4800 Loss:	14.18487238837406
+Batch 4800 Time:	2.9497435331344604 minutes
+Batch 4900 Loss:	14.611184945795685
+Batch 4900 Time:	2.9868029316266376 minutes
+Batch 5000 Loss:	11.044459676602855
+Batch 5000 Time:	2.972140459219615 minutes
+Batch 5100 Loss:	13.550932098878548
+Batch 5100 Time:	3.001670797665914 minutes
+Batch 5200 Loss:	14.36560272378847
+Batch 5200 Time:	3.029357425371806 minutes
+Batch 5300 Loss:	11.7905762353912
+Batch 5300 Time:	2.998238698641459 minutes
+Batch 5400 Loss:	11.217832125694258
+Batch 5400 Time:	2.9385756850242615 minutes
+Batch 5500 Loss:	12.21836920970236
+Batch 5500 Time:	2.967473371823629 minutes
+Batch 5600 Loss:	12.591768505051732
+Batch 5600 Time:	2.9528507192929587 minutes
+Batch 5700 Loss:	10.253015121968929
+Batch 5700 Time:	3.00083171526591 minutes
+Batch 5800 Loss:	14.840791542781517
+Batch 5800 Time:	3.0062718590100608 minutes
+Batch 5900 Loss:	22.132242189924
+Batch 5900 Time:	2.9712671478589376 minutes
+Batch 6000 Loss:	11.739042593282647
+Batch 6000 Time:	2.9809142629305523 minutes
+Batch 6100 Loss:	18.238055888272356
+Batch 6100 Time:	2.981889541943868 minutes
+Batch 6200 Loss:	11.81736254756106
+Batch 6200 Time:	2.9560991406440733 minutes
+Batch 6300 Loss:	11.680181930074468
+Batch 6300 Time:	2.9760847687721252 minutes
+Batch 6400 Loss:	8.029682338936254
+Batch 6400 Time:	2.954445437590281 minutes
+Batch 6500 Loss:	14.097636741120368
+Batch 6500 Time:	2.976172987620036 minutes
+Batch 6600 Loss:	11.822943746694364
+Batch 6600 Time:	3.046501076221466 minutes
+Batch 6700 Loss:	10.029125041619409
+Batch 6700 Time:	3.071335184574127 minutes
+Batch 6800 Loss:	11.989594867627602
+Batch 6800 Time:	2.982521712779999 minutes
+Batch 6900 Loss:	11.944908851059154
+Batch 6900 Time:	2.9990511337916055 minutes
+Batch 7000 Loss:	10.15970048334566
+Batch 7000 Time:	2.974958018461863 minutes
+Batch 7100 Loss:	10.867500636028126
+Batch 7100 Time:	2.9955429275830587 minutes
+Batch 7200 Loss:	11.273076739955286
+Batch 7200 Time:	3.023491895198822 minutes
+Batch 7300 Loss:	11.357189918577205
+Batch 7300 Time:	3.0337374726931254 minutes
+Batch 7400 Loss:	10.849773365160218
+Batch 7400 Time:	2.9789143125216166 minutes
+Batch 7500 Loss:	9.216730361738882
+Batch 7500 Time:	3.019129701455434 minutes
+Batch 7600 Loss:	18.779697546968237
+Batch 7600 Time:	2.9197585503260295 minutes
+Batch 7700 Loss:	11.940663540008245
+Batch 7700 Time:	3.0069836219151815 minutes
+Batch 7800 Loss:	16.15892658867233
+Batch 7800 Time:	2.910366443792979 minutes
+Batch 7900 Loss:	14.762846764642745
+Batch 7900 Time:	2.959379168351491 minutes
+Batch 8000 Loss:	10.157075503084343
+Batch 8000 Time:	2.913150958220164 minutes
+Batch 8100 Loss:	12.992805364352535
+Batch 8100 Time:	2.9445467352867127 minutes
+Batch 8200 Loss:	9.900972248872222
+Batch 8200 Time:	2.9433542410532634 minutes
+Batch 8300 Loss:	10.4452575474279
+Batch 8300 Time:	2.9222071806589764 minutes
+Batch 8400 Loss:	12.49645927833626
+Batch 8400 Time:	2.9485124468803408 minutes
+Batch 8500 Loss:	10.156136586534558
+Batch 8500 Time:	2.937081023057302 minutes
+Batch 8600 Loss:	12.608882279368117
+Batch 8600 Time:	3.057460113366445 minutes
+Batch 8700 Loss:	13.552375496954483
+Batch 8700 Time:	2.968786569436391 minutes
+Batch 8800 Loss:	10.27516744780587
+Batch 8800 Time:	3.001470728715261 minutes
+Batch 8900 Loss:	18.275138322962448
+Batch 8900 Time:	2.972134466965993 minutes
+Batch 9000 Loss:	14.51114505184978
+Batch 9000 Time:	2.9842191457748415 minutes
+Batch 9100 Loss:	12.390065420244355
+Batch 9100 Time:	2.9540812253952025 minutes
+Batch 9200 Loss:	10.041881576238666
+Batch 9200 Time:	2.957597001393636 minutes
+Batch 9300 Loss:	14.607612388092093
+Batch 9300 Time:	2.987869111696879 minutes
+Batch 9400 Loss:	10.440877986007763
+Batch 9400 Time:	2.942304853598277 minutes
+Batch 9500 Loss:	21.540455382491928
+Batch 9500 Time:	2.9110530694325765 minutes
+Batch 9600 Loss:	13.352285898290575
+Batch 9600 Time:	2.972918709119161 minutes
+Batch 9700 Loss:	10.626593897904968
+Batch 9700 Time:	2.9776350975036623 minutes
+Batch 9800 Loss:	25.630452388271806
+Batch 9800 Time:	2.9413483142852783 minutes
+Batch 9900 Loss:	12.471635183828766
+Batch 9900 Time:	2.926309398810069 minutes
+Batch 10000 Loss:	10.94474672976503
+Batch 10000 Time:	2.9129565954208374 minutes
+Batch 10100 Loss:	12.024040109172347
+Batch 10100 Time:	2.9453952074050904 minutes
+Batch 10200 Loss:	9.419666429774225
+Batch 10200 Time:	2.9793459097544353 minutes
+Batch 10300 Loss:	15.329611111723352
+Batch 10300 Time:	2.884278643131256 minutes
+Batch 10400 Loss:	9.819933585211402
+Batch 10400 Time:	2.910304641723633 minutes
+Batch 10500 Loss:	7.573142678127624
+Batch 10500 Time:	2.938903852303823 minutes
+Batch 10600 Loss:	8.060627310696873
+Batch 10600 Time:	2.921242860953013 minutes
+Batch 10700 Loss:	15.224080363802159
+Batch 10700 Time:	2.8709407647450766 minutes
+Batch 10800 Loss:	13.197019271086901
+Batch 10800 Time:	2.885413118203481 minutes
+Batch 10900 Loss:	16.352694959713062
+Batch 10900 Time:	2.8795365651448566 minutes
+Batch 11000 Loss:	12.381998630672115
+Batch 11000 Time:	2.861582295099894 minutes
+Batch 11100 Loss:	10.86198355187662
+Batch 11100 Time:	2.898590322335561 minutes
+Batch 11200 Loss:	16.248635099909734
+Batch 11200 Time:	2.948243832588196 minutes
+Batch 11300 Loss:	12.057803367673841
+Batch 11300 Time:	2.9280243357022604 minutes
+Batch 11400 Loss:	9.682511207996868
+Batch 11400 Time:	2.9299864212671918 minutes
+Batch 11500 Loss:	14.015854456243687
+Batch 11500 Time:	2.8830115874608357 minutes
+Batch 11600 Loss:	12.718197728252562
+Batch 11600 Time:	2.9095908999443054 minutes
+Batch 11700 Loss:	14.109105790501872
+Batch 11700 Time:	2.8825247804323832 minutes
+Batch 11800 Loss:	27.608176042449486
+Batch 11800 Time:	2.901120960712433 minutes
+Batch 11900 Loss:	19.612839198540314
+Batch 11900 Time:	2.9335496465365094 minutes
+Batch 12000 Loss:	17.052833013542113
+Batch 12000 Time:	2.9302365660667418 minutes
+Batch 12100 Loss:	11.157368470623624
+Batch 12100 Time:	2.9443681557973225 minutes
+Batch 12200 Loss:	19.130504101827682
+Batch 12200 Time:	2.935056622823079 minutes
+Batch 12300 Loss:	18.187723710230784
+Batch 12300 Time:	2.98432430823644 minutes
+Batch 12400 Loss:	11.05569570784428
+Batch 12400 Time:	2.909663764635722 minutes
+Batch 12500 Loss:	18.11144565709401
+Batch 12500 Time:	2.919580868879954 minutes
+Batch 12600 Loss:	20.176483864686816
+Batch 12600 Time:	2.9695919791857404 minutes
+Batch 12700 Loss:	19.07028309488669
+Batch 12700 Time:	3.010152836640676 minutes
+Batch 12800 Loss:	7.472840381786227
+Batch 12800 Time:	2.9815333088239035 minutes
+Batch 12900 Loss:	24.841050420116517
+Batch 12900 Time:	2.9690111835797626 minutes
+Batch 13000 Loss:	10.656208075975883
+Batch 13000 Time:	2.9323416034380596 minutes
+Batch 13100 Loss:	24.01871725205642
+Batch 13100 Time:	2.9372666319211325 minutes
+Batch 13200 Loss:	28.736912508611567
+Batch 13200 Time:	2.905584394931793 minutes
+Batch 13300 Loss:	11.855012502870522
+Batch 13300 Time:	2.9473501563072206 minutes
+Batch 13400 Loss:	16.37871668391017
+Batch 13400 Time:	3.0037873864173887 minutes
+Batch 13500 Loss:	16.37478384221322
+Batch 13500 Time:	2.9241800546646117 minutes
+Batch 13600 Loss:	17.064074071575305
+Batch 13600 Time:	2.9241263031959535 minutes
+Batch 13700 Loss:	13.396580072433608
+Batch 13700 Time:	2.903818492094676 minutes
+Batch 13800 Loss:	6.7300651964797
+Batch 13800 Time:	2.8937792499860127 minutes
+Batch 13900 Loss:	8.948816008865833
+Batch 13900 Time:	2.9151394764582315 minutes
+Batch 14000 Loss:	18.654604118157295
+Batch 14000 Time:	2.937931211789449 minutes
+Batch 14100 Loss:	21.067763985905913
+Batch 14100 Time:	2.9129128734270733 minutes
+Batch 14200 Loss:	8.703033051981038
+Batch 14200 Time:	2.9537508487701416 minutes
+Batch 14300 Loss:	9.734614595450694
+Batch 14300 Time:	2.93360151052475 minutes
+Batch 14400 Loss:	14.44283414072197
+Batch 14400 Time:	2.918001317977905 minutes
+Batch 14500 Loss:	7.807015522150323
+Batch 14500 Time:	2.910671865940094 minutes
+Batch 14600 Loss:	9.143538937554695
+Batch 14600 Time:	2.9500202775001525 minutes
+Batch 14700 Loss:	7.3083519850624725
+Batch 14700 Time:	2.9778619170188905 minutes
+Batch 14800 Loss:	5.756200267845998
+Batch 14800 Time:	2.9634379148483276 minutes
+Batch 14900 Loss:	13.788587443719734
+Batch 14900 Time:	2.96299014488856 minutes
+Batch 15000 Loss:	14.702914511202835
+Batch 15000 Time:	2.9122376283009848 minutes
+Batch 15100 Loss:	14.454717525853994
+Batch 15100 Time:	2.951485009988149 minutes
+Batch 15200 Loss:	9.260382623884652
+Batch 15200 Time:	2.9300048828125 minutes
+Batch 15300 Loss:	15.621839333196476
+Batch 15300 Time:	2.9834452350934346 minutes
+Batch 15400 Loss:	8.26557943818807
+Batch 15400 Time:	2.9534236590067544 minutes
+Batch 15500 Loss:	19.74414791815161
+Batch 15500 Time:	2.966237529118856 minutes
+Batch 15600 Loss:	13.35132739493929
+Batch 15600 Time:	2.9224530458450317 minutes
+Batch 15700 Loss:	8.336414829228943
+Batch 15700 Time:	2.9275870323181152 minutes
+Batch 15800 Loss:	7.168091105016742
+Batch 15800 Time:	2.895489740371704 minutes
+Batch 15900 Loss:	7.709713015000489
+Batch 15900 Time:	2.9027228991190595 minutes
+Batch 16000 Loss:	7.385664724191884
+Batch 16000 Time:	2.918451154232025 minutes
+Batch 16100 Loss:	8.449626648920457
+Batch 16100 Time:	2.9318513751029966 minutes
+Batch 16200 Loss:	7.299960929827648
+Batch 16200 Time:	2.9538657943407696 minutes
+Batch 16300 Loss:	8.070263931129375
+Batch 16300 Time:	2.9385918458302815 minutes
+Batch 16400 Loss:	10.572675897943554
+Batch 16400 Time:	2.9443575501441956 minutes
+Batch 16500 Loss:	7.990313304653682
+Batch 16500 Time:	2.917841549714406 minutes
+Batch 16600 Loss:	8.188381264837517
+Batch 16600 Time:	2.924678107102712 minutes
+Batch 16700 Loss:	13.174866430865222
+Batch 16700 Time:	2.9241082191467287 minutes
+Batch 16800 Loss:	8.93695164577366
+Batch 16800 Time:	2.990880294640859 minutes
+Batch 16900 Loss:	5.781705849833088
+Batch 16900 Time:	2.905342157681783 minutes
+Batch 17000 Loss:	6.699708288242618
+Batch 17000 Time:	2.9161933104197186 minutes
+Batch 17100 Loss:	6.141982484918117
+Batch 17100 Time:	2.9035791595776876 minutes
+Batch 17200 Loss:	17.593799454081818
+Batch 17200 Time:	2.8812520503997803 minutes
+Batch 17300 Loss:	12.88197875079095
+Batch 17300 Time:	2.9499862591425576 minutes
+Batch 17400 Loss:	14.781293387291953
+Batch 17400 Time:	2.9574801762898764 minutes
+Batch 17500 Loss:	9.368237754340953
+Batch 17500 Time:	2.9691082278887433 minutes
+Batch 17600 Loss:	14.939406657460495
+Batch 17600 Time:	2.9078556537628173 minutes
+Batch 17700 Loss:	14.933091101032915
+Batch 17700 Time:	2.959043010075887 minutes
+Batch 17800 Loss:	8.329248864629335
+Batch 17800 Time:	2.95039922396342 minutes
+Batch 17900 Loss:	7.9567284027070855
+Batch 17900 Time:	2.9405487259229024 minutes
+Batch 18000 Loss:	12.449334841138352
+Batch 18000 Time:	2.946747088432312 minutes
+Batch 18100 Loss:	6.626531499248813
+Batch 18100 Time:	2.9033967812856036 minutes
+Batch 18200 Loss:	9.534285833367903
+Batch 18200 Time:	2.903528622786204 minutes
+Batch 18300 Loss:	5.51933834445299
+Batch 18300 Time:	2.905487585067749 minutes
+Batch 18400 Loss:	11.29928317822123
+Batch 18400 Time:	2.9420929312705995 minutes
+Batch 18500 Loss:	11.213418399091573
+Batch 18500 Time:	2.909316186110179 minutes
+Batch 18600 Loss:	9.140960981705575
+Batch 18600 Time:	2.907510046164195 minutes
+Batch 18700 Loss:	14.856989192860055
+Batch 18700 Time:	2.899850781758626 minutes
+Batch 18800 Loss:	7.943093261555987
+Batch 18800 Time:	2.9317045052846273 minutes
+Batch 18900 Loss:	19.369411212132945
+Batch 18900 Time:	2.9669288992881775 minutes
+Batch 19000 Loss:	9.212317328843596
+Batch 19000 Time:	2.902516770362854 minutes
+Batch 19100 Loss:	29.465198398840585
+Batch 19100 Time:	2.891411821047465 minutes
+Batch 19200 Loss:	9.205726971345712
+Batch 19200 Time:	2.8763513207435607 minutes
+Batch 19300 Loss:	14.161995265316364
+Batch 19300 Time:	2.8805645942687987 minutes
+Batch 19400 Loss:	33.45971580587866
+Batch 19400 Time:	2.9423603733380634 minutes
+Batch 19500 Loss:	22.46776680282403
+Batch 19500 Time:	2.9528531551361086 minutes
+Batch 19600 Loss:	9.757087396787028
+Batch 19600 Time:	2.9138338923454286 minutes
+Batch 19700 Loss:	11.50096902104633
+Batch 19700 Time:	2.8645482023557025 minutes
+Batch 19800 Loss:	10.203658918697329
+Batch 19800 Time:	2.8922534704208376 minutes
+Batch 19900 Loss:	20.272489950184536
+Batch 19900 Time:	2.7769378344217936 minutes
+Training Time: 590.9483350714048 minutes
+Test Time: 3.405607545375824 minutes
+Total Time: 594.3539436658224 minutes
