@@ -17,6 +17,7 @@ class OntoTerm:
         self.regulates = _regulates
         self.direct = {} #Code --> Gene
         self.annos = {} #Code --> Gene
+        self.children = set()
 
     def __str__(self):
         return(self.uid)

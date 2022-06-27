@@ -8,6 +8,7 @@ class Gene:
         self.aliases = _alias
         self.direct = {} #Code --> set(OntoTerm)
         self.annos = {} #Code --> set(OntoTerm)
+        self.children = set()
 
     def __str__(self):
         return(self.symbol)

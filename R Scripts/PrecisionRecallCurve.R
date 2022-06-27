@@ -78,9 +78,9 @@ files = choose.files(default=paste0(getwd(),"/*.*"))
 
 colorsList <- c("#FC0303","#14A63B","#5D87F0","#7713BA","#FAEF16","#E09704")
 
-graphName <- "SPELL Network 430 Dataset: 50x20x1 Validation"
+graphName <- "SPELL Network 430 Dataset: 430x20x10x1 Batch 50 Validation"
 
 
-#pdf("SPELL_50_50x20x1_Val_PR.pdf",width=8,height=6)
+pdf("SPELL_430_430x20x10x1_batch50_Val_PR.pdf",width=8,height=6)
 plotPrecRecall(files=files,colorsList=colorsList,graphName=graphName)
-#dev.off()
+dev.off()

@@ -36,8 +36,8 @@ class PairwiseModel():
 
         #Locations to save files
         self.dataTableLocation = f'./Yeast Resources/Pairwise/{folderName}/{modelName}_{structure}_fold{fold+1}'
-        self.networkLocation = f'./Yeast Networks/{folderName}/{modelName}_{structure}_fold{fold+1}'
-        self.lossLocation = f'./Yeast Resources/Pairwise/{folderName}/{modelName}_{structure}_fold{fold+1}_Loss.csv'
+        self.networkLocation = f'./Yeast Resources/Pairwise/{folderName}/{modelName}_{structure}_Net_fold{fold+1}'
+        self.lossLocation = f'./Yeast Resources/Pairwise/{folderName}/{modelName}_{structure}_Loss_fold{fold+1}.csv'
 
     def trainNetwork(self,epochs,printLoss=False,printTensors=False,regularize=True,lossFile='',saveLoss=True):
         start = time.time()
@@ -82,14 +82,14 @@ class PairwiseModel():
             #If printLoss is true, prints the running loss every 100 batches
 
             if(epoch % 100 == 0 and printLoss):
-                print(f'Batch {epoch} Loss:\t{running_loss}')
+                print(f'Batch {epoch} Loss:\t{running_loss}',flush=True)
                 lossList.append(running_loss)
                 running_loss = 0.0
-                print(f'Batch {epoch} Time:\t{(time.time()-start)/60} minutes')
+                print(f'Batch {epoch} Time:\t{(time.time()-start)/60} minutes',flush=True)
                 start = time.time()
-        if(saveLoss):
-            frame = pd.DataFrame(lossList,columns=['Loss'])
-            frame.to_csv(self.lossLocation,index=False)
+                if(saveLoss):
+                    frame = pd.DataFrame(lossList,columns=['Loss'])
+                    frame.to_csv(self.lossLocation,index=False)
 
     def testNetwork(self,save,testingType,limitNegative,negProportion=10,regularize=True):
         with torch.no_grad():
