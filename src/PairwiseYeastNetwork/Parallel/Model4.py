@@ -7,7 +7,8 @@ import ssl
 ssl._create_default_https_context = ssl._create_unverified_context
 
 def main():
-    test(3,'Spell_lr0.005',lr=0.005)
+    test(3,'DNARepair',posGenes='./Yeast Resources/GeneSets/GO0006302_Pos.txt',negGenes='./Yeast Resources\GeneSets\GO0006302_Neg.txt',foldFile='./Yeast Resources/GeneSets/GO0006302Folds1.csv')
+    #test(0,'ModelTest2',batch_size=20,epoch=1000,datasets=10)
 
 if __name__ == '__main__':
     main()
