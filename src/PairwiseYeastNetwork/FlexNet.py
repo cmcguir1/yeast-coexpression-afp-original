@@ -4,11 +4,13 @@ import torch.nn.functional as F
 
 #Flexible Network class that constructs a neural network based on a specified structure
 class FlexNet(nn.Module):
-    def __init__(self,structure):
+    def __init__(self,structure,sigmoid=True):
         super().__init__()
         self.structure = structure
         #Makes a list of sizes of each network layer, then intializes a list to hold these layers
         sizes = self.structure.split('x')
+        #Variable to control if sigmoid is applied to the last hidden laeyer
+        self.sigmoid = sigmoid
         # self.layers = []
         self.layers = nn.Sequential()
         #Loop that adds each layer to the layers list
@@ -25,5 +27,6 @@ class FlexNet(nn.Module):
         #Applies sequential function
         x = self.layers(x)
         #You need to squish with a sigmoid because Binary Cross Entropy needs to output values to be normalized between 0 and 1
-        x = torch.sigmoid(x)
+        if(self.sigmoid):
+            x = torch.sigmoid(x)
         return x

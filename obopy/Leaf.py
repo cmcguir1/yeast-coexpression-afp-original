@@ -32,7 +32,7 @@ def getYORF(genes):
     return yorfList
 
 #Get all GO terms that are leaves
-def getLeaves():
+def getLeaves(cutoff):
     #Initialize a gene ontology
     go = Ontology('./obopy/goslim_yeast.obo','./obopy/sgd.gaf',loadLocal=True)
     #Loop over all terms of the ontology
@@ -45,14 +45,27 @@ def getLeaves():
     for term in go.terms:
         if(len(go.terms[term].children) == 0):
             leaves.append(term)
-    #Return list of leaves
-    return leaves
+    
+    
+    leaves = list(filter(lambda leaf: len(getYORF(go.terms[leaf].allAnnos())) >= cutoff,leaves))
+    
+    leafGenes = []
+    for leaf in leaves:
+        leafGenes.append((leaf,set(getYORF(go.terms[leaf].allAnnos()))))
+    return leafGenes
 
 
-go = Ontology('./obopy/goslim_yeast.obo','./obopy/sgd.gaf',loadLocal=True)
-leaves = getLeaves()
-for leaf in leaves:
-    print(f'{leaf}\t{len(getYORF(go.terms[leaf].allAnnos()))}')
+
+def getLeafGenes(cutoff):
+    leaves = getLeaves()
+    print(len(leaves))
+    filter(lambda leaf: len(leaf) >= cutoff)
+    print(len(leaves))
+
+
+
+leaves = getLeaves(10)
+
 
 
 

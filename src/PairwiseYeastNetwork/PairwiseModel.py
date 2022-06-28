@@ -33,9 +33,10 @@ class PairwiseModel():
 
         #Variable for the batch size of training inputs
         self.batch = batch
+        self.fold = fold
 
         #Locations to save files
-        self.dataTableLocation = f'./Yeast Resources/Pairwise/{folderName}/{modelName}_{structure}_fold{fold+1}'
+        self.dataTableLocation = f'./Yeast Resources/Pairwise/{folderName}/{modelName}_{structure}'
         self.networkLocation = f'./Yeast Resources/Pairwise/{folderName}/{modelName}_{structure}_Net_fold{fold+1}'
         self.lossLocation = f'./Yeast Resources/Pairwise/{folderName}/{modelName}_{structure}_Loss_fold{fold+1}.csv'
 
@@ -176,7 +177,7 @@ class PairwiseModel():
             dataTable = np.concatenate((sortedData,confusionMatrix,statisticsArray),1)
             if(save):
                 dataFrame = pd.DataFrame(dataTable,columns=['Name','+/-','Folds','Score','True Positive', 'False Positive', 'True Negative', 'False Negative', 'Accuracy', 'Precision', 'Recall', 'False Positive Rate', 'Selectivity'])
-                dataFrame.to_csv(f'{self.dataTableLocation}_{testingType}.csv')
+                dataFrame.to_csv(f'{self.dataTableLocation}_{testingType}_fold{self.fold+1}.csv')
 
                 torch.save(self.net.state_dict(), f'{self.networkLocation}_{testingType}.pth')
 

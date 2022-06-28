@@ -5,6 +5,7 @@ import time
 from GeneFolds import GeneFolds
 from YeastGraph import YeastGraph
 import sys
+from ComplexModel import ComplexModel
 
 # This import should fix the ssl import verificiation error
 import ssl
@@ -15,9 +16,9 @@ def main():
 
     #This comment was made from the virtual machine vi
 
-    for i in range(5):
-        folds = GeneFolds(numFolds=4)
-        folds.writeToCsv(f'./Yeast Resources/Datasets/All Spell/GeneFolds{i+2}.csv')
+    # for i in range(5):
+    #     folds = GeneFolds(numFolds=4)
+    #     folds.writeToCsv(f'./Yeast Resources/Datasets/All Spell/GeneFolds{i+2}.csv')
 
     #dnaRepairFolds = GeneFolds(4, posGenes='./Yeast Resources/GeneSets/GO0007127_Pos.txt',negGenes='./Yeast Resources/GeneSets/GO0007127_Neg.txt')
     #dnaRepairFolds.writeToCsv('./Yeast Resources/GeneSets/GO0007127Folds1.csv')
@@ -57,6 +58,8 @@ def main():
     # reverse = np.argsort(-1*sortedArray)
     # print(sortedArray)
     # print(reverse)
+
+    complexModel = ComplexModel(0,4,'10','Spell/Test','ComplexTest')
 
     
 
