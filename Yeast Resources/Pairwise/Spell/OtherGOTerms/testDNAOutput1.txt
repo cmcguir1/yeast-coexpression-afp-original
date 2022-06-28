@@ -1,0 +1,4 @@
+Began Loading Data
+Finished Loading Data
+Batch 0 Loss:	0.7108941078186035
+Batch 0 Time:	0.2741182804107666 minutes
