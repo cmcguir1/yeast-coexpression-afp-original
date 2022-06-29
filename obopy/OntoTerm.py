@@ -61,7 +61,8 @@ class OntoTerm:
             self.annos[code] = set()
         if gene not in self.annos[code]:
             if(self.uid == "GO:1904382"):
-                print(str(gene) + "\t" + code)
+                #print(str(gene) + "\t" + code)
+                pass
             self.annos[code].add(gene)
             #Add term to gene
             gene.addAnnos(self,code)

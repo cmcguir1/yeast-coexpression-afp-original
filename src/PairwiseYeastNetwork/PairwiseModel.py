@@ -8,6 +8,7 @@ import torch.optim as optim
 import numpy as np
 import pandas as pd
 import time
+from random import sample
 
 class PairwiseModel():
     def __init__(self,data,fold,structure,folderName,modelName,lr=0.01,momentum=0.9,batch=20):
@@ -91,6 +92,7 @@ class PairwiseModel():
                 if(saveLoss):
                     frame = pd.DataFrame(lossList,columns=['Loss'])
                     frame.to_csv(self.lossLocation,index=False)
+        torch.save(self.net.state_dict(), f'{self.networkLocation}.pth')
 
     def testNetwork(self,save,testingType,limitNegative,negProportion=10,regularize=True):
         with torch.no_grad():
@@ -179,7 +181,7 @@ class PairwiseModel():
                 dataFrame = pd.DataFrame(dataTable,columns=['Name','+/-','Folds','Score','True Positive', 'False Positive', 'True Negative', 'False Negative', 'Accuracy', 'Precision', 'Recall', 'False Positive Rate', 'Selectivity'])
                 dataFrame.to_csv(f'{self.dataTableLocation}_{testingType}_fold{self.fold+1}.csv')
 
-                torch.save(self.net.state_dict(), f'{self.networkLocation}_{testingType}.pth')
+                
 
 
 
@@ -222,23 +224,7 @@ class PairwiseModel():
                     correlations.append((np.arctanh(p) - dataset.mean)/dataset.std)
                 else:
                     correlations.append(p)
-                # if(genePair[0] in dataset.geneDict and genePair[1] in dataset.geneDict):
-                #     correlations.append(np.corrcoef(dataset.geneDict[genePair[0]],dataset.geneDict[genePair[1]])[1,0])
-                # else:
-                #     correlations.append(0.0)
-
-
-                # if(genePair[0] in dataset.geneDict and genePair[1] in dataset.geneDict and dataset.validGeneData(genePair)):
-                #     #If regularize is true, z-score the fisher transform of the pearson correlation
-                #     if(regularize):
-                #         correlations.append((np.arctanh(np.corrcoef(dataset.geneDict[genePair[0]],dataset.geneDict[genePair[1]])[1,0]) - dataset.mean)/dataset.std)
-                #     #Otherwise, just calculate the correlation between the data of the gene pair
-                #     else:
-                #         correlations.append(np.corrcoef(dataset.geneDict[genePair[0]],dataset.geneDict[genePair[1]])[1,0])
-                # else:
-                #     correlations.append(0.0)
-
-                
+   
             #Appends list of correlations to features list
             featuresList.append(correlations)
 
@@ -251,15 +237,6 @@ class PairwiseModel():
         featuresTensor = torch.tensor(np.array(featuresList))
         labelsTensor = torch.tensor(labelsList)
 
-        #Creates labels tensor, which shoudl always have the first hald of the values be [1] and the second half be [0]
-        # labelsList = []
-        # for genePair in
-        # for i in range(int(self.batch/2)):
-        #     labelsList.append([1.0])
-        # for i in range(int(self.batch/2)):
-        #     labelsList.append([0.0])
-        # labelsTensor = torch.tensor(labelsList)
-        #Returns tuple of tensors
         return (featuresTensor,labelsTensor)
 
 

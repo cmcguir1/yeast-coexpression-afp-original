@@ -58,8 +58,10 @@ def main():
     # reverse = np.argsort(-1*sortedArray)
     # print(sortedArray)
     # print(reverse)
-
+    start = time.time()
     complexModel = ComplexModel(0,4,'10','Spell/Test','ComplexTest')
+    print(f'Overhead : {(time.time()-start)/60}')
+    complexModel.trainNetwork(10000,printLoss=True)
 
     
 

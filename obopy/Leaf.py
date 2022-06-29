@@ -7,7 +7,6 @@ def getGenes(goTerm):
     go = Ontology('./obopy/go-basic.obo','./obopy/sgd.gaf',loadLocal=True)
     meiosis1 = go.terms[goTerm]
     genes = meiosis1.allAnnos()
-    print(f"Type: {type(genes)}")
     return getYORF(genes)
     
 def makePosNegFiles(goTerm):

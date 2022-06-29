@@ -6,9 +6,10 @@ import torch.nn as nn
 from PairwiseYeastData import PairwiseYeastData
 from FlexNet import FlexNet
 import torch.optim as optim
+from random import sample
 
 import sys
-sys.path.insert(0,'./obopy')
+sys.path.append('./obopy/')
 from Leaf import getLeaves
 
 from ExpressionDatasets import ExpressionDatasets
@@ -21,9 +22,9 @@ class ComplexModel(PairwiseModel):
         #Initialize a set of genes, then genes from all leaves
         self.genes = set()
         #Get genes for all terms with 10 or more genes
-        leaves = getLeaves(10)
+        self.leaves = getLeaves(10)
         #Loop that takes the union of all gene sets
-        for leaf in leaves:
+        for leaf in self.leaves:
             self.genes = self.genes | leaf[1]
         
         #Start and end index for fold slicing
@@ -43,7 +44,7 @@ class ComplexModel(PairwiseModel):
         #For a complex model. the data field will be an instance of ExpressionDataset
         self.data = ExpressionDatasets(430,'./Yeast Resources/Datasets/All Spell/all spell datasets',pairs,200000,statsDictLoc='./Yeast Resources/Datasets/All Spell/statsDict.csv')
 
-        self.net = FlexNet(f'{len(self.data.datasets)}x{structure}x{len(leaves)}',sigmoid=False)
+        self.net = FlexNet(f'{len(self.data.datasets)}x{structure}x{len(self.leaves)}',sigmoid=False)
         self.device = 'cuda:0' if torch.cuda.is_available() else 'cpu'
         self.net.to(self.device)
 
@@ -52,11 +53,50 @@ class ComplexModel(PairwiseModel):
 
         self.batch = batch
 
+        self.dataTableLocation = f'./Yeast Resources/Pairwise/{folderName}/{modelName}_{structure}'
+        self.networkLocation = f'./Yeast Resources/Pairwise/{folderName}/{modelName}_{structure}_Net_fold{fold+1}'
+        self.lossLocation = f'./Yeast Resources/Pairwise/{folderName}/{modelName}_{structure}_Loss_fold{fold+1}.csv'
 
+    #Overriden method for making batch arrays
+    def makeBatchArray(self, posPairs, negPairs):
+        #Take a random smaple from posPairs
+        return np.array(sample(list(posPairs),self.batch))
 
-        
-        
-        
+    #Overriden method for making batch tensors
+    def makeBatchTensors(self, inputArray, regularize=True):
+        #Loop over all gene pairs in the input array
+        featuresList = []
+        labelsList = []
+        for genePair in inputArray:
+            correlations = []
+            #Loops over all datasets
+            for dataset in self.data.datasets:
+                #Calculates the correlation coefficient between the expresssion levels of the two genes in a given data set, [0,1] is used because corrcoeff returns a matrix
+                p = dataset.customCorrelation(genePair)
+                #If p is 1 or -1, then there will be in error in arctanh, so make them 0.99 and -0.99
+                if p == 1:
+                    p = 0.99
+                elif p == -1:
+                    p = -0.99
+                if(regularize):
+                    correlations.append((np.arctanh(p) - dataset.mean)/dataset.std)
+                else:
+                    correlations.append(p)
+   
+            #Appends list of correlations to features list
+            featuresList.append(correlations)
+            
+            label = []
+            for leaf in self.leaves:
+                if (genePair[0] in leaf[1] and genePair[1] in leaf[1]):
+                    label.append(1.0)
+                else:
+                    label.append(0.0)
+            labelsList.append(label)
 
-        self.loss = nn.CrossEntropyLoss()
+        #Converts to tensor
+        featuresTensor = torch.tensor(np.array(featuresList))
+        labelsTensor = torch.tensor(labelsList)
+
+        return (featuresTensor,labelsTensor)
 
