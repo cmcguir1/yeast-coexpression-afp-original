@@ -9,8 +9,7 @@ ssl._create_default_https_context = ssl._create_unverified_context
 
 def main():
     complexModel = ComplexModel(int(sys.argv[1]),4,'20','Spell/Complex','Test')
-    complexModel.trainNetwork(10000,printLoss=True)
-    complexModel.trainNetwork(10000,printLoss=True)
+    complexModel.trainNetwork(20000,printLoss=True)
 
 if __name__ == '__main__':
     main()
