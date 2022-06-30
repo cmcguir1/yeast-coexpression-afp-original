@@ -7,7 +7,7 @@ import ssl
 ssl._create_default_https_context = ssl._create_unverified_context
 
 def main():
-    test(sys.argv[1],'Original',folderName='Spell/Original',dataFolder='original',datasets=113,recur=False,sort=False)
+    test(int(sys.argv[1]),'Original',folderName='Spell/Original',dataFolder='original',datasets=113,recur=False,sort=False,epoch=10000)
 
 if __name__ == '__main__':
     main()
