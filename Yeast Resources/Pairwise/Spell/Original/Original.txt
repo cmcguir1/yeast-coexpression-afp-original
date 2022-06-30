@@ -1,0 +1,34 @@
+Began Loading Data
+Finished Loading Data
+/users/cmcguir1/.local/lib/python3.7/site-packages/torch/nn/init.py:403: UserWarning: Initializing zero-element tensors is a no-op
+  warnings.warn("Initializing zero-element tensors is a no-op")
+/users/cmcguir1/.local/lib/python3.7/site-packages/torch/cuda/__init__.py:122: UserWarning: 
+    Found GPU0 Quadro K420 which is of cuda capability 3.0.
+    PyTorch no longer supports this GPU because it is too old.
+    The minimum cuda capability supported by this library is 3.7.
+    
+  warnings.warn(old_gpu_warn % (d, name, major, minor, min_arch // 10, min_arch % 10))
+Traceback (most recent call last):
+  File "src/PairwiseYeastNetwork/Parallel/Model8.py", line 14, in <module>
+    main()
+  File "src/PairwiseYeastNetwork/Parallel/Model8.py", line 11, in main
+    test(i,'Original',folderName='Spell/Original',dataFolder='original',datasets=113)
+  File "./src/PairwiseYeastNetwork/ModelTester.py", line 20, in test
+    regularTest.trainNetwork(epoch,printLoss=True,saveLoss=True)
+  File "./src/PairwiseYeastNetwork/PairwiseModel.py", line 63, in trainNetwork
+    outputs = self.net(features.float())
+  File "/users/cmcguir1/.local/lib/python3.7/site-packages/torch/nn/modules/module.py", line 1110, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "./src/PairwiseYeastNetwork/FlexNet.py", line 28, in forward
+    x = self.layers(x)
+  File "/users/cmcguir1/.local/lib/python3.7/site-packages/torch/nn/modules/module.py", line 1110, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/users/cmcguir1/.local/lib/python3.7/site-packages/torch/nn/modules/container.py", line 141, in forward
+    input = module(input)
+  File "/users/cmcguir1/.local/lib/python3.7/site-packages/torch/nn/modules/module.py", line 1110, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/users/cmcguir1/.local/lib/python3.7/site-packages/torch/nn/modules/linear.py", line 103, in forward
+    return F.linear(input, self.weight, self.bias)
+RuntimeError: CUDA error: no kernel image is available for execution on the device
+CUDA kernel errors might be asynchronously reported at some other API call,so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1.

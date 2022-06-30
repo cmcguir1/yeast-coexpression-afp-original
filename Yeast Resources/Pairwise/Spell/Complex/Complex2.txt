@@ -1,0 +1,12 @@
+Traceback (most recent call last):
+  File "src/PairwiseYeastNetwork/Parallel/Model7.py", line 4, in <module>
+    from ComplexModel import ComplexModel
+  File "./src/PairwiseYeastNetwork/ComplexModel.py", line 13, in <module>
+    from Leaf import getLeaves
+  File "./obopy/Leaf.py", line 2, in <module>
+    from Ontology import Ontology
+  File "./obopy/Ontology.py", line 1, in <module>
+    from OntoTerm import OntoTerm
+  File "./obopy/OntoTerm.py", line 1, in <module>
+    import scipy.stats as stats
+ModuleNotFoundError: No module named 'scipy'
