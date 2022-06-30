@@ -6,6 +6,7 @@ from GeneFolds import GeneFolds
 from YeastGraph import YeastGraph
 import sys
 from ComplexModel import ComplexModel
+import pandas as pd
 
 # This import should fix the ssl import verificiation error
 import ssl
@@ -26,13 +27,35 @@ def main():
 
     # start = time.time()
     # # epoch = 10000
-    # modelData = PairwiseYeastData('Yeast Resources/Datasets/All Spell/all spell datasets',4,subset=200000,numDatasets=50,statsDictLoc='./Yeast Resources/Datasets/All Spell/statsDict.csv',recalc=False,foldFile='./Yeast Resources/Datasets/All Spell/GeneFolds1.csv')
-    # # #modelData.saveStatistics('./Yeast Resources/Datasets/All Spell/statsDict.csv')
+    modelData = PairwiseYeastData('Yeast Resources/Datasets/All Spell/all spell datasets',4,subset=200000,numDatasets=430,statsDictLoc='./Yeast Resources/Datasets/All Spell/revisedStatsDict.csv',recalc=False,foldFile='./Yeast Resources/Datasets/All Spell/GeneFolds1.csv')
+    
+    # newDict = {}
+    # for key, value in modelData.expression.statsDict.items():
+    #     newDict[key[key.find('\\')+1:]] = value
+    # print(len(modelData.expression.statsDict))
+    # print(len(newDict))
+    # modelData.expression.statsDict = newDict
+    # # modelData.saveStatistics('./Yeast Resources/Datasets/All Spell/revisedStatsDict.csv')
+
+    # for key, value in modelData.expression.statsDict.items():
+    #     print(key)
+    #     print(value)
+    # for key,value in newDict.items():
+    #     print(key)
+    #     print(value)
+
+    # dataTable = []
+    # for key, value in newDict.items():
+    #     dataTable.append([key,value[0],value[1]])
+    # dataFrame = pd.DataFrame(dataTable,columns=['File Name', 'Mean', 'Standard Deviation'])
+    # dataFrame.to_csv('./Yeast Resources/Datasets/All Spell/revisedStatsDict.csv',index=False)
+
+    # #modelData.saveStatistics('./Yeast Resources/Datasets/All Spell/statsDict.csv')
     
 
     # # regularTest = []
     # # for i in range(4):
-    # regularTest = PairwiseModel(modelData,0,'20x10x1','Spell/Test','SpeedTest',lr=0.1,batch=50)
+    regularTest = PairwiseModel(modelData,0,'20x10x1','Spell/Test','SpeedTest',lr=0.1,batch=50)
     # regularTest.trainNetwork(10000,printLoss=True,lossFile='./Yeast Resources/Datasets/All Spell/SpeedTestLoss1.csv')
     # print(f'Training Time: {(time.time()-start)/60} minutes')
     # start = time.time()
@@ -58,10 +81,12 @@ def main():
     # reverse = np.argsort(-1*sortedArray)
     # print(sortedArray)
     # print(reverse)
-    start = time.time()
-    complexModel = ComplexModel(0,4,'10','Spell/Test','ComplexTest')
-    print(f'Overhead : {(time.time()-start)/60}')
-    complexModel.trainNetwork(10000,printLoss=True)
+    # start = time.time()
+    # complexModel = ComplexModel(0,4,'10','Spell/Test','ComplexTest')
+    # print(f'Overhead : {(time.time()-start)/60}')
+    # complexModel.trainNetwork(10000,printLoss=True)
+
+
 
     
 

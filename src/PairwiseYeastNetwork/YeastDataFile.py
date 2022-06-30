@@ -19,14 +19,26 @@ class YeastDataFile():
 
         #dataFile stores the name of the data file, including which folder the file is found within Yeast Resources
         #If running locally on a laptop, the file path with use \ to seperate folders, so search for the first \ to determine file name
+        # if '\\' in filePath:
+        #     self.dataFile = filePath[filePath.find('\\')+1:]
+        # #If running on Google Colab, the file path will only use /, so search for the last / before 'PMID' to determine file name
+        # else:
+        #     self.dataFile = filePath[filePath[0:filePath.find('PMID')].rfind('/')+1:]
+        # slashLoc = self.dataFile.find('/')
+        # if slashLoc != -1:
+        #     self.dataFile = self.dataFile[0:slashLoc] + '\\' + self.dataFile[slashLoc+1:]
+
         if '\\' in filePath:
-            self.dataFile = filePath[filePath.find('\\')+1:]
+            self.dataFile = filePath[filePath.rfind('\\')+1:]
         #If running on Google Colab, the file path will only use /, so search for the last / before 'PMID' to determine file name
         else:
-            self.dataFile = filePath[filePath[0:filePath.find('PMID')].rfind('/')+1:]
-        slashLoc = self.dataFile.find('/')
+            self.dataFile = filePath[filePath.rfind('/')+1:]
+        slashLoc = self.dataFile.rfind('/')
         if slashLoc != -1:
             self.dataFile = self.dataFile[0:slashLoc] + '\\' + self.dataFile[slashLoc+1:]
+
+        # print(self.dataFile)
+        
 
 
         #Intializes an empty gene dictionary that will take in a gene in return its expression data for this dataset
