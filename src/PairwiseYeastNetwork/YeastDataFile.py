@@ -57,9 +57,10 @@ class YeastDataFile():
         #Otherwise, calculate stats from random sample of gene pairs
         else:
             #Shuffle order of pairs array so that we are randomly sampling when we calculate mean and std
-            np.random.shuffle(pairs)
+            #np.random.shuffle(pairs)
             #Take first subset gene pairs as sample
             sub = pairs[0:subset]
+            print(sub)
             #Intialize empty correlations list
             correlations = []
             #Loop over all pairs in subset

@@ -133,7 +133,12 @@ class PairwiseYeastData():
             return (np.array(posGenePairs),np.array(negGenePairs),np.array(agnGenePairs))
         #If not, then only return positive pairs and negative pairs
         else:
-            return (np.array(posGenePairs),np.array(negGenePairs))
+            #This conditional is required to run the complex model as the negative pair array must match the dimension of the positive
+            if len(negGenePairs) != 0:
+                return (np.array(posGenePairs),np.array(negGenePairs))
+            else:
+                return (np.array(posGenePairs),np.zeros((0,2)))
+
 
     #Calculates correlation coefficent between all gene pairs for all datasets, this is used to generate hisogram distributions of pearson correlation for a dataset
     def calculateCorrelations(self):

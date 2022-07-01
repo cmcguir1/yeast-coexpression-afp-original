@@ -27,8 +27,10 @@ def main():
 
     # start = time.time()
     # # epoch = 10000
-    modelData = PairwiseYeastData('Yeast Resources/Datasets/All Spell/all spell datasets',4,subset=200000,numDatasets=430,statsDictLoc='./Yeast Resources/Datasets/All Spell/revisedStatsDict.csv',recalc=False,foldFile='./Yeast Resources/Datasets/All Spell/GeneFolds1.csv')
-    
+    # modelData = PairwiseYeastData('Yeast Resources/Datasets/All Spell/all spell datasets',4,subset=200000,numDatasets=430,statsDictLoc='./Yeast Resources/Datasets/All Spell/revisedStatsDict.csv',recalc=False,foldFile='./Yeast Resources/Datasets/All Spell/GeneFolds1.csv')
+    # for i in range(100,-1,-1):
+    #     print(i)
+    x = 'hi'
     # newDict = {}
     # for key, value in modelData.expression.statsDict.items():
     #     newDict[key[key.find('\\')+1:]] = value
@@ -55,7 +57,7 @@ def main():
 
     # # regularTest = []
     # # for i in range(4):
-    regularTest = PairwiseModel(modelData,0,'20x10x1','Spell/Test','SpeedTest',lr=0.1,batch=50)
+    # regularTest = PairwiseModel(modelData,0,'20x10x1','Spell/Test','SpeedTest',lr=0.1,batch=50)
     # regularTest.trainNetwork(10000,printLoss=True,lossFile='./Yeast Resources/Datasets/All Spell/SpeedTestLoss1.csv')
     # print(f'Training Time: {(time.time()-start)/60} minutes')
     # start = time.time()

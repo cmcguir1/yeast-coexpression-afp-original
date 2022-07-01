@@ -20,8 +20,8 @@ class PairwiseModel():
         #Intializes network using number of input datasets and the specified hidden layer structure
         self.net = FlexNet(f'{len(self.data.datasets)}x{structure}')
         #Determines device the network will train on, then moves network to that device
-        self.device = 'cuda:0' if torch.cuda.is_available() else 'cpu'
-        
+        #self.device = 'cuda:0' if torch.cuda.is_available() else 'cpu'
+        self.device = 'cpu'
         
         self.net.to(self.device)
 
@@ -94,6 +94,7 @@ class PairwiseModel():
                     frame.to_csv(self.lossLocation,index=False)
         torch.save(self.net.state_dict(), f'{self.networkLocation}.pth')
 
+
     def testNetwork(self,save,testingType,limitNegative,negProportion=10,regularize=True):
         with torch.no_grad():
             #Create positive and negative pairs from the validation data
@@ -119,67 +120,97 @@ class PairwiseModel():
             gene2 = ''
             for genePair in inputArray:
                 namesList.append(f'{genePair[0]} {genePair[1]}')
-                for i in range(len(self.data.folds)):
-                    fold = self.data.folds[i]
-                    if(genePair[0] in fold[0] or genePair[0] in fold[1]):
-                        gene1 = f'{i+1}'
-                    if(genePair[1] in fold[0] or genePair[1] in fold[1]):
-                        gene2 = f'{i+1}'
-                foldsList.append(f'{gene1}_{gene2}')
+                foldsList.append('NA')
+                # for i in range(len(self.data.folds)):
+                #     fold = self.data.folds[i]
+                #     if(genePair[0] in fold[0] or genePair[0] in fold[1]):
+                #         gene1 = f'{i+1}'
+                #     if(genePair[1] in fold[0] or genePair[1] in fold[1]):
+                #         gene2 = f'{i+1}'
+                # foldsList.append(f'{gene1}_{gene2}')
             namesArray = np.array(namesList)
             foldsArray = np.array(foldsList)
 
-            #Moves labels and output tensors to cpu, then turns them into arrays and flattens them
-            labelsArray = labels.cpu().numpy().flatten()
-            outputsArray = outputs.cpu().numpy().flatten()
+            self.calcStats(namesArray=namesArray,labels=labels,foldsArray=foldsArray,outputs=outputs,save=save,testingType=testingType)
+            
+
+    def calcStats(self,namesArray,labels,foldsArray,outputs,save,testingType):
+         #Moves labels and output tensors to cpu, then turns them into arrays and flattens them
+        labelsArray = labels.cpu().numpy().flatten()
+        outputsArray = outputs.cpu().numpy().flatten()
 
             #Concatenates arrays together, then transposes
-            rawData = np.array([namesArray,labelsArray,foldsArray,outputsArray],dtype=object).transpose()
-            #Sorts raw data by the fourth column, which is score in this case
-            sortedData = rawData[rawData[:,3].argsort()]
+        rawData = np.array([namesArray,labelsArray,foldsArray,outputsArray],dtype=object).transpose()
+        #Sorts raw data by the fourth column, which is score in this case
+        sortedData = rawData[rawData[:,3].argsort()]
             
-            confusionMatrixList = []
+        confusionMatrixList = []
 
-            truePos, trueNeg,falsePos, falseNeg = 0, 0, 0, 0
-            #In this loop, i represents the cutoff for what we consider a true postiive or negative
-            for i in range(len(sortedData)):
-                #Loops over all genes determines where that gene is in the confusion matrix
-                for j in range(len(sortedData)):
-                    #If gene is negative and below the line, it is a true negative
-                    if(sortedData[j,1] == 0.0 and j <= i):
-                        trueNeg += 1
-                    #If gene is positive and below the line, it is a false positive
-                    elif(sortedData[j,1] == 1.0 and j <= i):
-                        falseNeg += 1
-                    #If gene is negative and above the line, it is a false negative
-                    elif(sortedData[j,1] == 0.0 and j > i):
-                        falsePos += 1
-                    #If the gene is positive and above the line, it is a true positive
-                    else:
-                        truePos += 1
-                #Appends an array of the confusion matrix value to a confusion matrix list
-                confusionMatrixList.append(np.array([truePos,falsePos,trueNeg,falseNeg]))
-                #Reset confusion matrix values
-                truePos, trueNeg, falsePos, falseNeg = 0, 0 ,0 ,0
-            #Makes confusion matrix list into array
-            confusionMatrix = np.array(confusionMatrixList)
+
+        pos = 0
+        neg = 0
+        for row in sortedData:
+            if(row[1] == 1):
+                pos += 1
+            else:
+                neg += 1
+        truePos = pos
+        falsePos = neg
+        trueNeg = 0
+        falseNeg = 0
+        for row in sortedData:
+            if(row[1] == 1):
+                truePos -= 1
+                falseNeg += 1  
+            else:
+                falsePos -= 1
+                trueNeg += 1
+            confusionMatrixList.append(np.array([truePos,falsePos,trueNeg,falseNeg]))
+        #Makes confusion matrix list into array
+        confusionMatrix = np.array(confusionMatrixList)
+
+        # truePos, trueNeg,falsePos, falseNeg = 0, 0, 0, 0
+        # #In this loop, i represents the cutoff for what we consider a true postiive or negative
+        # for i in range(len(sortedData)):
+        #     #Loops over all genes determines where that gene is in the confusion matrix
+        #     for j in range(len(sortedData)):
+        #         #If gene is negative and below the line, it is a true negative
+        #         if(sortedData[j,1] == 0.0 and j <= i):
+        #             trueNeg += 1
+        #         #If gene is positive and below the line, it is a false positive
+        #         elif(sortedData[j,1] == 1.0 and j <= i):
+        #             falseNeg += 1
+        #         #If gene is negative and above the line, it is a false negative
+        #         elif(sortedData[j,1] == 0.0 and j > i):
+        #             falsePos += 1
+        #         #If the gene is positive and above the line, it is a true positive
+        #         else:
+        #             truePos += 1
+        #     #Appends an array of the confusion matrix value to a confusion matrix list
+        #     confusionMatrixList.append(np.array([truePos,falsePos,trueNeg,falseNeg]))
+        #     #Reset confusion matrix values
+        #     truePos, trueNeg, falsePos, falseNeg = 0, 0 ,0 ,0
+
+        
             
-            #Calculate statistics for confusion matrix array
-            statisticsList = []
-            for mat in confusionMatrix:
-                accuracy = (mat[0] + mat[2]) / mat.sum()
-                precision = 1 if (mat[0] + mat[1] == 0) else (mat[0]) / (mat[0] + mat[1])
-                recall =  1 if(mat[0] + mat[3] == 0) else mat[0] / (mat[0] + mat[3])
-                falsePositiveRate = mat[1] / (mat[1] + mat[2])
-                selectivity = mat[2] /(mat[2] + mat[1])
-                statisticsList.append(np.array([accuracy,precision,recall,falsePositiveRate,selectivity]))
-            #Converts stats list into array to be concatenated
-            statisticsArray = np.array(statisticsList)
+        #Calculate statistics for confusion matrix array
+        statisticsList = []
+        for mat in confusionMatrix:
+            accuracy = (mat[0] + mat[2]) / mat.sum()
+            precision = 1 if (mat[0] + mat[1] == 0) else (mat[0]) / (mat[0] + mat[1])
+            recall =  1 if(mat[0] + mat[3] == 0) else mat[0] / (mat[0] + mat[3])
+            falsePositiveRate = mat[1] / (mat[1] + mat[2])
+            selectivity = mat[2] /(mat[2] + mat[1])
+            statisticsList.append(np.array([accuracy,precision,recall,falsePositiveRate,selectivity]))
+        #Converts stats list into array to be concatenated
+        statisticsArray = np.array(statisticsList)
 
-            dataTable = np.concatenate((sortedData,confusionMatrix,statisticsArray),1)
-            if(save):
+        dataTable = np.concatenate((sortedData,confusionMatrix,statisticsArray),1)  
+        if(save):
                 dataFrame = pd.DataFrame(dataTable,columns=['Name','+/-','Folds','Score','True Positive', 'False Positive', 'True Negative', 'False Negative', 'Accuracy', 'Precision', 'Recall', 'False Positive Rate', 'Selectivity'])
-                dataFrame.to_csv(f'{self.dataTableLocation}_{testingType}_fold{self.fold+1}.csv')
+                dataFrame.to_csv(f'{self.dataTableLocation}_{testingType}_fold{self.fold+1}.csv') 
+    
+
 
                 
 

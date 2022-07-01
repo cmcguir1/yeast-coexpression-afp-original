@@ -1,18 +1,18 @@
-'Jelinsky00.pcl', absent
-'Iyer01_set1dyeSwap.pcl', absent
+	'Jelinsky00.pcl', absent
+	'Iyer01_set1dyeSwap.pcl', absent
 'Brem02_set1.pcl', other files
 'Spellman98_cyclin.pcl', other files
 'Sudarsanam00_set1.pcl', added
 'Brem02_set1dyeSwap.pcl', other files
 'Clark02_dyeSwap.pcl', other files
 'Jones03_dyeSwap.pcl', other files
-'Casagrande00.pcl', absent
-'Iyer01_set1.pcl', absent
-'Rutherford01.pcl', absent
+	'Casagrande00.pcl', absent
+	'Iyer01_set1.pcl', absent
+	'Rutherford01.pcl', absent
 'Gasch00_stationaryPhase_y12.pcl', added
-'Yvert03_dyeSwap.pcl', absent
+'Yvert03_dyeSwap.pcl', absent, found
 'Gasch00_HOresponse.pcl', other files
-'Yvert03_orig.pcl', absent
+	'Yvert03_orig.pcl', absent, found
 'Zhu00.pcl', added
 'Gasch00_DTT_y13.pcl', added
 'Gasch00_steadyState_y13.pcl', added
@@ -23,9 +23,15 @@
 'Brem02_set2.pcl', other files
 'Brem02_set2dyeSwap.pcl', other files
 'Brem05_dyeSwap.pcl', other files
-'Iyer01_set2.pcl', absent
+	'Iyer01_set2.pcl', absent
 'Ferea99.pcl', added
-'Fernandes04.pcl', absent
+	'Fernandes04.pcl', absent, not found
 'Gasch00_steadyState_y14.pcl', added
 'DeRisi97.pcl', added
-'Iyer01_set2dyeSwap.pcl', absent
+	'Iyer01_set2dyeSwap.pcl', absent
+
+11 absent files
+9 missing files from folder that already exist
+11 added
+
+We need to get Jelinksky, all other datasets were removed for some reason (such as not having enough conditions) or were subsumed by brem

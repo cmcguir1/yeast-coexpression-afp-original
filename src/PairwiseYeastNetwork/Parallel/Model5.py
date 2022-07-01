@@ -7,10 +7,7 @@ import ssl
 ssl._create_default_https_context = ssl._create_unverified_context
 
 def main():
-    for i in range(4):
-        test(i,f'StructureTest',folderName='Spell/Structure',foldFile=f'./Yeast Resources/Datasets/All Spell/GeneFolds3.csv',structure=sys.argv[1],epoch=20000)
-        # test(0,f'TestStructure',folderName='Spell/Structure',foldFile=f'./Yeast Resources/Datasets/All Spell/GeneFolds3.csv',structure=sys.argv[1],epoch=100,datasets=5)
-
+    test(0,'Original',folderName='Spell/Original',dataFolder='original',datasets=113,recur=False,sort=False,epoch=100,structure=sys.argv[1])
 
 if __name__ == '__main__':
     main()

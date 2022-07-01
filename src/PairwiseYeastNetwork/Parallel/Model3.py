@@ -1,14 +1,20 @@
 import sys
 sys.path.insert(0,'./src/PairwiseYeastNetwork')
 from ModelTester import test
+from ComplexModel import ComplexModel
+import torch
 
 # This import should fix the ssl import verificiation error
 import ssl
 ssl._create_default_https_context = ssl._create_unverified_context
 
 def main():
-    test(int(sys.argv[1]),f'Spell_batch{sys.argv[2]}',batch_size=int(sys.argv[2]),folderName='Spell/BatchTests')
-    # test(0,f'TestSpell_batch{12}',batch_size=12,folderName='Spell/BatchTests',epoch=100,datasets=10)
+    # complexModel = ComplexModel(int(sys.argv[1]),4,'20','Spell/Complex','Test')
+    for i in range(4):
+        complexModel = ComplexModel(i,4,sys.argv[1],'Spell/Complex','Complex')
+        complexModel.trainNetwork(epochs=20000,printLoss=True)
+        complexModel.testNetworkValidation(limitNegative=True,negProportion=10)
+        complexModel.testNetworkTraining(limitNegative=True,negProportion=10)
 
 if __name__ == '__main__':
     main()
