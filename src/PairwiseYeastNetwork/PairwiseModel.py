@@ -100,11 +100,11 @@ class PairwiseModel():
             #Create positive and negative pairs from the validation data
             posPairs, negPairs = PairwiseYeastData.makePairs(self.posVal,self.negVal)
             #Create an input array to make batch tensor by concatentating
+            np.random.shuffle(posPairs)
             if posProportion == 0:
                 posProportion = len(posPairs)
             if(limitNegative):
                 np.random.shuffle(negPairs)
-                np.random.shuffle(posPairs)
                 inputArray = np.concatenate((posPairs[0:posProportion],negPairs[0:int(len(posPairs)*negProportion)]))
             else:
                 inputArray = np.concatenate((posPairs[0:posProportion],negPairs))
