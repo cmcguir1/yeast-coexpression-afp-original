@@ -147,8 +147,6 @@ class ComplexModel(PairwiseModel):
             
         goData = np.array(goData).transpose()
         goStats = np.array(goStats)
-        print(goData)
-        print(goStats)
         dataFrame = pd.DataFrame(goData,columns=colNames)
         statsFrame = pd.DataFrame(goStats,columns=['GO Term','AUC','Average Precision'])
         dataFrame.to_csv(f'{self.dataTableLocation}_{testingType}_data_fold{self.fold+1}.csv',index=False)

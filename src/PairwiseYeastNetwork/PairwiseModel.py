@@ -95,16 +95,19 @@ class PairwiseModel():
         torch.save(self.net.state_dict(), f'{self.networkLocation}.pth')
 
 
-    def testNetwork(self,save,testingType,limitNegative,negProportion=10,regularize=True):
+    def testNetwork(self,save,testingType,limitNegative,negProportion=10,regularize=True,posProportion=0):
         with torch.no_grad():
             #Create positive and negative pairs from the validation data
             posPairs, negPairs = PairwiseYeastData.makePairs(self.posVal,self.negVal)
             #Create an input array to make batch tensor by concatentating
+            np.random.shuffle(posPairs)
+            if posProportion == 0:
+                posProportion = len(posPairs)
             if(limitNegative):
                 np.random.shuffle(negPairs)
-                inputArray = np.concatenate((posPairs,negPairs[0:int(len(posPairs)*negProportion)]))
+                inputArray = np.concatenate((posPairs[0:posProportion],negPairs[0:int(len(posPairs)*negProportion)]))
             else:
-                inputArray = np.concatenate((posPairs,negPairs))
+                inputArray = np.concatenate((posPairs[0:posProportion],negPairs))
             #Create features and labels tensors, then move them both to the gpu
             features, labels = self.makeBatchTensors(inputArray,regularize=regularize)
             features = features.to(self.device)
@@ -216,11 +219,11 @@ class PairwiseModel():
 
 
 
-    def testNetworkTraining(self,save=True,regularize=True,limitNegative=False,negProportion=10):
-        self.testNetwork(save,'Train',regularize=regularize,limitNegative=limitNegative,negProportion=negProportion)
+    def testNetworkTraining(self,save=True,regularize=True,limitNegative=False,negProportion=10,posProportion=0):
+        self.testNetwork(save,'Train',regularize=regularize,limitNegative=limitNegative,negProportion=negProportion,posProportion=posProportion)
     
-    def testNetworkValidation(self,save=True,regularize=True,limitNegative=False,negProportion=10):
-        self.testNetwork(save,'Val',regularize=regularize,limitNegative=limitNegative,negProportion=negProportion)
+    def testNetworkValidation(self,save=True,regularize=True,limitNegative=False,negProportion=10,posProportion=0):
+        self.testNetwork(save,'Val',regularize=regularize,limitNegative=limitNegative,negProportion=negProportion,posProportion=posProportion)
 
 
     def makeBatchArray(self,posPairs,negPairs):

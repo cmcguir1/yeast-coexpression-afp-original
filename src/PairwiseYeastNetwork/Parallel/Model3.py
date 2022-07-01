@@ -13,8 +13,8 @@ def main():
     for i in range(4):
         complexModel = ComplexModel(i,4,sys.argv[1],'Spell/Complex','Complex',foldFile='./Yeast Resources/Datasets/All Spell/complexGeneFolds1.csv')
         complexModel.trainNetwork(epochs=20000,printLoss=True)
-        complexModel.testNetworkValidation(limitNegative=True,negProportion=10)
-        complexModel.testNetworkTraining(limitNegative=True,negProportion=10)
+        complexModel.testNetworkValidation(limitNegative=True,negProportion=10,posProportion=5000)
+        complexModel.testNetworkTraining(limitNegative=True,negProportion=10,posProportion=5000)
 
 if __name__ == '__main__':
     main()
