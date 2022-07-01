@@ -88,7 +88,7 @@ class ComplexModel(PairwiseModel):
         for fold in range(self.numFolds):
             for i in range(int((fold/self.numFolds)*len(self.genes)),int(((fold+1)/self.numFolds)*len(self.genes))):
                 foldTable.append([genesList[i],fold])
-        pd.DataFrame(genesList,columns=['Gene','Fold']).to_csv(location,index=False)
+        pd.DataFrame(foldTable,columns=['Gene','Fold']).to_csv(location,index=False)
 
 
         

@@ -11,7 +11,7 @@ ssl._create_default_https_context = ssl._create_unverified_context
 def main():
     # complexModel = ComplexModel(int(sys.argv[1]),4,'20','Spell/Complex','Test')
     for i in range(4):
-        complexModel = ComplexModel(i,4,sys.argv[1],'Spell/Complex','Complex')
+        complexModel = ComplexModel(i,4,sys.argv[1],'Spell/Complex','Complex',foldFile='./Yeast Resources/Datasets/All Spell/complexGeneFolds1.csv')
         complexModel.trainNetwork(epochs=20000,printLoss=True)
         complexModel.testNetworkValidation(limitNegative=True,negProportion=10)
         complexModel.testNetworkTraining(limitNegative=True,negProportion=10)
