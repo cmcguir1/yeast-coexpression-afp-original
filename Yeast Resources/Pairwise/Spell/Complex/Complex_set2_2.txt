@@ -1,0 +1,2336 @@
+Batch 0 Loss:	0.4669519364833832
+Batch 0 Time:	0.1595128377278646 minutes
+Batch 100 Loss:	40.85505199432373
+Batch 100 Time:	2.877563301722209 minutes
+Batch 200 Loss:	39.891740672290325
+Batch 200 Time:	2.8955695112546285 minutes
+Batch 300 Loss:	31.647176310420036
+Batch 300 Time:	2.922838727633158 minutes
+Batch 400 Loss:	23.940065409988165
+Batch 400 Time:	2.9194533030192056 minutes
+Batch 500 Loss:	25.483314210548997
+Batch 500 Time:	2.8959516326586408 minutes
+Batch 600 Loss:	33.34257044643164
+Batch 600 Time:	2.9293830196062722 minutes
+Batch 700 Loss:	24.57183938845992
+Batch 700 Time:	2.9331791838010153 minutes
+Batch 800 Loss:	30.500533379614353
+Batch 800 Time:	2.9107162912686664 minutes
+Batch 900 Loss:	25.332177359610796
+Batch 900 Time:	2.8988770723342894 minutes
+Batch 1000 Loss:	27.979527700692415
+Batch 1000 Time:	2.916616690158844 minutes
+Batch 1100 Loss:	28.415691073983908
+Batch 1100 Time:	2.9035741170247396 minutes
+Batch 1200 Loss:	31.033141788095236
+Batch 1200 Time:	2.893914222717285 minutes
+Batch 1300 Loss:	27.88274820148945
+Batch 1300 Time:	2.870059545834859 minutes
+Batch 1400 Loss:	25.517527321353555
+Batch 1400 Time:	2.8761418064435325 minutes
+Batch 1500 Loss:	27.59233389608562
+Batch 1500 Time:	2.9213441491127012 minutes
+Batch 1600 Loss:	27.14940680190921
+Batch 1600 Time:	2.9223925948143004 minutes
+Batch 1700 Loss:	25.55859506316483
+Batch 1700 Time:	2.906255300839742 minutes
+Batch 1800 Loss:	25.20509314723313
+Batch 1800 Time:	2.9058476368586224 minutes
+Batch 1900 Loss:	22.294659487903118
+Batch 1900 Time:	2.8890779773394266 minutes
+Batch 2000 Loss:	28.23887564614415
+Batch 2000 Time:	2.903194582462311 minutes
+Batch 2100 Loss:	31.96229326631874
+Batch 2100 Time:	2.9136165738105775 minutes
+Batch 2200 Loss:	29.297953872010112
+Batch 2200 Time:	2.896456762154897 minutes
+Batch 2300 Loss:	26.207616839557886
+Batch 2300 Time:	2.8937221566836038 minutes
+Batch 2400 Loss:	21.992693923413754
+Batch 2400 Time:	2.8924790104230245 minutes
+Batch 2500 Loss:	24.715672373771667
+Batch 2500 Time:	2.9172502835591634 minutes
+Batch 2600 Loss:	22.609691998921335
+Batch 2600 Time:	2.8843315045038858 minutes
+Batch 2700 Loss:	28.96417728252709
+Batch 2700 Time:	2.908807082970937 minutes
+Batch 2800 Loss:	26.799758046865463
+Batch 2800 Time:	2.869025166829427 minutes
+Batch 2900 Loss:	23.564403237774968
+Batch 2900 Time:	2.9064193884531657 minutes
+Batch 3000 Loss:	23.80355515703559
+Batch 3000 Time:	2.9034966588020326 minutes
+Batch 3100 Loss:	20.970032920129597
+Batch 3100 Time:	2.907087520758311 minutes
+Batch 3200 Loss:	28.06212142109871
+Batch 3200 Time:	2.903123116493225 minutes
+Batch 3300 Loss:	25.82444019243121
+Batch 3300 Time:	2.89750360250473 minutes
+Batch 3400 Loss:	27.610572893172503
+Batch 3400 Time:	2.8979700326919557 minutes
+Batch 3500 Loss:	24.84912683814764
+Batch 3500 Time:	2.8752981066703795 minutes
+Batch 3600 Loss:	22.96921342704445
+Batch 3600 Time:	2.9113266189893086 minutes
+Batch 3700 Loss:	25.530539505183697
+Batch 3700 Time:	2.9018171628316245 minutes
+Batch 3800 Loss:	24.327709387987852
+Batch 3800 Time:	2.9238049189249673 minutes
+Batch 3900 Loss:	25.405004987493157
+Batch 3900 Time:	2.897838119665782 minutes
+Batch 4000 Loss:	24.006037332117558
+Batch 4000 Time:	2.923857816060384 minutes
+Batch 4100 Loss:	23.53360322676599
+Batch 4100 Time:	2.92319567600886 minutes
+Batch 4200 Loss:	25.26776636391878
+Batch 4200 Time:	2.8919830044110615 minutes
+Batch 4300 Loss:	24.023587360046804
+Batch 4300 Time:	2.9111907958984373 minutes
+Batch 4400 Loss:	24.008039355278015
+Batch 4400 Time:	2.9322425683339435 minutes
+Batch 4500 Loss:	22.52726060897112
+Batch 4500 Time:	2.8904298305511475 minutes
+Batch 4600 Loss:	23.859162227250636
+Batch 4600 Time:	2.8905194123586018 minutes
+Batch 4700 Loss:	31.311847961507738
+Batch 4700 Time:	2.8865516146024066 minutes
+Batch 4800 Loss:	22.97414600290358
+Batch 4800 Time:	2.882215229670207 minutes
+Batch 4900 Loss:	24.335790193639696
+Batch 4900 Time:	2.911383855342865 minutes
+Batch 5000 Loss:	26.215959075838327
+Batch 5000 Time:	2.9155470569928488 minutes
+Batch 5100 Loss:	25.24934656918049
+Batch 5100 Time:	2.905358823140462 minutes
+Batch 5200 Loss:	26.25010561849922
+Batch 5200 Time:	2.9106841246287027 minutes
+Batch 5300 Loss:	25.488341748714447
+Batch 5300 Time:	2.857967126369476 minutes
+Batch 5400 Loss:	29.522492194082588
+Batch 5400 Time:	2.90557812054952 minutes
+Batch 5500 Loss:	22.7690789103508
+Batch 5500 Time:	2.8967310508092243 minutes
+Batch 5600 Loss:	22.508495286107063
+Batch 5600 Time:	2.9146790146827697 minutes
+Batch 5700 Loss:	20.128952025435865
+Batch 5700 Time:	2.899325708548228 minutes
+Batch 5800 Loss:	25.821266669780016
+Batch 5800 Time:	2.8887204051017763 minutes
+Batch 5900 Loss:	24.538782780990005
+Batch 5900 Time:	2.884705964724223 minutes
+Batch 6000 Loss:	23.647770876064897
+Batch 6000 Time:	2.90938374598821 minutes
+Batch 6100 Loss:	28.088916942477226
+Batch 6100 Time:	2.8807244896888733 minutes
+Batch 6200 Loss:	21.653372313827276
+Batch 6200 Time:	2.881183755397797 minutes
+Batch 6300 Loss:	26.233469046652317
+Batch 6300 Time:	2.9082386096318564 minutes
+Batch 6400 Loss:	22.13384153600782
+Batch 6400 Time:	2.8856526692708333 minutes
+Batch 6500 Loss:	18.61787521839142
+Batch 6500 Time:	2.888220262527466 minutes
+Batch 6600 Loss:	22.959897588007152
+Batch 6600 Time:	2.8923763672510785 minutes
+Batch 6700 Loss:	24.53395258123055
+Batch 6700 Time:	2.9021245718002318 minutes
+Batch 6800 Loss:	24.417179544456303
+Batch 6800 Time:	2.8784565488497416 minutes
+Batch 6900 Loss:	21.749053308740258
+Batch 6900 Time:	2.888025665283203 minutes
+Batch 7000 Loss:	22.48122172150761
+Batch 7000 Time:	2.8864733894666035 minutes
+Batch 7100 Loss:	27.3660186547786
+Batch 7100 Time:	2.92341681321462 minutes
+Batch 7200 Loss:	21.50679630599916
+Batch 7200 Time:	2.9337743322054544 minutes
+Batch 7300 Loss:	21.600718550384045
+Batch 7300 Time:	2.8751686533292133 minutes
+Batch 7400 Loss:	23.62509846687317
+Batch 7400 Time:	2.9155038436253866 minutes
+Batch 7500 Loss:	21.858948789536953
+Batch 7500 Time:	2.9021885355313617 minutes
+Batch 7600 Loss:	21.485782120435033
+Batch 7600 Time:	2.8899121642112733 minutes
+Batch 7700 Loss:	20.23121683113277
+Batch 7700 Time:	2.901453137397766 minutes
+Batch 7800 Loss:	21.946182472631335
+Batch 7800 Time:	2.9197099685668944 minutes
+Batch 7900 Loss:	28.530130286235362
+Batch 7900 Time:	2.9155681252479555 minutes
+Batch 8000 Loss:	21.663762205280364
+Batch 8000 Time:	2.890857942899068 minutes
+Batch 8100 Loss:	20.79105862043798
+Batch 8100 Time:	2.900871817270915 minutes
+Batch 8200 Loss:	22.875147357583046
+Batch 8200 Time:	2.917260750134786 minutes
+Batch 8300 Loss:	21.704274462535977
+Batch 8300 Time:	2.9016724785168964 minutes
+Batch 8400 Loss:	21.89037828682922
+Batch 8400 Time:	2.88722269932429 minutes
+Batch 8500 Loss:	25.19160779286176
+Batch 8500 Time:	2.909146575133006 minutes
+Batch 8600 Loss:	25.336331319529563
+Batch 8600 Time:	2.9020817160606383 minutes
+Batch 8700 Loss:	26.988069085404277
+Batch 8700 Time:	2.911176403363546 minutes
+Batch 8800 Loss:	23.515228517353535
+Batch 8800 Time:	2.9058687607447307 minutes
+Batch 8900 Loss:	23.1423069126904
+Batch 8900 Time:	2.900566565990448 minutes
+Batch 9000 Loss:	20.929857566021383
+Batch 9000 Time:	2.903130026658376 minutes
+Batch 9100 Loss:	26.243736885022372
+Batch 9100 Time:	2.926871426900228 minutes
+Batch 9200 Loss:	26.091042027343065
+Batch 9200 Time:	2.903751051425934 minutes
+Batch 9300 Loss:	24.89209310617298
+Batch 9300 Time:	2.898847695191701 minutes
+Batch 9400 Loss:	23.74277140572667
+Batch 9400 Time:	2.8885077754656474 minutes
+Batch 9500 Loss:	21.07555315690115
+Batch 9500 Time:	2.9137855688730876 minutes
+Batch 9600 Loss:	22.569953547790647
+Batch 9600 Time:	2.9206618547439573 minutes
+Batch 9700 Loss:	25.30258799996227
+Batch 9700 Time:	2.9068644285202025 minutes
+Batch 9800 Loss:	26.81941006705165
+Batch 9800 Time:	2.9056607325871786 minutes
+Batch 9900 Loss:	21.702754044905305
+Batch 9900 Time:	2.887911840279897 minutes
+Batch 10000 Loss:	18.381989718414843
+Batch 10000 Time:	2.9026163697242735 minutes
+Batch 10100 Loss:	23.790210378356278
+Batch 10100 Time:	2.908061718940735 minutes
+Batch 10200 Loss:	24.797150745987892
+Batch 10200 Time:	2.874563376108805 minutes
+Batch 10300 Loss:	23.452462593093514
+Batch 10300 Time:	2.8864742557207745 minutes
+Batch 10400 Loss:	27.579532850533724
+Batch 10400 Time:	2.9032923022905988 minutes
+Batch 10500 Loss:	24.741730553098023
+Batch 10500 Time:	2.8958572268486025 minutes
+Batch 10600 Loss:	20.916815273929387
+Batch 10600 Time:	2.8997551600138345 minutes
+Batch 10700 Loss:	23.62427945435047
+Batch 10700 Time:	2.891567567984263 minutes
+Batch 10800 Loss:	23.9244469050318
+Batch 10800 Time:	2.8889306783676147 minutes
+Batch 10900 Loss:	23.597165988758206
+Batch 10900 Time:	2.9015988310178122 minutes
+Batch 11000 Loss:	20.40213661501184
+Batch 11000 Time:	2.9056206981341046 minutes
+Batch 11100 Loss:	24.179250937886536
+Batch 11100 Time:	2.8957119385401406 minutes
+Batch 11200 Loss:	22.57116897404194
+Batch 11200 Time:	2.893345109621684 minutes
+Batch 11300 Loss:	24.07959062885493
+Batch 11300 Time:	2.9214085896809894 minutes
+Batch 11400 Loss:	22.652419969439507
+Batch 11400 Time:	2.910922980308533 minutes
+Batch 11500 Loss:	24.898654229938984
+Batch 11500 Time:	2.931670888264974 minutes
+Batch 11600 Loss:	20.75036422908306
+Batch 11600 Time:	2.914412454764048 minutes
+Batch 11700 Loss:	20.794252455234528
+Batch 11700 Time:	2.8815526127815247 minutes
+Batch 11800 Loss:	25.194086746312678
+Batch 11800 Time:	2.919804342587789 minutes
+Batch 11900 Loss:	22.524582711048424
+Batch 11900 Time:	2.899101746082306 minutes
+Batch 12000 Loss:	24.141550955479033
+Batch 12000 Time:	2.8996245861053467 minutes
+Batch 12100 Loss:	22.244993835687637
+Batch 12100 Time:	2.91294682820638 minutes
+Batch 12200 Loss:	23.899801002116874
+Batch 12200 Time:	2.8828701933224994 minutes
+Batch 12300 Loss:	20.79546084534377
+Batch 12300 Time:	2.885691209634145 minutes
+Batch 12400 Loss:	24.085723199881613
+Batch 12400 Time:	2.8911777059237163 minutes
+Batch 12500 Loss:	21.36566446488723
+Batch 12500 Time:	2.9043500582377115 minutes
+Batch 12600 Loss:	25.243150994181633
+Batch 12600 Time:	2.9066648642222086 minutes
+Batch 12700 Loss:	21.93308412283659
+Batch 12700 Time:	2.885399623711904 minutes
+Batch 12800 Loss:	21.968891045078635
+Batch 12800 Time:	2.8844056924184165 minutes
+Batch 12900 Loss:	20.79177530342713
+Batch 12900 Time:	2.8931283831596373 minutes
+Batch 13000 Loss:	20.472158638760448
+Batch 13000 Time:	2.904779640833537 minutes
+Batch 13100 Loss:	20.569732198491693
+Batch 13100 Time:	2.9028229832649233 minutes
+Batch 13200 Loss:	25.37062431871891
+Batch 13200 Time:	2.912242635091146 minutes
+Batch 13300 Loss:	24.05253744777292
+Batch 13300 Time:	2.911172397931417 minutes
+Batch 13400 Loss:	24.843675758689642
+Batch 13400 Time:	2.9175397634506224 minutes
+Batch 13500 Loss:	25.991008400917053
+Batch 13500 Time:	2.903851266702016 minutes
+Batch 13600 Loss:	21.180326873087324
+Batch 13600 Time:	2.904632091522217 minutes
+Batch 13700 Loss:	25.41878023929894
+Batch 13700 Time:	2.9006465395291645 minutes
+Batch 13800 Loss:	19.741480553522706
+Batch 13800 Time:	2.9098347345987956 minutes
+Batch 13900 Loss:	25.266081880778074
+Batch 13900 Time:	2.890944226582845 minutes
+Batch 14000 Loss:	20.74625375494361
+Batch 14000 Time:	2.878645670413971 minutes
+Batch 14100 Loss:	21.454914731904864
+Batch 14100 Time:	2.8947752078374225 minutes
+Batch 14200 Loss:	20.99043949879706
+Batch 14200 Time:	2.9257761438687644 minutes
+Batch 14300 Loss:	23.38531920220703
+Batch 14300 Time:	2.89745409488678 minutes
+Batch 14400 Loss:	19.62250159215182
+Batch 14400 Time:	2.8883909702301027 minutes
+Batch 14500 Loss:	21.66866938583553
+Batch 14500 Time:	2.8883750240008035 minutes
+Batch 14600 Loss:	22.02691229712218
+Batch 14600 Time:	2.9148438811302184 minutes
+Batch 14700 Loss:	21.08497703447938
+Batch 14700 Time:	2.87776430050532 minutes
+Batch 14800 Loss:	22.731263383757323
+Batch 14800 Time:	2.8890162070592242 minutes
+Batch 14900 Loss:	23.33408549800515
+Batch 14900 Time:	2.9096449772516886 minutes
+Batch 15000 Loss:	26.263201404362917
+Batch 15000 Time:	2.889440910021464 minutes
+Batch 15100 Loss:	19.476135602220893
+Batch 15100 Time:	2.8860501885414123 minutes
+Batch 15200 Loss:	21.906369887292385
+Batch 15200 Time:	2.8844379583994546 minutes
+Batch 15300 Loss:	22.526280482299626
+Batch 15300 Time:	2.922465713818868 minutes
+Batch 15400 Loss:	22.749226426705718
+Batch 15400 Time:	2.8791897296905518 minutes
+Batch 15500 Loss:	22.47163906507194
+Batch 15500 Time:	2.9142067790031434 minutes
+Batch 15600 Loss:	22.57237599696964
+Batch 15600 Time:	2.90571342309316 minutes
+Batch 15700 Loss:	24.669073367491364
+Batch 15700 Time:	2.902918791770935 minutes
+Batch 15800 Loss:	24.87585257831961
+Batch 15800 Time:	2.8806850711504617 minutes
+Batch 15900 Loss:	21.03975547105074
+Batch 15900 Time:	2.880767850081126 minutes
+Batch 16000 Loss:	26.22935767052695
+Batch 16000 Time:	2.895257302125295 minutes
+Batch 16100 Loss:	22.189010828267783
+Batch 16100 Time:	2.9116535663604735 minutes
+Batch 16200 Loss:	23.088393258163705
+Batch 16200 Time:	2.8968543728192646 minutes
+Batch 16300 Loss:	21.41962985228747
+Batch 16300 Time:	2.876193837324778 minutes
+Batch 16400 Loss:	19.757554623065516
+Batch 16400 Time:	2.8931523680686952 minutes
+Batch 16500 Loss:	21.71831425279379
+Batch 16500 Time:	2.8722113331158954 minutes
+Batch 16600 Loss:	22.659668255597353
+Batch 16600 Time:	2.902135650316874 minutes
+Batch 16700 Loss:	19.269667313899845
+Batch 16700 Time:	2.8720718304316204 minutes
+Batch 16800 Loss:	21.74718967359513
+Batch 16800 Time:	2.8899763743082683 minutes
+Batch 16900 Loss:	22.727418724854942
+Batch 16900 Time:	2.9047537247339883 minutes
+Batch 17000 Loss:	24.098278961144388
+Batch 17000 Time:	2.889685543378194 minutes
+Batch 17100 Loss:	21.37774344626814
+Batch 17100 Time:	2.887804353237152 minutes
+Batch 17200 Loss:	23.778193222358823
+Batch 17200 Time:	2.895071303844452 minutes
+Batch 17300 Loss:	22.68218190036714
+Batch 17300 Time:	2.8974084496498107 minutes
+Batch 17400 Loss:	22.922435498796403
+Batch 17400 Time:	2.891169567902883 minutes
+Batch 17500 Loss:	22.231692139990628
+Batch 17500 Time:	2.8730254491170246 minutes
+Batch 17600 Loss:	26.03578311763704
+Batch 17600 Time:	2.8980069398880004 minutes
+Batch 17700 Loss:	17.56598175968975
+Batch 17700 Time:	2.8937071283658344 minutes
+Batch 17800 Loss:	21.24552830774337
+Batch 17800 Time:	2.8934530933698017 minutes
+Batch 17900 Loss:	24.086148916278034
+Batch 17900 Time:	2.8932476957639057 minutes
+Batch 18000 Loss:	27.855901258066297
+Batch 18000 Time:	2.9078238089879354 minutes
+Batch 18100 Loss:	24.022138535045087
+Batch 18100 Time:	2.91471045811971 minutes
+Batch 18200 Loss:	24.211026386357844
+Batch 18200 Time:	2.896887278556824 minutes
+Batch 18300 Loss:	21.37222273275256
+Batch 18300 Time:	2.8990858157475787 minutes
+Batch 18400 Loss:	21.551154606044292
+Batch 18400 Time:	2.8787063995997113 minutes
+Batch 18500 Loss:	24.176773058250546
+Batch 18500 Time:	2.902136250336965 minutes
+Batch 18600 Loss:	21.040589551907033
+Batch 18600 Time:	2.899909857908885 minutes
+Batch 18700 Loss:	21.888906520791352
+Batch 18700 Time:	2.8971041401227313 minutes
+Batch 18800 Loss:	23.782586532644928
+Batch 18800 Time:	2.8983629902203876 minutes
+Batch 18900 Loss:	23.30441326647997
+Batch 18900 Time:	2.8942584792772927 minutes
+Batch 19000 Loss:	23.746905764564872
+Batch 19000 Time:	2.907499341169993 minutes
+Batch 19100 Loss:	22.502198129426688
+Batch 19100 Time:	2.9063958128293357 minutes
+Batch 19200 Loss:	22.57079817261547
+Batch 19200 Time:	2.874566578865051 minutes
+Batch 19300 Loss:	18.563328231684864
+Batch 19300 Time:	2.9179113348325094 minutes
+Batch 19400 Loss:	18.916181888896972
+Batch 19400 Time:	2.9109111547470095 minutes
+Batch 19500 Loss:	21.624801855534315
+Batch 19500 Time:	2.8960372606913247 minutes
+Batch 19600 Loss:	21.861375133506954
+Batch 19600 Time:	2.8942088007926943 minutes
+Batch 19700 Loss:	20.66835497925058
+Batch 19700 Time:	2.8784786462783813 minutes
+Batch 19800 Loss:	21.259378308430314
+Batch 19800 Time:	2.902170654137929 minutes
+Batch 19900 Loss:	23.889898788183928
+Batch 19900 Time:	2.9043494621912638 minutes
+Calculating term: 0
+Calculating term: 1
+Calculating term: 2
+Calculating term: 3
+Calculating term: 4
+Calculating term: 5
+Calculating term: 6
+Calculating term: 7
+Calculating term: 8
+Calculating term: 9
+Calculating term: 10
+Calculating term: 11
+Calculating term: 12
+Calculating term: 13
+Calculating term: 14
+Calculating term: 15
+Calculating term: 16
+Calculating term: 17
+Calculating term: 18
+Calculating term: 19
+Calculating term: 20
+Calculating term: 21
+Calculating term: 22
+Calculating term: 23
+Calculating term: 24
+Calculating term: 25
+Calculating term: 26
+Calculating term: 27
+Calculating term: 28
+Calculating term: 29
+Calculating term: 30
+Calculating term: 31
+Calculating term: 32
+Calculating term: 33
+Calculating term: 34
+Calculating term: 35
+Calculating term: 36
+Calculating term: 37
+Calculating term: 38
+Calculating term: 39
+Calculating term: 40
+Calculating term: 41
+Calculating term: 42
+Calculating term: 43
+Calculating term: 44
+Calculating term: 45
+Calculating term: 46
+Calculating term: 47
+Calculating term: 48
+Calculating term: 49
+Calculating term: 50
+Calculating term: 51
+Calculating term: 52
+Calculating term: 53
+Calculating term: 54
+Calculating term: 55
+Calculating term: 56
+Calculating term: 57
+Calculating term: 58
+Calculating term: 59
+Calculating term: 60
+Calculating term: 61
+Calculating term: 62
+Calculating term: 63
+Calculating term: 64
+Calculating term: 65
+Calculating term: 66
+Calculating term: 67
+Calculating term: 68
+Calculating term: 69
+Calculating term: 70
+Calculating term: 71
+Calculating term: 72
+Calculating term: 73
+Calculating term: 74
+Calculating term: 75
+Calculating term: 76
+Calculating term: 77
+Calculating term: 78
+Calculating term: 79
+Calculating term: 80
+Calculating term: 81
+Calculating term: 82
+Calculating term: 83
+Calculating term: 84
+Calculating term: 85
+Calculating term: 86
+Calculating term: 87
+Calculating term: 88
+Calculating term: 89
+Calculating term: 90
+Calculating term: 91
+Calculating term: 0
+Calculating term: 1
+Calculating term: 2
+Calculating term: 3
+Calculating term: 4
+Calculating term: 5
+Calculating term: 6
+Calculating term: 7
+Calculating term: 8
+Calculating term: 9
+Calculating term: 10
+Calculating term: 11
+Calculating term: 12
+Calculating term: 13
+Calculating term: 14
+Calculating term: 15
+Calculating term: 16
+Calculating term: 17
+Calculating term: 18
+Calculating term: 19
+Calculating term: 20
+Calculating term: 21
+Calculating term: 22
+Calculating term: 23
+Calculating term: 24
+Calculating term: 25
+Calculating term: 26
+Calculating term: 27
+Calculating term: 28
+Calculating term: 29
+Calculating term: 30
+Calculating term: 31
+Calculating term: 32
+Calculating term: 33
+Calculating term: 34
+Calculating term: 35
+Calculating term: 36
+Calculating term: 37
+Calculating term: 38
+Calculating term: 39
+Calculating term: 40
+Calculating term: 41
+Calculating term: 42
+Calculating term: 43
+Calculating term: 44
+Calculating term: 45
+Calculating term: 46
+Calculating term: 47
+Calculating term: 48
+Calculating term: 49
+Calculating term: 50
+Calculating term: 51
+Calculating term: 52
+Calculating term: 53
+Calculating term: 54
+Calculating term: 55
+Calculating term: 56
+Calculating term: 57
+Calculating term: 58
+Calculating term: 59
+Calculating term: 60
+Calculating term: 61
+Calculating term: 62
+Calculating term: 63
+Calculating term: 64
+Calculating term: 65
+Calculating term: 66
+Calculating term: 67
+Calculating term: 68
+Calculating term: 69
+Calculating term: 70
+Calculating term: 71
+Calculating term: 72
+Calculating term: 73
+Calculating term: 74
+Calculating term: 75
+Calculating term: 76
+Calculating term: 77
+Calculating term: 78
+Calculating term: 79
+Calculating term: 80
+Calculating term: 81
+Calculating term: 82
+Calculating term: 83
+Calculating term: 84
+Calculating term: 85
+Calculating term: 86
+Calculating term: 87
+Calculating term: 88
+Calculating term: 89
+Calculating term: 90
+Calculating term: 91
+Batch 0 Loss:	0.2169811725616455
+Batch 0 Time:	0.14475889603296915 minutes
+Batch 100 Loss:	45.10543751716614
+Batch 100 Time:	2.8619335969289144 minutes
+Batch 200 Loss:	38.96100229769945
+Batch 200 Time:	2.827875212828318 minutes
+Batch 300 Loss:	31.209855949506164
+Batch 300 Time:	2.865491000811259 minutes
+Batch 400 Loss:	29.24365411326289
+Batch 400 Time:	2.853541592756907 minutes
+Batch 500 Loss:	31.729374300688505
+Batch 500 Time:	2.844699263572693 minutes
+Batch 600 Loss:	30.511317893862724
+Batch 600 Time:	2.85852548678716 minutes
+Batch 700 Loss:	27.759345514699817
+Batch 700 Time:	2.8402565519014993 minutes
+Batch 800 Loss:	27.432892620563507
+Batch 800 Time:	2.850014026959737 minutes
+Batch 900 Loss:	27.857679756358266
+Batch 900 Time:	2.8348373651504515 minutes
+Batch 1000 Loss:	28.925285909324884
+Batch 1000 Time:	2.8252761125564576 minutes
+Batch 1100 Loss:	29.02657412737608
+Batch 1100 Time:	2.8580248832702635 minutes
+Batch 1200 Loss:	26.91266353800893
+Batch 1200 Time:	2.8205883860588075 minutes
+Batch 1300 Loss:	27.988227943424135
+Batch 1300 Time:	2.84035964012146 minutes
+Batch 1400 Loss:	27.481786869466305
+Batch 1400 Time:	2.832923638820648 minutes
+Batch 1500 Loss:	26.441540569067
+Batch 1500 Time:	2.840792691707611 minutes
+Batch 1600 Loss:	27.060517230071127
+Batch 1600 Time:	2.857790811856588 minutes
+Batch 1700 Loss:	27.64622885733843
+Batch 1700 Time:	2.835251792271932 minutes
+Batch 1800 Loss:	28.052965339273214
+Batch 1800 Time:	2.8542431076367696 minutes
+Batch 1900 Loss:	26.34060995467007
+Batch 1900 Time:	2.8649137655893964 minutes
+Batch 2000 Loss:	28.70380848273635
+Batch 2000 Time:	2.820159347852071 minutes
+Batch 2100 Loss:	26.2602643314749
+Batch 2100 Time:	2.8634645819664 minutes
+Batch 2200 Loss:	27.695993900299072
+Batch 2200 Time:	2.8335474650065104 minutes
+Batch 2300 Loss:	25.287433575838804
+Batch 2300 Time:	2.8546454389890035 minutes
+Batch 2400 Loss:	22.002059370279312
+Batch 2400 Time:	2.8518735488255818 minutes
+Batch 2500 Loss:	26.836281282827258
+Batch 2500 Time:	2.876213240623474 minutes
+Batch 2600 Loss:	25.93473178241402
+Batch 2600 Time:	2.875943128267924 minutes
+Batch 2700 Loss:	21.959479600191116
+Batch 2700 Time:	2.8442703684171042 minutes
+Batch 2800 Loss:	24.44665101543069
+Batch 2800 Time:	2.8915942470232645 minutes
+Batch 2900 Loss:	28.6249595656991
+Batch 2900 Time:	2.8294258594512938 minutes
+Batch 3000 Loss:	21.49917872622609
+Batch 3000 Time:	2.8586010575294494 minutes
+Batch 3100 Loss:	30.34209407493472
+Batch 3100 Time:	2.8732068300247193 minutes
+Batch 3200 Loss:	26.347013061400503
+Batch 3200 Time:	2.841167958577474 minutes
+Batch 3300 Loss:	32.539684442803264
+Batch 3300 Time:	2.880428874492645 minutes
+Batch 3400 Loss:	27.854816146194935
+Batch 3400 Time:	2.8619606375694273 minutes
+Batch 3500 Loss:	29.720965836197138
+Batch 3500 Time:	2.8454188187917073 minutes
+Batch 3600 Loss:	26.742173116654158
+Batch 3600 Time:	2.8570253094037374 minutes
+Batch 3700 Loss:	23.061047308146954
+Batch 3700 Time:	2.8340771516164143 minutes
+Batch 3800 Loss:	28.359191488474607
+Batch 3800 Time:	2.8533552447954813 minutes
+Batch 3900 Loss:	26.293856545351446
+Batch 3900 Time:	2.866170346736908 minutes
+Batch 4000 Loss:	26.452252276532818
+Batch 4000 Time:	2.854659064610799 minutes
+Batch 4100 Loss:	24.30769008025527
+Batch 4100 Time:	2.845342206954956 minutes
+Batch 4200 Loss:	21.615259962156415
+Batch 4200 Time:	2.869649334748586 minutes
+Batch 4300 Loss:	20.68156822770834
+Batch 4300 Time:	2.8558445533116656 minutes
+Batch 4400 Loss:	25.640914701856673
+Batch 4400 Time:	2.83310710589091 minutes
+Batch 4500 Loss:	25.304746290668845
+Batch 4500 Time:	2.8611917893091836 minutes
+Batch 4600 Loss:	25.568247431889176
+Batch 4600 Time:	2.8424837390581765 minutes
+Batch 4700 Loss:	25.79724385868758
+Batch 4700 Time:	2.8457823117574055 minutes
+Batch 4800 Loss:	25.569128163158894
+Batch 4800 Time:	2.827436987559001 minutes
+Batch 4900 Loss:	20.805697274394333
+Batch 4900 Time:	2.850039513905843 minutes
+Batch 5000 Loss:	26.147860089316964
+Batch 5000 Time:	2.835368271668752 minutes
+Batch 5100 Loss:	26.659820774570107
+Batch 5100 Time:	2.877740001678467 minutes
+Batch 5200 Loss:	23.371770242229104
+Batch 5200 Time:	2.8563155134518943 minutes
+Batch 5300 Loss:	25.365807328373194
+Batch 5300 Time:	2.858285744984945 minutes
+Batch 5400 Loss:	26.94962453749031
+Batch 5400 Time:	2.867058058579763 minutes
+Batch 5500 Loss:	21.819763836450875
+Batch 5500 Time:	2.8749855001767477 minutes
+Batch 5600 Loss:	24.535207809880376
+Batch 5600 Time:	2.840680261452993 minutes
+Batch 5700 Loss:	22.215155860874802
+Batch 5700 Time:	2.863086450099945 minutes
+Batch 5800 Loss:	23.586230122484267
+Batch 5800 Time:	2.844677221775055 minutes
+Batch 5900 Loss:	26.553990577347577
+Batch 5900 Time:	2.82834978501002 minutes
+Batch 6000 Loss:	24.1519527528435
+Batch 6000 Time:	2.8473989089330036 minutes
+Batch 6100 Loss:	25.77867137361318
+Batch 6100 Time:	2.8651469707489015 minutes
+Batch 6200 Loss:	25.675827886909246
+Batch 6200 Time:	2.8523027221361796 minutes
+Batch 6300 Loss:	27.52889543073252
+Batch 6300 Time:	2.827459490299225 minutes
+Batch 6400 Loss:	23.94316720496863
+Batch 6400 Time:	2.8552470485369366 minutes
+Batch 6500 Loss:	24.08124639838934
+Batch 6500 Time:	2.841234254837036 minutes
+Batch 6600 Loss:	22.868169149383903
+Batch 6600 Time:	2.8376139760017396 minutes
+Batch 6700 Loss:	21.431515684351325
+Batch 6700 Time:	2.8548169255256655 minutes
+Batch 6800 Loss:	25.46448413655162
+Batch 6800 Time:	2.856790232658386 minutes
+Batch 6900 Loss:	28.76869371999055
+Batch 6900 Time:	2.8393038948376974 minutes
+Batch 7000 Loss:	23.07846607081592
+Batch 7000 Time:	2.82362269560496 minutes
+Batch 7100 Loss:	23.29534753318876
+Batch 7100 Time:	2.853892374038696 minutes
+Batch 7200 Loss:	22.89594506006688
+Batch 7200 Time:	2.860289498170217 minutes
+Batch 7300 Loss:	21.387170765083283
+Batch 7300 Time:	2.8600852767626446 minutes
+Batch 7400 Loss:	22.042543741874397
+Batch 7400 Time:	2.8674636403719584 minutes
+Batch 7500 Loss:	23.57238943874836
+Batch 7500 Time:	2.8483082095781964 minutes
+Batch 7600 Loss:	23.398526226868853
+Batch 7600 Time:	2.8637730717658996 minutes
+Batch 7700 Loss:	25.3907066360116
+Batch 7700 Time:	2.8597959876060486 minutes
+Batch 7800 Loss:	21.264657344669104
+Batch 7800 Time:	2.846484061082204 minutes
+Batch 7900 Loss:	23.85706900060177
+Batch 7900 Time:	2.8642573157946267 minutes
+Batch 8000 Loss:	25.81610289402306
+Batch 8000 Time:	2.8521562377611795 minutes
+Batch 8100 Loss:	22.602231609635055
+Batch 8100 Time:	2.849388027191162 minutes
+Batch 8200 Loss:	22.530223827809095
+Batch 8200 Time:	2.857019778092702 minutes
+Batch 8300 Loss:	27.788045400753617
+Batch 8300 Time:	2.8671590209007265 minutes
+Batch 8400 Loss:	19.919950758572668
+Batch 8400 Time:	2.8559218923250835 minutes
+Batch 8500 Loss:	23.216187953948975
+Batch 8500 Time:	2.863469664255778 minutes
+Batch 8600 Loss:	22.55446736048907
+Batch 8600 Time:	2.843906025091807 minutes
+Batch 8700 Loss:	22.266562931239605
+Batch 8700 Time:	2.865017314751943 minutes
+Batch 8800 Loss:	23.18677340587601
+Batch 8800 Time:	2.876311779022217 minutes
+Batch 8900 Loss:	23.45977384224534
+Batch 8900 Time:	2.8819159468015036 minutes
+Batch 9000 Loss:	23.88546033576131
+Batch 9000 Time:	2.8511466145515443 minutes
+Batch 9100 Loss:	25.88587066717446
+Batch 9100 Time:	2.8500776211420695 minutes
+Batch 9200 Loss:	22.89414139278233
+Batch 9200 Time:	2.86616792678833 minutes
+Batch 9300 Loss:	20.722832936793566
+Batch 9300 Time:	2.8297317186991373 minutes
+Batch 9400 Loss:	25.63241907209158
+Batch 9400 Time:	2.8377482692400613 minutes
+Batch 9500 Loss:	22.39954005740583
+Batch 9500 Time:	2.871497086683909 minutes
+Batch 9600 Loss:	22.928025659173727
+Batch 9600 Time:	2.8393022418022156 minutes
+Batch 9700 Loss:	26.793114256113768
+Batch 9700 Time:	2.858507259686788 minutes
+Batch 9800 Loss:	22.400917310267687
+Batch 9800 Time:	2.854861863454183 minutes
+Batch 9900 Loss:	20.76350530050695
+Batch 9900 Time:	2.858870208263397 minutes
+Batch 10000 Loss:	24.410928767174482
+Batch 10000 Time:	2.827926735083262 minutes
+Batch 10100 Loss:	22.902361664921045
+Batch 10100 Time:	2.8613672693570456 minutes
+Batch 10200 Loss:	23.129787118174136
+Batch 10200 Time:	2.846882180372874 minutes
+Batch 10300 Loss:	19.269636190030724
+Batch 10300 Time:	2.840666079521179 minutes
+Batch 10400 Loss:	21.58312513306737
+Batch 10400 Time:	2.867434287071228 minutes
+Batch 10500 Loss:	26.69570480659604
+Batch 10500 Time:	2.8164580543835958 minutes
+Batch 10600 Loss:	22.17130114324391
+Batch 10600 Time:	2.8489234964052836 minutes
+Batch 10700 Loss:	22.642776580061764
+Batch 10700 Time:	2.8548001567522685 minutes
+Batch 10800 Loss:	23.80408195964992
+Batch 10800 Time:	2.858053930600484 minutes
+Batch 10900 Loss:	22.184180047363043
+Batch 10900 Time:	2.8645474592844646 minutes
+Batch 11000 Loss:	23.85287489555776
+Batch 11000 Time:	2.8661787589391072 minutes
+Batch 11100 Loss:	18.650822147959843
+Batch 11100 Time:	2.818198788166046 minutes
+Batch 11200 Loss:	19.384643018245697
+Batch 11200 Time:	2.8518933296203612 minutes
+Batch 11300 Loss:	23.80829040519893
+Batch 11300 Time:	2.8639148275057473 minutes
+Batch 11400 Loss:	18.324851577403024
+Batch 11400 Time:	2.849109391371409 minutes
+Batch 11500 Loss:	19.403979681432247
+Batch 11500 Time:	2.845349649588267 minutes
+Batch 11600 Loss:	22.02504212083295
+Batch 11600 Time:	2.8531510710716246 minutes
+Batch 11700 Loss:	23.881837632507086
+Batch 11700 Time:	2.8663779497146606 minutes
+Batch 11800 Loss:	21.946474531665444
+Batch 11800 Time:	2.8575820128122964 minutes
+Batch 11900 Loss:	22.358504973351955
+Batch 11900 Time:	2.8494232217470805 minutes
+Batch 12000 Loss:	20.22710418619681
+Batch 12000 Time:	2.850556739171346 minutes
+Batch 12100 Loss:	23.307776470901445
+Batch 12100 Time:	2.855143594741821 minutes
+Batch 12200 Loss:	25.666447209194303
+Batch 12200 Time:	2.8226444284121195 minutes
+Batch 12300 Loss:	22.4579622130841
+Batch 12300 Time:	2.8376875042915346 minutes
+Batch 12400 Loss:	23.31397719308734
+Batch 12400 Time:	2.8381332834561666 minutes
+Batch 12500 Loss:	22.119139949791133
+Batch 12500 Time:	2.8630998810132344 minutes
+Batch 12600 Loss:	20.948385593481362
+Batch 12600 Time:	2.877722108364105 minutes
+Batch 12700 Loss:	19.297147640492767
+Batch 12700 Time:	2.857573326428731 minutes
+Batch 12800 Loss:	22.102705288678408
+Batch 12800 Time:	2.865152390797933 minutes
+Batch 12900 Loss:	24.270025059580803
+Batch 12900 Time:	2.8451380411783855 minutes
+Batch 13000 Loss:	27.089361171238124
+Batch 13000 Time:	2.8324288527170816 minutes
+Batch 13100 Loss:	21.437638202216476
+Batch 13100 Time:	2.865487011273702 minutes
+Batch 13200 Loss:	22.43254297412932
+Batch 13200 Time:	2.846353169282277 minutes
+Batch 13300 Loss:	23.635331489145756
+Batch 13300 Time:	2.842607339223226 minutes
+Batch 13400 Loss:	21.800394501537085
+Batch 13400 Time:	2.842274264494578 minutes
+Batch 13500 Loss:	27.344516711309552
+Batch 13500 Time:	2.8238407015800475 minutes
+Batch 13600 Loss:	22.579211533535272
+Batch 13600 Time:	2.856016413370768 minutes
+Batch 13700 Loss:	23.117983425036073
+Batch 13700 Time:	2.836912794907888 minutes
+Batch 13800 Loss:	19.67721861274913
+Batch 13800 Time:	2.8654125571250915 minutes
+Batch 13900 Loss:	24.60013603628613
+Batch 13900 Time:	2.844619639714559 minutes
+Batch 14000 Loss:	22.109258758835495
+Batch 14000 Time:	2.8495173533757527 minutes
+Batch 14100 Loss:	24.392258637119085
+Batch 14100 Time:	2.854474635918935 minutes
+Batch 14200 Loss:	18.418367381207645
+Batch 14200 Time:	2.8588107347488405 minutes
+Batch 14300 Loss:	25.85745427943766
+Batch 14300 Time:	2.8620225389798484 minutes
+Batch 14400 Loss:	22.973518072627485
+Batch 14400 Time:	2.8615182479222616 minutes
+Batch 14500 Loss:	20.274884324520826
+Batch 14500 Time:	2.842181130250295 minutes
+Batch 14600 Loss:	24.970588960684836
+Batch 14600 Time:	2.827498133977254 minutes
+Batch 14700 Loss:	25.979037860408425
+Batch 14700 Time:	2.843673018614451 minutes
+Batch 14800 Loss:	22.21940302476287
+Batch 14800 Time:	2.862509322166443 minutes
+Batch 14900 Loss:	23.96448599221185
+Batch 14900 Time:	2.859458061059316 minutes
+Batch 15000 Loss:	23.732418859377503
+Batch 15000 Time:	2.834057954947154 minutes
+Batch 15100 Loss:	22.806251876056194
+Batch 15100 Time:	2.8440512299537657 minutes
+Batch 15200 Loss:	20.575520986691117
+Batch 15200 Time:	2.8570436517397564 minutes
+Batch 15300 Loss:	19.86627312656492
+Batch 15300 Time:	2.861163520812988 minutes
+Batch 15400 Loss:	20.63810026086867
+Batch 15400 Time:	2.8873499790827433 minutes
+Batch 15500 Loss:	26.32565096579492
+Batch 15500 Time:	2.8632691224416096 minutes
+Batch 15600 Loss:	24.691636486910284
+Batch 15600 Time:	2.862536970774333 minutes
+Batch 15700 Loss:	22.850007088389248
+Batch 15700 Time:	2.844114128748576 minutes
+Batch 15800 Loss:	21.11484894901514
+Batch 15800 Time:	2.8377176841100056 minutes
+Batch 15900 Loss:	19.632229490671307
+Batch 15900 Time:	2.8319892048835755 minutes
+Batch 16000 Loss:	19.87694144528359
+Batch 16000 Time:	2.8644898931185403 minutes
+Batch 16100 Loss:	20.96838115155697
+Batch 16100 Time:	2.852860669294993 minutes
+Batch 16200 Loss:	22.304759910795838
+Batch 16200 Time:	2.874394961198171 minutes
+Batch 16300 Loss:	24.181182753294706
+Batch 16300 Time:	2.8854617277781167 minutes
+Batch 16400 Loss:	21.088663881644607
+Batch 16400 Time:	2.8571035106976828 minutes
+Batch 16500 Loss:	24.133070341544226
+Batch 16500 Time:	2.8569070219993593 minutes
+Batch 16600 Loss:	22.300030120648444
+Batch 16600 Time:	2.871268117427826 minutes
+Batch 16700 Loss:	24.227238465100527
+Batch 16700 Time:	2.841320506731669 minutes
+Batch 16800 Loss:	21.276184453163296
+Batch 16800 Time:	2.842371141910553 minutes
+Batch 16900 Loss:	18.320669944398105
+Batch 16900 Time:	2.852952003479004 minutes
+Batch 17000 Loss:	20.817204755963758
+Batch 17000 Time:	2.8412831664085387 minutes
+Batch 17100 Loss:	24.057753358967602
+Batch 17100 Time:	2.84620592991511 minutes
+Batch 17200 Loss:	22.88103165011853
+Batch 17200 Time:	2.8368221124013266 minutes
+Batch 17300 Loss:	26.700630269944668
+Batch 17300 Time:	2.8683403372764587 minutes
+Batch 17400 Loss:	21.026661502895877
+Batch 17400 Time:	2.8579120993614198 minutes
+Batch 17500 Loss:	20.357523951213807
+Batch 17500 Time:	2.8432555039723715 minutes
+Batch 17600 Loss:	19.274938425049186
+Batch 17600 Time:	2.8514273603757223 minutes
+Batch 17700 Loss:	19.936092153191566
+Batch 17700 Time:	2.857201107343038 minutes
+Batch 17800 Loss:	26.21748245577328
+Batch 17800 Time:	2.863637403647105 minutes
+Batch 17900 Loss:	26.919523058459163
+Batch 17900 Time:	2.858235228061676 minutes
+Batch 18000 Loss:	21.193016218487173
+Batch 18000 Time:	2.8301790833473204 minutes
+Batch 18100 Loss:	20.697431550826877
+Batch 18100 Time:	2.8654776215553284 minutes
+Batch 18200 Loss:	25.100153336767107
+Batch 18200 Time:	2.8572269837061564 minutes
+Batch 18300 Loss:	24.904414153657854
+Batch 18300 Time:	2.8559545516967773 minutes
+Batch 18400 Loss:	20.86659692786634
+Batch 18400 Time:	2.8440176685651144 minutes
+Batch 18500 Loss:	23.53495949972421
+Batch 18500 Time:	2.877406930923462 minutes
+Batch 18600 Loss:	24.014139723032713
+Batch 18600 Time:	2.845782931645711 minutes
+Batch 18700 Loss:	22.29278681706637
+Batch 18700 Time:	2.8598233024279276 minutes
+Batch 18800 Loss:	21.142565106973052
+Batch 18800 Time:	2.828695464134216 minutes
+Batch 18900 Loss:	25.44082643231377
+Batch 18900 Time:	2.8765804052352903 minutes
+Batch 19000 Loss:	25.703764403238893
+Batch 19000 Time:	2.8395064155260723 minutes
+Batch 19100 Loss:	18.17038907110691
+Batch 19100 Time:	2.844630698362986 minutes
+Batch 19200 Loss:	22.637604121584445
+Batch 19200 Time:	2.889662265777588 minutes
+Batch 19300 Loss:	23.914194089360535
+Batch 19300 Time:	2.843773039182027 minutes
+Batch 19400 Loss:	22.27851791959256
+Batch 19400 Time:	2.851940095424652 minutes
+Batch 19500 Loss:	23.099253680557013
+Batch 19500 Time:	2.8642215847969057 minutes
+Batch 19600 Loss:	20.537648832425475
+Batch 19600 Time:	2.864662230014801 minutes
+Batch 19700 Loss:	21.568694030691404
+Batch 19700 Time:	2.8496373772621153 minutes
+Batch 19800 Loss:	27.22957165353
+Batch 19800 Time:	2.846545664469401 minutes
+Batch 19900 Loss:	21.657500052824616
+Batch 19900 Time:	2.8614363710085553 minutes
+Calculating term: 0
+Calculating term: 1
+Calculating term: 2
+Calculating term: 3
+Calculating term: 4
+Calculating term: 5
+Calculating term: 6
+Calculating term: 7
+Calculating term: 8
+Calculating term: 9
+Calculating term: 10
+Calculating term: 11
+Calculating term: 12
+Calculating term: 13
+Calculating term: 14
+Calculating term: 15
+Calculating term: 16
+Calculating term: 17
+Calculating term: 18
+Calculating term: 19
+Calculating term: 20
+Calculating term: 21
+Calculating term: 22
+Calculating term: 23
+Calculating term: 24
+Calculating term: 25
+Calculating term: 26
+Calculating term: 27
+Calculating term: 28
+Calculating term: 29
+Calculating term: 30
+Calculating term: 31
+Calculating term: 32
+Calculating term: 33
+Calculating term: 34
+Calculating term: 35
+Calculating term: 36
+Calculating term: 37
+Calculating term: 38
+Calculating term: 39
+Calculating term: 40
+Calculating term: 41
+Calculating term: 42
+Calculating term: 43
+Calculating term: 44
+Calculating term: 45
+Calculating term: 46
+Calculating term: 47
+Calculating term: 48
+Calculating term: 49
+Calculating term: 50
+Calculating term: 51
+Calculating term: 52
+Calculating term: 53
+Calculating term: 54
+Calculating term: 55
+Calculating term: 56
+Calculating term: 57
+Calculating term: 58
+Calculating term: 59
+Calculating term: 60
+Calculating term: 61
+Calculating term: 62
+Calculating term: 63
+Calculating term: 64
+Calculating term: 65
+Calculating term: 66
+Calculating term: 67
+Calculating term: 68
+Calculating term: 69
+Calculating term: 70
+Calculating term: 71
+Calculating term: 72
+Calculating term: 73
+Calculating term: 74
+Calculating term: 75
+Calculating term: 76
+Calculating term: 77
+Calculating term: 78
+Calculating term: 79
+Calculating term: 80
+Calculating term: 81
+Calculating term: 82
+Calculating term: 83
+Calculating term: 84
+Calculating term: 85
+Calculating term: 86
+Calculating term: 87
+Calculating term: 88
+Calculating term: 89
+Calculating term: 90
+Calculating term: 91
+Calculating term: 0
+Calculating term: 1
+Calculating term: 2
+Calculating term: 3
+Calculating term: 4
+Calculating term: 5
+Calculating term: 6
+Calculating term: 7
+Calculating term: 8
+Calculating term: 9
+Calculating term: 10
+Calculating term: 11
+Calculating term: 12
+Calculating term: 13
+Calculating term: 14
+Calculating term: 15
+Calculating term: 16
+Calculating term: 17
+Calculating term: 18
+Calculating term: 19
+Calculating term: 20
+Calculating term: 21
+Calculating term: 22
+Calculating term: 23
+Calculating term: 24
+Calculating term: 25
+Calculating term: 26
+Calculating term: 27
+Calculating term: 28
+Calculating term: 29
+Calculating term: 30
+Calculating term: 31
+Calculating term: 32
+Calculating term: 33
+Calculating term: 34
+Calculating term: 35
+Calculating term: 36
+Calculating term: 37
+Calculating term: 38
+Calculating term: 39
+Calculating term: 40
+Calculating term: 41
+Calculating term: 42
+Calculating term: 43
+Calculating term: 44
+Calculating term: 45
+Calculating term: 46
+Calculating term: 47
+Calculating term: 48
+Calculating term: 49
+Calculating term: 50
+Calculating term: 51
+Calculating term: 52
+Calculating term: 53
+Calculating term: 54
+Calculating term: 55
+Calculating term: 56
+Calculating term: 57
+Calculating term: 58
+Calculating term: 59
+Calculating term: 60
+Calculating term: 61
+Calculating term: 62
+Calculating term: 63
+Calculating term: 64
+Calculating term: 65
+Calculating term: 66
+Calculating term: 67
+Calculating term: 68
+Calculating term: 69
+Calculating term: 70
+Calculating term: 71
+Calculating term: 72
+Calculating term: 73
+Calculating term: 74
+Calculating term: 75
+Calculating term: 76
+Calculating term: 77
+Calculating term: 78
+Calculating term: 79
+Calculating term: 80
+Calculating term: 81
+Calculating term: 82
+Calculating term: 83
+Calculating term: 84
+Calculating term: 85
+Calculating term: 86
+Calculating term: 87
+Calculating term: 88
+Calculating term: 89
+Calculating term: 90
+Calculating term: 91
+Batch 0 Loss:	0.24833373725414276
+Batch 0 Time:	0.14507733980814616 minutes
+Batch 100 Loss:	41.09869717806578
+Batch 100 Time:	2.8302640755971273 minutes
+Batch 200 Loss:	35.60909301787615
+Batch 200 Time:	2.8370121399561565 minutes
+Batch 300 Loss:	29.274457778781652
+Batch 300 Time:	2.820862603187561 minutes
+Batch 400 Loss:	36.58806707337499
+Batch 400 Time:	2.8548054536183676 minutes
+Batch 500 Loss:	26.26489032059908
+Batch 500 Time:	2.8571350892384846 minutes
+Batch 600 Loss:	29.7719190903008
+Batch 600 Time:	2.8325459678967793 minutes
+Batch 700 Loss:	23.887286508455873
+Batch 700 Time:	2.8432841261227924 minutes
+Batch 800 Loss:	25.899675130844116
+Batch 800 Time:	2.853578778107961 minutes
+Batch 900 Loss:	27.667507026344538
+Batch 900 Time:	2.821393092473348 minutes
+Batch 1000 Loss:	23.67193504050374
+Batch 1000 Time:	2.8344195008277895 minutes
+Batch 1100 Loss:	27.321581123396754
+Batch 1100 Time:	2.8177771250406902 minutes
+Batch 1200 Loss:	25.721411645412445
+Batch 1200 Time:	2.8534470041592916 minutes
+Batch 1300 Loss:	25.01619107928127
+Batch 1300 Time:	2.8522905309995017 minutes
+Batch 1400 Loss:	24.347326584160328
+Batch 1400 Time:	2.8503621379534403 minutes
+Batch 1500 Loss:	23.437688486650586
+Batch 1500 Time:	2.8425572077433268 minutes
+Batch 1600 Loss:	26.23992793262005
+Batch 1600 Time:	2.827203651269277 minutes
+Batch 1700 Loss:	28.419832952320576
+Batch 1700 Time:	2.8513763268788654 minutes
+Batch 1800 Loss:	25.137884870171547
+Batch 1800 Time:	2.854751292864482 minutes
+Batch 1900 Loss:	27.153430841863155
+Batch 1900 Time:	2.8671772758165996 minutes
+Batch 2000 Loss:	24.9656894300133
+Batch 2000 Time:	2.8334906578063963 minutes
+Batch 2100 Loss:	24.360206755809486
+Batch 2100 Time:	2.8536633372306826 minutes
+Batch 2200 Loss:	23.249113082885742
+Batch 2200 Time:	2.853024156888326 minutes
+Batch 2300 Loss:	22.561971494928002
+Batch 2300 Time:	2.8525248924891153 minutes
+Batch 2400 Loss:	28.644880577921867
+Batch 2400 Time:	2.8656776905059815 minutes
+Batch 2500 Loss:	20.84367381921038
+Batch 2500 Time:	2.8275798161824546 minutes
+Batch 2600 Loss:	24.85869900882244
+Batch 2600 Time:	2.838884731133779 minutes
+Batch 2700 Loss:	27.44186237733811
+Batch 2700 Time:	2.857987630367279 minutes
+Batch 2800 Loss:	27.421990441158414
+Batch 2800 Time:	2.8149020115534467 minutes
+Batch 2900 Loss:	23.668043112382293
+Batch 2900 Time:	2.849488604068756 minutes
+Batch 3000 Loss:	25.587882191874087
+Batch 3000 Time:	2.8723244071006775 minutes
+Batch 3100 Loss:	24.27173119969666
+Batch 3100 Time:	2.855478847026825 minutes
+Batch 3200 Loss:	28.573345940560102
+Batch 3200 Time:	2.8599114179611207 minutes
+Batch 3300 Loss:	28.91538042575121
+Batch 3300 Time:	2.851078462600708 minutes
+Batch 3400 Loss:	24.139582201838493
+Batch 3400 Time:	2.838142963250478 minutes
+Batch 3500 Loss:	26.534683575853705
+Batch 3500 Time:	2.8495589176813763 minutes
+Batch 3600 Loss:	28.169993366114795
+Batch 3600 Time:	2.8416973392168683 minutes
+Batch 3700 Loss:	23.502794954925776
+Batch 3700 Time:	2.8249039610226947 minutes
+Batch 3800 Loss:	25.534806329756975
+Batch 3800 Time:	2.8365875641504923 minutes
+Batch 3900 Loss:	24.493537344038486
+Batch 3900 Time:	2.8483041842778523 minutes
+Batch 4000 Loss:	25.183213252574205
+Batch 4000 Time:	2.8796471039454143 minutes
+Batch 4100 Loss:	23.912810595706105
+Batch 4100 Time:	2.846847863992055 minutes
+Batch 4200 Loss:	25.30795881152153
+Batch 4200 Time:	2.8590555508931477 minutes
+Batch 4300 Loss:	23.515387219376862
+Batch 4300 Time:	2.838522696495056 minutes
+Batch 4400 Loss:	26.395973708480597
+Batch 4400 Time:	2.866197383403778 minutes
+Batch 4500 Loss:	27.271200638264418
+Batch 4500 Time:	2.8293809135754904 minutes
+Batch 4600 Loss:	22.69424073304981
+Batch 4600 Time:	2.8595120271046954 minutes
+Batch 4700 Loss:	22.443039221689105
+Batch 4700 Time:	2.8472479502360026 minutes
+Batch 4800 Loss:	21.878471840638667
+Batch 4800 Time:	2.857408086458842 minutes
+Batch 4900 Loss:	26.16708455234766
+Batch 4900 Time:	2.8410466869672137 minutes
+Batch 5000 Loss:	24.1638497505337
+Batch 5000 Time:	2.841345961888631 minutes
+Batch 5100 Loss:	22.91430338099599
+Batch 5100 Time:	2.8433154543240864 minutes
+Batch 5200 Loss:	23.287475680583157
+Batch 5200 Time:	2.8368610978126525 minutes
+Batch 5300 Loss:	23.579153014346957
+Batch 5300 Time:	2.8285674929618834 minutes
+Batch 5400 Loss:	25.848545850720257
+Batch 5400 Time:	2.864873933792114 minutes
+Batch 5500 Loss:	25.820524172857404
+Batch 5500 Time:	2.871780546506246 minutes
+Batch 5600 Loss:	26.283742448315024
+Batch 5600 Time:	2.8667169213294983 minutes
+Batch 5700 Loss:	21.80667885951698
+Batch 5700 Time:	2.8585076967875165 minutes
+Batch 5800 Loss:	26.233769938349724
+Batch 5800 Time:	2.8389843185742696 minutes
+Batch 5900 Loss:	20.828084280714393
+Batch 5900 Time:	2.8582977692286176 minutes
+Batch 6000 Loss:	22.486983746290207
+Batch 6000 Time:	2.8468713402748107 minutes
+Batch 6100 Loss:	25.55682992329821
+Batch 6100 Time:	2.860936005910238 minutes
+Batch 6200 Loss:	23.662211241200566
+Batch 6200 Time:	2.8533297499020893 minutes
+Batch 6300 Loss:	22.88213819731027
+Batch 6300 Time:	2.864190916220347 minutes
+Batch 6400 Loss:	21.865566797554493
+Batch 6400 Time:	2.8401934623718263 minutes
+Batch 6500 Loss:	21.67723248153925
+Batch 6500 Time:	2.8363542874654133 minutes
+Batch 6600 Loss:	26.696867970749736
+Batch 6600 Time:	2.8466978788375856 minutes
+Batch 6700 Loss:	23.516256619244814
+Batch 6700 Time:	2.833428601423899 minutes
+Batch 6800 Loss:	24.986259958241135
+Batch 6800 Time:	2.832822807629903 minutes
+Batch 6900 Loss:	19.0134634450078
+Batch 6900 Time:	2.8354827523231507 minutes
+Batch 7000 Loss:	21.759020699188113
+Batch 7000 Time:	2.8440425753593446 minutes
+Batch 7100 Loss:	24.78990523889661
+Batch 7100 Time:	2.86275536219279 minutes
+Batch 7200 Loss:	21.385326952673495
+Batch 7200 Time:	2.8438272992769877 minutes
+Batch 7300 Loss:	22.990891760215163
+Batch 7300 Time:	2.8506065169970194 minutes
+Batch 7400 Loss:	23.58239215798676
+Batch 7400 Time:	2.856398133436839 minutes
+Batch 7500 Loss:	24.9610937172547
+Batch 7500 Time:	2.8666830817858378 minutes
+Batch 7600 Loss:	20.681196275167167
+Batch 7600 Time:	2.873513090610504 minutes
+Batch 7700 Loss:	24.595426881685853
+Batch 7700 Time:	2.846005010604858 minutes
+Batch 7800 Loss:	19.13972801156342
+Batch 7800 Time:	2.851016175746918 minutes
+Batch 7900 Loss:	21.463104682043195
+Batch 7900 Time:	2.8317841211954753 minutes
+Batch 8000 Loss:	21.573432302102447
+Batch 8000 Time:	2.8329284111658732 minutes
+Batch 8100 Loss:	20.994147092103958
+Batch 8100 Time:	2.8499562740325928 minutes
+Batch 8200 Loss:	20.659688568674028
+Batch 8200 Time:	2.856893980503082 minutes
+Batch 8300 Loss:	23.193556090816855
+Batch 8300 Time:	2.852635383605957 minutes
+Batch 8400 Loss:	25.964073099195957
+Batch 8400 Time:	2.840667672952016 minutes
+Batch 8500 Loss:	21.00987649615854
+Batch 8500 Time:	2.857358479499817 minutes
+Batch 8600 Loss:	24.718035102821887
+Batch 8600 Time:	2.853704031308492 minutes
+Batch 8700 Loss:	20.746740410104394
+Batch 8700 Time:	2.8255810936292014 minutes
+Batch 8800 Loss:	24.861877869814634
+Batch 8800 Time:	2.8720373034477236 minutes
+Batch 8900 Loss:	27.411376593168825
+Batch 8900 Time:	2.8348193327585856 minutes
+Batch 9000 Loss:	21.794518642127514
+Batch 9000 Time:	2.8430625160535175 minutes
+Batch 9100 Loss:	20.70959122478962
+Batch 9100 Time:	2.89737411737442 minutes
+Batch 9200 Loss:	21.841387450229377
+Batch 9200 Time:	2.8370278120040893 minutes
+Batch 9300 Loss:	22.95114991022274
+Batch 9300 Time:	2.8732622543970745 minutes
+Batch 9400 Loss:	24.752973595634103
+Batch 9400 Time:	2.8561604897181194 minutes
+Batch 9500 Loss:	20.051258253864944
+Batch 9500 Time:	2.8543592572212217 minutes
+Batch 9600 Loss:	23.277616544160992
+Batch 9600 Time:	2.863407576084137 minutes
+Batch 9700 Loss:	19.123148284852505
+Batch 9700 Time:	2.854432694117228 minutes
+Batch 9800 Loss:	23.668375751934946
+Batch 9800 Time:	2.8467178066571552 minutes
+Batch 9900 Loss:	24.859225182328373
+Batch 9900 Time:	2.8449686050415037 minutes
+Batch 10000 Loss:	25.240572575479746
+Batch 10000 Time:	2.8578198552131653 minutes
+Batch 10100 Loss:	20.542162239551544
+Batch 10100 Time:	2.867515528202057 minutes
+Batch 10200 Loss:	19.946403500624
+Batch 10200 Time:	2.850139145056407 minutes
+Batch 10300 Loss:	24.031232558190823
+Batch 10300 Time:	2.876919174194336 minutes
+Batch 10400 Loss:	23.657351325266063
+Batch 10400 Time:	2.8682071208953857 minutes
+Batch 10500 Loss:	19.592203203588724
+Batch 10500 Time:	2.843565742174784 minutes
+Batch 10600 Loss:	22.726740467362106
+Batch 10600 Time:	2.8271398107210794 minutes
+Batch 10700 Loss:	26.33229725761339
+Batch 10700 Time:	2.862033144632975 minutes
+Batch 10800 Loss:	24.07035432755947
+Batch 10800 Time:	2.822339912255605 minutes
+Batch 10900 Loss:	22.496120627969503
+Batch 10900 Time:	2.8497018973032633 minutes
+Batch 11000 Loss:	20.42812879383564
+Batch 11000 Time:	2.868797469139099 minutes
+Batch 11100 Loss:	25.670653080567718
+Batch 11100 Time:	2.8373314340909324 minutes
+Batch 11200 Loss:	25.170620322227478
+Batch 11200 Time:	2.8515594402949014 minutes
+Batch 11300 Loss:	25.203358417376876
+Batch 11300 Time:	2.8509373982747395 minutes
+Batch 11400 Loss:	23.29869930073619
+Batch 11400 Time:	2.8492794672648114 minutes
+Batch 11500 Loss:	18.646921993233263
+Batch 11500 Time:	2.871166880925496 minutes
+Batch 11600 Loss:	17.209178171353415
+Batch 11600 Time:	2.8560555458068846 minutes
+Batch 11700 Loss:	22.08473343681544
+Batch 11700 Time:	2.8525492946306863 minutes
+Batch 11800 Loss:	23.577063381671906
+Batch 11800 Time:	2.844665757815043 minutes
+Batch 11900 Loss:	23.902558982837945
+Batch 11900 Time:	2.8560351451237995 minutes
+Batch 12000 Loss:	19.75798174738884
+Batch 12000 Time:	2.8475459774335223 minutes
+Batch 12100 Loss:	25.755559416487813
+Batch 12100 Time:	2.842005519072215 minutes
+Batch 12200 Loss:	24.396423434838653
+Batch 12200 Time:	2.84527409474055 minutes
+Batch 12300 Loss:	22.84310530871153
+Batch 12300 Time:	2.8353145241737367 minutes
+Batch 12400 Loss:	24.61303268233314
+Batch 12400 Time:	2.8498220165570576 minutes
+Batch 12500 Loss:	23.857862059492618
+Batch 12500 Time:	2.838706894715627 minutes
+Batch 12600 Loss:	22.83778346935287
+Batch 12600 Time:	2.850843302408854 minutes
+Batch 12700 Loss:	19.09858184773475
+Batch 12700 Time:	2.8429626266161603 minutes
+Batch 12800 Loss:	23.98800059966743
+Batch 12800 Time:	2.8674408475557964 minutes
+Batch 12900 Loss:	23.372691898606718
+Batch 12900 Time:	2.831532859802246 minutes
+Batch 13000 Loss:	20.28783655911684
+Batch 13000 Time:	2.8686575373013814 minutes
+Batch 13100 Loss:	22.942350366152823
+Batch 13100 Time:	2.8550931255022687 minutes
+Batch 13200 Loss:	24.92064343392849
+Batch 13200 Time:	2.851348940531413 minutes
+Batch 13300 Loss:	21.14288665354252
+Batch 13300 Time:	2.822727409998576 minutes
+Batch 13400 Loss:	23.863495893776417
+Batch 13400 Time:	2.8634257634480793 minutes
+Batch 13500 Loss:	17.50825473666191
+Batch 13500 Time:	2.848941922187805 minutes
+Batch 13600 Loss:	23.906215159222484
+Batch 13600 Time:	2.8409241914749144 minutes
+Batch 13700 Loss:	24.97786065377295
+Batch 13700 Time:	2.8282865007718403 minutes
+Batch 13800 Loss:	24.287920977920294
+Batch 13800 Time:	2.851825555165609 minutes
+Batch 13900 Loss:	17.892833987483755
+Batch 13900 Time:	2.8311769127845765 minutes
+Batch 14000 Loss:	20.31250727083534
+Batch 14000 Time:	2.848667867978414 minutes
+Batch 14100 Loss:	21.92378251813352
+Batch 14100 Time:	2.8436081329981486 minutes
+Batch 14200 Loss:	27.646416071802378
+Batch 14200 Time:	2.838953109582265 minutes
+Batch 14300 Loss:	21.754216177389026
+Batch 14300 Time:	2.856228530406952 minutes
+Batch 14400 Loss:	20.63604067172855
+Batch 14400 Time:	2.86544562180837 minutes
+Batch 14500 Loss:	26.6551526915282
+Batch 14500 Time:	2.835296909014384 minutes
+Batch 14600 Loss:	18.48589039966464
+Batch 14600 Time:	2.8532732129096985 minutes
+Batch 14700 Loss:	20.280175185762346
+Batch 14700 Time:	2.830812736352285 minutes
+Batch 14800 Loss:	23.20653401268646
+Batch 14800 Time:	2.8688393592834474 minutes
+Batch 14900 Loss:	21.967498127371073
+Batch 14900 Time:	2.8333719889322917 minutes
+Batch 15000 Loss:	20.028883395716548
+Batch 15000 Time:	2.8576414386431375 minutes
+Batch 15100 Loss:	20.278218457475305
+Batch 15100 Time:	2.8456963539123534 minutes
+Batch 15200 Loss:	20.175120948813856
+Batch 15200 Time:	2.8242664257685344 minutes
+Batch 15300 Loss:	21.455202808603644
+Batch 15300 Time:	2.85497256120046 minutes
+Batch 15400 Loss:	17.425677992403507
+Batch 15400 Time:	2.871228830019633 minutes
+Batch 15500 Loss:	21.676119532436132
+Batch 15500 Time:	2.883120632171631 minutes
+Batch 15600 Loss:	18.50181425595656
+Batch 15600 Time:	2.8496653993924457 minutes
+Batch 15700 Loss:	23.291141852736473
+Batch 15700 Time:	2.8672795494397483 minutes
+Batch 15800 Loss:	21.55658759176731
+Batch 15800 Time:	2.866365663210551 minutes
+Batch 15900 Loss:	24.47670892905444
+Batch 15900 Time:	2.8562811811765036 minutes
+Batch 16000 Loss:	22.768372118473053
+Batch 16000 Time:	2.8496604045232137 minutes
+Batch 16100 Loss:	21.314492294564843
+Batch 16100 Time:	2.86066091855367 minutes
+Batch 16200 Loss:	18.562565534957685
+Batch 16200 Time:	2.8534972151120503 minutes
+Batch 16300 Loss:	24.772790151648223
+Batch 16300 Time:	2.842711599667867 minutes
+Batch 16400 Loss:	20.886239900020882
+Batch 16400 Time:	2.8432639638582864 minutes
+Batch 16500 Loss:	22.61260694952216
+Batch 16500 Time:	2.8271657387415567 minutes
+Batch 16600 Loss:	20.909895183052868
+Batch 16600 Time:	2.8716880520184835 minutes
+Batch 16700 Loss:	18.201982157304883
+Batch 16700 Time:	2.843764583269755 minutes
+Batch 16800 Loss:	26.270499320933595
+Batch 16800 Time:	2.8486257155736285 minutes
+Batch 16900 Loss:	22.04729825304821
+Batch 16900 Time:	2.8631126403808596 minutes
+Batch 17000 Loss:	19.13555629365146
+Batch 17000 Time:	2.84713374376297 minutes
+Batch 17100 Loss:	23.63996108341962
+Batch 17100 Time:	2.8446606318155925 minutes
+Batch 17200 Loss:	17.395632592961192
+Batch 17200 Time:	2.847740570704142 minutes
+Batch 17300 Loss:	32.42723355535418
+Batch 17300 Time:	2.8500224153200784 minutes
+Batch 17400 Loss:	25.288257770240307
+Batch 17400 Time:	2.8516596515973407 minutes
+Batch 17500 Loss:	23.671272204606794
+Batch 17500 Time:	2.854934271176656 minutes
+Batch 17600 Loss:	24.44366490468383
+Batch 17600 Time:	2.8671878457069395 minutes
+Batch 17700 Loss:	21.19447952695191
+Batch 17700 Time:	2.8434473792711894 minutes
+Batch 17800 Loss:	22.208440320566297
+Batch 17800 Time:	2.8581658879915874 minutes
+Batch 17900 Loss:	20.102379037998617
+Batch 17900 Time:	2.8409256021181744 minutes
+Batch 18000 Loss:	23.20506034605205
+Batch 18000 Time:	2.84600529273351 minutes
+Batch 18100 Loss:	23.024417561478913
+Batch 18100 Time:	2.8541091521581015 minutes
+Batch 18200 Loss:	23.090373578015715
+Batch 18200 Time:	2.8299726486206054 minutes
+Batch 18300 Loss:	22.04292673431337
+Batch 18300 Time:	2.8573404510815936 minutes
+Batch 18400 Loss:	20.85894222650677
+Batch 18400 Time:	2.8624484578768414 minutes
+Batch 18500 Loss:	22.615075919777155
+Batch 18500 Time:	2.868976680437724 minutes
+Batch 18600 Loss:	17.91948787914589
+Batch 18600 Time:	2.8622049927711486 minutes
+Batch 18700 Loss:	25.21749861817807
+Batch 18700 Time:	2.836737370491028 minutes
+Batch 18800 Loss:	20.92821367684519
+Batch 18800 Time:	2.849506306648254 minutes
+Batch 18900 Loss:	22.261054957285523
+Batch 18900 Time:	2.8332056800524392 minutes
+Batch 19000 Loss:	20.835527632851154
+Batch 19000 Time:	2.8844158252080283 minutes
+Batch 19100 Loss:	23.885974277276546
+Batch 19100 Time:	2.8601764837900796 minutes
+Batch 19200 Loss:	18.66822753660381
+Batch 19200 Time:	2.8718853195508323 minutes
+Batch 19300 Loss:	23.301464967429638
+Batch 19300 Time:	2.8773090124130247 minutes
+Batch 19400 Loss:	22.42667117714882
+Batch 19400 Time:	2.830549391110738 minutes
+Batch 19500 Loss:	20.734314020723104
+Batch 19500 Time:	2.8536262989044188 minutes
+Batch 19600 Loss:	22.168816883582622
+Batch 19600 Time:	2.8703227917353313 minutes
+Batch 19700 Loss:	23.183880391530693
+Batch 19700 Time:	2.83950586716334 minutes
+Batch 19800 Loss:	21.29003472905606
+Batch 19800 Time:	2.876034466425578 minutes
+Batch 19900 Loss:	22.348239794373512
+Batch 19900 Time:	2.8442097544670104 minutes
+Calculating term: 0
+Calculating term: 1
+Calculating term: 2
+Calculating term: 3
+Calculating term: 4
+Calculating term: 5
+Calculating term: 6
+Calculating term: 7
+Calculating term: 8
+Calculating term: 9
+Calculating term: 10
+Calculating term: 11
+Calculating term: 12
+Calculating term: 13
+Calculating term: 14
+Calculating term: 15
+Calculating term: 16
+Calculating term: 17
+Calculating term: 18
+Calculating term: 19
+Calculating term: 20
+Calculating term: 21
+Calculating term: 22
+Calculating term: 23
+Calculating term: 24
+Calculating term: 25
+Calculating term: 26
+Calculating term: 27
+Calculating term: 28
+Calculating term: 29
+Calculating term: 30
+Calculating term: 31
+Calculating term: 32
+Calculating term: 33
+Calculating term: 34
+Calculating term: 35
+Calculating term: 36
+Calculating term: 37
+Calculating term: 38
+Calculating term: 39
+Calculating term: 40
+Calculating term: 41
+Calculating term: 42
+Calculating term: 43
+Calculating term: 44
+Calculating term: 45
+Calculating term: 46
+Calculating term: 47
+Calculating term: 48
+Calculating term: 49
+Calculating term: 50
+Calculating term: 51
+Calculating term: 52
+Calculating term: 53
+Calculating term: 54
+Calculating term: 55
+Calculating term: 56
+Calculating term: 57
+Calculating term: 58
+Calculating term: 59
+Calculating term: 60
+Calculating term: 61
+Calculating term: 62
+Calculating term: 63
+Calculating term: 64
+Calculating term: 65
+Calculating term: 66
+Calculating term: 67
+Calculating term: 68
+Calculating term: 69
+Calculating term: 70
+Calculating term: 71
+Calculating term: 72
+Calculating term: 73
+Calculating term: 74
+Calculating term: 75
+Calculating term: 76
+Calculating term: 77
+Calculating term: 78
+Calculating term: 79
+Calculating term: 80
+Calculating term: 81
+Calculating term: 82
+Calculating term: 83
+Calculating term: 84
+Calculating term: 85
+Calculating term: 86
+Calculating term: 87
+Calculating term: 88
+Calculating term: 89
+Calculating term: 90
+Calculating term: 91
+Calculating term: 0
+Calculating term: 1
+Calculating term: 2
+Calculating term: 3
+Calculating term: 4
+Calculating term: 5
+Calculating term: 6
+Calculating term: 7
+Calculating term: 8
+Calculating term: 9
+Calculating term: 10
+Calculating term: 11
+Calculating term: 12
+Calculating term: 13
+Calculating term: 14
+Calculating term: 15
+Calculating term: 16
+Calculating term: 17
+Calculating term: 18
+Calculating term: 19
+Calculating term: 20
+Calculating term: 21
+Calculating term: 22
+Calculating term: 23
+Calculating term: 24
+Calculating term: 25
+Calculating term: 26
+Calculating term: 27
+Calculating term: 28
+Calculating term: 29
+Calculating term: 30
+Calculating term: 31
+Calculating term: 32
+Calculating term: 33
+Calculating term: 34
+Calculating term: 35
+Calculating term: 36
+Calculating term: 37
+Calculating term: 38
+Calculating term: 39
+Calculating term: 40
+Calculating term: 41
+Calculating term: 42
+Calculating term: 43
+Calculating term: 44
+Calculating term: 45
+Calculating term: 46
+Calculating term: 47
+Calculating term: 48
+Calculating term: 49
+Calculating term: 50
+Calculating term: 51
+Calculating term: 52
+Calculating term: 53
+Calculating term: 54
+Calculating term: 55
+Calculating term: 56
+Calculating term: 57
+Calculating term: 58
+Calculating term: 59
+Calculating term: 60
+Calculating term: 61
+Calculating term: 62
+Calculating term: 63
+Calculating term: 64
+Calculating term: 65
+Calculating term: 66
+Calculating term: 67
+Calculating term: 68
+Calculating term: 69
+Calculating term: 70
+Calculating term: 71
+Calculating term: 72
+Calculating term: 73
+Calculating term: 74
+Calculating term: 75
+Calculating term: 76
+Calculating term: 77
+Calculating term: 78
+Calculating term: 79
+Calculating term: 80
+Calculating term: 81
+Calculating term: 82
+Calculating term: 83
+Calculating term: 84
+Calculating term: 85
+Calculating term: 86
+Calculating term: 87
+Calculating term: 88
+Calculating term: 89
+Calculating term: 90
+Calculating term: 91
+Batch 0 Loss:	0.21065223217010498
+Batch 0 Time:	0.14545568625132244 minutes
+Batch 100 Loss:	42.23436176776886
+Batch 100 Time:	2.805202615261078 minutes
+Batch 200 Loss:	37.658549934625626
+Batch 200 Time:	2.7865994334220887 minutes
+Batch 300 Loss:	37.263074208050966
+Batch 300 Time:	2.790710906187693 minutes
+Batch 400 Loss:	35.12454807758331
+Batch 400 Time:	2.7765273729960125 minutes
+Batch 500 Loss:	32.156907211989164
+Batch 500 Time:	2.7904765446980795 minutes
+Batch 600 Loss:	31.512786645442247
+Batch 600 Time:	2.778219978014628 minutes
+Batch 700 Loss:	30.920160192996264
+Batch 700 Time:	2.781603980064392 minutes
+Batch 800 Loss:	27.98531223461032
+Batch 800 Time:	2.8068286935488382 minutes
+Batch 900 Loss:	29.888586301356554
+Batch 900 Time:	2.7897838155428567 minutes
+Batch 1000 Loss:	26.252524968236685
+Batch 1000 Time:	2.7701868693033855 minutes
+Batch 1100 Loss:	27.534022914245725
+Batch 1100 Time:	2.7699899593989055 minutes
+Batch 1200 Loss:	30.642804622650146
+Batch 1200 Time:	2.781110195318858 minutes
+Batch 1300 Loss:	32.84438621997833
+Batch 1300 Time:	2.798901617527008 minutes
+Batch 1400 Loss:	29.658701289445162
+Batch 1400 Time:	2.7658875385920205 minutes
+Batch 1500 Loss:	27.52065171673894
+Batch 1500 Time:	2.7917089462280273 minutes
+Batch 1600 Loss:	24.441631740890443
+Batch 1600 Time:	2.802077070871989 minutes
+Batch 1700 Loss:	21.61263475008309
+Batch 1700 Time:	2.804014706611633 minutes
+Batch 1800 Loss:	23.397186618298292
+Batch 1800 Time:	2.7633464614550274 minutes
+Batch 1900 Loss:	28.48203767463565
+Batch 1900 Time:	2.753873813152313 minutes
+Batch 2000 Loss:	29.03772622719407
+Batch 2000 Time:	2.781191897392273 minutes
+Batch 2100 Loss:	26.825237829238176
+Batch 2100 Time:	2.7790557702382404 minutes
+Batch 2200 Loss:	22.797548472881317
+Batch 2200 Time:	2.7791868726412456 minutes
+Batch 2300 Loss:	21.771832913160324
+Batch 2300 Time:	2.7522786100705465 minutes
+Batch 2400 Loss:	25.41356175020337
+Batch 2400 Time:	2.7999605337778726 minutes
+Batch 2500 Loss:	26.390412399545312
+Batch 2500 Time:	2.7860050717989604 minutes
+Batch 2600 Loss:	24.21807553851977
+Batch 2600 Time:	2.81093985637029 minutes
+Batch 2700 Loss:	22.011633053421974
+Batch 2700 Time:	2.768060294787089 minutes
+Batch 2800 Loss:	28.301146112382412
+Batch 2800 Time:	2.76942093372345 minutes
+Batch 2900 Loss:	29.460948219522834
+Batch 2900 Time:	2.7843957503636676 minutes
+Batch 3000 Loss:	25.232918437570333
+Batch 3000 Time:	2.7942180832227073 minutes
+Batch 3100 Loss:	23.36652381811291
+Batch 3100 Time:	2.793399469057719 minutes
+Batch 3200 Loss:	25.488996606320143
+Batch 3200 Time:	2.7860025763511658 minutes
+Batch 3300 Loss:	26.93451621569693
+Batch 3300 Time:	2.7916226307551066 minutes
+Batch 3400 Loss:	25.690351333469152
+Batch 3400 Time:	2.7765657385190328 minutes
+Batch 3500 Loss:	24.024474754929543
+Batch 3500 Time:	2.7679334123929342 minutes
+Batch 3600 Loss:	26.204192394390702
+Batch 3600 Time:	2.7963655908902485 minutes
+Batch 3700 Loss:	27.420967930927873
+Batch 3700 Time:	2.771684010823568 minutes
+Batch 3800 Loss:	27.590791820548475
+Batch 3800 Time:	2.7877755165100098 minutes
+Batch 3900 Loss:	24.080678325146437
+Batch 3900 Time:	2.7928472916285196 minutes
+Batch 4000 Loss:	28.358406940475106
+Batch 4000 Time:	2.7904762188593546 minutes
+Batch 4100 Loss:	26.983148204162717
+Batch 4100 Time:	2.7779493292172748 minutes
+Batch 4200 Loss:	25.723916176706553
+Batch 4200 Time:	2.80163273413976 minutes
+Batch 4300 Loss:	29.111772469244897
+Batch 4300 Time:	2.7875149130821226 minutes
+Batch 4400 Loss:	21.887322982773185
+Batch 4400 Time:	2.7963862776756288 minutes
+Batch 4500 Loss:	25.769106227904558
+Batch 4500 Time:	2.789185086886088 minutes
+Batch 4600 Loss:	24.770261565223336
+Batch 4600 Time:	2.796145832538605 minutes
+Batch 4700 Loss:	26.98578411154449
+Batch 4700 Time:	2.7958178400993345 minutes
+Batch 4800 Loss:	29.19685479067266
+Batch 4800 Time:	2.7922314206759133 minutes
+Batch 4900 Loss:	23.006423206999898
+Batch 4900 Time:	2.8045773108800254 minutes
+Batch 5000 Loss:	25.15232789888978
+Batch 5000 Time:	2.807194173336029 minutes
+Batch 5100 Loss:	23.828706307336688
+Batch 5100 Time:	2.791616741816203 minutes
+Batch 5200 Loss:	27.871219906955957
+Batch 5200 Time:	2.806363562742869 minutes
+Batch 5300 Loss:	20.480907091405243
+Batch 5300 Time:	2.783974905808767 minutes
+Batch 5400 Loss:	22.752461964264512
+Batch 5400 Time:	2.8043050010999044 minutes
+Batch 5500 Loss:	24.32033967098687
+Batch 5500 Time:	2.7928672631581626 minutes
+Batch 5600 Loss:	23.846503803506494
+Batch 5600 Time:	2.767242387930552 minutes
+Batch 5700 Loss:	23.000841376837343
+Batch 5700 Time:	2.8023760318756104 minutes
+Batch 5800 Loss:	20.39968358259648
+Batch 5800 Time:	2.809534939130147 minutes
+Batch 5900 Loss:	22.473989685066044
+Batch 5900 Time:	2.792920128504435 minutes
+Batch 6000 Loss:	24.038824533112347
+Batch 6000 Time:	2.791174916426341 minutes
+Batch 6100 Loss:	23.765934325754642
+Batch 6100 Time:	2.8068965077400208 minutes
+Batch 6200 Loss:	26.292785715311766
+Batch 6200 Time:	2.7960761547088624 minutes
+Batch 6300 Loss:	22.93267654394731
+Batch 6300 Time:	2.7988733728726705 minutes
+Batch 6400 Loss:	24.799972635228187
+Batch 6400 Time:	2.7755600611368814 minutes
+Batch 6500 Loss:	23.842566637787968
+Batch 6500 Time:	2.811633078257243 minutes
+Batch 6600 Loss:	23.933482895605266
+Batch 6600 Time:	2.797783251603444 minutes
+Batch 6700 Loss:	22.67026497516781
+Batch 6700 Time:	2.803367578983307 minutes
+Batch 6800 Loss:	19.353036125190556
+Batch 6800 Time:	2.8059536099433897 minutes
+Batch 6900 Loss:	26.601701874285936
+Batch 6900 Time:	2.7818269451459248 minutes
+Batch 7000 Loss:	22.061519029550254
+Batch 7000 Time:	2.7798170765240986 minutes
+Batch 7100 Loss:	21.79135295934975
+Batch 7100 Time:	2.8187934279441835 minutes
+Batch 7200 Loss:	25.117023227736354
+Batch 7200 Time:	2.7865369002024334 minutes
+Batch 7300 Loss:	22.21102607063949
+Batch 7300 Time:	2.7762480934460956 minutes
+Batch 7400 Loss:	22.18475121445954
+Batch 7400 Time:	2.800060975551605 minutes
+Batch 7500 Loss:	23.855896964669228
+Batch 7500 Time:	2.8122150262196857 minutes
+Batch 7600 Loss:	26.82194358482957
+Batch 7600 Time:	2.8047260999679566 minutes
+Batch 7700 Loss:	22.57999411597848
+Batch 7700 Time:	2.781861925125122 minutes
+Batch 7800 Loss:	23.100693109910935
+Batch 7800 Time:	2.78404541015625 minutes
+Batch 7900 Loss:	22.790931733325124
+Batch 7900 Time:	2.817193071047465 minutes
+Batch 8000 Loss:	20.347454206086695
+Batch 8000 Time:	2.804033029079437 minutes
+Batch 8100 Loss:	26.155499908141792
+Batch 8100 Time:	2.7936227321624756 minutes
+Batch 8200 Loss:	27.64210844039917
+Batch 8200 Time:	2.792370311419169 minutes
+Batch 8300 Loss:	22.135555684566498
+Batch 8300 Time:	2.812124999364217 minutes
+Batch 8400 Loss:	21.18750069150701
+Batch 8400 Time:	2.7866912722587585 minutes
+Batch 8500 Loss:	24.582615456543863
+Batch 8500 Time:	2.8151570638020833 minutes
+Batch 8600 Loss:	25.92105837725103
+Batch 8600 Time:	2.795034948984782 minutes
+Batch 8700 Loss:	24.48752109706402
+Batch 8700 Time:	2.7950639923413596 minutes
+Batch 8800 Loss:	18.89112443383783
+Batch 8800 Time:	2.7944445530573527 minutes
+Batch 8900 Loss:	23.23636028729379
+Batch 8900 Time:	2.78143124183019 minutes
+Batch 9000 Loss:	21.993623550981283
+Batch 9000 Time:	2.8038987000783284 minutes
+Batch 9100 Loss:	28.21242064796388
+Batch 9100 Time:	2.790298704306285 minutes
+Batch 9200 Loss:	23.305472308769822
+Batch 9200 Time:	2.8002052704493203 minutes
+Batch 9300 Loss:	22.054996091872454
+Batch 9300 Time:	2.7948190490404765 minutes
+Batch 9400 Loss:	22.42838546447456
+Batch 9400 Time:	2.792179509003957 minutes
+Batch 9500 Loss:	25.73194574099034
+Batch 9500 Time:	2.813452442487081 minutes
+Batch 9600 Loss:	23.402902763336897
+Batch 9600 Time:	2.7989786426226297 minutes
+Batch 9700 Loss:	21.179266035556793
+Batch 9700 Time:	2.7951194643974304 minutes
+Batch 9800 Loss:	23.193542420864105
+Batch 9800 Time:	2.7992706616719563 minutes
+Batch 9900 Loss:	27.552071955055
+Batch 9900 Time:	2.7724774956703184 minutes
+Batch 10000 Loss:	22.279862318653613
+Batch 10000 Time:	2.8071020364761354 minutes
+Batch 10100 Loss:	22.516409192234278
+Batch 10100 Time:	2.802529795964559 minutes
+Batch 10200 Loss:	27.15827288478613
+Batch 10200 Time:	2.7829132278760276 minutes
+Batch 10300 Loss:	24.679368561133742
+Batch 10300 Time:	2.779940962791443 minutes
+Batch 10400 Loss:	23.26032570982352
+Batch 10400 Time:	2.8122650583585105 minutes
+Batch 10500 Loss:	18.188799537718296
+Batch 10500 Time:	2.8115970770517986 minutes
+Batch 10600 Loss:	21.873383966158144
+Batch 10600 Time:	2.813520312309265 minutes
+Batch 10700 Loss:	29.689759640023112
+Batch 10700 Time:	2.8088175296783446 minutes
+Batch 10800 Loss:	23.068595238029957
+Batch 10800 Time:	2.78253302971522 minutes
+Batch 10900 Loss:	23.963563283905387
+Batch 10900 Time:	2.784771470228831 minutes
+Batch 11000 Loss:	21.904978142585605
+Batch 11000 Time:	2.787969473997752 minutes
+Batch 11100 Loss:	22.810802101157606
+Batch 11100 Time:	2.8114800214767457 minutes
+Batch 11200 Loss:	21.647903077304363
+Batch 11200 Time:	2.7885600606600445 minutes
+Batch 11300 Loss:	20.348420077818446
+Batch 11300 Time:	2.8210745374361674 minutes
+Batch 11400 Loss:	23.68302655313164
+Batch 11400 Time:	2.7976852019627887 minutes
+Batch 11500 Loss:	22.80923335440457
+Batch 11500 Time:	2.7591270168622333 minutes
+Batch 11600 Loss:	22.207689557224512
+Batch 11600 Time:	2.8013344566027323 minutes
+Batch 11700 Loss:	19.282590464223176
+Batch 11700 Time:	2.783856530984243 minutes
+Batch 11800 Loss:	29.4808951606974
+Batch 11800 Time:	2.766939946015676 minutes
+Batch 11900 Loss:	22.207311398349702
+Batch 11900 Time:	2.8069188674290975 minutes
+Batch 12000 Loss:	20.75199909741059
+Batch 12000 Time:	2.8039600968360903 minutes
+Batch 12100 Loss:	23.321614811196923
+Batch 12100 Time:	2.7901797850926715 minutes
+Batch 12200 Loss:	20.589770134538412
+Batch 12200 Time:	2.802788539727529 minutes
+Batch 12300 Loss:	25.917380204424262
+Batch 12300 Time:	2.814272157351176 minutes
+Batch 12400 Loss:	21.942385548725724
+Batch 12400 Time:	2.8451433022816977 minutes
+Batch 12500 Loss:	22.061500694602728
+Batch 12500 Time:	2.7760705828666685 minutes
+Batch 12600 Loss:	21.13689099624753
+Batch 12600 Time:	2.7901904543240863 minutes
+Batch 12700 Loss:	22.42114861495793
+Batch 12700 Time:	2.8100955804189045 minutes
+Batch 12800 Loss:	22.880075042136014
+Batch 12800 Time:	2.811964686711629 minutes
+Batch 12900 Loss:	26.888904117047787
+Batch 12900 Time:	2.8519981543223065 minutes
+Batch 13000 Loss:	20.059320162516087
+Batch 13000 Time:	2.8295903404553733 minutes
+Batch 13100 Loss:	21.5826720232144
+Batch 13100 Time:	2.7968833804130555 minutes
+Batch 13200 Loss:	25.679217271506786
+Batch 13200 Time:	2.808686709403992 minutes
+Batch 13300 Loss:	21.508774692192674
+Batch 13300 Time:	2.809605125586192 minutes
+Batch 13400 Loss:	25.81754628708586
+Batch 13400 Time:	2.795547370115916 minutes
+Batch 13500 Loss:	22.50122880609706
+Batch 13500 Time:	2.7996594945589703 minutes
+Batch 13600 Loss:	23.443532404955477
+Batch 13600 Time:	2.8247427582740783 minutes
+Batch 13700 Loss:	23.31959792971611
+Batch 13700 Time:	2.809622327486674 minutes
+Batch 13800 Loss:	21.54120098799467
+Batch 13800 Time:	2.8025449673334757 minutes
+Batch 13900 Loss:	23.942016430199146
+Batch 13900 Time:	2.793445607026418 minutes
+Batch 14000 Loss:	22.390790129080415
+Batch 14000 Time:	2.8277522921562195 minutes
+Batch 14100 Loss:	20.43956696637906
+Batch 14100 Time:	2.7912607828776044 minutes
+Batch 14200 Loss:	23.992657594382763
+Batch 14200 Time:	2.807190004984538 minutes
+Batch 14300 Loss:	21.556223816238344
+Batch 14300 Time:	2.7979713400204975 minutes
+Batch 14400 Loss:	21.07143843988888
+Batch 14400 Time:	2.7829020977020265 minutes
+Batch 14500 Loss:	19.376105927862227
+Batch 14500 Time:	2.8218455354372662 minutes
+Batch 14600 Loss:	17.42028712388128
+Batch 14600 Time:	2.806048905849457 minutes
+Batch 14700 Loss:	25.00127391796559
+Batch 14700 Time:	2.7920464555422466 minutes
+Batch 14800 Loss:	22.04666723217815
+Batch 14800 Time:	2.7999044179916384 minutes
+Batch 14900 Loss:	20.99071193765849
+Batch 14900 Time:	2.8131587624549867 minutes
+Batch 15000 Loss:	21.428817235399038
+Batch 15000 Time:	2.785077655315399 minutes
+Batch 15100 Loss:	22.53983771800995
+Batch 15100 Time:	2.807194443543752 minutes
+Batch 15200 Loss:	21.259330638684332
+Batch 15200 Time:	2.794607400894165 minutes
+Batch 15300 Loss:	22.0176648395136
+Batch 15300 Time:	2.7803395271301268 minutes
+Batch 15400 Loss:	20.538623673841357
+Batch 15400 Time:	2.823089122772217 minutes
+Batch 15500 Loss:	23.72419797629118
+Batch 15500 Time:	2.810049319267273 minutes
+Batch 15600 Loss:	23.524803534150124
+Batch 15600 Time:	2.833128782113393 minutes
+Batch 15700 Loss:	22.218215519562364
+Batch 15700 Time:	2.7917256474494936 minutes
+Batch 15800 Loss:	22.827611738815904
+Batch 15800 Time:	2.798439129193624 minutes
+Batch 15900 Loss:	20.11216622404754
+Batch 15900 Time:	2.800405943393707 minutes
+Batch 16000 Loss:	20.985262686852366
+Batch 16000 Time:	2.8123525619506835 minutes
+Batch 16100 Loss:	23.37186668626964
+Batch 16100 Time:	2.824900130430857 minutes
+Batch 16200 Loss:	21.591920636594296
+Batch 16200 Time:	2.8245468537012735 minutes
+Batch 16300 Loss:	19.873661170480773
+Batch 16300 Time:	2.7959811091423035 minutes
+Batch 16400 Loss:	24.373952321708202
+Batch 16400 Time:	2.7812228043874105 minutes
+Batch 16500 Loss:	25.46722962707281
+Batch 16500 Time:	2.8000189701716107 minutes
+Batch 16600 Loss:	21.473976868204772
+Batch 16600 Time:	2.809696535269419 minutes
+Batch 16700 Loss:	23.275631670840085
+Batch 16700 Time:	2.8136327505111693 minutes
+Batch 16800 Loss:	22.361821750178933
+Batch 16800 Time:	2.794541148344676 minutes
+Batch 16900 Loss:	24.6441931091249
+Batch 16900 Time:	2.8034391681353252 minutes
+Batch 17000 Loss:	19.41724710352719
+Batch 17000 Time:	2.8000049193700156 minutes
+Batch 17100 Loss:	24.899770053103566
+Batch 17100 Time:	2.812391157944997 minutes
+Batch 17200 Loss:	21.905349298380315
+Batch 17200 Time:	2.8016588250796 minutes
+Batch 17300 Loss:	26.01781444810331
+Batch 17300 Time:	2.8023976922035216 minutes
+Batch 17400 Loss:	23.673390212934464
+Batch 17400 Time:	2.794330445925395 minutes
+Batch 17500 Loss:	20.99873228557408
+Batch 17500 Time:	2.788200267155965 minutes
+Batch 17600 Loss:	19.912560228724033
+Batch 17600 Time:	2.8107375701268515 minutes
+Batch 17700 Loss:	22.1072043068707
+Batch 17700 Time:	2.8225001295407615 minutes
+Batch 17800 Loss:	19.957420432940125
+Batch 17800 Time:	2.8010539531707765 minutes
+Batch 17900 Loss:	21.282210793346167
+Batch 17900 Time:	2.787452252705892 minutes
+Batch 18000 Loss:	23.750887278933078
+Batch 18000 Time:	2.8161516785621643 minutes
+Batch 18100 Loss:	28.71874557994306
+Batch 18100 Time:	2.833275091648102 minutes
+Batch 18200 Loss:	23.675714261829853
+Batch 18200 Time:	2.7992648323376974 minutes
+Batch 18300 Loss:	21.93102813139558
+Batch 18300 Time:	2.796582019329071 minutes
+Batch 18400 Loss:	24.586824478581548
+Batch 18400 Time:	2.8027855157852173 minutes
+Batch 18500 Loss:	20.68283087061718
+Batch 18500 Time:	2.8448666016260784 minutes
+Batch 18600 Loss:	19.428023732150905
+Batch 18600 Time:	2.7884034395217894 minutes
+Batch 18700 Loss:	23.69658765103668
+Batch 18700 Time:	2.810246455669403 minutes
+Batch 18800 Loss:	21.996688893064857
+Batch 18800 Time:	2.837432070573171 minutes
+Batch 18900 Loss:	23.178270053118467
+Batch 18900 Time:	2.82402046918869 minutes
+Batch 19000 Loss:	21.6241400889121
+Batch 19000 Time:	2.812203582127889 minutes
+Batch 19100 Loss:	22.16657568141818
+Batch 19100 Time:	2.7890769561131794 minutes
+Batch 19200 Loss:	21.109101481735706
+Batch 19200 Time:	2.8335028767585753 minutes
+Batch 19300 Loss:	19.868852090090513
+Batch 19300 Time:	2.80563679933548 minutes
+Batch 19400 Loss:	26.912099477835
+Batch 19400 Time:	2.834333125750224 minutes
+Batch 19500 Loss:	25.62386318668723
+Batch 19500 Time:	2.8421867648760477 minutes
+Batch 19600 Loss:	22.200503380969167
+Batch 19600 Time:	2.8051209529240926 minutes
+Batch 19700 Loss:	21.384461731649935
+Batch 19700 Time:	2.816647239526113 minutes
+Batch 19800 Loss:	20.874948531854898
+Batch 19800 Time:	2.791763440767924 minutes
+Batch 19900 Loss:	21.167959169775713
+Batch 19900 Time:	2.7875720183054606 minutes
+Calculating term: 0
+Calculating term: 1
+Calculating term: 2
+Calculating term: 3
+Calculating term: 4
+Calculating term: 5
+Calculating term: 6
+Calculating term: 7
+Calculating term: 8
+Calculating term: 9
+Calculating term: 10
+Calculating term: 11
+Calculating term: 12
+Calculating term: 13
+Calculating term: 14
+Calculating term: 15
+Calculating term: 16
+Calculating term: 17
+Calculating term: 18
+Calculating term: 19
+Calculating term: 20
+Calculating term: 21
+Calculating term: 22
+Calculating term: 23
+Calculating term: 24
+Calculating term: 25
+Calculating term: 26
+Calculating term: 27
+Calculating term: 28
+Calculating term: 29
+Calculating term: 30
+Calculating term: 31
+Calculating term: 32
+Calculating term: 33
+Calculating term: 34
+Calculating term: 35
+Calculating term: 36
+Calculating term: 37
+Calculating term: 38
+Calculating term: 39
+Calculating term: 40
+Calculating term: 41
+Calculating term: 42
+Calculating term: 43
+Calculating term: 44
+Calculating term: 45
+Calculating term: 46
+Calculating term: 47
+Calculating term: 48
+Calculating term: 49
+Calculating term: 50
+Calculating term: 51
+Calculating term: 52
+Calculating term: 53
+Calculating term: 54
+Calculating term: 55
+Calculating term: 56
+Calculating term: 57
+Calculating term: 58
+Calculating term: 59
+Calculating term: 60
+Calculating term: 61
+Calculating term: 62
+Calculating term: 63
+Calculating term: 64
+Calculating term: 65
+Calculating term: 66
+Calculating term: 67
+Calculating term: 68
+Calculating term: 69
+Calculating term: 70
+Calculating term: 71
+Calculating term: 72
+Calculating term: 73
+Calculating term: 74
+Calculating term: 75
+Calculating term: 76
+Calculating term: 77
+Calculating term: 78
+Calculating term: 79
+Calculating term: 80
+Calculating term: 81
+Calculating term: 82
+Calculating term: 83
+Calculating term: 84
+Calculating term: 85
+Calculating term: 86
+Calculating term: 87
+Calculating term: 88
+Calculating term: 89
+Calculating term: 90
+Calculating term: 91
+Calculating term: 0
+Calculating term: 1
+Calculating term: 2
+Calculating term: 3
+Calculating term: 4
+Calculating term: 5
+Calculating term: 6
+Calculating term: 7
+Calculating term: 8
+Calculating term: 9
+Calculating term: 10
+Calculating term: 11
+Calculating term: 12
+Calculating term: 13
+Calculating term: 14
+Calculating term: 15
+Calculating term: 16
+Calculating term: 17
+Calculating term: 18
+Calculating term: 19
+Calculating term: 20
+Calculating term: 21
+Calculating term: 22
+Calculating term: 23
+Calculating term: 24
+Calculating term: 25
+Calculating term: 26
+Calculating term: 27
+Calculating term: 28
+Calculating term: 29
+Calculating term: 30
+Calculating term: 31
+Calculating term: 32
+Calculating term: 33
+Calculating term: 34
+Calculating term: 35
+Calculating term: 36
+Calculating term: 37
+Calculating term: 38
+Calculating term: 39
+Calculating term: 40
+Calculating term: 41
+Calculating term: 42
+Calculating term: 43
+Calculating term: 44
+Calculating term: 45
+Calculating term: 46
+Calculating term: 47
+Calculating term: 48
+Calculating term: 49
+Calculating term: 50
+Calculating term: 51
+Calculating term: 52
+Calculating term: 53
+Calculating term: 54
+Calculating term: 55
+Calculating term: 56
+Calculating term: 57
+Calculating term: 58
+Calculating term: 59
+Calculating term: 60
+Calculating term: 61
+Calculating term: 62
+Calculating term: 63
+Calculating term: 64
+Calculating term: 65
+Calculating term: 66
+Calculating term: 67
+Calculating term: 68
+Calculating term: 69
+Calculating term: 70
+Calculating term: 71
+Calculating term: 72
+Calculating term: 73
+Calculating term: 74
+Calculating term: 75
+Calculating term: 76
+Calculating term: 77
+Calculating term: 78
+Calculating term: 79
+Calculating term: 80
+Calculating term: 81
+Calculating term: 82
+Calculating term: 83
+Calculating term: 84
+Calculating term: 85
+Calculating term: 86
+Calculating term: 87
+Calculating term: 88
+Calculating term: 89
+Calculating term: 90
+Calculating term: 91
