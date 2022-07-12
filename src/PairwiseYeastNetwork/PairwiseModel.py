@@ -98,9 +98,13 @@ class PairwiseModel():
     def testNetwork(self,save,testingType,limitNegative,negProportion=10,regularize=True,posProportion=0):
         with torch.no_grad():
             #Create positive and negative pairs from the validation data
-            posPairs, negPairs = PairwiseYeastData.makePairs(self.posVal,self.negVal)
+            posPairs, negPairs = self.makeTestPairs(self.posVal,self.negVal)
             #Create an input array to make batch tensor by concatentating
             np.random.shuffle(posPairs)
+            print(f'Pos pairs:')
+            print(posPairs.shape)
+            print('Neg Pairs')
+            print(negPairs.shape)
             if posProportion == 0:
                 posProportion = len(posPairs)
             if(limitNegative):
@@ -108,6 +112,9 @@ class PairwiseModel():
                 inputArray = np.concatenate((posPairs[0:posProportion],negPairs[0:int(len(posPairs)*negProportion)]))
             else:
                 inputArray = np.concatenate((posPairs[0:posProportion],negPairs))
+
+            print(inputArray)
+
             #Create features and labels tensors, then move them both to the gpu
             features, labels = self.makeBatchTensors(inputArray,regularize=regularize)
             features = features.to(self.device)
@@ -135,6 +142,11 @@ class PairwiseModel():
             foldsArray = np.array(foldsList)
 
             self.calcStats(namesArray=namesArray,labels=labels,foldsArray=foldsArray,outputs=outputs,save=save,testingType=testingType)
+
+    #This method returns all the positive and negative pairs given an array of positive genes and an array of negative genes       
+    def makeTestPairs(self,pos,neg):
+        #This method is simple, but it is useful when we need to override it for the complex network
+        return PairwiseYeastData.makePairs(pos,neg)
             
 
     def calcStats(self,namesArray,labels,foldsArray,outputs,save,testingType):

@@ -9,7 +9,7 @@ import torch.optim as optim
 from random import sample, shuffle
 
 import sys
-sys.path.append('./obopy/')
+sys.path.insert(0,'./obopy/')
 from Leaf import getLeaves
 
 from ExpressionDatasets import ExpressionDatasets
@@ -27,6 +27,8 @@ class ComplexModel(PairwiseModel):
         #Loop that takes the union of all gene sets
         for leaf in self.leaves:
             self.genes = self.genes | leaf[1]
+        #     print(f'{leaf[0]}:\t {len(leaf[1])} genes')
+        # print(f'Total Genes: {len(self.genes)}')
         #This instance variable will be useful making new gene folds
         self.numFolds = numFolds
 
@@ -89,6 +91,26 @@ class ComplexModel(PairwiseModel):
             for i in range(int((fold/self.numFolds)*len(self.genes)),int(((fold+1)/self.numFolds)*len(self.genes))):
                 foldTable.append([genesList[i],fold])
         pd.DataFrame(foldTable,columns=['Gene','Fold']).to_csv(location,index=False)
+
+    #This version of the method will return an array of gene pairs that contains roughly equal numbers of pairs for each leaf GO term
+    def makeTestPairs(self, pos, neg):
+        #Intialise return list
+        pairs = []
+        #Loop over all leaves in GO slim
+        for leaf in self.leaves:
+            #For each set of genes, make a list of all pairs of those genes
+            leafPairs = PairwiseYeastData.makePairs(np.array(list(set(pos) & leaf[1])),neg)
+            #If list of gene is longer than 100, add 100 random pairs to return list
+            if(len(leafPairs) >= 100):
+                randPairs = sample(leafPairs,100)
+                for p in randPairs:
+                    pairs.append(p)
+            #Otherwise, add all pairs to return list
+            else:
+                for p in leafPairs:
+                    pairs.append(p)
+        #Return list as array, the negative array is empty for the complex model
+        return (np.array(pairs),np.zeros((0,)))
 
 
         

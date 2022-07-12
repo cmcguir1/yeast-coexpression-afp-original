@@ -7,6 +7,8 @@ from YeastGraph import YeastGraph
 import sys
 from ComplexModel import ComplexModel
 import pandas as pd
+import torch
+from AllGoModel import AllGoModel
 
 # This import should fix the ssl import verificiation error
 import ssl
@@ -30,7 +32,8 @@ def main():
     # modelData = PairwiseYeastData('Yeast Resources/Datasets/All Spell/all spell datasets',4,subset=200000,numDatasets=430,statsDictLoc='./Yeast Resources/Datasets/All Spell/revisedStatsDict.csv',recalc=False,foldFile='./Yeast Resources/Datasets/All Spell/GeneFolds1.csv')
     # for i in range(100,-1,-1):
     #     print(i)
-    x = 'hi'
+    jin = AllGoModel(0,'./Yeast Resources/Datasets/All Spell/complexgeneFolds1.csv',20,'ComplexTest','AllGoTest')
+    jin.trainNetwork(2)
     # newDict = {}
     # for key, value in modelData.expression.statsDict.items():
     #     newDict[key[key.find('\\')+1:]] = value

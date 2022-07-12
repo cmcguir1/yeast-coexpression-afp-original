@@ -120,21 +120,22 @@ plotPrecRecall <- function(files,colorsList,graphName) {
 
 struct = "113x20x1"
 
+
 files = choose.files(default=paste0(getwd(),"/*.*"))
 
 colorsList <- c("#FC0303","#14A63B","#5D87F0","#7713BA","#FAEF16","#E09704")
 
-graphName <- paste("SPELL All Datasets:",struct,"Training")
+graphName <- paste("SPELL Original Datasets:",struct,"Training")
 
 
-pdf(paste("OriginalSpell_",struct,"_Train_ROC.pdf"),width=6,height=6)
+pdf(paste("OriginalSpell_",struct,"_Train_ROC.pdf",sep=""),width=6,height=6)
 plotROC(files=files,colorsList=colorsList,graphName=graphName)
 dev.off()
 
 
-graphName <- paste("SPELL All Datasets:",struct,"Training")
+graphName <- paste("SPELL Original Datasets:",struct,"Training")
 
 
-pdf(paste("OriginalSpell_",struct,"_Train_PR.pdf"),width=8,height=6)
+pdf(paste("OriginalSpell_",struct,"_Train_PR.pdf",sep=""),width=8,height=6)
 plotPrecRecall(files=files,colorsList=colorsList,graphName=graphName)
 dev.off()
