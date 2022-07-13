@@ -65,8 +65,8 @@ class ComplexModel(PairwiseModel):
         self.data = ExpressionDatasets(folder='./Yeast Resources/Datasets/All Spell/all spell datasets',statsDictLoc='./Yeast Resources/Datasets/All Spell/revisedStatsDict.csv')
 
         self.net = FlexNet(f'{len(self.data.datasets)}x{structure}x{len(self.leaves)}',sigmoid=False,inputDrop=inputDrop,hiddenDrop=hiddenDrop)
-        #self.device = 'cpu'
-        self.device = 'cuda:0' if torch.cuda.is_available() else 'cpu'
+        self.device = 'cpu'
+        #self.device = 'cuda:0' if torch.cuda.is_available() else 'cpu'
         self.net.to(self.device)
 
         self.lossFunc = nn.CrossEntropyLoss()
