@@ -49,8 +49,8 @@ colorsList <- c("#FC0303","#14A63B","#5D87F0","#7713BA","#FAEF16","#E09704")
 graphName <- "SPELL All Datasets: 430x100x50x1 Train"
 
 
-pdf("Spell_430x100x50x1_Train_ROC.pdf",width=6,height=6)
+#pdf("Spell_430x100x50x1_Train_ROC.pdf",width=6,height=6)
 plotROC(files=files,colorsList=colorsList,graphName=graphName)
-dev.off()
+#dev.off()
 
 

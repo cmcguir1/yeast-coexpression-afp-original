@@ -41,7 +41,7 @@ class YeastGraph(PairwiseModel):
         features, labels = self.makeBatchTensors(self.pairs)
         features = features.to(self.device)
         with torch.no_grad():
-            outputs = self.net(features.float())
+            outputs = self.net(features.float(),test=True)
         self.dataTable = np.array([self.pairs[:,0],self.pairs[:,1],outputs.cpu().flatten().numpy()],dtype=object).transpose()
         if(save):
             dataFrame = pd.DataFrame(self.dataTable,columns=['Gene A', 'Gene B', 'Score'])

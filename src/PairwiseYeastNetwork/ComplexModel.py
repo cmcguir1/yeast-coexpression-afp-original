@@ -17,7 +17,7 @@ from ExpressionDatasets import ExpressionDatasets
 
 
 class ComplexModel(PairwiseModel):
-    def __init__(self,fold,numFolds,structure,folderName,modelName,lr=0.01,momentum=0.9,batch=20,foldFile='',numTerms=0,activation='relu',inputDrop=None,hiddenDrop=None):
+    def __init__(self,fold,numFolds,structure,folderName,modelName,lr=0.01,momentum=0.9,batch=20,foldFile='',numTerms=0,activation='relu',inputDrop=None,hiddenDrop=None,folder='./Yeast Resources/Datasets/All Spell/all spell datasets',recur=True):
         #Initialize a set of genes, then genes from all leaves
         self.genes = set()
         #Get genes for all terms with 10 or more genes
@@ -62,7 +62,7 @@ class ComplexModel(PairwiseModel):
         pairs = PairwiseYeastData.makePairs(np.array(list(self.genes)),np.zeros((0,)))
 
         #For a complex model. the data field will be an instance of ExpressionDataset
-        self.data = ExpressionDatasets(folder='./Yeast Resources/Datasets/All Spell/all spell datasets',statsDictLoc='./Yeast Resources/Datasets/All Spell/revisedStatsDict.csv')
+        self.data = ExpressionDatasets(folder=folder,statsDictLoc='./Yeast Resources/Datasets/All Spell/revisedStatsDict.csv',recur=recur)
 
         self.net = FlexNet(f'{len(self.data.datasets)}x{structure}x{len(self.leaves)}',sigmoid=False,inputDrop=inputDrop,hiddenDrop=hiddenDrop)
         self.device = 'cpu'

@@ -81,6 +81,6 @@ colorsList <- c("#FC0303","#14A63B","#5D87F0","#7713BA","#FAEF16","#E09704")
 graphName <- "SPELL All Datasets: 430x50x20x10x1 Training"
 
 
-pdf("Spell_430x50x20x10x1_Train_PR.pdf",width=8,height=6)
+#pdf("Spell_430x50x20x10x1_Train_PR.pdf",width=8,height=6)
 plotPrecRecall(files=files,colorsList=colorsList,graphName=graphName)
-dev.off()
+#dev.off()
