@@ -7,6 +7,7 @@ from PairwiseYeastData import PairwiseYeastData
 from FlexNet import FlexNet
 import torch.optim as optim
 from random import sample, shuffle
+import os
 
 import sys
 sys.path.insert(0,'./obopy/')
@@ -61,11 +62,11 @@ class ComplexModel(PairwiseModel):
         pairs = PairwiseYeastData.makePairs(np.array(list(self.genes)),np.zeros((0,)))
 
         #For a complex model. the data field will be an instance of ExpressionDataset
-        self.data = ExpressionDatasets(430,'./Yeast Resources/Datasets/All Spell/all spell datasets',pairs,200000,statsDictLoc='./Yeast Resources/Datasets/All Spell/revisedStatsDict.csv')
+        self.data = ExpressionDatasets(folder='./Yeast Resources/Datasets/All Spell/all spell datasets',statsDictLoc='./Yeast Resources/Datasets/All Spell/revisedStatsDict.csv')
 
         self.net = FlexNet(f'{len(self.data.datasets)}x{structure}x{len(self.leaves)}',sigmoid=False,inputDrop=inputDrop,hiddenDrop=hiddenDrop)
-        self.device = 'cpu'
-        #self.device = 'cuda:0' if torch.cuda.is_available() else 'cpu'
+        #self.device = 'cpu'
+        self.device = 'cuda:0' if torch.cuda.is_available() else 'cpu'
         self.net.to(self.device)
 
         self.lossFunc = nn.CrossEntropyLoss()
@@ -73,6 +74,9 @@ class ComplexModel(PairwiseModel):
 
         self.batch = batch
         self.fold = fold
+
+        self.modelName = modelName
+        self.structure = structure
 
         self.dataTableLocation = f'./Yeast Resources/Pairwise/{folderName}/{modelName}_{structure}'
         self.networkLocation = f'./Yeast Resources/Pairwise/{folderName}/{modelName}_{structure}_Net_fold{fold+1}'
@@ -158,6 +162,9 @@ class ComplexModel(PairwiseModel):
     def calcStats(self,namesArray, labels, foldsArray, outputs,save,testingType):
         labelsArray = labels.cpu().numpy().transpose()
         outputsArray  = outputs.cpu().numpy().transpose()
+        #If the folder to hold all confusion matrices for each go term does not already exist, make one
+        if(not(os.path.exists(f'{self.dataTableLocation}/{self.modelName}_{self.structure}'))):
+            os.mkdir(f'{self.dataTableLocation}/{self.modelName}_{self.structure}')
         goData = [namesArray,foldsArray]
         colNames = ['Name','Fold']
         goStats = []
@@ -167,7 +174,7 @@ class ComplexModel(PairwiseModel):
             goData.append(outputsArray[i])
             colNames.append(f'Labels {self.leaves[i][0]}')
             colNames.append(f'Score {self.leaves[i][0]}')
-            goStats.append(ComplexModel.calcGOStats(namesArray,goData[-2],goData[-1],self.leaves[i][0]))
+            goStats.append(self.calcGOStats(namesArray,goData[-2],goData[-1],self.leaves[i][0],testingType=testingType))
             
         goData = np.array(goData).transpose()
         goStats = np.array(goStats)
@@ -178,7 +185,7 @@ class ComplexModel(PairwiseModel):
         
         
 
-    def calcGOStats(names,labels,outputs,term):
+    def calcGOStats(self,names,labels,outputs,term,testingType):
         rawData = np.array([names,labels,outputs],dtype=object).transpose()
         #Sorts raw data by the fourth column, which is score in this case
         sortedData = rawData[rawData[:,2].argsort()]
@@ -205,30 +212,6 @@ class ComplexModel(PairwiseModel):
             confusionMatrixList.append(np.array([truePos,falsePos,trueNeg,falseNeg]))
         #Makes confusion matrix list into array
         confusionMatrix = np.array(confusionMatrixList)
-
-        # truePos, trueNeg,falsePos, falseNeg = 0, 0, 0, 0
-        # #In this loop, i represents the cutoff for what we consider a true postiive or negative
-        # for i in range(len(sortedData)):
-        #     #Loops over all genes determines where that gene is in the confusion matrix
-        #     for j in range(len(sortedData)):
-        #         #If gene is negative and below the line, it is a true negative
-        #         if(sortedData[j,1] == 0.0 and j <= i):
-        #             trueNeg += 1
-        #         #If gene is positive and below the line, it is a false positive
-        #         elif(sortedData[j,1] == 1.0 and j <= i):
-        #             falseNeg += 1
-        #         #If gene is negative and above the line, it is a false negative
-        #         elif(sortedData[j,1] == 0.0 and j > i):
-        #             falsePos += 1
-        #         #If the gene is positive and above the line, it is a true positive
-        #         else:
-        #             truePos += 1
-        #     #Appends an array of the confusion matrix value to a confusion matrix list
-        #     confusionMatrixList.append(np.array([truePos,falsePos,trueNeg,falseNeg]))
-        #     #Reset confusion matrix values
-        #     truePos, trueNeg, falsePos, falseNeg = 0, 0 ,0 ,0
-        # #Makes confusion matrix list into array
-        # confusionMatrix = np.array(confusionMatrixList)
             
         #Calculate statistics for confusion matrix array
         statisticsList = []
@@ -241,6 +224,10 @@ class ComplexModel(PairwiseModel):
             statisticsList.append(np.array([accuracy,precision,recall,falsePositiveRate,selectivity]))
         #Converts stats list into array to be concatenated
         statisticsArray = np.array(statisticsList)
+
+        dataTable = np.concatenate([sortedData,confusionMatrix,statisticsArray],1)
+        dataFrame = pd.DataFrame(dataTable,columns=['Name','+/-','Folds','Score','True Positive', 'False Positive', 'True Negative', 'False Negative', 'Accuracy', 'Precision', 'Recall', 'False Positive Rate', 'Selectivity'])
+        dataFrame.to_csv(f'{self.dataTableLocation}/{self.modelName}_{self.structure}/{term}_{testingType}_fold{self.fold+1}')
 
         precisionArray = np.copy(statisticsArray[:,1])
         for i in range(len(precisionArray)-1,0,-1):

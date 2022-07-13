@@ -101,10 +101,6 @@ class PairwiseModel():
             posPairs, negPairs = self.makeTestPairs(self.posVal,self.negVal)
             #Create an input array to make batch tensor by concatentating
             np.random.shuffle(posPairs)
-            print(f'Pos pairs:')
-            print(posPairs.shape)
-            print('Neg Pairs')
-            print(negPairs.shape)
             if posProportion == 0:
                 posProportion = len(posPairs)
             if(limitNegative):

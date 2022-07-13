@@ -9,53 +9,22 @@ from ComplexModel import ComplexModel
 import pandas as pd
 import torch
 from AllGoModel import AllGoModel
+import os
 
 # This import should fix the ssl import verificiation error
 import ssl
 ssl._create_default_https_context = ssl._create_unverified_context
 
 def main():
-    #This comment should appear on github now
+    
+    # jin = AllGoModel(0,'./Yeast Resources/Datasets/All Spell/complexgeneFolds1.csv',20,'ComplexTest','AllGoTest')
+    # jin.trainNetwork(2)
+    if(os.path.exists('./Yeast Resources/NewFolderTest')):
+        print('Folder already exists')
+    else:
+        os.mkdir('./Yeast Resources/NewFolderTest')
+    
 
-    #This comment was made from the virtual machine vi
-
-    # for i in range(5):
-    #     folds = GeneFolds(numFolds=4)
-    #     folds.writeToCsv(f'./Yeast Resources/Datasets/All Spell/GeneFolds{i+2}.csv')
-
-    #dnaRepairFolds = GeneFolds(4, posGenes='./Yeast Resources/GeneSets/GO0007127_Pos.txt',negGenes='./Yeast Resources/GeneSets/GO0007127_Neg.txt')
-    #dnaRepairFolds.writeToCsv('./Yeast Resources/GeneSets/GO0007127Folds1.csv')
-
-
-    # start = time.time()
-    # # epoch = 10000
-    # modelData = PairwiseYeastData('Yeast Resources/Datasets/All Spell/all spell datasets',4,subset=200000,numDatasets=430,statsDictLoc='./Yeast Resources/Datasets/All Spell/revisedStatsDict.csv',recalc=False,foldFile='./Yeast Resources/Datasets/All Spell/GeneFolds1.csv')
-    # for i in range(100,-1,-1):
-    #     print(i)
-    jin = AllGoModel(0,'./Yeast Resources/Datasets/All Spell/complexgeneFolds1.csv',20,'ComplexTest','AllGoTest')
-    jin.trainNetwork(2)
-    # newDict = {}
-    # for key, value in modelData.expression.statsDict.items():
-    #     newDict[key[key.find('\\')+1:]] = value
-    # print(len(modelData.expression.statsDict))
-    # print(len(newDict))
-    # modelData.expression.statsDict = newDict
-    # # modelData.saveStatistics('./Yeast Resources/Datasets/All Spell/revisedStatsDict.csv')
-
-    # for key, value in modelData.expression.statsDict.items():
-    #     print(key)
-    #     print(value)
-    # for key,value in newDict.items():
-    #     print(key)
-    #     print(value)
-
-    # dataTable = []
-    # for key, value in newDict.items():
-    #     dataTable.append([key,value[0],value[1]])
-    # dataFrame = pd.DataFrame(dataTable,columns=['File Name', 'Mean', 'Standard Deviation'])
-    # dataFrame.to_csv('./Yeast Resources/Datasets/All Spell/revisedStatsDict.csv',index=False)
-
-    # #modelData.saveStatistics('./Yeast Resources/Datasets/All Spell/statsDict.csv')
     
 
     # # regularTest = []
