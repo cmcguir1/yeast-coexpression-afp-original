@@ -16,7 +16,7 @@ from ExpressionDatasets import ExpressionDatasets
 
 
 class ComplexModel(PairwiseModel):
-    def __init__(self,fold,numFolds,structure,folderName,modelName,lr=0.01,momentum=0.9,batch=20,foldFile='',numTerms=0):
+    def __init__(self,fold,numFolds,structure,folderName,modelName,lr=0.01,momentum=0.9,batch=20,foldFile='',numTerms=0,activation='relu',inputDrop=None,hiddenDrop=None):
         #Initialize a set of genes, then genes from all leaves
         self.genes = set()
         #Get genes for all terms with 10 or more genes
@@ -63,7 +63,7 @@ class ComplexModel(PairwiseModel):
         #For a complex model. the data field will be an instance of ExpressionDataset
         self.data = ExpressionDatasets(430,'./Yeast Resources/Datasets/All Spell/all spell datasets',pairs,200000,statsDictLoc='./Yeast Resources/Datasets/All Spell/revisedStatsDict.csv')
 
-        self.net = FlexNet(f'{len(self.data.datasets)}x{structure}x{len(self.leaves)}',sigmoid=False)
+        self.net = FlexNet(f'{len(self.data.datasets)}x{structure}x{len(self.leaves)}',sigmoid=False,inputDrop=inputDrop,hiddenDrop=hiddenDrop)
         self.device = 'cpu'
         #self.device = 'cuda:0' if torch.cuda.is_available() else 'cpu'
         self.net.to(self.device)
@@ -92,25 +92,27 @@ class ComplexModel(PairwiseModel):
                 foldTable.append([genesList[i],fold])
         pd.DataFrame(foldTable,columns=['Gene','Fold']).to_csv(location,index=False)
 
+    #I think trying to override the make test was a flop
+
     #This version of the method will return an array of gene pairs that contains roughly equal numbers of pairs for each leaf GO term
-    def makeTestPairs(self, pos, neg):
-        #Intialise return list
-        pairs = []
-        #Loop over all leaves in GO slim
-        for leaf in self.leaves:
-            #For each set of genes, make a list of all pairs of those genes
-            leafPairs = PairwiseYeastData.makePairs(np.array(list(set(pos) & leaf[1])),neg)
-            #If list of gene is longer than 100, add 100 random pairs to return list
-            if(len(leafPairs) >= 100):
-                randPairs = sample(leafPairs,100)
-                for p in randPairs:
-                    pairs.append(p)
-            #Otherwise, add all pairs to return list
-            else:
-                for p in leafPairs:
-                    pairs.append(p)
-        #Return list as array, the negative array is empty for the complex model
-        return (np.array(pairs),np.zeros((0,)))
+    # def makeTestPairs(self, pos, neg):
+    #     #Intialise return list
+    #     pairs = []
+    #     #Loop over all leaves in GO slim
+    #     for leaf in self.leaves:
+    #         #For each set of genes, make a list of all pairs of those genes
+    #         leafPairs = PairwiseYeastData.makePairs(np.array(list(set(pos) & leaf[1])),neg)
+    #         #If list of gene is longer than 100, add 100 random pairs to return list
+    #         if(len(leafPairs) >= 100):
+    #             randPairs = sample(leafPairs,100)
+    #             for p in randPairs:
+    #                 pairs.append(p)
+    #         #Otherwise, add all pairs to return list
+    #         else:
+    #             for p in leafPairs:
+    #                 pairs.append(p)
+    #     #Return list as array, the negative array is empty for the complex model
+    #     return (np.array(pairs),np.zeros((0,)))
 
 
         

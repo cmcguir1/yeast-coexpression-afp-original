@@ -11,14 +11,14 @@ import time
 from random import sample
 
 class PairwiseModel():
-    def __init__(self,data,fold,structure,folderName,modelName,lr=0.01,momentum=0.9,batch=20):
+    def __init__(self,data,fold,structure,folderName,modelName,lr=0.01,momentum=0.9,batch=20,activation='relu',inputDrop=None,hiddenDrop=None):
         #Pass in PairwiseYeastData
         self.data : PairwiseYeastData = data
         #Get training and validation data from specified fold of data
         self.posTrain, self.negTrain, self.posVal, self.negVal = data.getFold(fold)
 
         #Intializes network using number of input datasets and the specified hidden layer structure
-        self.net = FlexNet(f'{len(self.data.datasets)}x{structure}')
+        self.net = FlexNet(f'{len(self.data.datasets)}x{structure}',activation=activation,inputDrop=inputDrop,hiddenDrop=hiddenDrop)
         #Determines device the network will train on, then moves network to that device
         #self.device = 'cuda:0' if torch.cuda.is_available() else 'cpu'
         self.device = 'cpu'
@@ -113,7 +113,6 @@ class PairwiseModel():
             else:
                 inputArray = np.concatenate((posPairs[0:posProportion],negPairs))
 
-            print(inputArray)
 
             #Create features and labels tensors, then move them both to the gpu
             features, labels = self.makeBatchTensors(inputArray,regularize=regularize)
@@ -121,7 +120,7 @@ class PairwiseModel():
             labels = labels.to(self.device)
 
             #Feeds forward all of the validation data
-            outputs = self.net(features.float())
+            outputs = self.net(features.float(),test=True)
 
             #Turns input array of tuples into an array of gene pairs seperated by a space
             namesList = []

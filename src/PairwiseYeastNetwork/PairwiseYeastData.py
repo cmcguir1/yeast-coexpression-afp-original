@@ -28,7 +28,7 @@ class PairwiseYeastData():
         pairs = np.concatenate((posPairs,negPairs,agnPairs))
 
         
-        self.expression = ExpressionDatasets(numDatasets,folder,pairs,subset,sort,recur,recalc,statsDictLoc)
+        self.expression = ExpressionDatasets(folder,pairs=pairs,subset=subset,sort=sort,recur=recur,recalc=recalc,statsDictLoc=statsDictLoc)
         self.datasets = self.expression.datasets
         
         if(filterMissingGenes):
