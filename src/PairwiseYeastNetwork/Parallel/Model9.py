@@ -1,6 +1,6 @@
 import sys
 
-from sqlalchemy import false
+
 sys.path.insert(0,'./src/PairwiseYeastNetwork')
 from ModelTester import test
 from ComplexModel import ComplexModel
