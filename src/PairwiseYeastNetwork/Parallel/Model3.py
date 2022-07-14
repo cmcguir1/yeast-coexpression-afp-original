@@ -14,6 +14,7 @@ def main():
     # complexModel = ComplexModel(int(sys.argv[1]),4,'20','Spell/Complex','Test')
     complexModel = ComplexModel(int(sys.argv[1]),4,sys.argv[2],'Spell/ComplexTest','ComplexTest',foldFile='./Yeast Resources/Datasets/All Spell/complexGeneFolds1.csv')
     complexModel.net.load_state_dict(torch.load(f'./Yeast Resources/Pairwise/Spell/Complex/Complex_20_Net_fold{int(sys.argv[1])+1}.pth'))
+    #complexModel.trainNetwork(20000,printLoss=True)
     print('Began Testing on Validation')
     complexModel.testNetworkValidation(limitNegative=True,negProportion=10)
     print(f'Total Run Time: {(time.time()-start)/60} minutes')

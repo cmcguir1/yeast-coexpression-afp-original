@@ -14,7 +14,7 @@ ssl._create_default_https_context = ssl._create_unverified_context
 def main():
     start = time.time()
     # complexModel = ComplexModel(int(sys.argv[1]),4,'20','Spell/Complex','Test')
-    complexModel = ComplexModel(int(sys.argv[1]),4,sys.argv[2],'Spell/ComplexTest','Original',foldFile='./Yeast Resources/Datasets/All Spell/complexGeneFolds1.csv',folder='./Yeast Resources/Datasets/All Spell/original',recur=False)
+    complexModel = ComplexModel(int(sys.argv[1]),4,sys.argv[2],'Spell/ComplexTest','Original',foldFile='./Yeast Resources/Datasets/All Spell/complexGeneFolds1.csv',folder='./Yeast Resources/Datasets/All Spell/original',recur=False,sort=False)
     #complexModel.net.load_state_dict(torch.load(f'./Yeast Resources/Pairwise/Spell/Complex/Complex_20_Net_fold{int(sys.argv[1])+1}.pth'))
     complexModel.trainNetwork(20000,printLoss=True)
     print('Began Testing on Validation')
