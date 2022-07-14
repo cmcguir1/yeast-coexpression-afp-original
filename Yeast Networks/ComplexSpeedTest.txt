@@ -1,0 +1,13 @@
+Began Testing on Validation
+Traceback (most recent call last):
+  File "src/PairwiseYeastNetwork/Parallel/Model3.py", line 23, in <module>
+    main()
+  File "src/PairwiseYeastNetwork/Parallel/Model3.py", line 18, in main
+    complexModel.testNetworkValidation(limitNegative=True,negProportion=10)
+  File "./src/PairwiseYeastNetwork/PairwiseModel.py", line 233, in testNetworkValidation
+    self.testNetwork(save,'Val',regularize=regularize,limitNegative=limitNegative,negProportion=negProportion,posProportion=posProportion)
+  File "./src/PairwiseYeastNetwork/PairwiseModel.py", line 139, in testNetwork
+    self.calcStats(namesArray=namesArray,labels=labels,foldsArray=foldsArray,outputs=outputs,save=save,testingType=testingType)
+  File "./src/PairwiseYeastNetwork/ComplexModel.py", line 167, in calcStats
+    os.mkdir(f'{self.dataTableLocation}/{self.modelName}_{self.structure}')
+FileNotFoundError: [Errno 2] No such file or directory: './Yeast Resources/Pairwise/Spell/ComplexTest/ComplexTest_20/ComplexTest_20'
