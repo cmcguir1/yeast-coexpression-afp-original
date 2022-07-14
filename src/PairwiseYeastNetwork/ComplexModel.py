@@ -161,7 +161,7 @@ class ComplexModel(PairwiseModel):
 
     def calcStats(self,namesArray, labels, foldsArray, outputs,save,testingType):
         labelsArray = labels.cpu().numpy().transpose()
-        outputsArray  = outputs.cpu().numpy().transpose()
+        outputsArray  = outputs.transpose()
         #If the folder to hold all confusion matrices for each go term does not already exist, make one
         if(not(os.path.exists(f'{self.dataTableLocation}/{self.modelName}_{self.structure}'))):
             os.mkdir(f'{self.dataTableLocation}/{self.modelName}_{self.structure}')
@@ -169,12 +169,13 @@ class ComplexModel(PairwiseModel):
         colNames = ['Name','Fold']
         goStats = []
         for i in range(len(labelsArray)):
-            print(f'Calculating term: {i}')
+            print(f'Calculating term: {i+1}/{len(labelsArray)}')
             goData.append(labelsArray[i])
             goData.append(outputsArray[i])
             colNames.append(f'Labels {self.leaves[i][0]}')
             colNames.append(f'Score {self.leaves[i][0]}')
             goStats.append(self.calcGOStats(namesArray,goData[-2],goData[-1],self.leaves[i][0],testingType=testingType))
+            
             
         goData = np.array(goData).transpose()
         goStats = np.array(goStats)
@@ -227,7 +228,7 @@ class ComplexModel(PairwiseModel):
 
         dataTable = np.concatenate([sortedData,confusionMatrix,statisticsArray],1)
         dataFrame = pd.DataFrame(dataTable,columns=['Name','+/-','Folds','Score','True Positive', 'False Positive', 'True Negative', 'False Negative', 'Accuracy', 'Precision', 'Recall', 'False Positive Rate', 'Selectivity'])
-        dataFrame.to_csv(f'{self.dataTableLocation}/{self.modelName}_{self.structure}/{term}_{testingType}_fold{self.fold+1}')
+        dataFrame.to_csv(f'{self.dataTableLocation}/{term}_{testingType}_fold{self.fold+1}')
 
         precisionArray = np.copy(statisticsArray[:,1])
         for i in range(len(precisionArray)-1,0,-1):

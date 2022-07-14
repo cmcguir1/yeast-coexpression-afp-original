@@ -111,12 +111,27 @@ class PairwiseModel():
 
 
             #Create features and labels tensors, then move them both to the gpu
-            features, labels = self.makeBatchTensors(inputArray,regularize=regularize)
-            features = features.to(self.device)
-            labels = labels.to(self.device)
+            # features, labels = self.makeBatchTensors(inputArray,regularize=regularize)
+            # features = features.to(self.device)
+            # labels = labels.to(self.device)
 
             #Feeds forward all of the validation data
-            outputs = self.net(features.float(),test=True)
+            # outputs = self.net(features.float(),test=True)
+
+            
+            outputsList = []
+            for i, pair in enumerate(inputArray,0):
+                start = time.time()
+                features, labels = self.makeBatchTensors(np.array([pair]),regularize=regularize)
+                features = features.to(self.device)
+                output = self.net(features.float(),test=True).cpu().flatten()[0]
+                outputsList.append(output)
+                if(i % 100 == 0):
+                    print(f'Pairs Calculated: {i+1}/{len(inputArray)}')
+                    print(f'Time to calculate: {(time.time()-start)/60} minutes')
+            outputs = np.array(outputsList)
+
+            
 
             #Turns input array of tuples into an array of gene pairs seperated by a space
             namesList = []
@@ -147,7 +162,7 @@ class PairwiseModel():
     def calcStats(self,namesArray,labels,foldsArray,outputs,save,testingType):
          #Moves labels and output tensors to cpu, then turns them into arrays and flattens them
         labelsArray = labels.cpu().numpy().flatten()
-        outputsArray = outputs.cpu().numpy().flatten()
+        outputsArray = outputs
 
             #Concatenates arrays together, then transposes
         rawData = np.array([namesArray,labelsArray,foldsArray,outputsArray],dtype=object).transpose()

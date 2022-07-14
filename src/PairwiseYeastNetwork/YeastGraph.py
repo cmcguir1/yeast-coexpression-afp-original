@@ -4,6 +4,8 @@ import pandas as pd
 from FlexNet import FlexNet
 from PairwiseModel import PairwiseModel
 from PairwiseYeastData import PairwiseYeastData
+import time
+
 
 class YeastGraph(PairwiseModel):
     def __init__(self,networkPath,data,structure,posFile,negFile,agnFile,includeAll=True):
@@ -38,11 +40,27 @@ class YeastGraph(PairwiseModel):
 
     #Passes all gene pairs through network, then saves a data table of their outputs
     def feedForward(self,fileLocation,save=True):
-        features, labels = self.makeBatchTensors(self.pairs)
-        features = features.to(self.device)
+        # features, labels = self.makeBatchTensors(self.pairs)
+        # features = features.to(self.device)
+        # with torch.no_grad():
+        #     outputs = self.net(features.float(),test=True)
+
+        #Revised feed forward algoritm that passes one gene into the network at a time
+        outputsList = []
         with torch.no_grad():
-            outputs = self.net(features.float(),test=True)
-        self.dataTable = np.array([self.pairs[:,0],self.pairs[:,1],outputs.cpu().flatten().numpy()],dtype=object).transpose()
+            #Loop over all genes in the array of pairs, pass in a gene to the network, then append its output to the output list
+            for i, pair in enumerate(self.pairs,0):
+                start = time.time()
+                features, labels = self.makeBatchTensors(np.array([pair]))
+                features = features.to(self.device)
+                outputsList.append(self.net(features.float(),test=True).cpu().flatten()[0])
+                if(i % 100 == 0):
+                    print(f'Pairs Calculated: {i+1}/{len(self.pairs)}')
+                    print(f'Time to calculate: {(time.time()-start)/60} minutes')
+        outputs = np.array(outputsList)
+
+
+        self.dataTable = np.array([self.pairs[:,0],self.pairs[:,1],outputs],dtype=object).transpose()
         if(save):
             dataFrame = pd.DataFrame(self.dataTable,columns=['Gene A', 'Gene B', 'Score'])
             dataFrame.to_csv(fileLocation,index=False)

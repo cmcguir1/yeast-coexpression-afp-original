@@ -118,24 +118,24 @@ plotPrecRecall <- function(files,colorsList,graphName) {
   
 }
 
-struct = "0.35"
+struct = "Sigmoid"
 
 
 files = choose.files(default=paste0(getwd(),"/*.*"))
 
 colorsList <- c("#FC0303","#14A63B","#5D87F0","#7713BA","#FAEF16","#E09704")
 
-graphName <- paste("SPELL Original Datasets:",struct,"Validation")
+graphName <- paste("Activation Function Test:",struct,"Training")
 
 
-pdf(paste("HiddenDropout_",struct,"_Val_ROC.pdf",sep=""),width=6,height=6)
+pdf(paste("Acitvation_",struct,"_Train_ROC.pdf",sep=""),width=6,height=6)
 plotROC(files=files,colorsList=colorsList,graphName=graphName)
 dev.off()
 
 
-graphName <- paste("SPELL Original Datasets:",struct,"Validation")
+graphName <- paste("Activation Function Tests:",struct,"Training")
 
 
-pdf(paste("HiddenDropout_",struct,"_Val_PR.pdf",sep=""),width=8,height=6)
+pdf(paste("Activation_",struct,"_Train_PR.pdf",sep=""),width=8,height=6)
 plotPrecRecall(files=files,colorsList=colorsList,graphName=graphName)
 dev.off()
