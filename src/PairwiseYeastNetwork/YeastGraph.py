@@ -5,65 +5,150 @@ from FlexNet import FlexNet
 from PairwiseModel import PairwiseModel
 from PairwiseYeastData import PairwiseYeastData
 import time
+import os
 
 
 class YeastGraph(PairwiseModel):
-    def __init__(self,networkPath,data,structure,posFile,negFile,agnFile,includeAll=True):
+    def __init__(self,networkPath,data,structure,posFile,negFile,agnFile,folder,includeAll=True,numfolds=4):
         #Intialize PairwiseYeastData as data
         self.data : PairwiseYeastData = data
 
+        #Initializes path where data will be saved
+        self.path = f'./Yeast Resources/GraphResults/{folder}'
+        #If the folder does not already exist, create it
+        if not os.path.exists(self.path):
+            os.mkdir(self.path)
+
+        self.numFolds = numfolds
+
+        #Old implementation of single network for forward feed
         #Initialize an untrained network, then load in a trained network from memory
-        self.net = FlexNet(structure=structure)
-        self.net.load_state_dict(torch.load(networkPath))
-        self.device = 'cuda:0' if torch.cuda.is_available() else 'cpu'
-        self.net.to(self.device)
+        # self.net = FlexNet(structure=structure)
+        # self.net.load_state_dict(torch.load(networkPath))
+        # self.device = 'cuda:0' if torch.cuda.is_available() else 'cpu'
+        # self.net.to(self.device)
+
+    
+        #Creates a list of networks, each which trained on a different fold
+        self.nets = []
+        for i in range(numfolds):
+            net = FlexNet(structure=structure)
+            net.load_state_dict(torch.load(f'{networkPath}{i+1}.csv'))
+            self.nets.append(net)
 
         #Intialize pos, neg, and agn gene arrays, then concatentate them together
-        posGenes = pd.read_csv(posFile).to_numpy().flatten()
-        negGenes = pd.read_csv(negFile).to_numpy().flatten()
-        agnGenes = pd.read_csv(agnFile).to_numpy().flatten()
-        self.genes = np.concatenate([posGenes,negGenes,agnGenes],0)
+        self.posGenes = pd.read_csv(posFile).to_numpy().flatten()
+        self.negGenes = pd.read_csv(negFile).to_numpy().flatten()
+        self.agnGenes = pd.read_csv(agnFile).to_numpy().flatten()
+        self.genes = np.concatenate([self.posGenes,self.negGenes,self.agnGenes],0)
         #If includeAll is true, make every gene pair
         if(includeAll):
             self.pairs = self.makePairs(self.genes)
         #Otherwise, only make gene pairs that include at least 1 positive
         else:
-            self.pairs = self.makePosPairs(posGenes,self.genes)
+            self.pairs = self.makePosPairs(self.posGenes,self.genes)
+
+        
 
         #Create a positive gene set from positive gene array
-        self.posSet = set(posGenes)
-        self.agnSet= set(agnGenes)
-        self.negSet = set(negGenes)
+        self.posSet = set(self.posGenes)
+        self.agnSet= set(self.agnGenes)
+        self.negSet = set(self.negGenes)
+
+        #Make agnostic pairs for feed forward
+        self.agnPairs = self.makePairs(self.agnGenes)
 
         #Make the batch size equal to the number of gene pairs
         self.batch = len(self.pairs)
 
     #Passes all gene pairs through network, then saves a data table of their outputs
     def feedForward(self,fileLocation,save=True):
-        # features, labels = self.makeBatchTensors(self.pairs)
-        # features = features.to(self.device)
-        # with torch.no_grad():
-        #     outputs = self.net(features.float(),test=True)
+        
+        #This should be restructures to let you pick a network to feed forward so it can be parallelized
+        with torch.no_grad():
+            folds = []
+            agnFolds = []
+            #Loop over all networks, for each network, feed forward all gene pairs from the validation fold assocaited with that network
+            for i,net in enumerate(self.nets,0):
+                #Get the gene data from fold of network i
+                posTrain,negTrain,posVal,negVal = self.data.getFold(i)
+                #Make pairs between positive genes and all genes from fold
+                pairs = self.makePosPairs(posVal,np.concatenate([posTrain,negTrain,posVal,negVal],0))
+
+                #Feed positive pairs through netowrk
+                outputsList = []
+                for i, pair in enumerate(pairs,0):
+                    #Make features tensor from single pair
+                    features, labels = self.makeBatchTensors(np.array([pair]))
+                    features = features.to(self.device)
+                    #Append output to outputs list
+                    outputsList.append(net(features.float(),test=True))
+                #Convert outputsList to array, then make take of gene 1, gene 2, score
+                outputs = np.array(outputsList)
+                outputsTable = np.array([pairs[:,0],pairs[:,1],outputs],dtype=object).transpose()
+                #Append that table to folds list
+                folds.append(outputsTable)
+                #Save positives pairs to csv file
+                pd.DataFrame(outputsTable,columns=['Gene A','Gene B','Score']).to_csv(f'{self.path}/PosPairsFold{i+1}.csv')
+
+                #Get all agnositc apirs
+                agnPairs = self.agnPairs
+                agnOutputsList = []
+                #Feed all agnositc pairs through network
+                for i, pair in enumerate(agnPairs,0):
+                    #Make features tensor from single pair
+                    features, labels = self.makeBatchTensors(np.array([pair]))
+                    features = features.to(self.device)
+                    #Feed pair through network
+                    agnOutputsList.append(net(features.float(),test=True))
+                #Make agnostic pair table, then append it to agnostic folds list
+                agnOutputs = np.array(agnOutputsList)
+                agnOutputsTable = np.array([agnPairs[:,0],agnPairs[:,1],agnOutputs],dtype=object).transpose()
+                agnFolds.append(agnOutputsTable)
+                #Saves agnostic pairs to csv file
+                pd.DataFrame(outputsTable,columns=['Gene A','Gene B','Score']).to_csv(f'{self.path}/AgnPairsFold{i+1}.csv')
+
+            #Take all agnostic scores and average them for each pair
+            agnAverage = []
+            for i in range(len(agnPairs)):
+                #For every fold, add the score of a given pair to total
+                total = 0
+                for table in agnFolds:
+                    total += table[i,2]
+                #Append the average
+                agnAverage.append([agnPairs[i,0],agnPairs[i,1],total/self.numFolds])
+            agnAverageArray = np.array(agnAverage)
+
+            #Append agnostic data to folds, then concatenate all folds together to create the full dataTable
+            folds.append(agnAverageArray)
+            self.dataTable = np.concatenate(folds,0)
+            if(save):
+                pd.DataFrame(self.dataTable,columns=['Gene A','Gene B','Score'])
+
+                
+                
+                
+
 
         #Revised feed forward algoritm that passes one gene into the network at a time
-        outputsList = []
-        with torch.no_grad():
-            #Loop over all genes in the array of pairs, pass in a gene to the network, then append its output to the output list
-            for i, pair in enumerate(self.pairs,0):
-                start = time.time()
-                features, labels = self.makeBatchTensors(np.array([pair]))
-                features = features.to(self.device)
-                outputsList.append(self.net(features.float(),test=True).cpu().flatten()[0])
-                if(i % 100 == 0):
-                    print(f'Pairs Calculated: {i+1}/{len(self.pairs)}',flush=True)
-                    print(f'Time to calculate: {(time.time()-start)/60} minutes',flush=True)
-        outputs = np.array(outputsList)
+        # outputsList = []
+        # with torch.no_grad():
+        #     #Loop over all genes in the array of pairs, pass in a gene to the network, then append its output to the output list
+        #     for i, pair in enumerate(self.pairs,0):
+        #         start = time.time()
+        #         features, labels = self.makeBatchTensors(np.array([pair]))
+        #         features = features.to(self.device)
+        #         outputsList.append(self.net(features.float(),test=True).cpu().flatten()[0])
+        #         if(i % 100 == 0):
+        #             print(f'Pairs Calculated: {i+1}/{len(self.pairs)}',flush=True)
+        #             print(f'Time to calculate: {(time.time()-start)/60} minutes',flush=True)
+        # outputs = np.array(outputsList)
 
 
-        self.dataTable = np.array([self.pairs[:,0],self.pairs[:,1],outputs],dtype=object).transpose()
-        if(save):
-            dataFrame = pd.DataFrame(self.dataTable,columns=['Gene A', 'Gene B', 'Score'])
-            dataFrame.to_csv(fileLocation,index=False)
+        # self.dataTable = np.array([self.pairs[:,0],self.pairs[:,1],outputs],dtype=object).transpose()
+        # if(save):
+        #     dataFrame = pd.DataFrame(self.dataTable,columns=['Gene A', 'Gene B', 'Score'])
+        #     dataFrame.to_csv(fileLocation,index=False)
 
     #Ranks genes by the strength of their connections to positive genes
     def rankGenes(self,filePath,dataTablePath=''):
@@ -137,7 +222,7 @@ class YeastGraph(PairwiseModel):
 
         #Save dataframe to file path
         dataFrame = pd.DataFrame(dataTable,columns=['Name','+/-','Score','True Positive', 'False Positive', 'True Negative', 'False Negative', 'Accuracy', 'Precision', 'Recall', 'False Positive Rate', 'Selectivity'])
-        dataFrame.to_csv(filePath)
+        dataFrame.to_csv(filePath,index=False)
 
 
 
