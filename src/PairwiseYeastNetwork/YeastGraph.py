@@ -55,8 +55,8 @@ class YeastGraph(PairwiseModel):
                 features = features.to(self.device)
                 outputsList.append(self.net(features.float(),test=True).cpu().flatten()[0])
                 if(i % 100 == 0):
-                    print(f'Pairs Calculated: {i+1}/{len(self.pairs)}')
-                    print(f'Time to calculate: {(time.time()-start)/60} minutes')
+                    print(f'Pairs Calculated: {i+1}/{len(self.pairs)}',flush=True)
+                    print(f'Time to calculate: {(time.time()-start)/60} minutes',flush=True)
         outputs = np.array(outputsList)
 
 
@@ -66,7 +66,10 @@ class YeastGraph(PairwiseModel):
             dataFrame.to_csv(fileLocation,index=False)
 
     #Ranks genes by the strength of their connections to positive genes
-    def rankGenes(self,filePath):
+    def rankGenes(self,filePath,dataTablePath=''):
+
+        if(not(dataTablePath=='')):
+            self.dataTable = pd.read_csv(dataTablePath).to_numpy()
         #Intializes empty dictionary, then makes all genes keys to the number 0
         scoreDict = {}
         for gene in self.genes:
@@ -92,10 +95,48 @@ class YeastGraph(PairwiseModel):
             dataTable.append([gene,sign,scoreDict[gene]])
 
         #Convert list to array, then sort it by score in reverse order
-        dataArray = np.array(dataTable)
-        sortedArray = dataArray[dataArray[:,2].argsort()[::-1]]
+        dataArray = np.array(dataTable,dtype=object)
+        sortedData = dataArray[dataArray[:,2].argsort()[::-1]]
+
+        confusionMatrixList = []
+        pos = 0
+        neg = 0
+        for row in sortedData:
+            if(row[1] == 1):
+                pos += 1
+            else:
+                neg += 1
+        truePos = 0
+        falsePos = 0
+        trueNeg = neg
+        falseNeg = pos
+        for row in sortedData:
+            if(row[1] == 1):
+                truePos += 1
+                falseNeg -= 1  
+            elif(row[1] == -1):
+                falsePos += 1
+                trueNeg -= 1
+            confusionMatrixList.append(np.array([truePos,falsePos,trueNeg,falseNeg]))
+        #Makes confusion matrix list into array
+        confusionMatrix = np.array(confusionMatrixList)
+            
+        #Calculate statistics for confusion matrix array
+        statisticsList = []
+        for mat in confusionMatrix:
+            accuracy = (mat[0] + mat[2]) / mat.sum()
+            precision = 1 if (mat[0] + mat[1] == 0) else (mat[0]) / (mat[0] + mat[1])
+            recall =  1 if(mat[0] + mat[3] == 0) else mat[0] / (mat[0] + mat[3])
+            falsePositiveRate = mat[1] / (mat[1] + mat[2])
+            selectivity = mat[2] /(mat[2] + mat[1])
+            statisticsList.append(np.array([accuracy,precision,recall,falsePositiveRate,selectivity]))
+        #Converts stats list into array to be concatenated
+        statisticsArray = np.array(statisticsList)
+
+        dataTable = np.concatenate([sortedData,confusionMatrix,statisticsArray],1)
+
         #Save dataframe to file path
-        dataFrame = pd.DataFrame(sortedArray,columns=['Gene','+/0/1','Score'])
+        dataFrame = pd.DataFrame(dataTable,columns=['Name','+/-','Score','True Positive', 'False Positive', 'True Negative', 'False Negative', 'Accuracy', 'Precision', 'Recall', 'False Positive Rate', 'Selectivity'])
         dataFrame.to_csv(filePath)
 
 

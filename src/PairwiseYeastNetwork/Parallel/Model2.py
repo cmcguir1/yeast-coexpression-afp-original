@@ -1,14 +1,25 @@
 import sys
+
+from numpy import double
+import torch
 sys.path.insert(0,'./src/PairwiseYeastNetwork')
 from ModelTester import test
+from PairwiseModel import PairwiseModel
+from PairwiseYeastData import PairwiseYeastData
 
 # This import should fix the ssl import verificiation error
 import ssl
 ssl._create_default_https_context = ssl._create_unverified_context
 
 def main():
+    modelData = PairwiseYeastData(f'Yeast Resources/Datasets/All Spell/all spell datasets',4,subset=200000,numDatasets=430,statsDictLoc='./Yeast Resources/Datasets/All Spell/revisedStatsDict.csv',recalc=False,foldFile='./Yeast Resources/Datasets/All Spell/GeneFolds1.csv',posGenes='./Yeast Resources/positives_00_go04-15-07.txt',negGenes='./Yeast Resources/negatives_00_go04-15-07.txt',recur=True,sort=False)
     for i in range(4):
-        test(i,'Original',folderName='Spell/Original',dataFolder='original',datasets=113,recur=False,sort=False,epoch=10000,structure=sys.argv[1])
+        model = PairwiseModel(modelData,i,'200x1','Spell/Dropout',f'TestHiddenDropout_{sys.argv[1]}',hiddenDrop=float(sys.argv[1]))
+        model.net.load_state_dict(torch.load(f'./Yeast Resources/Pairwise/Spell/Dropout/HiddenDropout_{sys.argv[1]}_200x1_Net_fold{i+1}.pth'))
+        model.testNetworkTraining(limitNegative=True)
+        model.testNetworkValidation(limitNegative=True)
+    
+
 
 if __name__ == '__main__':
     main()

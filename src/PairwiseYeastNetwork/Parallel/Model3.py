@@ -16,7 +16,7 @@ def main():
     complexModel.net.load_state_dict(torch.load(f'./Yeast Resources/Pairwise/Spell/Complex/Complex_20_Net_fold{int(sys.argv[1])+1}.pth'))
     #complexModel.trainNetwork(20000,printLoss=True)
     print('Began Testing on Validation')
-    complexModel.testNetworkValidation(limitNegative=True,negProportion=10)
+    complexModel.testNetworkValidation(limitNegative=True,negProportion=10,posProportion=500)
     print(f'Total Run Time: {(time.time()-start)/60} minutes')
     #complexModel.testNetworkTraining(limitNegative=True,negProportion=10)
 

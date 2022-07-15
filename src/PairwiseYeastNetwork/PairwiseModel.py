@@ -20,8 +20,8 @@ class PairwiseModel():
         #Intializes network using number of input datasets and the specified hidden layer structure
         self.net = FlexNet(f'{len(self.data.datasets)}x{structure}',activation=activation,inputDrop=inputDrop,hiddenDrop=hiddenDrop)
         #Determines device the network will train on, then moves network to that device
-        #self.device = 'cuda:0' if torch.cuda.is_available() else 'cpu'
-        self.device = 'cpu'
+        self.device = 'cuda:0' if torch.cuda.is_available() else 'cpu'
+        #self.device = 'cpu'
         
         self.net.to(self.device)
 
@@ -120,16 +120,20 @@ class PairwiseModel():
 
             
             outputsList = []
+            labelsList = []
             for i, pair in enumerate(inputArray,0):
                 start = time.time()
                 features, labels = self.makeBatchTensors(np.array([pair]),regularize=regularize)
                 features = features.to(self.device)
                 output = self.net(features.float(),test=True).cpu().flatten()[0]
+                label = labels.flatten()[0]
                 outputsList.append(output)
+                labelsList.append(label)
                 if(i % 100 == 0):
-                    print(f'Pairs Calculated: {i+1}/{len(inputArray)}')
-                    print(f'Time to calculate: {(time.time()-start)/60} minutes')
+                    print(f'Pairs Calculated: {i+1}/{len(inputArray)}',flush=True)
+                    print(f'Time to calculate: {(time.time()-start)/60} minutes',flush=True)
             outputs = np.array(outputsList)
+            labels = np.array(labelsList)
 
             
 
@@ -161,12 +165,14 @@ class PairwiseModel():
 
     def calcStats(self,namesArray,labels,foldsArray,outputs,save,testingType):
          #Moves labels and output tensors to cpu, then turns them into arrays and flattens them
-        labelsArray = labels.cpu().numpy().flatten()
+        labelsArray = labels
         outputsArray = outputs
 
             #Concatenates arrays together, then transposes
         rawData = np.array([namesArray,labelsArray,foldsArray,outputsArray],dtype=object).transpose()
         #Sorts raw data by the fourth column, which is score in this case
+
+        print(rawData)
         sortedData = rawData[rawData[:,3].argsort()]
             
         confusionMatrixList = []

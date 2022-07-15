@@ -163,8 +163,8 @@ class ComplexModel(PairwiseModel):
         labelsArray = labels.cpu().numpy().transpose()
         outputsArray  = outputs.transpose()
         #If the folder to hold all confusion matrices for each go term does not already exist, make one
-        if(not(os.path.exists(f'{self.dataTableLocation}/{self.modelName}_{self.structure}'))):
-            os.mkdir(f'{self.dataTableLocation}/{self.modelName}_{self.structure}')
+        if(not(os.path.exists(f'{self.dataTableLocation}'))):
+            os.mkdir(f'{self.dataTableLocation}')
         goData = [namesArray,foldsArray]
         colNames = ['Name','Fold']
         goStats = []
