@@ -1,0 +1,2 @@
+GeneFolds: GeneFolds3.csv
+Epochs: 10000

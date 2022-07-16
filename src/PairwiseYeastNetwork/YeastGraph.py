@@ -31,9 +31,11 @@ class YeastGraph(PairwiseModel):
     
         #Creates a list of networks, each which trained on a different fold
         self.nets = []
+        self.device = 'cuda:0' if torch.cuda.is_available() else 'cpu'
         for i in range(numfolds):
             net = FlexNet(structure=structure)
-            net.load_state_dict(torch.load(f'{networkPath}{i+1}.csv'))
+            net.load_state_dict(torch.load(f'{networkPath}{i+1}.pth'))
+            net.to(self.device)
             self.nets.append(net)
 
         #Intialize pos, neg, and agn gene arrays, then concatentate them together
@@ -62,54 +64,21 @@ class YeastGraph(PairwiseModel):
         self.batch = len(self.pairs)
 
     #Passes all gene pairs through network, then saves a data table of their outputs
-    def feedForward(self,fileLocation,save=True):
-        
-        #This should be restructures to let you pick a network to feed forward so it can be parallelized
-        with torch.no_grad():
+    def feedForward(self,fileLocation,save=True,fold=None):
+        #If a no fold is specified, calculate all folds, then combine them together into one file
+        if fold == None:
+            #This should be restructures to let you pick a network to feed forward so it can be parallelized
+                
             folds = []
             agnFolds = []
-            #Loop over all networks, for each network, feed forward all gene pairs from the validation fold assocaited with that network
-            for i,net in enumerate(self.nets,0):
-                #Get the gene data from fold of network i
-                posTrain,negTrain,posVal,negVal = self.data.getFold(i)
-                #Make pairs between positive genes and all genes from fold
-                pairs = self.makePosPairs(posVal,np.concatenate([posTrain,negTrain,posVal,negVal],0))
-
-                #Feed positive pairs through netowrk
-                outputsList = []
-                for i, pair in enumerate(pairs,0):
-                    #Make features tensor from single pair
-                    features, labels = self.makeBatchTensors(np.array([pair]))
-                    features = features.to(self.device)
-                    #Append output to outputs list
-                    outputsList.append(net(features.float(),test=True))
-                #Convert outputsList to array, then make take of gene 1, gene 2, score
-                outputs = np.array(outputsList)
-                outputsTable = np.array([pairs[:,0],pairs[:,1],outputs],dtype=object).transpose()
-                #Append that table to folds list
-                folds.append(outputsTable)
-                #Save positives pairs to csv file
-                pd.DataFrame(outputsTable,columns=['Gene A','Gene B','Score']).to_csv(f'{self.path}/PosPairsFold{i+1}.csv')
-
-                #Get all agnositc apirs
-                agnPairs = self.agnPairs
-                agnOutputsList = []
-                #Feed all agnositc pairs through network
-                for i, pair in enumerate(agnPairs,0):
-                    #Make features tensor from single pair
-                    features, labels = self.makeBatchTensors(np.array([pair]))
-                    features = features.to(self.device)
-                    #Feed pair through network
-                    agnOutputsList.append(net(features.float(),test=True))
-                #Make agnostic pair table, then append it to agnostic folds list
-                agnOutputs = np.array(agnOutputsList)
-                agnOutputsTable = np.array([agnPairs[:,0],agnPairs[:,1],agnOutputs],dtype=object).transpose()
-                agnFolds.append(agnOutputsTable)
-                #Saves agnostic pairs to csv file
-                pd.DataFrame(outputsTable,columns=['Gene A','Gene B','Score']).to_csv(f'{self.path}/AgnPairsFold{i+1}.csv')
+            for i, net in enumerate(self.nets,0):
+                outputTable, agnTable = self.forward(net,i)
+                folds.append(outputTable)
+                agnFolds.append(agnTable)
 
             #Take all agnostic scores and average them for each pair
             agnAverage = []
+            agnPairs = self.agnPairs
             for i in range(len(agnPairs)):
                 #For every fold, add the score of a given pair to total
                 total = 0
@@ -123,7 +92,57 @@ class YeastGraph(PairwiseModel):
             folds.append(agnAverageArray)
             self.dataTable = np.concatenate(folds,0)
             if(save):
-                pd.DataFrame(self.dataTable,columns=['Gene A','Gene B','Score'])
+                pd.DataFrame(self.dataTable,columns=['Gene A','Gene B','Score']).to_csv(f'{self.path}/{fileLocation}')
+        
+        #Otherwise, only calculate that fold
+        else:
+            self.forward(self.nets[fold],fold)
+        
+    def forward(self,net,fold):
+        with torch.no_grad():  
+            #Loop over all networks, for each network, feed forward all gene pairs from the validation fold assocaited with that network
+            #Get the gene data from fold of network i
+            posTrain,negTrain,posVal,negVal = self.data.getFold(fold)
+            #Make pairs between positive genes and all genes from fold
+            pairs = self.makePosPairs(posVal,np.concatenate([posTrain,negTrain,posVal,negVal],0))
+
+            #Feed positive pairs through netowrk
+            outputsList = []
+            for i, pair in enumerate(pairs,0):
+                #Make features tensor from single pair
+                features, labels = self.makeBatchTensors(np.array([pair]))
+                features = features.to(self.device)
+                #Append output to outputs list
+                outputsList.append(net(features.float(),test=True).cpu().flatten()[0])
+                if(i % 100 == 0):
+                     print(f'Pairs Calculated: {(i+1)/len(pairs)}%',flush=True)
+            #Convert outputsList to array, then make take of gene 1, gene 2, score
+            outputs = np.array(outputsList)
+            outputsTable = np.array([pairs[:,0],pairs[:,1],outputs],dtype=object).transpose()
+            #Save positives pairs to csv file
+            pd.DataFrame(outputsTable,columns=['Gene A','Gene B','Score']).to_csv(f'{self.path}/PosPairsFold{fold+1}.csv')
+
+            #Get all agnositc apirs
+            agnPairs = self.agnPairs
+            agnOutputsList = []
+            #Feed all agnositc pairs through network
+            for i, pair in enumerate(agnPairs,0):
+                #Make features tensor from single pairS
+                features, labels = self.makeBatchTensors(np.array([pair]))
+                features = features.to(self.device)
+                #Feed pair through network
+                agnOutputsList.append(net(features.float(),test=True).cpu().flatten()[0])
+                if(i % 100 == 0):
+                     print(f'Pairs Calculated (Agnostic): {(i+1)/len(agnPairs)}%',flush=True)
+            #Make agnostic pair table, then append it to agnostic folds list
+            agnOutputs = np.array(agnOutputsList)
+            agnOutputsTable = np.array([agnPairs[:,0],agnPairs[:,1],agnOutputs],dtype=object).transpose()
+            #Saves agnostic pairs to csv file
+            pd.DataFrame(outputsTable,columns=['Gene A','Gene B','Score']).to_csv(f'{self.path}/AgnPairsFold{fold+1}.csv')
+            
+            return (outputsTable,agnOutputsTable)
+
+
 
                 
                 
@@ -222,7 +241,7 @@ class YeastGraph(PairwiseModel):
 
         #Save dataframe to file path
         dataFrame = pd.DataFrame(dataTable,columns=['Name','+/-','Score','True Positive', 'False Positive', 'True Negative', 'False Negative', 'Accuracy', 'Precision', 'Recall', 'False Positive Rate', 'Selectivity'])
-        dataFrame.to_csv(filePath,index=False)
+        dataFrame.to_csv(f'{self.path}/{filePath}',index=False)
 
 
 
