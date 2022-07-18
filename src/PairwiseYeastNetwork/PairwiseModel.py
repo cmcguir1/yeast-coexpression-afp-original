@@ -172,7 +172,6 @@ class PairwiseModel():
         rawData = np.array([namesArray,labelsArray,foldsArray,outputsArray],dtype=object).transpose()
         #Sorts raw data by the fourth column, which is score in this case
 
-        print(rawData)
         sortedData = rawData[rawData[:,3].argsort()]
             
         confusionMatrixList = []

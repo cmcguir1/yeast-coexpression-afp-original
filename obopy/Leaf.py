@@ -63,8 +63,9 @@ def getLeafGenes(cutoff):
 
 
 
-mitoGenes = getGenes('GO:0008150')
+mitoGenes = getGenes('GO:0007005')
 print(mitoGenes)
+print(len(mitoGenes))
 
 
 

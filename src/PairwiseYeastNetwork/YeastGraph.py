@@ -141,6 +141,9 @@ class YeastGraph(PairwiseModel):
             pd.DataFrame(outputsTable,columns=['Gene A','Gene B','Score']).to_csv(f'{self.path}/AgnPairsFold{fold+1}.csv')
             
             return (outputsTable,agnOutputsTable)
+    
+    def recombineFolds(self):
+        pass
 
 
 
