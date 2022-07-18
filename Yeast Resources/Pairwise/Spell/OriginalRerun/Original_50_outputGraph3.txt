@@ -1,0 +1,6 @@
+Traceback (most recent call last):
+  File "src/PairwiseYeastNetwork/Parallel/Model12.py", line 3, in <module>
+    from numpy import double
+  File "/users/cmcguir1/.local/lib/python3.7/site-packages/numpy/__init__.py", line 150, in <module>
+    from . import core
+ImportError: cannot import name 'core' from 'numpy' (/users/cmcguir1/.local/lib/python3.7/site-packages/numpy/__init__.py)

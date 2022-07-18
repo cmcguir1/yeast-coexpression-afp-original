@@ -1,0 +1,384 @@
+Batch 0 Loss:	0.717158854007721
+Batch 0 Time:	0.1523461103439331 minutes
+Batch 100 Loss:	53.98935258388519
+Batch 100 Time:	2.033045566082001 minutes
+Batch 200 Loss:	39.59473825991154
+Batch 200 Time:	2.010495583216349 minutes
+Batch 300 Loss:	34.12968287616968
+Batch 300 Time:	2.056420008341471 minutes
+Batch 400 Loss:	28.326452307403088
+Batch 400 Time:	2.031361436843872 minutes
+Batch 500 Loss:	27.37971907109022
+Batch 500 Time:	2.0445898175239563 minutes
+Batch 600 Loss:	27.28126260638237
+Batch 600 Time:	2.0674970110257465 minutes
+Batch 700 Loss:	21.434260707348585
+Batch 700 Time:	2.0259004195531207 minutes
+Batch 800 Loss:	22.529717920348048
+Batch 800 Time:	2.054365317026774 minutes
+Batch 900 Loss:	19.344345804303885
+Batch 900 Time:	2.0343111832936605 minutes
+Batch 1000 Loss:	20.57150076702237
+Batch 1000 Time:	2.0560272494951883 minutes
+Batch 1100 Loss:	18.708087662234902
+Batch 1100 Time:	2.045633065700531 minutes
+Batch 1200 Loss:	16.01018426194787
+Batch 1200 Time:	2.0375740130742392 minutes
+Batch 1300 Loss:	17.789697812870145
+Batch 1300 Time:	2.0469857096672057 minutes
+Batch 1400 Loss:	14.680321955122054
+Batch 1400 Time:	2.043402115503947 minutes
+Batch 1500 Loss:	15.450844876468182
+Batch 1500 Time:	2.053594688574473 minutes
+Batch 1600 Loss:	12.71703015267849
+Batch 1600 Time:	2.0395933349927264 minutes
+Batch 1700 Loss:	13.249148393049836
+Batch 1700 Time:	2.0454782565434773 minutes
+Batch 1800 Loss:	11.808986395597458
+Batch 1800 Time:	2.032748246192932 minutes
+Batch 1900 Loss:	12.346133354119956
+Batch 1900 Time:	2.018167432149251 minutes
+Batch 2000 Loss:	11.784343423787504
+Batch 2000 Time:	2.040492049853007 minutes
+Batch 2100 Loss:	8.49855527933687
+Batch 2100 Time:	2.048797349135081 minutes
+Batch 2200 Loss:	10.078151147346944
+Batch 2200 Time:	2.047076718012492 minutes
+Batch 2300 Loss:	10.588384349830449
+Batch 2300 Time:	2.0353278080622355 minutes
+Batch 2400 Loss:	10.053533183527179
+Batch 2400 Time:	2.046299088001251 minutes
+Batch 2500 Loss:	9.981729973573238
+Batch 2500 Time:	2.047947311401367 minutes
+Batch 2600 Loss:	10.695336800534278
+Batch 2600 Time:	2.070635211467743 minutes
+Batch 2700 Loss:	10.334864052012563
+Batch 2700 Time:	2.0197347601254783 minutes
+Batch 2800 Loss:	8.753625876270235
+Batch 2800 Time:	2.0430896719296774 minutes
+Batch 2900 Loss:	9.245406637899578
+Batch 2900 Time:	2.0380353689193726 minutes
+Batch 3000 Loss:	7.374706879956648
+Batch 3000 Time:	2.047549080848694 minutes
+Batch 3100 Loss:	8.537824559491128
+Batch 3100 Time:	2.051318593819936 minutes
+Batch 3200 Loss:	10.39223796594888
+Batch 3200 Time:	2.0706501881281536 minutes
+Batch 3300 Loss:	6.935800967970863
+Batch 3300 Time:	2.05048432747523 minutes
+Batch 3400 Loss:	8.982613303232938
+Batch 3400 Time:	2.044965887069702 minutes
+Batch 3500 Loss:	7.0497290848288685
+Batch 3500 Time:	2.056010293960571 minutes
+Batch 3600 Loss:	6.46534392493777
+Batch 3600 Time:	2.015833803017934 minutes
+Batch 3700 Loss:	6.064876942895353
+Batch 3700 Time:	2.0228243311246237 minutes
+Batch 3800 Loss:	8.116654343437403
+Batch 3800 Time:	2.0544760545094807 minutes
+Batch 3900 Loss:	7.470355625730008
+Batch 3900 Time:	2.018218982219696 minutes
+Batch 4000 Loss:	8.55579240177758
+Batch 4000 Time:	2.0574779947598776 minutes
+Batch 4100 Loss:	11.178019184619188
+Batch 4100 Time:	2.053153983751933 minutes
+Batch 4200 Loss:	8.18877674342366
+Batch 4200 Time:	2.0303151965141297 minutes
+Batch 4300 Loss:	6.70698198559694
+Batch 4300 Time:	2.0513258735338846 minutes
+Batch 4400 Loss:	8.185837853234261
+Batch 4400 Time:	2.0545722285906476 minutes
+Batch 4500 Loss:	7.04303039656952
+Batch 4500 Time:	2.0585353414217633 minutes
+Batch 4600 Loss:	6.522710611578077
+Batch 4600 Time:	2.055667801698049 minutes
+Batch 4700 Loss:	4.668323849095032
+Batch 4700 Time:	2.0290306131045024 minutes
+Batch 4800 Loss:	6.285386587260291
+Batch 4800 Time:	2.036842668056488 minutes
+Batch 4900 Loss:	6.122501861536875
+Batch 4900 Time:	2.048520000775655 minutes
+Batch 5000 Loss:	5.4508664378663525
+Batch 5000 Time:	2.0629926045735676 minutes
+Batch 5100 Loss:	5.307294980389997
+Batch 5100 Time:	2.0344947218894958 minutes
+Batch 5200 Loss:	5.561011498211883
+Batch 5200 Time:	2.0541758219401043 minutes
+Batch 5300 Loss:	4.939353714114986
+Batch 5300 Time:	2.0322078029314676 minutes
+Batch 5400 Loss:	5.658989968709648
+Batch 5400 Time:	2.049395763874054 minutes
+Batch 5500 Loss:	4.736163865542039
+Batch 5500 Time:	2.0394227544466657 minutes
+Batch 5600 Loss:	4.712944007245824
+Batch 5600 Time:	2.027436165014903 minutes
+Batch 5700 Loss:	5.401963435346261
+Batch 5700 Time:	2.0501163641611737 minutes
+Batch 5800 Loss:	7.2212069146335125
+Batch 5800 Time:	2.0512318849563598 minutes
+Batch 5900 Loss:	5.617670359031763
+Batch 5900 Time:	2.033606847127279 minutes
+Batch 6000 Loss:	4.933161249617115
+Batch 6000 Time:	2.0558870434761047 minutes
+Batch 6100 Loss:	6.099277718923986
+Batch 6100 Time:	2.0460363149642946 minutes
+Batch 6200 Loss:	5.489870250225067
+Batch 6200 Time:	2.057850710550944 minutes
+Batch 6300 Loss:	5.27350645698607
+Batch 6300 Time:	2.039567259947459 minutes
+Batch 6400 Loss:	5.988703104900196
+Batch 6400 Time:	2.0337974667549132 minutes
+Batch 6500 Loss:	3.976691069896333
+Batch 6500 Time:	2.0493406136830647 minutes
+Batch 6600 Loss:	4.531773213879205
+Batch 6600 Time:	2.0687007109324136 minutes
+Batch 6700 Loss:	5.542648677714169
+Batch 6700 Time:	2.04337592124939 minutes
+Batch 6800 Loss:	4.194454616867006
+Batch 6800 Time:	2.0472556829452513 minutes
+Batch 6900 Loss:	3.488274730858393
+Batch 6900 Time:	2.0332033753395082 minutes
+Batch 7000 Loss:	3.486674112500623
+Batch 7000 Time:	2.022727167606354 minutes
+Batch 7100 Loss:	4.506736978830304
+Batch 7100 Time:	2.039162584145864 minutes
+Batch 7200 Loss:	4.384309901390225
+Batch 7200 Time:	2.0421815435091655 minutes
+Batch 7300 Loss:	4.488346030935645
+Batch 7300 Time:	2.022265303134918 minutes
+Batch 7400 Loss:	3.0743702928884886
+Batch 7400 Time:	2.0346636533737184 minutes
+Batch 7500 Loss:	4.865571494214237
+Batch 7500 Time:	2.0377463777860005 minutes
+Batch 7600 Loss:	4.106359986355528
+Batch 7600 Time:	2.039665762583415 minutes
+Batch 7700 Loss:	4.250769557169406
+Batch 7700 Time:	2.034203847249349 minutes
+Batch 7800 Loss:	4.368564706295729
+Batch 7800 Time:	2.073513619105021 minutes
+Batch 7900 Loss:	6.143963240087032
+Batch 7900 Time:	2.030956339836121 minutes
+Batch 8000 Loss:	3.6745313080318738
+Batch 8000 Time:	2.0500705003738404 minutes
+Batch 8100 Loss:	3.369356334209442
+Batch 8100 Time:	2.040006097157796 minutes
+Batch 8200 Loss:	10.529314232699107
+Batch 8200 Time:	2.035458441575368 minutes
+Batch 8300 Loss:	4.610145459184423
+Batch 8300 Time:	2.055979045232137 minutes
+Batch 8400 Loss:	3.7687366226455197
+Batch 8400 Time:	2.060439364115397 minutes
+Batch 8500 Loss:	4.597670933930203
+Batch 8500 Time:	2.0413139541943868 minutes
+Batch 8600 Loss:	4.111387111537624
+Batch 8600 Time:	2.0484368165334064 minutes
+Batch 8700 Loss:	3.2099966902751476
+Batch 8700 Time:	2.019417130947113 minutes
+Batch 8800 Loss:	4.312005405954551
+Batch 8800 Time:	2.0503443479537964 minutes
+Batch 8900 Loss:	3.052567487466149
+Batch 8900 Time:	2.043773368994395 minutes
+Batch 9000 Loss:	4.925740989565384
+Batch 9000 Time:	2.075805715719859 minutes
+Batch 9100 Loss:	3.7569288632366806
+Batch 9100 Time:	2.055583127339681 minutes
+Batch 9200 Loss:	4.117808481212705
+Batch 9200 Time:	2.027915561199188 minutes
+Batch 9300 Loss:	5.323188535985537
+Batch 9300 Time:	2.021570146083832 minutes
+Batch 9400 Loss:	4.696935106010642
+Batch 9400 Time:	2.0471195181210837 minutes
+Batch 9500 Loss:	5.041091783554293
+Batch 9500 Time:	2.041831874847412 minutes
+Batch 9600 Loss:	2.7307543008355424
+Batch 9600 Time:	2.038862136999766 minutes
+Batch 9700 Loss:	2.6443939921446145
+Batch 9700 Time:	2.0296176195144655 minutes
+Batch 9800 Loss:	4.4433312634937465
+Batch 9800 Time:	2.0261571844418844 minutes
+Batch 9900 Loss:	3.7646308868424967
+Batch 9900 Time:	2.0429386178652447 minutes
+Pairs Calculated: 1/3861
+Time to calculate: 0.0011030197143554687 minutes
+Pairs Calculated: 101/3861
+Time to calculate: 0.0010603626569112143 minutes
+Pairs Calculated: 201/3861
+Time to calculate: 0.0010635495185852052 minutes
+Pairs Calculated: 301/3861
+Time to calculate: 0.0010390003522237142 minutes
+Pairs Calculated: 401/3861
+Time to calculate: 0.0011176546414693198 minutes
+Pairs Calculated: 501/3861
+Time to calculate: 0.0010427316029866537 minutes
+Pairs Calculated: 601/3861
+Time to calculate: 0.0010567386945088705 minutes
+Pairs Calculated: 701/3861
+Time to calculate: 5.261898040771484e-05 minutes
+Pairs Calculated: 801/3861
+Time to calculate: 0.0009923537572224935 minutes
+Pairs Calculated: 901/3861
+Time to calculate: 0.0009736975034077962 minutes
+Pairs Calculated: 1001/3861
+Time to calculate: 1.5997886657714842e-05 minutes
+Pairs Calculated: 1101/3861
+Time to calculate: 0.0011171301205952962 minutes
+Pairs Calculated: 1201/3861
+Time to calculate: 0.0003543694814046224 minutes
+Pairs Calculated: 1301/3861
+Time to calculate: 0.0010590513547261557 minutes
+Pairs Calculated: 1401/3861
+Time to calculate: 0.000252834955851237 minutes
+Pairs Calculated: 1501/3861
+Time to calculate: 0.0006615877151489258 minutes
+Pairs Calculated: 1601/3861
+Time to calculate: 0.0011351346969604493 minutes
+Pairs Calculated: 1701/3861
+Time to calculate: 3.937085469563802e-05 minutes
+Pairs Calculated: 1801/3861
+Time to calculate: 0.0010817130406697592 minutes
+Pairs Calculated: 1901/3861
+Time to calculate: 3.6032994588216144e-05 minutes
+Pairs Calculated: 2001/3861
+Time to calculate: 0.001075887680053711 minutes
+Pairs Calculated: 2101/3861
+Time to calculate: 0.0010622223218282065 minutes
+Pairs Calculated: 2201/3861
+Time to calculate: 0.0011178970336914063 minutes
+Pairs Calculated: 2301/3861
+Time to calculate: 1.2413660685221355e-05 minutes
+Pairs Calculated: 2401/3861
+Time to calculate: 0.0010809580485026042 minutes
+Pairs Calculated: 2501/3861
+Time to calculate: 0.001074059804280599 minutes
+Pairs Calculated: 2601/3861
+Time to calculate: 0.001042330265045166 minutes
+Pairs Calculated: 2701/3861
+Time to calculate: 0.0011318246523539224 minutes
+Pairs Calculated: 2801/3861
+Time to calculate: 0.0010125239690144856 minutes
+Pairs Calculated: 2901/3861
+Time to calculate: 0.0010019302368164062 minutes
+Pairs Calculated: 3001/3861
+Time to calculate: 4.8844019571940106e-05 minutes
+Pairs Calculated: 3101/3861
+Time to calculate: 0.0010368665059407552 minutes
+Pairs Calculated: 3201/3861
+Time to calculate: 0.0009478608767191569 minutes
+Pairs Calculated: 3301/3861
+Time to calculate: 0.0010094841321309407 minutes
+Pairs Calculated: 3401/3861
+Time to calculate: 0.0003087162971496582 minutes
+Pairs Calculated: 3501/3861
+Time to calculate: 0.0010311166445414225 minutes
+Pairs Calculated: 3601/3861
+Time to calculate: 0.001080934206644694 minutes
+Pairs Calculated: 3701/3861
+Time to calculate: 0.0009743094444274903 minutes
+Pairs Calculated: 3801/3861
+Time to calculate: 0.0009925524393717448 minutes
+[['YDR339C YOL060C' 1.0 'NA' 1.0998664479178188e-10]
+ ['YOR147W YML058W' 1.0 'NA' 8.623136409369181e-07]
+ ['YBR234C YPR140W' 1.0 'NA' 0.07204572856426239]
+ ...
+ ['YBL004W YML016C' 0.0 'NA' 0.0001916161272674799]
+ ['tK(CUU)P YNL001W' 0.0 'NA' 1.7978730726397885e-09]
+ ['YJR105W YPL003W' 0.0 'NA' 4.689300947546826e-09]]
+Pairs Calculated: 1/3861
+Time to calculate: 0.0010539889335632324 minutes
+Pairs Calculated: 101/3861
+Time to calculate: 0.0010750492413838704 minutes
+Pairs Calculated: 201/3861
+Time to calculate: 0.0010743498802185058 minutes
+Pairs Calculated: 301/3861
+Time to calculate: 0.0010195056597391765 minutes
+Pairs Calculated: 401/3861
+Time to calculate: 1.2874603271484375e-05 minutes
+Pairs Calculated: 501/3861
+Time to calculate: 0.0002495169639587402 minutes
+Pairs Calculated: 601/3861
+Time to calculate: 0.0010638753573099771 minutes
+Pairs Calculated: 701/3861
+Time to calculate: 0.0008812665939331055 minutes
+Pairs Calculated: 801/3861
+Time to calculate: 0.0011419375737508138 minutes
+Pairs Calculated: 901/3861
+Time to calculate: 0.0009881059328715007 minutes
+Pairs Calculated: 1001/3861
+Time to calculate: 1.6506512959798177e-05 minutes
+Pairs Calculated: 1101/3861
+Time to calculate: 0.00032930374145507814 minutes
+Pairs Calculated: 1201/3861
+Time to calculate: 0.0010860323905944823 minutes
+Pairs Calculated: 1301/3861
+Time to calculate: 0.0011120915412902832 minutes
+Pairs Calculated: 1401/3861
+Time to calculate: 4.922946294148763e-05 minutes
+Pairs Calculated: 1501/3861
+Time to calculate: 1.2294451395670574e-05 minutes
+Pairs Calculated: 1601/3861
+Time to calculate: 0.0010430097579956054 minutes
+Pairs Calculated: 1701/3861
+Time to calculate: 0.0009955724080403646 minutes
+Pairs Calculated: 1801/3861
+Time to calculate: 1.237789789835612e-05 minutes
+Pairs Calculated: 1901/3861
+Time to calculate: 0.0011271317799886069 minutes
+Pairs Calculated: 2001/3861
+Time to calculate: 0.0010516802469889323 minutes
+Pairs Calculated: 2101/3861
+Time to calculate: 0.0010186036427815754 minutes
+Pairs Calculated: 2201/3861
+Time to calculate: 0.001088412602742513 minutes
+Pairs Calculated: 2301/3861
+Time to calculate: 0.001122148831685384 minutes
+Pairs Calculated: 2401/3861
+Time to calculate: 0.001118624210357666 minutes
+Pairs Calculated: 2501/3861
+Time to calculate: 0.001133879025777181 minutes
+Pairs Calculated: 2601/3861
+Time to calculate: 0.001091309388478597 minutes
+Pairs Calculated: 2701/3861
+Time to calculate: 0.0010920683542887369 minutes
+Pairs Calculated: 2801/3861
+Time to calculate: 0.0009384830792744954 minutes
+Pairs Calculated: 2901/3861
+Time to calculate: 0.0010454694430033365 minutes
+Pairs Calculated: 3001/3861
+Time to calculate: 0.0010751446088155111 minutes
+Pairs Calculated: 3101/3861
+Time to calculate: 0.0009823918342590332 minutes
+Pairs Calculated: 3201/3861
+Time to calculate: 0.0003466645876566569 minutes
+Pairs Calculated: 3301/3861
+Time to calculate: 0.0009086012840270996 minutes
+Pairs Calculated: 3401/3861
+Time to calculate: 0.0010094285011291505 minutes
+Pairs Calculated: 3501/3861
+Time to calculate: 0.0010605931282043457 minutes
+Pairs Calculated: 3601/3861
+Time to calculate: 0.001131574312845866 minutes
+Pairs Calculated: 3701/3861
+Time to calculate: 4.745721817016602e-05 minutes
+Pairs Calculated: 3801/3861
+Time to calculate: 0.001069800059000651 minutes
+[['YOR147W YOL009C' 1.0 'NA' 0.801454484462738]
+ ['YJR120W YDR077W' 1.0 'NA' 6.543304493789037e-07]
+ ['YGR144W YDR077W' 1.0 'NA' 0.0038434602320194244]
+ ...
+ ['YIL085C YAL047C' 0.0 'NA' 6.335052603390068e-06]
+ ['YCL051W YKL006C-A' 0.0 'NA' 0.029396474361419678]
+ ['snR128 YBR156C' 0.0 'NA' 4.068511083588078e-10]]
+Traceback (most recent call last):
+  File "src/PairwiseYeastNetwork/Parallel/Model13.py", line 27, in <module>
+    main()
+  File "src/PairwiseYeastNetwork/Parallel/Model13.py", line 21, in main
+    graph = YeastGraph(f'./Yeast Resources/Pairwise/Spell/430/Regular_{sys.argv[2]}x1_Net_fold',modelData,f'430x{sys.argv[2]}x1',folder=f'Regular_430x{sys.argv[2]}x1',posFile='./Yeast Resources/positives_00_go04-15-07.txt',negFile='./Yeast Resources/negatives_00_go04-15-07.txt',agnFile='./Yeast Resources/agnostic_01_underannotated.txt',includeAll=False)
+  File "./src/PairwiseYeastNetwork/YeastGraph.py", line 37, in __init__
+    net.load_state_dict(torch.load(f'{networkPath}{i+1}.pth'))
+  File "/users/cmcguir1/.local/lib/python3.7/site-packages/torch/serialization.py", line 699, in load
+    with _open_file_like(f, 'rb') as opened_file:
+  File "/users/cmcguir1/.local/lib/python3.7/site-packages/torch/serialization.py", line 231, in _open_file_like
+    return _open_file(name_or_buffer, mode)
+  File "/users/cmcguir1/.local/lib/python3.7/site-packages/torch/serialization.py", line 212, in __init__
+    super(_open_file, self).__init__(open(name, mode))
+FileNotFoundError: [Errno 2] No such file or directory: './Yeast Resources/Pairwise/Spell/430/Regular_20x1_Net_fold1.pth'
