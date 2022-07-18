@@ -10,7 +10,7 @@ def getGenes(goTerm):
     return getYORF(genes)
     
 def makePosNegFiles(goTerm):
-    termPositives = getGenes('GO:0006302')
+    termPositives = getGenes(goTerm)
     mitoInherPositives = set(pd.read_csv('./Yeast Resources/positives_00_go04-15-07.txt').to_numpy().flatten().tolist())
     mitoInherNegatives = set(pd.read_csv('./Yeast Resources/negatives_00_go04-15-07.txt').to_numpy().flatten().tolist())
     possiblePos = mitoInherPositives | mitoInherNegatives
@@ -63,7 +63,8 @@ def getLeafGenes(cutoff):
 
 
 
-leaves = getLeaves(10)
+mitoGenes = getGenes('GO:0008150')
+print(mitoGenes)
 
 
 
