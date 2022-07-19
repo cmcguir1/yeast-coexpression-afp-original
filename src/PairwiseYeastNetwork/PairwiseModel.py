@@ -20,8 +20,8 @@ class PairwiseModel():
         #Intializes network using number of input datasets and the specified hidden layer structure
         self.net = FlexNet(f'{len(self.data.datasets)}x{structure}',activation=activation,inputDrop=inputDrop,hiddenDrop=hiddenDrop)
         #Determines device the network will train on, then moves network to that device
-        self.device = 'cuda:0' if torch.cuda.is_available() else 'cpu'
-        #self.device = 'cpu'
+        #self.device = 'cuda:0' if torch.cuda.is_available() else 'cpu'
+        self.device = 'cpu'
         
         self.net.to(self.device)
 
