@@ -1,4 +1,3 @@
-
 from Ontology import Ontology
 import pandas as pd
 import numpy as np
@@ -11,12 +10,15 @@ def getGenes(goTerm):
     
 def makePosNegFiles(goTerm):
     termPositives = getGenes(goTerm)
-    mitoInherPositives = set(pd.read_csv('./Yeast Resources/positives_00_go04-15-07.txt').to_numpy().flatten().tolist())
-    mitoInherNegatives = set(pd.read_csv('./Yeast Resources/negatives_00_go04-15-07.txt').to_numpy().flatten().tolist())
-    possiblePos = mitoInherPositives | mitoInherNegatives
-    termNegatives = list(possiblePos - set(termPositives))
+    leaves = getLeaves(0)
+    allGenes = set()
+    for leaf in leaves:
+        allGenes = allGenes | leaf[1]
+    termNegatives = list(allGenes - set(termPositives))
+    termAgnostics = set(getGenes('GO:0008150')) - (set(termPositives) | set(termNegatives))
     pd.DataFrame(termPositives).to_csv(f'./Yeast Resources/GeneSets/{goTerm[0:2] + goTerm[3:]}_Pos.txt',index=False,header=False)
     pd.DataFrame(termNegatives).to_csv(f'./Yeast Resources/GeneSets/{goTerm[0:2] + goTerm[3:]}_Neg.txt',index=False,header=False)
+    pd.DataFrame(termAgnostics).to_csv(f'./Yeast Resources/GeneSets/{goTerm[0:2] + goTerm[3:]}_Agn.txt',index=False,header=False)
 
 #Searches through a set of genes and returns a list of all of the open reading frame (ORF) names for that set of genes
 def getYORF(genes):
@@ -63,9 +65,11 @@ def getLeafGenes(cutoff):
 
 
 
-mitoGenes = getGenes('GO:0007005')
-print(mitoGenes)
-print(len(mitoGenes))
+# mitoGenes = getGenes('GO:0007005')
+# print(mitoGenes)
+# print(len(mitoGenes))
+
+makePosNegFiles('GO:0007005')
 
 
 

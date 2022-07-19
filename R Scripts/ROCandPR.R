@@ -136,6 +136,6 @@ dev.off()
 graphName <- paste("Activation Function Tests:",struct,"Validation")
 
 
-pdf(paste("Activation_",struct,"_Val_PR.pdf",sep=""),width=8,height=6)
+#pdf(paste("Activation_",struct,"_Val_PR.pdf",sep=""),width=8,height=6)
 plotPrecRecall(files=files,colorsList=colorsList,graphName=graphName)
-dev.off()
+#dev.off()
