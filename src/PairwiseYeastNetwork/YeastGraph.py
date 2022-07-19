@@ -1,4 +1,4 @@
-from sqlalchemy import column
+
 import torch
 import numpy as np
 import pandas as pd
@@ -116,7 +116,6 @@ class YeastGraph(PairwiseModel):
             outputsList = []
             for i, pair in enumerate(pairs,0):
                 #Make features tensor from single pair
-                print(pair)
                 features, labels = self.makeBatchTensors(np.array([pair]))
                 features = features.to(self.device)
                 #Append output to outputs list
