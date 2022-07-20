@@ -19,7 +19,7 @@ def main():
     # model.testNetworkValidation(limitNegative=True)
 
     graph = YeastGraph(f'./Yeast Resources/Pairwise/Spell/OriginalRerun/Original_{sys.argv[2]}x1_Net_fold',modelData,f'113x{sys.argv[2]}x1',folder=f'Original_Rerun_113x{sys.argv[2]}x1',posFile='./Yeast Resources/positives_00_go04-15-07.txt',negFile='./Yeast Resources/negatives_00_go04-15-07.txt',agnFile='./Yeast Resources/agnostic_01_underannotated.txt',includeAll=False)
-    graph.feedForward(f'Original_113x{sys.argv[2]}x1_Pairs.csv',fold=int(sys.argv[1]))
+    graph.feedForward(f'Original_113x{sys.argv[2]}x1_Pairs.csv')
     # graph.recombineFolds(f'PosPairsFold','AgnPairsFold',f'Original_Rerun_113x{sys.argv[2]}x1_Pairs.csv')
     # graph.rankGenes(f'Original_113x{sys.argv[2]}x1_Ranked.csv')
     # for i in range(4):
