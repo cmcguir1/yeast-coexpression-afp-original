@@ -1,0 +1,1371 @@
+Batch 0 Loss:	0.6815527677536011
+Batch 0 Time:	0.12770755290985109 minutes
+Batch 100 Loss:	57.85534459352493
+Batch 100 Time:	1.9680746952692667 minutes
+Batch 200 Loss:	52.41678440570831
+Batch 200 Time:	1.9259694417317708 minutes
+Batch 300 Loss:	50.82050150632858
+Batch 300 Time:	1.9189604759216308 minutes
+Batch 400 Loss:	49.45020419359207
+Batch 400 Time:	1.92330402135849 minutes
+Batch 500 Loss:	48.01001185178757
+Batch 500 Time:	1.9579913338025412 minutes
+Batch 600 Loss:	45.66597194969654
+Batch 600 Time:	1.9460918029149374 minutes
+Batch 700 Loss:	44.694256529212
+Batch 700 Time:	1.921189836661021 minutes
+Batch 800 Loss:	43.79436393082142
+Batch 800 Time:	1.9376319686571757 minutes
+Batch 900 Loss:	43.231582686305046
+Batch 900 Time:	1.9280027151107788 minutes
+Batch 1000 Loss:	43.114430248737335
+Batch 1000 Time:	1.9175989389419557 minutes
+Batch 1100 Loss:	42.649737134575844
+Batch 1100 Time:	1.9190061291058857 minutes
+Batch 1200 Loss:	42.602365896105766
+Batch 1200 Time:	1.9334134697914123 minutes
+Batch 1300 Loss:	39.207625433802605
+Batch 1300 Time:	1.9251774032910665 minutes
+Batch 1400 Loss:	41.0539228618145
+Batch 1400 Time:	1.9140039046605428 minutes
+Batch 1500 Loss:	39.74576826393604
+Batch 1500 Time:	1.9269429167111716 minutes
+Batch 1600 Loss:	39.01391853392124
+Batch 1600 Time:	1.9226034561793008 minutes
+Batch 1700 Loss:	36.163027718663216
+Batch 1700 Time:	1.9321062445640564 minutes
+Batch 1800 Loss:	37.97106786072254
+Batch 1800 Time:	1.9267538825670878 minutes
+Batch 1900 Loss:	36.479761347174644
+Batch 1900 Time:	1.9506924072901408 minutes
+Batch 2000 Loss:	39.083758279681206
+Batch 2000 Time:	1.921349048614502 minutes
+Batch 2100 Loss:	37.615088775753975
+Batch 2100 Time:	1.9233900904655457 minutes
+Batch 2200 Loss:	37.31318858265877
+Batch 2200 Time:	1.9446338733037314 minutes
+Batch 2300 Loss:	37.06717902421951
+Batch 2300 Time:	1.9166314204533894 minutes
+Batch 2400 Loss:	34.98200608789921
+Batch 2400 Time:	1.9155721147855123 minutes
+Batch 2500 Loss:	35.07648314535618
+Batch 2500 Time:	1.9119861682256063 minutes
+Batch 2600 Loss:	34.69799504429102
+Batch 2600 Time:	1.938993767897288 minutes
+Batch 2700 Loss:	33.873459078371525
+Batch 2700 Time:	1.916492478052775 minutes
+Batch 2800 Loss:	32.980094499886036
+Batch 2800 Time:	1.9470001856486003 minutes
+Batch 2900 Loss:	34.08905018121004
+Batch 2900 Time:	1.9240585803985595 minutes
+Batch 3000 Loss:	34.20088294893503
+Batch 3000 Time:	1.9545556783676148 minutes
+Batch 3100 Loss:	34.49271936714649
+Batch 3100 Time:	1.8983882864316304 minutes
+Batch 3200 Loss:	31.829456567764282
+Batch 3200 Time:	1.9207477927207948 minutes
+Batch 3300 Loss:	31.031575061380863
+Batch 3300 Time:	1.9154707034428915 minutes
+Batch 3400 Loss:	33.456386275589466
+Batch 3400 Time:	1.948710270722707 minutes
+Batch 3500 Loss:	32.03072648495436
+Batch 3500 Time:	1.938557235399882 minutes
+Batch 3600 Loss:	32.423767894506454
+Batch 3600 Time:	1.9329593340555826 minutes
+Batch 3700 Loss:	33.976571187376976
+Batch 3700 Time:	1.9209943771362306 minutes
+Batch 3800 Loss:	33.40008594840765
+Batch 3800 Time:	1.9486725131670635 minutes
+Batch 3900 Loss:	33.67581295967102
+Batch 3900 Time:	1.9302086393038431 minutes
+Batch 4000 Loss:	33.30198412388563
+Batch 4000 Time:	1.9249841213226317 minutes
+Batch 4100 Loss:	31.643325217068195
+Batch 4100 Time:	1.9241769631703696 minutes
+Batch 4200 Loss:	30.94743523001671
+Batch 4200 Time:	1.9315201838811238 minutes
+Batch 4300 Loss:	29.07428489625454
+Batch 4300 Time:	1.9445479114850361 minutes
+Batch 4400 Loss:	28.480317935347557
+Batch 4400 Time:	1.9492218414942424 minutes
+Batch 4500 Loss:	30.546419017016888
+Batch 4500 Time:	1.9445813337961833 minutes
+Batch 4600 Loss:	31.31354011595249
+Batch 4600 Time:	1.9396384199460348 minutes
+Batch 4700 Loss:	28.57575188204646
+Batch 4700 Time:	1.9406421621640524 minutes
+Batch 4800 Loss:	29.338529102504253
+Batch 4800 Time:	1.9167578538258871 minutes
+Batch 4900 Loss:	31.588068403303623
+Batch 4900 Time:	1.9107300837834675 minutes
+Batch 5000 Loss:	28.10295782983303
+Batch 5000 Time:	1.9297075907389323 minutes
+Batch 5100 Loss:	30.9211949929595
+Batch 5100 Time:	1.9263230363527934 minutes
+Batch 5200 Loss:	28.354134902358055
+Batch 5200 Time:	1.9467797001202902 minutes
+Batch 5300 Loss:	29.733245365321636
+Batch 5300 Time:	1.9279332558314006 minutes
+Batch 5400 Loss:	30.892400085926056
+Batch 5400 Time:	1.9187946478525797 minutes
+Batch 5500 Loss:	32.54393158107996
+Batch 5500 Time:	1.9348861853281656 minutes
+Batch 5600 Loss:	31.19653905183077
+Batch 5600 Time:	1.9230221430460612 minutes
+Batch 5700 Loss:	28.249058432877064
+Batch 5700 Time:	1.9344355980555217 minutes
+Batch 5800 Loss:	27.699250429868698
+Batch 5800 Time:	1.932119603951772 minutes
+Batch 5900 Loss:	29.285872161388397
+Batch 5900 Time:	1.9149625380833943 minutes
+Batch 6000 Loss:	28.775135666131973
+Batch 6000 Time:	1.9451717774073283 minutes
+Batch 6100 Loss:	30.658670485019684
+Batch 6100 Time:	1.9107785820960999 minutes
+Batch 6200 Loss:	27.731821067631245
+Batch 6200 Time:	1.9201165715853372 minutes
+Batch 6300 Loss:	29.524766586720943
+Batch 6300 Time:	1.9236035108566285 minutes
+Batch 6400 Loss:	27.93765338510275
+Batch 6400 Time:	1.9241344134012859 minutes
+Batch 6500 Loss:	29.17317785322666
+Batch 6500 Time:	1.9265010317166646 minutes
+Batch 6600 Loss:	28.211533896625042
+Batch 6600 Time:	1.9208737095197042 minutes
+Batch 6700 Loss:	27.27613442391157
+Batch 6700 Time:	1.9237575809160867 minutes
+Batch 6800 Loss:	28.703367806971073
+Batch 6800 Time:	1.9045793930689494 minutes
+Batch 6900 Loss:	28.322221130132675
+Batch 6900 Time:	1.9499880035718282 minutes
+Batch 7000 Loss:	27.80171498656273
+Batch 7000 Time:	1.9296907464663187 minutes
+Batch 7100 Loss:	29.762212112545967
+Batch 7100 Time:	1.9425981005032857 minutes
+Batch 7200 Loss:	28.329930163919926
+Batch 7200 Time:	1.9339264472325643 minutes
+Batch 7300 Loss:	28.016705706715584
+Batch 7300 Time:	1.9189873615900674 minutes
+Batch 7400 Loss:	26.017375595867634
+Batch 7400 Time:	1.940018355846405 minutes
+Batch 7500 Loss:	25.842245273292065
+Batch 7500 Time:	1.8853785316149394 minutes
+Batch 7600 Loss:	26.31802360713482
+Batch 7600 Time:	1.933069364229838 minutes
+Batch 7700 Loss:	29.298805005848408
+Batch 7700 Time:	1.9415985067685446 minutes
+Batch 7800 Loss:	27.839767552912235
+Batch 7800 Time:	1.9272239764531454 minutes
+Batch 7900 Loss:	26.929134625941515
+Batch 7900 Time:	1.9499887585639955 minutes
+Batch 8000 Loss:	27.49416607618332
+Batch 8000 Time:	1.9442596157391867 minutes
+Batch 8100 Loss:	27.602014042437077
+Batch 8100 Time:	1.932307195663452 minutes
+Batch 8200 Loss:	27.408691693097353
+Batch 8200 Time:	1.937265972296397 minutes
+Batch 8300 Loss:	27.27070691436529
+Batch 8300 Time:	1.905539333820343 minutes
+Batch 8400 Loss:	26.48530125617981
+Batch 8400 Time:	1.9263846755027771 minutes
+Batch 8500 Loss:	28.30120300874114
+Batch 8500 Time:	1.9408127705256144 minutes
+Batch 8600 Loss:	28.229130808264017
+Batch 8600 Time:	1.9265443126360575 minutes
+Batch 8700 Loss:	27.491922914981842
+Batch 8700 Time:	1.92565571864446 minutes
+Batch 8800 Loss:	26.92716072499752
+Batch 8800 Time:	1.9181458155314128 minutes
+Batch 8900 Loss:	28.354762099683285
+Batch 8900 Time:	1.9243403951327005 minutes
+Batch 9000 Loss:	26.93686516582966
+Batch 9000 Time:	1.9330258647600809 minutes
+Batch 9100 Loss:	27.55312591046095
+Batch 9100 Time:	1.9212771972020468 minutes
+Batch 9200 Loss:	26.379643723368645
+Batch 9200 Time:	1.922843833764394 minutes
+Batch 9300 Loss:	27.738891642540693
+Batch 9300 Time:	1.9306907296180724 minutes
+Batch 9400 Loss:	27.292761106044054
+Batch 9400 Time:	1.9322248140970866 minutes
+Batch 9500 Loss:	25.788765009492636
+Batch 9500 Time:	1.9092975020408631 minutes
+Batch 9600 Loss:	25.933371163904667
+Batch 9600 Time:	1.914578906695048 minutes
+Batch 9700 Loss:	27.449542477726936
+Batch 9700 Time:	1.9245340983072916 minutes
+Batch 9800 Loss:	25.742902617901564
+Batch 9800 Time:	1.9427392681439717 minutes
+Batch 9900 Loss:	24.445914391428232
+Batch 9900 Time:	1.9289258122444153 minutes
+Pairs Calculated: 1/28908
+Time to calculate: 9.172360102335611e-05 minutes
+Pairs Calculated: 101/28908
+Time to calculate: 0.0010607123374938964 minutes
+Pairs Calculated: 201/28908
+Time to calculate: 0.000306550661722819 minutes
+Pairs Calculated: 301/28908
+Time to calculate: 0.0007515311241149903 minutes
+Pairs Calculated: 401/28908
+Time to calculate: 0.0010488152503967286 minutes
+Pairs Calculated: 501/28908
+Time to calculate: 0.0009539961814880371 minutes
+Pairs Calculated: 601/28908
+Time to calculate: 0.0010958592096964519 minutes
+Pairs Calculated: 701/28908
+Time to calculate: 0.001058487097422282 minutes
+Pairs Calculated: 801/28908
+Time to calculate: 0.0010747750600179037 minutes
+Pairs Calculated: 901/28908
+Time to calculate: 0.0010632157325744628 minutes
+Pairs Calculated: 1001/28908
+Time to calculate: 0.0010613838831583658 minutes
+Pairs Calculated: 1101/28908
+Time to calculate: 0.0010309696197509765 minutes
+Pairs Calculated: 1201/28908
+Time to calculate: 0.0010853886604309082 minutes
+Pairs Calculated: 1301/28908
+Time to calculate: 9.08970832824707e-05 minutes
+Pairs Calculated: 1401/28908
+Time to calculate: 0.0005325754483540853 minutes
+Pairs Calculated: 1501/28908
+Time to calculate: 0.0010954697926839193 minutes
+Pairs Calculated: 1601/28908
+Time to calculate: 0.0010821779568990072 minutes
+Pairs Calculated: 1701/28908
+Time to calculate: 0.0010543028513590495 minutes
+Pairs Calculated: 1801/28908
+Time to calculate: 0.0010135372479756672 minutes
+Pairs Calculated: 1901/28908
+Time to calculate: 0.0010965347290039062 minutes
+Pairs Calculated: 2001/28908
+Time to calculate: 0.0010859211285909017 minutes
+Pairs Calculated: 2101/28908
+Time to calculate: 0.0010632872581481934 minutes
+Pairs Calculated: 2201/28908
+Time to calculate: 0.00039919614791870115 minutes
+Pairs Calculated: 2301/28908
+Time to calculate: 0.0011222680409749349 minutes
+Pairs Calculated: 2401/28908
+Time to calculate: 0.001061089833577474 minutes
+Pairs Calculated: 2501/28908
+Time to calculate: 0.0010619600613911947 minutes
+Pairs Calculated: 2601/28908
+Time to calculate: 0.0005348483721415202 minutes
+Pairs Calculated: 2701/28908
+Time to calculate: 0.0011391679445902506 minutes
+Pairs Calculated: 2801/28908
+Time to calculate: 0.0009484648704528809 minutes
+Pairs Calculated: 2901/28908
+Time to calculate: 0.0008771936098734538 minutes
+Pairs Calculated: 3001/28908
+Time to calculate: 0.0011198083559672038 minutes
+Pairs Calculated: 3101/28908
+Time to calculate: 0.0010599891344706218 minutes
+Pairs Calculated: 3201/28908
+Time to calculate: 0.0010792056719462076 minutes
+Pairs Calculated: 3301/28908
+Time to calculate: 0.0011387030283610026 minutes
+Pairs Calculated: 3401/28908
+Time to calculate: 0.001094969113667806 minutes
+Pairs Calculated: 3501/28908
+Time to calculate: 0.0010264277458190917 minutes
+Pairs Calculated: 3601/28908
+Time to calculate: 0.0011267542839050293 minutes
+Pairs Calculated: 3701/28908
+Time to calculate: 2.204577128092448e-05 minutes
+Pairs Calculated: 3801/28908
+Time to calculate: 0.001073153813680013 minutes
+Pairs Calculated: 3901/28908
+Time to calculate: 0.001068262259165446 minutes
+Pairs Calculated: 4001/28908
+Time to calculate: 0.00024109681447347006 minutes
+Pairs Calculated: 4101/28908
+Time to calculate: 0.00040266911188761395 minutes
+Pairs Calculated: 4201/28908
+Time to calculate: 0.0010374625523885091 minutes
+Pairs Calculated: 4301/28908
+Time to calculate: 0.0011409322420756023 minutes
+Pairs Calculated: 4401/28908
+Time to calculate: 0.0003366589546203613 minutes
+Pairs Calculated: 4501/28908
+Time to calculate: 0.0010969797770182292 minutes
+Pairs Calculated: 4601/28908
+Time to calculate: 0.0011219461758931479 minutes
+Pairs Calculated: 4701/28908
+Time to calculate: 0.0003443002700805664 minutes
+Pairs Calculated: 4801/28908
+Time to calculate: 0.001035745938618978 minutes
+Pairs Calculated: 4901/28908
+Time to calculate: 0.0010671416918436687 minutes
+Pairs Calculated: 5001/28908
+Time to calculate: 0.0010773261388142903 minutes
+Pairs Calculated: 5101/28908
+Time to calculate: 0.0011297186215718587 minutes
+Pairs Calculated: 5201/28908
+Time to calculate: 0.0002196947733561198 minutes
+Pairs Calculated: 5301/28908
+Time to calculate: 0.0009373068809509277 minutes
+Pairs Calculated: 5401/28908
+Time to calculate: 0.0010993123054504395 minutes
+Pairs Calculated: 5501/28908
+Time to calculate: 0.0010857542355855307 minutes
+Pairs Calculated: 5601/28908
+Time to calculate: 0.0003233869870503744 minutes
+Pairs Calculated: 5701/28908
+Time to calculate: 0.0004103700319925944 minutes
+Pairs Calculated: 5801/28908
+Time to calculate: 0.0010622739791870117 minutes
+Pairs Calculated: 5901/28908
+Time to calculate: 0.0003110845883687337 minutes
+Pairs Calculated: 6001/28908
+Time to calculate: 0.00034394661585489906 minutes
+Pairs Calculated: 6101/28908
+Time to calculate: 0.001122760772705078 minutes
+Pairs Calculated: 6201/28908
+Time to calculate: 0.0010206421216328939 minutes
+Pairs Calculated: 6301/28908
+Time to calculate: 0.0009960095087687174 minutes
+Pairs Calculated: 6401/28908
+Time to calculate: 0.0010341207186381023 minutes
+Pairs Calculated: 6501/28908
+Time to calculate: 0.0010300397872924805 minutes
+Pairs Calculated: 6601/28908
+Time to calculate: 0.0010681231816609702 minutes
+Pairs Calculated: 6701/28908
+Time to calculate: 0.0011082847913106283 minutes
+Pairs Calculated: 6801/28908
+Time to calculate: 0.0010472734769185383 minutes
+Pairs Calculated: 6901/28908
+Time to calculate: 0.000980981190999349 minutes
+Pairs Calculated: 7001/28908
+Time to calculate: 0.0003443002700805664 minutes
+Pairs Calculated: 7101/28908
+Time to calculate: 0.00014815727869669595 minutes
+Pairs Calculated: 7201/28908
+Time to calculate: 0.0010179797808329263 minutes
+Pairs Calculated: 7301/28908
+Time to calculate: 0.0010834415753682455 minutes
+Pairs Calculated: 7401/28908
+Time to calculate: 0.0010814229647318522 minutes
+Pairs Calculated: 7501/28908
+Time to calculate: 0.0011165738105773926 minutes
+Pairs Calculated: 7601/28908
+Time to calculate: 0.0010918656984965007 minutes
+Pairs Calculated: 7701/28908
+Time to calculate: 0.0011388063430786133 minutes
+Pairs Calculated: 7801/28908
+Time to calculate: 0.00034013986587524416 minutes
+Pairs Calculated: 7901/28908
+Time to calculate: 0.0011194825172424316 minutes
+Pairs Calculated: 8001/28908
+Time to calculate: 7.70727793375651e-05 minutes
+Pairs Calculated: 8101/28908
+Time to calculate: 0.0001605868339538574 minutes
+Pairs Calculated: 8201/28908
+Time to calculate: 0.0010884722073872884 minutes
+Pairs Calculated: 8301/28908
+Time to calculate: 0.00036722819010416666 minutes
+Pairs Calculated: 8401/28908
+Time to calculate: 0.0010561426480611166 minutes
+Pairs Calculated: 8501/28908
+Time to calculate: 0.0009338458379109701 minutes
+Pairs Calculated: 8601/28908
+Time to calculate: 0.0011142730712890626 minutes
+Pairs Calculated: 8701/28908
+Time to calculate: 0.0008966644605000814 minutes
+Pairs Calculated: 8801/28908
+Time to calculate: 0.0009914835294087727 minutes
+Pairs Calculated: 8901/28908
+Time to calculate: 0.0010880152384440103 minutes
+Pairs Calculated: 9001/28908
+Time to calculate: 0.0010817607243855795 minutes
+Pairs Calculated: 9101/28908
+Time to calculate: 0.0010050336519877117 minutes
+Pairs Calculated: 9201/28908
+Time to calculate: 0.0011342604955037435 minutes
+Pairs Calculated: 9301/28908
+Time to calculate: 0.0010740280151367188 minutes
+Pairs Calculated: 9401/28908
+Time to calculate: 0.0010433157285054525 minutes
+Pairs Calculated: 9501/28908
+Time to calculate: 0.0011533816655476888 minutes
+Pairs Calculated: 9601/28908
+Time to calculate: 0.0009434262911478679 minutes
+Pairs Calculated: 9701/28908
+Time to calculate: 0.0010484059651692708 minutes
+Pairs Calculated: 9801/28908
+Time to calculate: 0.001099709669748942 minutes
+Pairs Calculated: 9901/28908
+Time to calculate: 0.0003494898478190104 minutes
+Pairs Calculated: 10001/28908
+Time to calculate: 0.0002487381299336751 minutes
+Pairs Calculated: 10101/28908
+Time to calculate: 0.0008416891098022461 minutes
+Pairs Calculated: 10201/28908
+Time to calculate: 0.0011075218518575034 minutes
+Pairs Calculated: 10301/28908
+Time to calculate: 0.001044766108194987 minutes
+Pairs Calculated: 10401/28908
+Time to calculate: 0.0010690053304036459 minutes
+Pairs Calculated: 10501/28908
+Time to calculate: 0.0011638522148132325 minutes
+Pairs Calculated: 10601/28908
+Time to calculate: 0.0009063839912414551 minutes
+Pairs Calculated: 10701/28908
+Time to calculate: 0.0010763247807820638 minutes
+Pairs Calculated: 10801/28908
+Time to calculate: 0.0010333935419718425 minutes
+Pairs Calculated: 10901/28908
+Time to calculate: 0.0011479695638020833 minutes
+Pairs Calculated: 11001/28908
+Time to calculate: 0.0010847171147664388 minutes
+Pairs Calculated: 11101/28908
+Time to calculate: 0.0011177301406860352 minutes
+Pairs Calculated: 11201/28908
+Time to calculate: 0.0008567611376444499 minutes
+Pairs Calculated: 11301/28908
+Time to calculate: 0.001040184497833252 minutes
+Pairs Calculated: 11401/28908
+Time to calculate: 0.0004279414812723796 minutes
+Pairs Calculated: 11501/28908
+Time to calculate: 0.0010729034741719563 minutes
+Pairs Calculated: 11601/28908
+Time to calculate: 0.0010631601015726724 minutes
+Pairs Calculated: 11701/28908
+Time to calculate: 1.8938382466634115e-05 minutes
+Pairs Calculated: 11801/28908
+Time to calculate: 0.0009923895200093587 minutes
+Pairs Calculated: 11901/28908
+Time to calculate: 0.0011363506317138671 minutes
+Pairs Calculated: 12001/28908
+Time to calculate: 0.0010132948557535807 minutes
+Pairs Calculated: 12101/28908
+Time to calculate: 0.0011292417844136556 minutes
+Pairs Calculated: 12201/28908
+Time to calculate: 0.0003449281056722005 minutes
+Pairs Calculated: 12301/28908
+Time to calculate: 0.0010846972465515137 minutes
+Pairs Calculated: 12401/28908
+Time to calculate: 0.0011376659075419107 minutes
+Pairs Calculated: 12501/28908
+Time to calculate: 0.0009916146596272786 minutes
+Pairs Calculated: 12601/28908
+Time to calculate: 0.0010981281598409017 minutes
+Pairs Calculated: 12701/28908
+Time to calculate: 0.0011465231577555339 minutes
+Pairs Calculated: 12801/28908
+Time to calculate: 0.001008148988087972 minutes
+Pairs Calculated: 12901/28908
+Time to calculate: 0.0008918086687723796 minutes
+Pairs Calculated: 13001/28908
+Time to calculate: 0.0011095484097798666 minutes
+Pairs Calculated: 13101/28908
+Time to calculate: 0.001108558972676595 minutes
+Pairs Calculated: 13201/28908
+Time to calculate: 0.0003530422846476237 minutes
+Pairs Calculated: 13301/28908
+Time to calculate: 0.001059893767038981 minutes
+Pairs Calculated: 13401/28908
+Time to calculate: 0.0009551088015238445 minutes
+Pairs Calculated: 13501/28908
+Time to calculate: 0.0010503609975179037 minutes
+Pairs Calculated: 13601/28908
+Time to calculate: 0.0008738875389099121 minutes
+Pairs Calculated: 13701/28908
+Time to calculate: 0.0010727286338806153 minutes
+Pairs Calculated: 13801/28908
+Time to calculate: 0.0010605812072753905 minutes
+Pairs Calculated: 13901/28908
+Time to calculate: 0.0011204163233439128 minutes
+Pairs Calculated: 14001/28908
+Time to calculate: 0.0010700027147928874 minutes
+Pairs Calculated: 14101/28908
+Time to calculate: 0.0009287476539611816 minutes
+Pairs Calculated: 14201/28908
+Time to calculate: 0.0010765592257181804 minutes
+Pairs Calculated: 14301/28908
+Time to calculate: 0.000307925542195638 minutes
+Pairs Calculated: 14401/28908
+Time to calculate: 0.0010048985481262208 minutes
+Pairs Calculated: 14501/28908
+Time to calculate: 0.0011437296867370605 minutes
+Pairs Calculated: 14601/28908
+Time to calculate: 0.00033469597498575845 minutes
+Pairs Calculated: 14701/28908
+Time to calculate: 0.0009965221087137857 minutes
+Pairs Calculated: 14801/28908
+Time to calculate: 0.0010846257209777832 minutes
+Pairs Calculated: 14901/28908
+Time to calculate: 0.00032037893931070963 minutes
+Pairs Calculated: 15001/28908
+Time to calculate: 0.0010403792063395183 minutes
+Pairs Calculated: 15101/28908
+Time to calculate: 0.0003205418586730957 minutes
+Pairs Calculated: 15201/28908
+Time to calculate: 0.0010507384936014811 minutes
+Pairs Calculated: 15301/28908
+Time to calculate: 0.0011173526446024576 minutes
+Pairs Calculated: 15401/28908
+Time to calculate: 0.0010978897412618 minutes
+Pairs Calculated: 15501/28908
+Time to calculate: 0.00030628045399983726 minutes
+Pairs Calculated: 15601/28908
+Time to calculate: 0.0010836402575174968 minutes
+Pairs Calculated: 15701/28908
+Time to calculate: 0.0011205514272054037 minutes
+Pairs Calculated: 15801/28908
+Time to calculate: 0.0010460813840230305 minutes
+Pairs Calculated: 15901/28908
+Time to calculate: 0.001078351338704427 minutes
+Pairs Calculated: 16001/28908
+Time to calculate: 0.0002229611078898112 minutes
+Pairs Calculated: 16101/28908
+Time to calculate: 0.0010892470677693685 minutes
+Pairs Calculated: 16201/28908
+Time to calculate: 0.0008028507232666016 minutes
+Pairs Calculated: 16301/28908
+Time to calculate: 0.0010957757631937662 minutes
+Pairs Calculated: 16401/28908
+Time to calculate: 0.0010843515396118165 minutes
+Pairs Calculated: 16501/28908
+Time to calculate: 0.0010938127835591635 minutes
+Pairs Calculated: 16601/28908
+Time to calculate: 0.001076340675354004 minutes
+Pairs Calculated: 16701/28908
+Time to calculate: 0.0010037183761596679 minutes
+Pairs Calculated: 16801/28908
+Time to calculate: 0.0004184405008951823 minutes
+Pairs Calculated: 16901/28908
+Time to calculate: 0.0009268363316853841 minutes
+Pairs Calculated: 17001/28908
+Time to calculate: 0.00033211310704549154 minutes
+Pairs Calculated: 17101/28908
+Time to calculate: 0.0008360107739766438 minutes
+Pairs Calculated: 17201/28908
+Time to calculate: 0.0003018935521443685 minutes
+Pairs Calculated: 17301/28908
+Time to calculate: 0.0011183818181355794 minutes
+Pairs Calculated: 17401/28908
+Time to calculate: 0.000989532470703125 minutes
+Pairs Calculated: 17501/28908
+Time to calculate: 0.0007059892018636067 minutes
+Pairs Calculated: 17601/28908
+Time to calculate: 0.00027809540430704754 minutes
+Pairs Calculated: 17701/28908
+Time to calculate: 0.00040417909622192383 minutes
+Pairs Calculated: 17801/28908
+Time to calculate: 8.266766866048177e-05 minutes
+Pairs Calculated: 17901/28908
+Time to calculate: 0.00035373369852701825 minutes
+Pairs Calculated: 18001/28908
+Time to calculate: 0.0007759809494018554 minutes
+Pairs Calculated: 18101/28908
+Time to calculate: 2.4600823720296225e-05 minutes
+Pairs Calculated: 18201/28908
+Time to calculate: 0.0010551055272420248 minutes
+Pairs Calculated: 18301/28908
+Time to calculate: 0.00035418272018432616 minutes
+Pairs Calculated: 18401/28908
+Time to calculate: 0.0002710739771525065 minutes
+Pairs Calculated: 18501/28908
+Time to calculate: 0.00016920963923136394 minutes
+Pairs Calculated: 18601/28908
+Time to calculate: 0.0010747075080871581 minutes
+Pairs Calculated: 18701/28908
+Time to calculate: 0.00034821033477783203 minutes
+Pairs Calculated: 18801/28908
+Time to calculate: 0.0010476152102152506 minutes
+Pairs Calculated: 18901/28908
+Time to calculate: 0.0011373043060302734 minutes
+Pairs Calculated: 19001/28908
+Time to calculate: 0.0011349240938822427 minutes
+Pairs Calculated: 19101/28908
+Time to calculate: 0.0010557134946187338 minutes
+Pairs Calculated: 19201/28908
+Time to calculate: 0.00032769044240315757 minutes
+Pairs Calculated: 19301/28908
+Time to calculate: 0.001123650868733724 minutes
+Pairs Calculated: 19401/28908
+Time to calculate: 0.0010633389155069986 minutes
+Pairs Calculated: 19501/28908
+Time to calculate: 0.0009934465090433756 minutes
+Pairs Calculated: 19601/28908
+Time to calculate: 0.001097579797108968 minutes
+Pairs Calculated: 19701/28908
+Time to calculate: 0.001131892204284668 minutes
+Pairs Calculated: 19801/28908
+Time to calculate: 0.0011500199635823569 minutes
+Pairs Calculated: 19901/28908
+Time to calculate: 0.0010876854260762532 minutes
+Pairs Calculated: 20001/28908
+Time to calculate: 0.0011057019233703612 minutes
+Pairs Calculated: 20101/28908
+Time to calculate: 0.0010253508885701497 minutes
+Pairs Calculated: 20201/28908
+Time to calculate: 0.0010660966237386069 minutes
+Pairs Calculated: 20301/28908
+Time to calculate: 0.001111149787902832 minutes
+Pairs Calculated: 20401/28908
+Time to calculate: 0.001091007391611735 minutes
+Pairs Calculated: 20501/28908
+Time to calculate: 0.0007282336552937826 minutes
+Pairs Calculated: 20601/28908
+Time to calculate: 0.0010377923647562663 minutes
+Pairs Calculated: 20701/28908
+Time to calculate: 0.0010467330614725749 minutes
+Pairs Calculated: 20801/28908
+Time to calculate: 0.0009991010030110678 minutes
+Pairs Calculated: 20901/28908
+Time to calculate: 0.0003682414690653483 minutes
+Pairs Calculated: 21001/28908
+Time to calculate: 0.000362547238667806 minutes
+Pairs Calculated: 21101/28908
+Time to calculate: 0.0003555059432983398 minutes
+Pairs Calculated: 21201/28908
+Time to calculate: 0.0010537544886271158 minutes
+Pairs Calculated: 21301/28908
+Time to calculate: 0.0011327068010965984 minutes
+Pairs Calculated: 21401/28908
+Time to calculate: 0.0011036594708760579 minutes
+Pairs Calculated: 21501/28908
+Time to calculate: 2.5240580240885415e-05 minutes
+Pairs Calculated: 21601/28908
+Time to calculate: 0.001103063424428304 minutes
+Pairs Calculated: 21701/28908
+Time to calculate: 0.0011090675989786783 minutes
+Pairs Calculated: 21801/28908
+Time to calculate: 0.0003500660260518392 minutes
+Pairs Calculated: 21901/28908
+Time to calculate: 0.0010786175727844239 minutes
+Pairs Calculated: 22001/28908
+Time to calculate: 0.0010533491770426432 minutes
+Pairs Calculated: 22101/28908
+Time to calculate: 0.0010442614555358886 minutes
+Pairs Calculated: 22201/28908
+Time to calculate: 0.00032410224278767906 minutes
+Pairs Calculated: 22301/28908
+Time to calculate: 0.0010303338368733725 minutes
+Pairs Calculated: 22401/28908
+Time to calculate: 0.0010955492655436198 minutes
+Pairs Calculated: 22501/28908
+Time to calculate: 0.000778798262278239 minutes
+Pairs Calculated: 22601/28908
+Time to calculate: 0.0010376493136088052 minutes
+Pairs Calculated: 22701/28908
+Time to calculate: 0.0008480906486511231 minutes
+Pairs Calculated: 22801/28908
+Time to calculate: 0.001132043202718099 minutes
+Pairs Calculated: 22901/28908
+Time to calculate: 1.2886524200439452e-05 minutes
+Pairs Calculated: 23001/28908
+Time to calculate: 0.00042610963185628256 minutes
+Pairs Calculated: 23101/28908
+Time to calculate: 0.0010863661766052247 minutes
+Pairs Calculated: 23201/28908
+Time to calculate: 0.0011321703592936199 minutes
+Pairs Calculated: 23301/28908
+Time to calculate: 0.00032762289047241213 minutes
+Pairs Calculated: 23401/28908
+Time to calculate: 0.0010731975237528483 minutes
+Pairs Calculated: 23501/28908
+Time to calculate: 0.001080763339996338 minutes
+Pairs Calculated: 23601/28908
+Time to calculate: 0.0011235356330871582 minutes
+Pairs Calculated: 23701/28908
+Time to calculate: 0.0002964576085408529 minutes
+Pairs Calculated: 23801/28908
+Time to calculate: 0.001075875759124756 minutes
+Pairs Calculated: 23901/28908
+Time to calculate: 0.0010671416918436687 minutes
+Pairs Calculated: 24001/28908
+Time to calculate: 0.00035171111424764 minutes
+Pairs Calculated: 24101/28908
+Time to calculate: 0.00014960368474324545 minutes
+Pairs Calculated: 24201/28908
+Time to calculate: 0.0010616699854532877 minutes
+Pairs Calculated: 24301/28908
+Time to calculate: 0.001091337203979492 minutes
+Pairs Calculated: 24401/28908
+Time to calculate: 0.0011324763298034668 minutes
+Pairs Calculated: 24501/28908
+Time to calculate: 0.001062468687693278 minutes
+Pairs Calculated: 24601/28908
+Time to calculate: 0.0010817130406697592 minutes
+Pairs Calculated: 24701/28908
+Time to calculate: 0.00034048159917195636 minutes
+Pairs Calculated: 24801/28908
+Time to calculate: 0.00035409927368164064 minutes
+Pairs Calculated: 24901/28908
+Time to calculate: 0.0010356307029724121 minutes
+Pairs Calculated: 25001/28908
+Time to calculate: 0.001089652379353841 minutes
+Pairs Calculated: 25101/28908
+Time to calculate: 0.0008986830711364746 minutes
+Pairs Calculated: 25201/28908
+Time to calculate: 0.0010058879852294922 minutes
+Pairs Calculated: 25301/28908
+Time to calculate: 0.0011420448621114094 minutes
+Pairs Calculated: 25401/28908
+Time to calculate: 0.0009504040082295736 minutes
+Pairs Calculated: 25501/28908
+Time to calculate: 0.0010428150494893392 minutes
+Pairs Calculated: 25601/28908
+Time to calculate: 0.001102753480275472 minutes
+Pairs Calculated: 25701/28908
+Time to calculate: 0.0010603070259094238 minutes
+Pairs Calculated: 25801/28908
+Time to calculate: 0.00021794637044270833 minutes
+Pairs Calculated: 25901/28908
+Time to calculate: 0.0010903835296630859 minutes
+Pairs Calculated: 26001/28908
+Time to calculate: 0.0011033058166503907 minutes
+Pairs Calculated: 26101/28908
+Time to calculate: 0.0011464158693949382 minutes
+Pairs Calculated: 26201/28908
+Time to calculate: 0.00027249654134114585 minutes
+Pairs Calculated: 26301/28908
+Time to calculate: 0.00034963289896647136 minutes
+Pairs Calculated: 26401/28908
+Time to calculate: 0.0010072787602742512 minutes
+Pairs Calculated: 26501/28908
+Time to calculate: 0.0010695656140645344 minutes
+Pairs Calculated: 26601/28908
+Time to calculate: 0.0010493040084838868 minutes
+Pairs Calculated: 26701/28908
+Time to calculate: 0.00035445292790730796 minutes
+Pairs Calculated: 26801/28908
+Time to calculate: 0.001051318645477295 minutes
+Pairs Calculated: 26901/28908
+Time to calculate: 0.0008442759513854981 minutes
+Pairs Calculated: 27001/28908
+Time to calculate: 0.0010570724805196126 minutes
+Pairs Calculated: 27101/28908
+Time to calculate: 0.0009053548177083334 minutes
+Pairs Calculated: 27201/28908
+Time to calculate: 0.0007373809814453125 minutes
+Pairs Calculated: 27301/28908
+Time to calculate: 0.0010692715644836427 minutes
+Pairs Calculated: 27401/28908
+Time to calculate: 0.0010296940803527833 minutes
+Pairs Calculated: 27501/28908
+Time to calculate: 0.0008275151252746582 minutes
+Pairs Calculated: 27601/28908
+Time to calculate: 0.0011086424191792807 minutes
+Pairs Calculated: 27701/28908
+Time to calculate: 0.00034088691075642903 minutes
+Pairs Calculated: 27801/28908
+Time to calculate: 0.001070574919382731 minutes
+Pairs Calculated: 27901/28908
+Time to calculate: 0.00107955535252889 minutes
+Pairs Calculated: 28001/28908
+Time to calculate: 0.0010983784993489583 minutes
+Pairs Calculated: 28101/28908
+Time to calculate: 0.0010129809379577637 minutes
+Pairs Calculated: 28201/28908
+Time to calculate: 0.001065222422281901 minutes
+Pairs Calculated: 28301/28908
+Time to calculate: 0.00031508604685465493 minutes
+Pairs Calculated: 28401/28908
+Time to calculate: 0.0011394222577412922 minutes
+Pairs Calculated: 28501/28908
+Time to calculate: 0.00036132335662841797 minutes
+Pairs Calculated: 28601/28908
+Time to calculate: 0.0011373082796732584 minutes
+Pairs Calculated: 28701/28908
+Time to calculate: 0.0010395010312398275 minutes
+Pairs Calculated: 28801/28908
+Time to calculate: 0.0011448105176289876 minutes
+Pairs Calculated: 28901/28908
+Time to calculate: 0.0003524700800577799 minutes
+Pairs Calculated: 1/28908
+Time to calculate: 0.0011283675829569498 minutes
+Pairs Calculated: 101/28908
+Time to calculate: 0.0010080814361572265 minutes
+Pairs Calculated: 201/28908
+Time to calculate: 0.0010192314783732095 minutes
+Pairs Calculated: 301/28908
+Time to calculate: 9.09129778544108e-05 minutes
+Pairs Calculated: 401/28908
+Time to calculate: 0.0003539125124613444 minutes
+Pairs Calculated: 501/28908
+Time to calculate: 0.0010779420534769693 minutes
+Pairs Calculated: 601/28908
+Time to calculate: 0.0003609617551167806 minutes
+Pairs Calculated: 701/28908
+Time to calculate: 0.0010678688685099283 minutes
+Pairs Calculated: 801/28908
+Time to calculate: 0.0007478952407836914 minutes
+Pairs Calculated: 901/28908
+Time to calculate: 0.00035141706466674806 minutes
+Pairs Calculated: 1001/28908
+Time to calculate: 0.0011145869890848796 minutes
+Pairs Calculated: 1101/28908
+Time to calculate: 0.00106583038965861 minutes
+Pairs Calculated: 1201/28908
+Time to calculate: 0.0010586222012837728 minutes
+Pairs Calculated: 1301/28908
+Time to calculate: 0.0011434396107991537 minutes
+Pairs Calculated: 1401/28908
+Time to calculate: 0.0009530584017435709 minutes
+Pairs Calculated: 1501/28908
+Time to calculate: 0.0010557095209757486 minutes
+Pairs Calculated: 1601/28908
+Time to calculate: 0.0010115623474121094 minutes
+Pairs Calculated: 1701/28908
+Time to calculate: 3.685553868611654e-05 minutes
+Pairs Calculated: 1801/28908
+Time to calculate: 9.094079335530599e-05 minutes
+Pairs Calculated: 1901/28908
+Time to calculate: 0.0011228402455647787 minutes
+Pairs Calculated: 2001/28908
+Time to calculate: 0.001046470801035563 minutes
+Pairs Calculated: 2101/28908
+Time to calculate: 0.0010454614957173666 minutes
+Pairs Calculated: 2201/28908
+Time to calculate: 0.0009630004564921061 minutes
+Pairs Calculated: 2301/28908
+Time to calculate: 0.0010173996289571127 minutes
+Pairs Calculated: 2401/28908
+Time to calculate: 0.001041098435719808 minutes
+Pairs Calculated: 2501/28908
+Time to calculate: 0.0007285912831624349 minutes
+Pairs Calculated: 2601/28908
+Time to calculate: 0.001079416275024414 minutes
+Pairs Calculated: 2701/28908
+Time to calculate: 0.0011490861574808757 minutes
+Pairs Calculated: 2801/28908
+Time to calculate: 0.0009445230166117351 minutes
+Pairs Calculated: 2901/28908
+Time to calculate: 0.0011586507161458334 minutes
+Pairs Calculated: 3001/28908
+Time to calculate: 0.0011125604311625163 minutes
+Pairs Calculated: 3101/28908
+Time to calculate: 0.0011066675186157226 minutes
+Pairs Calculated: 3201/28908
+Time to calculate: 0.0011188069979349772 minutes
+Pairs Calculated: 3301/28908
+Time to calculate: 0.0007617314656575521 minutes
+Pairs Calculated: 3401/28908
+Time to calculate: 0.00107342799504598 minutes
+Pairs Calculated: 3501/28908
+Time to calculate: 0.0010898788770039877 minutes
+Pairs Calculated: 3601/28908
+Time to calculate: 0.0009967366854349772 minutes
+Pairs Calculated: 3701/28908
+Time to calculate: 0.0008888999621073405 minutes
+Pairs Calculated: 3801/28908
+Time to calculate: 0.00035038789113362633 minutes
+Pairs Calculated: 3901/28908
+Time to calculate: 0.000953376293182373 minutes
+Pairs Calculated: 4001/28908
+Time to calculate: 0.0011177341143290202 minutes
+Pairs Calculated: 4101/28908
+Time to calculate: 0.0010981361071268718 minutes
+Pairs Calculated: 4201/28908
+Time to calculate: 0.001143797238667806 minutes
+Pairs Calculated: 4301/28908
+Time to calculate: 0.0010699590047200521 minutes
+Pairs Calculated: 4401/28908
+Time to calculate: 0.0011135419209798178 minutes
+Pairs Calculated: 4501/28908
+Time to calculate: 0.0011099537213643393 minutes
+Pairs Calculated: 4601/28908
+Time to calculate: 0.0010762174924214682 minutes
+Pairs Calculated: 4701/28908
+Time to calculate: 0.0010355194409688315 minutes
+Pairs Calculated: 4801/28908
+Time to calculate: 0.0009876251220703124 minutes
+Pairs Calculated: 4901/28908
+Time to calculate: 0.0010018865267435709 minutes
+Pairs Calculated: 5001/28908
+Time to calculate: 0.00034329493840535484 minutes
+Pairs Calculated: 5101/28908
+Time to calculate: 0.00035355091094970705 minutes
+Pairs Calculated: 5201/28908
+Time to calculate: 0.000886241594950358 minutes
+Pairs Calculated: 5301/28908
+Time to calculate: 0.0010409752527872722 minutes
+Pairs Calculated: 5401/28908
+Time to calculate: 0.00032677650451660154 minutes
+Pairs Calculated: 5501/28908
+Time to calculate: 0.0009842236836751302 minutes
+Pairs Calculated: 5601/28908
+Time to calculate: 0.0010716597239176433 minutes
+Pairs Calculated: 5701/28908
+Time to calculate: 0.0011401891708374024 minutes
+Pairs Calculated: 5801/28908
+Time to calculate: 0.0010247588157653808 minutes
+Pairs Calculated: 5901/28908
+Time to calculate: 0.0010510961214701335 minutes
+Pairs Calculated: 6001/28908
+Time to calculate: 0.000844260056813558 minutes
+Pairs Calculated: 6101/28908
+Time to calculate: 0.000978402296702067 minutes
+Pairs Calculated: 6201/28908
+Time to calculate: 0.0010820547739664713 minutes
+Pairs Calculated: 6301/28908
+Time to calculate: 0.001062917709350586 minutes
+Pairs Calculated: 6401/28908
+Time to calculate: 0.0003590265909830729 minutes
+Pairs Calculated: 6501/28908
+Time to calculate: 0.0010873635609944662 minutes
+Pairs Calculated: 6601/28908
+Time to calculate: 0.0010817408561706542 minutes
+Pairs Calculated: 6701/28908
+Time to calculate: 0.0010716597239176433 minutes
+Pairs Calculated: 6801/28908
+Time to calculate: 0.0010969161987304688 minutes
+Pairs Calculated: 6901/28908
+Time to calculate: 0.001116355260213216 minutes
+Pairs Calculated: 7001/28908
+Time to calculate: 0.0010000109672546388 minutes
+Pairs Calculated: 7101/28908
+Time to calculate: 0.001058197021484375 minutes
+Pairs Calculated: 7201/28908
+Time to calculate: 0.0009452581405639648 minutes
+Pairs Calculated: 7301/28908
+Time to calculate: 0.001021734873453776 minutes
+Pairs Calculated: 7401/28908
+Time to calculate: 0.0010878761609395345 minutes
+Pairs Calculated: 7501/28908
+Time to calculate: 0.0010770479838053384 minutes
+Pairs Calculated: 7601/28908
+Time to calculate: 0.00035045146942138674 minutes
+Pairs Calculated: 7701/28908
+Time to calculate: 0.0003455320994059245 minutes
+Pairs Calculated: 7801/28908
+Time to calculate: 0.0009534557660420736 minutes
+Pairs Calculated: 7901/28908
+Time to calculate: 0.0010991096496582031 minutes
+Pairs Calculated: 8001/28908
+Time to calculate: 0.0009446779886881511 minutes
+Pairs Calculated: 8101/28908
+Time to calculate: 0.0010787526766459147 minutes
+Pairs Calculated: 8201/28908
+Time to calculate: 0.0010299324989318849 minutes
+Pairs Calculated: 8301/28908
+Time to calculate: 0.00100099245707194 minutes
+Pairs Calculated: 8401/28908
+Time to calculate: 0.0010185877482096354 minutes
+Pairs Calculated: 8501/28908
+Time to calculate: 0.0010660608609517415 minutes
+Pairs Calculated: 8601/28908
+Time to calculate: 0.001093908150990804 minutes
+Pairs Calculated: 8701/28908
+Time to calculate: 0.0001685778299967448 minutes
+Pairs Calculated: 8801/28908
+Time to calculate: 0.0003292401631673177 minutes
+Pairs Calculated: 8901/28908
+Time to calculate: 0.0010667085647583009 minutes
+Pairs Calculated: 9001/28908
+Time to calculate: 0.001020987828572591 minutes
+Pairs Calculated: 9101/28908
+Time to calculate: 0.001068429152170817 minutes
+Pairs Calculated: 9201/28908
+Time to calculate: 0.0009442567825317383 minutes
+Pairs Calculated: 9301/28908
+Time to calculate: 0.0010864973068237306 minutes
+Pairs Calculated: 9401/28908
+Time to calculate: 0.0009374578793843587 minutes
+Pairs Calculated: 9501/28908
+Time to calculate: 0.00034813483556111655 minutes
+Pairs Calculated: 9601/28908
+Time to calculate: 0.0010724067687988281 minutes
+Pairs Calculated: 9701/28908
+Time to calculate: 0.0010771870613098145 minutes
+Pairs Calculated: 9801/28908
+Time to calculate: 2.1386146545410157e-05 minutes
+Pairs Calculated: 9901/28908
+Time to calculate: 0.0003494103749593099 minutes
+Pairs Calculated: 10001/28908
+Time to calculate: 0.0010926246643066407 minutes
+Pairs Calculated: 10101/28908
+Time to calculate: 0.0011081695556640625 minutes
+Pairs Calculated: 10201/28908
+Time to calculate: 0.0010772307713826498 minutes
+Pairs Calculated: 10301/28908
+Time to calculate: 0.0001548449198404948 minutes
+Pairs Calculated: 10401/28908
+Time to calculate: 0.00035170316696166994 minutes
+Pairs Calculated: 10501/28908
+Time to calculate: 0.0010078946749369304 minutes
+Pairs Calculated: 10601/28908
+Time to calculate: 0.0010485013326009115 minutes
+Pairs Calculated: 10701/28908
+Time to calculate: 0.0011102835337320964 minutes
+Pairs Calculated: 10801/28908
+Time to calculate: 0.0010779420534769693 minutes
+Pairs Calculated: 10901/28908
+Time to calculate: 0.00014688968658447266 minutes
+Pairs Calculated: 11001/28908
+Time to calculate: 0.0011431733767191569 minutes
+Pairs Calculated: 11101/28908
+Time to calculate: 0.0011087377866109212 minutes
+Pairs Calculated: 11201/28908
+Time to calculate: 0.0003218213717142741 minutes
+Pairs Calculated: 11301/28908
+Time to calculate: 0.0003449400266011556 minutes
+Pairs Calculated: 11401/28908
+Time to calculate: 0.0003410180409749349 minutes
+Pairs Calculated: 11501/28908
+Time to calculate: 0.0008235573768615723 minutes
+Pairs Calculated: 11601/28908
+Time to calculate: 0.0011207938194274902 minutes
+Pairs Calculated: 11701/28908
+Time to calculate: 0.0009189605712890625 minutes
+Pairs Calculated: 11801/28908
+Time to calculate: 0.0011404196421305338 minutes
+Pairs Calculated: 11901/28908
+Time to calculate: 0.0010963797569274903 minutes
+Pairs Calculated: 12001/28908
+Time to calculate: 0.0010849595069885253 minutes
+Pairs Calculated: 12101/28908
+Time to calculate: 0.0010941664377848307 minutes
+Pairs Calculated: 12201/28908
+Time to calculate: 0.0011012991269429525 minutes
+Pairs Calculated: 12301/28908
+Time to calculate: 0.00011579195658365886 minutes
+Pairs Calculated: 12401/28908
+Time to calculate: 0.0010072668393452963 minutes
+Pairs Calculated: 12501/28908
+Time to calculate: 0.0009135842323303222 minutes
+Pairs Calculated: 12601/28908
+Time to calculate: 0.0010242382685343423 minutes
+Pairs Calculated: 12701/28908
+Time to calculate: 0.000986003875732422 minutes
+Pairs Calculated: 12801/28908
+Time to calculate: 0.0007249951362609863 minutes
+Pairs Calculated: 12901/28908
+Time to calculate: 0.0009935537974039713 minutes
+Pairs Calculated: 13001/28908
+Time to calculate: 0.0003246307373046875 minutes
+Pairs Calculated: 13101/28908
+Time to calculate: 0.00034117698669433594 minutes
+Pairs Calculated: 13201/28908
+Time to calculate: 0.0002161860466003418 minutes
+Pairs Calculated: 13301/28908
+Time to calculate: 0.0011173605918884278 minutes
+Pairs Calculated: 13401/28908
+Time to calculate: 0.001111761728922526 minutes
+Pairs Calculated: 13501/28908
+Time to calculate: 0.0010917901992797852 minutes
+Pairs Calculated: 13601/28908
+Time to calculate: 0.0010550737380981446 minutes
+Pairs Calculated: 13701/28908
+Time to calculate: 0.0001121679941813151 minutes
+Pairs Calculated: 13801/28908
+Time to calculate: 0.001048898696899414 minutes
+Pairs Calculated: 13901/28908
+Time to calculate: 0.0010640780131022135 minutes
+Pairs Calculated: 14001/28908
+Time to calculate: 0.0009748458862304688 minutes
+Pairs Calculated: 14101/28908
+Time to calculate: 0.000986341635386149 minutes
+Pairs Calculated: 14201/28908
+Time to calculate: 0.0011563579241434733 minutes
+Pairs Calculated: 14301/28908
+Time to calculate: 0.0010459582010904948 minutes
+Pairs Calculated: 14401/28908
+Time to calculate: 0.0010234713554382324 minutes
+Pairs Calculated: 14501/28908
+Time to calculate: 0.00039470990498860676 minutes
+Pairs Calculated: 14601/28908
+Time to calculate: 0.00039497613906860354 minutes
+Pairs Calculated: 14701/28908
+Time to calculate: 0.0003120303153991699 minutes
+Pairs Calculated: 14801/28908
+Time to calculate: 0.0010459542274475098 minutes
+Pairs Calculated: 14901/28908
+Time to calculate: 0.0009661157925923666 minutes
+Pairs Calculated: 15001/28908
+Time to calculate: 0.0010484774907430013 minutes
+Pairs Calculated: 15101/28908
+Time to calculate: 0.00033787886301676434 minutes
+Pairs Calculated: 15201/28908
+Time to calculate: 0.0003046870231628418 minutes
+Pairs Calculated: 15301/28908
+Time to calculate: 0.0010187904040018718 minutes
+Pairs Calculated: 15401/28908
+Time to calculate: 0.00017180840174357097 minutes
+Pairs Calculated: 15501/28908
+Time to calculate: 0.0010273416837056478 minutes
+Pairs Calculated: 15601/28908
+Time to calculate: 0.0011337677637736003 minutes
+Pairs Calculated: 15701/28908
+Time to calculate: 0.0008915185928344727 minutes
+Pairs Calculated: 15801/28908
+Time to calculate: 4.178285598754883e-05 minutes
+Pairs Calculated: 15901/28908
+Time to calculate: 0.0010820825894673665 minutes
+Pairs Calculated: 16001/28908
+Time to calculate: 0.0007811864217122396 minutes
+Pairs Calculated: 16101/28908
+Time to calculate: 0.0011010487874348958 minutes
+Pairs Calculated: 16201/28908
+Time to calculate: 0.0009754498799641927 minutes
+Pairs Calculated: 16301/28908
+Time to calculate: 0.0003569483757019043 minutes
+Pairs Calculated: 16401/28908
+Time to calculate: 0.0010109702746073405 minutes
+Pairs Calculated: 16501/28908
+Time to calculate: 9.067058563232422e-05 minutes
+Pairs Calculated: 16601/28908
+Time to calculate: 0.0010590354601542156 minutes
+Pairs Calculated: 16701/28908
+Time to calculate: 0.00023180246353149414 minutes
+Pairs Calculated: 16801/28908
+Time to calculate: 0.0007820010185241699 minutes
+Pairs Calculated: 16901/28908
+Time to calculate: 0.0007471640904744467 minutes
+Pairs Calculated: 17001/28908
+Time to calculate: 0.000295563538869222 minutes
+Pairs Calculated: 17101/28908
+Time to calculate: 0.0010549426078796387 minutes
+Pairs Calculated: 17201/28908
+Time to calculate: 0.0010468204816182455 minutes
+Pairs Calculated: 17301/28908
+Time to calculate: 0.0010967135429382324 minutes
+Pairs Calculated: 17401/28908
+Time to calculate: 0.0011136015256245932 minutes
+Pairs Calculated: 17501/28908
+Time to calculate: 0.0003513216972351074 minutes
+Pairs Calculated: 17601/28908
+Time to calculate: 0.00034134785334269206 minutes
+Pairs Calculated: 17701/28908
+Time to calculate: 0.0010751962661743164 minutes
+Pairs Calculated: 17801/28908
+Time to calculate: 0.0008701086044311523 minutes
+Pairs Calculated: 17901/28908
+Time to calculate: 0.0010595202445983886 minutes
+Pairs Calculated: 18001/28908
+Time to calculate: 0.0010598222414652505 minutes
+Pairs Calculated: 18101/28908
+Time to calculate: 0.0011037707328796387 minutes
+Pairs Calculated: 18201/28908
+Time to calculate: 0.0003468513488769531 minutes
+Pairs Calculated: 18301/28908
+Time to calculate: 0.0011157870292663574 minutes
+Pairs Calculated: 18401/28908
+Time to calculate: 0.0003674228986104329 minutes
+Pairs Calculated: 18501/28908
+Time to calculate: 0.0003218293190002441 minutes
+Pairs Calculated: 18601/28908
+Time to calculate: 0.0006568392117818196 minutes
+Pairs Calculated: 18701/28908
+Time to calculate: 0.0003501574198404948 minutes
+Pairs Calculated: 18801/28908
+Time to calculate: 0.0002744158109029134 minutes
+Pairs Calculated: 18901/28908
+Time to calculate: 0.0010820508003234863 minutes
+Pairs Calculated: 19001/28908
+Time to calculate: 0.0011441270510355631 minutes
+Pairs Calculated: 19101/28908
+Time to calculate: 0.00035280386606852213 minutes
+Pairs Calculated: 19201/28908
+Time to calculate: 0.00010811090469360351 minutes
+Pairs Calculated: 19301/28908
+Time to calculate: 0.0011186758677164713 minutes
+Pairs Calculated: 19401/28908
+Time to calculate: 0.00034940640131632487 minutes
+Pairs Calculated: 19501/28908
+Time to calculate: 0.001020840803782145 minutes
+Pairs Calculated: 19601/28908
+Time to calculate: 0.0010500391324361166 minutes
+Pairs Calculated: 19701/28908
+Time to calculate: 0.0010965426762898764 minutes
+Pairs Calculated: 19801/28908
+Time to calculate: 0.00031342903772989906 minutes
+Pairs Calculated: 19901/28908
+Time to calculate: 0.0010838786760965983 minutes
+Pairs Calculated: 20001/28908
+Time to calculate: 0.0010965347290039062 minutes
+Pairs Calculated: 20101/28908
+Time to calculate: 2.1700064341227213e-05 minutes
+Pairs Calculated: 20201/28908
+Time to calculate: 0.00034811099370320636 minutes
+Pairs Calculated: 20301/28908
+Time to calculate: 0.001096018155415853 minutes
+Pairs Calculated: 20401/28908
+Time to calculate: 1.591046651204427e-05 minutes
+Pairs Calculated: 20501/28908
+Time to calculate: 0.0011328697204589845 minutes
+Pairs Calculated: 20601/28908
+Time to calculate: 0.0011150519053141276 minutes
+Pairs Calculated: 20701/28908
+Time to calculate: 0.00042531092961629234 minutes
+Pairs Calculated: 20801/28908
+Time to calculate: 0.0011372645696004233 minutes
+Pairs Calculated: 20901/28908
+Time to calculate: 0.0010495622952779134 minutes
+Pairs Calculated: 21001/28908
+Time to calculate: 0.0003129760424296061 minutes
+Pairs Calculated: 21101/28908
+Time to calculate: 0.00035074551900227867 minutes
+Pairs Calculated: 21201/28908
+Time to calculate: 0.0010761658350626627 minutes
+Pairs Calculated: 21301/28908
+Time to calculate: 0.001085980733235677 minutes
+Pairs Calculated: 21401/28908
+Time to calculate: 0.0010161836942036947 minutes
+Pairs Calculated: 21501/28908
+Time to calculate: 0.0010749459266662597 minutes
+Pairs Calculated: 21601/28908
+Time to calculate: 0.00039948225021362304 minutes
+Pairs Calculated: 21701/28908
+Time to calculate: 0.0010813633600870768 minutes
+Pairs Calculated: 21801/28908
+Time to calculate: 0.001085960865020752 minutes
+Pairs Calculated: 21901/28908
+Time to calculate: 0.000331262747446696 minutes
+Pairs Calculated: 22001/28908
+Time to calculate: 0.0003506302833557129 minutes
+Pairs Calculated: 22101/28908
+Time to calculate: 0.001075430711110433 minutes
+Pairs Calculated: 22201/28908
+Time to calculate: 0.0009929935137430828 minutes
+Pairs Calculated: 22301/28908
+Time to calculate: 0.00011138121287027995 minutes
+Pairs Calculated: 22401/28908
+Time to calculate: 0.00026402473449707033 minutes
+Pairs Calculated: 22501/28908
+Time to calculate: 6.486177444458008e-05 minutes
+Pairs Calculated: 22601/28908
+Time to calculate: 0.00041220585505167645 minutes
+Pairs Calculated: 22701/28908
+Time to calculate: 0.001021730899810791 minutes
+Pairs Calculated: 22801/28908
+Time to calculate: 0.001077854633331299 minutes
+Pairs Calculated: 22901/28908
+Time to calculate: 0.000878000259399414 minutes
+Pairs Calculated: 23001/28908
+Time to calculate: 0.0010692834854125976 minutes
+Pairs Calculated: 23101/28908
+Time to calculate: 0.0009558955828348795 minutes
+Pairs Calculated: 23201/28908
+Time to calculate: 0.0003343661626180013 minutes
+Pairs Calculated: 23301/28908
+Time to calculate: 0.0003541866938273112 minutes
+Pairs Calculated: 23401/28908
+Time to calculate: 8.41538111368815e-05 minutes
+Pairs Calculated: 23501/28908
+Time to calculate: 1.3089179992675781e-05 minutes
+Pairs Calculated: 23601/28908
+Time to calculate: 0.0003227512041727702 minutes
+Pairs Calculated: 23701/28908
+Time to calculate: 0.0010788997014363607 minutes
+Pairs Calculated: 23801/28908
+Time to calculate: 0.0010197122891743978 minutes
+Pairs Calculated: 23901/28908
+Time to calculate: 0.001018393039703369 minutes
+Pairs Calculated: 24001/28908
+Time to calculate: 0.0003534356753031413 minutes
+Pairs Calculated: 24101/28908
+Time to calculate: 0.0010415196418762207 minutes
+Pairs Calculated: 24201/28908
+Time to calculate: 0.0003049294153849284 minutes
+Pairs Calculated: 24301/28908
+Time to calculate: 0.0010833978652954102 minutes
+Pairs Calculated: 24401/28908
+Time to calculate: 0.0010830124219258627 minutes
+Pairs Calculated: 24501/28908
+Time to calculate: 0.00021864175796508788 minutes
+Pairs Calculated: 24601/28908
+Time to calculate: 0.0001560648282368978 minutes
+Pairs Calculated: 24701/28908
+Time to calculate: 0.0010515451431274414 minutes
+Pairs Calculated: 24801/28908
+Time to calculate: 0.000350030263264974 minutes
+Pairs Calculated: 24901/28908
+Time to calculate: 0.0007861097653706869 minutes
+Pairs Calculated: 25001/28908
+Time to calculate: 0.0009943008422851562 minutes
+Pairs Calculated: 25101/28908
+Time to calculate: 0.0010677774747212727 minutes
+Pairs Calculated: 25201/28908
+Time to calculate: 0.0001629471778869629 minutes
+Pairs Calculated: 25301/28908
+Time to calculate: 0.0008437593777974446 minutes
+Pairs Calculated: 25401/28908
+Time to calculate: 0.001129313309987386 minutes
+Pairs Calculated: 25501/28908
+Time to calculate: 0.0011354843775431315 minutes
+Pairs Calculated: 25601/28908
+Time to calculate: 0.0007975896199544271 minutes
+Pairs Calculated: 25701/28908
+Time to calculate: 0.00035532315572102863 minutes
+Pairs Calculated: 25801/28908
+Time to calculate: 0.0010475516319274902 minutes
+Pairs Calculated: 25901/28908
+Time to calculate: 0.00033412774403889975 minutes
+Pairs Calculated: 26001/28908
+Time to calculate: 0.0007074475288391113 minutes
+Pairs Calculated: 26101/28908
+Time to calculate: 0.00033433039983113606 minutes
+Pairs Calculated: 26201/28908
+Time to calculate: 0.0010929624239603677 minutes
+Pairs Calculated: 26301/28908
+Time to calculate: 0.0011058529218037924 minutes
+Pairs Calculated: 26401/28908
+Time to calculate: 0.001085360844930013 minutes
+Pairs Calculated: 26501/28908
+Time to calculate: 0.00041483243306477866 minutes
+Pairs Calculated: 26601/28908
+Time to calculate: 0.001062170664469401 minutes
+Pairs Calculated: 26701/28908
+Time to calculate: 0.0011190374692281087 minutes
+Pairs Calculated: 26801/28908
+Time to calculate: 0.001107943058013916 minutes
+Pairs Calculated: 26901/28908
+Time to calculate: 6.744066874186198e-05 minutes
+Pairs Calculated: 27001/28908
+Time to calculate: 0.00031071901321411133 minutes
+Pairs Calculated: 27101/28908
+Time to calculate: 0.001077596346537272 minutes
+Pairs Calculated: 27201/28908
+Time to calculate: 0.0011033018430074055 minutes
+Pairs Calculated: 27301/28908
+Time to calculate: 0.0009955366452534993 minutes
+Pairs Calculated: 27401/28908
+Time to calculate: 0.0003576397895812988 minutes
+Pairs Calculated: 27501/28908
+Time to calculate: 0.0009298404057820638 minutes
+Pairs Calculated: 27601/28908
+Time to calculate: 0.0011368274688720703 minutes
+Pairs Calculated: 27701/28908
+Time to calculate: 0.001107176144917806 minutes
+Pairs Calculated: 27801/28908
+Time to calculate: 0.0009932359059651693 minutes
+Pairs Calculated: 27901/28908
+Time to calculate: 0.00035287141799926757 minutes
+Pairs Calculated: 28001/28908
+Time to calculate: 0.001074989636739095 minutes
+Pairs Calculated: 28101/28908
+Time to calculate: 0.00034027496973673503 minutes
+Pairs Calculated: 28201/28908
+Time to calculate: 0.0009518901507059734 minutes
+Pairs Calculated: 28301/28908
+Time to calculate: 0.0010478297869364421 minutes
+Pairs Calculated: 28401/28908
+Time to calculate: 0.0010576725006103515 minutes
+Pairs Calculated: 28501/28908
+Time to calculate: 0.0010626713434855144 minutes
+Pairs Calculated: 28601/28908
+Time to calculate: 0.0009967605272928873 minutes
+Pairs Calculated: 28701/28908
+Time to calculate: 0.0009536981582641601 minutes
+Pairs Calculated: 28801/28908
+Time to calculate: 0.0011067628860473634 minutes
+Pairs Calculated: 28901/28908
+Time to calculate: 0.0010596315066019695 minutes
+Traceback (most recent call last):
+  File "src/PairwiseYeastNetwork/Parallel/Model1.py", line 28, in <module>
+    main()
+  File "src/PairwiseYeastNetwork/Parallel/Model1.py", line 21, in main
+    graph = YeastGraph(f'./Yeast Resources/Pairwise/Spell/Modern/Modern_{sys.argv[2]}x1_Net_fold',modelData,f'113x{sys.argv[2]}x1',folder=f'Modern_113x{sys.argv[2]}x1',posFile='./Yeast Resources/GeneSets/GO0007005_Pos.txt',negFile='./Yeast Resources/GeneSets/GO0007005_Neg.txt',agnFile='./Yeast Resources/GeneSets/GO0007005_Agn.txt',includeAll=False)
+  File "./src/PairwiseYeastNetwork/YeastGraph.py", line 38, in __init__
+    net.load_state_dict(torch.load(f'{networkPath}{i+1}.pth'))
+  File "/users/cmcguir1/.local/lib/python3.7/site-packages/torch/nn/modules/module.py", line 1498, in load_state_dict
+    self.__class__.__name__, "\n\t".join(error_msgs)))
+RuntimeError: Error(s) in loading state_dict for FlexNet:
+	size mismatch for layers.Layer 1.weight: copying a param with shape torch.Size([20, 430]) from checkpoint, the shape in current model is torch.Size([20, 113]).
