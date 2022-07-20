@@ -1,4 +1,5 @@
 
+from regex import F
 import torch
 import numpy as np
 import pandas as pd
@@ -164,7 +165,6 @@ class YeastGraph(PairwiseModel):
                 #print(table)
                 total += table[i,2]
             #Append the average
-            print(total/self.numFolds)
             agnAverage.append([agnPairs[i,0],agnPairs[i,1],total/float(self.numFolds)])
         agnAverageArray = np.array(agnAverage,dtype=object)
 
@@ -396,4 +396,11 @@ class YeastGraph(PairwiseModel):
                 pd.DataFrame(dataTable,columns=['Gene A','Gene B','Score']).tocsv(f'{saveLoc}_fold{fold+1}_Pairs_Net{i+1}.csv')
                 self.rankGenes(f'{saveLoc}_fold{fold+1}_Ranked_Net{i+1}.csv',dataTablePath=f'{saveLoc}_fold{fold+1}_Pairs_Net{i+1}.csv')
 
+    def filterAgn(self,filePath):
+        table = pd.read_csv(filePath).to_numpy()
+        filteredTable = []
+        for genePair in table:
+            if not(genePair[0] in self.agnSet):
+                filteredTable.append(genePair)
+        pd.DataFrame(filteredTable,columns=['Gene A','Gene B','Score']).to_csv(filePath,index=False)
 
