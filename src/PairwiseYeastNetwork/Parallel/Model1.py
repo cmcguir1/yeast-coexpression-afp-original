@@ -18,8 +18,8 @@ def main():
     # model.testNetworkTraining(limitNegative=True)
     # model.testNetworkValidation(limitNegative=True)
 
-    graph = YeastGraph(f'./Yeast Resources/Pairwise/Spell/Modern/Modern_{sys.argv[2]}x1_Net_fold',modelData,f'430x{sys.argv[2]}x1',folder=f'Modern_113x{sys.argv[2]}x1',posFile='./Yeast Resources/GeneSets/GO0007005_Pos.txt',negFile='./Yeast Resources/GeneSets/GO0007005_Neg.txt',agnFile='./Yeast Resources/GeneSets/GO0007005_Agn.txt',includeAll=False)
-    graph.feedForward(f'Modern_113x{sys.argv[2]}x1_Pairs.csv',fold=int(sys.argv[1]))
+    graph = YeastGraph(f'./Yeast Resources/Pairwise/Spell/Modern/Modern_{sys.argv[2]}x1_Net_fold',modelData,f'430x{sys.argv[2]}x1',folder=f'Modern_430x{sys.argv[2]}x1',posFile='./Yeast Resources/GeneSets/GO0007005_Pos.txt',negFile='./Yeast Resources/GeneSets/GO0007005_Neg.txt',agnFile='./Yeast Resources/GeneSets/GO0007005_Agn.txt',includeAll=False)
+    graph.feedForward(f'Modern_430x{sys.argv[2]}x1_Pairs.csv',fold=int(sys.argv[1]))
     #graph.recombineFolds(f'PosPairsFold','AgnPairsFold',f'Original_113x{sys.argv[2]}x1_Pairs.csv')
     #graph.rankGenes(f'Original_113x{sys.argv[2]}x1_Ranked_IncludeDoubles.csv')
 

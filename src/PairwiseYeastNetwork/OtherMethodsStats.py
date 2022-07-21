@@ -11,9 +11,9 @@ def confusionMatrix(dataArray,col):
     pos = 0
     neg = 0
     for row in dataArray:
-        if(row[0] in positives):
+        if(row[0] in positives and not(math.isnan(row[col]))):
             pos += 1
-        elif(row[0] in negatives):
+        elif(row[0] in negatives and not(math.isnan(row[col]))):
             neg += 1
     
     #We will start by asserting all genes are false, so falseNeg is the number of positive genes and trueNeg is the number of negative genes
@@ -69,11 +69,11 @@ mefit = mefitData[mefitData[:,10].argsort()][::-1]
 #Sort the data by Spell's rank in ascending order as rank 1 is spell's most confident prediction
 spell = spellData[spellData[:,12].argsort()]
 #Pass sorted data into confusion matrix function, then convert to data frames
-pixieFrame = pd.DataFrame(confusionMatrix(pixie,8),columns=['Gene','Confidence','Positive','Negative','Agnositc','True Positive','False Positive','True Negative','False Negative','Accuracy','Precision','Recall','False Positive Rate','Selectivity'])
+#pixieFrame = pd.DataFrame(confusionMatrix(pixie,8),columns=['Gene','Confidence','Positive','Negative','Agnositc','True Positive','False Positive','True Negative','False Negative','Accuracy','Precision','Recall','False Positive Rate','Selectivity'])
 mefitFrame = pd.DataFrame(confusionMatrix(mefit,10),columns=['Gene','Confidence','Positive','Negative','Agnositc','True Positive','False Positive','True Negative','False Negative','Accuracy','Precision','Recall','False Positive Rate','Selectivity'])
-spellFrame = pd.DataFrame(confusionMatrix(spell,12),columns=['Gene','Rank','Positive','Negative','Agnositc','True Positive','False Positive','True Negative','False Negative','Accuracy','Precision','Recall','False Positive Rate','Selectivity'])
+#spellFrame = pd.DataFrame(confusionMatrix(spell,12),columns=['Gene','Rank','Positive','Negative','Agnositc','True Positive','False Positive','True Negative','False Negative','Accuracy','Precision','Recall','False Positive Rate','Selectivity'])
 #Save Data Frame
-pixieFrame.to_csv('./Yeast Resources/ConfusionMatrixPixie.csv',index=False)
+#pixieFrame.to_csv('./Yeast Resources/ConfusionMatrixPixie.csv',index=False)
 mefitFrame.to_csv('./Yeast Resources/ConfusionMatrixMefit.csv',index=False)
-spellFrame.to_csv('./Yeast Resources/ConfusionMatrixSpell.csv',index=False)
+#spellFrame.to_csv('./Yeast Resources/ConfusionMatrixSpell.csv',index=False)
 

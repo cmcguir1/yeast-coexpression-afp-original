@@ -19,6 +19,7 @@ class YeastGraph(PairwiseModel):
         #If the folder does not already exist, create it
         if not os.path.exists(self.path):
             os.mkdir(self.path)
+        pd.DataFrame(['Test File']).to_csv(f'{self.path}/TestFile.csv',index=False,header=False)
 
         self.numFolds = numfolds
 
