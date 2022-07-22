@@ -114,7 +114,7 @@ class YeastGraph(PairwiseModel):
             posPairs = self.makePosPairs(posVal,np.concatenate([posVal,posTrain]))
             negPairs = self.makePosPairs(negVal,np.concatenate([posVal,posTrain]))
             agnPairs = self.agnPairs
-            pairs = np.concatenate([posPairs,negPairs,agnPairs],0)[:1000]
+            pairs = np.concatenate([posPairs,negPairs,agnPairs],0)
 
             #Feed positive pairs through netowrk
             outputsList = []
@@ -133,7 +133,7 @@ class YeastGraph(PairwiseModel):
             pd.DataFrame(outputsTable,columns=['Gene A','Gene B','Score']).to_csv(f'{self.path}/PosPairsFold{fold+1}.csv',index=False)
 
             #Get all agnositc apirs
-            agnPairs = self.agnPairs[:1000]
+            agnPairs = self.agnPairs
             agnOutputsList = []
             #Feed all agnositc pairs through network
             for i, pair in enumerate(agnPairs,0):
