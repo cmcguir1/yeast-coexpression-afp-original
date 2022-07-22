@@ -12,9 +12,9 @@ import ssl
 ssl._create_default_https_context = ssl._create_unverified_context
 
 def main():
-    modelData = PairwiseYeastData(f'Yeast Resources/Datasets/All Spell/all spell datasets',4,subset=200000,numDatasets=430,statsDictLoc='./Yeast Resources/Datasets/All Spell/revisedStatsDict.csv',recalc=False,foldFile='./Yeast Resources/Datasets/All Spell/ModernFolds1.csv',posGenes='./Yeast Resources/GeneSets/GO0007005_Pos.txt',negGenes='./Yeast Resources/GeneSets/GO0007005_Neg.txt',recur=True,sort=False)
-    # model = PairwiseModel(modelData,int(sys.argv[1]),f'{sys.argv[2]}x1','Spell/Modern',f'Modern')
-    # model.trainNetwork(10000,printLoss=True)
+    modelData = PairwiseYeastData(f'Yeast Resources/Datasets/All Spell/all spell datasets',4,subset=200000,numDatasets=1,statsDictLoc='./Yeast Resources/Datasets/All Spell/revisedStatsDict.csv',recalc=False,foldFile='./Yeast Resources/Datasets/All Spell/ModernFolds1.csv',posGenes='./Yeast Resources/GeneSets/GO0007005_Pos.txt',negGenes='./Yeast Resources/GeneSets/GO0007005_Neg.txt',recur=True,sort=False)
+    #model = PairwiseModel(modelData,int(sys.argv[1]),f'{sys.argv[2]}x1','Spell/Modern',f'Modern')
+    #model.trainNetwork(10,printLoss=True)
     # model.testNetworkTraining(limitNegative=True)
     # model.testNetworkValidation(limitNegative=True)
 

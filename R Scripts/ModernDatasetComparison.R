@@ -1,0 +1,56 @@
+getAUC <- function(data){
+  decimalPlaces <- 3
+  return(format(round(mean(data[,"Recall"]),decimalPlaces) , nsmall=decimalPlaces))
+}
+
+ensembleROC <- function(original,modern,graphName) {
+  pixie <- read.csv("C:\\Users\\colem\\SummerResearch2022\\Yeast Resources\\ConfusionMatrixPixie.csv")
+  mefit <- read.csv("C:\\Users\\colem\\SummerResearch2022\\Yeast Resources\\ConfusionMatrixMefit.csv")
+  spell <- read.csv("C:\\Users\\colem\\SummerResearch2022\\Yeast Resources\\ConfusionMatrixSpell.csv")
+  nn <- read.csv(original)
+  modernNN <- read.csv(modern)
+  
+  pixie <- pixie[order(pixie[,"Confidence"],decreasing=FALSE),]
+  mefit <- mefit[order(mefit[,"Confidence"],decreasing=FALSE),]
+  spell <- spell[order(spell[,"Rank"],decreasing=FALSE),]
+  nn <- nn[order(nn[,"Score"],decreasing = FALSE),]
+  modernNN <- modernNN[order(modernNN[,"Score"],decreasing = FALSE),]
+  
+  w <- 4
+  colorsList <- c("#FC0303","#14A63B","#5D87F0","#7713BA","#FAEF16","#E09704")
+  
+  #plot(pixie[,"False.Positive.Rate"],pixie[,"Recall"],type="l",lwd=w,col=colorsList[1],main=graphName,xlab="False Positive Rate",ylab="Recall")
+  
+  plot(modernNN[,"False.Positive.Rate"],modernNN[,"Recall"],type="l",lwd=w,col=colorsList[1],main=graphName,xlab="False Positive Rate",ylab="Recall")
+  
+  #lines(mefit[,"False.Positive.Rate"],mefit[,"Recall"],lwd=w,col=colorsList[2])
+  
+  #lines(spell[,"False.Positive.Rate"],spell[,"Recall"],lwd=w,col=colorsList[3])
+  
+  lines(nn[,"False.Positive.Rate"],nn[,"Recall"],lwd=w,col=colorsList[4])
+  
+  
+  lines(c(0,1),c(0,1),lwd=w,col="#000000")
+  
+  legendLabels <- c()
+  #legendLabels <- append(legendLabels,paste("bioPIXIE (AUC =",getAUC(pixie),")"))
+  #legendLabels <- append(legendLabels,paste("MEFIT (AUC =",getAUC(mefit),")"))
+  #legendLabels <- append(legendLabels,paste("SPELL (AUC =",getAUC(spell),")"))
+  legendLabels <- append(legendLabels,paste("2007 Datasets (AUC =",getAUC(nn),")"))
+  legendLabels <- append(legendLabels,paste("2022 Datasets (AUC =",getAUC(modernNN),")"))
+  
+  legend("bottomright",legendLabels,lwd=w,col=c(colorsList[4],colorsList[1]),seg.len = 4)
+  
+  
+}
+
+original <- "C:\\Users\\colem\\SummerResearch2022\\Yeast Resources\\GraphResults\\Original_Rerun_113x100x50x1\\Original_113x100x50x1_Ranked.csv"
+modern <- "C:\\Users\\colem\\SummerResearch2022\\Yeast Resources\\GraphResults\\Standard_430x100x1\\Standard_430x100x1_Ranked.csv"
+print(original)
+print(modern)
+#dataFile <- "C:\\Users\\colem\\SummerResearch2022\\Yeast Resources\\Pairwise\\Spell\\Test\\Regular430_20x1_fold1_Val.csv"
+graphName <- "2007 Datasets vs 20022 Datasets"
+pdf("DatasetsComparison_ROC.pdf",width=6,height=6)
+ensembleROC(original=original,modern=modern,graphName=graphName)
+dev.off()
+

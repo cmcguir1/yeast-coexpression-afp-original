@@ -68,7 +68,8 @@ class YeastGraph(PairwiseModel):
         self.batch = len(self.pairs)
 
     #Passes all gene pairs through network, then saves a data table of their outputs
-    def feedForward(self,fileLocation,save=True,fold=None):
+    def feedForward(self,fileLocation,save=True,fold=None,limitPairs=None):
+        self.limitPiars = limitPairs
         #If a no fold is specified, calculate all folds, then combine them together into one file
         if fold == None:
             #This should be restructures to let you pick a network to feed forward so it can be parallelized
@@ -104,6 +105,8 @@ class YeastGraph(PairwiseModel):
         
     def forward(self,net,fold):
         with torch.no_grad():  
+    
+
             #Loop over all networks, for each network, feed forward all gene pairs from the validation fold assocaited with that network
             #Get the gene data from fold of network i
             posTrain,negTrain,posVal,negVal = self.data.getFold(fold)
@@ -111,7 +114,7 @@ class YeastGraph(PairwiseModel):
             posPairs = self.makePosPairs(posVal,np.concatenate([posVal,posTrain]))
             negPairs = self.makePosPairs(negVal,np.concatenate([posVal,posTrain]))
             agnPairs = self.agnPairs
-            pairs = np.concatenate([posPairs,negPairs,agnPairs],0)
+            pairs = np.concatenate([posPairs,negPairs,agnPairs],0)[:1000]
 
             #Feed positive pairs through netowrk
             outputsList = []
@@ -130,7 +133,7 @@ class YeastGraph(PairwiseModel):
             pd.DataFrame(outputsTable,columns=['Gene A','Gene B','Score']).to_csv(f'{self.path}/PosPairsFold{fold+1}.csv',index=False)
 
             #Get all agnositc apirs
-            agnPairs = self.agnPairs
+            agnPairs = self.agnPairs[:1000]
             agnOutputsList = []
             #Feed all agnositc pairs through network
             for i, pair in enumerate(agnPairs,0):
