@@ -19,15 +19,15 @@ def main():
     
     # jin = AllGoModel(0,'./Yeast Resources/Datasets/All Spell/complexgeneFolds1.csv',20,'ComplexTest','AllGoTest')
     # jin.trainNetwork(2)
-    modelData = PairwiseYeastData(f'Yeast Resources/Datasets/All Spell/original',4,subset=200000,numDatasets=113,statsDictLoc='./Yeast Resources/Datasets/All Spell/revisedStatsDict.csv',recalc=False,foldFile='./Yeast Resources/Datasets/All Spell/GeneFolds3.csv',posGenes='./Yeast Resources/positives_00_go04-15-07.txt',negGenes='./Yeast Resources/negatives_00_go04-15-07.txt',recur=False,sort=False)
-    # model = PairwiseModel(modelData,int(sys.argv[1]),f'{sys.argv[2]}x1','Spell/OriginalRerun',f'Original')
-    # model.trainNetwork(10000,printLoss=True)
-    # model.testNetworkTraining(limitNegative=True)
-    # model.testNetworkValidation(limitNegative=True)
+    # modelData = PairwiseYeastData(f'Yeast Resources/Datasets/All Spell/original',4,subset=200000,numDatasets=113,statsDictLoc='./Yeast Resources/Datasets/All Spell/revisedStatsDict.csv',recalc=False,foldFile='./Yeast Resources/Datasets/All Spell/GeneFolds3.csv',posGenes='./Yeast Resources/positives_00_go04-15-07.txt',negGenes='./Yeast Resources/negatives_00_go04-15-07.txt',recur=False,sort=False)
+    # # model = PairwiseModel(modelData,int(sys.argv[1]),f'{sys.argv[2]}x1','Spell/OriginalRerun',f'Original')
+    # # model.trainNetwork(10000,printLoss=True)
+    # # model.testNetworkTraining(limitNegative=True)
+    # # model.testNetworkValidation(limitNegative=True)
 
-    graph = YeastGraph(f'./Yeast Resources/Pairwise/Spell/OriginalRerun/Original_{20}x1_Net_fold',modelData,f'113x{20}x1',folder=f'Original_113x{20}x1',posFile='./Yeast Resources/positives_00_go04-15-07.txt',negFile='./Yeast Resources/negatives_00_go04-15-07.txt',agnFile='./Yeast Resources/agnostic_01_underannotated.txt',includeAll=False)
-    #graph.compareFolds('./Yeast Resources/GraphResults/Test/FoldComparison.csv',cutoff=4000)
-    graph.compareGOTerms('./Yeast Resources/positives_00_go04-15-07.txt','./Yeast Resources/GeneSets/GO0006302_Pos.txt')
+    # graph = YeastGraph(f'./Yeast Resources/Pairwise/Spell/OriginalRerun/Original_{20}x1_Net_fold',modelData,f'113x{20}x1',folder=f'Original_113x{20}x1',posFile='./Yeast Resources/positives_00_go04-15-07.txt',negFile='./Yeast Resources/negatives_00_go04-15-07.txt',agnFile='./Yeast Resources/agnostic_01_underannotated.txt',includeAll=False)
+    # #graph.compareFolds('./Yeast Resources/GraphResults/Test/FoldComparison.csv',cutoff=4000)
+    # graph.compareGOTerms('./Yeast Resources/positives_00_go04-15-07.txt','./Yeast Resources/GeneSets/GO0006302_Pos.txt')
     # graph.feedForward(f'Original_113x{sys.argv[2]}x1_Pairs.csv',fold=int(sys.argv[1]))
     # graph.recombineFolds(f'PosPairsFold','AgnPairsFold',f'Original_113x{sys.argv[2]}x1_Pairs.csv')
     # graph.rankGenes(f'Original_113x{sys.argv[2]}x1_Ranked.csv')
@@ -70,17 +70,18 @@ def main():
     # print(f'Overhead : {(time.time()-start)/60}')
     # complexModel.trainNetwork(10000,printLoss=True)
 
+    allModel = AllGoModel(0,'20','Test','TestAll',4)
+    # allModel.vectorizeTestSpeed(1000)
+    # allModel.linearTestSpeed(1000)
+    # allModel.executorTestSpeed(3000,numThreads=10)
+    # allModel.threadsTestSpeed(10000,numThreads=10)
+    # allModel.threadsTestSpeed(5000,numThreads=20)
 
-
+    allModel.testSpeedOfBatch(100)
+    
     
 
 
-
-
-
-
-
-    
 
 if __name__ == '__main__':
     main()

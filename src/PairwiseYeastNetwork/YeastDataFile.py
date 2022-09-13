@@ -60,7 +60,6 @@ class YeastDataFile():
             #np.random.shuffle(pairs)
             #Take first subset gene pairs as sample
             sub = pairs[0:subset]
-            print(sub)
             #Intialize empty correlations list
             correlations = []
             #Loop over all pairs in subset

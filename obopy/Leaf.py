@@ -32,7 +32,7 @@ def getYORF(genes):
                 yorfList.append(name)
     return yorfList
 
-#Get all GO terms that are leaves
+#Get all GO terms that are leaves, each leaf being a tuple of the leaf term name and a set of all genes annotated to that term
 def getLeaves(cutoff):
     #Initialize a gene ontology
     go = Ontology('./obopy/goslim_yeast.obo','./obopy/sgd.gaf',loadLocal=True)

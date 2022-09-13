@@ -1,3 +1,5 @@
+#Graphs histogram comparing the confidences of positive-positive gene pairs to positive negative gene pairs
+
 comparePosNegPairs <- function(posFile,negFile) {
   posPairs <- read.csv(posFile)
   negPairs <- read.csv(negFile)
@@ -33,6 +35,6 @@ comparePosNegPairs <- function(posFile,negFile) {
 
 pos <- "C:\\Users\\colem\\SummerResearch2022\\Yeast Resources\\GraphResults\\Original_113x20x1\\Original_113x20x1_Pairs_PosPairs.csv"
 neg <- "C:\\Users\\colem\\SummerResearch2022\\Yeast Resources\\GraphResults\\Original_113x20x1\\Original_113x20x1_Pairs_NegPairs.csv"
-pdf("PairsConfidenceDist.pdf",width=6,height=6)
+#pdf("PairsConfidenceDist.pdf",width=6,height=6)
 comparePosNegPairs(posFile=pos,negFile=neg)
-dev.off()
+#dev.off()

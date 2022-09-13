@@ -1,3 +1,4 @@
+#Graphs distributiuons of the correlations between positive, negative, and agnostic gene pairs
 
 plotCorr <- function(file,graphName) {
   table <- read.csv(file)
