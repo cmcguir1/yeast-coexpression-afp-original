@@ -1,7 +1,10 @@
+import string
+from tokenize import String
 import numpy as np
 
-numbers = [0,1,2,3,4,5,6,7,8,9]
+lst = [1,2,3,np.nan,5]
+lst2 = ["Hello","What","Cole"]
+arr = np.array(lst2,dtype='<U5')
 
-lst2d = [[y+x for y in range(5)] for x in range(5)]
-
-print(lst2d)
+print(arr)
+print(arr.dtype)

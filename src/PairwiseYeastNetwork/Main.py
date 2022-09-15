@@ -77,7 +77,7 @@ def main():
     # allModel.threadsTestSpeed(10000,numThreads=10)
     # allModel.threadsTestSpeed(5000,numThreads=20)
 
-    allModel.testSpeedOfBatch(100)
+    allModel.testSpeedOfBatch(500)
     
     
 

@@ -87,38 +87,44 @@ class YeastDataFile():
             geneB = self.geneDict[genePair[1]]
             validIndicies = []
             #Loop over all elements of geneA and geneB, and append the index of each element to a list if both elements are valid
-            geneSetA = set()
-            geneSetB = set()
-            for i in range(len(geneA)):
-                geneSetA.add(geneA[i])
-                geneSetB.add(geneB[i])
+            
+            def validIndex(gA,gB,index):
+                not(math.isnan(gA[index]) or gA[index] == 1.0 or gA[index] == 0.0 or math.isnan(gB[index]) or gB[index] == 1.0 or gB[index] == 0.0)
+
+            geneSetA = {geneA[i] for i in range(len(geneA))}
+            geneSetB = {geneB[i] for i in range(len(geneB))}
+            validIndicies = [i for i in range (len(geneA)) if validIndex(geneA,geneB,i)]
+            
+            #Previous implementation of creating valid indicies list
+
+            # geneSetA = set()
+            # geneSetB = set()
+            # for i in range(len(geneA)):
+            #     geneSetA.add(geneA[i])
+            #     geneSetB.add(geneB[i])
                 
-                if not(math.isnan(geneA[i]) or geneA[i] == 1.0 or geneA[i] == 0.0 or math.isnan(geneB[i]) or geneB[i] == 1.0 or geneB[i] == 0.0):
-                    validIndicies.append(i)
+            #     if not(math.isnan(geneA[i]) or geneA[i] == 1.0 or geneA[i] == 0.0 or math.isnan(geneB[i]) or geneB[i] == 1.0 or geneB[i] == 0.0):
+            #         validIndicies.append(i)
                 
             #If there are half or less valid indicies, return 0
             if len(validIndicies) <= float(len(geneA)) / 2.0 or len(geneSetA) == 1 or len(geneSetB) == 1:
                 return 0.0
             #Otherwise, construct filtered arrays for gene A and B, then return their pearson correlation
             else:
-                geneAList = []
-                geneBList = []
-                for index in validIndicies:
-                    geneAList.append(geneA[index])
-                    geneBList.append(geneB[index])
-                geneAFilter = np.array(geneAList)
-                geneBFilter = np.array(geneBList)
+                #Previous implementatoin of filtering gene A and B arrays
+
+                # geneAList = []
+                # geneBList = []
+                # for index in validIndicies:
+                #     geneAList.append(geneA[index])
+                #     geneBList.append(geneB[index])
+                # geneAFilter = np.array(geneAList)
+                # geneBFilter = np.array(geneBList)
+
+                geneAFilter = np.array([geneA[index] for index in validIndicies],dtype=float)
+                geneBFilter = np.array([geneB[index] for index in validIndicies],dtype=float)
                 if(np.std(geneAFilter) == 0 or np.std(geneBFilter) == 0):
                     return 0.0
-                # if(np.corrcoef(geneAFilter,geneBFilter)[1,0] == np.nan):
-                #     print(f'Gene List A: {geneAList}')
-                #     print(f'Gene List B: {geneBList}')
-                #     print(f'Gene Array A: {geneAFilter}')
-                #     print(f'Gene Array B: {geneBFilter}')
-                #     print(f'Corr Coeff: {np.corrcoef(geneAFilter,geneBFilter)[1,0]}')
-                # print(f'Gene A Filter: {geneAFilter}')
-                # print(f'Gene B Filter:{geneBFilter}')
-                # print(f'Correlation: {np.corrcoef(geneAFilter,geneBFilter)[1,0]}')
                 return np.corrcoef(geneAFilter,geneBFilter)[1,0]
         #If gene pair is not in this dataset's dictionary, return 0, i. e. there is no correlation between these genes
         else:

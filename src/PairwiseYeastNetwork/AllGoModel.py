@@ -1,3 +1,4 @@
+import string
 import pandas as pd
 import numpy as np
 from FlexNet import FlexNet
@@ -56,8 +57,8 @@ class AllGoModel():
                 train.append(gene[0])
     
         #Make instance varaibles of array of training genes and array of validation genes
-        self.training = np.array(train)
-        self.validation = np.array(val)
+        self.training = np.array(train,dtype='<U5')
+        self.validation = np.array(val,dtype='<U5')
 
         print('Initialized training and validation data')
 
@@ -147,38 +148,61 @@ class AllGoModel():
         return pairs[np.random.choice(len(pairs),self.batch,replace=False),:]
 
     def makeBatchTensors(self,batchArray):
-        featureList = []
-        labelsList = []
-        #Loop over all gene pairs in the batcharray
-        for genePair in batchArray:
-            corrList = []
-            #Calculate correlation coefficients for each dataset
-            for dataset in self.datasets:
-                rho = dataset.customCorrelation(genePair)
-                #Adjust rho if 1 or -1 because of problems with fisher z transform
-                if rho == 1:
-                    rho = 0.99
-                elif rho == -1:
-                    rho = -0.99
-                corrList.append(rho)
-            # print(f'Corrlist: {corrList}')
-            featureList.append(corrList)
+        #Helper function for calculating correlations in list comprehension
+        def calcCorr(d,gp):
+            rho = d.customCorrelation(gp)
+            #Adjust rho if 1 or -1 because of problems with fisher z transform
+            if rho == 1:
+                rho = 0.99
+            elif rho == -1:
+                rho = -0.99
+            return rho 
+        
+        def calcLabel(l,gpair):
+            #If both genes are annotated to that GO term, return 1, otherwise, return 0
+            if gpair[0] in l[1] and gpair[1] in l[1]:
+                return 1
+            else:
+                return 0
 
-            #Loop over all GO terms in slim
-            label = []
-            for leaf in self.leaves:
-                #If both genes are annotated to that GO term, append 1 to label list
-                if genePair[0] in leaf[1] and genePair[1] in leaf[1]:
-                    label.append(1)
-                #Otherwise, append 0
-                else:
-                    label.append(0)
-            labelsList.append(label)
+        features = torch.tensor([[calcCorr(dataset,genePair) for dataset in self.datasets] for genePair in batchArray],dtype=float)
+        labels = torch.tensor([[calcLabel(leaf,genePair) for leaf in self.leaves] for genePair in batchArray],dtype=float)
+        return (features,labels)
+        
+        #Previous implementation of makeBatchTensors using for loops
 
-        #Convert both list to tensors, then return them as a tuple
-        featureTensor = torch.tensor(featureList)
-        labelsTensor = torch.tensor(labelsList)
-        return (featureTensor,labelsTensor)
+        # featureList = []
+        # labelsList = []
+        # #Loop over all gene pairs in the batcharray
+        # for genePair in batchArray:
+        #     corrList = []
+        #     #Calculate correlation coefficients for each dataset
+        #     for dataset in self.datasets:
+        #         rho = dataset.customCorrelation(genePair)
+        #         #Adjust rho if 1 or -1 because of problems with fisher z transform
+        #         if rho == 1:
+        #             rho = 0.99
+        #         elif rho == -1:
+        #             rho = -0.99
+        #         corrList.append(rho)
+        #     # print(f'Corrlist: {corrList}')
+        #     featureList.append(corrList)
+
+        #     #Loop over all GO terms in slim
+        #     label = []
+        #     for leaf in self.leaves:
+        #         #If both genes are annotated to that GO term, append 1 to label list
+        #         if genePair[0] in leaf[1] and genePair[1] in leaf[1]:
+        #             label.append(1)
+        #         #Otherwise, append 0
+        #         else:
+        #             label.append(0)
+        #     labelsList.append(label)
+
+        # #Convert both list to tensors, then return them as a tuple
+        # featureTensor = torch.tensor(featureList)
+        # labelsTensor = torch.tensor(labelsList)
+        # return (featureTensor,labelsTensor)
         
 
         
@@ -188,12 +212,18 @@ class AllGoModel():
     def makePairs(self,genes):
         pairs = []
         #Loop over all genes
-        for i in range(len(genes)):
-            #Loop over all genes after gene i, this will result in there being no duplicates
-            for j in range(i+1,len(genes)):
-                #Append a tuple of (gene i, gene j)
-                pairs.append((genes[i],genes[j]))
-        return np.array(pairs)
+        arr = np.array([(genes[i],genes[j]) for i in range(len(genes)) for j in range(i+1,len(genes))],dtype='<U5')
+        return arr
+        
+        
+        #Previous implementation of makePairs
+
+        # for i in range(len(genes)):
+        #     #Loop over all genes after gene i, this will result in there being no duplicates
+        #     for j in range(i+1,len(genes)):
+        #         #Append a tuple of (gene i, gene j)
+        #         pairs.append((genes[i],genes[j]))
+        # return np.array(pairs)
 
 
     def parallelCalc(self,pairs,startIdx,start,threadLabel):
