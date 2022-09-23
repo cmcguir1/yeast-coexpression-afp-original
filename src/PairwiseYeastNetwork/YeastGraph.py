@@ -32,6 +32,7 @@ class YeastGraph(PairwiseModel):
 
     
         #Creates a list of networks, each which trained on a different fold
+        print('Starting to Initialize Networks')
         self.nets = []
         self.device = 'cuda:0' if torch.cuda.is_available() else 'cpu'
         for i in range(numfolds):
@@ -41,12 +42,15 @@ class YeastGraph(PairwiseModel):
             self.nets.append(net)
 
         #Intialize pos, neg, and agn gene arrays, then concatentate them together
+        print("Initializing genes")
         posTrain,negTrain,posVal,negVal = self.data.getFold(0)
 
         self.posGenes = np.concatenate([posTrain,posVal])
         self.negGenes = pd.read_csv(negFile).to_numpy().flatten()
         self.agnGenes = pd.read_csv(agnFile).to_numpy().flatten()
+
         self.genes = np.concatenate([self.posGenes,self.negGenes,self.agnGenes],0)
+        print(f'Number of Genes: {len(self.genes)}')
         #If includeAll is true, make every gene pair
         if(includeAll):
             self.pairs = self.makePairs(self.genes)
@@ -406,4 +410,7 @@ class YeastGraph(PairwiseModel):
             if not(genePair[0] in self.agnSet):
                 filteredTable.append(genePair)
         pd.DataFrame(filteredTable,columns=['Gene A','Gene B','Score']).to_csv(filePath,index=False)
+
+    def saveGenesToCSV(self,location):
+        pd.DataFrame(self.genes).to_csv(location,index=False)
 

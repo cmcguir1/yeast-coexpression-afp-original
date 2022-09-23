@@ -9,6 +9,7 @@ from ComplexModel import ComplexModel
 import pandas as pd
 import torch
 from AllGoModel import AllGoModel
+from CorrelationDictionary import CorrelationDictionary
 import os
 
 # This import should fix the ssl import verificiation error
@@ -53,10 +54,12 @@ def main():
     #     model.trainNetwork(epoch,printLoss=True,regularize=False)
     #     model.testNetworkValidation(regularize=False,limitNegative=True)
 
-    #data = PairwiseYeastData('./Yeast Resources/Datasets/Primig and Brem',4,'./Yeast Resources/Datasets/All Spell/GeneFolds1.csv',sort=False,recur=False,numDatasets=430,subset=10000)
-    # graph = YeastGraph('./Yeast Networks/Spell/Test/Regular430_20x1_fold1_Val.pth',modelData,'430x20x1',posFile='./Yeast Resources/test_positives.txt',negFile='./Yeast Resources/test_negatives.txt',agnFile='./Yeast Resources/test_agnostics.txt')
+    # data = PairwiseYeastData('./Yeast Resources/Datasets/Primig and Brem',4,'./Yeast Resources/Datasets/All Spell/GeneFolds1.csv',sort=False,recur=False,numDatasets=430,subset=10000)
+    # graph = YeastGraph('./Yeast Networks/Spell/Test/Regular430_20x1_fold1_Val.pth',data,'430x20x1',posFile='./Yeast Resources/test_positives.txt',negFile='./Yeast Resources/test_negatives.txt',agnFile='./Yeast Resources/test_agnostics.txt')
     # graph.feedForward('./Yeast Resources/Test_Graph.csv')
     # graph.rankGenes('./Yeast Resources/Test_Rank.csv')
+    # graph.saveGenesToCSV('./src/PairwiseYeastNetwork/allGenes.csv')
+
 
     # dataArray = np.array([[13,5],[12,23],[20,21]])
     # print(dataArray)
@@ -70,16 +73,25 @@ def main():
     # print(f'Overhead : {(time.time()-start)/60}')
     # complexModel.trainNetwork(10000,printLoss=True)
 
-    allModel = AllGoModel(0,'20','Test','TestAll',4)
+    # allModel = AllGoModel(0,'20','Test','TestAll',4)
     # allModel.vectorizeTestSpeed(1000)
     # allModel.linearTestSpeed(1000)
     # allModel.executorTestSpeed(3000,numThreads=10)
     # allModel.threadsTestSpeed(10000,numThreads=10)
     # allModel.threadsTestSpeed(5000,numThreads=20)
 
-    allModel.testSpeedOfBatch(500)
+    #allModel.testSpeedOfBatch(500)
+    # allModel.saveGenesToCSV()
     
+    # data = PairwiseYeastData(f'Yeast Resources/Datasets/All Spell/all spell datasets',4,subset=200000,numDatasets=430,statsDictLoc='./Yeast Resources/Datasets/All Spell/revisedStatsDict.csv',recalc=False,foldFile='./Yeast Resources/Datasets/All Spell/GeneFolds3.csv',posGenes='./Yeast Resources/positives_00_go04-15-07.txt',negGenes='./Yeast Resources/negatives_00_go04-15-07.txt',recur=True,sort=False)
+    # print('Finsihed Initializing Data')
+    # graph = YeastGraph(f'./Yeast Resources/Pairwise/Spell/430Standard/Regular_20x1_Net_fold',data,f'430x20x1',folder=f'Standard_430x20x1',posFile='./Yeast Resources/positives_00_go04-15-07.txt',negFile='./Yeast Resources/negatives_00_go04-15-07.txt',agnFile='./Yeast Resources/agnostic_01_underannotated.txt',includeAll=False)
+    # print('Finished Initializing Network')
+    # graph.saveGenesToCSV('./src/PairwiseYeastNetwork/allGenes.csv')
     
+    corr = CorrelationDictionary()
+    dataset = corr.expDataset.datasets[int(sys.argv[2])]
+    corr.calculateDataset(datasetIndex=int(sys.argv[2]),location=f'./{sys.argv[1]}/{dataset.dataFile}_corrDict.dat')
 
 
 

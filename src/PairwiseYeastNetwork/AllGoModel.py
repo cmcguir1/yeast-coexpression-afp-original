@@ -1,4 +1,4 @@
-import string
+
 import pandas as pd
 import numpy as np
 from FlexNet import FlexNet
@@ -317,6 +317,9 @@ class AllGoModel():
             arr = self.makeBatchArray(pairs)
             features, labels = self.makeBatchTensors(arr)
         print(f'Time to calculate {numBatches} 20 pair batches: {(time.time()-start)/60} minutes')
+
+    def saveGenesToCSV(self,location):
+        pd.DataFrame(np.concatenate((self.training,self.validation),axis=0)).to_csv(location,index=False)
 
 
 
