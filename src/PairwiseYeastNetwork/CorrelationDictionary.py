@@ -20,7 +20,7 @@ class CorrelationDictionary():
         self.expDataset = ExpressionDatasets('./Yeast Resources/Datasets/All Spell/all spell datasets',sort=True,recur=True,recalc=False,statsDictLoc='./Yeast Resources/Datasets/All Spell/revisedStatsDict.csv')
 
     def calculateDataset(self,datasetIndex,location='./MemoryMapTest.dat'):
-        memMap = np.memmap(location,dtype='float32',mode='w+',shape=(len(self.datasets),(self.geneNumber*self.geneNumber - sum(range(self.geneNumber))) + self.geneNumber))
+        memMap = np.memmap(location,dtype='float32',mode='w+',shape=((self.geneNumber*self.geneNumber - sum(range(self.geneNumber))) + self.geneNumber,))
         for pair in self.pairs:
             # print(pair)
             memMap[self.calcIndex(pair[0],pair[1])] = self.expDataset.datasets[datasetIndex].customCorrelation(pair)
