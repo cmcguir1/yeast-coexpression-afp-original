@@ -1,4 +1,7 @@
 
+from re import L
+from site import makepath
+import statistics
 import pandas as pd
 import numpy as np
 from FlexNet import FlexNet
@@ -25,6 +28,10 @@ class AllGoModel():
     def __init__(self,fold,structure,saveLocation,modelName,numFolds=4,lr=0.01,momentum=0.9,batch=50,foldFile=''):
         #getLeaves returns a list of tuple of (GO Term,{set of genes})
         self.leaves = getLeaves(10)
+
+        # pd.DataFrame([[leaf[0],i] for i, leaf in enumerate(self.leaves)],columns=['GO Term','Index']).to_csv('./src/PairwiseYeastNetwork/GOTermIndexDictionary.csv',index=False)
+        GoTerms = pd.read_csv('./src/PairwiseYeastNetwork/GOTermIndexDictionary.csv').to_numpy()
+        self.GOTermDict = {term[0]: term[1] for term in GoTerms}
 
         #Lists that will store the training and validation data
         val = []
@@ -92,8 +99,21 @@ class AllGoModel():
         #Locations to save all output data
         self.networkLoc = f'./Yeast Resources/Pairwise/Spell/{saveLocation}/{modelName}_{struct}_Net_fold{self.fold+1}.csv'
         self.lossLoc = f'./Yeast Resources/Pairwise/Spell/{saveLocation}/{modelName}_{struct}_Loss_fold{self.fold+1}.csv'
-        self.trainLoc = f'./Yeast Resources/Pairwise/Spell/{saveLocation}/{modelName}_{struct}_Train_fold{self.fold+1}.csv'
-        self.testLoc = f'./Yeast Resources/Pairwise/Spell/{saveLocation}/{modelName}_{struct}_Test_fold{self.fold+1}.csv'
+        #The locations for the testing and training data will be folder because they will be storing a csv file for each GO term
+        self.trainLoc = f'./Yeast Resources/Pairwise/Spell/{saveLocation}/{modelName}_{struct}_Train_fold{self.fold+1}/'
+        self.testLoc = f'./Yeast Resources/Pairwise/Spell/{saveLocation}/{modelName}_{struct}_Test_fold{self.fold+1}/'
+
+        #These three conditional check if the folder that the output data will be stored exist, and if not, construct those folders
+        if not os.path.exists(f'./Yeast Resources/Pairwise/Spell/{saveLocation}'):
+            os.mkdir(f'./Yeast Resources/Pairwise/Spell/{saveLocation}')
+        
+        if not os.path.exists(self.testLoc):
+            os.mkdir(self.testLoc)
+
+        if not os.path.exists(self.trainLoc):
+            os.mkdir(self.trainLoc)
+
+        
 
     def trainNetwork(self,epochs):
         #Initialize all pairs of training genes
@@ -138,7 +158,96 @@ class AllGoModel():
 
     def testNetwork(self):
         with torch.no_grad():
-            pass
+            for i, pair in enumerate(self.makePairs(self.validation)):
+                features, labels = self.makeBatchTensors([pair])
+                features = features.to(self.device)
+                ouputs = self.net(features.float(),test=True)
+
+    def testNetworkAll(self,proportionNeg=10):
+        with torch.no_grad():
+            
+            def calcPair(pair,termIndex):
+                features, labels = self.makeBatchTensors(np.array([pair]))
+                features = features.to(self.device)
+                outputs = np.array(self.net(features.float(),test=True).cpu(),dtype='float32')
+                labels = np.array(labels,dtype=np.intc)
+                # print(f'Shape of Labels: {labels.shape}')
+                # print(f'Shape of Outputs: {outputs.shape}')
+                return([pair[0],pair[1],labels[0,termIndex],outputs[0,termIndex]])
+
+            def calcStats(data):
+                def calcMatrix(tp,tn,fp,fn):
+                    accuracy = (tp+tn) / (tp+fn+fp+tn)
+                    precision = 1 if (tp+fp) == 0 else tp / (tp+fp)
+                    recall = 1 if (tp+fn) == 0 else tp / (tp+fn)
+                    falsePositiveRate = fn / (fp+tn)
+                    selectivity = tn / (tn+fp)
+                    return [accuracy,precision,recall,falsePositiveRate,selectivity]
+                
+                sortedData = data[data[:,3].argsort()[::-1]]
+                falseNeg = len([genePair for genePair in sortedData if genePair[2] == 1])
+                truePos = 0
+                trueNeg = len(sortedData) - falseNeg
+                falsePos = 0
+                
+
+                # statistics = [[truePos,falseNeg,trueNeg,falsePos] + calcMatrix(tp=truePos,tn=trueNeg,fp=falsePos,fn=falseNeg)]
+                statistics =[]
+                for genePair in sortedData:
+                    if genePair[2] == 1:
+                        truePos += 1
+                        falseNeg -= 1
+                    else:
+                        trueNeg -= 1
+                        falsePos += 1
+                    statistics.append([truePos,falseNeg,trueNeg,falsePos] + calcMatrix(tp=truePos,tn=trueNeg,fp=falsePos,fn=falseNeg))
+                
+                return np.array(statistics,dtype='float32')
+            
+            def averagePrecision(inputArray):
+                precisionArray = np.copy(inputArray)
+                for i in range(len(precisionArray)-1,0,-1):
+                    if precisionArray[i] > precisionArray[i-1]:
+                        precisionArray[i-1] = precisionArray[i]
+                return np.mean(precisionArray)
+
+            print("Began Testing the Network")
+            allPairs = set([(pair[0],pair[1]) for pair in self.makePairs(self.validation)])
+            leafStatsDist = []
+            columnNames = ['Gene A','Gene B','Label','Confidence','True Positive','False Negative','True Negative','False Positive','accuracy','precision','recall','falsePositiveRate','selectivity']
+            for i, leaf in enumerate(self.leaves):
+                print(f'Testing GO Term {i} / {len(self.leaves)}')
+                posGenes = [gene for gene in self.validation if gene in leaf[1]]
+                if len(posGenes) == 0:
+                    posGenes = list(leaf[1])
+                posPairs = self.makePairs(np.array(posGenes))
+                negPairs = np.array([[pair[0],pair[1]] for pair in allPairs - set([(pair[0],pair[1]) for pair in posPairs])])
+                
+                np.random.shuffle(negPairs)
+                negPairs = negPairs[:len(posPairs)*proportionNeg]
+                # print(posPairs[0])
+                # print(negPairs[0])
+                testingPairs = np.concatenate([posPairs,negPairs])
+
+                #Calculate the data for a term
+                termData = np.array([calcPair(pair,self.GOTermDict[leaf[0]]) for pair in testingPairs],dtype=object)
+                
+                stats = calcStats(termData)
+                termResults = np.concatenate([termData,stats],axis=1)
+                leafStatsDist.append([leaf[0],np.mean(termResults[:,11]),averagePrecision(termResults[:,9])])
+                goTerm = leaf[0].replace(':','-')
+                pd.DataFrame(termResults,columns=columnNames).to_csv(f'{self.testLoc}/{goTerm}_stats.csv',index=False)
+            
+            pd.DataFrame(leafStatsDist,columns=['GO Term','AUC','Average Precision']).to_csv(f'{self.testLoc}/GOTermDistribution.csv',index=False)
+            
+            
+
+            
+
+
+
+
+
             
             
 

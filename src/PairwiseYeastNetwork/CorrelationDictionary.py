@@ -33,4 +33,4 @@ class CorrelationDictionary():
         else:
             col = self.indexDict[gene1]
             row = self.indexDict[gene2]
-        return (self.geneNumber * self.geneNumber - sum(range(col))) + row
+        return (col * self.geneNumber - sum(range(col))) + row
