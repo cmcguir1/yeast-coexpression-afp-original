@@ -240,16 +240,7 @@ class AllGoModel():
             
             pd.DataFrame(leafStatsDist,columns=['GO Term','AUC','Average Precision']).to_csv(f'{self.testLoc}/GOTermDistribution.csv',index=False)
             
-            
 
-            
-
-
-
-
-
-            
-            
 
     #Makes input batches with pairs of genes, each pair being a list of two strings
     def makeBatchArray(self,pairs):

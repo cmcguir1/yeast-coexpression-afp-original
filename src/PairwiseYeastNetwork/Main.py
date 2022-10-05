@@ -58,11 +58,12 @@ def main():
     # graph.saveGenesToCSV('./src/PairwiseYeastNetwork/allGenes.csv')
     
     corr = CorrelationDictionary()
-    print(len(corr.expDataset.datasets))
-    for i in range(int(sys.argv[2]),int(sys.argv[2])+50):
-        if i < 430:
-            dataset = corr.expDataset.datasets[i]
-            corr.calculateDataset(datasetIndex=i,location=f'{sys.argv[1]}/{dataset.dataFile}_corrDict.dat')
+    corr.unifyCorrelations('/home/cmcguir1/data/YeastMemMap/YeastCorrDictionary.dat')
+    # print(len(corr.expDataset.datasets))
+    # for i in range(int(sys.argv[2]),int(sys.argv[2])+50):
+    #     if i < 430:
+    #         dataset = corr.expDataset.datasets[i]
+    #         corr.calculateDataset(datasetIndex=i,location=f'{sys.argv[1]}/{dataset.dataFile}_corrDict.dat')
 
 
 

@@ -34,3 +34,9 @@ class CorrelationDictionary():
             col = self.indexDict[gene1]
             row = self.indexDict[gene2]
         return (col * self.geneNumber - sum(range(col))) + row
+
+    def unifyCorrelations(self,absLocation):
+        memMap = np.memmap(absLocation,'float32',mode='w+',shape =(len(self.datasets),(self.geneNumber*self.geneNumber - sum(range(self.geneNumber))) + self.geneNumber))
+        for dataset, index in self.datasetsDict:
+            memMap[self.expDataset[dataset]] = np.memmap(f'/home/cmcguir1/YeastMemMap/{dataset}_corrDict.dat',mode='w+',shape=((self.geneNumber*self.geneNumber - sum(range(self.geneNumber))) + self.geneNumber,))
+            memMap.flush()
