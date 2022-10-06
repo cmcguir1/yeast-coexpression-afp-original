@@ -1,5 +1,4 @@
-
-from re import L
+from CorrelationDictionary import CorrelationDictionary
 from site import makepath
 import statistics
 import pandas as pd
@@ -25,7 +24,7 @@ from Leaf import getLeaves
 
 
 class AllGoModel():
-    def __init__(self,fold,structure,saveLocation,modelName,numFolds=4,lr=0.01,momentum=0.9,batch=50,foldFile=''):
+    def __init__(self,fold,structure,folderName,modelName,numFolds=4,lr=0.01,momentum=0.9,batch=50,foldFile=''):
         #getLeaves returns a list of tuple of (GO Term,{set of genes})
         self.leaves = getLeaves(10)
 
@@ -64,17 +63,22 @@ class AllGoModel():
                 train.append(gene[0])
     
         #Make instance varaibles of array of training genes and array of validation genes
-        self.training = np.array(train,dtype='<U5')
-        self.validation = np.array(val,dtype='<U5')
+        self.training = np.array(train)
+        
+        self.validation = np.array(val)
 
         print('Initialized training and validation data')
 
 
         
-
+        #Correlations Dictionary that will be retrieve precalculated correlation values
+        # self.corrDict = CorrelationDictionary()
+        # self.datasets = self.corrDict.datasets
         
         #Initialize all expression data as a list of maps {gene -> expression array}
         self.datasets = ExpressionDatasets('./Yeast Resources/Datasets/All Spell/all spell datasets',recur=True,statsDictLoc='./Yeast Resources/Datasets/All Spell/revisedStatsDict.csv').datasets
+
+      
 
         print('Initialized Expression Datasets')
 
@@ -97,15 +101,15 @@ class AllGoModel():
         self.fold = fold
 
         #Locations to save all output data
-        self.networkLoc = f'./Yeast Resources/Pairwise/Spell/{saveLocation}/{modelName}_{struct}_Net_fold{self.fold+1}.csv'
-        self.lossLoc = f'./Yeast Resources/Pairwise/Spell/{saveLocation}/{modelName}_{struct}_Loss_fold{self.fold+1}.csv'
+        self.networkLoc = f'./Yeast Resources/Pairwise/Spell/{folderName}/{modelName}_{struct}_Net_fold{self.fold+1}.csv'
+        self.lossLoc = f'./Yeast Resources/Pairwise/Spell/{folderName}/{modelName}_{struct}_Loss_fold{self.fold+1}.csv'
         #The locations for the testing and training data will be folder because they will be storing a csv file for each GO term
-        self.trainLoc = f'./Yeast Resources/Pairwise/Spell/{saveLocation}/{modelName}_{struct}_Train_fold{self.fold+1}/'
-        self.testLoc = f'./Yeast Resources/Pairwise/Spell/{saveLocation}/{modelName}_{struct}_Test_fold{self.fold+1}/'
+        self.trainLoc = f'./Yeast Resources/Pairwise/Spell/{folderName}/{modelName}_{struct}_Train_/'
+        self.testLoc = f'./Yeast Resources/Pairwise/Spell/{folderName}/{modelName}_{struct}_Test_/'
 
         #These three conditional check if the folder that the output data will be stored exist, and if not, construct those folders
-        if not os.path.exists(f'./Yeast Resources/Pairwise/Spell/{saveLocation}'):
-            os.mkdir(f'./Yeast Resources/Pairwise/Spell/{saveLocation}')
+        if not os.path.exists(f'./Yeast Resources/Pairwise/Spell/{folderName}'):
+            os.mkdir(f'./Yeast Resources/Pairwise/Spell/{folderName}')
         
         if not os.path.exists(self.testLoc):
             os.mkdir(self.testLoc)
@@ -118,6 +122,7 @@ class AllGoModel():
     def trainNetwork(self,epochs):
         #Initialize all pairs of training genes
         pairs = self.makePairs(self.training)
+        # print(f'Pairs: {pairs}')
 
         runningLoss = 0.0
         lossList = []
@@ -130,10 +135,11 @@ class AllGoModel():
             
             #Make batch array of gene pairs
             batchArray = self.makeBatchArray(pairs)
+            # print(f'Batch Array: {batchArray}')
             # print(f'Batch Array:\n{batchArray}')
             #Make features and labels tensors from batcharray
             features, labels = self.makeBatchTensors(batchArray)
-            print(f'Time to calculate correlations and create batches: {(time.time()-begin)/60}')
+            #print(f'Time to calculate correlations and create batches: {(time.time()-begin)/60}')
             begin = time.time()
             # print(f'Features:\n{features}')
             # print(f'Labels:\n{labels}')
@@ -145,16 +151,18 @@ class AllGoModel():
             loss = self.lossFunc(outputs.float(),labels.float())
             runningLoss += loss.item()
             loss.backward()
-            print(f'Time Feed forward and calculate loss: {(time.time()-begin)/60}')
+            #print(f'Time Feed forward and calculate loss: {(time.time()-begin)/60}')
             self.opt.step()
             
             if epoch % 100 == 0 and epoch != 0:
                 lossList.append(runningLoss)
+                print(f'100 Batch Cumulative Loss: {runningLoss}')
                 runningLoss = 0.0
-                # pd.DataFrame(lossList,columns=['Loss']).to_csv(self.lossLoc,index=False)
-                print(f'Time for 100 Batches: {(time.time()-start)/60}')
+                pd.DataFrame(lossList,columns=['Loss']).to_csv(self.lossLoc,index=False)
+                print(f'Time for 100 Batches: {(time.time()-start)/60}\n---------------------')
                 start = time.time()
-        self.net._save_to_state_dict(self.networkLoc)
+        torch.save(self.net.state_dict(),self.networkLoc)
+        #self.net._save_to_state_dict(self.networkLoc)
 
     def testNetwork(self):
         with torch.no_grad():
@@ -163,7 +171,7 @@ class AllGoModel():
                 features = features.to(self.device)
                 ouputs = self.net(features.float(),test=True)
 
-    def testNetworkAll(self,proportionNeg=10):
+    def testNetworkAll(self,proportionNeg=10,saveTerms={'GO:0007005'},runAll=True):
         with torch.no_grad():
             
             def calcPair(pair,termIndex):
@@ -217,28 +225,29 @@ class AllGoModel():
             columnNames = ['Gene A','Gene B','Label','Confidence','True Positive','False Negative','True Negative','False Positive','accuracy','precision','recall','falsePositiveRate','selectivity']
             for i, leaf in enumerate(self.leaves):
                 print(f'Testing GO Term {i} / {len(self.leaves)}')
-                posGenes = [gene for gene in self.validation if gene in leaf[1]]
-                if len(posGenes) == 0:
-                    posGenes = list(leaf[1])
-                posPairs = self.makePairs(np.array(posGenes))
-                negPairs = np.array([[pair[0],pair[1]] for pair in allPairs - set([(pair[0],pair[1]) for pair in posPairs])])
-                
-                np.random.shuffle(negPairs)
-                negPairs = negPairs[:len(posPairs)*proportionNeg]
-                # print(posPairs[0])
-                # print(negPairs[0])
-                testingPairs = np.concatenate([posPairs,negPairs])
+                if leaf[0] in saveTerms or runAll:
+                    posGenes = [gene for gene in self.validation if gene in leaf[1]]
+                    if len(posGenes) == 0:
+                        posGenes = list(leaf[1])
+                    posPairs = self.makePairs(np.array(posGenes))
+                    negPairs = np.array([[pair[0],pair[1]] for pair in allPairs - set([(pair[0],pair[1]) for pair in posPairs])])
+                    
+                    np.random.shuffle(negPairs)
+                    negPairs = negPairs[:len(posPairs)*proportionNeg]
+                    # print(posPairs[0])
+                    # print(negPairs[0])
+                    testingPairs = np.concatenate([posPairs,negPairs])
 
-                #Calculate the data for a term
-                termData = np.array([calcPair(pair,self.GOTermDict[leaf[0]]) for pair in testingPairs],dtype=object)
-                
-                stats = calcStats(termData)
-                termResults = np.concatenate([termData,stats],axis=1)
-                leafStatsDist.append([leaf[0],np.mean(termResults[:,11]),averagePrecision(termResults[:,9])])
-                goTerm = leaf[0].replace(':','-')
-                pd.DataFrame(termResults,columns=columnNames).to_csv(f'{self.testLoc}/{goTerm}_stats.csv',index=False)
-            
-            pd.DataFrame(leafStatsDist,columns=['GO Term','AUC','Average Precision']).to_csv(f'{self.testLoc}/GOTermDistribution.csv',index=False)
+                    #Calculate the data for a term
+                    termData = np.array([calcPair(pair,self.GOTermDict[leaf[0]]) for pair in testingPairs],dtype=object)
+                    
+                    stats = calcStats(termData)
+                    termResults = np.concatenate([termData,stats],axis=1)
+                    leafStatsDist.append([leaf[0],np.mean(termResults[:,11]),averagePrecision(termResults[:,9])])
+                    goTerm = leaf[0].replace(':','-')
+                    pd.DataFrame(termResults,columns=columnNames).to_csv(f'{self.testLoc}/{goTerm}_stats_fold{self.fold}.csv',index=False)
+            if runAll:
+                pd.DataFrame(leafStatsDist,columns=['GO Term','AUC','Average Precision']).to_csv(f'{self.testLoc}/GOTermDistribution.csv',index=False)
             
 
 
@@ -250,12 +259,19 @@ class AllGoModel():
     def makeBatchTensors(self,batchArray):
         #Helper function for calculating correlations in list comprehension
         def calcCorr(d,gp):
+            # gene1 = gp[0]
+            # gene2 = gp[1]
+            # rho = self.corrDict.lookupCorrelation(gene1,gene2,d)
+            # print(f'rho from pre-calculated coefficients: {rho}')
+
             rho = d.customCorrelation(gp)
+
             #Adjust rho if 1 or -1 because of problems with fisher z transform
             if rho == 1:
                 rho = 0.99
             elif rho == -1:
                 rho = -0.99
+            # print(f'rho: {rho}')
             return rho 
         
         def calcLabel(l,gpair):
@@ -267,6 +283,7 @@ class AllGoModel():
 
         features = torch.tensor([[calcCorr(dataset,genePair) for dataset in self.datasets] for genePair in batchArray],dtype=float)
         labels = torch.tensor([[calcLabel(leaf,genePair) for leaf in self.leaves] for genePair in batchArray],dtype=float)
+        # print(f'Features: {features}')
         return (features,labels)
         
         #Previous implementation of makeBatchTensors using for loops
@@ -312,7 +329,8 @@ class AllGoModel():
     def makePairs(self,genes):
         pairs = []
         #Loop over all genes
-        arr = np.array([(genes[i],genes[j]) for i in range(len(genes)) for j in range(i+1,len(genes))],dtype='<U5')
+        
+        arr = np.array([(genes[i],genes[j]) for i in range(len(genes)) for j in range(i+1,len(genes))])
         return arr
         
         

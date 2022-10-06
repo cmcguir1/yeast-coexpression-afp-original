@@ -81,19 +81,25 @@ class YeastDataFile():
             # print(f'Subset {subset} mean: {self.mean}')
 
     def customCorrelation(self,genePair):
+        
         #First checks if the gene pair is in this dataset's gene library
+        # print(f'{genePair[0]} in dataset : {genePair[0] in self.geneDict}\n{genePair[1]} in dataset : {genePair[1] in self.geneDict}')
         if(genePair[0] in self.geneDict and genePair[1] in self.geneDict):
+            # print('Are there any genes in side the dictionary')
             geneA = self.geneDict[genePair[0]]
             geneB = self.geneDict[genePair[1]]
+            #print(f'{genePair[0]} data: {geneA}\n{genePair[1]} data: {geneB}')
             validIndicies = []
             #Loop over all elements of geneA and geneB, and append the index of each element to a list if both elements are valid
             
             def validIndex(gA,gB,index):
-                not(math.isnan(gA[index]) or gA[index] == 1.0 or gA[index] == 0.0 or math.isnan(gB[index]) or gB[index] == 1.0 or gB[index] == 0.0)
+                return not(math.isnan(gA[index]) or gA[index] == 1.0 or gA[index] == 0.0 or math.isnan(gB[index]) or gB[index] == 1.0 or gB[index] == 0.0)
 
             geneSetA = {geneA[i] for i in range(len(geneA))}
             geneSetB = {geneB[i] for i in range(len(geneB))}
             validIndicies = [i for i in range (len(geneA)) if validIndex(geneA,geneB,i)]
+            
+            # print(f'Valid indices: {validIndicies}')
             
             #Previous implementation of creating valid indicies list
 
