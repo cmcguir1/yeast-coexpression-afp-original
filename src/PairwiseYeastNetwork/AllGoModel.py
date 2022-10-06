@@ -231,6 +231,7 @@ class AllGoModel():
                         posGenes = list(leaf[1])
                     posPairs = self.makePairs(np.array(posGenes))
                     negPairs = np.array([[pair[0],pair[1]] for pair in allPairs - set([(pair[0],pair[1]) for pair in posPairs])])
+                    print(f'Pos piars: {posPairs}\nNeg Pairs: {negPairs}')
                     
                     np.random.shuffle(negPairs)
                     negPairs = negPairs[:len(posPairs)*proportionNeg]
