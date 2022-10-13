@@ -73,7 +73,7 @@ class AllGoModel():
 
         
         #Correlations Dictionary that will be retrieve precalculated correlation values
-        self.corrDict = CorrelationDictionary()
+        self.corrDict = CorrelationDictionary(dictLoc=memMapLoc)
         self.datasets = self.corrDict.datasets
         
         #Initialize all expression data as a list of maps {gene -> expression array}
@@ -166,14 +166,14 @@ class AllGoModel():
         torch.save(self.net.state_dict(),self.networkLoc)
         #self.net._save_to_state_dict(self.networkLoc)
 
-    def testNetwork(self):
+    def testNetwork(self,validation=True):
         with torch.no_grad():
-            for i, pair in enumerate(self.makePairs(self.validation)):
+            for i, pair in enumerate(self.makePairs(self.validation if validation else self.training)):
                 features, labels = self.makeBatchTensors([pair])
                 features = features.to(self.device)
                 ouputs = self.net(features.float(),test=True)
 
-    def testNetworkAll(self,proportionNeg=10,saveTerms={'GO:0007005','GO:0006302','GO:0007127'},runAll=True):
+    def testNetworkAll(self,proportionNeg=10,saveTerms={'GO:0007005','GO:0006302','GO:0007127'},runAll=True,validation=True):
         with torch.no_grad():
             
             def calcPair(pair,termIndex):
@@ -223,7 +223,7 @@ class AllGoModel():
                 return np.mean(precisionArray)
 
             print("Began Testing the Network")
-            allPairs = set([(pair[0],pair[1]) for pair in self.makePairs(self.validation)])
+            allPairs = set([(pair[0],pair[1]) for pair in self.makePairs(self.validation if validation else self.training)])
             leafStatsDist = []
             columnNames = ['Gene A','Gene B','Label','Confidence','True Positive','False Negative','True Negative','False Positive','accuracy','precision','recall','falsePositiveRate','selectivity']
             for i, leaf in enumerate(self.leaves):
