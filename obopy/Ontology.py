@@ -3,7 +3,9 @@ from Gene import Gene
 import urllib.request
 
 class Ontology:
-    def __init__(self, oboFileName=None, annoFileName=None, loadLocal=False):
+    def __init__(self, oboFileName=None, annoFileName=None, loadLocal=False,bypassOrigCheck=False):
+        self.originalCheck = not bypassOrigCheck
+        
         #Fields
         self.terms = {} #Term.uid --> Term
         self.roots = [] #Root terms
@@ -92,7 +94,7 @@ class Ontology:
 
     def loadAnnoFile(self, annoFileName, loadLocal=False):
         if loadLocal:
-            fin = open(annoFileName, "r")
+            fin = open(annoFileName, "r",encoding='cp437')
         else:
             fin = urllib.request.urlopen(annoFileName)
         for line in fin:
@@ -114,7 +116,7 @@ class Ontology:
                     #print("Short line: " + line)
 
                     pass
-                if parts[2] not in self.genes:
+                if self.originalCheck and parts[2] not in self.genes :
                     newGene = Gene(parts[1], parts[2], parts[9], set(parts[10].split("|")))
                     self.genes[parts[2]] = newGene
 

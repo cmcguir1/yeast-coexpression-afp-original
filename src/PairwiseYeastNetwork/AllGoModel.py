@@ -1,3 +1,4 @@
+from dataclasses import dataclass
 from CorrelationDictionary import CorrelationDictionary
 from site import makepath
 import statistics
@@ -24,9 +25,9 @@ from Leaf import getLeaves
 
 
 class AllGoModel():
-    def __init__(self,fold,structure,folderName,modelName,numFolds=4,lr=0.01,momentum=0.9,batch=50,foldFile=''):
+    def __init__(self,fold,structure,folderName,modelName,numFolds=4,lr=0.01,momentum=0.9,batch=50,foldFile='',ontologyDataset='modern',regularize=True,memMapLoc='../YeastDict.dat'):
         #getLeaves returns a list of tuple of (GO Term,{set of genes})
-        self.leaves = getLeaves(10)
+        self.leaves = getLeaves(10,dataset=ontologyDataset)
 
         # pd.DataFrame([[leaf[0],i] for i, leaf in enumerate(self.leaves)],columns=['GO Term','Index']).to_csv('./src/PairwiseYeastNetwork/GOTermIndexDictionary.csv',index=False)
         GoTerms = pd.read_csv('./src/PairwiseYeastNetwork/GOTermIndexDictionary.csv').to_numpy()
@@ -72,11 +73,11 @@ class AllGoModel():
 
         
         #Correlations Dictionary that will be retrieve precalculated correlation values
-        # self.corrDict = CorrelationDictionary()
-        # self.datasets = self.corrDict.datasets
+        self.corrDict = CorrelationDictionary()
+        self.datasets = self.corrDict.datasets
         
         #Initialize all expression data as a list of maps {gene -> expression array}
-        self.datasets = ExpressionDatasets('./Yeast Resources/Datasets/All Spell/all spell datasets',recur=True,statsDictLoc='./Yeast Resources/Datasets/All Spell/revisedStatsDict.csv').datasets
+        # self.datasets = ExpressionDatasets('./Yeast Resources/Datasets/All Spell/all spell datasets',recur=True,statsDictLoc='./Yeast Resources/Datasets/All Spell/revisedStatsDict.csv').datasets
 
       
 
@@ -99,6 +100,7 @@ class AllGoModel():
         #Instance variable for batch size
         self.batch = batch
         self.fold = fold
+        self.regularize = regularize
 
         #Locations to save all output data
         self.networkLoc = f'./Yeast Resources/Pairwise/Spell/{folderName}/{modelName}_{struct}_Net_fold{self.fold+1}.csv'
@@ -171,7 +173,7 @@ class AllGoModel():
                 features = features.to(self.device)
                 ouputs = self.net(features.float(),test=True)
 
-    def testNetworkAll(self,proportionNeg=10,saveTerms={'GO:0007005'},runAll=True):
+    def testNetworkAll(self,proportionNeg=10,saveTerms={'GO:0007005','GO:0006302','GO:0007127'},runAll=True):
         with torch.no_grad():
             
             def calcPair(pair,termIndex):
@@ -193,6 +195,7 @@ class AllGoModel():
                     return [accuracy,precision,recall,falsePositiveRate,selectivity]
                 
                 sortedData = data[data[:,3].argsort()[::-1]]
+                print(f'Sorted Data: {sortedData}')
                 falseNeg = len([genePair for genePair in sortedData if genePair[2] == 1])
                 truePos = 0
                 trueNeg = len(sortedData) - falseNeg
@@ -224,12 +227,13 @@ class AllGoModel():
             leafStatsDist = []
             columnNames = ['Gene A','Gene B','Label','Confidence','True Positive','False Negative','True Negative','False Positive','accuracy','precision','recall','falsePositiveRate','selectivity']
             for i, leaf in enumerate(self.leaves):
-                print(f'Testing GO Term {i} / {len(self.leaves)}')
+                print(f'Testing GO Term: {leaf[0]} ({i} / {len(self.leaves)})')
                 if leaf[0] in saveTerms or runAll:
                     posGenes = [gene for gene in self.validation if gene in leaf[1]]
-                    if len(posGenes) == 0:
+                    if len(posGenes) == 0 or True:
                         posGenes = list(leaf[1])
                     posPairs = self.makePairs(np.array(posGenes))
+                    print(f'Pos Genes: {posGenes}')
                     negPairs = np.array([[pair[0],pair[1]] for pair in allPairs - set([(pair[0],pair[1]) for pair in posPairs])])
                     print(f'Pos piars: {posPairs}\nNeg Pairs: {negPairs}')
                     
@@ -241,11 +245,13 @@ class AllGoModel():
 
                     #Calculate the data for a term
                     termData = np.array([calcPair(pair,self.GOTermDict[leaf[0]]) for pair in testingPairs],dtype=object)
+                    sortedData = termData[termData[:,3].argsort()[::-1]]
                     
                     stats = calcStats(termData)
-                    termResults = np.concatenate([termData,stats],axis=1)
+                    termResults = np.concatenate([sortedData,stats],axis=1)
                     leafStatsDist.append([leaf[0],np.mean(termResults[:,11]),averagePrecision(termResults[:,9])])
                     goTerm = leaf[0].replace(':','-')
+                    print('Are we attempting to save')
                     pd.DataFrame(termResults,columns=columnNames).to_csv(f'{self.testLoc}/{goTerm}_stats_fold{self.fold}.csv',index=False)
             if runAll:
                 pd.DataFrame(leafStatsDist,columns=['GO Term','AUC','Average Precision']).to_csv(f'{self.testLoc}/GOTermDistribution.csv',index=False)
@@ -260,20 +266,27 @@ class AllGoModel():
     def makeBatchTensors(self,batchArray):
         #Helper function for calculating correlations in list comprehension
         def calcCorr(d,gp):
-            # gene1 = gp[0]
-            # gene2 = gp[1]
-            # rho = self.corrDict.lookupCorrelation(gene1,gene2,d)
+            gene1 = gp[0]
+            gene2 = gp[1]
+            rho = self.corrDict.lookupCorrelation(gene1,gene2,d)
             # print(f'rho from pre-calculated coefficients: {rho}')
 
-            rho = d.customCorrelation(gp)
+            # rho = d.customCorrelation(gp)
 
             #Adjust rho if 1 or -1 because of problems with fisher z transform
             if rho == 1:
                 rho = 0.99
             elif rho == -1:
                 rho = -0.99
-            # print(f'rho: {rho}')
-            return rho 
+            
+            #Regularize Rho via fisher z transformation
+            if self.regularize:
+                d = d[d.rfind('\\')+1:]
+                mean, std = self.corrDict.expDataset.statsDict[d]
+                regularizedRho = (np.arctanh(rho) -  mean) / std
+                return regularizedRho
+            else:
+                return rho
         
         def calcLabel(l,gpair):
             #If both genes are annotated to that GO term, return 1, otherwise, return 0
@@ -286,41 +299,6 @@ class AllGoModel():
         labels = torch.tensor([[calcLabel(leaf,genePair) for leaf in self.leaves] for genePair in batchArray],dtype=float)
         # print(f'Features: {features}')
         return (features,labels)
-        
-        #Previous implementation of makeBatchTensors using for loops
-
-        # featureList = []
-        # labelsList = []
-        # #Loop over all gene pairs in the batcharray
-        # for genePair in batchArray:
-        #     corrList = []
-        #     #Calculate correlation coefficients for each dataset
-        #     for dataset in self.datasets:
-        #         rho = dataset.customCorrelation(genePair)
-        #         #Adjust rho if 1 or -1 because of problems with fisher z transform
-        #         if rho == 1:
-        #             rho = 0.99
-        #         elif rho == -1:
-        #             rho = -0.99
-        #         corrList.append(rho)
-        #     # print(f'Corrlist: {corrList}')
-        #     featureList.append(corrList)
-
-        #     #Loop over all GO terms in slim
-        #     label = []
-        #     for leaf in self.leaves:
-        #         #If both genes are annotated to that GO term, append 1 to label list
-        #         if genePair[0] in leaf[1] and genePair[1] in leaf[1]:
-        #             label.append(1)
-        #         #Otherwise, append 0
-        #         else:
-        #             label.append(0)
-        #     labelsList.append(label)
-
-        # #Convert both list to tensors, then return them as a tuple
-        # featureTensor = torch.tensor(featureList)
-        # labelsTensor = torch.tensor(labelsList)
-        # return (featureTensor,labelsTensor)
         
 
         

@@ -33,26 +33,33 @@ def getYORF(genes):
     return yorfList
 
 #Get all GO terms that are leaves, each leaf being a tuple of the leaf term name and a set of all genes annotated to that term
-def getLeaves(cutoff):
-    #Initialize a gene ontology
-    go = Ontology('./obopy/goslim_yeast.obo','./obopy/sgd.gaf',loadLocal=True)
-    #Loop over all terms of the ontology
-    for term in go.terms:
+def getLeaves(cutoff,dataset='modern'):
+    #Initialize the datsets that annotations will be pulled from, either the 2009 dataset or the current 2022 dataset
+    if dataset == '2009':
+        goAnnos = Ontology('./obopy/go-basic.obo','./obopy/sgd_2009_Jan.gaf',loadLocal=True)
+    else:
+        goAnnos = Ontology('./obopy/go-basic.obo','./obopy/sgd.gaf',loadLocal=True)
+    
+    #Initialize the go slim ontology that terms will be pulled from
+    goSlim = Ontology('./obopy/goslim_yeast.obo','./obopy/sgd.gaf',loadLocal=True)
+    #Loop over all terms of the go slim
+    for term in goSlim.terms:
         #Loop over all parents of a term and add that term to each parent's set of children
-        for parent in go.terms[term].parents():
+        for parent in goSlim.terms[term].parents():
             parent.children.add(term)
     #Loop over all terms, add all terms with no children to list of leaves
     leaves = []
-    for term in go.terms:
-        if(len(go.terms[term].children) == 0):
+    for term in goSlim.terms:
+        if(len(goSlim.terms[term].children) == 0):
             leaves.append(term)
     
     
-    leaves = list(filter(lambda leaf: len(getYORF(go.terms[leaf].allAnnos())) >= cutoff,leaves))
+    leaves = list(filter(lambda leaf: len(getYORF(goSlim.terms[leaf].allAnnos())) >= cutoff,leaves))
     
     leafGenes = []
     for leaf in leaves:
-        leafGenes.append((leaf,set(getYORF(go.terms[leaf].allAnnos()))))
+        leafGenes.append((leaf,set(getYORF(goAnnos.terms[leaf].allAnnos()))))
+        #leafGenes.append((leaf,getGenes(leaf)))
     return leafGenes
 
 
@@ -69,7 +76,13 @@ def getLeafGenes(cutoff):
 # print(mitoGenes)
 # print(len(mitoGenes))
 
-makePosNegFiles('GO:0007005')
+# leaves = getLeaves(10)
+# for leaf in leaves:
+#     print(f'Term: {leaf[0]}')
+#     if leaf[0] == 'GO:0007005':
+#         print(len(leaf[1]))
+# leaf = getGenes('GO:0007005')
+# print(len(leaf))
 
 
 

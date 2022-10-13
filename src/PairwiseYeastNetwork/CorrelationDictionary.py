@@ -4,7 +4,7 @@ import pandas as pd
 from ExpressionDatasets import ExpressionDatasets
 
 class CorrelationDictionary():
-    def __init__(self,dictLoc='../YeastCorrDictionary.dat'):
+    def __init__(self,dictLoc='../YeastDict.dat'):
         #Dictionary of Gene Name to its index in the correlation dictionary
         self.genes = pd.read_csv('./src/PairwiseYeastNetwork/geneIndexDictionary_full.csv').to_numpy()
         self.indexDict = {gene[0]: gene[1] for gene in self.genes}
@@ -21,9 +21,12 @@ class CorrelationDictionary():
 
         #Expression Datasets that will be used to calculate the pair correlations that wil be saved to the memory mapped numpy arrays
         self.expDataset = ExpressionDatasets('./Yeast Resources/Datasets/All Spell/all spell datasets',sort=True,recur=True,recalc=False,statsDictLoc='./Yeast Resources/Datasets/All Spell/revisedStatsDict.csv')
+
+
         
         #Correlations dictionary initialization
-        self.memMap = np.memmap(dictLoc,mode='w+',shape=(len(self.datasets),(self.geneNumber*self.geneNumber - sum(range(self.geneNumber))) + self.geneNumber))
+        self.memMap = np.memmap(dictLoc,'float32',mode='r+',shape=(len(self.datasets),(self.geneNumber*self.geneNumber - sum(range(self.geneNumber))) + self.geneNumber))
+
 
     def lookupCorrelation(self,gene1,gene2,dataset):
         #print(f'Gene 1: {gene1}\nGene: {gene2}\n------------')
@@ -34,7 +37,7 @@ class CorrelationDictionary():
     
     
     def calculateDataset(self,datasetIndex,location='./MemoryMapTest.dat'):
-        memMap = np.memmap(location,dtype='float32',mode='w+',shape=((self.geneNumber*self.geneNumber - sum(range(self.geneNumber))) + self.geneNumber,))
+        memMap = np.memmap(location,dtype='float32',mode='r+',shape=((self.geneNumber*self.geneNumber - sum(range(self.geneNumber))) + self.geneNumber,))
         for pair in self.pairs:
             # print(pair)
             dset = self.expDataset.datasets[datasetIndex]

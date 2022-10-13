@@ -4,7 +4,7 @@ from YeastDataFile import YeastDataFile
 import pandas as pd
 
 class ExpressionDatasets():
-    def __init__(self,folder,sort=True,recur=True,recalc=False,statsDictLoc='',pairs=None,numDatasets=430,subset=200000):
+    def __init__(self,folder,sort=True,recur=True,recalc=False,statsDictLoc='./Yeast Resources/Datasets/All Spell/revisedStatsDict.csv',pairs=None,numDatasets=430,subset=200000):
         #Make a dictionary of statisitcs for each datafile from a precalculated values
         if(statsDictLoc == ''):
             self.statsDict = {}
