@@ -77,7 +77,7 @@ def main():
         regularize = True
     else:
         regularize = False
-    GOTest = AllGoModel(int(sys.argv[2]),'200','Test',sys.argv[1],ontologyDataset=sys.argv[1],regularize=regularize,memMapLoc='../YeastMemMap/YeastCorrelationDictionary.dat')
+    GOTest = AllGoModel(int(sys.argv[2]),'200','Test',sys.argv[1],ontologyDataset=sys.argv[1],regularize=regularize,memMapLoc='../YeastMemMap/YeastCorrDictionary.dat')
     GOTest.trainNetwork(10000)
     GOTest.testNetworkAll(runAll=False)
     GOTest.testNetworkAll(runAll=False,validation=False)
