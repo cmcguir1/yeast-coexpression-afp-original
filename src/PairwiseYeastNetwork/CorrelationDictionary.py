@@ -4,7 +4,7 @@ import pandas as pd
 from ExpressionDatasets import ExpressionDatasets
 
 class CorrelationDictionary():
-    def __init__(self,dictLoc='../YeastDict.dat'):
+    def __init__(self,dictLoc='../YeastDict.dat',datasetType='modern'):
         #Dictionary of Gene Name to its index in the correlation dictionary
         self.genes = pd.read_csv('./src/PairwiseYeastNetwork/geneIndexDictionary_full.csv').to_numpy()
         self.indexDict = {gene[0]: gene[1] for gene in self.genes}
@@ -20,7 +20,10 @@ class CorrelationDictionary():
         self.datasets = datasets[:,0]
 
         #Expression Datasets that will be used to calculate the pair correlations that wil be saved to the memory mapped numpy arrays
-        self.expDataset = ExpressionDatasets('./Yeast Resources/Datasets/All Spell/all spell datasets',sort=True,recur=True,recalc=False,statsDictLoc='./Yeast Resources/Datasets/All Spell/revisedStatsDict.csv')
+        if datasetType == '2009' or datasetType == 'original':
+            self.expDataset = ExpressionDatasets('./Yeast Resources/Datasets/All Spell/all spell datasets',sort=True,recur=True,recalc=False,statsDictLoc='./Yeast Resources/Datasets/All Spell/revisedStatsDict.csv')
+        else:
+            self.expDataset = ExpressionDatasets('./Yeast Resources/Datasets/All Spell/original',sort=False,recur=False,recalc=False)
 
 
         

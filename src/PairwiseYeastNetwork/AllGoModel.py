@@ -1,4 +1,5 @@
 from dataclasses import dataclass
+from random import random
 from CorrelationDictionary import CorrelationDictionary
 from site import makepath
 import statistics
@@ -103,7 +104,7 @@ class AllGoModel():
         self.regularize = regularize
 
         #Locations to save all output data
-        self.networkLoc = f'./Yeast Resources/Pairwise/Spell/{folderName}/{modelName}_{struct}_Net_fold{self.fold+1}.csv'
+        self.networkLoc = f'./Yeast Resources/Pairwise/Spell/{folderName}/{modelName}_{struct}_Net_fold{self.fold+1}.pth'
         self.lossLoc = f'./Yeast Resources/Pairwise/Spell/{folderName}/{modelName}_{struct}_Loss_fold{self.fold+1}.csv'
         #The locations for the testing and training data will be folder because they will be storing a csv file for each GO term
         self.trainLoc = f'./Yeast Resources/Pairwise/Spell/{folderName}/{modelName}_{struct}_Train_/'
@@ -176,6 +177,7 @@ class AllGoModel():
     def testNetworkAll(self,proportionNeg=10,saveTerms={'GO:0007005','GO:0006302','GO:0007127'},runAll=True,validation=True):
         with torch.no_grad():
             
+            #Helper function that passes a pair through the trained network, then grabs the outputs of that pair for a given GO term
             def calcPair(pair,termIndex):
                 features, labels = self.makeBatchTensors(np.array([pair]))
                 features = features.to(self.device)
@@ -185,15 +187,17 @@ class AllGoModel():
                 # print(f'Shape of Outputs: {outputs.shape}')
                 return([pair[0],pair[1],labels[0,termIndex],outputs[0,termIndex]])
 
+            #Helper function that will take in a table of pairs, their label, and their scores, then calculate the confusion matrix statistics
             def calcStats(data):
                 def calcMatrix(tp,tn,fp,fn):
                     accuracy = (tp+tn) / (tp+fn+fp+tn)
                     precision = 1 if (tp+fp) == 0 else tp / (tp+fp)
                     recall = 1 if (tp+fn) == 0 else tp / (tp+fn)
-                    falsePositiveRate = fn / (fp+tn)
+                    falsePositiveRate = fp / (fp+tn)
                     selectivity = tn / (tn+fp)
                     return [accuracy,precision,recall,falsePositiveRate,selectivity]
                 
+                #Sorts data by the third column, which is the pair confidence, in descending order
                 sortedData = data[data[:,3].argsort()[::-1]]
                 print(f'Sorted Data: {sortedData}')
                 falseNeg = len([genePair for genePair in sortedData if genePair[2] == 1])
@@ -202,7 +206,7 @@ class AllGoModel():
                 falsePos = 0
                 
 
-                # statistics = [[truePos,falseNeg,trueNeg,falsePos] + calcMatrix(tp=truePos,tn=trueNeg,fp=falsePos,fn=falseNeg)]
+                #This loop calculates the the confusion matrix for all pairs in the table
                 statistics =[]
                 for genePair in sortedData:
                     if genePair[2] == 1:
@@ -215,6 +219,7 @@ class AllGoModel():
                 
                 return np.array(statistics,dtype='float32')
             
+            #Helper function that calculates the convexed hulled average precision of the the entire table
             def averagePrecision(inputArray):
                 precisionArray = np.copy(inputArray)
                 for i in range(len(precisionArray)-1,0,-1):
@@ -225,23 +230,34 @@ class AllGoModel():
             print("Began Testing the Network")
             allPairs = set([(pair[0],pair[1]) for pair in self.makePairs(self.validation if validation else self.training)])
             leafStatsDist = []
-            columnNames = ['Gene A','Gene B','Label','Confidence','True Positive','False Negative','True Negative','False Positive','accuracy','precision','recall','falsePositiveRate','selectivity']
+            columnNames = ['Gene A','Gene B','Label','Score','True Positive','False Negative','True Negative','False Positive','Accuracy','Precision','Recall','False Positive Rate','Selectivity']
+            
+            #Loops over all Go Slim terms
             for i, leaf in enumerate(self.leaves):
                 print(f'Testing GO Term: {leaf[0]} ({i} / {len(self.leaves)})')
+                #Conditional determines whether a given GO term's performance is calculated
                 if leaf[0] in saveTerms or runAll:
+                    #Positive genes are all genes in the validation set that are annotated to the GO term
                     posGenes = [gene for gene in self.validation if gene in leaf[1]]
+
+                    #If no genes are annoated to the term in validation, make pair from all annotated genes
+                    #This was put in termporarily to allow for the test function to run, but this is not a good way to test terms with no genes and should be replaced
                     if len(posGenes) == 0 or True:
                         posGenes = list(leaf[1])
                     posPairs = self.makePairs(np.array(posGenes))
-                    print(f'Pos Genes: {posGenes}')
-                    negPairs = np.array([[pair[0],pair[1]] for pair in allPairs - set([(pair[0],pair[1]) for pair in posPairs])])
-                    print(f'Pos piars: {posPairs}\nNeg Pairs: {negPairs}')
+
+                    #If there are more than 1000 positive pairs, shuffle the array and take the first 1000
+                    if len(posPairs) > 1000:
+                        np.random.shuffle(posPairs)
+                        posPairs = posPairs[:1000]
                     
+                    negPairs = np.array([[pair[0],pair[1]] for pair in allPairs - set([(pair[0],pair[1]) for pair in posPairs])])
                     np.random.shuffle(negPairs)
                     negPairs = negPairs[:len(posPairs)*proportionNeg]
-                    # print(posPairs[0])
-                    # print(negPairs[0])
                     testingPairs = np.concatenate([posPairs,negPairs])
+
+                    # print(f'Pos Genes: {posGenes}')
+                    # print(f'Pos piars: {posPairs}\nNeg Pairs: {negPairs}')
 
                     #Calculate the data for a term
                     termData = np.array([calcPair(pair,self.GOTermDict[leaf[0]]) for pair in testingPairs],dtype=object)
@@ -252,9 +268,9 @@ class AllGoModel():
                     leafStatsDist.append([leaf[0],np.mean(termResults[:,11]),averagePrecision(termResults[:,9])])
                     goTerm = leaf[0].replace(':','-')
                     print('Are we attempting to save')
-                    pd.DataFrame(termResults,columns=columnNames).to_csv(f'{self.testLoc}/{goTerm}_stats_fold{self.fold}.csv',index=False)
+                    pd.DataFrame(termResults,columns=columnNames).to_csv(f'{self.testLoc if validation else self.trainLoc}/{goTerm}_stats_fold{self.fold}.csv',index=False)
             if runAll:
-                pd.DataFrame(leafStatsDist,columns=['GO Term','AUC','Average Precision']).to_csv(f'{self.testLoc}/GOTermDistribution.csv',index=False)
+                pd.DataFrame(leafStatsDist,columns=['GO Term','AUC','Average Precision']).to_csv(f'{self.testLoc if validation else self.trainLoc}/GOTermDistribution.csv',index=False)
             
 
 

@@ -73,14 +73,20 @@ def main():
     # allGoModel = AllGoModel(0,'20','MemMapTest','MemMapTest3',4)
     # allGoModel.trainNetwork(10000)
     # print(f'Time to Train Network for 10,000 epochs: {(time.time() - start) / 60} minutes')
-    if(sys.argv[3] == 'r'):
+
+
+    if(sys.argv[4] == 'r'):
         regularize = True
     else:
         regularize = False
-    GOTest = AllGoModel(int(sys.argv[2]),'200','Test',sys.argv[1],ontologyDataset=sys.argv[1],regularize=regularize,memMapLoc='../YeastMemMap/YeastCorrDictionary.dat')
-    GOTest.trainNetwork(10000)
+    GOTest = AllGoModel(int(sys.argv[3]),'200','modernAnnos',sys.argv[1],ontologyDataset=sys.argv[2],regularize=regularize,memMapLoc='../YeastMemMap/YeastCorrDictionary.dat')
+    #GOTest.trainNetwork(10000)
+    GOTest.net.load_state_dict(torch.load(f'./Yeast Resources/Pairwise/Spell/modernAnnos/ModernAnnosNoReg_430x200x92_Net_fold{int(sys.argv[3])-1}.pth'))
     GOTest.testNetworkAll(runAll=False)
     GOTest.testNetworkAll(runAll=False,validation=False)
+
+    # GO = AllGoModel(0,'200','AllOriginalTest','OriginalDatasets',ontologyDataset='original')
+    # GO.trainNetwork(1000)
 
 
 
