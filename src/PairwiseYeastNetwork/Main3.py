@@ -79,8 +79,8 @@ def main():
     GOTest = AllGoModel(0,sys.argv[3],sys.argv[1],sys.argv[2],ontologyDataset='modern',regularize=regularize,memMapLoc='../YeastMemMap/YeastCorrDictionary.dat')
     GOTest.trainNetwork(100000)
     #GOTest.net.load_state_dict(torch.load(f'./Yeast Resources/Pairwise/Spell/modernAnnos/ModernAnnosNoReg_430x200x92_Net_fold{int(sys.argv[3])-1}.pth'))
-    GOTest.testNetworkAll(runAll=False)
-    GOTest.testNetworkAll(runAll=False,validation=False)
+    #GOTest.testNetworkAll(runAll=False)
+    #GOTest.testNetworkAll(runAll=False,validation=False)
 
     # GO = AllGoModel(0,'200','AllOriginalTest','OriginalDatasets',ontologyDataset='original')
     # GO.trainNetwork(1000)
