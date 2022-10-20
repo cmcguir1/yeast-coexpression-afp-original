@@ -46,11 +46,13 @@ files = choose.files(default=paste0(getwd(),"/*.*"))
 
 colorsList <- c("#FC0303","#14A63B","#5D87F0","#7713BA","#FAEF16","#E09704")
 
-graphName <- "SPELL All Datasets: 430x100x50x1 Train"
+graphName <- "All GO Model: Modern 430x200x92 Training (No Regularized)"
 
-
-#pdf("Spell_430x100x50x1_Train_ROC.pdf",width=6,height=6)
+currentWd = getwd()
+setwd("C:/Users/colem/SummerResearch2022/Yeast Resources/Yeast Graphs")
+pdf("ALLGO_NoReg_Modern_430x200x92_Train_ROC.pdf",width=6,height=6)
 plotROC(files=files,colorsList=colorsList,graphName=graphName)
-#dev.off()
+dev.off()
+setwd(currentWd)
 
 

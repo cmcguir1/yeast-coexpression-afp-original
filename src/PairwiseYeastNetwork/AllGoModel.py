@@ -74,8 +74,8 @@ class AllGoModel():
 
         
         #Correlations Dictionary that will be retrieve precalculated correlation values
-        self.corrDict = CorrelationDictionary(dictLoc=memMapLoc)
-        self.datasets = self.corrDict.datasets
+        self.corrDict = CorrelationDictionary(dictLoc=memMapLoc,datasetType=ontologyDataset)
+        self.datasets = self.corrDict.expDataset.datasets
         
         #Initialize all expression data as a list of maps {gene -> expression array}
         # self.datasets = ExpressionDatasets('./Yeast Resources/Datasets/All Spell/all spell datasets',recur=True,statsDictLoc='./Yeast Resources/Datasets/All Spell/revisedStatsDict.csv').datasets
@@ -87,6 +87,7 @@ class AllGoModel():
 
         #Initialize the network, the size of the input layer is the number of expression datasets, and the size of the output is the number of leaf go terms
         struct = f'{len(self.datasets)}x{structure}x{len(self.leaves)}'
+        print(struct)
         self.net = FlexNet(struct,sigmoid=False)
         print('Initialized Network')
         #Choose which device to run network on, then move network to that device
@@ -282,6 +283,7 @@ class AllGoModel():
     def makeBatchTensors(self,batchArray):
         #Helper function for calculating correlations in list comprehension
         def calcCorr(d,gp):
+            d = d.dataFile
             gene1 = gp[0]
             gene2 = gp[1]
             rho = self.corrDict.lookupCorrelation(gene1,gene2,d)
@@ -297,7 +299,6 @@ class AllGoModel():
             
             #Regularize Rho via fisher z transformation
             if self.regularize:
-                d = d[d.rfind('\\')+1:]
                 mean, std = self.corrDict.expDataset.statsDict[d]
                 regularizedRho = (np.arctanh(rho) -  mean) / std
                 return regularizedRho

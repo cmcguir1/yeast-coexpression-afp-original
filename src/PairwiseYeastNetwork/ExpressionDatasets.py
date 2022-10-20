@@ -18,6 +18,7 @@ class ExpressionDatasets():
             stub = '/*'
         #Makes a list of all files within a specified folder, the files names are their absolute path
         files = [file for file in glob.glob(f'{folder}{stub}')]
+
         
         #Sub function to help sort files based on year
         def sortByYear(fileName):
