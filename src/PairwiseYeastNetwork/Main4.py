@@ -21,9 +21,9 @@ def main():
     
     start = time.time()
 
-    #Structure Tests
+    #Input Dropout tests
     for i in range(4):
-        GOTest = AllGoModel(i,sys.argv[1],'StructTest','StructTest',memMapLoc='../YeastMemMap/YeastCorrDictionary.dat')
+        GOTest = AllGoModel(i,'200','Activation',sys.argv[1],memMapLoc='../YeastMemMap/YeastCorrDictionary.dat',activation=sys.argv[1])
         GOTest.trainNetwork(10000)
         GOTest.testNetworkAll(runAll=False)
         GOTest.testNetworkAll(runAll=False,validation=False)

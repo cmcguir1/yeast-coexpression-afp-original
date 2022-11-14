@@ -17,7 +17,6 @@ import os
 import cython
 
 
-
 import sys
 from YeastDataFile import YeastDataFile
 
@@ -26,7 +25,7 @@ from Leaf import getLeaves
 
 
 class AllGoModel():
-    def __init__(self,fold,structure,folderName,modelName,numFolds=4,lr=0.01,momentum=0.9,batch=50,foldFile='',ontologyDataset='modern',regularize=True,memMapLoc='../YeastDict.dat'):
+    def __init__(self,fold,structure,folderName,modelName,numFolds=4,lr=0.01,momentum=0.9,batch=50,foldFile='',ontologyDataset='modern',regularize=True,memMapLoc='../YeastDict.dat',inputDropout=None,hiddenDropout=None,activation='relu'):
         #getLeaves returns a list of tuple of (GO Term,{set of genes})
         self.leaves = getLeaves(10,dataset=ontologyDataset)
 
@@ -88,7 +87,7 @@ class AllGoModel():
         #Initialize the network, the size of the input layer is the number of expression datasets, and the size of the output is the number of leaf go terms
         struct = f'{len(self.datasets)}x{structure}x{len(self.leaves)}'
         print(struct)
-        self.net = FlexNet(struct,sigmoid=False)
+        self.net = FlexNet(struct,sigmoid=False,activation=activation,inputDrop=inputDropout,hiddenDrop=hiddenDropout)
         print('Initialized Network')
         #Choose which device to run network on, then move network to that device
         self.device = 'cuda:0' if torch.cuda.is_available() else 'cpu'
