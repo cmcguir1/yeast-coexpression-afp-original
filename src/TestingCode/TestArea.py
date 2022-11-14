@@ -5,15 +5,13 @@ import pandas as pd
 sys.path.insert(0,'./obopy')
 import Leaf
 
-# bioPro = set(Leaf.getGenes('GO:0008150'))
-# pos = set(pd.read_csv('./Yeast Resources/positives_00_go04-15-07.txt').to_numpy().flatten())
-# neg = set(pd.read_csv('./Yeast Resources/negatives_00_go04-15-07.txt').to_numpy().flatten())
-# agn = set(pd.read_csv('./Yeast Resources/agnostic_01_underannotated.txt').to_numpy().flatten())
-# allGenes = bioPro | pos | neg | agn
-# print(f'Length of all yeast genes: {len(allGenes)}')
+data = pd.read_csv('./src/PairwiseYeastNetwork/datasetDictionary.csv').to_numpy()
+newFile = []
+for file in data:
+    a = file[0]
+    newFile.append([a[a.rfind('\\')+1:],file[1]])
 
-# geneDict = [[gene,index] for index, gene in enumerate(allGenes)]
-# pd.DataFrame(geneDict,columns=['Gene','Index']).to_csv('./src/PairwiseYeastNetwork/geneIndexDictionary_full.csv',index=False)
+print(newFile)
+pd.DataFrame(newFile,columns=['Dataset','Index']).to_csv('./src/PairwiseYeastNetwork/datasetDictionaryRevised.csv',index=False)
 
-for i in range(100,0,-1):
-    print(i)
+print(newFile)

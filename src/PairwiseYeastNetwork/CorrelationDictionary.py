@@ -18,7 +18,7 @@ class CorrelationDictionary():
         self.pairs = np.array([[self.genes[i,0],self.genes[j,0]] for i in range(len(self.genes)) for j in range(i,len(self.genes))])
 
         #Dictionary of dataset same to index of dataset in gene dictionary
-        datasets = pd.read_csv('./src/PairwiseYeastNetwork/datasetDictionary.csv' if datasetType != '2009' and datasetType != 'original' else './src/PairwiseYeastNetwork/datasetDictionaryOriginal.csv').to_numpy()
+        datasets = pd.read_csv('./src/PairwiseYeastNetwork/datasetDictionaryRevised.csv' if datasetType != '2009' and datasetType != 'original' else './src/PairwiseYeastNetwork/datasetDictionaryOriginal.csv').to_numpy()
         self.datasetsDict = {data[0]: data[1] for data in datasets}
         self.datasets = datasets[:,0]
 

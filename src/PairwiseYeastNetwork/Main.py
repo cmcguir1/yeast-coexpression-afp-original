@@ -23,7 +23,7 @@ def main():
 
     #Structure Tests
     for i in range(4):
-        GOTest = AllGoModel(i,sys.argv[1],'StructTest','StructTest',memMapLoc='../YeastMemMap/YeastCorrDictionary.dat')
+        GOTest = AllGoModel(i,sys.argv[1],'StructTest','StructTest')
         GOTest.trainNetwork(10000)
         GOTest.testNetworkAll(runAll=False)
         GOTest.testNetworkAll(runAll=False,validation=False)
