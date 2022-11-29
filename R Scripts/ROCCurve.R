@@ -46,11 +46,12 @@ files = choose.files(default=paste0(getwd(),"/*.*"))
 
 colorsList <- c("#FC0303","#14A63B","#5D87F0","#7713BA","#FAEF16","#E09704")
 
-graphName <- "All GO Model: Original 113x200x92 Validation"
+graphName <- "Leaky Relu 430x200x92 Training"
+fileName <- "AllGO_activation_leakyRelu_Train_ROC.pdf"
 
 currentWd = getwd()
 setwd("C:/Users/colem/SummerResearch2022/Yeast Resources/Yeast Graphs")
-pdf("ALLGO_Original_113x200x92_Val_ROC.pdf",width=6,height=6)
+pdf(fileName,width=6,height=6)
 plotROC(files=files,colorsList=colorsList,graphName=graphName)
 dev.off()
 setwd(currentWd)

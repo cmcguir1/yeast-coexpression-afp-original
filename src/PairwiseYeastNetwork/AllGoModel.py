@@ -103,12 +103,16 @@ class AllGoModel():
         self.fold = fold
         self.regularize = regularize
 
+        inputDropString = '' if inputDropout != None else f'_inputDrop{inputDropout}'
+        hiddenDropString = '' if hiddenDropout != None else f'_hiddenDrop{hiddenDropout}'
+
+
         #Locations to save all output data
-        self.networkLoc = f'./Yeast Resources/Pairwise/Spell/{folderName}/{modelName}_{struct}_Net_fold{self.fold+1}.pth'
-        self.lossLoc = f'./Yeast Resources/Pairwise/Spell/{folderName}/{modelName}_{struct}_Loss_fold{self.fold+1}.csv'
+        self.networkLoc = f'./Yeast Resources/Pairwise/Spell/{folderName}/{modelName}_{struct}{inputDropString}{hiddenDropString}_Net_fold{self.fold+1}.pth'
+        self.lossLoc = f'./Yeast Resources/Pairwise/Spell/{folderName}/{modelName}_{struct}{inputDropString}{hiddenDropString}_Loss_fold{self.fold+1}.csv'
         #The locations for the testing and training data will be folder because they will be storing a csv file for each GO term
-        self.trainLoc = f'./Yeast Resources/Pairwise/Spell/{folderName}/{modelName}_{struct}_Train_/'
-        self.testLoc = f'./Yeast Resources/Pairwise/Spell/{folderName}/{modelName}_{struct}_Test_/'
+        self.trainLoc = f'./Yeast Resources/Pairwise/Spell/{folderName}/{modelName}_{struct}{inputDropString}{hiddenDropString}_Train_/'
+        self.testLoc = f'./Yeast Resources/Pairwise/Spell/{folderName}/{modelName}_{struct}{inputDropString}{hiddenDropString}_Test_/'
 
         #These three conditional check if the folder that the output data will be stored exist, and if not, construct those folders
         if not os.path.exists(f'./Yeast Resources/Pairwise/Spell/{folderName}'):
@@ -268,7 +272,9 @@ class AllGoModel():
                     leafStatsDist.append([leaf[0],np.mean(termResults[:,11]),averagePrecision(termResults[:,9])])
                     goTerm = leaf[0].replace(':','-')
                     print('Are we attempting to save')
-                    pd.DataFrame(termResults,columns=columnNames).to_csv(f'{self.testLoc if validation else self.trainLoc}/{goTerm}_stats_fold{self.fold}.csv',index=False)
+                    termDataFrame = pd.DataFrame(termResults,columns=columnNames)
+                    termDataFrame.drop(termDataFrame.columns[[4,5,6,7,8,12]],axis=1,inplace=True)
+                    termDataFrame.to_csv(f'{self.testLoc if validation else self.trainLoc}/{goTerm}_stats_fold{self.fold}.csv',index=False)
             if runAll:
                 pd.DataFrame(leafStatsDist,columns=['GO Term','AUC','Average Precision']).to_csv(f'{self.testLoc if validation else self.trainLoc}/GOTermDistribution.csv',index=False)
             
