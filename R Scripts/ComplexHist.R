@@ -14,3 +14,5 @@ plotAUCDist <- function(file) {
   plot(den,type="l",lwd=w)
   polygon(den,col=lb,border=borderlb)
 }
+
+plotAUCDist(file.choose())

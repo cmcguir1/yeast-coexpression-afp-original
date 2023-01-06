@@ -21,12 +21,11 @@ def main():
     
     start = time.time()
 
-    #Input Dropout tests
-    for i in range(4):
-        GOTest = AllGoModel(i,'200','Dropout','HiddenDropout',memMapLoc='../YeastMemMap/YeastCorrDictionary.dat',hiddenDropout=float(sys.argv[1]))
-        GOTest.trainNetwork(10000)
-        GOTest.testNetworkAll(runAll=True)
-        GOTest.testNetworkAll(runAll=True,validation=False)
+
+    GOTest = AllGoModel(int(sys.argv[1]),'200','DropoutRedo','HiddenDropout',memMapLoc='../YeastMemMap/YeastCorrDictionary.dat',hiddenDropout=float(sys.argv[2]))
+    GOTest.trainNetwork(10000)
+   # GOTest.testNetworkAll(runAll=True)
+    GOTest.testNetworkAll(runAll=True,validation=False)
 
     # GO = AllGoModel(0,'200','AllOriginalTest','OriginalDatasets',ontologyDataset='original')
     # GO.trainNetwork(1000)

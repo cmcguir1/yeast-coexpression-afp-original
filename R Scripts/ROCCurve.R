@@ -51,9 +51,9 @@ fileName <- "AllGO_activation_leakyRelu_Train_ROC.pdf"
 
 currentWd = getwd()
 setwd("C:/Users/colem/SummerResearch2022/Yeast Resources/Yeast Graphs")
-pdf(fileName,width=6,height=6)
+#pdf(fileName,width=6,height=6)
 plotROC(files=files,colorsList=colorsList,graphName=graphName)
-dev.off()
+#dev.off()
 setwd(currentWd)
 
 

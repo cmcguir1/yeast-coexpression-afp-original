@@ -22,11 +22,13 @@ def main():
     start = time.time()
 
     #Structure Tests
-    for i in range(4):
-        GOTest = AllGoModel(i,sys.argv[1],'StructTest','StructTest',memMapLoc='../YeastMemMap/YeastCorrDictionary.dat')
-        GOTest.trainNetwork(10000)
-        GOTest.testNetworkAll(runAll=True)
-        GOTest.testNetworkAll(runAll=True,validation=False)
+
+    # GOTest = AllGoModel(0,'StructTest','StructTest',memMapLoc='../YeastMemMap/YeastCorrDictionary.dat')
+    GOTest = AllGoModel(int(sys.argv[1]),'200','Regular','Regular',foldFile='./src/PairwiseYeastNetwork/AllGOGeneFold1.csv',memMapLoc='../YeastMemMap/YeastCorrDictionary.dat')
+    #GOTest.saveGenesToCSV('./src/PairwiseYeastNetwork/AllGOGeneFold1.csv')
+    GOTest.trainNetwork(10000)
+    # GOTest.testNetworkAll(runAll=True)
+    GOTest.testNetworkAll(runAll=True,validation=False)
 
     # GO = AllGoModel(0,'200','AllOriginalTest','OriginalDatasets',ontologyDataset='original')
     # GO.trainNetwork(1000)

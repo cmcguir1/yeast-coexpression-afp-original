@@ -12,6 +12,8 @@ import time
 import threading
 import concurrent.futures
 import os
+from ConfusionMatrix import ConfusionMatrix
+import random
 
 #import for cython
 import cython
@@ -45,6 +47,7 @@ class AllGoModel():
                 genes = genes | leaf[1]
             
             genes = list(genes)
+            random.shuffle(genes)
             partition = int(len(genes) / numFolds)
             for  i in range(numFolds):
                 for gene in genes[i*partition:(i+1)*partition]:
@@ -53,6 +56,8 @@ class AllGoModel():
         else:
             #Read in file of gene folds
             folds = pd.read_csv(foldFile).to_numpy()
+
+        self.folds = folds
 
         #Loop over all genes in folds
         for gene in folds:
@@ -65,6 +70,7 @@ class AllGoModel():
     
         #Make instance varaibles of array of training genes and array of validation genes
         self.training = np.array(train)
+        np.random.shuffle(self.training)
         
         self.validation = np.array(val)
 
@@ -103,8 +109,8 @@ class AllGoModel():
         self.fold = fold
         self.regularize = regularize
 
-        inputDropString = '' if inputDropout != None else f'_inputDrop{inputDropout}'
-        hiddenDropString = '' if hiddenDropout != None else f'_hiddenDrop{hiddenDropout}'
+        inputDropString = '' if inputDropout == None else f'_inputDrop{inputDropout}'
+        hiddenDropString = '' if hiddenDropout == None else f'_hiddenDrop{hiddenDropout}'
 
 
         #Locations to save all output data
@@ -113,6 +119,8 @@ class AllGoModel():
         #The locations for the testing and training data will be folder because they will be storing a csv file for each GO term
         self.trainLoc = f'./Yeast Resources/Pairwise/Spell/{folderName}/{modelName}_{struct}{inputDropString}{hiddenDropString}_Train_/'
         self.testLoc = f'./Yeast Resources/Pairwise/Spell/{folderName}/{modelName}_{struct}{inputDropString}{hiddenDropString}_Test_/'
+        print(self.trainLoc)
+        print(self.testLoc)
 
         #These three conditional check if the folder that the output data will be stored exist, and if not, construct those folders
         if not os.path.exists(f'./Yeast Resources/Pairwise/Spell/{folderName}'):
@@ -276,7 +284,7 @@ class AllGoModel():
                     termDataFrame.drop(termDataFrame.columns[[4,5,6,7,8,12]],axis=1,inplace=True)
                     termDataFrame.to_csv(f'{self.testLoc if validation else self.trainLoc}/{goTerm}_stats_fold{self.fold}.csv',index=False)
             if runAll:
-                pd.DataFrame(leafStatsDist,columns=['GO Term','AUC','Average Precision']).to_csv(f'{self.testLoc if validation else self.trainLoc}/GOTermDistribution.csv',index=False)
+                pd.DataFrame(leafStatsDist,columns=['GO Term','AUC','Average Precision']).to_csv(f'{self.testLoc if validation else self.trainLoc}/GOTermDistribution_fold{self.fold}.csv',index=False)
             
 
 
@@ -438,7 +446,7 @@ class AllGoModel():
         print(f'Time to calculate {numBatches} 20 pair batches: {(time.time()-start)/60} minutes')
 
     def saveGenesToCSV(self,location):
-        pd.DataFrame(np.concatenate((self.training,self.validation),axis=0)).to_csv(location,index=False)
+        pd.DataFrame(self.folds,columns=['Gene','Fold']).to_csv(location,index=False)
 
 
 

@@ -1,0 +1,5 @@
+ssh -p 8002 -oHostKeyAlgorithms=+ssh-rsa cmcguir1@lumos.cs.trinity.edu
+Once in lumos, I can ssh into leviosa
+
+copy command
+scp -P 8002 cmcguir1@lumos.cs.trinity.edu

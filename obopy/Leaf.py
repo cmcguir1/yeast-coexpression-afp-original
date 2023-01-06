@@ -4,8 +4,8 @@ import numpy as np
 
 def getGenes(goTerm):
     go = Ontology('./obopy/go-basic.obo','./obopy/sgd.gaf',loadLocal=True)
-    meiosis1 = go.terms[goTerm]
-    genes = meiosis1.allAnnos()
+    term = go.terms[goTerm]
+    genes = term.allAnnos()
     return getYORF(genes)
     
 def makePosNegFiles(goTerm):
