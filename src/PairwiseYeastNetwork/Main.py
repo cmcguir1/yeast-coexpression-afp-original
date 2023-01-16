@@ -23,8 +23,8 @@ def main():
 
     #Structure Tests
 
-    GOTest = AllGoModel(int(sys.argv[1]),'200','Regular','Regular',foldFile='./src/PairwiseYeastNetwork/AllGOGeneFold1.csv')
-    # GOTest = AllGoModel(int(sys.argv[1]),'200','Regular','Regular',foldFile='./src/PairwiseYeastNetwork/AllGOGeneFold1.csv',memMapLoc='../YeastMemMap/YeastCorrDictionary.dat')
+    # GOTest = AllGoModel(int(sys.argv[1]),'200','Regular','Regular',foldFile='./src/PairwiseYeastNetwork/AllGOGeneFold1.csv')
+    GOTest = AllGoModel(int(sys.argv[1]),'200','Regular','Regular',foldFile='./src/PairwiseYeastNetwork/AllGOGeneFold1.csv',memMapLoc='../YeastMemMap/YeastCorrDictionary.dat')
     GOTest.net.load_state_dict(torch.load(f'./Yeast Resources/Pairwise/Spell/Regular/Regular_430x200x92_Net_fold{int(sys.argv[1]) + 1}.pth'))
     #GOTest.saveGenesToCSV('./src/PairwiseYeastNetwork/AllGOGeneFold1.csv')
     #GOTest.trainNetwork(10000)
