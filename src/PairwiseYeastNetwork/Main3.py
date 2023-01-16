@@ -22,10 +22,11 @@ def main():
     start = time.time()
 
 
-    GOTest = AllGoModel(int(sys.argv[1]),'200','DropoutRedo','HiddenDropout',memMapLoc='../YeastMemMap/YeastCorrDictionary.dat',hiddenDropout=float(sys.argv[2]))
-    GOTest.trainNetwork(10000)
-   # GOTest.testNetworkAll(runAll=True)
-    GOTest.testNetworkAll(runAll=True,validation=False)
+    GOTest = AllGoModel(int(sys.argv[1]),'200','DropoutRedo','HiddenDropout',memMapLoc='../YeastMemMap/YeastCorrDictionary.dat',hiddenDropout=float(sys.argv[2]),foldFile='./src/PairwiseYeastNetwork/AllGOGeneFold1.csv')
+    GOTest.net.load_state_dict(torch.load(f'./Yeast Resources/Pairwise/Spell/DropoutRedo/HiddenDropout_430x200x92_hiddenDrop{sys.argv[2]}_Net_fold{int(sys.argv[1])+1}.pth'))
+    #GOTest.trainNetwork(10000)
+    GOTest.testNetworkAll(runAll=True)
+    #GOTest.testNetworkAll(runAll=True,validation=False)
 
     # GO = AllGoModel(0,'200','AllOriginalTest','OriginalDatasets',ontologyDataset='original')
     # GO.trainNetwork(1000)

@@ -12,7 +12,7 @@ sys.path.insert(0,'./obopy')
 from Leaf import getLeaves, getGenes
 
 class AllGoGraph(AllGoModel):
-    def __init__(self,networkPath,data,structure,folder,numfolds=4,geneFolds=''):
+    def __init__(self,networkPath,structure,folder,numfolds=4,geneFolds='./src/PairwiseYeastNetwork/AllGOGeneFold1.csv'):
         #Intialize file path for folder where results will be saved
         self.path = f'./Yeast Resources/GraphResults/{folder}'
         if(not os.path.exists(self.path)):
@@ -81,6 +81,7 @@ class AllGoGraph(AllGoModel):
             pd.DataFrame(foldScores,columns=['Gene A', 'Gene B', 'Score']).to_csv(f'{self.path}/posScores_fold{fold}.csv',index=False)
             pd.DataFrame(agnScores,columns=['Gene A', 'Gene B', 'Score']).to_csv(f'{self.path}/agnScores_fold{fold}.csv',index=False)
 
+    #rankGenes takes all of the calculated pair scores then ranks the genes by their involvment in a given process
     def rankGenes(self,term='GO:0007005'):
         leaves = getLeaves(10)
         posGenes = leaves[leaves.index(term)][1]

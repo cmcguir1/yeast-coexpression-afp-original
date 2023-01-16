@@ -27,7 +27,7 @@ from Leaf import getLeaves
 
 
 class AllGoModel():
-    def __init__(self,fold,structure,folderName,modelName,numFolds=4,lr=0.01,momentum=0.9,batch=50,foldFile='',ontologyDataset='modern',regularize=True,memMapLoc='../YeastDict.dat',inputDropout=None,hiddenDropout=None,activation='relu'):
+    def __init__(self,fold,structure,folderName,modelName,numFolds=4,lr=0.01,momentum=0.9,batch=50,foldFile='./src/PairwiseYeastNetwork/AllGOGeneFold1.csv',ontologyDataset='modern',regularize=True,memMapLoc='../YeastDict.dat',inputDropout=None,hiddenDropout=None,activation='relu'):
         #getLeaves returns a list of tuple of (GO Term,{set of genes})
         self.leaves = getLeaves(10,dataset=ontologyDataset)
 

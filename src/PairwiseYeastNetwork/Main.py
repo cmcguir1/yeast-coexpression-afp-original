@@ -23,12 +23,13 @@ def main():
 
     #Structure Tests
 
-    # GOTest = AllGoModel(0,'StructTest','StructTest',memMapLoc='../YeastMemMap/YeastCorrDictionary.dat')
-    GOTest = AllGoModel(int(sys.argv[1]),'200','Regular','Regular',foldFile='./src/PairwiseYeastNetwork/AllGOGeneFold1.csv',memMapLoc='../YeastMemMap/YeastCorrDictionary.dat')
+    GOTest = AllGoModel(int(sys.argv[1]),'200','Regular','Regular',foldFile='./src/PairwiseYeastNetwork/AllGOGeneFold1.csv')
+    # GOTest = AllGoModel(int(sys.argv[1]),'200','Regular','Regular',foldFile='./src/PairwiseYeastNetwork/AllGOGeneFold1.csv',memMapLoc='../YeastMemMap/YeastCorrDictionary.dat')
+    GOTest.net.load_state_dict(torch.load(f'./Yeast Resources/Pairwise/Spell/Regular/Regular_430x200x92_Net_fold{int(sys.argv[1]) + 1}.pth'))
     #GOTest.saveGenesToCSV('./src/PairwiseYeastNetwork/AllGOGeneFold1.csv')
-    GOTest.trainNetwork(10000)
-    # GOTest.testNetworkAll(runAll=True)
-    GOTest.testNetworkAll(runAll=True,validation=False)
+    #GOTest.trainNetwork(10000)
+    GOTest.testNetworkAll(runAll=True)
+    #GOTest.testNetworkAll(runAll=True,validation=False)
 
     # GO = AllGoModel(0,'200','AllOriginalTest','OriginalDatasets',ontologyDataset='original')
     # GO.trainNetwork(1000)
