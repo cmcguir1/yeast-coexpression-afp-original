@@ -21,7 +21,7 @@ ssl._create_default_https_context = ssl._create_unverified_context
 def main():
     
     graph = AllGoGraph('./Yeast Resources/Pairwise/Spell/Regular/Regular_430x200x92_Net_fold','430x200x92','Regular',memMapLoc='../YeastMemMap/YeastCorrDictionary.dat')
-    graph.feedForward(sys.argv[1])
+    graph.feedForward(int(sys.argv[1]))
 
 
 
