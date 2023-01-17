@@ -5,6 +5,7 @@ from AllGoModel import AllGoModel
 import os
 from FlexNet import FlexNet
 from ConfusionMatrix import ConfusionMatrix
+from CorrelationDictionary import CorrelationDictionary
 import time
 
 import sys
@@ -12,7 +13,7 @@ sys.path.insert(0,'./obopy')
 from Leaf import getLeaves, getGenes
 
 class AllGoGraph(AllGoModel):
-    def __init__(self,networkPath,structure,folder,numfolds=4,geneFolds='./src/PairwiseYeastNetwork/AllGOGeneFold1.csv'):
+    def __init__(self,networkPath,structure,folder,numfolds=4,geneFolds='./src/PairwiseYeastNetwork/AllGOGeneFold1.csv',memMapLoc='../YeastDict.dat'):
         #Intialize file path for folder where results will be saved
         self.path = f'./Yeast Resources/GraphResults/{folder}'
         if(not os.path.exists(self.path)):
@@ -21,6 +22,13 @@ class AllGoGraph(AllGoModel):
         GoTerms = pd.read_csv('./src/PairwiseYeastNetwork/GOTermIndexDictionary.csv').to_numpy()
         self.GOTermDict = {term[0]: term[1] for term in GoTerms}
 
+        #Correlations Dictionary that will be retrieve precalculated correlation values
+        self.corrDict = CorrelationDictionary(dictLoc=memMapLoc,datasetType='modern')
+        self.datasets = self.corrDict.expDataset.datasets
+
+        self.regularize = True
+        self.leaves = getLeaves(10,dataset='modern')
+
         #Intiailize list of networks and device tensor will be calculated on
         self.numFolds = numfolds
         self.device = 'cuda:0' if torch.cuda.is_available() else 'cpu'
@@ -28,6 +36,7 @@ class AllGoGraph(AllGoModel):
         for i in range(numfolds):
             net = FlexNet(structure)
             net.load_state_dict(torch.load(f'{networkPath}{i+1}.pth'))
+            net.to(self.device)
             self.nets.append(net)
 
         #Reads in folds file, then divides the folds up into sets of genes
@@ -36,33 +45,47 @@ class AllGoGraph(AllGoModel):
         self.allGenes = {gene[0] for gene in foldTable}
 
 
-    def feedForward(self,fold,term='GO:0007005',trackTime=True):
+    def feedForward(self,fold,term='GO:0007005',trackTime=True,dataset='original'):
         with torch.no_grad():
             def calcPair(pair):
-                features, labels = self.makeBatchTensors(np.array(pair))
-                features = features.to(self.device)
-                outputs = self.net[fold](features.float(),test=True).cpu()
+                features, labels = self.makeBatchTensors(np.array([pair]))
+                features = features.to(self.device).float()
+                outputs = self.nets[fold](features,test=True)
+                
                 labels = np.array(labels,dtype=np.intc)
                 return [pair[0],pair[1],outputs[0,self.GOTermDict[term]]]
 
             
-            leaves = getLeaves(10)
+            
             #Set of all genes that are annotated to tested term
-            mitoOrgGenes = leaves[leaves.index(term)][1]
-            #Set of all genes that are annotated to a term in the GO Slim, but not annoated to the desired term
-            negGenes = {gene for gene in [leaf for leaf in leaves if term[0] != term]}
-            #Set of all genes that are annoated to biological process, but are not annotated in the GO Slim
-            agnGenes = set(getGenes('GO:0008150')) - negGenes
+            if os.path.exists(f'./Yeast Resources/TermPos/GO-{term[3:]}_Pos_{dataset}.csv'):
+                posGenes = pd.read_csv(f'./Yeast Resources/TermPos/GO-{term[3:]}_Pos_{dataset}.csv').to_numpy().flatten()
+            else:
+                posGenes = getGenes(term,dataset=dataset)
+                pd.DataFrame(posGenes,columns=['Gene']).to_csv(f'./Yeast Resources/TermPos/GO-{term[3:]}_Pos_{dataset}.csv',index=False)
 
-            posGenes = mitoOrgGenes & self.allGenes
+            foldPosGenes = [gene for gene in posGenes if gene in self.folds[fold]]
+            agnGenes = pd.read_csv('./Yeast Resources/TermPos/AgnosticGenes.csv')
 
-            pairs = self.makePairs(self.folds[fold],posGenes)
-            agnPairs = self.makePairs(self.folds[fold],agnGenes)
+            # leaves = getLeaves(10,dataset=dataset)
+            # negTerms = [leaf[1] for leaf in leaves if term[0] != term]
+            # negGenes = set()
+            # for termGenes in negTerms:
+            #     negGenes = negGenes | termGenes
+            
+            # #Set of all genes that are annoated to biological process, but are not annotated in the GO Slim
+            # agnGenes = set(getGenes('GO:0008150',dataset=dataset)) - negGenes
+            # pd.DataFrame(agnGenes,columns=['Gene']).to_csv('./Yeast Resources/TermPos/AgnosticGenes.csv',index=False)
+
+            
+
+            pairs = AllGoGraph.makePairs(self.folds[fold],posGenes)
+            agnPairs = AllGoGraph.makePairs(self.folds[fold],agnGenes)
 
             if trackTime:
                 foldScores = []
                 start = time.time()
-                for i,pair in enumerate(pairs,0):
+                for i,pair in enumerate(pairs,1):
                     foldScores.append(calcPair(pair))
                     if i % 10000 == 0:
                         ratio = i/(len(pairs)+len(agnPairs))

@@ -11,6 +11,7 @@ import pandas as pd
 import torch
 from AllGoModel import AllGoModel
 from CorrelationDictionary import CorrelationDictionary
+from AllGOGraph import AllGoGraph
 import os
 
 # This import should fix the ssl import verificiation error
@@ -19,17 +20,8 @@ ssl._create_default_https_context = ssl._create_unverified_context
 
 def main():
     
-    start = time.time()
-
-    #Input Dropout tests
-    for i in range(4):
-        GOTest = AllGoModel(i,'200','Activation',sys.argv[1],memMapLoc='../YeastMemMap/YeastCorrDictionary.dat',activation=sys.argv[1])
-        GOTest.trainNetwork(10000)
-        GOTest.testNetworkAll(runAll=False)
-        GOTest.testNetworkAll(runAll=False,validation=False)
-
-    # GO = AllGoModel(0,'200','AllOriginalTest','OriginalDatasets',ontologyDataset='original')
-    # GO.trainNetwork(1000)
+    graph = AllGoGraph('./Yeast Resources/Pairwise/Spell/Regular/Regular_430x200x92_Net_fold','430x200x92','Regular',memMapLoc='../YeastMemMap/YeastCorrDictionary.dat')
+    graph.feedForward(sys.argv[1])
 
 
 

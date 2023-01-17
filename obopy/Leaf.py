@@ -2,8 +2,11 @@ from Ontology import Ontology
 import pandas as pd
 import numpy as np
 
-def getGenes(goTerm):
-    go = Ontology('./obopy/go-basic.obo','./obopy/sgd.gaf',loadLocal=True)
+def getGenes(goTerm,dataset = 'modern'):
+    if dataset == '2009' or dataset == 'original':
+        go = Ontology('./obopy/go-basic.obo','./obopy/sgd_2009_Jan_unzip.gaf',loadLocal=True)
+    else:
+        go = Ontology('./obopy/go-basic.obo','./obopy/sgd.gaf',loadLocal=True)
     term = go.terms[goTerm]
     genes = term.allAnnos()
     return getYORF(genes)
