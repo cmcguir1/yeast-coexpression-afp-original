@@ -39,8 +39,8 @@ class AllGoModel():
         val = []
         train = []
         folds = []
-        #Checks if a folds file was given, if not, make a new fold of genes from the GO slim
-        if foldFile == '':
+        #Checks if a folds file already exists, if not, make it
+        if not os.path.exists(foldFile):
             #Take the union of all genes in the GO slim
             genes = set()
             for leaf in self.leaves:
@@ -52,6 +52,7 @@ class AllGoModel():
             for  i in range(numFolds):
                 for gene in genes[i*partition:(i+1)*partition]:
                     folds.append([gene,i])
+            pd.DataFrame(folds,columns=['Gene','Fold']).to_csv(foldFile,index=False)
         #Otherwise, generate val and training data from the fold list
         else:
             #Read in file of gene folds

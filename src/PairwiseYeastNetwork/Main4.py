@@ -22,6 +22,7 @@ def main():
     
     graph = AllGoGraph('./Yeast Resources/Pairwise/Spell/Regular/Regular_430x200x92_Net_fold','430x200x92','Regular',memMapLoc='../YeastMemMap/YeastCorrDictionary.dat')
     graph.feedForward(int(sys.argv[1]))
+    #graph.rankGenes()
 
 
 
