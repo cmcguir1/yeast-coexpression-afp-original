@@ -46,8 +46,8 @@ files = choose.files(default=paste0(getwd(),"/*.*"))
 
 colorsList <- c("#FC0303","#14A63B","#5D87F0","#7713BA","#FAEF16","#E09704")
 
-graphName <- "HiddenDropout p=0.1 430x200x92 Training"
-fileName <- "AllGo_HiddenDrop_0.1_Train_ROC.pdf"
+graphName <- "AllGO Original 113x200x92 Test"
+fileName <- "AllGO_Orig_Test_ROC.pdf"
 
 currentWd = getwd()
 setwd("C:/Users/colem/SummerResearch2022/Yeast Resources/Yeast Graphs")
