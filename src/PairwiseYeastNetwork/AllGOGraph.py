@@ -13,7 +13,7 @@ sys.path.insert(0,'./obopy')
 from Leaf import getLeaves, getGenes
 
 class AllGoGraph(AllGoModel):
-    def __init__(self,networkPath,structure,folder,numfolds=4,geneFolds='./src/PairwiseYeastNetwork/AllGOGeneFold1.csv',memMapLoc='../YeastDict.dat'):
+    def __init__(self,networkPath,structure,folder,numfolds=4,geneFolds='./src/PairwiseYeastNetwork/AllGOGeneFold1.csv',memMapLoc='../YeastDict.dat',ontologyDataset='modern'):
         #Intialize file path for folder where results will be saved
         self.path = f'./Yeast Resources/GraphResults/{folder}'
         if(not os.path.exists(self.path)):
@@ -23,11 +23,11 @@ class AllGoGraph(AllGoModel):
         self.GOTermDict = {term[0]: term[1] for term in GoTerms}
 
         #Correlations Dictionary that will be retrieve precalculated correlation values
-        self.corrDict = CorrelationDictionary(dictLoc=memMapLoc,datasetType='modern')
+        self.corrDict = CorrelationDictionary(dictLoc=memMapLoc,datasetType=ontologyDataset)
         self.datasets = self.corrDict.expDataset.datasets
 
         self.regularize = True
-        self.leaves = getLeaves(10,dataset='modern')
+        self.leaves = getLeaves(10,dataset=ontologyDataset)
 
         #Intiailize list of networks and device tensor will be calculated on
         self.numFolds = numfolds
