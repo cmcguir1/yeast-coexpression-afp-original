@@ -25,6 +25,7 @@ plotPrecRecall <- function(files,colorsList,graphName) {
   plot(data[,"Recall"], data[,"Precision"], ylim= c(0,1), type="l", col=colorsList[1],
        lwd=width, main=graphName, xlab="Recall", ylab = "Precision",log='x')
   
+  #splice <- data[,7:8]
   splice <- data[,11:12]
   uSplice <- unique(splice)
   
@@ -58,6 +59,7 @@ plotPrecRecall <- function(files,colorsList,graphName) {
     lines(data[,"Recall"],data[,"Precision"],lwd=width,col=colorsList[i])
     
     splice <- data[,11:12]
+    #splice <- data[,7:8]
     uSplice <- unique(splice)
     
     #Calculate AUC, then add to legends collections

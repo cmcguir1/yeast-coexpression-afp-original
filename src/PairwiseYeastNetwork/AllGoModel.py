@@ -94,6 +94,10 @@ class AllGoModel():
         #Initialize the network, the size of the input layer is the number of expression datasets, and the size of the output is the number of leaf go terms
         struct = f'{len(self.datasets)}x{structure}x{len(self.leaves)}'
         print(struct)
+        if inputDropout == 0:
+            inputDropout = None
+        if hiddenDropout == 0:
+            hiddenDropout = None
         self.net = FlexNet(struct,sigmoid=False,activation=activation,inputDrop=inputDropout,hiddenDrop=hiddenDropout)
         print('Initialized Network')
         #Choose which device to run network on, then move network to that device
@@ -110,8 +114,8 @@ class AllGoModel():
         self.fold = fold
         self.regularize = regularize
 
-        inputDropString = '' if inputDropout == None else f'_inputDrop{inputDropout}'
-        hiddenDropString = '' if hiddenDropout == None else f'_hiddenDrop{hiddenDropout}'
+        inputDropString = '' if inputDropout == None or inputDropout == 0 else f'_inputDrop{inputDropout}'
+        hiddenDropString = '' if hiddenDropout == None or hiddenDropout == 0 else f'_hiddenDrop{hiddenDropout}'
 
 
         #Locations to save all output data
@@ -278,7 +282,7 @@ class AllGoModel():
                     
                     stats = calcStats(termData)
                     termResults = np.concatenate([sortedData,stats],axis=1)
-                    leafStatsDist.append([leaf[0],np.mean(termResults[:,11]),averagePrecision(termResults[:,9])])
+                    leafStatsDist.append([leaf[0],np.mean(termResults[:,10]),averagePrecision(termResults[:,9])])
                     goTerm = leaf[0].replace(':','-')
                     print('Are we attempting to save')
                     termDataFrame = pd.DataFrame(termResults,columns=columnNames)
