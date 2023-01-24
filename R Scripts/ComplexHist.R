@@ -22,16 +22,16 @@ plotAUCDist <- function(files) {
   den4 <- density(fold4[,"AUC"])
   
   plot(den1,type="l",lwd=w)
-  polygon(den1,col=lightBlue,border=borderlb)
+  polygon(den1,col=lightBlue,border=borderlb,lwd=w)
   
   #plot(den2,type="l",lwd=w)
-  polygon(den2,col=lightGreen,border=borderlg)
+  polygon(den2,col=lightGreen,border=borderlg,lwd=w)
   
   #plot(den3,type="l",lwd=w)
-  polygon(den3,col=pink,border=borderpk)
+  polygon(den3,col=pink,border=borderpk,lwd=w)
   
   #plot(den4,type="l",lwd=w)
-  polygon(den4,col=purple,border=borderpurp)
+  polygon(den4,col=purple,border=borderpurp,lwd=w)
   
   
 }
