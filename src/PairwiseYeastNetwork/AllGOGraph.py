@@ -66,17 +66,6 @@ class AllGoGraph(AllGoModel):
 
             foldPosGenes = [gene for gene in posGenes if gene in self.folds[fold]]
             agnGenes = pd.read_csv('./Yeast Resources/TermPos/AgnosticGenes.csv').to_numpy().flatten()
-
-            # leaves = getLeaves(10,dataset=dataset)
-            # negTerms = [leaf[1] for leaf in leaves if term[0] != term]
-            # negGenes = set()
-            # for termGenes in negTerms:
-            #     negGenes = negGenes | termGenes
-            
-            # #Set of all genes that are annoated to biological process, but are not annotated in the GO Slim
-            # agnGenes = set(getGenes('GO:0008150',dataset=dataset)) - negGenes
-            # pd.DataFrame(agnGenes,columns=['Gene']).to_csv('./Yeast Resources/TermPos/AgnosticGenes.csv',index=False)
-
             
 
             pairs = AllGoGraph.makePairs(self.folds[fold],posGenes)
@@ -108,13 +97,18 @@ class AllGoGraph(AllGoModel):
 
     #rankGenes takes all of the calculated pair scores then ranks the genes by their involvment in a given process
     def rankGenes(self,term='GO:0007005',dataset='original'):
-        posGenes = getGenes(term,dataset=dataset)
-        # negGenes = {gene for gene in [leaf for leaf in leaves if term[0] != term]}
-        leaves = getLeaves(10,dataset=dataset)
-        negTerms = [leaf[1] for leaf in leaves if term[0] != term]
-        negGenes = set()
-        for termGenes in negTerms:
-            negGenes = negGenes | termGenes
+        if False or term == 'GO:0007005':
+            posGenes = set(pd.read_csv('./Yeast Resources/positives_00_go04-15-07.txt').to_numpy().flatten())
+            negGenes = set(pd.read_csv('./Yeast Resources/negatives_00_go04-15-07.txt').to_numpy().flatten())
+            #agnostics = set(pd.read_csv('./Yeast Resources/agnostic_01_underannotated.txt').to_numpy().flatten())
+        else:
+            posGenes = getGenes(term,dataset=dataset)
+            # negGenes = {gene for gene in [leaf for leaf in leaves if term[0] != term]}
+            leaves = getLeaves(10,dataset=dataset)
+            negTerms = [leaf[1] for leaf in leaves if leaf[0] != term]
+            negGenes = set()
+            for termGenes in negTerms:
+                negGenes = negGenes | termGenes
 
         def checkPosNeg(gene):
             if gene in posGenes:
@@ -125,20 +119,25 @@ class AllGoGraph(AllGoModel):
                 return 0
         
         
-        folds = [pd.read_csv(f'{self.path}/posScores_fold{i}.csv').to_numpy() for i in range(self.numFolds)]
+        folds = [pd.read_csv(f'{self.path}/posScores_fold{i}.csv').to_numpy(dtype=object) for i in range(self.numFolds)]
         genePairs = np.concatenate(folds,axis=0)
-        print(genePairs)
-        # agnFolds = [pd.read_csv(f'{self.path}/agnScores_fold{i}').to_numpy() for i in range(self.numFolds)]
-        # agnGenePairs = np.concatenate(agnFolds,axis=1)
-        # scoreDict = {}
-        # for genePair in genePairs:
-        #     scoreDict[genePair[0]] = scoreDict[genePair[0]] + genePair[2]
-        # for genePair in agnGenePairs:
-        #     scoreDict[genePair[0]] = scoreDict[genePair[0]] + (genePair[2] / self.numFolds)
+        agnFolds = [pd.read_csv(f'{self.path}/agnScores_fold{i}.csv').to_numpy(dtype=object) for i in range(self.numFolds)]
+        agnGenePairs = np.concatenate(agnFolds,axis=0)
+        scoreDict = {}
+        for genePair in genePairs:
+            if genePair[0] in scoreDict and genePair[1] in posGenes:
+                scoreDict[genePair[0]] = scoreDict[genePair[0]] + float(genePair[2])
+            elif genePair[1] in posGenes:
+                scoreDict[genePair[0]] = float(genePair[2])
+        for genePair in agnGenePairs:
+            if genePair[0] in scoreDict and genePair[1] in posGenes:
+                scoreDict[genePair[0]] = scoreDict[genePair[0]] + (float(genePair[2]) / self.numFolds)
+            elif genePair[1] in posGenes:
+                scoreDict[genePair[0]] = (float(genePair[2]) / self.numFolds)
 
-        # scoreTable = [[gene,checkPosNeg(gene),score] for gene,score in scoreDict.items()]
-        # confMat = ConfusionMatrix.calculateMatrix(scoreTable,1,2)
-        # pd.DataFrame(confMat,columns=['Gene','Label','Score','Precision','Recall','False Positive Rate']).to_csv(f'{self.path}/GeneRanking.csv')
+        scoreTable = [[gene,checkPosNeg(gene),score] for gene,score in scoreDict.items()]
+        confMat = ConfusionMatrix.calculateMatrix(np.array(scoreTable,dtype=object),1,2)
+        pd.DataFrame(confMat,columns=['Gene','Label','Score','Precision','Recall','False Positive Rate']).to_csv(f'{self.path}/GeneRanking.csv',index=False)
 
     
     #Makes all possible pairs between 2 sets of genes

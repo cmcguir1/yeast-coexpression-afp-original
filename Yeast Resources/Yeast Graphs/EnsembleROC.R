@@ -4,9 +4,14 @@ getAUC <- function(data){
 }
 
 ensembleROC <- function(dataFile,graphName) {
-  pixie <- read.csv("C:\\Users\\colem\\SummerResearch2022\\Yeast Resources\\ConfusionMatrixPixie.csv")
-  mefit <- read.csv("C:\\Users\\colem\\SummerResearch2022\\Yeast Resources\\ConfusionMatrixMefit.csv")
-  spell <- read.csv("C:\\Users\\colem\\SummerResearch2022\\Yeast Resources\\ConfusionMatrixSpell.csv")
+  
+  #pixie <- read.csv("C:\\Users\\colem\\SummerResearch2022\\Yeast Resources\\ConfusionMatrixPixie.csv")
+  #mefit <- read.csv("C:\\Users\\colem\\SummerResearch2022\\Yeast Resources\\ConfusionMatrixMefit.csv")
+  #spell <- read.csv("C:\\Users\\colem\\SummerResearch2022\\Yeast Resources\\ConfusionMatrixSpell.csv")
+  
+  pixie <- read.csv("C:\\Users\\colem\\SummerResearch2022\\Yeast Resources\\ConfusionMatrixPixie_Modern.csv")
+  mefit <- read.csv("C:\\Users\\colem\\SummerResearch2022\\Yeast Resources\\ConfusionMatrixMefit_Modern.csv")
+  spell <- read.csv("C:\\Users\\colem\\SummerResearch2022\\Yeast Resources\\ConfusionMatrixSpell_Modern.csv")
   nn <- read.csv(dataFile)
   
   pixie <- pixie[order(pixie[,"Confidence"],decreasing=FALSE),]
@@ -41,6 +46,7 @@ ensembleROC <- function(dataFile,graphName) {
 dataFile <- file.choose()
 #dataFile <- "C:\\Users\\colem\\SummerResearch2022\\Yeast Resources\\Pairwise\\Spell\\Test\\Regular430_20x1_fold1_Val.csv"
 graphName <- "Ensemble Comparison"
-pdf("EnsembleComparision_Presentation_113x100x50x1_ROC.pdf",width=6,height=6)
+pdf("EnsembleComparision_AllGO_113x200x92_ROC.pdf",width=6,height=6)
 ensembleROC(dataFile=dataFile,graphName=graphName)
 dev.off()
+

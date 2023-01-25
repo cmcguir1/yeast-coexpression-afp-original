@@ -20,10 +20,11 @@ class ConfusionMatrix:
         dataTable = data[data[:,scoreColumn].argsort()[::-1]]
 
         falseNeg = len([row for row in dataTable if row[labelColumn] == 1])
-        trueNeg = len(dataTable) - falseNeg
+        trueNeg = len([row for row in dataTable if row[labelColumn] == -1])
         falsePos = 0
         truePos = 0
 
+        print(dataTable)
         confusionMatrix = []
         for row in dataTable:
             if row[labelColumn] == 1:
