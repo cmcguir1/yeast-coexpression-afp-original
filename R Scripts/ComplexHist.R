@@ -8,6 +8,7 @@ plotAUCDist <- function(files,graphName) {
   lightGreen <-rgb(54, 173, 100,maxColorValue=255,alpha=164)
   pink <- rgb(255, 110, 110,maxColorValue=255,alpha=64)
   purple <- rgb(120, 2, 171,maxColorValue=255,alpha=64)
+  white <- rgb(255, 255, 255,maxColorValue=255,alpha=64)
   
   
   borderlb <-rgb(107, 178, 255,maxColorValue=255,alpha=255)
@@ -20,8 +21,9 @@ plotAUCDist <- function(files,graphName) {
   den2 <- density(fold2[,"AUC"])
   den3 <- density(fold3[,"AUC"])
   den4 <- density(fold4[,"AUC"])
+  avgDen <- c(fold1[,"AUC"],fold2[,"AUC"],fold3[,"AUC"],fold4[,"AUC"])
   
-  plot(den1,type="l",lwd=w,xlim=c(0,1),ylim=c(0,5),xlab="Area Under the Curve",ylab="Density",main=graphName)
+  plot(den1,type="l",lwd=w,xlim=c(0,1),ylim=c(0,6),xlab="Area Under the Curve",ylab="Density",main=graphName)
   polygon(den1,col=lightBlue,border=borderlb,lwd=w)
   
   #plot(den2,type="l",lwd=w)
@@ -33,7 +35,12 @@ plotAUCDist <- function(files,graphName) {
   #plot(den4,type="l",lwd=w)
   polygon(den4,col=purple,border=borderpurp,lwd=w)
   
-  legend("topright",c("Fold 1", "Fold 2","Fold 3","Fold 4"),lty=1,lwd=4,seg.len = 4, col = c(borderlb,borderlg,borderpk,borderpurp))
+  avgMean <- format(mean(avgDen),digits=4)
+  #avgMean <- "Place Holder"
+  avgSd <- format(sd(avgDen),digits=3)
+  #avgSd <- "Place Holder"
+  
+  legend("topleft",c("Fold 1", "Fold 2","Fold 3","Fold 4", paste("Avg Mean: ",avgMean,sep=""),paste("Avg STD: ",avgSd,sep="")),lty=1,lwd=4,seg.len = 4, col = c(borderlb,borderlg,borderpk,borderpurp,white,white))
   
   
 }
@@ -44,8 +51,8 @@ files = choose.files(default=paste0(getwd(),"/*.*"))
 currentWd = getwd()
 setwd("C:/Users/colem/SummerResearch2022/Yeast Resources/Yeast Graphs")
 
-graph <- "Original 113x200x100x50x92"
-fileName <- "Original_113x200x100x50x92_AUCDist_Train.pdf"
+graph <- "Original 113x500x300x200x92 Train"
+fileName <- "Original_113x500x300x200x92_AUCDist_Train.pdf"
 
 
 

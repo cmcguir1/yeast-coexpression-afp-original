@@ -184,12 +184,6 @@ class AllGoModel():
         torch.save(self.net.state_dict(),self.networkLoc)
         #self.net._save_to_state_dict(self.networkLoc)
 
-    def testNetwork(self,validation=True):
-        with torch.no_grad():
-            for i, pair in enumerate(self.makePairs(self.validation if validation else self.training)):
-                features, labels = self.makeBatchTensors([pair])
-                features = features.to(self.device)
-                ouputs = self.net(features.float(),test=True)
 
     def testNetworkAll(self,proportionNeg=10,saveTerms={'GO:0007005','GO:0006302','GO:0007127'},runAll=True,validation=True):
         with torch.no_grad():
@@ -332,7 +326,12 @@ class AllGoModel():
 
         features = torch.tensor([[calcCorr(dataset,genePair) for dataset in self.datasets] for genePair in batchArray],dtype=float)
         labels = torch.tensor([[calcLabel(leaf,genePair) for leaf in self.leaves] for genePair in batchArray],dtype=float)
-        # print(f'Features: {features}')
+        #labels = torch.zeros((len(batchArray),len(self.leaves)),dtype=float)
+        for i in range(len(batchArray)):
+            for leaf in self.leaves:
+                if batchArray[i,0] in leaf[1] and batchArray[i,1] in leaf[1]:
+                    labels[i,self.GOTermDict[leaf[0]]] = 1.0
+
         return (features,labels)
         
 
