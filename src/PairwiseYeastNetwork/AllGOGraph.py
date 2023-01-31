@@ -111,7 +111,7 @@ class AllGoGraph(AllGoModel):
                 negGenes = negGenes | termGenes
 
         def checkPosNeg(gene):
-            if gene in posGenes:
+            if gene in posGenes: 
                 return 1
             elif gene in negGenes:
                 return -1
