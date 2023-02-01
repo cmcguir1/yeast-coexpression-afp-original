@@ -29,6 +29,12 @@ def main():
         model.testNetworkTraining(limitNegative=True)
         model.testNetworkValidation(limitNegative=True)
 
+    for i in range(4):
+        model = PairwiseModel(modelData,i,f'{sys.argv[3]}x1','Spell/OtherSingleTerms',f'{term[0:2]}{term[3:]}')
+        model.trainNetwork(20000,printLoss=True)
+        model.testNetworkTraining(limitNegative=True)
+        model.testNetworkValidation(limitNegative=True)
+
 
 
 if __name__ == '__main__':
