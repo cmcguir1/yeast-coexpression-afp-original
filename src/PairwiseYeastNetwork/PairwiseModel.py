@@ -9,6 +9,7 @@ import numpy as np
 import pandas as pd
 import time
 from random import sample
+import os
 
 class PairwiseModel():
     def __init__(self,data,fold,structure,folderName,modelName,lr=0.01,momentum=0.9,batch=20,activation='relu',inputDrop=None,hiddenDrop=None):
@@ -38,8 +39,13 @@ class PairwiseModel():
 
         #Locations to save files
         self.dataTableLocation = f'./Yeast Resources/Pairwise/{folderName}/{modelName}_{structure}'
-        self.networkLocation = f'./Yeast Resources/Pairwise/{folderName}/{modelName}_{structure}_Net_fold{fold+1}'
+        self.networkLocation = f'./Yeast Resources/Pairwise/{folderName}/{modelName}_{structure}_Net_fold{fold+1}.pth'
         self.lossLocation = f'./Yeast Resources/Pairwise/{folderName}/{modelName}_{structure}_Loss_fold{fold+1}.csv'
+
+        if not os.path.exists(f'./Yeast Resources/Pairwise/{folderName}'):
+            os.mkdir(f'./Yeast Resources/Pairwise/{folderName}')
+
+        print('Finished Model Initialization')
 
     def trainNetwork(self,epochs,printLoss=False,printTensors=False,regularize=True,lossFile='',saveLoss=True):
         start = time.time()
@@ -275,7 +281,8 @@ class PairwiseModel():
             #Loops over all datasets
             for dataset in self.data.datasets:
                 #Calculates the correlation coefficient between the expresssion levels of the two genes in a given data set, [0,1] is used because corrcoeff returns a matrix
-                p = dataset.customCorrelation(genePair)
+                #p = dataset.customCorrelation(genePair)
+                p = self.data.corrDict.lookupCorrelation(genePair[0],genePair[1],dataset=dataset.dataFile)
                 #If p is 1 or -1, then there will be in error in arctanh, so make them 0.99 and -0.99
                 if p == 1:
                     p = 0.99

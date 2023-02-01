@@ -4,13 +4,25 @@ import pandas as pd
 import numpy as np
 import time as time
 from ExpressionDatasets import ExpressionDatasets
+import os
+from CorrelationDictionary import CorrelationDictionary
+
+import sys
+sys.path.insert(0,'./obopy')
+from Leaf import makePosNegFiles
 
 class PairwiseYeastData():
-    def __init__(self,folder,numFolds,foldFile='',filterMissingGenes=False,sort=True,recalc=False,statsDictLoc='',numDatasets=50,subset=100000,recur=True,posGenes='./Yeast Resources/positives_00_go04-15-07.txt',negGenes='./Yeast Resources/negatives_00_go04-15-07.txt'):
+    def __init__(self,dataset,foldFile,numFolds=4,filterMissingGenes=False,recalc=False,statsDictLoc='./Yeast Resources/Datasets/All Spell/revisedStatsDict.csv',subset=100000,term='GO:0007005',memMapLoc='../YeastDict.dat'):
 
-        #Reads in lists of positive and negatice genes, then turns each data frame into an array, flattens that array, then turns it into a list
-        self.posDataList = pd.read_csv(posGenes).to_numpy().flatten().tolist()
-        self.negDataList = pd.read_csv(negGenes).to_numpy().flatten().tolist()
+        if term == 'GO:0007005':
+            #Reads in lists of positive and negatice genes, then turns each data frame into an array, flattens that array, then turns it into a list
+            self.posDataList = pd.read_csv('./Yeast Resources/positives_00_go04-15-07.txt').to_numpy().flatten().tolist()
+            self.negDataList = pd.read_csv('./Yeast Resources/negatives_00_go04-15-07.txt').to_numpy().flatten().tolist()
+        else:
+            if not os.path.exists(f'./Yeast Resources/GeneSets/{term[0:2] + term[3:]}_Pos_{dataset}.txt'):
+                makePosNegFiles(term,dataset=dataset)
+            self.posDataList = pd.read_csv(f'./Yeast Resources/GeneSets/{term[0:2] + term[3:]}_Pos_{dataset}.txt').to_numpy().flatten().tolist()
+            self.negDataList = pd.read_csv(f'./Yeast Resources/GeneSets/{term[0:2] + term[3:]}_Neg_{dataset}.txt').to_numpy().flatten().tolist()
         #Set of all positive genes
         self.posDataSet = set(self.posDataList)
 
@@ -28,8 +40,20 @@ class PairwiseYeastData():
         pairs = np.concatenate((posPairs,negPairs,agnPairs))
 
         
+        if dataset == 'modern' or dataset == 'Modern':
+            folder = f'./Yeast Resources/Datasets/All Spell/all spell datasets'
+            recur = True
+            sort = True
+        else:
+            folder = './Yeast Resources/Datasets/All Spell/original'
+            recur = False
+            sort = False
         self.expression = ExpressionDatasets(folder,pairs=pairs,subset=subset,sort=sort,recur=recur,recalc=recalc,statsDictLoc=statsDictLoc)
         self.datasets = self.expression.datasets
+
+        #Correlations Dictionary that will be retrieve precalculated correlation values
+        self.corrDict = CorrelationDictionary(dictLoc=memMapLoc,datasetType=dataset)
+        self.datasets = self.corrDict.expDataset.datasets
         
         if(filterMissingGenes):
             self.filterGenes()
@@ -45,7 +69,7 @@ class PairwiseYeastData():
         #Intializes empty list that will hold each fold of data, each fold will be a tuple of (pos data, neg data)
         #Each fold of the data will contain a tuple of a set of positive genes and a set of negative genes
         self.folds = []
-        if(not(foldFile == '')):
+        if(os.path.exists(foldFile)):
             foldData = pd.read_csv(foldFile).to_numpy()
             posList = []
             negList = []
@@ -73,6 +97,14 @@ class PairwiseYeastData():
                 #Otherwise, go to end position
                 else:
                     self.folds.append((set(self.posArray[startPos:endPos]),set(self.negArray[startNeg:endNeg])))
+            #Save folds because they do not currently exist
+            foldLst = []
+            for i,fold in enumerate(self.folds):
+                for gene in fold[0]:
+                    foldLst.append([gene,1,i])
+                for gene in fold[1]:
+                    foldLst.append([gene,0,i])
+            pd.DataFrame(foldLst,columns=['Gene','+/-','Fold']).to_csv(foldFile,index=False)
 
     #Returns a specified fold as validation data, and the other folds as training data
     def getFold(self,fold):

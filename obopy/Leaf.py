@@ -11,17 +11,17 @@ def getGenes(goTerm,dataset = 'modern'):
     genes = term.allAnnos()
     return getYORF(genes)
     
-def makePosNegFiles(goTerm):
-    termPositives = getGenes(goTerm)
+def makePosNegFiles(goTerm,dataset='original'):
+    termPositives = getGenes(goTerm,dataset=dataset)
     leaves = getLeaves(0)
     allGenes = set()
     for leaf in leaves:
         allGenes = allGenes | leaf[1]
     termNegatives = list(allGenes - set(termPositives))
     termAgnostics = set(getGenes('GO:0008150')) - (set(termPositives) | set(termNegatives))
-    pd.DataFrame(termPositives).to_csv(f'./Yeast Resources/GeneSets/{goTerm[0:2] + goTerm[3:]}_Pos.txt',index=False,header=False)
-    pd.DataFrame(termNegatives).to_csv(f'./Yeast Resources/GeneSets/{goTerm[0:2] + goTerm[3:]}_Neg.txt',index=False,header=False)
-    pd.DataFrame(termAgnostics).to_csv(f'./Yeast Resources/GeneSets/{goTerm[0:2] + goTerm[3:]}_Agn.txt',index=False,header=False)
+    pd.DataFrame(termPositives).to_csv(f'./Yeast Resources/GeneSets/{goTerm[0:2] + goTerm[3:]}_Pos_{dataset}.txt',index=False,header=False)
+    pd.DataFrame(termNegatives).to_csv(f'./Yeast Resources/GeneSets/{goTerm[0:2] + goTerm[3:]}_Neg_{dataset}.txt',index=False,header=False)
+    pd.DataFrame(termAgnostics).to_csv(f'./Yeast Resources/GeneSets/{goTerm[0:2] + goTerm[3:]}_Agn_{dataset}.txt',index=False,header=False)
 
 #Searches through a set of genes and returns a list of all of the open reading frame (ORF) names for that set of genes
 def getYORF(genes):
@@ -86,7 +86,6 @@ def getLeafGenes(cutoff):
 #         print(len(leaf[1]))
 # leaf = getGenes('GO:0007005')
 # print(len(leaf))
-
 
 
 

@@ -53,6 +53,12 @@ class AllGoGraph(AllGoModel):
                 outputs = self.nets[fold](features,test=True)
                 
                 labels = np.array(labels,dtype=np.intc)
+                print('------------------------------')
+                print(f'Gene A in : {pair[0] in posGenes}')
+                print(f'Gene B in : {pair[1] in posGenes}')
+                print(f'Desired GO Term: {outputs[0,self.GOTermDict[term]].item()}')
+                print(f'Other terms Labels:\n{labels}')
+                print(f'Other terms Scores:\n{outputs}')
                 return [pair[0],pair[1],outputs[0,self.GOTermDict[term]].item()]
 
             
@@ -64,12 +70,16 @@ class AllGoGraph(AllGoModel):
                 posGenes = getGenes(term,dataset=dataset)
                 pd.DataFrame(posGenes,columns=['Gene']).to_csv(f'./Yeast Resources/TermPos/GO-{term[3:]}_Pos_{dataset}.csv',index=False)
 
+            posSet = set(posGenes)
+            print(f'Num Pos Genes: {len(posGenes)}')
+            print(f'Pos Genes: \n{posGenes}')
             foldPosGenes = [gene for gene in posGenes if gene in self.folds[fold]]
             agnGenes = pd.read_csv('./Yeast Resources/TermPos/AgnosticGenes.csv').to_numpy().flatten()
             
 
             pairs = AllGoGraph.makePairs(self.folds[fold],posGenes)
-            agnPairs = AllGoGraph.makePairs(self.folds[fold],agnGenes)
+            #agnPairs = AllGoGraph.makePairs(self.folds[fold],agnGenes)
+            agnPairs = AllGoGraph.makePairs(agnGenes,posGenes)
 
             if trackTime:
                 foldScores = []
@@ -118,22 +128,23 @@ class AllGoGraph(AllGoModel):
             else:
                 return 0
         
-        
+        posSet = set(posGenes)
         folds = [pd.read_csv(f'{self.path}/posScores_fold{i}.csv').to_numpy(dtype=object) for i in range(self.numFolds)]
         genePairs = np.concatenate(folds,axis=0)
         agnFolds = [pd.read_csv(f'{self.path}/agnScores_fold{i}.csv').to_numpy(dtype=object) for i in range(self.numFolds)]
         agnGenePairs = np.concatenate(agnFolds,axis=0)
         scoreDict = {}
+
+        for gene in self.allGenes:
+            scoreDict[gene] = 0
         for genePair in genePairs:
-            if genePair[0] in scoreDict and genePair[1] in posGenes:
+            if genePair[1] in posSet:
                 scoreDict[genePair[0]] = scoreDict[genePair[0]] + float(genePair[2])
-            elif genePair[1] in posGenes:
-                scoreDict[genePair[0]] = float(genePair[2])
         for genePair in agnGenePairs:
-            if genePair[0] in scoreDict and genePair[1] in posGenes:
+            if genePair[1] in posSet:
                 scoreDict[genePair[0]] = scoreDict[genePair[0]] + (float(genePair[2]) / self.numFolds)
-            elif genePair[1] in posGenes:
-                scoreDict[genePair[0]] = (float(genePair[2]) / self.numFolds)
+        
+            
 
         scoreTable = [[gene,checkPosNeg(gene),score] for gene,score in scoreDict.items()]
         confMat = ConfusionMatrix.calculateMatrix(np.array(scoreTable,dtype=object),1,2)

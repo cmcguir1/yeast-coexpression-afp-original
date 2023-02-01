@@ -98,7 +98,7 @@ class AllGoModel():
             inputDropout = None
         if hiddenDropout == 0:
             hiddenDropout = None
-        self.net = FlexNet(struct,sigmoid=True,activation=activation,inputDrop=inputDropout,hiddenDrop=hiddenDropout)
+        self.net = FlexNet(struct,sigmoid=False,activation=activation,inputDrop=inputDropout,hiddenDrop=hiddenDropout)
         print('Initialized Network')
         #Choose which device to run network on, then move network to that device
         self.device = 'cuda:0' if torch.cuda.is_available() else 'cpu'

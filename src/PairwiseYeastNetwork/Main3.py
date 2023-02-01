@@ -21,9 +21,9 @@ ssl._create_default_https_context = ssl._create_unverified_context
 def main():
     
     #graph = AllGoGraph('./Yeast Resources/Pairwise/Spell/AllGO_Original_Struct_ParaSearch/Original_113x2000x92_Net_fold','113x2000x92','AllGO_Original_113x2000x92',memMapLoc='../YeastMemMap/YeastCorrDictionary.dat',ontologyDataset='original',geneFolds='./src/PairwiseYeastNetwork/AllGOGeneFold_Orignial_1.csv')
-    graph = AllGoGraph('./Yeast Resources/Pairwise/Spell/AllGO_Original_Struct_ParaSearch/Original_113x2000x92_Net_fold','113x2000x92','AllGO_Original_113x2000x92',ontologyDataset='original',geneFolds='./src/PairwiseYeastNetwork/AllGOGeneFold_Orignial_1.csv')
-    #graph.feedForward(int(sys.argv[1]))
-    graph.rankGenes()
+    graph = AllGoGraph('./Yeast Resources/Pairwise/Spell/AllGO_Original_Struct_ParaSearch/Original_113x2000x92_Net_fold','113x2000x92','Test',ontologyDataset='original',geneFolds='./src/PairwiseYeastNetwork/AllGOGeneFold_Orignial_1.csv')
+    graph.feedForward(int(sys.argv[1]))
+    #graph.rankGenes()
 
 
 

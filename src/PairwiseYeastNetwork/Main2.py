@@ -20,18 +20,14 @@ ssl._create_default_https_context = ssl._create_unverified_context
 def main():
     
     start = time.time()
+    term = sys.argv[1]
 
-    GOTest = AllGoModel(int(sys.argv[1]),'200','DropoutRedo','InputDropout',inputDropout=float(sys.argv[2]),memMapLoc='../YeastMemMap/YeastCorrDictionary.dat',foldFile='./src/PairwiseYeastNetwork/AllGOGeneFold1.csv')
-    # GOTest = AllGoModel(int(sys.argv[1]),'200','DropoutRedo','InputDropout',inputDropout=float(sys.argv[2]),foldFile='./src/PairwiseYeastNetwork/AllGOGeneFold1.csv')
-    
-    GOTest.net.load_state_dict(torch.load(f'./Yeast Resources/Pairwise/Spell/DropoutRedo/InputDropout_430x200x92_inputDrop{sys.argv[2]}_Net_fold{int(sys.argv[1])+1}.pth'))
-    #GOTest.trainNetwork(10000)
-    GOTest.testNetworkAll(runAll=True)
-    #GOTest.testNetworkAll(runAll=True,validation=False)
-
-    # GO = AllGoModel(0,'200','AllOriginalTest','OriginalDatasets',ontologyDataset='original')
-    # GO.trainNetwork(1000)
-
+    modelData = PairwiseYeastData(dataset='original',foldFile=f'./Yeast Resources/Datasets/All Spell/{term[0:2]}{term[3:]}_Folds_Original_1.csv',term=term,memMapLoc='../YeastMemMap/YeastCorrDictionary.dat')
+    for i in range(4):
+        model = PairwiseModel(modelData,i,f'{sys.argv[2]}x1','Spell/OtherSingleTerms',f'{term[0:2]}{term[3:]}')
+        model.trainNetwork(20000,printLoss=True)
+        model.testNetworkTraining(limitNegative=True)
+        model.testNetworkValidation(limitNegative=True)
 
 
 
