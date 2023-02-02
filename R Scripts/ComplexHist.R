@@ -51,8 +51,12 @@ files = choose.files(default=paste0(getwd(),"/*.*"))
 currentWd = getwd()
 setwd("C:/Users/colem/SummerResearch2022/Yeast Resources/Yeast Graphs")
 
-graph <- "Original 113x500x300x200x92 Train"
-fileName <- "Original_113x500x300x200x92_AUCDist_Train.pdf"
+name <- "Original"
+struct <- "113x200x1"
+type <- "Train"
+
+graph <- paste(name,struct,type,sep=" ")
+fileName <- paste(name,"_",struct,"_AUCDist_",type,".pdf",sep="")
 
 
 
