@@ -14,6 +14,8 @@ import concurrent.futures
 import os
 from ConfusionMatrix import ConfusionMatrix
 import random
+from FocalLoss import FocalLoss
+import torchvision
 
 #import for cython
 import cython
@@ -27,7 +29,7 @@ from Leaf import getLeaves
 
 
 class AllGoModel():
-    def __init__(self,fold,structure,folderName,modelName,numFolds=4,lr=0.01,momentum=0.9,batch=50,foldFile='./src/PairwiseYeastNetwork/AllGOGeneFold1.csv',ontologyDataset='modern',regularize=True,memMapLoc='../YeastDict.dat',inputDropout=None,hiddenDropout=None,activation='relu'):
+    def __init__(self,fold,structure,folderName,modelName,numFolds=4,lr=0.01,momentum=0.9,batch=50,gamma=2,alpha=0.25,weighted=True,lossFunc='CE',foldFile='./src/PairwiseYeastNetwork/AllGOGeneFold1.csv',ontologyDataset='modern',regularize=True, inputDropout=None,hiddenDropout=None,activation='relu'):
         #getLeaves returns a list of tuple of (GO Term,{set of genes})
         self.leaves = getLeaves(10,dataset=ontologyDataset)
 
@@ -35,6 +37,7 @@ class AllGoModel():
         GoTerms = pd.read_csv('./src/PairwiseYeastNetwork/GOTermIndexDictionary.csv').to_numpy()
         self.GOTermDict = {term[0]: term[1] for term in GoTerms}
 
+        
         #Lists that will store the training and validation data
         val = []
         train = []
@@ -80,46 +83,71 @@ class AllGoModel():
 
         
         #Correlations Dictionary that will be retrieve precalculated correlation values
-        self.corrDict = CorrelationDictionary(dictLoc=memMapLoc,datasetType=ontologyDataset)
+        self.corrDict = CorrelationDictionary(dictLoc='../YeastMemMap/YeastCorrDictionary.dat' if (os.path.exists('../YeastMemMap/YeastCorrDictionary.dat')) else '../YeastDict.dat',datasetType=ontologyDataset)
         self.datasets = self.corrDict.expDataset.datasets
         
         #Initialize all expression data as a list of maps {gene -> expression array}
         # self.datasets = ExpressionDatasets('./Yeast Resources/Datasets/All Spell/all spell datasets',recur=True,statsDictLoc='./Yeast Resources/Datasets/All Spell/revisedStatsDict.csv').datasets
 
-      
+        inputDropString = '' if inputDropout == None or inputDropout == 0 else f'_inputDrop{inputDropout}'
+        hiddenDropString = '' if hiddenDropout == None or hiddenDropout == 0 else f'_hiddenDrop{hiddenDropout}'
 
-        print('Initialized Expression Datasets')
-
-
-        #Initialize the network, the size of the input layer is the number of expression datasets, and the size of the output is the number of leaf go terms
-        struct = f'{len(self.datasets)}x{structure}x{len(self.leaves)}'
-        print(struct)
-        if inputDropout == 0:
-            inputDropout = None
-        if hiddenDropout == 0:
-            hiddenDropout = None
-        self.net = FlexNet(struct,sigmoid=False,activation=activation,inputDrop=inputDropout,hiddenDrop=hiddenDropout)
-        print('Initialized Network')
-        #Choose which device to run network on, then move network to that device
-        self.device = 'cuda:0' if torch.cuda.is_available() else 'cpu'
-        self.net.to(self.device)
-
-
-        #Initialize Loss function, we are using CEL because we have multiple outputs that could be true
-        self.lossFunc = torch.nn.CrossEntropyLoss()
-        #Stochastic Gradient Descent Optimizer
-        self.opt = torch.optim.SGD(self.net.parameters(),lr=lr,momentum=momentum)
         #Instance variable for batch size
         self.batch = batch
         self.fold = fold
         self.regularize = regularize
 
-        inputDropString = '' if inputDropout == None or inputDropout == 0 else f'_inputDrop{inputDropout}'
-        hiddenDropString = '' if hiddenDropout == None or hiddenDropout == 0 else f'_hiddenDrop{hiddenDropout}'
+        print('Initialized Expression Datasets')
 
+        struct = f'{len(self.datasets)}x{structure}x{len(self.leaves)}'
+        print(struct)
+        #Initialize the network, the size of the input layer is the number of expression datasets, and the size of the output is the number of leaf go terms
+        self.networkLoc = f'./Yeast Resources/Pairwise/Spell/{folderName}/{modelName}_{struct}{inputDropString}{hiddenDropString}_Net_fold{self.fold+1}.pth'
+        
+        if inputDropout == 0:
+            inputDropout = None
+        if hiddenDropout == 0:
+            hiddenDropout = None
+        self.net = FlexNet(struct,sigmoid=False,activation=activation,inputDrop=inputDropout,hiddenDrop=hiddenDropout)
+        if(os.path.exists(self.networkLoc)):
+            self.net.load_state_dict(torch.load(self.networkLoc))
+        print('Initialized Network')
+        #Choose which device to run network on, then move network to that device
+        self.device = 'cuda:0' if torch.cuda.is_available() else 'cpu'
+        self.net.to(self.device)
+
+        if weighted:
+            alphaValues = pd.read_csv('./src/PairwiseYeastNetwork/AllGOAlphaDictionary.csv').to_numpy()
+            self.weights=torch.zeros((92,),dtype=float)
+            for val in alphaValues:
+                self.weights[self.GOTermDict[val[0]]] = val[1]
+        else:
+            self.weights = torch.ones((92,),dtype=float)
+        self.weights = torch.nn.Softmax(0)(self.weights)
+        self.weights = self.weights.to(self.device)
+        
+
+        #Initialize Loss function, we are using CEL because we have multiple outputs that could be true
+        if lossFunc in ['CE','crossEntropy','cross_entropy']:
+            self.lossFunc = torch.nn.CrossEntropyLoss()
+            print('Used Cross Entropy Loss Function')
+        elif lossFunc in ['WCE','weightedCrossEntropy','weighted_cross_entropy']:
+            self.lossFunc = torch.nn.CrossEntropyLoss(weight=self.weights)
+            print('Used Weighted Cross Entropy Loss Function')
+        elif lossFunc in ['FL','focalLoss','focal_loss']:
+            self.lossFunc = FocalLoss(alpha=alpha,gamma=gamma)
+            print('Used Focal Loss Function')
+        else:
+            self.lossFunc = torch.nn.CrossEntropyLoss()
+            print('Used Cross Entropy Loss Function')
+        
+        #Stochastic Gradient Descent Optimizer
+        self.opt = torch.optim.SGD(self.net.parameters(),lr=lr,momentum=momentum)
+
+        
 
         #Locations to save all output data
-        self.networkLoc = f'./Yeast Resources/Pairwise/Spell/{folderName}/{modelName}_{struct}{inputDropString}{hiddenDropString}_Net_fold{self.fold+1}.pth'
+        
         self.lossLoc = f'./Yeast Resources/Pairwise/Spell/{folderName}/{modelName}_{struct}{inputDropString}{hiddenDropString}_Loss_fold{self.fold+1}.csv'
         #The locations for the testing and training data will be folder because they will be storing a csv file for each GO term
         self.trainLoc = f'./Yeast Resources/Pairwise/Spell/{folderName}/{modelName}_{struct}{inputDropString}{hiddenDropString}_Train_/'
@@ -145,7 +173,10 @@ class AllGoModel():
         # print(f'Pairs: {pairs}')
 
         runningLoss = 0.0
-        lossList = []
+        if(os.path.exists(self.lossLoc)):
+            lossList = pd.read_csv(self.lossLoc).values.tolist()
+        else:
+            lossList = []
         start = time.time()
         #Run training loop epochs number of times
         for epoch in range(epochs):
@@ -155,14 +186,8 @@ class AllGoModel():
             
             #Make batch array of gene pairs
             batchArray = self.makeBatchArray(pairs)
-            # print(f'Batch Array: {batchArray}')
-            # print(f'Batch Array:\n{batchArray}')
             #Make features and labels tensors from batcharray
             features, labels = self.makeBatchTensors(batchArray)
-            #print(f'Time to calculate correlations and create batches: {(time.time()-begin)/60}')
-            begin = time.time()
-            # print(f'Features:\n{features}')
-            # print(f'Labels:\n{labels}')
             #Move both tensors to device of model
             features = features.to(self.device)
             labels = labels.to(self.device)
@@ -334,10 +359,6 @@ class AllGoModel():
 
         return (features,labels)
         
-
-        
-
-
     #Returns array of all pairs of gene from given array of genes
     def makePairs(self,genes):
         pairs = []
@@ -347,111 +368,6 @@ class AllGoModel():
         return arr
         
         
-        #Previous implementation of makePairs
-
-        # for i in range(len(genes)):
-        #     #Loop over all genes after gene i, this will result in there being no duplicates
-        #     for j in range(i+1,len(genes)):
-        #         #Append a tuple of (gene i, gene j)
-        #         pairs.append((genes[i],genes[j]))
-        # return np.array(pairs)
-
-
-    def parallelCalc(self,pairs,startIdx,start,threadLabel):
-        parArr = np.zeros((len(pairs),len(self.datasets)))
-        print(f'Thread {threadLabel} started at time {(time.time()-start)/60} mintues')
-        # print(f'Thread {threadLabel} pairs: {len(pairs)}')
-        pairStart = time.time()
-        for p in range(len(pairs)):
-            for d in range(len(self.datasets)):
-                parArr[p,d] = self.datasets[d].customCorrelation(pairs[p])
-            if p % 100 == 0 and p != 0:
-                print(f'Thread {threadLabel} time to calculate 100 pairs: {(time.time()-pairStart)/60} minutes')
-                pairStart = time.time()
-        print(f'Thread {threadLabel} finished at time {(time.time()-start)/60} minutes')
-
-    def threadsTestSpeed(self,num,numThreads=50):
-        pairs = self.makePairs(self.training)[:num]
-        start = time.time()
-
-        parArr = np.zeros((len(pairs),len(self.datasets)))
-        proportion = len(pairs) / numThreads
-        threads = []
-        for i in range(numThreads):
-            threadPairs = pairs[int(i*proportion):int((i+1)*proportion)] if i != numThreads-1 else pairs[int(i*proportion):]
-            threads.append(threading.Thread(target=self.parallelCalc,args=(threadPairs,int(i*proportion),start,i)))
-        for thread in threads:
-            thread.start()
-        for thread in threads:
-            thread.join()
-        print(f'Time to calculate pairs parrallel (threads): {(time.time()-start)/60} minutes')
-    
-    def executorTestSpeed(self,num,numThreads):
-        pairs = self.makePairs(self.training)[:num]
-        start = time.time()
-        #parArr = np.zeros((len(pairs),len(self.datasets)))
-
-        ex = concurrent.futures.ThreadPoolExecutor(max_workers=os.cpu_count())
-
-        with ex as executor:
-
-            parArr = np.zeros((len(pairs),len(self.datasets)))
-            proportion = len(pairs) / numThreads
-            futures = []
-            for i in range(numThreads):
-                threadPairs = pairs[int(i*proportion):int((i+1)*proportion)] if i != numThreads-1 else pairs[int(i*proportion):]
-                futures.append(executor.submit(self.parallelCalc,threadPairs,int(i*proportion),start,i))
-            finished, _ = concurrent.futures.wait(futures,return_when=concurrent.futures.ALL_COMPLETED)
-
-            print(f'Time to calculate pairs parrallel (executor): {(time.time()-start)/60} minutes')
-        
-        
-
-    def linearTestSpeed(self,num):
-        pairs = self.makePairs(self.training)[:num]
-        start = time.time()
-
-        lst =[]
-        pairStart = time.time()
-        for i, pair in enumerate(pairs,0):
-            for dataset in self.datasets:
-                lst.append(dataset.customCorrelation(pair))
-            if i % 100 == 0 and i != 0:
-                print(f'Linear Time to calculate 100 pairs: {(time.time()-pairStart)/60} minutes')
-                pairStart = time.time()
-        print(f'Time to linear calculate {num} pairs (list): {(time.time()-start)/60} mintues')
-
-    def linearTestSpeedArray(self,num):
-        pairs = self.makePairs(self.training)[:num]
-        start = time.time()
-
-        arr = np.zeros((len(pairs),len(self.datasets)),dtype=float)
-        for p in range(len(pairs)):
-            for d in range(len(self.datasets)):
-                arr[p,d] = self.datasets[d].customCorrelation(pairs[p])
-        print(f'Time to linear calculate {num} pairs (array): {(time.time()-start)/60} mintues')
-
-    def vectorizeTestSpeed(self,num):
-        pairs = self.makePairs(self.training)[:num]
-
-        start = time.time()
-        def calcCorr(p,d):
-            print(f'p: {p}\nd: {d}')
-            return self.datasets[int(d)].customCorrelation(pairs[int(p)])
-        arr = np.fromfunction(lambda p,d: self.datasets[d].customCorrelation(pairs[p]),(len(pairs),len(self.datasets)),dtype=int)
-        print(f'Time to vectorized calculate {num} pairs (array): {(time.time()-start)/60} mintues')
-
-    def testSpeedOfBatch(self,numBatches):
-        pairs = self.makePairs(self.training)
-        start = time.time()
-        for i in range(numBatches):
-            arr = self.makeBatchArray(pairs)
-            features, labels = self.makeBatchTensors(arr)
-        print(f'Time to calculate {numBatches} 20 pair batches: {(time.time()-start)/60} minutes')
-
-    def saveGenesToCSV(self,location):
-        pd.DataFrame(self.folds,columns=['Gene','Fold']).to_csv(location,index=False)
-
 
 
     

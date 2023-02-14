@@ -205,28 +205,6 @@ class PairwiseModel():
         #Makes confusion matrix list into array
         confusionMatrix = np.array(confusionMatrixList)
 
-        # truePos, trueNeg,falsePos, falseNeg = 0, 0, 0, 0
-        # #In this loop, i represents the cutoff for what we consider a true postiive or negative
-        # for i in range(len(sortedData)):
-        #     #Loops over all genes determines where that gene is in the confusion matrix
-        #     for j in range(len(sortedData)):
-        #         #If gene is negative and below the line, it is a true negative
-        #         if(sortedData[j,1] == 0.0 and j <= i):
-        #             trueNeg += 1
-        #         #If gene is positive and below the line, it is a false positive
-        #         elif(sortedData[j,1] == 1.0 and j <= i):
-        #             falseNeg += 1
-        #         #If gene is negative and above the line, it is a false negative
-        #         elif(sortedData[j,1] == 0.0 and j > i):
-        #             falsePos += 1
-        #         #If the gene is positive and above the line, it is a true positive
-        #         else:
-        #             truePos += 1
-        #     #Appends an array of the confusion matrix value to a confusion matrix list
-        #     confusionMatrixList.append(np.array([truePos,falsePos,trueNeg,falseNeg]))
-        #     #Reset confusion matrix values
-        #     truePos, trueNeg, falsePos, falseNeg = 0, 0 ,0 ,0
-
         
             
         #Calculate statistics for confusion matrix array

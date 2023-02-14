@@ -1,7 +1,8 @@
 
-plotPrecRecall <- function(files,colorsList,graphName) {
+plotPrecRecall <- function(files,graphName) {
   width = 4
   decimalPlaces = 3
+  colorsList <- c("#FC0303","#14A63B","#5D87F0","#7713BA","#FAEF16","#E09704")
   
   #Initialize lists that will store information for the legend
   legendLabels <- c()
@@ -72,7 +73,6 @@ plotPrecRecall <- function(files,colorsList,graphName) {
   
   #Adds legend
   legend("topright",legendLabels,lty=1,lwd=width, seg.len = 4,col = append(colorsList[1:length(files)],c("#000000")))
-  
   
 }
 #Read in multiple files

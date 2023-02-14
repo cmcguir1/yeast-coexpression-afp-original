@@ -22,14 +22,6 @@ class YeastGraph(PairwiseModel):
         pd.DataFrame(['Test File']).to_csv(f'{self.path}/TestFile.csv',index=False,header=False)
 
         self.numFolds = numfolds
-
-        #Old implementation of single network for forward feed
-        #Initialize an untrained network, then load in a trained network from memory
-        # self.net = FlexNet(structure=structure)
-        # self.net.load_state_dict(torch.load(networkPath))
-        # self.device = 'cuda:0' if torch.cuda.is_available() else 'cpu'
-        # self.net.to(self.device)
-
     
         #Creates a list of networks, each which trained on a different fold
         print('Starting to Initialize Networks')
@@ -245,15 +237,6 @@ class YeastGraph(PairwiseModel):
             if genePair[0] != genePair[1]:
 
                 scoreDict[genePair[0]] = scoreDict[genePair[0]] + genePair[2]
-                #If gene A is positive, then add the score of the pair to Gene B
-                # if(genePair[0] in self.posSet and genePair[1] in self.posSet):
-                #     scoreDict[genePair[0]] = scoreDict[genePair[0]] + (genePair[2] / 2)
-                #     scoreDict[genePair[1]] = scoreDict[genePair[1]] + (genePair[2] / 2)
-                # elif(genePair[0] in self.posSet):
-                #     scoreDict[genePair[1]] = scoreDict[genePair[1]] + genePair[2]
-                # #If gene B is positive, add the score to gene A
-                # elif(genePair[1] in self.posSet):
-                #     scoreDict[genePair[0]] = scoreDict[genePair[0]] + genePair[2]
 
         #Turn of genes and score into list
         dataTable = []
