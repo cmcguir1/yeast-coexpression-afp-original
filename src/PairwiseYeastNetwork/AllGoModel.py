@@ -14,8 +14,8 @@ import concurrent.futures
 import os
 from ConfusionMatrix import ConfusionMatrix
 import random
-from FocalLoss import FocalLoss
-import torchvision
+#from FocalLoss import FocalLoss
+#import torchvision
 
 #import for cython
 import cython
@@ -134,8 +134,8 @@ class AllGoModel():
         elif lossFunc in ['WCE','weightedCrossEntropy','weighted_cross_entropy']:
             self.lossFunc = torch.nn.CrossEntropyLoss(weight=self.weights)
             print('Used Weighted Cross Entropy Loss Function')
-        elif lossFunc in ['FL','focalLoss','focal_loss']:
-            self.lossFunc = FocalLoss(alpha=alpha,gamma=gamma)
+        elif False and lossFunc in ['FL','focalLoss','focal_loss']:
+            #self.lossFunc = FocalLoss(alpha=alpha,gamma=gamma)
             print('Used Focal Loss Function')
         else:
             self.lossFunc = torch.nn.CrossEntropyLoss()
