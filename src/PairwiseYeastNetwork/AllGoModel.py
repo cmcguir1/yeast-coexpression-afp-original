@@ -174,7 +174,8 @@ class AllGoModel():
 
         runningLoss = 0.0
         if(os.path.exists(self.lossLoc)):
-            lossList = pd.read_csv(self.lossLoc).values.tolist()
+            lossList = list(pd.read_csv(self.lossLoc).to_numpy().flatten())
+            print(f'Intial Loss List: {lossList}')
         else:
             lossList = []
         start = time.time()
