@@ -29,7 +29,7 @@ from Leaf import getLeaves
 
 
 class AllGoModel():
-    def __init__(self,fold,structure,folderName,modelName,numFolds=4,lr=0.01,momentum=0.9,batch=50,gamma=2,alpha=0.25,weighted=True,lossFunc='CE',foldFile='./src/PairwiseYeastNetwork/AllGOGeneFold1.csv',ontologyDataset='modern',regularize=True, inputDropout=None,hiddenDropout=None,activation='relu'):
+    def __init__(self,fold,structure,folderName,modelName,numFolds=4,lr=0.01,momentum=0.9,batch=50,gamma=2,alpha=0.25,weighted=True,lossFunc='CE',foldFile='./src/PairwiseYeastNetwork/AllGOGeneFold1.csv',ontologyDataset='modern',regularize=True, inputDropout=None,hiddenDropout=None,activation='relu',resetNet=False):
         #getLeaves returns a list of tuple of (GO Term,{set of genes})
         self.leaves = getLeaves(10,dataset=ontologyDataset)
 
@@ -108,8 +108,11 @@ class AllGoModel():
             inputDropout = None
         if hiddenDropout == 0:
             hiddenDropout = None
+
+        self.resetNet = self.resetNet
+
         self.net = FlexNet(struct,sigmoid=False,activation=activation,inputDrop=inputDropout,hiddenDrop=hiddenDropout)
-        if(os.path.exists(self.networkLoc)):
+        if(os.path.exists(self.networkLoc) and  not(resetNet)):
             self.net.load_state_dict(torch.load(self.networkLoc))
         print('Initialized Network')
         #Choose which device to run network on, then move network to that device
@@ -123,7 +126,10 @@ class AllGoModel():
                 self.weights[self.GOTermDict[val[0]]] = val[1]
         else:
             self.weights = torch.ones((92,),dtype=float)
-        self.weights = torch.nn.Softmax(0)(self.weights)
+        print(self.weights)
+        softMax = torch.nn.Softmax(dim=0)
+        self.weights = self.weights / torch.sum(self.weights)
+        print(self.weights)
         self.weights = self.weights.to(self.device)
         
 
@@ -134,7 +140,7 @@ class AllGoModel():
         elif lossFunc in ['WCE','weightedCrossEntropy','weighted_cross_entropy']:
             self.lossFunc = torch.nn.CrossEntropyLoss(weight=self.weights)
             print('Used Weighted Cross Entropy Loss Function')
-        elif False and lossFunc in ['FL','focalLoss','focal_loss']:
+        elif lossFunc in ['FL','focalLoss','focal_loss']:
             self.lossFunc = FocalLoss(alpha=alpha,gamma=gamma)
             print('Used Focal Loss Function')
         else:
@@ -173,7 +179,7 @@ class AllGoModel():
         # print(f'Pairs: {pairs}')
 
         runningLoss = 0.0
-        if(os.path.exists(self.lossLoc)):
+        if(os.path.exists(self.lossLoc) and not(self.resetNet)):
             lossList = list(pd.read_csv(self.lossLoc).to_numpy().flatten())
             print(f'Intial Loss List: {lossList}')
         else:
@@ -183,7 +189,6 @@ class AllGoModel():
         for epoch in range(epochs):
             #Reset gradients before running each training step
             self.opt.zero_grad()
-            begin = time.time()
             
             #Make batch array of gene pairs
             batchArray = self.makeBatchArray(pairs)
