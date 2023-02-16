@@ -119,7 +119,7 @@ plotPrecRecall <- function(files,graphName) {
   #legendLabels <- append(legendLabels,paste("Control (AUC =",format(round(control,decimalPlaces) , nsmall=decimalPlaces),")"))
   
   #Adds legend
-  legend("topright",legendLabels,lty=1,lwd=width, seg.len = 4,col = append(colorsList[1:length(files)],c("#000000")))
+  legend("bottomleft",legendLabels,lty=1,lwd=width, seg.len = 4,col = append(colorsList[1:length(files)],c("#000000")))
   
 }
 

@@ -109,7 +109,7 @@ class AllGoModel():
         if hiddenDropout == 0:
             hiddenDropout = None
 
-        self.resetNet = self.resetNet
+        self.resetNet = resetNet
 
         self.net = FlexNet(struct,sigmoid=False,activation=activation,inputDrop=inputDropout,hiddenDrop=hiddenDropout)
         if(os.path.exists(self.networkLoc) and  not(resetNet)):
