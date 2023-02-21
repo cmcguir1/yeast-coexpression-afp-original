@@ -1,4 +1,4 @@
-source("C:/Users/colem/SummerResearch2022/R Scripts/ROCCurve.R")
+source("C:/Users/colem/SummerResearch2022/R Scripts/ROCandPRCurves.R")
 
 #Read in multiple files
 files = choose.files(default=paste0(getwd(),"/*.*"))

@@ -16,6 +16,7 @@ from ConfusionMatrix import ConfusionMatrix
 import random
 from FocalLoss import FocalLoss
 #import torchvision
+#from focal_loss.focal_loss import FocalLoss
 
 #import for cython
 import cython
@@ -126,10 +127,7 @@ class AllGoModel():
                 self.weights[self.GOTermDict[val[0]]] = val[1]
         else:
             self.weights = torch.ones((92,),dtype=float)
-        print(self.weights)
-        softMax = torch.nn.Softmax(dim=0)
         self.weights = self.weights / torch.sum(self.weights)
-        print(self.weights)
         self.weights = self.weights.to(self.device)
         
 
@@ -141,8 +139,13 @@ class AllGoModel():
             self.lossFunc = torch.nn.CrossEntropyLoss(weight=self.weights)
             print('Used Weighted Cross Entropy Loss Function')
         elif lossFunc in ['FL','focalLoss','focal_loss']:
-            self.lossFunc = FocalLoss(alpha=alpha,gamma=gamma)
-            print('Used Focal Loss Function')
+            self.softmax = True
+            if weighted:
+                self.lossFunc = FocalLoss(weights=self.weights,gamma=gamma)
+                print('Used Weighted Focal Loss Function')
+            else:
+                self.lossFunc = FocalLoss(weights=1,gamma=gamma)
+                print('Used Unweighted Focal Loss Function')
         else:
             self.lossFunc = torch.nn.CrossEntropyLoss()
             print('Used Cross Entropy Loss Function')
@@ -173,7 +176,7 @@ class AllGoModel():
 
         
 
-    def trainNetwork(self,epochs):
+    def trainNetwork(self,epochs,sigmoid=False):
         #Initialize all pairs of training genes
         pairs = self.makePairs(self.training)
         # print(f'Pairs: {pairs}')
@@ -184,6 +187,9 @@ class AllGoModel():
             print(f'Intial Loss List: {lossList}')
         else:
             lossList = []
+
+        sm = torch.nn.Softmax(dim=1)
+
         start = time.time()
         #Run training loop epochs number of times
         for epoch in range(epochs):
@@ -199,6 +205,9 @@ class AllGoModel():
             labels = labels.to(self.device)
 
             outputs = self.net(features.float())
+            if self.softmax:
+                outputs = sm(outputs)
+
             loss = self.lossFunc(outputs.float(),labels.float())
             runningLoss += loss.item()
             loss.backward()
@@ -268,6 +277,7 @@ class AllGoModel():
                     if precisionArray[i] > precisionArray[i-1]:
                         precisionArray[i-1] = precisionArray[i]
                 return np.mean(precisionArray)
+            
 
             print("Began Testing the Network")
             allPairs = set([(pair[0],pair[1]) for pair in self.makePairs(self.validation if validation else self.training)])
@@ -372,6 +382,17 @@ class AllGoModel():
         
         arr = np.array([(genes[i],genes[j]) for i in range(len(genes)) for j in range(i+1,len(genes))])
         return arr
+
+    def testTrainingPollution(self):
+        trainSet = set(self.training)
+        testSet = set(self.validation)
+        print(f'Length testing: {len(testSet)}\nLength training: {len(trainSet)}')
+        print(f'Intersection of train and test: {len(trainSet & testSet)}')
+        trainPairs = set(list(self.makePairs(self.training)))
+        testPairs = set(list(self.makePairs(self.validation)))
+        print(f'Length testing pairs: {len(testPairs)}\nLength training pairs: {len(trainPairs)}')
+        print(f'Intersection of train and test: {len(trainPairs & testPairs)}')
+
         
         
 

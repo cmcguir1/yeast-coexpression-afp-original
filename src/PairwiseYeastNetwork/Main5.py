@@ -1,4 +1,3 @@
-
 from PairwiseYeastData import PairwiseYeastData
 from PairwiseModel import PairwiseModel
 import numpy as np
@@ -21,8 +20,8 @@ def main():
 
     #GOTest = AllGoModel(i,sys.argv[1],'AllGO_Original_Parameter','Original',foldFile='./src/PairwiseYeastNetwork/AllGOGeneFold_Orignial_1.csv',ontologyDataset='original',inputDropout=float(sys.argv[2]),hiddenDropout=float(sys.argv[3]))
 
-    GOTest = AllGoModel(int(sys.argv[1]),'25000',f'Batch1_lr{sys.argv[2]}','Original',foldFile='./src/PairwiseYeastNetwork/AllGOGeneFold_Orignial_1.csv',ontologyDataset='original',batch=1,lr=float(sys.argv[2]))
-    GOTest.trainNetwork(1000000)
+    GOTest = AllGoModel(int(sys.argv[1]),'5000','FocalLoss_Weighted','Original',foldFile='./src/PairwiseYeastNetwork/AllGOGeneFold_Orignial_1.csv',ontologyDataset='original',lossFunc='focalLoss',batch=50,gamma=2,weighted=True)
+    GOTest.trainNetwork(30000)
     GOTest.testNetworkAll(runAll=True)
     GOTest.testNetworkAll(runAll=True,validation=False)
 
