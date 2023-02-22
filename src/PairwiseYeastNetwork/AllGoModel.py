@@ -205,8 +205,6 @@ class AllGoModel():
             labels = labels.to(self.device)
 
             outputs = self.net(features.float())
-            if self.softmax:
-                outputs = sm(outputs)
 
             loss = self.lossFunc(outputs.float(),labels.float())
             runningLoss += loss.item()
