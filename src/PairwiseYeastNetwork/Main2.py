@@ -19,14 +19,17 @@ ssl._create_default_https_context = ssl._create_unverified_context
 
 def main():
     
-    start = time.time()
-    term = sys.argv[1]
+    GoTerms = pd.read_csv('./src/PairwiseYeastNetwork/GOTermIndexDictionary.csv').to_numpy()
+    GOTermDict = {term[1]: term[0] for term in GoTerms}
+    for j in range(int(sys.argv[1]),int(sys.argv[1])+4):
+        term = GOTermDict[j]
 
-    modelData = PairwiseYeastData(dataset='original',foldFile=f'./Yeast Resources/Datasets/All Spell/{term[0:2]}{term[3:]}_Folds_Original_1.csv',term=term,memMapLoc='../YeastMemMap/YeastCorrDictionary.dat')
-    model = PairwiseModel(modelData,int(sys.argv[3]),f'{sys.argv[2]}x1','Spell/OtherSingleTerms',f'{term[0:2]}{term[3:]}')
-    model.trainNetwork(200000,printLoss=True)
-    model.testNetworkTraining(limitNegative=True)
-    model.testNetworkValidation(limitNegative=True)
+        modelData = PairwiseYeastData(dataset='original',foldFile=f'./Yeast Resources/Datasets/All Spell/{term[0:2]}{term[3:]}_Folds_Original_1.csv',term=term,memMapLoc='../YeastMemMap/YeastCorrDictionary.dat')
+        for i in range(4):
+            model = PairwiseModel(modelData,i,f'2000x1','Spell/AllrSingleTerms',f'{term[0:2]}{term[3:]}')
+            model.trainNetwork(125000,printLoss=True)
+            model.testNetworkTraining(limitNegative=True)
+            model.testNetworkValidation(limitNegative=True)
 
 
 

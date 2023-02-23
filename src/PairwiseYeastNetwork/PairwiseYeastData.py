@@ -52,7 +52,7 @@ class PairwiseYeastData():
         self.datasets = self.expression.datasets
 
         #Correlations Dictionary that will be retrieve precalculated correlation values
-        self.corrDict = CorrelationDictionary(dictLoc=memMapLoc,datasetType=dataset)
+        self.corrDict = CorrelationDictionary(dictLoc='../YeastMemMap/YeastCorrDictionary.dat' if (os.path.exists('../YeastMemMap/YeastCorrDictionary.dat')) else '../YeastDict.dat',datasetType=dataset)
         self.datasets = self.corrDict.expDataset.datasets
         
         if(filterMissingGenes):

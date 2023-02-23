@@ -26,11 +26,10 @@ def main():
     # GOTest.testNetworkAll(runAll=True)
     # GOTest.testNetworkAll(runAll=True,validation=False)
 
-    GOTest = AllGoModel(0,'2000',f'Test','Original',foldFile='./src/PairwiseYeastNetwork/AllGOGeneFold_Orignial_1.csv',ontologyDataset='original',batch=500)
-    GOTest.testTrainingPollution()
-    #GOTest.trainNetwork(80000)
-    #GOTest.testNetworkAll(runAll=True)
-    #GOTest.testNetworkAll(runAll=True,validation=False)
+    GOTest = AllGoModel(0,'5000',f'Test','Original',foldFile='./src/PairwiseYeastNetwork/AllGOGeneFold_Orignial_1.csv',ontologyDataset='original',batch=50,softmax=True)
+    GOTest.trainNetwork(80000)
+    GOTest.testNetworkAll(runAll=True)
+    GOTest.testNetworkAll(runAll=True,validation=False)
     
 
 

@@ -30,7 +30,7 @@ from Leaf import getLeaves
 
 
 class AllGoModel():
-    def __init__(self,fold,structure,folderName,modelName,numFolds=4,lr=0.01,momentum=0.9,batch=50,gamma=2,alpha=0.25,weighted=True,lossFunc='CE',foldFile='./src/PairwiseYeastNetwork/AllGOGeneFold1.csv',ontologyDataset='modern',regularize=True, inputDropout=None,hiddenDropout=None,activation='relu',resetNet=False):
+    def __init__(self,fold,structure,folderName,modelName,numFolds=4,lr=0.01,momentum=0.9,batch=50,gamma=2,alpha=0.25,weighted=True,lossFunc='CE',softmax=False,foldFile='./src/PairwiseYeastNetwork/AllGOGeneFold1.csv',ontologyDataset='modern',regularize=True, inputDropout=None,hiddenDropout=None,activation='relu',resetNet=False):
         #getLeaves returns a list of tuple of (GO Term,{set of genes})
         self.leaves = getLeaves(10,dataset=ontologyDataset)
 
@@ -111,6 +111,8 @@ class AllGoModel():
             hiddenDropout = None
 
         self.resetNet = resetNet
+        self.softmax = softmax
+        self.sm = torch.nn.Softmax(dim=1)
 
         self.net = FlexNet(struct,sigmoid=False,activation=activation,inputDrop=inputDropout,hiddenDrop=hiddenDropout)
         if(os.path.exists(self.networkLoc) and  not(resetNet)):
@@ -188,7 +190,7 @@ class AllGoModel():
         else:
             lossList = []
 
-        sm = torch.nn.Softmax(dim=1)
+        
 
         start = time.time()
         #Run training loop epochs number of times
@@ -204,7 +206,10 @@ class AllGoModel():
             features = features.to(self.device)
             labels = labels.to(self.device)
 
+
             outputs = self.net(features.float())
+            if self.softmax:
+                outputs = self.sm(outputs)
 
             loss = self.lossFunc(outputs.float(),labels.float())
             runningLoss += loss.item()
@@ -225,12 +230,14 @@ class AllGoModel():
 
     def testNetworkAll(self,proportionNeg=10,saveTerms={'GO:0007005','GO:0006302','GO:0007127'},runAll=True,validation=True):
         with torch.no_grad():
-            
             #Helper function that passes a pair through the trained network, then grabs the outputs of that pair for a given GO term
             def calcPair(pair,termIndex):
                 features, labels = self.makeBatchTensors(np.array([pair]))
                 features = features.to(self.device)
-                outputs = np.array(self.net(features.float(),test=True).cpu(),dtype='float32')
+                outputsTensor = self.net(features.float(),test=True).cpu()
+                if self.softmax:
+                    outputsTensor = self.sm(outputsTensor)
+                outputs = np.array(outputsTensor,dtype='float32')
                 labels = np.array(labels,dtype=np.intc)
                 # print(f'Shape of Labels: {labels.shape}')
                 # print(f'Shape of Outputs: {outputs.shape}')
@@ -371,6 +378,9 @@ class AllGoModel():
                 if batchArray[i,0] in leaf[1] and batchArray[i,1] in leaf[1]:
                     labels[i,self.GOTermDict[leaf[0]]] = 1.0
 
+        if self.softmax:
+            labels = self.sm(labels)
+            print(labels)
         return (features,labels)
         
     #Returns array of all pairs of gene from given array of genes
@@ -390,6 +400,17 @@ class AllGoModel():
         testPairs = set(list(self.makePairs(self.validation)))
         print(f'Length testing pairs: {len(testPairs)}\nLength training pairs: {len(trainPairs)}')
         print(f'Intersection of train and test: {len(trainPairs & testPairs)}')
+
+    def compareOverlap(self):
+        pairs = self.makePairs(np.concatenate([self.training,self.validation],axis=0))
+        leaves = getLeaves(10)
+        totals = [0 for i in range(len(leaves))]
+        for pair in pairs:
+            for leaf in leaves:
+                if pair[0] in leaf[1] and pair[1] in leaf[1]:
+                    totals[self.GOTermDict[leaf[0]]] +=1
+        for leaf in leaves:
+            print(f'{leaf[0]} co-annotations: {totals[self.GOTermDict[leaf[0]]]}')
 
         
         

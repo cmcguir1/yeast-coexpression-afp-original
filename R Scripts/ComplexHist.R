@@ -60,7 +60,7 @@ fileName <- paste(name,"_",struct,"_AUCDist_",type,".pdf",sep="")
 
 
 
-pdf(fileName,width=8,height=6)
+#pdf(fileName,width=8,height=6)
 plotAUCDist(files=files,graphName = graph)
-dev.off()
+#dev.off()
 setwd(currentWd)

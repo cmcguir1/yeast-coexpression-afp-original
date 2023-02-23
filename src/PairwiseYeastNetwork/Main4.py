@@ -21,7 +21,7 @@ def main():
 
     #GOTest = AllGoModel(i,sys.argv[1],'AllGO_Original_Parameter','Original',foldFile='./src/PairwiseYeastNetwork/AllGOGeneFold_Orignial_1.csv',ontologyDataset='original',inputDropout=float(sys.argv[2]),hiddenDropout=float(sys.argv[3]))
 
-    GOTest = AllGoModel(int(sys.argv[1]),'25000',f'Batch1_lr{sys.argv[2]}','Original',foldFile='./src/PairwiseYeastNetwork/AllGOGeneFold_Orignial_1.csv',ontologyDataset='original',batch=1,lr=float(sys.argv[2]))
+    GOTest = AllGoModel(int(sys.argv[2]),sys.argv[1],f'Batch1','Original',foldFile='./src/PairwiseYeastNetwork/AllGOGeneFold_Orignial_1.csv',ontologyDataset='original',batch=1,lr=0.001)
     GOTest.trainNetwork(1000000)
     GOTest.testNetworkAll(runAll=True)
     GOTest.testNetworkAll(runAll=True,validation=False)
