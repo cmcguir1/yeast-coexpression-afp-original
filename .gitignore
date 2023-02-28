@@ -3,3 +3,4 @@ Yeast\ Resources/Histogram\ Data/*.csv*
 data/*
 Yeast\ Resourcse/Pairwise/Spell/Test/*
 Yeast\ Resources/Yeast\ Graphs/*
+Yeast\ Resources/Pairwise/Spell/Overfit/*.pth
