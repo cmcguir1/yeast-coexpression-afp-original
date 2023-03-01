@@ -2,15 +2,12 @@ from dataclasses import dataclass
 from random import random
 from CorrelationDictionary import CorrelationDictionary
 from site import makepath
-import statistics
 import pandas as pd
 import numpy as np
 from FlexNet import FlexNet
 from ExpressionDatasets import ExpressionDatasets
 import torch
 import time
-import threading
-import concurrent.futures
 import os
 from ConfusionMatrix import ConfusionMatrix
 import random
@@ -18,8 +15,7 @@ from FocalLoss import FocalLoss
 #import torchvision
 #from focal_loss.focal_loss import FocalLoss
 
-#import for cython
-import cython
+from scipy import stats
 
 
 import sys
@@ -380,7 +376,6 @@ class AllGoModel():
 
         if self.softmax:
             labels = self.sm(labels)
-            print(labels)
         return (features,labels)
         
     #Returns array of all pairs of gene from given array of genes
@@ -411,6 +406,22 @@ class AllGoModel():
                     totals[self.GOTermDict[leaf[0]]] +=1
         for leaf in leaves:
             print(f'{leaf[0]} co-annotations: {totals[self.GOTermDict[leaf[0]]]}')
+    
+    def compareTermOverlap(self):
+        start = time.time()
+        leaves = getLeaves(10)
+        mat = np.zeros(shape=(len(leaves),len(leaves)),dtype=float)
+        allGenes = set(np.concatenate([self.training,self.validation],axis=0))
+        for i,outLeaf in enumerate(leaves):
+            for inLeaf in leaves:
+                pvalue = 1 - stats.hypergeom.cdf(len(outLeaf[1] & inLeaf[1]),len(allGenes),len(inLeaf[1]),len(outLeaf[1]))
+                mat[self.GOTermDict[outLeaf[0]],self.GOTermDict[inLeaf[0]]] = pvalue
+            print(f'Calcualted {i+1}/{len(leaves)}term\nTime take: {(time.time()-start)/60} minutes')
+        terms = ['' for i in range(len(self.GOTermDict))]
+        for term, index in self.GOTermDict.items():
+            terms[index] = term
+        pd.DataFrame(mat,columns=terms).to_csv('./Yeast Resources/OverlapResults/Overlap.csv',index=False)
+        
 
         
         

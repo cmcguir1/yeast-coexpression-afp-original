@@ -1,0 +1,165 @@
+Term,Term Name
+GO:0000054,ribosomal subunit export from nucleus
+GO:0000278,mitotic cell cycle
+GO:0000747,conjugation with cellular fusion
+GO:0000902,cell morphogenesis
+GO:0000910,cytokinesis
+GO:0001403,invasive growth in response to glucose limitation
+GO:0002181,cytoplasmic translation
+GO:0003674,molecular_function
+GO:0003677,DNA binding
+GO:0003682,chromatin binding
+GO:0003700,DNA-binding transcription factor activity
+GO:0003723,RNA binding
+GO:0003729,mRNA binding
+GO:0003735,structural constituent of ribosome
+GO:0003924,GTPase activity
+GO:0004386,helicase activity
+GO:0004518,nuclease activity
+GO:0005085,guanyl-nucleotide exchange factor activity
+GO:0005198,structural molecule activity
+GO:0005575,cellular_component
+GO:0005576,extracellular region
+GO:0005618,cell wall
+GO:0005634,nucleus
+GO:0005694,chromosome
+GO:0005730,nucleolus
+GO:0005737,cytoplasm
+GO:0005739,mitochondrion
+GO:0005740,mitochondrial envelope
+GO:0005773,vacuole
+GO:0005777,peroxisome
+GO:0005783,endoplasmic reticulum
+GO:0005794,Golgi apparatus
+GO:0005815,microtubule organizing center
+GO:0005840,ribosome
+GO:0005856,cytoskeleton
+GO:0005886,plasma membrane
+GO:0005933,cellular bud
+GO:0005938,cell cortex
+GO:0005975,carbohydrate metabolic process
+GO:0006091,generation of precursor metabolites and energy
+GO:0006260,DNA replication
+GO:0006281,DNA repair
+GO:0006310,DNA recombination
+GO:0006325,chromatin organization
+GO:0006352,DNA-templated transcription initiation
+GO:0006353,DNA-templated transcription termination
+GO:0006354,DNA-templated transcription elongation
+GO:0006360,transcription by RNA polymerase I
+GO:0006364,rRNA processing
+GO:0006366,transcription by RNA polymerase II
+GO:0006383,transcription by RNA polymerase III
+GO:0006397,mRNA processing
+GO:0006401,RNA catabolic process
+GO:0006413,translational initiation
+GO:0006414,translational elongation
+GO:0006417,regulation of translation
+GO:0006418,tRNA aminoacylation for protein translation
+GO:0006457,protein folding
+GO:0006468,protein phosphorylation
+GO:0006470,protein dephosphorylation
+GO:0006486,protein glycosylation
+GO:0006497,protein lipidation
+GO:0006520,cellular amino acid metabolic process
+GO:0006605,protein targeting
+GO:0006629,lipid metabolic process
+GO:0006766,vitamin metabolic process
+GO:0006811,ion transport
+GO:0006865,amino acid transport
+GO:0006869,lipid transport
+GO:0006873,cellular ion homeostasis
+GO:0006887,exocytosis
+GO:0006897,endocytosis
+GO:0006970,response to osmotic stress
+GO:0006974,cellular response to DNA damage stimulus
+GO:0006979,response to oxidative stress
+GO:0006997,nucleus organization
+GO:0007005,mitochondrion organization
+GO:0007010,cytoskeleton organization
+GO:0007031,peroxisome organization
+GO:0007033,vacuole organization
+GO:0007059,chromosome segregation
+GO:0007114,cell budding
+GO:0007124,pseudohyphal growth
+GO:0008033,tRNA processing
+GO:0008092,cytoskeletal protein binding
+GO:0008134,transcription factor binding
+GO:0008135,"translation factor activity, RNA binding"
+GO:0008150,biological_process
+GO:0008168,methyltransferase activity
+GO:0008213,protein alkylation
+GO:0008233,peptidase activity
+GO:0008289,lipid binding
+GO:0008380,RNA splicing
+GO:0008643,carbohydrate transport
+GO:0009311,oligosaccharide metabolic process
+GO:0009408,response to heat
+GO:0009451,RNA modification
+GO:0010324,membrane invagination
+GO:0012505,endomembrane system
+GO:0015031,protein transport
+GO:0015931,nucleobase-containing compound transport
+GO:0016020,membrane
+GO:0016050,vesicle organization
+GO:0016197,endosomal transport
+GO:0016301,kinase activity
+GO:0016491,oxidoreductase activity
+GO:0016570,histone modification
+GO:0016740,transferase activity
+GO:0016757,glycosyltransferase activity
+GO:0016779,nucleotidyltransferase activity
+GO:0016787,hydrolase activity
+GO:0016791,phosphatase activity
+GO:0016798,"hydrolase activity, acting on glycosyl bonds"
+GO:0016829,lyase activity
+GO:0016853,isomerase activity
+GO:0016874,ligase activity
+GO:0018193,peptidyl-amino acid modification
+GO:0019843,rRNA binding
+GO:0019899,enzyme binding
+GO:0022857,transmembrane transporter activity
+GO:0023052,signaling
+GO:0030234,enzyme regulator activity
+GO:0030427,site of polarized growth
+GO:0030533,triplet codon-amino acid adaptor activity
+GO:0030555,RNA modification guide activity
+GO:0030674,protein-macromolecule adaptor activity
+GO:0031399,regulation of protein modification process
+GO:0031410,cytoplasmic vesicle
+GO:0032182,ubiquitin-like protein binding
+GO:0032196,transposition
+GO:0032200,telomere organization
+GO:0032543,mitochondrial translation
+GO:0032787,monocarboxylic acid metabolic process
+GO:0033043,regulation of organelle organization
+GO:0042221,response to chemical
+GO:0042255,ribosome assembly
+GO:0042273,ribosomal large subunit biogenesis
+GO:0042274,ribosomal small subunit biogenesis
+GO:0042393,histone binding
+GO:0042594,response to starvation
+GO:0043144,sno(s)RNA processing
+GO:0043167,ion binding
+GO:0043543,protein acylation
+GO:0043934,sporulation
+GO:0045333,cellular respiration
+GO:0048193,Golgi vesicle transport
+GO:0048284,organelle fusion
+GO:0048285,organelle fission
+GO:0048308,organelle inheritance
+GO:0051049,regulation of transport
+GO:0051052,regulation of DNA metabolic process
+GO:0051082,unfolded protein binding
+GO:0051169,nuclear transport
+GO:0051321,meiotic cell cycle
+GO:0051603,proteolysis involved in protein catabolic process
+GO:0051604,protein maturation
+GO:0051726,regulation of cell cycle
+GO:0055085,transmembrane transport
+GO:0055086,nucleobase-containing small molecule metabolic process
+GO:0061025,membrane fusion
+GO:0070647,protein modification by small protein conjugation or removal
+GO:0070925,organelle assembly
+GO:0071554,cell wall organization or biogenesis
+GO:0140657,ATP-dependent activity

@@ -1,25 +1,23 @@
 library(RColorBrewer)
 
 plotHeatmap <- function(file,graphName){
-  heatData <- read.csv(file,sep=",",row.names = 1)
+  heatData <- read.csv(file,sep=",")
   colors <- colorRampPalette(brewer.pal(9,"YlOrRd"))(100)
   lightCols <- colorRampPalette(c("#FFFFFF",colors[1:80]))(11)
   darkCols <- colorRampPalette(colors[80:100])(90)
   cols2 <-c(lightCols,darkCols)
 
-  heatmap(as.matrix(heatData),Colv = NA,Rowv = NA,col=cols2,main=" ",scale="none")
+  heatmap(as.matrix(heatData),Colv = NA,Rowv = NA,col=cols2,main=" ",scale="none",labRow = colnames(as.matrix(heatData)))
   legend("right",c("0.00","","","","","0.05","","","","","0.10","0.10","","","","","0.50","","","","","1.00"),col=c(lightCols,colorRampPalette(colors[80:100])(11)),pch=15,pt.cex = 3,title="p-value",ncol=2)
   title(graphName,line= 2.5,cex.main=2)
 }
-file <- file.choose()
+#file <- file.choose()
+file <- "C:\\Users\\colem\\SummerResearch2022\\Yeast Resources\\OverlapResults\\Overlap.csv"
 
-graphName <- "Brem Positives"
-fileName <- "Brem_24_Pos_HM.pdf"
+graphName <- "Go Term Overlap"
+fileName <- "TermOverlap.pdf"
 
-heatData <- read.csv(file,sep=",",row.names = 1)
-heatmapMatrix <- as.matrix(heatData)
-
-pdf(fileName,width=12,height=8)
+pdf(fileName,width=20,height=12)
 plotHeatmap(file=file,graphName=graphName)
 dev.off()
 

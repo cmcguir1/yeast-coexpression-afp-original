@@ -13,7 +13,7 @@ sys.path.insert(0,'./obopy')
 from Leaf import getLeaves, getGenes
 
 class AllGoGraph(AllGoModel):
-    def __init__(self,networkPath,structure,folder,numfolds=4,geneFolds='./src/PairwiseYeastNetwork/AllGOGeneFold1.csv',memMapLoc='../YeastDict.dat',ontologyDataset='modern'):
+    def __init__(self,networkPath,structure,folder,numfolds=4,geneFolds='./src/PairwiseYeastNetwork/AllGOGeneFold1.csv',ontologyDataset='modern',softmax=False):
         #Intialize file path for folder where results will be saved
         self.path = f'./Yeast Resources/GraphResults/{folder}'
         if(not os.path.exists(self.path)):
@@ -23,7 +23,7 @@ class AllGoGraph(AllGoModel):
         self.GOTermDict = {term[0]: term[1] for term in GoTerms}
 
         #Correlations Dictionary that will be retrieve precalculated correlation values
-        self.corrDict = CorrelationDictionary(dictLoc=memMapLoc,datasetType=ontologyDataset)
+        self.corrDict = CorrelationDictionary(dictLoc='../YeastMemMap/YeastCorrDictionary.dat' if (os.path.exists('../YeastMemMap/YeastCorrDictionary.dat')) else '../YeastDict.dat',datasetType=ontologyDataset)
         self.datasets = self.corrDict.expDataset.datasets
 
         self.regularize = True
@@ -39,6 +39,9 @@ class AllGoGraph(AllGoModel):
             net.to(self.device)
             self.nets.append(net)
 
+        self.softmax = softmax
+        self.sm = torch.nn.Softmax(dim=1)
+
         #Reads in folds file, then divides the folds up into sets of genes
         foldTable = pd.read_csv(geneFolds).to_numpy()
         self.folds = [{gene[0] for gene in foldTable if gene[1] == i} for i in range(numfolds)]
@@ -51,14 +54,16 @@ class AllGoGraph(AllGoModel):
                 features, labels = self.makeBatchTensors(np.array([pair]))
                 features = features.to(self.device).float()
                 outputs = self.nets[fold](features,test=True)
+                if self.softmax:
+                    outputs = self.sm(outputs)
                 
                 labels = np.array(labels,dtype=np.intc)
-                print('------------------------------')
-                print(f'Gene A in : {pair[0] in posGenes}')
-                print(f'Gene B in : {pair[1] in posGenes}')
-                print(f'Desired GO Term: {outputs[0,self.GOTermDict[term]].item()}')
-                print(f'Other terms Labels:\n{labels}')
-                print(f'Other terms Scores:\n{outputs}')
+                # print('------------------------------')
+                # print(f'Gene A in : {pair[0] in posGenes}')
+                # print(f'Gene B in : {pair[1] in posGenes}')
+                # print(f'Desired GO Term: {outputs[0,self.GOTermDict[term]].item()}')
+                # print(f'Other terms Labels:\n{labels}')
+                # print(f'Other terms Scores:\n{outputs}')
                 return [pair[0],pair[1],outputs[0,self.GOTermDict[term]].item()]
 
             
@@ -71,8 +76,7 @@ class AllGoGraph(AllGoModel):
                 pd.DataFrame(posGenes,columns=['Gene']).to_csv(f'./Yeast Resources/TermPos/GO-{term[3:]}_Pos_{dataset}.csv',index=False)
 
             posSet = set(posGenes)
-            print(f'Num Pos Genes: {len(posGenes)}')
-            print(f'Pos Genes: \n{posGenes}')
+            
             foldPosGenes = [gene for gene in posGenes if gene in self.folds[fold]]
             agnGenes = pd.read_csv('./Yeast Resources/TermPos/AgnosticGenes.csv').to_numpy().flatten()
             
@@ -107,7 +111,7 @@ class AllGoGraph(AllGoModel):
 
     #rankGenes takes all of the calculated pair scores then ranks the genes by their involvment in a given process
     def rankGenes(self,term='GO:0007005',dataset='original'):
-        if False or term == 'GO:0007005':
+        if False and term == 'GO:0007005':
             posGenes = set(pd.read_csv('./Yeast Resources/positives_00_go04-15-07.txt').to_numpy().flatten())
             negGenes = set(pd.read_csv('./Yeast Resources/negatives_00_go04-15-07.txt').to_numpy().flatten())
             #agnostics = set(pd.read_csv('./Yeast Resources/agnostic_01_underannotated.txt').to_numpy().flatten())
@@ -133,9 +137,13 @@ class AllGoGraph(AllGoModel):
         genePairs = np.concatenate(folds,axis=0)
         agnFolds = [pd.read_csv(f'{self.path}/agnScores_fold{i}.csv').to_numpy(dtype=object) for i in range(self.numFolds)]
         agnGenePairs = np.concatenate(agnFolds,axis=0)
+        agnGenes = pd.read_csv('./Yeast Resources/TermPos/AgnosticGenes.csv').to_numpy().flatten()
+        
         scoreDict = {}
 
         for gene in self.allGenes:
+            scoreDict[gene] = 0
+        for gene in agnGenes:
             scoreDict[gene] = 0
         for genePair in genePairs:
             if genePair[1] in posSet:
