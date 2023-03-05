@@ -204,6 +204,7 @@ class AllGoModel():
 
 
             outputs = self.net(features.float())
+            print(outputs)
             if self.softmax:
                 outputs = self.sm(outputs)
 

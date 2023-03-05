@@ -38,7 +38,7 @@ replaceTest <- function(str) {
 
 #Gets all files from Working directory
 wd <- getwd()
-saveDir <- "C:/Users/colem/SummerResearch2022/Yeast Resources/Yeast Graphs/Batch1"
+saveDir <- "C:/Users/colem/SummerResearch2022/Yeast Resources/Yeast Graphs/Batch1_0.001"
 
 dirs <- list.dirs(path = getwd(),full.names = TRUE)
 dirs <- dirs[2:length(dirs)]
