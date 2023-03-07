@@ -26,7 +26,7 @@ from Leaf import getLeaves
 
 
 class AllGoModel():
-    def __init__(self,fold,structure,folderName,modelName,numFolds=4,lr=0.01,momentum=0.9,batch=50,gamma=2,alpha=0.25,weighted=True,lossFunc='CE',softmax=False,foldFile='./src/PairwiseYeastNetwork/AllGOGeneFold1.csv',ontologyDataset='modern',regularize=True, inputDropout=None,hiddenDropout=None,activation='relu',resetNet=False):
+    def __init__(self,fold,structure,folderName,modelName,numFolds=4,lr=0.01,momentum=0.9,batch=50,gamma=2,alpha=0.25,weighted=True,step=1000,stepGamma=0.95,decay_lr=False,lossFunc='CE',softmax=False,foldFile='./src/PairwiseYeastNetwork/AllGOGeneFold1.csv',ontologyDataset='modern',regularize=True, inputDropout=None,hiddenDropout=None,activation='relu',resetNet=False):
         #getLeaves returns a list of tuple of (GO Term,{set of genes})
         self.leaves = getLeaves(10,dataset=ontologyDataset)
 
@@ -150,6 +150,8 @@ class AllGoModel():
         
         #Stochastic Gradient Descent Optimizer
         self.opt = torch.optim.SGD(self.net.parameters(),lr=lr,momentum=momentum)
+        self.scheduler = torch.optim.lr_scheduler.StepLR(self.opt,step_size=step,gamma=stepGamma)
+        self.decay_lr = decay_lr
 
         
 
@@ -174,7 +176,7 @@ class AllGoModel():
 
         
 
-    def trainNetwork(self,epochs,sigmoid=False):
+    def trainNetwork(self,epochs,sigmoid=False,track=100):
         #Initialize all pairs of training genes
         pairs = self.makePairs(self.training)
         # print(f'Pairs: {pairs}')
@@ -204,7 +206,6 @@ class AllGoModel():
 
 
             outputs = self.net(features.float())
-            print(outputs)
             if self.softmax:
                 outputs = self.sm(outputs)
 
@@ -213,10 +214,12 @@ class AllGoModel():
             loss.backward()
             #print(f'Time Feed forward and calculate loss: {(time.time()-begin)/60}')
             self.opt.step()
+            if self.decay_lr:
+                self.scheduler.step()
             
-            if epoch % 100 == 0 and epoch != 0:
+            if epoch % track == 0 and epoch != 0:
                 lossList.append(runningLoss)
-                print(f'100 Batch Cumulative Loss: {runningLoss}')
+                print(f'{track} Batch Cumulative Loss: {runningLoss}')
                 runningLoss = 0.0
                 pd.DataFrame(lossList,columns=['Loss']).to_csv(self.lossLoc,index=False)
                 print(f'Time for 100 Batches: {(time.time()-start)/60}\n---------------------')

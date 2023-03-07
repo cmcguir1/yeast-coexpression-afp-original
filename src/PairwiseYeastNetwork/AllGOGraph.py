@@ -48,7 +48,7 @@ class AllGoGraph(AllGoModel):
         self.allGenes = {gene[0] for gene in foldTable}
 
 
-    def feedForward(self,fold,term='GO:0007005',trackTime=True,dataset='original'):
+    def feedForward(self,fold,term='GO:0007005',trackTime=True,dataset='original',offSet=0,runNegatives=True):
         with torch.no_grad():
             def calcPair(pair):
                 features, labels = self.makeBatchTensors(np.array([pair]))
@@ -58,13 +58,9 @@ class AllGoGraph(AllGoModel):
                     outputs = self.sm(outputs)
                 
                 labels = np.array(labels,dtype=np.intc)
-                # print('------------------------------')
-                # print(f'Gene A in : {pair[0] in posGenes}')
-                # print(f'Gene B in : {pair[1] in posGenes}')
-                # print(f'Desired GO Term: {outputs[0,self.GOTermDict[term]].item()}')
-                # print(f'Other terms Labels:\n{labels}')
-                # print(f'Other terms Scores:\n{outputs}')
-                return [pair[0],pair[1],outputs[0,self.GOTermDict[term]].item()]
+                
+                #offset is an integer that is used to offest the GOTermDict to evaluate on the wrong term
+                return [pair[0],pair[1],outputs[0,self.GOTermDict[term]+offSet].item()]
 
             
             
@@ -81,8 +77,11 @@ class AllGoGraph(AllGoModel):
             agnGenes = pd.read_csv('./Yeast Resources/TermPos/AgnosticGenes.csv').to_numpy().flatten()
             
 
-            
-            pairs = AllGoGraph.makePairs(self.folds[fold],self.allGenes)
+            if runNegatives:
+                pairs = AllGoGraph.makePairs(self.folds[fold],self.allGenes)
+            else:
+                pairs = AllGoGraph.makePairs(self.folds[fold],posGenes)
+
 
             #agnPairs = AllGoGraph.makePairs(self.folds[fold],agnGenes)
             agnPairs = AllGoGraph.makePairs(agnGenes,posGenes)

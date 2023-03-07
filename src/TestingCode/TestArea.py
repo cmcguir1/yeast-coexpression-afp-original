@@ -4,8 +4,18 @@ import pandas as pd
 import torch
 
 
-loss = torch.nn.CrossEntropyLoss()
-features = torch.tensor([[0.9,0.5,0.1,0.5,0.2]],dtype=float)
-# features = torch.tensor([[20,1000,0,1000,0]],dtype=float)
-labels = torch.tensor([[0,1,0,1,0]],dtype=float)
-print(loss(features,labels).item())
+sys.path.insert(0,'./obopy')
+from Leaf import getLeaves
+
+def key(leaf):
+    return len(leaf[1])
+
+leaves = getLeaves(10)
+leafTable = []
+for leaf in leaves:
+    leafTable.append([leaf[0],key(leaf)])
+
+sortedLeaves = sorted(leafTable,key=lambda x: x[1])
+for leaf in sortedLeaves:
+    print(f'{leaf[0]}: {leaf[1]}')
+
