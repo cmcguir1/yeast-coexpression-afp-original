@@ -10,14 +10,15 @@ class FocalLoss(nn.Module):
         self.gamma = gamma
     
     def forward(self,outputs,labels):
-        outputs = torch.sigmoid(outputs)
-        outputs = outputs.view(-1)
-        labels = labels.view(-1)
+        # outputs = torch.sigmoid(outputs)
+        # outputs = outputs.view(-1)
+        # labels = labels.view(-1)
 
-        BCE = F.binary_cross_entropy(outputs,labels,reduction='mean')
+        # BCE = F.binary_cross_entropy(outputs,labels,reduction='mean')
 
 
-        BCE_EXP = torch.exp(-BCE)
-        focalLoss = torch.mean(self.alpha * (1-BCE_EXP)**self.gamma * BCE)
+        # BCE_EXP = torch.exp(-BCE)
+        # focalLoss = torch.mean(self.alpha * (1-BCE_EXP)**self.gamma * BCE)
+        focalLoss = torchvision.ops.focal_loss(outputs,labels,alpha=0.25,gamma=self.gamma)
 
         return focalLoss

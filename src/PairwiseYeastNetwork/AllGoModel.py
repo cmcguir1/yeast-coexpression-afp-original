@@ -12,7 +12,6 @@ import os
 from ConfusionMatrix import ConfusionMatrix
 import random
 from FocalLoss import FocalLoss
-#import torchvision
 #from focal_loss.focal_loss import FocalLoss
 
 from scipy import stats
@@ -123,9 +122,10 @@ class AllGoModel():
             self.weights=torch.zeros((92,),dtype=float)
             for val in alphaValues:
                 self.weights[self.GOTermDict[val[0]]] = val[1]
+            self.weights = self.weights / torch.sum(self.weights)
         else:
             self.weights = torch.ones((92,),dtype=float)
-        self.weights = self.weights / torch.sum(self.weights)
+        
         self.weights = self.weights.to(self.device)
         
 
@@ -137,13 +137,7 @@ class AllGoModel():
             self.lossFunc = torch.nn.CrossEntropyLoss(weight=self.weights)
             print('Used Weighted Cross Entropy Loss Function')
         elif lossFunc in ['FL','focalLoss','focal_loss']:
-            self.softmax = True
-            if weighted:
-                self.lossFunc = FocalLoss(weights=self.weights,gamma=gamma)
-                print('Used Weighted Focal Loss Function')
-            else:
-                self.lossFunc = FocalLoss(weights=1,gamma=gamma)
-                print('Used Unweighted Focal Loss Function')
+            self.lossFunc = FocalLoss(self.weights,gamma=gamma)
         else:
             self.lossFunc = torch.nn.CrossEntropyLoss()
             print('Used Cross Entropy Loss Function')

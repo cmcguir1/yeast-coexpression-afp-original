@@ -8,6 +8,7 @@ from ConfusionMatrix import ConfusionMatrix
 from CorrelationDictionary import CorrelationDictionary
 import time
 
+
 import sys
 sys.path.insert(0,'./obopy')
 from Leaf import getLeaves, getGenes
@@ -48,7 +49,7 @@ class AllGoGraph(AllGoModel):
         self.allGenes = {gene[0] for gene in foldTable}
 
 
-    def feedForward(self,fold,term='GO:0007005',trackTime=True,dataset='original',offSet=0,runNegatives=True):
+    def feedForward(self,fold,term='GO:0007005',trackTime=True,dataset='original',offSet=0,runNegatives=True,calcPos=True,calcAgn=True):
         with torch.no_grad():
             def calcPair(pair):
                 features, labels = self.makeBatchTensors(np.array([pair]))
@@ -89,12 +90,13 @@ class AllGoGraph(AllGoModel):
             if trackTime:
                 foldScores = []
                 start = time.time()
-                for i,pair in enumerate(pairs,1):
-                    foldScores.append(calcPair(pair))
-                    #print(foldScores[i-1])
-                    if i % 10000 == 0:
-                        ratio = i/(len(pairs)+len(agnPairs))
-                        print(f'Calculated {ratio*100}% of pairs\nEstimated Time Remaining: {((time.time()-start)/60) * (((len(pairs)+len(agnPairs)) - i) / i)}')
+                if calcPos:
+                    for i,pair in enumerate(pairs,1):
+                        foldScores.append(calcPair(pair))
+                        #print(foldScores[i-1])
+                        if i % 10000 == 0:
+                            ratio = i/(len(pairs)+len(agnPairs))
+                            print(f'Calculated {ratio*100}% of pairs\nEstimated Time Remaining: {((time.time()-start)/60) * (((len(pairs)+len(agnPairs)) - i) / i)}')
                 
                 agnScores = []
                 for i,pair in enumerate(agnPairs,len(pairs)):
