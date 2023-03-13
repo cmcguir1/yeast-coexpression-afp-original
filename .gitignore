@@ -4,4 +4,4 @@ data/*
 Yeast\ Resourcse/Pairwise/Spell/Test/*
 Yeast\ Resources/Yeast\ Graphs/*
 Yeast\ Resources/Pairwise/Spell/Overfit/*.pth
-Yeast\ Resources/GraphResults/*Scores*
+Yeast\ Resources/GraphResults/NewRank/*Scores*

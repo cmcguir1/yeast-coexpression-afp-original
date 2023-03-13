@@ -160,7 +160,7 @@ class AllGoGraph(AllGoModel):
         
             
         if checkProportion:
-            [[gene,checkPosNeg(gene),score/totalScore[gene]] for gene,score in posScore.items()]
+            scoreTable = [[gene,checkPosNeg(gene),score/totalScore[gene]] for gene,score in posScore.items()]
         else:
             scoreTable = [[gene,checkPosNeg(gene),score] for gene,score in posScore.items()]
         confMat = ConfusionMatrix.calculateMatrix(np.array(scoreTable,dtype=object),1,2)
