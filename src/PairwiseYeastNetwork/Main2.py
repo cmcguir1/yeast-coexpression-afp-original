@@ -21,7 +21,7 @@ def main():
     
     GoTerms = pd.read_csv('./src/PairwiseYeastNetwork/GOTermIndexDictionary.csv').to_numpy()
     GOTermDict = {term[1]: term[0] for term in GoTerms}
-    for j in range(int(sys.argv[1]),int(sys.argv[1])+4):
+    for j in range(int(sys.argv[1]),int(sys.argv[1])+2):
         term = GOTermDict[j]
 
         modelData = PairwiseYeastData(dataset='original',foldFile=f'./Yeast Resources/Datasets/All Spell/{term[0:2]}{term[3:]}_Folds_Original_1.csv',term=term,memMapLoc='../YeastMemMap/YeastCorrDictionary.dat')
