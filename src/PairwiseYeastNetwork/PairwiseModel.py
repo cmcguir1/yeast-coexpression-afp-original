@@ -104,7 +104,7 @@ class PairwiseModel():
     def testNetwork(self,save,testingType,limitNegative,negProportion=10,regularize=True,posProportion=0):
         with torch.no_grad():
             #Create positive and negative pairs from the validation data
-            posPairs, negPairs = self.makeTestPairs(self.posVal,self.negVal)
+            posPairs, negPairs = self.makeTestPairs(self.posVal,self.negVal) if testingType == 'Test' else self.makeTestPairs(self.posTrain,self.negTrain)
             #Create an input array to make batch tensor by concatentating
             np.random.shuffle(posPairs)
             if posProportion == 0:
@@ -221,8 +221,8 @@ class PairwiseModel():
 
         dataTable = np.concatenate((sortedData,confusionMatrix,statisticsArray),1)  
         if(save):
-                dataFrame = pd.DataFrame(dataTable,columns=['Name','+/-','Folds','Score','True Positive', 'False Positive', 'True Negative', 'False Negative', 'Accuracy', 'Precision', 'Recall', 'False Positive Rate', 'Selectivity'])
-                dataFrame.to_csv(f'{self.dataTableLocation}_{testingType}_fold{self.fold+1}.csv') 
+            dataFrame = pd.DataFrame(dataTable,columns=['Name','+/-','Folds','Score','True Positive', 'False Positive', 'True Negative', 'False Negative', 'Accuracy', 'Precision', 'Recall', 'False Positive Rate', 'Selectivity'])
+            dataFrame.to_csv(f'{self.dataTableLocation}_{testingType}_fold{self.fold+1}.csv') 
     
 
 

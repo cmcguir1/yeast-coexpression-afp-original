@@ -20,7 +20,7 @@ goTerms <- unique(goTerms)
 print(goTerms)
 
 
-structures <- c("200x1","2000x1") #List of structures that the scripts will make graphs for
+structures <- c("25000x1") #List of structures that the scripts will make graphs for
 type <- "Original" #Type specifies whether the modern or original microarray assay datasets were used
 
 setwd("C:/Users/colem/SummerResearch2022/Yeast Resources/Yeast Graphs/SingleTermsComparison/")

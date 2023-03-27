@@ -15,12 +15,16 @@ termDict = {}
 for term in termArray:
     termDict[term[0]] = term[1]
 
-leaves = getLeaves(10)
-leafTable = []
+leaves = getLeaves(1)
 for leaf in leaves:
-    leafTable.append([leaf[0],termDict[leaf[0]]])
+    # print(leaf[0])
+    if leaf[0] == 'GO:0009311':
+        print(len(leaf[1]))
+# leafTable = []
+# for leaf in leaves:
+#     leafTable.append([leaf[0],termDict[leaf[0]]])
 
-pd.DataFrame(leafTable,columns=['Term','Description']).to_csv('./GoTermDescriptions.csv',index=False)
+# pd.DataFrame(leafTable,columns=['Term','Description']).to_csv('./GoTermDescriptions.csv',index=False)
 
 # sortedLeaves = sorted(leafTable,key=lambda x: x[1])
 # for leaf in sortedLeaves:
