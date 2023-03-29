@@ -49,7 +49,7 @@ class AllGoGraph(AllGoModel):
         self.allGenes = {gene[0] for gene in foldTable}
 
 
-    def feedForward(self,fold,term='GO:0007005',trackTime=True,dataset='original',offSet=0,runNegatives=True,calcPos=True,calcAgn=True):
+    def feedForward(self,fold,term='GO:0007005',trackTime=True,dataset='original',offSet=0,runNegatives=True,calcPos=True,calcAgn=True,saveAll=False):
         with torch.no_grad():
             def calcPair(pair):
                 features, labels = self.makeBatchTensors(np.array([pair]))
@@ -59,9 +59,11 @@ class AllGoGraph(AllGoModel):
                     outputs = self.sm(outputs)
                 
                 labels = np.array(labels,dtype=np.intc)
-                
-                #offset is an integer that is used to offest the GOTermDict to evaluate on the wrong term
-                return [pair[0],pair[1],outputs[0,self.GOTermDict[term]+offSet].item()]
+                if saveAll:
+                    return [pair[0],pair[1]]+outputs.tolist()
+                else:
+                    #offset is an integer that is used to offest the GOTermDict to evaluate on the wrong term
+                    return [pair[0],pair[1],outputs[0,self.GOTermDict[term]+offSet].item()]
 
             
             
@@ -72,9 +74,6 @@ class AllGoGraph(AllGoModel):
                 posGenes = getGenes(term,dataset=dataset)
                 pd.DataFrame(posGenes,columns=['Gene']).to_csv(f'./Yeast Resources/TermPos/GO-{term[3:]}_Pos_{dataset}.csv',index=False)
 
-            posSet = set(posGenes)
-            
-            foldPosGenes = [gene for gene in posGenes if gene in self.folds[fold]]
             agnGenes = pd.read_csv('./Yeast Resources/TermPos/AgnosticGenes.csv').to_numpy().flatten()
             
 
@@ -99,18 +98,27 @@ class AllGoGraph(AllGoModel):
                             print(f'Calculated {ratio*100}% of pairs\nEstimated Time Remaining: {((time.time()-start)/60) * (((len(pairs)+len(agnPairs)) - i) / i)}')
                 
                 agnScores = []
-                for i,pair in enumerate(agnPairs,len(pairs)):
-                    agnScores.append(calcPair(pair))
-                    #print(agnScores[i-len(pairs)])
-                    if i % 10000 == 0:
-                        ratio = i/(len(pairs)+len(agnPairs))
-                        print(f'Calculated {ratio*100}% of pairs\nEstimated Time Remaining: {((time.time()-start)/60) * (((len(pairs)+len(agnPairs)) - i) / i)}')
+                if calcAgn:
+                    for i,pair in enumerate(agnPairs,len(pairs)):
+                        agnScores.append(calcPair(pair))
+                        #print(agnScores[i-len(pairs)])
+                        if i % 10000 == 0:
+                            ratio = i/(len(pairs)+len(agnPairs))
+                            print(f'Calculated {ratio*100}% of pairs\nEstimated Time Remaining: {((time.time()-start)/60) * (((len(pairs)+len(agnPairs)) - i) / i)}')
             else:
                 foldScores = [calcPair(pair) for pair in pairs]
                 agnScores = [calcPair(pair) for pair in agnPairs]
-
-            pd.DataFrame(foldScores,columns=['Gene A', 'Gene B', 'Score']).to_csv(f'{self.path}/posScores_fold{fold}.csv',index=False)
-            pd.DataFrame(agnScores,columns=['Gene A', 'Gene B', 'Score']).to_csv(f'{self.path}/agnScores_fold{fold}.csv',index=False)
+            if saveAll:
+                GoTerms = pd.read_csv('./src/PairwiseYeastNetwork/GOTermIndexDictionary.csv').tolist()
+                cols = ['Gene A','Gene B']
+                for term in GoTerms:
+                    cols.append(term[0])
+            else:
+                cols = ['Gene A', 'Gene B', 'Score']
+            if calcPos:
+                pd.DataFrame(foldScores,columns=cols).to_csv(f'{self.path}/posScores_fold{fold}.csv',index=False)
+            if calcAgn:
+                pd.DataFrame(agnScores,columns=cols).to_csv(f'{self.path}/agnScores_fold{fold}.csv',index=False)
 
 
     #rankGenes takes all of the calculated pair scores then ranks the genes by their involvment in a given process
@@ -145,18 +153,18 @@ class AllGoGraph(AllGoModel):
         for gene in self.allGenes:
             posScore[gene] = 0
             totalScore[gene] = 0
-        for gene in agnGenes:
-            posScore[gene] = 0
-            totalScore[gene] = 0
+        # for gene in agnGenes:
+        #     posScore[gene] = 0
+        #     totalScore[gene] = 0
 
         for genePair in genePairs:
             totalScore[genePair[0]] = totalScore[genePair[0]] + float(genePair[2])
             if genePair[1] in posSet:
                 posScore[genePair[0]] = posScore[genePair[0]] + float(genePair[2])
-        for genePair in agnGenePairs:
-            totalScore[genePair[0]] = totalScore[genePair[0]] + (float(genePair[2]) / self.numFolds)
-            if genePair[1] in posSet:
-                posScore[genePair[0]] = posScore[genePair[0]] + (float(genePair[2]) / self.numFolds)
+        # for genePair in agnGenePairs:
+        #     totalScore[genePair[0]] = totalScore[genePair[0]] + (float(genePair[2]) / self.numFolds)
+        #     if genePair[1] in posSet:
+        #         posScore[genePair[0]] = posScore[genePair[0]] + (float(genePair[2]) / self.numFolds)
         
             
         if checkProportion:
@@ -164,7 +172,7 @@ class AllGoGraph(AllGoModel):
         else:
             scoreTable = [[gene,checkPosNeg(gene),score] for gene,score in posScore.items()]
         confMat = ConfusionMatrix.calculateMatrix(np.array(scoreTable,dtype=object),1,2)
-        pd.DataFrame(confMat,columns=['Gene','Label','Score','Precision','Recall','False Positive Rate']).to_csv(f'{self.path}/GeneRanking.csv',index=False)
+        pd.DataFrame(confMat,columns=['Gene','Label','Score','Precision','Recall','False Positive Rate']).to_csv(f'{self.path}/GeneRanking_NoAgn.csv',index=False)
 
     
     #Makes all possible pairs between 2 sets of genes

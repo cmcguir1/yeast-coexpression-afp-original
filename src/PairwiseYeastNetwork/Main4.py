@@ -27,9 +27,9 @@ def main():
     # GOTest.testNetworkAll(runAll=True)
     # GOTest.testNetworkAll(runAll=True,validation=False)
 
-    graph = AllGoGraph('./Yeast Resources/Pairwise/Spell/AllGO_Original_Struct_ParaSearch/Original_113x2000x92_Net_fold','113x2000x92','NewRank',ontologyDataset='original')
-    
-    graph.rankGenes()
+    graph = AllGoGraph('./Yeast Resources/Pairwise/Spell/AllGO_Original_Struct_ParaSearch/Original_113x2000x92_Net_fold','113x2000x92','SaveAll',ontologyDataset='original')
+    graph.feedForward(int(sys.argv[1]),calcAgn=False,saveAll=True)
+    #graph.rankGenes()
 
 
 

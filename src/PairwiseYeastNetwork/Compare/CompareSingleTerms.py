@@ -28,6 +28,6 @@ for term, index in termDict.items():
     else:
         table.append([term,'NA','NA'])
 
-pd.DataFrame(table,columns=['Go-Term','AUC','Avg Prec']).to_csv('./SingleTermAUC&AvgPrec.csv',index=False)
+pd.DataFrame(table,columns=['Go-Term','AUC','Avg Prec']).to_csv('./src/PairwiseYeastNetwork/Compare/SingleTermAUC&AvgPrec.csv',index=False)
 
     
