@@ -49,7 +49,7 @@ class AllGoGraph(AllGoModel):
         self.allGenes = {gene[0] for gene in foldTable}
 
 
-    def feedForward(self,fold,term='GO:0007005',trackTime=True,dataset='original',offSet=0,runNegatives=True,calcPos=True,calcAgn=True,saveAll=False):
+    def feedForward(self,fold,term='GO:0007005',trackTime=True,dataset='original',offSet=0,runNegatives=True,calcPos=True,calcAgn=True,saveAll=False,debug=False):
         with torch.no_grad():
             def calcPair(pair):
                 features, labels = self.makeBatchTensors(np.array([pair]))
@@ -60,7 +60,7 @@ class AllGoGraph(AllGoModel):
                 
                 labels = np.array(labels,dtype=np.intc)
                 if saveAll:
-                    return [pair[0],pair[1]]+outputs.tolist()
+                    return [pair[0],pair[1]]+outputs.tolist()[0]
                 else:
                     #offset is an integer that is used to offest the GOTermDict to evaluate on the wrong term
                     return [pair[0],pair[1],outputs[0,self.GOTermDict[term]+offSet].item()]
@@ -76,6 +76,7 @@ class AllGoGraph(AllGoModel):
 
             agnGenes = pd.read_csv('./Yeast Resources/TermPos/AgnosticGenes.csv').to_numpy().flatten()
             
+            
 
             if runNegatives:
                 pairs = AllGoGraph.makePairs(self.folds[fold],self.allGenes)
@@ -85,6 +86,10 @@ class AllGoGraph(AllGoModel):
 
             #agnPairs = AllGoGraph.makePairs(self.folds[fold],agnGenes)
             agnPairs = AllGoGraph.makePairs(agnGenes,posGenes)
+
+            if debug:
+                pairs = pairs[:5]
+                agnPairs = agnPairs[:5]
 
             if trackTime:
                 foldScores = []
@@ -109,7 +114,7 @@ class AllGoGraph(AllGoModel):
                 foldScores = [calcPair(pair) for pair in pairs]
                 agnScores = [calcPair(pair) for pair in agnPairs]
             if saveAll:
-                GoTerms = pd.read_csv('./src/PairwiseYeastNetwork/GOTermIndexDictionary.csv').tolist()
+                GoTerms = pd.read_csv('./src/PairwiseYeastNetwork/GOTermIndexDictionary.csv').values.tolist()
                 cols = ['Gene A','Gene B']
                 for term in GoTerms:
                     cols.append(term[0])
