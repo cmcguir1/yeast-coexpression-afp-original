@@ -47,6 +47,7 @@ class AllGoGraph(AllGoModel):
         foldTable = pd.read_csv(geneFolds).to_numpy()
         self.folds = [{gene[0] for gene in foldTable if gene[1] == i} for i in range(numfolds)]
         self.allGenes = {gene[0] for gene in foldTable}
+        print(len(self.allGenes)*len(self.allGenes)-len(self.allGenes))
 
 
     def feedForward(self,fold,term='GO:0007005',trackTime=True,dataset='original',offSet=0,runNegatives=True,calcPos=True,calcAgn=True,saveAll=False,debug=False):
