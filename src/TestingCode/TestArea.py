@@ -20,27 +20,27 @@ from Leaf import getLeaves, getGenes
 # for i,leaf in enumerate(leaves):
 #     print(f'{i}: {leaf[0]}')
 
-folds = [pd.read_csv(f'./Yeast Resources/GraphResults/NewRank/posScores_fold{i}.csv').to_numpy(dtype=object) for i in range(4)]
-genePairs = np.concatenate(folds,axis=0)
 
-leaves = getLeaves(10)
-pos = getGenes('GO:0007005',dataset='original')
-neg = set()
-for leaf in leaves:
-    if leaf[0] != 'GO:00070005':
-        neg = neg | leaf[1]
+leaves = getLeaves(10,dataset='modern')
+print(len(leaves))
 
-lst = []
-for pair in genePairs:
-    if pair[0] in pos and pair[1] in pos:
-        lst.append([pair[0],pair[1],1,pair[2]])
-    elif (pair[0] in pos and pair[1] in neg) or (pair[0] in neg and pair[1] in pos):
-        lst.append([pair[0],pair[1],-1,pair[2]])
-    elif pair[0] in neg and pair[1] in neg:
-        lst.append([pair[0],pair[1],-1,pair[2]])
-print('Began Sorting')
-sorted(lst,key=lambda row: row[3],reverse=True)
-pd.DataFrame(lst,columns=['Gene 1','Gene2','Label','Score']).to_csv('./scoresLst.csv',index=False)
+# pos = getGenes('GO:0007005',dataset='original')
+# neg = set()
+# for leaf in leaves:
+#     if leaf[0] != 'GO:00070005':
+#         neg = neg | leaf[1]
+
+# lst = []
+# for pair in genePairs:
+#     if pair[0] in pos and pair[1] in pos:
+#         lst.append([pair[0],pair[1],1,pair[2]])
+#     elif (pair[0] in pos and pair[1] in neg) or (pair[0] in neg and pair[1] in pos):
+#         lst.append([pair[0],pair[1],-1,pair[2]])
+#     elif pair[0] in neg and pair[1] in neg:
+#         lst.append([pair[0],pair[1],-1,pair[2]])
+# print('Began Sorting')
+# sorted(lst,key=lambda row: row[3],reverse=True)
+# pd.DataFrame(lst,columns=['Gene 1','Gene2','Label','Score']).to_csv('./scoresLst.csv',index=False)
 # pd.DataFrame(posLst,columns=['Score']).to_csv('./posDist.csv',index=False)
 # pd.DataFrame(negLst,columns=['Score']).to_csv('./negDist.csv',index=False)
 # pd.DataFrame(mixLst,columns=['Score']).to_csv('./mixDist.csv',index=False)
@@ -68,5 +68,4 @@ pd.DataFrame(lst,columns=['Gene 1','Gene2','Label','Score']).to_csv('./scoresLst
 # print(len(neg))
 
 
-print(genePairs)
 
