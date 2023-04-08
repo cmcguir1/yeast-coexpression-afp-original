@@ -86,7 +86,7 @@ class AllGoGraph(AllGoModel):
 
 
             #agnPairs = AllGoGraph.makePairs(self.folds[fold],agnGenes)
-            agnPairs = AllGoGraph.makePairs(agnGenes,posGenes)
+            agnPairs = AllGoGraph.makePairs(agnGenes,self.allGenes)
 
             if debug:
                 pairs = pairs[:5]
