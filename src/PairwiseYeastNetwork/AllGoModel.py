@@ -122,7 +122,9 @@ class AllGoModel():
             self.weights=torch.zeros((92,),dtype=float)
             for val in alphaValues:
                 self.weights[self.GOTermDict[val[0]]] = val[1]
+                sm = torch.nn.Softmax()
             self.weights = self.weights / torch.sum(self.weights)
+            print(self.weights)
         else:
             self.weights = torch.ones((92,),dtype=float)
         
@@ -212,6 +214,7 @@ class AllGoModel():
                 self.scheduler.step()
             
             if epoch % track == 0 and epoch != 0:
+                print(outputs)
                 lossList.append(runningLoss)
                 print(f'{track} Batch Cumulative Loss: {runningLoss}')
                 runningLoss = 0.0
