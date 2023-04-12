@@ -25,7 +25,7 @@ from Leaf import getLeaves
 
 
 class AllGoModel():
-    def __init__(self,fold,structure,folderName,modelName,numFolds=4,lr=0.01,momentum=0.9,batch=50,gamma=2,alpha=0.25,weighted=True,step=1000,stepGamma=0.95,decay_lr=False,lossFunc='CE',softmax=False,foldFile='./src/PairwiseYeastNetwork/AllGOGeneFold1.csv',ontologyDataset='modern',regularize=True, inputDropout=None,hiddenDropout=None,activation='relu',resetNet=False):
+    def __init__(self,fold,structure,folderName,modelName,numFolds=4,lr=0.01,momentum=0.9,batch=50,gamma=2,alpha=1,weighted=True,step=1000,stepGamma=0.95,decay_lr=False,lossFunc='CE',softmax=False,foldFile='./src/PairwiseYeastNetwork/AllGOGeneFold1.csv',ontologyDataset='modern',regularize=True, inputDropout=None,hiddenDropout=None,activation='relu',resetNet=False):
         #getLeaves returns a list of tuple of (GO Term,{set of genes})
         self.leaves = getLeaves(10,dataset=ontologyDataset)
 
@@ -122,8 +122,9 @@ class AllGoModel():
             self.weights=torch.zeros((92,),dtype=float)
             for val in alphaValues:
                 self.weights[self.GOTermDict[val[0]]] = val[1]
-                sm = torch.nn.Softmax()
+            self.weights = self.weights**alpha
             self.weights = self.weights / torch.sum(self.weights)
+            #self.weights = torch.ones(size=(92,))
             print(self.weights)
         else:
             self.weights = torch.ones((92,),dtype=float)
@@ -214,7 +215,6 @@ class AllGoModel():
                 self.scheduler.step()
             
             if epoch % track == 0 and epoch != 0:
-                print(outputs)
                 lossList.append(runningLoss)
                 print(f'{track} Batch Cumulative Loss: {runningLoss}')
                 runningLoss = 0.0

@@ -8,3 +8,6 @@ Yeast\ Resources/GraphResults/*
 negDist.csv
 scoresLst.csv
 negDist_nonCoAnno.csv
+AllPairs.dat
+AllScoreMemMap.dat
+*Scores*

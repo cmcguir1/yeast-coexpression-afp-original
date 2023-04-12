@@ -87,6 +87,7 @@ class AllGoGraph(AllGoModel):
 
             #agnPairs = AllGoGraph.makePairs(self.folds[fold],agnGenes)
             agnPairs = AllGoGraph.makePairs(agnGenes,self.allGenes)
+            print(len(agnPairs))
 
             if debug:
                 pairs = pairs[:5]
@@ -137,6 +138,7 @@ class AllGoGraph(AllGoModel):
         negGenes = set()
         for termGenes in negTerms:
             negGenes = negGenes | termGenes
+        negGenes = negGenes - set(posGenes)
 
         def checkPosNeg(gene):
             if gene in posGenes: 

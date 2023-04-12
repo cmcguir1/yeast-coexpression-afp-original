@@ -8,64 +8,32 @@ import torch
 sys.path.insert(0,'./obopy')
 from Leaf import getLeaves, getGenes
 
-# def key(leaf):
-#     return len(leaf[1])
-
-# termArray = pd.read_csv('./src/PairwiseYeastNetwork/TermNameDict.csv').to_numpy()
-# termDict = {}
-# for term in termArray:
-#     termDict[term[0]] = term[1]
-
-# 
-# for i,leaf in enumerate(leaves):
-#     print(f'{i}: {leaf[0]}')
 
 
-leaves = getLeaves(10,dataset='modern')
-print(len(leaves))
-
-# pos = getGenes('GO:0007005',dataset='original')
-# neg = set()
-# for leaf in leaves:
-#     if leaf[0] != 'GO:00070005':
-#         neg = neg | leaf[1]
-
-# lst = []
-# for pair in genePairs:
-#     if pair[0] in pos and pair[1] in pos:
-#         lst.append([pair[0],pair[1],1,pair[2]])
-#     elif (pair[0] in pos and pair[1] in neg) or (pair[0] in neg and pair[1] in pos):
-#         lst.append([pair[0],pair[1],-1,pair[2]])
-#     elif pair[0] in neg and pair[1] in neg:
-#         lst.append([pair[0],pair[1],-1,pair[2]])
-# print('Began Sorting')
-# sorted(lst,key=lambda row: row[3],reverse=True)
-# pd.DataFrame(lst,columns=['Gene 1','Gene2','Label','Score']).to_csv('./scoresLst.csv',index=False)
-# pd.DataFrame(posLst,columns=['Score']).to_csv('./posDist.csv',index=False)
-# pd.DataFrame(negLst,columns=['Score']).to_csv('./negDist.csv',index=False)
-# pd.DataFrame(mixLst,columns=['Score']).to_csv('./mixDist.csv',index=False)
-
-# coAnnos = []
-# nonCoAnnos = []
-# for pair in genePairs:
-#     if pair[0] in neg or pair[1] in neg:
-#         co = False
-#         for leaf in leaves:
-#             if pair[0] in leaf[1] and pair[1] in leaf[1]:
-#                 coAnnos.append(pair[2])
-#                 co = True
-#                 break
-#         if not co:
-#             nonCoAnnos.append([pair[2]])
-
-# pd.DataFrame(coAnnos,columns=['Score']).to_csv('./negDist_coAnno.csv',index=False)
-# pd.DataFrame(nonCoAnnos,columns=['Score']).to_csv('./negDist_nonCoAnno.csv',index=False)
-        
-            
+leaves = getLeaves(10)
+alpha = []
+for leaf in leaves:
+    num = len(leaf[1]) * len(leaf[1]) - len(leaf[1])
+    alpha.append([leaf[0],33681465/num])
+print(alpha)
 
 
-# print(len(pos))
-# print(len(neg))
+
+# scores = np.memmap('D:/AllScoreMemMap.dat',dtype='float32',shape=(27830900+5850565,92),mode='r+')
+# pairs = np.memmap('D:/AllPairs.dat',shape=(27830900+5850565,2),dtype='U10',mode='r+')
+
+# print(scores)
+# print(pairs)
+# print(scores)
+# offset = 27830900
+# for i in range(4):
+#     print(f"Started Loading fold {i}")
+#     data = pd.read_csv(f'./agnScores_fold{i}.csv').to_numpy()
+#     print(f"Loaded fold {i}")
+#     scores[offset:offset+len(data),:] += (data[:,2:] / 4.0).astype('float32')
+#     if(i == 0):
+#         pairs[offset:offset+len(data),:] = data[:,:2]
+#     del data
 
 
 
