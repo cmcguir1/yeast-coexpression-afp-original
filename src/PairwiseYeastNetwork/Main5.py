@@ -19,9 +19,10 @@ ssl._create_default_https_context = ssl._create_unverified_context
 def main():
 
     #GOTest = AllGoModel(i,sys.argv[1],'AllGO_Original_Parameter','Original',foldFile='./src/PairwiseYeastNetwork/AllGOGeneFold_Orignial_1.csv',ontologyDataset='original',inputDropout=float(sys.argv[2]),hiddenDropout=float(sys.argv[3]))
-
-    GOTest = AllGoModel(int(sys.argv[3]),'5000','Batch_Large',f'Original_{sys.argv[1]}',foldFile='./src/PairwiseYeastNetwork/AllGOGeneFold_Orignial_1.csv',ontologyDataset='original',batch=int(sys.argv[1]))
-    GOTest.trainNetwork(int(sys.argv[2]),track=1)
+    start = time.time()
+    GOTest = AllGoModel(0,'5000','Batch_Large',f'Original',foldFile='./src/PairwiseYeastNetwork/AllGOGeneFold_Orignial_1.csv',ontologyDataset='original',inMemory=True)
+    print(f'Overhead: {(time.time()-start)/60} minutes')
+    GOTest.trainNetwork(100000,track=100)
     GOTest.testNetworkAll(runAll=True)
     GOTest.testNetworkAll(runAll=True,validation=False)
 

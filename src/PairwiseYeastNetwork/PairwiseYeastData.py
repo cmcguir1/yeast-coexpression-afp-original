@@ -14,7 +14,7 @@ from Leaf import makePosNegFiles
 class PairwiseYeastData():
     def __init__(self,dataset,foldFile,numFolds=4,filterMissingGenes=False,recalc=False,statsDictLoc='./Yeast Resources/Datasets/All Spell/revisedStatsDict.csv',subset=100000,term='GO:0007005',memMapLoc='../YeastDict.dat'):
 
-        if term == 'GO:0007005':
+        if False and term == 'GO:0007005':
             #Reads in lists of positive and negatice genes, then turns each data frame into an array, flattens that array, then turns it into a list
             self.posDataList = pd.read_csv('./Yeast Resources/positives_00_go04-15-07.txt').to_numpy().flatten().tolist()
             self.negDataList = pd.read_csv('./Yeast Resources/negatives_00_go04-15-07.txt').to_numpy().flatten().tolist()

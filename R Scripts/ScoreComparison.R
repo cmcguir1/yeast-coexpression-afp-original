@@ -61,6 +61,55 @@ plotDist <- function(posScores,negScores,type,title="") {
   
 }
 
+plotSingleDist <- function(scores,background,title="") {
+  
+  lg <- rgb(71, 230, 132,maxColorValue=255,alpha=164)
+  lg_border <- rgb(71, 230, 132,maxColorValue=255,alpha=255)
+  dg <- rgb(17, 140, 64,maxColorValue=255,alpha=164)
+  dg_border <- rgb(17, 140, 64,maxColorValue=255,alpha=255)
+  lr <- rgb(255, 110, 110,maxColorValue=255,alpha=64)
+  lr_border <- rgb(255, 110, 110,maxColorValue=255,alpha=255)
+  dr <- rgb(191, 17, 17,maxColorValue=255,alpha=64)
+  dr_border <- rgb(191, 17, 17,maxColorValue=255,alpha=255)
+  b <-rgb(42, 142, 250,maxColorValue=255,alpha=64)
+  b_border <-rgb(42, 142, 250,maxColorValue=255,alpha=255)
+  
+  
+  
+  posScores <- density(scores[scores$Label == 1,]$Score)
+  negScores <- density(scores[scores$Label == -1,]$Score)
+  posBack <- density(background[background$Label == 1,]$Score)
+  negBack <- density(background[background$Label == -1,]$Score)
+  back <- density(background$Score)
+  
+  xlim <- c(min(c(posScores$x,negScores$x,back$x)),max(c(posScores$x,negScores$x,back$x)))
+  ylim <- c(0,max(c(posScores$y,negScores$y,back$y,posBack$y),negBack$y))
+  
+  plot(posScores,xlab="Score",type="l",lwd=5,xlim=xlim,ylim=ylim,main=title)
+  polygon(posScores,col=lg,border=lg_border,lwd=5)
+  polygon(negScores,col=lr,border=lr_border,lwd=5)
+  polygon(posBack,col=dg,border=dg_border,lwd=5)
+  polygon(negBack,col=dr,border=dr_border,lwd=5)
+  #polygon(back,col=b,border=b_border,lwd=5)
+  
+  #leg <- c("Positives to Positives","Positives to Background","Negatives to Positives","Negatives to Background","All Genes to Background")
+  #legend("topright",legend=leg,fill = c(lg_border,dg_border,lr_border,dr_border,b_border),cex=1)
+  
+  leg <- c("Positives to Positives","Positives to Background","Negatives to Positives","Negatives to Background")
+  legend("topright",legend=leg,fill = c(lg_border,dg_border,lr_border,dr_border),cex=1)
+  
+}
+
+
+mitoScores <- read.csv("D:/Background/SingleScores_Pos/GO-0007005_single_pos.csv")
+mitoPos <- mitoScores[mitoScores$Label == 1,]
+mitoNeg <- mitoScores[mitoScores$Label == -1,]
+plotMito <- function(scores) {
+  termPos <- scores[scores$Label == 1,]$Score
+  termNeg <- scores[scores$Label == -1,]$Score
+  
+}
+
 
 names <- read.csv("C:\\Users\\colem\\SummerResearch2022\\src\\PairwiseYeastNetwork\\TermNameDict.csv")
 nameMap <- hash()
@@ -75,39 +124,52 @@ getName <- function(t) {
   return(name)
 }
 
-for(term in GoTerms$GO.Term){
+# Triple histogram plot
+for(term in GoTerms$GO.Term[7:92]){
   
   term <- str_replace(term,":","-")
  
   
-  pdf(paste("D:/ScoreGraphs/",term,"_ScoreDist.pdf",sep=""),width=14,height=5)
+  pdf(paste("D:/Background/ScoreGraphs_3/",term,"_ScoreDist.pdf",sep=""),width=14,height=5)
   par(mfrow=c(1,3))
   par(cex.main=1.5)
   
-  pairs <- read.csv(paste("D:/PairScores/",term,"_pairs.csv",sep=""))
+  pairs <- read.csv(paste("D:/Background/PairScores/",term,"_pairs.csv",sep=""))
   plotDist(pairs[pairs$Label == 1,]$Score,pairs[pairs$Label == -1,]$Score,type="pairwise")
   
-  single <- read.csv(paste("D:/SingleScores/",term,"_single_pos.csv",sep=""))
+  single <- read.csv(paste("D:/Background/SingleScores_Pos/",term,"_single_pos.csv",sep=""))
   plotDist(single[single$Label == 1,]$Score,single[single$Label == -1,]$Score,type="single",title=paste(term,"\n",nameMap[[term]],sep=""))
   
-  single_prop <- read.csv(paste("D:/SingleScores_Prop/",term,"_single_proportion.csv",sep=""))
+  single_prop <- read.csv(paste("D:/Background/SingleScores_Prop/",term,"_single_proportion.csv",sep=""))
   plotDist(single_prop[single_prop$Label == 1,]$Score,single_prop[single_prop$Label == -1,]$Score,type="single_prop")
   dev.off()
   
+  rm(pairs)
+  rm(single)
+  rm(single_prop)
   
-  
-  
-  #pdf(paste("D:/ScoresGraphs_centered/",term,"_ScoreDist_centered.pdf",sep=""),width=14,height=5)
-  #par(mfrow=c(1,3))
-  #par(cex.main=2.5)
-  
-  #plotDist(pairs[pairs$Label == 1,]$Score,pairs[pairs$Label == -1,]$Score,type="pairwise")
-  #rm(pairs)
-  
-  #plotDist(single[single$Label == 1,]$Score,single[single$Label == -1,]$Score,type="single",title=paste(term,"\n",nameMap[[term]],sep=""))
-  #rm(single)
-  
-  #plotDist(single_prop[single_prop$Label == 1,]$Score,single_prop[single_prop$Label == -1,]$Score,type="single_prop")
-  #rm(single_prop)
-  #dev.off()
 }
+
+# Single Histogram plot
+for(term in GoTerms$GO.Term){
+  
+  term <- str_replace(term,":","-")
+  pdf(paste("D:/Background/ScoreGraphs/",term,"_ScoreDist_Background.pdf",sep=""),width=10,height=5)
+  par(cex.main=1.5)
+  
+  scores <- read.csv(paste("D:/Background/SingleScores_Pos/",term,"_single_pos.csv",sep=""))
+  background <- read.csv(paste("D:/Background/SingleScores_Background/",term,"_single_background.csv",sep=""))
+  plotSingleDist(scores,background,title=paste(term,"\n",nameMap[[term]],sep=""))
+  
+  dev.off()
+  
+  
+}
+
+
+# Mito Organization Comparison
+for(term in GoTerms$GO.Term){
+  scores <- read.csv(paste("D:/Background/SingleScores_Pos/",term,"_single_pos.csv",sep=""))
+}
+
+

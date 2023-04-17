@@ -7,7 +7,7 @@ from sympy import pdsolve
 from ExpressionDatasets import ExpressionDatasets
 
 class CorrelationDictionary():
-    def __init__(self,dictLoc='../YeastDict.dat',datasetType='modern'):
+    def __init__(self,dictLoc='../YeastDict.dat',datasetType='modern',inMemory=False):
         #Dictionary of Gene Name to its index in the correlation dictionary
         self.genes = pd.read_csv('./src/PairwiseYeastNetwork/geneIndexDictionary_full.csv').to_numpy()
         self.indexDict = {gene[0]: gene[1] for gene in self.genes}
@@ -31,19 +31,13 @@ class CorrelationDictionary():
             self.expDataset = ExpressionDatasets('./Yeast Resources/Datasets/All Spell/all spell datasets',sort=True,recur=True,recalc=False,statsDictLoc='./Yeast Resources/Datasets/All Spell/revisedStatsDict.csv')
             print('Used Modern Datasets')
 
-        # newDict = {}
-        # for dataset in self.expDataset.datasets:
-        #     for d, index in self.datasetsDict.items():
-        #         if dataset.dataFile in d:
-        #             newDict[dataset.dataFile] = index
-
-        # newDictArr = [[d,i] for d,i in newDict.items()]
-        # pd.DataFrame(newDictArr,columns=['Dataset','Index']).to_csv('./src/PairwiseYeastNetwork/datasetDictionaryOriginal.csv',index=False)
-
-
         
         #Correlations dictionary initialization
         self.memMap = np.memmap(dictLoc,'float32',mode='r+',shape=(430,(self.geneNumber*self.geneNumber - sum(range(self.geneNumber))) + self.geneNumber))
+        if inMemory:
+            arr = np.zeros(shape=(430,(self.geneNumber*self.geneNumber - sum(range(self.geneNumber))) + self.geneNumber),dtype='float32')
+            arr[:,:] = self.memMap[:,:]
+            self.memMap = arr
 
 
     def lookupCorrelation(self,gene1,gene2,dataset):

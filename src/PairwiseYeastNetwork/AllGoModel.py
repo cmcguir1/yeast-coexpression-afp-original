@@ -25,7 +25,7 @@ from Leaf import getLeaves
 
 
 class AllGoModel():
-    def __init__(self,fold,structure,folderName,modelName,numFolds=4,lr=0.01,momentum=0.9,batch=50,gamma=2,alpha=1,weighted=True,step=1000,stepGamma=0.95,decay_lr=False,lossFunc='CE',softmax=False,foldFile='./src/PairwiseYeastNetwork/AllGOGeneFold1.csv',ontologyDataset='modern',regularize=True, inputDropout=None,hiddenDropout=None,activation='relu',resetNet=False):
+    def __init__(self,fold,structure,folderName,modelName,numFolds=4,lr=0.01,momentum=0.9,batch=50,gamma=2,alpha=1,weighted=True,step=1000,stepGamma=0.95,decay_lr=False,lossFunc='CE',softmax=False,foldFile='./src/PairwiseYeastNetwork/AllGOGeneFold1.csv',ontologyDataset='modern',regularize=True, inputDropout=None,hiddenDropout=None,activation='relu',resetNet=False,inMemory=False):
         #getLeaves returns a list of tuple of (GO Term,{set of genes})
         self.leaves = getLeaves(10,dataset=ontologyDataset)
 
@@ -79,7 +79,7 @@ class AllGoModel():
 
         
         #Correlations Dictionary that will be retrieve precalculated correlation values
-        self.corrDict = CorrelationDictionary(dictLoc='../YeastMemMap/YeastCorrDictionary.dat' if (os.path.exists('../YeastMemMap/YeastCorrDictionary.dat')) else '../YeastDict.dat',datasetType=ontologyDataset)
+        self.corrDict = CorrelationDictionary(dictLoc='../YeastMemMap/YeastCorrDictionary.dat' if (os.path.exists('../YeastMemMap/YeastCorrDictionary.dat')) else '../YeastDict.dat',datasetType=ontologyDataset,inMemory=inMemory)
         self.datasets = self.corrDict.expDataset.datasets
         
         #Initialize all expression data as a list of maps {gene -> expression array}
@@ -125,7 +125,7 @@ class AllGoModel():
             self.weights = self.weights**alpha
             self.weights = self.weights / torch.sum(self.weights)
             #self.weights = torch.ones(size=(92,))
-            print(self.weights)
+            #print(self.weights)
         else:
             self.weights = torch.ones((92,),dtype=float)
         
@@ -181,7 +181,7 @@ class AllGoModel():
         runningLoss = 0.0
         if(os.path.exists(self.lossLoc) and not(self.resetNet)):
             lossList = list(pd.read_csv(self.lossLoc).to_numpy().flatten())
-            print(f'Intial Loss List: {lossList}')
+            #print(f'Intial Loss List: {lossList}')
         else:
             lossList = []
 
