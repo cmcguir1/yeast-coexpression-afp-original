@@ -31,18 +31,25 @@ def main():
     if start >= 90:
         r = range(start,len(GoTerms))
     else:
-        r = range(int(sys.argv[1]),int(sys.argv[1])+10)
+        r = range(start,start+10)
     
     for i in r:
         term = GoTerms[i,0]
 
-        modelData = PairwiseYeastData(dataset='original',foldFile=f'./Yeast Resources/Datasets/All Spell/_Folds_Original_1.csv',term=term,memMapLoc='../YeastMemMap/YeastCorrDictionary.dat')
-        graph = YeastGraph(f'./Yeast Resources/Pairwise/Spell/AllSingleTerms/{term[0:2]}{term[3:]}_2000x1_Net_fold',modelData,'113x2000x1',term,'AllSingle')
-        if sys.argv[2] == 'runAll':
-            graph.feedForward(save=False,calcAll=calcAll)
+        if (os.path.exists(f'./Yeast Resources/Pairwise/Spell/AllSingleTerms/{term[0:2]}{term[3:]}_2000x1_Net_fold1.csv') and 
+            os.path.exists(f'./Yeast Resources/Pairwise/Spell/AllSingleTerms/{term[0:2]}{term[3:]}_2000x1_Net_fold2.csv') and 
+            os.path.exists(f'./Yeast Resources/Pairwise/Spell/AllSingleTerms/{term[0:2]}{term[3:]}_2000x1_Net_fold3.csv') and 
+            os.path.exists(f'./Yeast Resources/Pairwise/Spell/AllSingleTerms/{term[0:2]}{term[3:]}_2000x1_Net_fold4.csv')):
+
+
+            modelData = PairwiseYeastData(dataset='original',foldFile=f'./Yeast Resources/Datasets/All Spell/_Folds_Original_1.csv',term=term,memMapLoc='../YeastMemMap/YeastCorrDictionary.dat')
+            graph = YeastGraph(f'./Yeast Resources/Pairwise/Spell/AllSingleTerms/{term[0:2]}{term[3:]}_2000x1_Net_fold',modelData,'113x2000x1',term,'AllSingle')
+            if sys.argv[2] == 'runAll':
+                graph.feedForward(save=False,calcAll=calcAll)
+                graph.rankGenes()
                 
-        else:
-            graph.forward(int(sys.argv[2]))
+            else:
+                graph.forward(int(sys.argv[2]))
 
 
 if __name__ == '__main__':

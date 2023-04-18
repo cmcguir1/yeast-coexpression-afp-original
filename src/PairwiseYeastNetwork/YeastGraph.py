@@ -138,8 +138,8 @@ class YeastGraph(PairwiseModel):
             outputs = np.array(outputsList)
             outputsTable = np.array([pairs[:,0],pairs[:,1],outputs],dtype=object).transpose()
             #Save positives pairs to csv file
-            ext = '_AllPairs' if calcAll else '_PosPairs'
-            pd.DataFrame(outputsTable,columns=['Gene A','Gene B','Score']).to_csv(f'{self.path}/{self.term}_PosPairsFold{ext}{fold+1}.csv',index=False)
+            ext = 'AllPairs' if calcAll else 'PosPairs'
+            pd.DataFrame(outputsTable,columns=['Gene A','Gene B','Score']).to_csv(f'{self.path}/{self.term}_{ext}_Fold{fold+1}.csv',index=False)
 
             if calcAgn:
                 #Get all agnositc apirs
@@ -244,6 +244,8 @@ class YeastGraph(PairwiseModel):
 
         if(not(dataTablePath=='')):
             self.dataTable = pd.read_csv(dataTablePath).to_numpy()
+        else:
+            self.dataTable = np.concatenate([pd.read_csv(f'{self.path}/{self.term}_PosPairs_Fold{i}.csv').to_numpy() for i in range(1,5)],0)
         #Intializes empty dictionary, then makes all genes keys to the number 0
         scoreDict = {}
         for gene in self.genes:
