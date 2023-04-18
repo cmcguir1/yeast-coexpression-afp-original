@@ -43,7 +43,7 @@ class YeastGraph(PairwiseModel):
         self.negGenes = pd.read_csv(f'./Yeast Resources/GeneSets/{term[0:2]}{term[3:]}_Neg_original.txt').to_numpy().flatten()
         self.agnGenes = pd.read_csv(f'./Yeast Resources/GeneSets/{term[0:2]}{term[3:]}_Agn_original.txt').to_numpy().flatten()
 
-        self.genes = np.concatenate([self.posGenes,self.negGenes],0)
+        
         print(f'Number of Genes: {len(self.genes)}')
         #If includeAll is true, make every gene pair
         if(includeAll):
@@ -58,6 +58,11 @@ class YeastGraph(PairwiseModel):
         self.posSet = set(self.posGenes)
         self.agnSet= set(self.agnGenes)
         self.negSet = set(self.negGenes)
+        posTrain,negTrain,posVal,negVal = self.data.getFold(i)
+        self.dataGenes = set(np.concatenate([posTrain,negTrain,posVal,negVal]))
+        self.genes = np.array((self.posSet | self.negSet | self.agnSet | self.dataGenes))
+        
+
 
         #Make agnostic pairs for feed forward
         self.agnPairs = self.makePosPairs(self.agnGenes,self.posGenes)
