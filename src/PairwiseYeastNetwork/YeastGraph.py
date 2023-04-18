@@ -44,14 +44,8 @@ class YeastGraph(PairwiseModel):
         self.agnGenes = pd.read_csv(f'./Yeast Resources/GeneSets/{term[0:2]}{term[3:]}_Agn_original.txt').to_numpy().flatten()
 
         
-        print(f'Number of Genes: {len(self.genes)}')
-        #If includeAll is true, make every gene pair
-        if(includeAll):
-            self.pairs = self.makePairs(self.genes,self.genes)
-        #Otherwise, only make gene pairs that include at least 1 positive
-        else:
-            self.pairs = self.makePosPairs(self.posGenes,self.genes)
-
+        #print(f'Number of Genes: {len(self.genes)}')
+        
         
 
         #Create a positive gene set from positive gene array
@@ -60,8 +54,15 @@ class YeastGraph(PairwiseModel):
         self.negSet = set(self.negGenes)
         posTrain,negTrain,posVal,negVal = self.data.getFold(i)
         self.dataGenes = set(np.concatenate([posTrain,negTrain,posVal,negVal]))
-        self.genes = np.array((self.posSet | self.negSet | self.agnSet | self.dataGenes))
+        self.genes = np.array(list(self.posSet | self.negSet | self.agnSet | self.dataGenes))
+        print(self.genes)
         
+        #If includeAll is true, make every gene pair
+        if(includeAll):
+            self.pairs = self.makePairs(self.genes,self.genes)
+        #Otherwise, only make gene pairs that include at least 1 positive
+        else:
+            self.pairs = self.makePosPairs(self.posGenes,self.genes)
 
 
         #Make agnostic pairs for feed forward

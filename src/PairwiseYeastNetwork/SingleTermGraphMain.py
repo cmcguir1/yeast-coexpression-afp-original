@@ -41,7 +41,7 @@ def main():
             os.path.exists(f'./Yeast Resources/Pairwise/Spell/AllSingleTerms/{term[0:2]}{term[3:]}_2000x1_Net_fold3.pth.pth') and 
             os.path.exists(f'./Yeast Resources/Pairwise/Spell/AllSingleTerms/{term[0:2]}{term[3:]}_2000x1_Net_fold4.pth.pth')):
 
-
+            print(i)
             modelData = PairwiseYeastData(dataset='original',foldFile=f'./Yeast Resources/Datasets/All Spell/_Folds_Original_1.csv',term=term,memMapLoc='../YeastMemMap/YeastCorrDictionary.dat')
             graph = YeastGraph(f'./Yeast Resources/Pairwise/Spell/AllSingleTerms/{term[0:2]}{term[3:]}_2000x1_Net_fold',modelData,'113x2000x1',term,'AllSingle_New')
             if sys.argv[2] == 'runAll':
