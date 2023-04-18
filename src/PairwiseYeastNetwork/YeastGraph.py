@@ -240,7 +240,7 @@ class YeastGraph(PairwiseModel):
 
                 
     #Ranks genes by the strength of their connections to positive genes
-    def rankGenes(self,filePath,dataTablePath=''):
+    def rankGenes(self,dataTablePath=''):
 
         if(not(dataTablePath=='')):
             self.dataTable = pd.read_csv(dataTablePath).to_numpy()
@@ -311,7 +311,7 @@ class YeastGraph(PairwiseModel):
 
         #Save dataframe to file path
         dataFrame = pd.DataFrame(dataTable,columns=['Name','+/-','Score','True Positive', 'False Positive', 'True Negative', 'False Negative', 'Accuracy', 'Precision', 'Recall', 'False Positive Rate', 'Selectivity'])
-        dataFrame.to_csv(f'{self.path}/{filePath}',index=False)
+        dataFrame.to_csv(f'{self.path}/{self.term}_SingleGeneRanking.csv',index=False)
 
     
 
