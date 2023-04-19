@@ -5,7 +5,7 @@ Yeast\ Resourcse/Pairwise/Spell/Test/*
 Yeast\ Resources/Yeast\ Graphs/*
 Yeast\ Resources/Pairwise/Spell/Overfit/*.pth
 Yeast\ Resources/GraphResults/*
-!Yeast\ Resources/GraphResults/AllSingle_New/*
+!Yeast\ Resources/GraphResults/AllSingle_New/
 negDist.csv
 scoresLst.csv
 negDist_nonCoAnno.csv
