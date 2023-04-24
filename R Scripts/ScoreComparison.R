@@ -10,7 +10,7 @@ green_border <- rgb(54, 173, 100,maxColorValue=255,alpha=255)
 red_border <- rgb(255, 110, 110,maxColorValue=255,alpha=255)
 
 
-plotDist <- function(posScores,negScores,type,title="") {
+plotDist <- function(posScores,negScores,type,title="",scaleTo="none") {
   if(type == "pairwise") {
     legend <- c("Positive Pairs","Negative Pairs")
     xlab <- "Pairwise scores"
@@ -29,10 +29,18 @@ plotDist <- function(posScores,negScores,type,title="") {
   posDen <- density(posScores)
   negDen <- density(negScores)
   
-  if(max(posDen$y) > max(negDen$y)) {
-    yMax <-max(posDen$y) + (0.2 * max(posDen$y))
+  posHist <- hist(posScores,breaks=50)
+  negHist <- hist(negScores,breaks=50)
+  
+  lenPos <- length(posScores)
+  lenNeg <- length(negScores)
+  posProp <- lenPos / (lenPos + lenNeg)
+  negProp <- 1 - posProp
+  
+  if(max(posDen$y)*posProp > max(negDen$y)*negProp | scaleTo == "pos") {
+    yMax <-max(posDen$y)*posProp + (0.2 * max(posDen$y)*posProp)
   } else {
-    yMax <-max(negDen$y) + (0.2 * max(negDen$y))
+    yMax <-max(negDen$y)*negProp + (0.2 * max(negDen$y)*negProp)
   }
   ylim <- c(0,yMax)
   
@@ -53,9 +61,12 @@ plotDist <- function(posScores,negScores,type,title="") {
   xlim <- c(xMin - xGap, xMax + xGap)
   
   
-  plot(posDen,xlab=xlab,type="l",lwd=5,xlim=xlim,ylim=ylim,main=title)
-  polygon(negDen,col=red,border=red_border,lwd=5)
-  polygon(posDen,col=green,border=green_border,lwd=5)
+  #plot((posDen$y*posProp)~posDen$x,xlab=xlab,type="l",lwd=5,xlim=xlim,ylim=ylim,main=title)
+  #polygon((negDen$y*negProp)~negDen$x,col=red,border=red_border,lwd=5)
+  #polygon((posDen$y*posProp)~posDen$x,col=green,border=green_border,lwd=5)
+  
+  plot(posHist,col="green")
+  lines(negHist,col="red")
   
   legend("topright",legend=legend,fill=c(green_border,red_border),cex=1.2)
   
@@ -76,7 +87,13 @@ plotSingleDist <- function(scores,background,title="") {
   
   
   
-  posScores <- density(scores[scores$Label == 1,]$Score)
+  #posScores <- density(scores[scores$Label == 1,]$Score)
+  #negScores <- density(scores[scores$Label == -1,]$Score)
+  #posBack <- density(background[background$Label == 1,]$Score)
+  #negBack <- density(background[background$Label == -1,]$Score)
+  #back <- density(background$Score)
+  
+  posScores <- hist(scores[scores$Label == 1,]$Score,breaks=50)
   negScores <- density(scores[scores$Label == -1,]$Score)
   posBack <- density(background[background$Label == 1,]$Score)
   negBack <- density(background[background$Label == -1,]$Score)
@@ -101,14 +118,14 @@ plotSingleDist <- function(scores,background,title="") {
 }
 
 
-mitoScores <- read.csv("D:/Background/SingleScores_Pos/GO-0007005_single_pos.csv")
-mitoPos <- mitoScores[mitoScores$Label == 1,]
-mitoNeg <- mitoScores[mitoScores$Label == -1,]
-plotMito <- function(scores) {
-  termPos <- scores[scores$Label == 1,]$Score
-  termNeg <- scores[scores$Label == -1,]$Score
+#mitoScores <- read.csv("D:/Background/SingleScores_Pos/GO-0007005_single_pos.csv")
+#mitoPos <- mitoScores[mitoScores$Label == 1,]
+#mitoNeg <- mitoScores[mitoScores$Label == -1,]
+#plotMito <- function(scores) {
+#  termPos <- scores[scores$Label == 1,]$Score
+#  termNeg <- scores[scores$Label == -1,]$Score
   
-}
+#}
 
 
 names <- read.csv("C:\\Users\\colem\\SummerResearch2022\\src\\PairwiseYeastNetwork\\TermNameDict.csv")
@@ -128,20 +145,24 @@ getName <- function(t) {
 for(term in GoTerms$GO.Term[7:92]){
   
   term <- str_replace(term,":","-")
- 
   
-  pdf(paste("D:/Background/ScoreGraphs_3/",term,"_ScoreDist.pdf",sep=""),width=14,height=5)
+  saveDir <- "D:/Background/ScoreGraphs_Proportional/"
+  if(!dir.exists(saveDir)) {
+    dir.create(saveDir)
+  }
+  
+  pdf(paste(saveDir,term,"_ScoreDist_PosScale.pdf",sep=""),width=14,height=10)
   par(mfrow=c(1,3))
   par(cex.main=1.5)
   
   pairs <- read.csv(paste("D:/Background/PairScores/",term,"_pairs.csv",sep=""))
-  plotDist(pairs[pairs$Label == 1,]$Score,pairs[pairs$Label == -1,]$Score,type="pairwise")
+  plotDist(pairs[pairs$Label == 1,]$Score,pairs[pairs$Label == -1,]$Score,type="pairwise",scaleTo = "pos")
   
   single <- read.csv(paste("D:/Background/SingleScores_Pos/",term,"_single_pos.csv",sep=""))
-  plotDist(single[single$Label == 1,]$Score,single[single$Label == -1,]$Score,type="single",title=paste(term,"\n",nameMap[[term]],sep=""))
+  plotDist(single[single$Label == 1,]$Score,single[single$Label == -1,]$Score,type="single",title=paste(term,"\n",nameMap[[term]],sep=""),scaleTo = "pos")
   
   single_prop <- read.csv(paste("D:/Background/SingleScores_Prop/",term,"_single_proportion.csv",sep=""))
-  plotDist(single_prop[single_prop$Label == 1,]$Score,single_prop[single_prop$Label == -1,]$Score,type="single_prop")
+  plotDist(single_prop[single_prop$Label == 1,]$Score,single_prop[single_prop$Label == -1,]$Score,type="single_prop",scaleTo = "pos")
   dev.off()
   
   rm(pairs)
@@ -170,6 +191,52 @@ for(term in GoTerms$GO.Term){
 # Mito Organization Comparison
 for(term in GoTerms$GO.Term){
   scores <- read.csv(paste("D:/Background/SingleScores_Pos/",term,"_single_pos.csv",sep=""))
+}
+
+for(term in GoTerms$GO.Term){
+  term <- str_replace(term,":","-")
+  
+  saveDir <- "D:/ST_AG_Comparison/"
+  if(!dir.exists(saveDir)) {
+    dir.create(saveDir)
+  }
+  
+  
+  
+  AGSingleFile <- paste("D:/Background/SingleScores_Pos/",term,"_single_pos.csv",sep="")
+  STSingleFile <- paste("C:\\Users\\colem\\SummerResearch2022\\Yeast Resources\\GraphResults\\AllSingle_New\\",gsub('-','',term),"_SingleGeneRanking.csv",sep="")
+  AGPairsFile <- paste("D:/OnlyPos/PairScores/",term,"_pairs.csv",sep="")
+  STPairsFile <- paste("C:\\Users\\colem\\SummerResearch2022\\Yeast Resources\\GraphResults\\AllSingle_New\\",gsub('-','',term),"_PosPairs_Combined.csv",sep="")
+  
+  if(file.exists(AGSingleFile) & file.exists(STSingleFile) * file.exists(AGPairsFile) & file.exists(STPairsFile)){
+    AGSingle <- read.csv(AGSingleFile)
+    STSingle <- read.csv(STSingleFile)
+    AGPairs <- read.csv(AGPairsFile)
+    STPairs <- read.csv(STPairsFile)
+    
+    pdf(paste(saveDir,term,"_ST_AG_Comparison.pdf"),height=8,15)
+    par(mfrow=c(2,4))
+    par(cex.main=1.5)
+    
+    plotDist(AGPairs[AGPairs$Label == 1,]$Score,AGPairs[AGPairs$Label == -1,]$Score,type="pairwise")
+    plotDist(AGSingle[AGSingle$Label == 1,]$Score,AGSingle[AGSingle$Label == -1,]$Score,type="single")
+    plotDist(STPairs[STPairs$Label == 1,]$Score,STPairs[STPairs$Label == -1,]$Score,type="pairwise")
+    plotDist(STSingle[STSingle$X... == 1,]$Score,STSingle[STSingle$X... == -1,]$Score,type="single")
+    
+    plotDist(AGPairs[AGPairs$Label == 1,]$Score,AGPairs[AGPairs$Label == -1,]$Score,type="pairwise",scaleTo="pos")
+    plotDist(AGSingle[AGSingle$Label == 1,]$Score,AGSingle[AGSingle$Label == -1,]$Score,type="single",scaleTo="pos")
+    plotDist(STPairs[STPairs$Label == 1,]$Score,STPairs[STPairs$Label == -1,]$Score,type="pairwise",scaleTo="pos")
+    plotDist(STSingle[STSingle$X... == 1,]$Score,STSingle[STSingle$X... == -1,]$Score,type="single",scaleTo="pos")
+    
+    mtext(paste(term,"\n",nameMap[[term]],sep=""), side = 3, line = -3, outer = TRUE)
+    mtext("Single Term Network", side = 0, line = -3, outer = TRUE)
+    
+    
+    dev.off()
+  }
+  
+  
+  
 }
 
 

@@ -50,26 +50,26 @@ class YeastGraph(PairwiseModel):
 
         #Create a positive gene set from positive gene array
         self.posSet = set(self.posGenes)
-        self.agnSet= set(self.agnGenes)
         self.negSet = set(self.negGenes)
+        self.agnSet= set(self.agnGenes)
         posTrain,negTrain,posVal,negVal = self.data.getFold(i)
         self.dataGenes = set(np.concatenate([posTrain,negTrain,posVal,negVal]))
         self.genes = np.array(list(self.posSet | self.negSet | self.agnSet | self.dataGenes))
         print(self.genes)
         
         #If includeAll is true, make every gene pair
-        if(includeAll):
-            self.pairs = self.makePairs(self.genes,self.genes)
-        #Otherwise, only make gene pairs that include at least 1 positive
-        else:
-            self.pairs = self.makePosPairs(self.posGenes,self.genes)
+        # if(includeAll):
+        #     self.pairs = self.makePairs(self.genes,self.genes)
+        # #Otherwise, only make gene pairs that include at least 1 positive
+        # else:
+        #     self.pairs = self.makePosPairs(self.posGenes,self.genes)
 
 
         #Make agnostic pairs for feed forward
-        self.agnPairs = self.makePosPairs(self.agnGenes,self.posGenes)
+        
 
         #Make the batch size equal to the number of gene pairs
-        self.batch = len(self.pairs)
+        # self.batch = len(self.pairs)
 
     #Passes all gene pairs through network, then saves a data table of their outputs
     def feedForward(self,save=True,fold=None,limitPairs=None,calcAgn=False,calcAll=True):
@@ -108,19 +108,12 @@ class YeastGraph(PairwiseModel):
         else:
             self.forward(self.nets[fold],fold)
         
-    def forward(self,fold,calcAll=True,calcAgn=False):
+    def forward(self,fold,calcAll=True,calcAgn=False,track=100,batchSize=100):
         with torch.no_grad():  
-    
-
-            #Loop over all networks, for each network, feed forward all gene pairs from the validation fold assocaited with that network
+            self.agnPairs = self.makePosPairs(self.agnGenes,self.genes)
+            
             #Get the gene data from fold of network i
             posTrain,negTrain,posVal,negVal = self.data.getFold(fold)
-            #Make pairs between positive genes and all genes from fold
-            #posPairs = self.makePosPairs(posVal,np.concatenate([posVal,posTrain]))
-            #negPairs = self.makePosPairs(negVal,np.concatenate([posVal,posTrain]))
-            #agnPairs = self.agnPairs
-            #pairs = np.concatenate([posPairs,negPairs,agnPairs],0)
-            #pairs = np.concatenate([posPairs,negPairs],0)
             if calcAll:
                 pairs = self.makePairs(np.concatenate([posVal,negVal],0),np.concatenate([posVal,posTrain,negVal,negTrain],0))
             else:
@@ -129,17 +122,38 @@ class YeastGraph(PairwiseModel):
             #Feed positive pairs through netowrk
             outputsList = []
             start = time.time()
-            for i, pair in enumerate(pairs,0):
+            # for i, pair in enumerate(pairs,0):
 
-                #Make features tensor from single pair
-                features, labels = self.makeBatchTensors(np.array([pair]))
+            #     #Make features tensor from single pair
+            #     features, labels = self.makeBatchTensors(np.array([pair]))
+            #     features = features.to(self.device)
+            #     #Append output to outputs list
+            #     outputsList.append(self.nets[fold](features.float(),test=True).cpu().flatten()[0])
+            #     if(i % track == 0):
+            #          print(f'Pairs Calculated: {(i+1)/(len(pairs)+len(self.agnPairs))}%',flush=True)
+            #          print(f'Time to calc 100 pairs: {(time.time()-start) / 60} minutes')
+            #          start = time.time()
+            
+            outputsList = [0.0 for i in range(0,len(pairs))]
+            start = time.time()
+            pairLen = len(pairs)
+            
+            for i in range(0,pairLen,batchSize):
+                if i > pairLen - batchSize:
+                    batch = pairs[i:]
+                else:
+                    batch = pairs[i:i+batchSize]
+                features, labels = self.makeBatchTensors(np.array(batch))
                 features = features.to(self.device)
-                #Append output to outputs list
-                outputsList.append(self.nets[fold](features.float(),test=True).cpu().flatten()[0])
-                if(i % 10000 == 0):
-                     print(f'Pairs Calculated: {(i+1)/len(pairs)}%',flush=True)
-                     print(f'Time to calc 100 pairs: {(time.time()-start) / 60} minutes')
+                out = self.nets[fold](features.float(),test=True).cpu().flatten().tolist()
+                for o in range(len(out)):
+                    outputsList[i+0] = out[o]
+                if(i % (track / batchSize) == 0):
+                     print(f'Pairs Calculated: {(i*batchSize)/(len(pairs)+len(self.agnPairs))}%',flush=True)
+                     print(f'Time to calc pairs: {(time.time()-start) / 60} minutes')
                      start = time.time()
+
+
             #Convert outputsList to array, then make take of gene 1, gene 2, score
             outputs = np.array(outputsList)
             outputsTable = np.array([pairs[:,0],pairs[:,1],outputs],dtype=object).transpose()
@@ -150,32 +164,39 @@ class YeastGraph(PairwiseModel):
             if calcAgn:
                 #Get all agnositc apirs
                 agnPairs = self.agnPairs
-                agnOutputsList = []
+                agnOutputsList = [0.0 for i in len(agnPairs)]
                 #Feed all agnositc pairs through network
-                for i, pair in enumerate(agnPairs,0):
-                    #Make features tensor from single pairS
-                    features, labels = self.makeBatchTensors(np.array([pair]))
+            
+                for i in range(0,len(agnPairs),batchSize):
+                    if i > pairLen - batchSize:
+                        batch = pairs[i:]
+                    else:
+                        batch = pairs[i:i+batchSize]
+                    features, labels = self.makeBatchTensors(np.array(batch))
                     features = features.to(self.device)
-                    #Feed pair through network
-                    agnOutputsList.append(self.nets[fold](features.float(),test=True).cpu().flatten()[0])
-                    if(i % 100 == 0):
-                        print(f'Pairs Calculated (Agnostic): {(i+1)/len(agnPairs)}%',flush=True)
+                    out = self.nets[fold](features.float(),test=True).cpu().flatten().tolist()
+                    for o in range(len(out)):
+                        agnOutputsList[i+0] = out[o]
+                    if(i % track == 0):
+                        print(f'Pairs Calculated (Agnostic): {(i+1+len(pairs))/(len(agnPairs)+len(pairs))}%',flush=True)
+                        print(f'Time to calc 100 pairs: {(time.time()-start) / 60} minutes')
+                        start = time.time()
                 #Make agnostic pair table, then append it to agnostic folds list
                 agnOutputs = np.array(agnOutputsList)
                 agnOutputsTable = np.array([agnPairs[:,0],agnPairs[:,1],agnOutputs],dtype=object).transpose()
                 #Saves agnostic pairs to csv file
-                pd.DataFrame(agnOutputsTable,columns=['Gene A','Gene B','Score']).to_csv(f'{self.path}/{self.term}_AgnPairsFold{fold+1}.csv',index=False)
+                pd.DataFrame(agnOutputsTable,columns=['Gene A','Gene B','Score']).to_csv(f'{self.path}/{self.term}_Agn_Fold{fold+1}.csv',index=False)
             else:
                 agnOutputsTable = []
                 
             return (outputsTable,agnOutputsTable)
     
-    def recombineFolds(self,posPath,agnPath,fileLocation,numFolds=4):
+    def recombineFolds(self,numFolds=4):
         folds = []
         agnFolds = []
         for i in range(numFolds):
-            folds.append(pd.read_csv(f'{self.path}/{posPath}{i+1}.csv').to_numpy(dtype=object))
-            agnFolds.append(pd.read_csv(f'{self.path}/{agnPath}{i+1}.csv').to_numpy(dtype=object))
+            folds.append(pd.read_csv(f'{self.path}/{self.term}_PosPairs_Fold{i+1}.csv').to_numpy(dtype=object))
+            agnFolds.append(pd.read_csv(f'{self.path}/{self.term}_Agn_Fold{i+1}.csv').to_numpy(dtype=object))
 
         agnAverage = []
         agnPairs = self.agnPairs
@@ -183,7 +204,6 @@ class YeastGraph(PairwiseModel):
             #For every fold, add the score of a given pair to total
             total = 0.0
             for table in agnFolds:
-                #print(table)
                 total += table[i,2]
             #Append the average
             agnAverage.append([agnPairs[i,0],agnPairs[i,1],total/float(self.numFolds)])
@@ -192,7 +212,7 @@ class YeastGraph(PairwiseModel):
         folds.append(agnAverageArray)
 
         self.dataTable = np.concatenate(folds,0)
-        pd.DataFrame(self.dataTable,columns=['Gene A','Gene B','Score']).to_csv(f'{self.path}/{fileLocation}',index=False)
+        pd.DataFrame(self.dataTable,columns=['Gene A','Gene B','Score']).to_csv(f'{self.path}/{self.term}_PosPairs_Combined.csv',index=False)
 
    #Compare the performance of each net on gene pairs from genes that fold of data
     def compareFolds(self,saveLoc,cutoff=100):
@@ -254,13 +274,16 @@ class YeastGraph(PairwiseModel):
             self.dataTable = np.concatenate([pd.read_csv(f'{self.path}/{self.term}_PosPairs_Fold{i}.csv').to_numpy() for i in range(1,5)],0)
         #Intializes empty dictionary, then makes all genes keys to the number 0
         scoreDict = {}
+        totalDict = {}
         for gene in self.genes:
             scoreDict[gene] = 0
+            totalDict[gene] = 0
         #Loops over all genes in the data Table
         for genePair in self.dataTable:
             if genePair[0] != genePair[1]:
-
-                scoreDict[genePair[0]] = scoreDict[genePair[0]] + genePair[2]
+                totalDict[genePair[0]] = totalDict[genePair[0]] + float(genePair[2])
+                if genePair[1] in self.posSet:
+                    scoreDict[genePair[0]] = scoreDict[genePair[0]] + float(genePair[2])
 
         #Turn of genes and score into list
         dataTable = []
@@ -268,10 +291,10 @@ class YeastGraph(PairwiseModel):
             #This conditional determines what the sign of each gene is
             if(gene in self.posSet):
                 sign = 1
-            elif(gene in self.agnSet):
-                sign = 0
-            else:
+            elif(gene in self.negSet):
                 sign = -1
+            else:
+                sign = 0
             dataTable.append([gene,sign,scoreDict[gene]])
 
         #Convert list to array, then sort it by score in reverse order
@@ -347,45 +370,11 @@ class YeastGraph(PairwiseModel):
         pairs = []
         for i in range(len(posGenes)):
             for j in range(len(allGenes)):
-                pairs.append((posGenes[i],allGenes[j]))
+                if i != j:
+                    pairs.append((posGenes[i],allGenes[j]))
         return(np.array(pairs))
 
-    #Take in positive gene files for mito inheritance and another GO term and compare the a certain number of random gene pairs from each set
-    def compareGOTerms(self,mitoPos,otherPos,cutoff=1000):
-        mitoPairs = self.makePairs(pd.read_csv(mitoPos).to_numpy().flatten())
-        otherPairs = self.makePairs(pd.read_csv(otherPos).to_numpy().flatten())
-        mixedPairs = self.makePosPairs(pd.read_csv(mitoPos).to_numpy().flatten(),pd.read_csv(otherPos).to_numpy().flatten())
-        np.random.shuffle(mitoPairs)
-        np.random.shuffle(otherPairs)
-        np.random.shuffle(mixedPairs)
-        mitoPairs = mitoPairs[:cutoff]
-        otherPairs = otherPairs[:cutoff]
-        mixedPairs = mixedPairs[:cutoff]
-        with torch.no_grad():
-            mitoTotal = 0.0
-            for pair in mitoPairs:
-                features,_ = self.makeBatchTensors(np.array([pair]))
-                features = features.to(self.device)
-                for net in self.nets:
-                    output = net(features.float(),test=True).cpu().flatten().item()
-                    mitoTotal += output
-            otherTotal = 0.0
-            for pair in otherPos:
-                features,_ = self.makeBatchTensors(np.array([pair]))
-                features = features.to(self.device)
-                for net in self.nets:
-                    output = net(features.float(),test=True).cpu().flatten().item()
-                    otherTotal += output
-            mixedTotal = 0.0
-            for pair in mixedPairs:
-                features,_ = self.makeBatchTensors(np.array([pair]))
-                features = features.to(self.device)
-                for net in self.nets:
-                    output = net(features.float(),test=True).cpu().flatten().item()
-                    mixedTotal += output
-        print(f'Average Mitochondrial Inheritance Confidence: {mitoTotal/(len(mitoPairs)*len(self.nets))}')
-        print(f'Average Other GO Term Confidence: {otherTotal/(len(otherPairs)*len(self.nets))}')
-        print(f'Average Mixed Pair Confidence: {mixedTotal/(len(mixedPairs)*len(self.nets))}')
+
 
     #This method divides a pairs file into a file for positive pairs and a file for negative pairs
     def dividePosNeg(self,pairsFile):
@@ -428,4 +417,41 @@ class YeastGraph(PairwiseModel):
 
     def saveGenesToCSV(self,location):
         pd.DataFrame(self.genes).to_csv(location,index=False)
+
+            #Take in positive gene files for mito inheritance and another GO term and compare the a certain number of random gene pairs from each set
+    def compareGOTerms(self,mitoPos,otherPos,cutoff=1000):
+        mitoPairs = self.makePairs(pd.read_csv(mitoPos).to_numpy().flatten())
+        otherPairs = self.makePairs(pd.read_csv(otherPos).to_numpy().flatten())
+        mixedPairs = self.makePosPairs(pd.read_csv(mitoPos).to_numpy().flatten(),pd.read_csv(otherPos).to_numpy().flatten())
+        np.random.shuffle(mitoPairs)
+        np.random.shuffle(otherPairs)
+        np.random.shuffle(mixedPairs)
+        mitoPairs = mitoPairs[:cutoff]
+        otherPairs = otherPairs[:cutoff]
+        mixedPairs = mixedPairs[:cutoff]
+        with torch.no_grad():
+            mitoTotal = 0.0
+            for pair in mitoPairs:
+                features,_ = self.makeBatchTensors(np.array([pair]))
+                features = features.to(self.device)
+                for net in self.nets:
+                    output = net(features.float(),test=True).cpu().flatten().item()
+                    mitoTotal += output
+            otherTotal = 0.0
+            for pair in otherPos:
+                features,_ = self.makeBatchTensors(np.array([pair]))
+                features = features.to(self.device)
+                for net in self.nets:
+                    output = net(features.float(),test=True).cpu().flatten().item()
+                    otherTotal += output
+            mixedTotal = 0.0
+            for pair in mixedPairs:
+                features,_ = self.makeBatchTensors(np.array([pair]))
+                features = features.to(self.device)
+                for net in self.nets:
+                    output = net(features.float(),test=True).cpu().flatten().item()
+                    mixedTotal += output
+        print(f'Average Mitochondrial Inheritance Confidence: {mitoTotal/(len(mitoPairs)*len(self.nets))}')
+        print(f'Average Other GO Term Confidence: {otherTotal/(len(otherPairs)*len(self.nets))}')
+        print(f'Average Mixed Pair Confidence: {mixedTotal/(len(mixedPairs)*len(self.nets))}')
 

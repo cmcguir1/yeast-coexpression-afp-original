@@ -1,5 +1,5 @@
-small <- density(rnorm(10000,0.5,1.5),n=100)
-large <- density(rnorm(100000,0,1),n=1000)
+small <- density(runif(10000,0.5,1.5),n=100)
+large <- density(runif(100000,0,1),n=1000)
 ylim <- c(0,max(c(large$y,small$y*10))*1.2)
 plot(small$y*10~small$x,xlim=c(-0.5,2),ylim=ylim,col="red",lwd=3,type="l")
 polygon(large$y~large$x,border="green",lwd=3)

@@ -1,7 +1,12 @@
 import pandas as pd
+import torch
 
-GoTerms = pd.read_csv('./src/PairwiseYeastNetwork/GOTermIndexDictionary.csv').values.tolist()
-cols = ['Gene A','Gene B']
-for term in GoTerms:
-    cols.append(term[0])
-print(cols)
+outputs = torch.tensor([[1000,1,10,1,1]],dtype=torch.float32)
+labels = torch.tensor([[1,0,1,0,0]],dtype=torch.float32)
+weights = torch.tensor([10,1,1,1,1],dtype=torch.float32)
+
+loss = torch.nn.CrossEntropyLoss()
+weightedLoss = torch.nn.CrossEntropyLoss(weight=weights)
+
+print(f'Loss: {loss(outputs,labels)}')
+print(f'Weighted Loss: {weightedLoss(outputs,labels)}')

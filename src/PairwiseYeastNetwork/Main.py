@@ -19,15 +19,10 @@ ssl._create_default_https_context = ssl._create_unverified_context
 
 def main():
 
-    #GOTest = AllGoModel(i,sys.argv[1],'AllGO_Original_Parameter','Original',foldFile='./src/PairwiseYeastNetwork/AllGOGeneFold_Orignial_1.csv',ontologyDataset='original',inputDropout=float(sys.argv[2]),hiddenDropout=float(sys.argv[3]))
 
-    # GOTest = AllGoModel(int(sys.argv[1]),'250000',f'Overfit','Original',foldFile='./src/PairwiseYeastNetwork/AllGOGeneFold_Orignial_1.csv',ontologyDataset='original',batch=500)
-    # GOTest.trainNetwork(80000)
-    # GOTest.testNetworkAll(runAll=True)
-    # GOTest.testNetworkAll(runAll=True,validation=False)
 
-    GOTest = AllGoModel(int(sys.argv[1]),'2000',f'Weighted_Loss_alpha',f'TestAlpha_{sys.argv[2]}',foldFile='./src/PairwiseYeastNetwork/AllGOGeneFold_Orignial_1.csv',ontologyDataset='original',batch=50,lossFunc='weighted_cross_entropy',resetNet=True,alpha=float(sys.argv[2]))
-    GOTest.trainNetwork(40000,track=100)
+    GOTest = AllGoModel(int(sys.argv[1]),sys.argv[2],f'MassiveNetwork',f'Dropout_{sys.argv[3]}',foldFile='./src/PairwiseYeastNetwork/AllGOGeneFold_Orignial_1.csv',ontologyDataset=sys.argv[4],batch=50,resetNet=True,hiddenDropout=float(sys.argv[3]))
+    GOTest.trainNetwork(100000,track=100)
     GOTest.testNetworkAll(runAll=True)
     GOTest.testNetworkAll(runAll=True,validation=False)
     
