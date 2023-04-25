@@ -119,13 +119,13 @@ class AllGoModel():
 
         if weighted:
             alphaValues = pd.read_csv('./src/PairwiseYeastNetwork/AllGOAlphaDictionary.csv').to_numpy()
-            self.weights=torch.zeros((92,),dtype=float)
+            self.weights=torch.zeros((92,),dtype=torch.float32)
             for val in alphaValues:
                 self.weights[self.GOTermDict[val[0]]] = val[1]
             self.weights = self.weights**alpha
-            self.weights = self.weights / torch.sum(self.weights)
+            self.weights = (self.weights / torch.sum(self.weights)) * 92.0
             #self.weights = torch.ones(size=(92,))
-            #print(self.weights)
+            print(self.weights)
         else:
             self.weights = torch.ones((92,),dtype=float)
         
@@ -214,7 +214,9 @@ class AllGoModel():
             if self.decay_lr:
                 self.scheduler.step()
             
-            if epoch % track == 0 and epoch != 0:
+            if epoch % track == 0:
+                if epoch == 0:
+                    runningLoss *= track
                 lossList.append(runningLoss)
                 print(f'{track} Batch Cumulative Loss: {runningLoss}')
                 runningLoss = 0.0

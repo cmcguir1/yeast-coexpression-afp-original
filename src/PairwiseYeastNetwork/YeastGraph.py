@@ -108,7 +108,7 @@ class YeastGraph(PairwiseModel):
         else:
             self.forward(self.nets[fold],fold)
         
-    def forward(self,fold,calcAll=True,calcAgn=False,track=100,batchSize=100):
+    def forward(self,fold,calcAll=True,calcPos=True,calcAgn=False,track=100,batchSize=100):
         with torch.no_grad():  
             self.agnPairs = self.makePosPairs(self.agnGenes,self.genes)
             
@@ -120,51 +120,42 @@ class YeastGraph(PairwiseModel):
                 pairs = self.makePairs(np.concatenate([posVal,negVal],0),self.posGenes)
 
             #Feed positive pairs through netowrk
-            outputsList = []
-            start = time.time()
-            # for i, pair in enumerate(pairs,0):
-
-            #     #Make features tensor from single pair
-            #     features, labels = self.makeBatchTensors(np.array([pair]))
-            #     features = features.to(self.device)
-            #     #Append output to outputs list
-            #     outputsList.append(self.nets[fold](features.float(),test=True).cpu().flatten()[0])
-            #     if(i % track == 0):
-            #          print(f'Pairs Calculated: {(i+1)/(len(pairs)+len(self.agnPairs))}%',flush=True)
-            #          print(f'Time to calc 100 pairs: {(time.time()-start) / 60} minutes')
-            #          start = time.time()
-            
-            outputsList = [0.0 for i in range(0,len(pairs))]
-            start = time.time()
-            pairLen = len(pairs)
-            
-            for i in range(0,pairLen,batchSize):
-                if i > pairLen - batchSize:
-                    batch = pairs[i:]
-                else:
-                    batch = pairs[i:i+batchSize]
-                features, labels = self.makeBatchTensors(np.array(batch))
-                features = features.to(self.device)
-                out = self.nets[fold](features.float(),test=True).cpu().flatten().tolist()
-                for o in range(len(out)):
-                    outputsList[i+0] = out[o]
-                if(i % (track / batchSize) == 0):
-                     print(f'Pairs Calculated: {(i*batchSize)/(len(pairs)+len(self.agnPairs))}%',flush=True)
-                     print(f'Time to calc pairs: {(time.time()-start) / 60} minutes')
-                     start = time.time()
+            if calcPos:
+                outputsList = [0.0 for i in range(0,len(pairs))]
+                start = time.time()
+                pairLen = len(pairs)
+                
+                for i in range(0,pairLen,batchSize):
+                    if i > pairLen - batchSize:
+                        batch = pairs[i:]
+                    else:
+                        batch = pairs[i:i+batchSize]
+                    features, labels = self.makeBatchTensors(np.array(batch))
+                    features = features.to(self.device)
+                    out = self.nets[fold](features.float(),test=True).cpu().flatten().tolist()
+                    for o in range(len(out)):
+                        outputsList[i+0] = out[o]
+                    if(i % (track / batchSize) == 0):
+                        print(f'Pairs Calculated: {(i*batchSize)/(len(pairs)+len(self.agnPairs))}%',flush=True)
+                        print(f'Time to calc pairs: {(time.time()-start) / 60} minutes')
+                        start = time.time()
 
 
-            #Convert outputsList to array, then make take of gene 1, gene 2, score
-            outputs = np.array(outputsList)
-            outputsTable = np.array([pairs[:,0],pairs[:,1],outputs],dtype=object).transpose()
-            #Save positives pairs to csv file
-            ext = 'AllPairs' if calcAll else 'PosPairs'
-            pd.DataFrame(outputsTable,columns=['Gene A','Gene B','Score']).to_csv(f'{self.path}/{self.term}_{ext}_Fold{fold+1}.csv',index=False)
+                #Convert outputsList to array, then make take of gene 1, gene 2, score
+                outputs = np.array(outputsList)
+                outputsTable = np.array([pairs[:,0],pairs[:,1],outputs],dtype=object).transpose()
+                #Save positives pairs to csv file
+                ext = 'AllPairs' if calcAll else 'PosPairs'
+                pd.DataFrame(outputsTable,columns=['Gene A','Gene B','Score']).to_csv(f'{self.path}/{self.term}_{ext}_Fold{fold+1}.csv',index=False)
+            else:
+                outputsTable = []
 
             if calcAgn:
                 #Get all agnositc apirs
                 agnPairs = self.agnPairs
-                agnOutputsList = [0.0 for i in len(agnPairs)]
+                agnOutputsList = [0.0 for i in range(len(agnPairs))]
+                start = time.time()
+                pairLen = len(agnPairs)
                 #Feed all agnositc pairs through network
             
                 for i in range(0,len(agnPairs),batchSize):

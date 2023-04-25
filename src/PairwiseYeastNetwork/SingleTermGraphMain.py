@@ -46,7 +46,7 @@ def main():
             graph.rankGenes()
             
         else:
-            graph.forward(int(sys.argv[2]),calcAll=calcAll,track=1000,batchSize=1000)
+            graph.forward(int(sys.argv[2]),calcAll=calcAll,track=1000,batchSize=1000,calcPos=False,calcAgn=True)
     else:
         print('Nope')
 

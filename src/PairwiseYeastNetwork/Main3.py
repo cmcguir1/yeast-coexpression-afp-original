@@ -1,4 +1,3 @@
-
 from PairwiseYeastData import PairwiseYeastData
 from PairwiseModel import PairwiseModel
 import numpy as np
@@ -12,7 +11,6 @@ import torch
 from AllGoModel import AllGoModel
 from CorrelationDictionary import CorrelationDictionary
 import os
-from AllGOGraph import AllGoGraph
 
 # This import should fix the ssl import verificiation error
 import ssl
@@ -21,16 +19,11 @@ ssl._create_default_https_context = ssl._create_unverified_context
 def main():
 
     #GOTest = AllGoModel(i,sys.argv[1],'AllGO_Original_Parameter','Original',foldFile='./src/PairwiseYeastNetwork/AllGOGeneFold_Orignial_1.csv',ontologyDataset='original',inputDropout=float(sys.argv[2]),hiddenDropout=float(sys.argv[3]))
-
-    # GOTest = AllGoModel(int(sys.argv[2]),sys.argv[1],f'Batch1','Original',foldFile='./src/PairwiseYeastNetwork/AllGOGeneFold_Orignial_1.csv',ontologyDataset='original',batch=1,lr=0.001)
-    # GOTest.trainNetwork(1000000)
-    # GOTest.testNetworkAll(runAll=True)
-    # GOTest.testNetworkAll(runAll=True,validation=False)
-
-    graph = AllGoGraph('./Yeast Resources/Pairwise/Spell/AllGO_Original_Struct_ParaSearch/Original_113x2000x92_Net_fold','113x2000x92','SaveAll_Modern',ontologyDataset='modern')
-    graph.feedForward(int(sys.argv[1]),saveAll=True)
-    #graph.feedForward(int(sys.argv[1]),calcAgn=False,saveAll=True)
-    #graph.rankGenes()
+    start = time.time()
+    GOTest = AllGoModel(int(sys.argv[1]),'5000x1000','WCE_Control',f'Original',foldFile='./src/PairwiseYeastNetwork/AllGOGeneFold_Orignial_1.csv',ontologyDataset='original',lossFunc='CE',resetNet=True)
+    GOTest.trainNetwork(100000,track=100)
+    GOTest.testNetworkAll(runAll=True)
+    GOTest.testNetworkAll(runAll=True,validation=False)
 
 
 
