@@ -133,9 +133,14 @@ class YeastGraph(PairwiseModel):
                     features, labels = self.makeBatchTensors(np.array(batch))
                     features = features.to(self.device)
                     out = self.nets[fold](features.float(),test=True).cpu().flatten().tolist()
+                    
                     for o in range(len(out)):
-                        outputsList[i+0] = out[o]
+                        outputsList[i+o] = out[o]
+                        
+                        print(out[o])
+                    print(outputsList[i:i+len(out)])
                     if(i % (track / batchSize) == 0):
+                        
                         print(f'Pairs Calculated: {(i*batchSize)/(len(pairs)+len(self.agnPairs))}%',flush=True)
                         print(f'Time to calc pairs: {(time.time()-start) / 60} minutes')
                         start = time.time()
@@ -166,6 +171,7 @@ class YeastGraph(PairwiseModel):
                     features, labels = self.makeBatchTensors(np.array(batch))
                     features = features.to(self.device)
                     out = self.nets[fold](features.float(),test=True).cpu().flatten().tolist()
+                    print(out)
                     for o in range(len(out)):
                         agnOutputsList[i+0] = out[o]
                     if(i % track == 0):
