@@ -186,7 +186,7 @@ class YeastGraph(PairwiseModel):
         folds = []
         agnFolds = []
         for i in range(numFolds):
-            folds.append(pd.read_csv(f'{self.path}/{self.term}_PosPairs_Fold{i+1}.csv').to_numpy(dtype=object))
+            folds.append(pd.read_csv(f'{self.path}/{self.term}_AllPairs_Fold{i+1}.csv').to_numpy(dtype=object))
             agnFolds.append(pd.read_csv(f'{self.path}/{self.term}_Agn_Fold{i+1}.csv').to_numpy(dtype=object))
 
         agnAverage = []
