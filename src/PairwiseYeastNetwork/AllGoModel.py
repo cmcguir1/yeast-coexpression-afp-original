@@ -11,7 +11,8 @@ import time
 import os
 from ConfusionMatrix import ConfusionMatrix
 import random
-from FocalLoss import FocalLoss
+#from FocalLoss import FocalLoss
+from focal_loss.focal_loss import FocalLoss
 #from focal_loss.focal_loss import FocalLoss
 
 from scipy import stats
@@ -140,7 +141,8 @@ class AllGoModel():
             self.lossFunc = torch.nn.CrossEntropyLoss(weight=self.weights)
             print('Used Weighted Cross Entropy Loss Function')
         elif lossFunc in ['FL','focalLoss','focal_loss']:
-            self.lossFunc = FocalLoss(self.weights,gamma=gamma)
+            self.lossFunc = FocalLoss(gamma,self.weights)
+            self.softmax = True
         else:
             self.lossFunc = torch.nn.CrossEntropyLoss()
             print('Used Cross Entropy Loss Function')

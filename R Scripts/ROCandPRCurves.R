@@ -1,5 +1,5 @@
 
-plotROC <- function(files,graphName) {
+plotROC <- function(files,graphName="") {
   width = 4
   decimalPlaces = 3
   colorsList <- c("#FC0303","#14A63B","#5D87F0","#7713BA","#FAEF16","#E09704")
