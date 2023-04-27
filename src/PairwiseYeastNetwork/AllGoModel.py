@@ -11,9 +11,7 @@ import time
 import os
 from ConfusionMatrix import ConfusionMatrix
 import random
-#from FocalLoss import FocalLoss
-from focal_loss.focal_loss import FocalLoss
-#from focal_loss.focal_loss import FocalLoss
+from FocalLoss import FocalLoss
 
 from scipy import stats
 
@@ -141,15 +139,17 @@ class AllGoModel():
             self.lossFunc = torch.nn.CrossEntropyLoss(weight=self.weights)
             print('Used Weighted Cross Entropy Loss Function')
         elif lossFunc in ['FL','focalLoss','focal_loss']:
-            self.lossFunc = FocalLoss(gamma,self.weights)
-            self.softmax = True
+            self.lossFunc = FocalLoss(gamma,alpha=alpha)
+            #self.softmax = True
         else:
             self.lossFunc = torch.nn.CrossEntropyLoss()
             print('Used Cross Entropy Loss Function')
         
         #Stochastic Gradient Descent Optimizer
         self.opt = torch.optim.SGD(self.net.parameters(),lr=lr,momentum=momentum)
-        self.scheduler = torch.optim.lr_scheduler.StepLR(self.opt,step_size=step,gamma=stepGamma)
+        #self.scheduler = torch.optim.lr_scheduler.StepLR(self.opt,step_size=step,gamma=stepGamma)
+        lamb = lambda epoch: 0.95**epoch
+        self.scheduler = torch.optim.lr_scheduler.LambdaLR(self.opt,lr_lambda=lamb)
         self.decay_lr = decay_lr
 
         
@@ -175,7 +175,7 @@ class AllGoModel():
 
         
 
-    def trainNetwork(self,epochs,sigmoid=False,track=100):
+    def trainNetwork(self,epochs,sigmoid=False,track=100,step_lr=5000):
         #Initialize all pairs of training genes
         pairs = self.makePairs(self.training)
         # print(f'Pairs: {pairs}')
@@ -208,15 +208,16 @@ class AllGoModel():
             if self.softmax:
                 outputs = self.sm(outputs)
 
-            loss = self.lossFunc(outputs.float(),labels.float())
+            loss = self.lossFunc(outputs.float(),labels.type(torch.int64))
             runningLoss += loss.item()
             loss.backward()
             #print(f'Time Feed forward and calculate loss: {(time.time()-begin)/60}')
             self.opt.step()
-            if self.decay_lr:
+            if epoch % (step_lr) == 0 and epoch != 0:
                 self.scheduler.step()
             
             if epoch % track == 0:
+                print(outputs)
                 if epoch == 0:
                     runningLoss *= track
                 lossList.append(runningLoss)

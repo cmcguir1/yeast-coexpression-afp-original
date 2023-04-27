@@ -96,4 +96,4 @@ for(dir in testDirs) {
     
   }
 }
-
+setwd(wd)

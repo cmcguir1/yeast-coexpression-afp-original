@@ -20,8 +20,8 @@ def main():
 
     #GOTest = AllGoModel(i,sys.argv[1],'AllGO_Original_Parameter','Original',foldFile='./src/PairwiseYeastNetwork/AllGOGeneFold_Orignial_1.csv',ontologyDataset='original',inputDropout=float(sys.argv[2]),hiddenDropout=float(sys.argv[3]))
     start = time.time()
-    GOTest = AllGoModel(int(sys.argv[1]),'5000x1000','WCE_Drop',f'Dropout_{sys.argv[2]}',foldFile='./src/PairwiseYeastNetwork/AllGOGeneFold_Orignial_1.csv',ontologyDataset='original',lossFunc='WCE',alpha=0.5,resetNet=True,hiddenDropout=0.2)
-    GOTest.trainNetwork(50000,track=100)
+    GOTest = AllGoModel(int(sys.argv[1]),'25000x5000x5000x1000','Modern_LargeStruct',f'Dropout_{sys.argv[2]}',foldFile='./src/PairwiseYeastNetwork/AllGOGeneFold1.csv',ontologyDataset='modern',lossFunc='CE',hiddenDropout=float(sys.argv[2]),resetNet=True)
+    GOTest.trainNetwork(250000,track=100)
     GOTest.testNetworkAll(runAll=True)
     GOTest.testNetworkAll(runAll=True,validation=False)
 
