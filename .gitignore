@@ -2,7 +2,12 @@ Yeast\ Resources/Histogram\ Data/*.csv*
 *.tar.gz
 data/*
 Yeast\ Resourcse/Pairwise/Spell/Test/*
-Yeast\ Resources/Yeast\ Graphs/*
+Yeast\ Resources/Pairwise/Spell/AllGO_Original_Parameter/**/*
+Yeast\ Resources/Pairwise/Spell/AllGO_Original_Sigmoid/**/*
+Yeast\ Resources/Pairwise/Spell/AllGO_Original_ParaSearch/**/*
+Yeast\ Resources/Pairwise/Spell/Dropout/**
+Yeast\ Resources/Pairwise/Spell/DropoutRedo/**
+Yeast\ Resources/Yeast\ Graphs/**
 Yeast\ Resources/Pairwise/Spell/Overfit/*.pth
 Yeast\ Resources/GraphResults/*
 negDist.csv
@@ -11,3 +16,7 @@ negDist_nonCoAnno.csv
 AllPairs.dat
 AllScoreMemMap.dat
 *Scores*
+
+Yeast_Resources/Pairwise/Spell/AllGO_Original_Struct/**
+
+
