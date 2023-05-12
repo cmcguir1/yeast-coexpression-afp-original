@@ -28,3 +28,4 @@ print(f'HomoRec: {homoRec}')
 print(f'Hetero: {hetero}')
 print(f'Taste: {taste}')
 print(f'No Taste: {noTaste}')
+
