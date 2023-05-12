@@ -24,7 +24,7 @@ from Leaf import getLeaves
 
 
 class AllGoModel():
-    def __init__(self,fold,structure,folderName,modelName,numFolds=4,lr=0.01,momentum=0.9,batch=50,gamma=2,alpha=1,weighted=True,step=1000,stepGamma=0.95,decay_lr=False,lossFunc='CE',softmax=False,foldFile='./src/PairwiseYeastNetwork/AllGOGeneFold1.csv',ontologyDataset='modern',regularize=True, inputDropout=None,hiddenDropout=None,activation='relu',resetNet=False,inMemory=False):
+    def __init__(self,fold,structure,folderName,modelName,numFolds=4,lr=0.01,momentum=0.9,batch=50,gamma=2,alpha=1,weighted=True,step=1000,stepGamma=0.95,decay_lr=False,lossFunc='CE',softmax=False,foldFile='./src/PairwiseYeastNetwork/AllGOGeneFold1.csv',ontologyDataset='modern',regularize=True, inputDropout=None,hiddenDropout=None,activation='relu',resetNet=False,inMemory=False,cuda=True):
         #getLeaves returns a list of tuple of (GO Term,{set of genes})
         self.leaves = getLeaves(10,dataset=ontologyDataset)
 
@@ -37,6 +37,10 @@ class AllGoModel():
         val = []
         train = []
         folds = []
+        if foldFile or 'original' or foldFile ==  'Original' or foldFile == '2009':
+            foldFile = './src/PairwiseYeastNetwork/AllGOGeneFold_Orignial_1.csv'
+        elif foldFile == 'modern' or foldFile == 'Modern' or foldFile == '2023':
+            foldFile = './src/PairwiseYeastNetwork/AllGOGeneFold1.csv'
         #Checks if a folds file already exists, if not, make it
         if not os.path.exists(foldFile):
             #Take the union of all genes in the GO slim
@@ -113,7 +117,7 @@ class AllGoModel():
             self.net.load_state_dict(torch.load(self.networkLoc))
         print('Initialized Network')
         #Choose which device to run network on, then move network to that device
-        self.device = 'cuda:0' if torch.cuda.is_available() else 'cpu'
+        self.device = 'cuda:0' if torch.cuda.is_available() and cuda else 'cpu'
         self.net.to(self.device)
 
         if weighted:
@@ -208,7 +212,7 @@ class AllGoModel():
             if self.softmax:
                 outputs = self.sm(outputs)
 
-            loss = self.lossFunc(outputs.float(),labels.type(torch.int64))
+            loss = self.lossFunc(outputs.float(),labels.float())
             runningLoss += loss.item()
             loss.backward()
             #print(f'Time Feed forward and calculate loss: {(time.time()-begin)/60}')
@@ -217,7 +221,6 @@ class AllGoModel():
                 self.scheduler.step()
             
             if epoch % track == 0:
-                print(outputs)
                 if epoch == 0:
                     runningLoss *= track
                 lossList.append(runningLoss)
