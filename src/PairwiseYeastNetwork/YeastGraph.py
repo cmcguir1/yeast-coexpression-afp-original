@@ -137,8 +137,7 @@ class YeastGraph(PairwiseModel):
                     for o in range(len(out)):
                         outputsList[i+o] = out[o]
                         
-                        print(out[o])
-                    print(outputsList[i:i+len(out)])
+                        
                     if(i % (track / batchSize) == 0):
                         
                         print(f'Pairs Calculated: {(i*batchSize)/(len(pairs)+len(self.agnPairs))}%',flush=True)

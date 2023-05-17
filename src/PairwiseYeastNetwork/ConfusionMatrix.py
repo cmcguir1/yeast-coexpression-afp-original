@@ -17,7 +17,9 @@ class ConfusionMatrix:
                 stats.append(tn / (tn+fp))
             return np.array(stats)
         
-        dataTable = data[data[:,scoreColumn].argsort()[::-1]]
+        
+        #dataTable = data[data[:,scoreColumn].argsort()[::-1]]
+        dataTable = sorted(data,reverse=True,key=lambda row: row[scoreColumn])
 
         falseNeg = len([row for row in dataTable if row[labelColumn] == 1])
         trueNeg = len([row for row in dataTable if row[labelColumn] == -1])
