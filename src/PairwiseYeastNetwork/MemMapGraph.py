@@ -82,7 +82,8 @@ class MemMapGraph():
                 label = -1
             else:
                 label = 0
-            singleGenes.append([gene,label,score,totalScore[gene]])
+            if score != 0:
+                singleGenes.append([gene,label,score,totalScore[gene]])
 
         print(singleGenes)
         cm = ConfusionMatrix.calculateMatrix(singleGenes,1,2)

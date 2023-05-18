@@ -36,7 +36,7 @@ def getYORF(genes):
     return yorfList
 
 #Get all GO terms that are leaves, each leaf being a tuple of the leaf term name and a set of all genes annotated to that term
-def getLeaves(cutoff,dataset='original'):
+def getLeaves(cutoff,dataset='original',bioProc=True,molFunc=True,cellComp=True):
     #Initialize the datsets that annotations will be pulled from, either the 2009 dataset or the current 2022 dataset
     if dataset == '2009' or dataset == 'original':
         goAnnos = Ontology('./obopy/go-basic.obo','./obopy/sgd_2009_Jan_unzip.gaf',loadLocal=True)
@@ -50,6 +50,23 @@ def getLeaves(cutoff,dataset='original'):
         #Loop over all parents of a term and add that term to each parent's set of children
         for parent in goSlim.terms[term].parents():
             parent.children.add(term)
+    #print(goSlim.terms)
+    def isParent(term,parent,slim):
+        
+        if parent in term.is_a:
+            return True
+        elif len(term.is_a) == 0:
+            return False
+        else:
+            return True in [isParent(t,parent,slim) for t in term.is_a]            
+                
+    def typeFilter(term,slim):
+        return ((isParent(term,slim.terms['GO:0008150'],slim) and bioProc) or 
+                (isParent(term,slim.terms['GO:0003674'],slim) and molFunc) or 
+                (isParent(term,slim.terms['GO:0005575'],slim) and cellComp))
+
+    
+
     #Loop over all terms, add all terms with no children to list of leaves
     leaves = []
     for term in goSlim.terms:
@@ -58,6 +75,9 @@ def getLeaves(cutoff,dataset='original'):
     
     
     leaves = list(filter(lambda leaf: len(getYORF(goSlim.terms[leaf].allAnnos())) >= cutoff,leaves))
+    
+
+    leaves = list(filter(lambda term: typeFilter(goAnnos.terms[term],goAnnos),leaves))
     
     leafGenes = []
     for leaf in leaves:
@@ -74,18 +94,6 @@ def getLeafGenes(cutoff):
     print(len(leaves))
 
 
-
-# mitoGenes = getGenes('GO:0007005')
-# print(mitoGenes)
-# print(len(mitoGenes))
-
-# leaves = getLeaves(10)
-# for leaf in leaves:
-#     print(f'Term: {leaf[0]}')
-#     if leaf[0] == 'GO:0007005':
-#         print(len(leaf[1]))
-# leaf = getGenes('GO:0007005')
-# print(len(leaf))
 
 
 

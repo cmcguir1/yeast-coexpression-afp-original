@@ -4,6 +4,7 @@ import numpy as np
 import time
 from GeneFolds import GeneFolds
 from YeastGraph import YeastGraph
+from AllGOGraph import AllGoGraph
 import sys
 from ComplexModel import ComplexModel
 import pandas as pd
@@ -19,12 +20,8 @@ ssl._create_default_https_context = ssl._create_unverified_context
 def main():
 
     #GOTest = AllGoModel(i,sys.argv[1],'AllGO_Original_Parameter','Original',foldFile='./src/PairwiseYeastNetwork/AllGOGeneFold_Orignial_1.csv',ontologyDataset='original',inputDropout=float(sys.argv[2]),hiddenDropout=float(sys.argv[3]))
-    start = time.time()
-    GOTest = AllGoModel(int(sys.argv[1]),'5000x1000','FL',f'FL',foldFile='./src/PairwiseYeastNetwork/AllGOGeneFold_Orignial_1.csv',ontologyDataset='original',lossFunc='FL',resetNet=True,alpha=1)
-    GOTest.trainNetwork(50000,track=100)
-    GOTest.testNetworkAll(runAll=True)
-    GOTest.testNetworkAll(runAll=True,validation=False)
-
+    graph = AllGoGraph('./Yeast Resources/Pairwise/Spell/AllGO_Original_Struct_ParaSearch/Original_113x2000x92_Net_fold','113x2000x92','AllGO_Original')
+    graph.rankGenes(checkProportion=False)
 
 
 

@@ -7,6 +7,7 @@ from PairwiseModel import PairwiseModel
 from PairwiseYeastData import PairwiseYeastData
 import time
 import os
+from ConfusionMatrix import ConfusionMatrix
 
 
 class YeastGraph(PairwiseModel):
@@ -170,7 +171,6 @@ class YeastGraph(PairwiseModel):
                     features, labels = self.makeBatchTensors(np.array(batch))
                     features = features.to(self.device)
                     out = self.nets[fold](features.float(),test=True).cpu().flatten().tolist()
-                    print(out)
                     for o in range(len(out)):
                         agnOutputsList[i+0] = out[o]
                     if(i % track == 0):
@@ -338,6 +338,37 @@ class YeastGraph(PairwiseModel):
         dataFrame = pd.DataFrame(dataTable,columns=['Name','+/-','Score','True Positive', 'False Positive', 'True Negative', 'False Negative', 'Accuracy', 'Precision', 'Recall', 'False Positive Rate', 'Selectivity'])
         dataFrame.to_csv(f'{self.path}/{self.term}_SingleGeneRanking.csv',index=False)
 
+    def rankPos(self):
+        self.dataTable = np.concatenate([pd.read_csv(f'{self.path}/{self.term}_PosPairs_Fold{i}.csv').to_numpy() for i in range(1,5)],0)
+        scoreDict = {}
+        totalDict = {}
+        for gene in self.genes:
+            scoreDict[gene] = 0
+            totalDict[gene] = 0
+        #Loops over all genes in the data Table
+        for genePair in self.dataTable:
+            if not genePair[0] in scoreDict:
+                scoreDict[genePair[0]] = 0
+                totalDict[genePair[0]] = 0 
+            if genePair[0] != genePair[1]:
+                totalDict[genePair[0]] = totalDict[genePair[0]] + float(genePair[2])
+                if genePair[1] in self.posSet:
+                    scoreDict[genePair[0]] = scoreDict[genePair[0]] + float(genePair[2])
+
+        #Turn of genes and score into list
+        dataTable = []
+        for gene in self.genes:
+            #This conditional determines what the sign of each gene is
+            if(gene in self.posSet):
+                sign = 1
+            elif(gene in self.negSet):
+                sign = -1
+            else:
+                sign = 0
+            dataTable.append([gene,sign,scoreDict[gene]])
+        cm = ConfusionMatrix.calculateMatrix(dataTable,labelColumn=1,scoreColumn=2)
+        pd.DataFrame(cm,columns=['Gene','Label','Score','Precision','Recall','False Positive Rate']).to_csv(f'{self.path}/{self.term}_SingleGeneRanking_OnlyPos.csv',index=False)
+        
     
 
 

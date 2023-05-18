@@ -26,7 +26,6 @@ class ConfusionMatrix:
         falsePos = 0
         truePos = 0
 
-        print(dataTable)
         confusionMatrix = []
         for row in dataTable:
             if row[labelColumn] == 1:

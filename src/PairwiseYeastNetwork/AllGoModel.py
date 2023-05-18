@@ -24,12 +24,17 @@ from Leaf import getLeaves
 
 
 class AllGoModel():
-    def __init__(self,fold,structure,folderName,modelName,numFolds=4,lr=0.01,momentum=0.9,batch=50,gamma=2,alpha=1,weighted=True,step=1000,stepGamma=0.95,decay_lr=False,lossFunc='CE',softmax=False,foldFile='./src/PairwiseYeastNetwork/AllGOGeneFold1.csv',ontologyDataset='modern',regularize=True, inputDropout=None,hiddenDropout=None,activation='relu',resetNet=False,inMemory=False,cuda=True):
+    def __init__(self,fold,structure,folderName,modelName,numFolds=4,lr=0.01,momentum=0.9,batch=50,gamma=2,alpha=1,weighted=True,step=1000,stepGamma=0.95,decay_lr=False,lossFunc='CE',softmax=False,foldFile='./src/PairwiseYeastNetwork/AllGOGeneFold1.csv',ontologyDataset='modern',regularize=True, inputDropout=None,hiddenDropout=None,activation='relu',resetNet=False,inMemory=False,cuda=True,onlyBioProc=False):
         #getLeaves returns a list of tuple of (GO Term,{set of genes})
-        self.leaves = getLeaves(10,dataset=ontologyDataset)
+        if onlyBioProc:
+            self.leaves = getLeaves(10,dataset=ontologyDataset,molFunc=False,cellComp=False)
+            GoTerms = pd.read_csv('./src/PairwiseYeastNetwork/GOTermIndexDictionary_BioProcOnly.csv').to_numpy()
+        else:
+            self.leaves = getLeaves(10,dataset=ontologyDataset)
+            GoTerms = pd.read_csv('./src/PairwiseYeastNetwork/GOTermIndexDictionary.csv').to_numpy()
 
         # pd.DataFrame([[leaf[0],i] for i, leaf in enumerate(self.leaves)],columns=['GO Term','Index']).to_csv('./src/PairwiseYeastNetwork/GOTermIndexDictionary.csv',index=False)
-        GoTerms = pd.read_csv('./src/PairwiseYeastNetwork/GOTermIndexDictionary.csv').to_numpy()
+        
         self.GOTermDict = {term[0]: term[1] for term in GoTerms}
 
         
@@ -120,7 +125,8 @@ class AllGoModel():
         self.device = 'cuda:0' if torch.cuda.is_available() and cuda else 'cpu'
         self.net.to(self.device)
 
-        if weighted:
+        # Know that this conditional is currently being blocked
+        if weighted and False:
             alphaValues = pd.read_csv('./src/PairwiseYeastNetwork/AllGOAlphaDictionary.csv').to_numpy()
             self.weights=torch.zeros((92,),dtype=torch.float32)
             for val in alphaValues:
