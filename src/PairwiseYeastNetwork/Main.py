@@ -28,7 +28,7 @@ def main():
     # graph.rankPos()
 
     GOTest = AllGoModel(int(sys.argv[1]),sys.argv[2],f'BioProcessOnly',f'BioProcessOnly',foldFile='./src/PairwiseYeastNetwork/AllGOGeneFold_Orignial_1.csv',ontologyDataset='original',resetNet=True,cuda=False,onlyBioProc=True)
-    GOTest.trainNetwork(100000,track=100)
+    GOTest.trainNetwork(80000,track=100)
     GOTest.testNetworkAll(runAll=True)
     GOTest.testNetworkAll(runAll=True,validation=False)
     
