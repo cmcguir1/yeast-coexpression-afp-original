@@ -12,6 +12,7 @@ import torch
 from AllGoModel import AllGoModel
 from CorrelationDictionary import CorrelationDictionary
 from MemMapGraph import MemMapGraph
+from AllGOGraph import AllGoGraph
 import os
 
 # This import should fix the ssl import verificiation error
@@ -27,10 +28,13 @@ def main():
     # graph = YeastGraph('./Yeast Resources/Pairwise/Spell/AllSingleTerms/GO0007005_2000x1_Net_fold',modelData,'113x2000x1','GO:0007005','AllSingle_New')
     # graph.rankPos()
 
-    GOTest = AllGoModel(int(sys.argv[1]),sys.argv[2],f'BioProcessOnly',f'BioProcessOnly',foldFile='./src/PairwiseYeastNetwork/AllGOGeneFold_Orignial_1.csv',ontologyDataset='original',resetNet=True,cuda=False,onlyBioProc=True)
-    GOTest.trainNetwork(80000,track=100)
-    GOTest.testNetworkAll(runAll=True)
-    GOTest.testNetworkAll(runAll=True,validation=False)
+    # GOTest = AllGoModel(int(sys.argv[1]),sys.argv[2],f'BioProcessOnly',f'BioProcessOnly',foldFile='./src/PairwiseYeastNetwork/AllGOGeneFold_Orignial_1.csv',ontologyDataset='original',resetNet=True,cuda=False,onlyBioProc=True)
+    # GOTest.trainNetwork(80000,track=100)
+    # GOTest.testNetworkAll(runAll=True)
+    # GOTest.testNetworkAll(runAll=True,validation=False)
+
+    graph = AllGoGraph(f'./Yeast Resources/Pairwise/Spell/BioProcessOnly/BioProcessOnly_113x{sys.argv[2]}x53_Net_fold',f'113x{sys.argv[2]}x53','BioProcOnly')
+    graph.feedForward(int(sys.argv[1]),saveAll=True)
     
 
 
