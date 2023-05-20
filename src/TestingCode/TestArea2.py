@@ -1,7 +1,12 @@
-import sys
+import pandas as pd
+import numpy as np
 
-sys.path.insert(0,'./obopy')
-from Leaf import getLeaves, getGenes
+local = pd.read_csv('./Yeast Resources/Datasets/All Spell/YeastLocalizationData.txt',sep="\t",index_col=False).drop(['Unnamed: 32'],axis=1)
+cols = local.columns
+local = local.to_numpy()
+localizationMap = {}
+for row in local:
+    localizationMap[row[1]] = row[9:]
+print(localizationMap)
+print(cols[9:])
 
-leaves = getLeaves(10,cellComp=False,molFunc=False)
-print(len(leaves))

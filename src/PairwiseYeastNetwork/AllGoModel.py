@@ -24,7 +24,7 @@ from Leaf import getLeaves
 
 
 class AllGoModel():
-    def __init__(self,fold,structure,folderName,modelName,numFolds=4,lr=0.01,momentum=0.9,batch=50,gamma=2,alpha=1,weighted=True,step=1000,stepGamma=0.95,decay_lr=False,lossFunc='CE',softmax=False,foldFile='./src/PairwiseYeastNetwork/AllGOGeneFold1.csv',ontologyDataset='modern',regularize=True, inputDropout=None,hiddenDropout=None,activation='relu',resetNet=False,inMemory=False,cuda=True,onlyBioProc=False):
+    def __init__(self,fold,structure,folderName,modelName,numFolds=4,lr=0.01,momentum=0.9,batch=50,gamma=2,alpha=1,weighted=True,step=1000,stepGamma=0.95,decay_lr=False,lossFunc='CE',softmax=False,foldFile='./src/PairwiseYeastNetwork/AllGOGeneFold1.csv',ontologyDataset='modern',regularize=True, inputDropout=None,hiddenDropout=None,activation='relu',resetNet=False,inMemory=False,cuda=True,onlyBioProc=False,includeLocalization=False):
         #getLeaves returns a list of tuple of (GO Term,{set of genes})
         if onlyBioProc:
             self.leaves = getLeaves(10,dataset=ontologyDataset,molFunc=False,cellComp=False)
@@ -86,11 +86,20 @@ class AllGoModel():
 
 
         
-        #Correlations Dictionary that will be retrieve precalculated correlation values
+        # Correlations Dictionary that will be retrieve precalculated correlation values
         self.corrDict = CorrelationDictionary(dictLoc='../YeastMemMap/YeastCorrDictionary.dat' if (os.path.exists('../YeastMemMap/YeastCorrDictionary.dat')) else '../YeastDict.dat',datasetType=ontologyDataset,inMemory=inMemory)
         self.datasets = self.corrDict.expDataset.datasets
+        self.includeLocalization = includeLocalization
+
+        # Localization Data Map
+        localizationData = local = pd.read_csv('./Yeast Resources/Datasets/All Spell/YeastLocalizationData.txt',sep="\t",index_col=False).drop(['Unnamed: 32'],axis=1).to_numpy()
+        self.localMap = {}
+        for row in localizationData:
+            self.localMap[row[1]] = [local == 'T' for local in row[9:]]
         
-        #Initialize all expression data as a list of maps {gene -> expression array}
+        
+        
+        # Initialize all expression data as a list of maps {gene -> expression array}
         # self.datasets = ExpressionDatasets('./Yeast Resources/Datasets/All Spell/all spell datasets',recur=True,statsDictLoc='./Yeast Resources/Datasets/All Spell/revisedStatsDict.csv').datasets
 
         inputDropString = '' if inputDropout == None or inputDropout == 0 else f'_inputDrop{inputDropout}'
@@ -102,8 +111,11 @@ class AllGoModel():
         self.regularize = regularize
 
         print('Initialized Expression Datasets')
+        self.inputSize = len(self.datasets)
+        if self.includeLocalization:
+            self.inputSize += 23
 
-        struct = f'{len(self.datasets)}x{structure}x{len(self.leaves)}'
+        struct = f'{self.inputSize}x{structure}x{len(self.leaves)}'
         print(struct)
         #Initialize the network, the size of the input layer is the number of expression datasets, and the size of the output is the number of leaf go terms
         self.networkLoc = f'./Yeast Resources/Pairwise/Spell/{folderName}/{modelName}_{struct}{inputDropString}{hiddenDropString}_Net_fold{self.fold+1}.pth'
@@ -381,16 +393,37 @@ class AllGoModel():
             else:
                 return 0
 
-        features = torch.tensor([[calcCorr(dataset,genePair) for dataset in self.datasets] for genePair in batchArray],dtype=float)
+        # Predicate that is used to make the localization data section of the features tensor
+        def localizationScore(gp,index):
+            if gp[0] in self.localMap and gp[1] in self.localMap:
+                if self.localMap[gp[0]][index] and self.localMap[gp[0]][index]:
+                    return 1
+                else:
+                    return -1
+            else:
+                return 0
+
+        # First, make an array of the features that are the pearson correlations between the gene pair in every gene expression dataset
+        featuresArray = np.array([[calcCorr(dataset,genePair) for dataset in self.datasets] for genePair in batchArray],dtype=float)
+
+        # If the model includes localization data, create an array of features where each feature is a 1 if genes are co-localized to a location and -1 otherwise, then concatenate that features array to the gene expression features
+        if self.includeLocalization:
+            localizationArray = np.array([[localizationScore(genePair,index) for index in range(23)] for genePair in batchArray],dtype=float)
+            featuresArray = np.concatenate([featuresArray,localizationArray],axis=1,dtype=float)
+            
+        # Take array of features and convert it into a tensor
+        features = torch.tensor(featuresArray,dtype=float)
+
+
+        # Create lists of labels
         labels = torch.tensor([[calcLabel(leaf,genePair) for leaf in self.leaves] for genePair in batchArray],dtype=float)
-        #labels = torch.zeros((len(batchArray),len(self.leaves)),dtype=float)
+        
         for i in range(len(batchArray)):
             for leaf in self.leaves:
                 if batchArray[i,0] in leaf[1] and batchArray[i,1] in leaf[1]:
                     labels[i,self.GOTermDict[leaf[0]]] = 1.0
 
-        if self.softmax:
-            labels = self.sm(labels)
+        # Return tuple of the features and labels tensors
         return (features,labels)
         
     #Returns array of all pairs of gene from given array of genes

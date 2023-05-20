@@ -20,10 +20,17 @@ def main():
 
     #GOTest = AllGoModel(i,sys.argv[1],'AllGO_Original_Parameter','Original',foldFile='./src/PairwiseYeastNetwork/AllGOGeneFold_Orignial_1.csv',ontologyDataset='original',inputDropout=float(sys.argv[2]),hiddenDropout=float(sys.argv[3]))
     start = time.time()
-    GOTest = AllGoModel(int(sys.argv[1]),'50000x10000x5000x1000','Overfit_Dropout',f'Dropout_0.3',foldFile='./src/PairwiseYeastNetwork/AllGOGeneFold1.csv',ontologyDataset='original',resetNet=True,cuda=False,hiddenDropout=0.3)
-    GOTest.trainNetwork(60000,track=100)
+    # GOTest = AllGoModel(int(sys.argv[1]),'50000x10000x5000x1000','Overfit_Dropout',f'Dropout_0.3',foldFile='./src/PairwiseYeastNetwork/AllGOGeneFold1.csv',ontologyDataset='original',resetNet=True,cuda=False,hiddenDropout=0.3)
+    # GOTest.trainNetwork(60000,track=100)
+    # GOTest.testNetworkAll(runAll=True)
+    # GOTest.testNetworkAll(runAll=True,validation=False)
+
+
+    GOTest = AllGoModel(int(sys.argv[1]),sys.argv[2],'LocalizationData',f'Localization',foldFile='./src/PairwiseYeastNetwork/AllGOGeneFold1.csv',ontologyDataset='original',resetNet=True,cuda=False,includeLocalization=True,onlyBioProc=True)
+    GOTest.trainNetwork(80000,track=100)
     GOTest.testNetworkAll(runAll=True)
     GOTest.testNetworkAll(runAll=True,validation=False)
+
 
 
 
