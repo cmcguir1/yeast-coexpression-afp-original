@@ -24,11 +24,14 @@ from Leaf import getLeaves
 
 
 class AllGoModel():
-    def __init__(self,fold,structure,folderName,modelName,numFolds=4,lr=0.01,momentum=0.9,batch=50,gamma=2,alpha=1,weighted=True,step=1000,stepGamma=0.95,decay_lr=False,lossFunc='CE',softmax=False,foldFile='./src/PairwiseYeastNetwork/AllGOGeneFold1.csv',ontologyDataset='modern',regularize=True, inputDropout=None,hiddenDropout=None,activation='relu',resetNet=False,inMemory=False,cuda=True,onlyBioProc=False,includeLocalization=False):
+    def __init__(self,fold,structure,folderName,modelName,numFolds=4,lr=0.01,momentum=0.9,batch=50,gamma=2,alpha=1,weighted=True,step=1000,stepGamma=0.95,decay_lr=False,lossFunc='CE',softmax=False,foldFile='./src/PairwiseYeastNetwork/AllGOGeneFold1.csv',ontologyDataset='modern',regularize=True, inputDropout=None,hiddenDropout=None,activation='relu',resetNet=False,inMemory=False,cuda=True,onlyBioProc=False,includeLocalization=False,includeMolecularFunc=False):
         #getLeaves returns a list of tuple of (GO Term,{set of genes})
         if onlyBioProc:
             self.leaves = getLeaves(10,dataset=ontologyDataset,molFunc=False,cellComp=False)
             GoTerms = pd.read_csv('./src/PairwiseYeastNetwork/GOTermIndexDictionary_BioProcOnly.csv').to_numpy()
+        elif includeMolecularFunc:
+            self.leaves = getLeaves(10,dataset=ontologyDataset,molFunc=True,cellComp=False)
+            GoTerms = [[term[0],i] for i, term in enumerate(self.leaves)]
         else:
             self.leaves = getLeaves(10,dataset=ontologyDataset)
             GoTerms = pd.read_csv('./src/PairwiseYeastNetwork/GOTermIndexDictionary.csv').to_numpy()
