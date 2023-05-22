@@ -1,59 +1,38 @@
 import os
 import sys
 from datetime import date
+import shutil
 
 def writeJobs(JobName,pythonFile,arg1=['0','1','2','3'],arg2=None,arg3=None,arg4=None,arg5=None,command='/data/hibbslab/anaconda3/bin/python',pythonFilePath='src/PairwiseYeastNetwork/'):
-    if arg1 == None:
-        arg1_range = range(1)
-        arg1 = ['']
-    else:
-        arg1_range = range(len(arg1))
-        
-
-    if arg2 == None:
-        arg2_range = range(1)
-        arg2 = ['']
-    else:
-        arg2_range = range(len(arg2))
-        
-
-    if arg3 == None:
-        arg3_range = range(1)
-        arg3 = ['']
-    else:
-        arg3_range = range(len(arg3))
-        
-
-    if arg4 == None:
-        arg4_range = range(1)
-        arg4 = ['']
-    else:
-        arg4_range = range(len(arg4))
-        
-
-    if arg5 == None:
-        arg5_range = range(1)
-        arg5 = ['']
-    else:
-        arg5_range = range(len(arg5))
-        
+    argRanges = []
+    args = []
+    for arg in [arg1,arg2,arg3,arg4,arg5]:
+        if arg == None:
+            argRanges.append(range(1))
+            args.append([''])
+        else:
+            argRanges.append(range(len(arg)))
+            args.append(arg)
+    
+    arg1, arg2, arg3, arg4, arg5 = args
+    
 
     today = date.today()
     dateStr = today.strftime("%b-%d-%Y")
     
-    if not os.path.exists(f'./ClusterJobs/{JobName}_{dateStr}'):
-        os.makedirs(f'./ClusterJobs/{JobName}_{dateStr}')
+    if not os.path.exists(f'./ClusterJobs/{JobName}'):
+        os.makedirs(f'./ClusterJobs/{JobName}')
     
     
 
     jobNum = 0
-    for a5 in arg5_range:
-        for a4 in arg4_range:
-            for a3 in arg3_range:
-                for a2 in arg2_range:
-                    for a1 in arg1_range:
-                       print(f'./ClusterJobs/{JobName}_{dateStr}/{JobName}{jobNum}.sh')
-                       f = open(f'./ClusterJobs/{JobName}_{dateStr}/{JobName}{jobNum}.sh','w')
+    for a5 in argRanges[4]:
+        for a4 in argRanges[3]:
+            for a3 in argRanges[2]:
+                for a2 in argRanges[1]:
+                    for a1 in argRanges[0]:
+                       print(f'./ClusterJobs/{JobName}/{JobName}{jobNum}.sh')
+                       f = open(f'./ClusterJobs/{JobName}/{JobName}{jobNum}.sh','w')
                        f.write('#!/usr/bin/sh\n\n')
                        f.write(f'## Job Created {dateStr}\n\n')
                        f.write('##Place PBS directives here\n')
@@ -67,13 +46,20 @@ def writeJobs(JobName,pythonFile,arg1=['0','1','2','3'],arg2=None,arg3=None,arg4
                        f.close()
 
                        jobNum += 1
-    f = open(f'./ClusterJobs/{JobName}_{dateStr}/{JobName}_SubmitJobs.sh','w')
+    f = open(f'./ClusterJobs/{JobName}/{JobName}_SubmitJobs.sh','w')
     f.write('#!/usr/bin/sh\n\n')
     f.write('for i in {0..%s}\n' %f'{jobNum-1}')
-    f.write(f'do\n\tqsub data/SummerResearch2022/ClusterJobs/{JobName}_{dateStr}/{JobName}$i.sh\ndone\n')
+    f.write(f'do\n\tqsub data/SummerResearch2022/ClusterJobs/{JobName}/{JobName}$i.sh &> data/SummerResearch2022/ClusterJobs/{JobName}/{JobName}$i_output.txt\ndone\n')
+
+    shutil.copy(f'{pythonFilePath}{pythonFile}',f'./ClusterJobs/{JobName}/{pythonFile}')
+
+    # Make it so that you redirect standard out and error to a file using &>
+    f = open(f'./ClusterJobs/{JobName}/JobInformation.txt','w')
+    f.write(f'{dateStr}\n')
+    f.close()
 
 # writeJobs('MolFunc','Main6.py',arg2=['2000','25000'])
-writeJobs('Test','TestMain.py')
+writeJobs('AllTerms+Localization','Main6.py',arg2=['2000','25000'])
 
 
 
