@@ -1,12 +1,6 @@
 import pandas as pd
 import numpy as np
+from datetime import date
 
-local = pd.read_csv('./Yeast Resources/Datasets/All Spell/YeastLocalizationData.txt',sep="\t",index_col=False).drop(['Unnamed: 32'],axis=1)
-cols = local.columns
-local = local.to_numpy()
-localizationMap = {}
-for row in local:
-    localizationMap[row[1]] = row[9:]
-print(localizationMap)
-print(cols[9:])
+print('for i in {0..%s}' %f'{1}')
 
