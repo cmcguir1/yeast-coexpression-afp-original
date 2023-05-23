@@ -11,4 +11,5 @@
 
 cd data/SummerResearch2022
 
+touch data/SummerResearch2022/ClusterJobs/BioProc+Local_Graph/BioProc+Local_Graph4_output.txt
 /data/hibbslab/anaconda3/bin/python src/PairwiseYeastNetwork/GraphMain.py 0 2000    &> data/SummerResearch2022/ClusterJobs/BioProc+Local_Graph/BioProc+Local_Graph4_output.txt
