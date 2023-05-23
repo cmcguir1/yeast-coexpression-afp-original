@@ -19,7 +19,7 @@ AllPairs.dat
 AllScoreMemMap.dat
 *Scores*
 Yeast\ Resources/Pairwise/Spell/MassiveNetwork/*.pth
-
+**/*.dat
 Yeast_Resources/Pairwise/Spell/AllGO_Original_Struct/**
 
 
