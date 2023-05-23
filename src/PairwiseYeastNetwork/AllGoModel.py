@@ -95,7 +95,7 @@ class AllGoModel():
         self.includeLocalization = includeLocalization
 
         # Localization Data Map
-        localizationData = local = pd.read_csv('./Yeast Resources/Datasets/All Spell/YeastLocalizationData.txt',sep="\t",index_col=False).drop(['Unnamed: 32'],axis=1).to_numpy()
+        localizationData = pd.read_csv('./Yeast Resources/Datasets/All Spell/YeastLocalizationData.txt',sep="\t",index_col=False).drop(['Unnamed: 32'],axis=1).to_numpy()
         self.localMap = {}
         for row in localizationData:
             self.localMap[row[1]] = [local == 'T' for local in row[9:]]

@@ -42,14 +42,14 @@ def writeJobs(JobName,pythonFile,arg1=['0','1','2','3'],arg2=None,arg3=None,arg4
                        f.write('#PBS -M cmcguir1@trinity.edu\n')
                        f.write('#PBS -m ae\n\n')
                        f.write('cd data/SummerResearch2022\n\n')
-                       f.write(f'{command} {pythonFilePath}{pythonFile} {arg1[a1]} {arg2[a2]} {arg3[a3]} {arg4[a4]} {arg5[a5]}')
+                       f.write(f'{command} {pythonFilePath}{pythonFile} {arg1[a1]} {arg2[a2]} {arg3[a3]} {arg4[a4]} {arg5[a5]} &> data/SummerResearch2022/ClusterJobs/{JobName}/{JobName}{jobNum}_output.txt')
                        f.close()
 
                        jobNum += 1
     f = open(f'./ClusterJobs/{JobName}/{JobName}_SubmitJobs.sh','w')
     f.write('#!/usr/bin/sh\n\n')
     f.write('for i in {0..%s}\n' %f'{jobNum-1}')
-    f.write(f'do\n\tqsub data/SummerResearch2022/ClusterJobs/{JobName}/{JobName}$i.sh &> data/SummerResearch2022/ClusterJobs/{JobName}/{JobName}$i_output.txt\ndone\n')
+    f.write(f'do\n\tqsub data/SummerResearch2022/ClusterJobs/{JobName}/{JobName}$i.sh \ndone\n')
 
     shutil.copy(f'{pythonFilePath}{pythonFile}',f'./ClusterJobs/{JobName}/{pythonFile}')
 
@@ -58,8 +58,8 @@ def writeJobs(JobName,pythonFile,arg1=['0','1','2','3'],arg2=None,arg3=None,arg4
     f.write(f'{dateStr}\n')
     f.close()
 
-# writeJobs('MolFunc','Main6.py',arg2=['2000','25000'])
-writeJobs('AllTerms+Localization','Main6.py',arg2=['2000','25000'])
+
+writeJobs('BioProc+Local_Graph','GraphMain.py',arg2=['25000','2000'])
 
 
 
