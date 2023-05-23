@@ -43,8 +43,8 @@ class AllGoGraph(AllGoModel):
             self.localMap[row[1]] = [local == 'T' for local in row[9:]]
 
         self.outputSize = len(self.leaves)
-        if localization:
-            self.outputSize += len(self.localMap)
+        # if localization:
+        #     self.outputSize += 23
 
         #Intiailize list of networks and device tensor will be calculated on
         self.numFolds = numfolds
@@ -73,8 +73,10 @@ class AllGoGraph(AllGoModel):
             offsetTotal += pow(len(self.folds[i]),2)
         self.agnOffset = offsetTotal
 
+        print(f'MemMap Dimensions: ({self.memMapLen,self.outputSize})')
 
-    def feedForward(self,fold,term='GO:0007005',trackTime=True,dataset='original',offSet=0,runNegatives=True,calcPos=True,calcAgn=True,saveAll=False,debug=False):
+
+    def feedForward(self,fold,term='GO:0007005',trackTime=True,dataset='original',offSet=0,runNegatives=True,calcPos=True,calcAgn=True,saveAll=False,debug=False,resetScores=False):
         with torch.no_grad():
             def calcPair(pair):
                 features, labels = self.makeBatchTensors(np.array([pair]))
@@ -90,12 +92,16 @@ class AllGoGraph(AllGoModel):
                     #offset is an integer that is used to offest the GOTermDict to evaluate on the wrong term
                     return [pair[0],pair[1],outputs[0,self.GOTermDict[term]+offSet].item()]
 
-            if not os.path.exists(f'{self.path}/Scores.dat'):
-                mode = 'w+'
+            if not os.path.exists(f'{self.path}/Scores.dat') and not(resetScores):
+                score_mode = 'w+'
             else:
-                mode = 'r+'
-            scoresMemmap = np.memmap(f'{self.path}/Scores.dat',dtype='float32',shape=(self.memMapLen,self.outputSize),mode=mode)
-            pairsMemap = np.memmap(f'{self.path}/Pairs.dat',shape=(self.memMapLen,2),dtype='U10',mode=mode)
+                score_mode = 'r+'
+            if not os.path.exists(f'{self.path}/Pairs.dat') and not(resetScores):
+                pairs_mode = 'w+'
+            else:
+                pairs_mode = 'r+'
+            scoresMemmap = np.memmap(f'{self.path}/Scores.dat',dtype='float32',shape=(self.memMapLen,self.outputSize),mode=score_mode)
+            pairsMemap = np.memmap(f'{self.path}/Pairs.dat',shape=(self.memMapLen,2),dtype='U10',mode=pairs_mode)
             
             #Set of all genes that are annotated to tested term
             if os.path.exists(f'./Yeast Resources/TermPos/GO-{term[3:]}_Pos_{dataset}.csv'):

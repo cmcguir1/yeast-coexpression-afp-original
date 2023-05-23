@@ -133,7 +133,7 @@ class AllGoModel():
         self.sm = torch.nn.Softmax(dim=1)
 
         self.net = FlexNet(struct,sigmoid=False,activation=activation,inputDrop=inputDropout,hiddenDrop=hiddenDropout)
-        if(os.path.exists(self.networkLoc) and  not(resetNet)):
+        if(os.path.exists(self.networkLoc) and not(resetNet)):
             self.net.load_state_dict(torch.load(self.networkLoc))
         print('Initialized Network')
         #Choose which device to run network on, then move network to that device
