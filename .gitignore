@@ -2,6 +2,7 @@ Yeast\ Resources/Histogram\ Data/*.csv*
 *.tar.gz
 data/*
 **/*_Net_*
+!**/LocalizationData/*Net*
 Yeast\ Resourcse/Pairwise/Spell/Test/*
 Yeast\ Resources/Pairwise/Spell/AllGO_Original_Parameter/**/*
 Yeast\ Resources/Pairwise/Spell/AllGO_Original_Sigmoid/**/*
