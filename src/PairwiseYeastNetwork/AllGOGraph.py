@@ -20,8 +20,8 @@ class AllGoGraph(AllGoModel):
         if(not os.path.exists(self.path)):
             os.mkdir(self.path)
 
-        GoTerms = pd.read_csv('./src/PairwiseYeastNetwork/GOTermIndexDictionary.csv').to_numpy()
-        self.GOTermDict = {term[0]: term[1] for term in GoTerms}
+        # GoTerms = pd.read_csv('./src/PairwiseYeastNetwork/GOTermIndexDictionary.csv').to_numpy()
+        # self.GOTermDict = {term[0]: term[1] for term in GoTerms}
 
         #Correlations Dictionary that will be retrieve precalculated correlation values
         self.corrDict = CorrelationDictionary(dictLoc='../YeastMemMap/YeastCorrDictionary.dat' if (os.path.exists('../YeastMemMap/YeastCorrDictionary.dat')) else '../YeastDict.dat',datasetType=calcDataset)
@@ -31,9 +31,9 @@ class AllGoGraph(AllGoModel):
         
         self.leaves = getLeaves(10,dataset=ontologyDataset,bioProc=bioProc,molFunc=molFunc,cellComp=cellComp)
 
-        self.GOIndex = {}
+        self.GOTermDict = {}
         for i, leaf in enumerate(self.leaves):
-            self.GOIndex[leaf[0]] = i
+            self.GOTermDict[leaf[0]] = i
         
 
         self.includeLocalization = localization
@@ -169,7 +169,7 @@ class AllGoGraph(AllGoModel):
             negGenes = negGenes | termGenes
         negGenes = negGenes - set(posGenes)
 
-        termIndex = self.GOIndex[term]
+        termIndex = self.GOTermDict[term]
 
         scoresMemmap = np.memmap(f'{self.path}/Scores.dat',dtype='float32',shape=(self.memMapLen,self.outputSize),mode='r+')
         pairsMemMap = np.memmap(f'{self.path}/Pairs.dat',shape=(self.memMapLen,2),dtype='U10',mode='r+')
