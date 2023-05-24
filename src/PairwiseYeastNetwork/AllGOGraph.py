@@ -43,8 +43,7 @@ class AllGoGraph(AllGoModel):
             self.localMap[row[1]] = [local == 'T' for local in row[9:]]
 
         self.outputSize = len(self.leaves)
-        # if localization:
-        #     self.outputSize += 23
+        
 
         #Intiailize list of networks and device tensor will be calculated on
         self.numFolds = numfolds

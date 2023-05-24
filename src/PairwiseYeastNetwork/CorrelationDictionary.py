@@ -45,7 +45,7 @@ class CorrelationDictionary():
         if gene1 in self.indexDict and gene2 in self.indexDict:
             return self.memMap[self.datasetsDict[dataset],self.calcIndex(gene1,gene2)]
         else:
-            print('This gene pair was not in the correlation dictionary')
+            #print('This gene pair was not in the correlation dictionary')
             return 0
     
     

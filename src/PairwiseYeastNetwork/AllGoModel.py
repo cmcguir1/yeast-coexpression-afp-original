@@ -1,15 +1,11 @@
-from dataclasses import dataclass
 from random import random
 from CorrelationDictionary import CorrelationDictionary
-from site import makepath
 import pandas as pd
 import numpy as np
 from FlexNet import FlexNet
-from ExpressionDatasets import ExpressionDatasets
 import torch
 import time
 import os
-from ConfusionMatrix import ConfusionMatrix
 import random
 from FocalLoss import FocalLoss
 
@@ -20,106 +16,100 @@ import sys
 from YeastDataFile import YeastDataFile
 
 sys.path.insert(0,'./obopy')
-from Leaf import getLeaves
+from Leaf import getLeaves, getGenes
 
 
 class AllGoModel():
-    def __init__(self,fold,structure,folderName,modelName,numFolds=4,lr=0.01,momentum=0.9,batch=50,gamma=2,alpha=1,weighted=True,step=1000,stepGamma=0.95,decay_lr=False,lossFunc='CE',softmax=False,foldFile='./src/PairwiseYeastNetwork/AllGOGeneFold1.csv',ontologyDataset='modern',regularize=True, inputDropout=None,hiddenDropout=None,activation='relu',resetNet=False,inMemory=False,cuda=True,onlyBioProc=False,includeLocalization=False,includeMolecularFunc=False):
-        #getLeaves returns a list of tuple of (GO Term,{set of genes})
-        if onlyBioProc:
-            self.leaves = getLeaves(10,dataset=ontologyDataset,molFunc=False,cellComp=False)
-            GoTerms = pd.read_csv('./src/PairwiseYeastNetwork/GOTermIndexDictionary_BioProcOnly.csv').to_numpy()
-        elif includeMolecularFunc:
-            self.leaves = getLeaves(10,dataset=ontologyDataset,molFunc=True,cellComp=False)
-            GoTerms = [[term[0],i] for i, term in enumerate(self.leaves)]
-        else:
-            self.leaves = getLeaves(10,dataset=ontologyDataset)
-            GoTerms = pd.read_csv('./src/PairwiseYeastNetwork/GOTermIndexDictionary.csv').to_numpy()
+    def __init__(self,fold,structure,folderName,modelName,numFolds=4,lr=0.01,momentum=0.9,batch=50,gamma=2,alpha=1,weighted=True,step=1000,stepGamma=0.95,decay_lr=False,lossFunc='CE',softmax=False,foldFile='./src/PairwiseYeastNetwork/AllGOGeneFold1.csv',ontologyDataset='modern',regularize=True,inputDropout=None,hiddenDropout=None,activation='relu',resetNet=False,cuda=True,inputVector = 'xl',outputVector = 'b',addTerms=[]):
+        # Handling what data is in the input and output vector of the vector
 
-        # pd.DataFrame([[leaf[0],i] for i, leaf in enumerate(self.leaves)],columns=['GO Term','Index']).to_csv('./src/PairwiseYeastNetwork/GOTermIndexDictionary.csv',index=False)
+        #   The argument 'inputVector' determines what data is included in the input vector of the network based off of what characters are included in 'inputVector'
+        #        x - gene expression data
+        #        l - localization data
+        #        g - genomic interaction data
+        #        p - physical interaction data """
         
-        self.GOTermDict = {term[0]: term[1] for term in GoTerms}
+        self.inputSize = 0
 
+        # These four booleans are used for control flow later of data inclusion throughout the Model Object
+        self.expression = 'x' in inputVector
+        self.localization = 'l' in inputVector
+        self.genomicInteraction = 'g' in inputVector
+        self.physical = 'p' in inputVector
+
+        if self.expression:
+            # Correlations Dictionary that will be retrieve precalculated correlation values
+            self.corrDict = CorrelationDictionary(dictLoc='../YeastMemMap/YeastCorrDictionary.dat' if (os.path.exists('../YeastMemMap/YeastCorrDictionary.dat')) else '../YeastDict.dat',datasetType=ontologyDataset,inMemory=False)
+            self.datasets = self.corrDict.expDataset.datasets
+            self.inputSize += len(self.datasets)
+            print('Initialized Expression Datasets')
+
+        if self.localization:
+            # Localization Data Map
+            localizationData = pd.read_csv('./Yeast Resources/Datasets/All Spell/YeastLocalizationData.txt',sep="\t",index_col=False).drop(['Unnamed: 32'],axis=1).to_numpy()
+            self.localMap = {}
+            for row in localizationData:
+                self.localMap[row[1]] = [local == 'T' for local in row[9:]]
+            self.inputSize += 23
+            print('Initialized Localization Data')
+
+        if self.genomicInteraction:
+            # genomic interaction data has not been implemented yet
+            pass
+
+        if self.physical:
+            # physical interaction data has not been implemented yet
+            pass
+
+
+        #   outputVector determines what types of GO terms are included as labels for the output vector
+        #       b - Biological Processes
+        #       m - Molecular Functions
+        #       c - Cellular Components       
+        #   Additional GO terms can be added with 'addTerm' """
         
-        #Lists that will store the training and validation data
-        val = []
-        train = []
-        folds = []
-        if foldFile or 'original' or foldFile ==  'Original' or foldFile == '2009':
+        self.leaves = getLeaves(10,dataset=ontologyDataset,bioProc=('b' in outputVector),molFunc=('m' in outputVector),cellComp=('c' in outputVector))
+        for term in addTerms:
+            self.leaves.append([term,set(getGenes(term,dataset=ontologyDataset))])
+        self.GOTermDict = {term[0]: i for i,term in enumerate(self.leaves)}
+        
+        
+        
+        
+        if foldFile or 'original' or foldFile == 'Original' or foldFile == '2009':
             foldFile = './src/PairwiseYeastNetwork/AllGOGeneFold_Orignial_1.csv'
         elif foldFile == 'modern' or foldFile == 'Modern' or foldFile == '2023':
             foldFile = './src/PairwiseYeastNetwork/AllGOGeneFold1.csv'
-        #Checks if a folds file already exists, if not, make it
+
+
+        # If the foldFile does not exit, make new gene folds; Otherwise, generate val and training data from the foldFile
         if not os.path.exists(foldFile):
-            #Take the union of all genes in the GO slim
-            genes = set()
-            for leaf in self.leaves:
-                genes = genes | leaf[1]
-            
-            genes = list(genes)
-            random.shuffle(genes)
-            partition = int(len(genes) / numFolds)
-            for  i in range(numFolds):
-                for gene in genes[i*partition:(i+1)*partition]:
-                    folds.append([gene,i])
-            pd.DataFrame(folds,columns=['Gene','Fold']).to_csv(foldFile,index=False)
-        #Otherwise, generate val and training data from the fold list
+            folds = self.makeNewGeneFolds(foldFile=foldFile)
         else:
             #Read in file of gene folds
             folds = pd.read_csv(foldFile).to_numpy()
 
-        self.folds = folds
-
-        #Loop over all genes in folds
-        for gene in folds:
-            #If gene's fold matches fold variable, add to validation list
-            if gene[1] == fold:
-                val.append(gene[0])
-            #Otherwise, add ot training list
-            else:
-                train.append(gene[0])
-    
-        #Make instance varaibles of array of training genes and array of validation genes
-        self.training = np.array(train)
-        np.random.shuffle(self.training)
+       
         
-        self.validation = np.array(val)
-
+        self.validation = np.array([gene[0] for gene in folds if gene[1] == fold],dtype='U10')
+        self.training = np.array([gene[0] for gene in folds if gene[1] != fold],dtype='U10')
+        np.random.shuffle(self.training)
         print('Initialized training and validation data')
 
 
-        
-        # Correlations Dictionary that will be retrieve precalculated correlation values
-        self.corrDict = CorrelationDictionary(dictLoc='../YeastMemMap/YeastCorrDictionary.dat' if (os.path.exists('../YeastMemMap/YeastCorrDictionary.dat')) else '../YeastDict.dat',datasetType=ontologyDataset,inMemory=inMemory)
-        self.datasets = self.corrDict.expDataset.datasets
-        self.includeLocalization = includeLocalization
-
-        # Localization Data Map
-        localizationData = pd.read_csv('./Yeast Resources/Datasets/All Spell/YeastLocalizationData.txt',sep="\t",index_col=False).drop(['Unnamed: 32'],axis=1).to_numpy()
-        self.localMap = {}
-        for row in localizationData:
-            self.localMap[row[1]] = [local == 'T' for local in row[9:]]
-        
-        
-        
-        # Initialize all expression data as a list of maps {gene -> expression array}
-        # self.datasets = ExpressionDatasets('./Yeast Resources/Datasets/All Spell/all spell datasets',recur=True,statsDictLoc='./Yeast Resources/Datasets/All Spell/revisedStatsDict.csv').datasets
-
-        inputDropString = '' if inputDropout == None or inputDropout == 0 else f'_inputDrop{inputDropout}'
-        hiddenDropString = '' if hiddenDropout == None or hiddenDropout == 0 else f'_hiddenDrop{hiddenDropout}'
-
-        #Instance variable for batch size
+        # Instance variables
         self.batch = batch
         self.fold = fold
         self.regularize = regularize
+        self.numFolds = numFolds
+        self.folds = folds
 
-        print('Initialized Expression Datasets')
-        self.inputSize = len(self.datasets)
-        if self.includeLocalization:
-            self.inputSize += 23
+
+        # Neural Network code
+        inputDropString = '' if inputDropout == None or inputDropout == 0 else f'_inputDrop{inputDropout}'
+        hiddenDropString = '' if hiddenDropout == None or hiddenDropout == 0 else f'_hiddenDrop{hiddenDropout}'
 
         struct = f'{self.inputSize}x{structure}x{len(self.leaves)}'
-        print(struct)
         #Initialize the network, the size of the input layer is the number of expression datasets, and the size of the output is the number of leaf go terms
         self.networkLoc = f'./Yeast Resources/Pairwise/Spell/{folderName}/{modelName}_{struct}{inputDropString}{hiddenDropString}_Net_fold{self.fold+1}.pth'
         
@@ -135,10 +125,11 @@ class AllGoModel():
         self.net = FlexNet(struct,sigmoid=False,activation=activation,inputDrop=inputDropout,hiddenDrop=hiddenDropout)
         if(os.path.exists(self.networkLoc) and not(resetNet)):
             self.net.load_state_dict(torch.load(self.networkLoc))
-        print('Initialized Network')
+        
         #Choose which device to run network on, then move network to that device
         self.device = 'cuda:0' if torch.cuda.is_available() and cuda else 'cpu'
         self.net.to(self.device)
+        print('Initialized Network')
 
         # Know that this conditional is currently being blocked
         if weighted and False:
@@ -165,14 +156,13 @@ class AllGoModel():
             print('Used Weighted Cross Entropy Loss Function')
         elif lossFunc in ['FL','focalLoss','focal_loss']:
             self.lossFunc = FocalLoss(gamma,alpha=alpha)
-            #self.softmax = True
         else:
             self.lossFunc = torch.nn.CrossEntropyLoss()
             print('Used Cross Entropy Loss Function')
         
+        
         #Stochastic Gradient Descent Optimizer
         self.opt = torch.optim.SGD(self.net.parameters(),lr=lr,momentum=momentum)
-        #self.scheduler = torch.optim.lr_scheduler.StepLR(self.opt,step_size=step,gamma=stepGamma)
         lamb = lambda epoch: 0.95**epoch
         self.scheduler = torch.optim.lr_scheduler.LambdaLR(self.opt,lr_lambda=lamb)
         self.decay_lr = decay_lr
@@ -200,19 +190,16 @@ class AllGoModel():
 
         
 
-    def trainNetwork(self,epochs,sigmoid=False,track=100,step_lr=5000):
+    def trainNetwork(self,epochs,track=100,step_lr=5000):
         #Initialize all pairs of training genes
         pairs = self.makePairs(self.training)
-        # print(f'Pairs: {pairs}')
 
         runningLoss = 0.0
+        # If there already exists a lossList for this model and the network is not being reset, intialize the lost list from a file
         if(os.path.exists(self.lossLoc) and not(self.resetNet)):
             lossList = list(pd.read_csv(self.lossLoc).to_numpy().flatten())
-            #print(f'Intial Loss List: {lossList}')
         else:
             lossList = []
-
-        
 
         start = time.time()
         #Run training loop epochs number of times
@@ -228,20 +215,17 @@ class AllGoModel():
             features = features.to(self.device)
             labels = labels.to(self.device)
 
-
             outputs = self.net(features.float())
-            if self.softmax:
-                outputs = self.sm(outputs)
 
             loss = self.lossFunc(outputs.float(),labels.float())
             runningLoss += loss.item()
             loss.backward()
-            #print(f'Time Feed forward and calculate loss: {(time.time()-begin)/60}')
             self.opt.step()
             if epoch % (step_lr) == 0 and epoch != 0:
                 self.scheduler.step()
             
             if epoch % track == 0:
+                # If we are tracking the intial loss of the network, we need to scale to the loss as if it were the loss of a set of 'track' batches
                 if epoch == 0:
                     runningLoss *= track
                 lossList.append(runningLoss)
@@ -251,7 +235,6 @@ class AllGoModel():
                 print(f'Time for 100 Batches: {(time.time()-start)/60}\n---------------------')
                 start = time.time()
         torch.save(self.net.state_dict(),self.networkLoc)
-        #self.net._save_to_state_dict(self.networkLoc)
 
 
     def testNetworkAll(self,proportionNeg=10,saveTerms={'GO:0007005','GO:0006302','GO:0007127'},runAll=True,validation=True):
@@ -265,8 +248,6 @@ class AllGoModel():
                     outputsTensor = self.sm(outputsTensor)
                 outputs = np.array(outputsTensor,dtype='float32')
                 labels = np.array(labels,dtype=np.intc)
-                # print(f'Shape of Labels: {labels.shape}')
-                # print(f'Shape of Outputs: {outputs.shape}')
                 return([pair[0],pair[1],labels[0,termIndex],outputs[0,termIndex]])
 
             #Helper function that will take in a table of pairs, their label, and their scores, then calculate the confusion matrix statistics
@@ -365,87 +346,92 @@ class AllGoModel():
         return pairs[np.random.choice(len(pairs),self.batch,replace=False),:]
 
     def makeBatchTensors(self,batchArray):
-        #Helper function for calculating correlations in list comprehension
-        def calcCorr(d,gp):
-            d = d.dataFile
-            gene1 = gp[0]
-            gene2 = gp[1]
-            rho = self.corrDict.lookupCorrelation(gene1,gene2,d)
-            # print(f'rho from pre-calculated coefficients: {rho}')
+        # First, make an array of the features that are the pearson correlations between the gene pair in every gene expression dataset
+        featuresList = []
+        if self.expression:
+            featuresList.append(torch.tensor([[self.calcCorr(dataset,genePair) for dataset in self.datasets] for genePair in batchArray],dtype=torch.float))
+        if self.localization:
+            featuresList.append(torch.tensor([[self.localizationScore(genePair,index) for index in range(23)] for genePair in batchArray],dtype=torch.float))
+        if self.genomicInteraction:
+            # This has not been implemented yet
+            pass
+        if self.physical:
+            # This had not been implemented
+            pass
 
-            # rho = d.customCorrelation(gp)
+        # Take array of features and convert it into a tensor
+        features = torch.cat(featuresList,dim=1)
 
-            #Adjust rho if 1 or -1 because of problems with fisher z transform
-            if rho == 1:
-                rho = 0.99
-            elif rho == -1:
-                rho = -0.99
-            
-            #Regularize Rho via fisher z transformation
-            if self.regularize:
-                mean, std = self.corrDict.expDataset.statsDict[d]
-                regularizedRho = (np.arctanh(rho) -  mean) / std
-                return regularizedRho
-            else:
-                return rho
+        # Create lists of labels
+        labels = torch.tensor([[self.calcLabel(leaf,genePair) for leaf in self.leaves] for genePair in batchArray],dtype=torch.float)
         
-        def calcLabel(l,gpair):
+        
+        # for i in range(len(batchArray)):
+        #     for leaf in self.leaves:
+        #         if batchArray[i,0] in leaf[1] and batchArray[i,1] in leaf[1]:
+        #             labels[i,self.GOTermDict[leaf[0]]] = 1.0
+
+        return (features,labels)
+    
+    #Helper function for makeBatchTensors - looks up and modifies correlation for a gene pair in a given dataset
+    def calcCorr(self,d,gp):
+        d = d.dataFile
+        gene1 = gp[0]
+        gene2 = gp[1]
+        rho = self.corrDict.lookupCorrelation(gene1,gene2,d)
+
+        #Adjust rho if 1 or -1 because of problems with fisher z transform
+        if rho == 1:
+            rho = 0.99
+        elif rho == -1:
+            rho = -0.99
+        
+        #Regularize Rho via fisher z transformation
+        if self.regularize:
+            mean, std = self.corrDict.expDataset.statsDict[d]
+            regularizedRho = (np.arctanh(rho) -  mean) / std
+            return regularizedRho
+        else:
+            return rho
+        
+    # Helper Function for makeBatchTensors - calcs label for a given GO Term
+    def calcLabel(self,l,gpair):
             #If both genes are annotated to that GO term, return 1, otherwise, return 0
             if gpair[0] in l[1] and gpair[1] in l[1]:
                 return 1
             else:
                 return 0
 
-        # Predicate that is used to make the localization data section of the features tensor
-        def localizationScore(gp,index):
-            if gp[0] in self.localMap and gp[1] in self.localMap:
-                if self.localMap[gp[0]][index] and self.localMap[gp[0]][index]:
-                    return 1
-                else:
-                    return -1
+    # Helper Function for makeBatchTensors - Predicate that is used to make the localization data section of the features tensor
+    def localizationScore(self,gp,index):
+        if gp[0] in self.localMap and gp[1] in self.localMap:
+            if self.localMap[gp[0]][index] and self.localMap[gp[0]][index]:
+                return 1
             else:
-                return 0
-
-        # First, make an array of the features that are the pearson correlations between the gene pair in every gene expression dataset
-        featuresArray = np.array([[calcCorr(dataset,genePair) for dataset in self.datasets] for genePair in batchArray],dtype=float)
-
-        # If the model includes localization data, create an array of features where each feature is a 1 if genes are co-localized to a location and -1 otherwise, then concatenate that features array to the gene expression features
-        if self.includeLocalization:
-            localizationArray = np.array([[localizationScore(genePair,index) for index in range(23)] for genePair in batchArray],dtype=float)
-            featuresArray = np.concatenate([featuresArray,localizationArray],axis=1,dtype=float)
-            
-        # Take array of features and convert it into a tensor
-        features = torch.tensor(featuresArray,dtype=float)
-
-
-        # Create lists of labels
-        labels = torch.tensor([[calcLabel(leaf,genePair) for leaf in self.leaves] for genePair in batchArray],dtype=float)
-        
-        for i in range(len(batchArray)):
-            for leaf in self.leaves:
-                if batchArray[i,0] in leaf[1] and batchArray[i,1] in leaf[1]:
-                    labels[i,self.GOTermDict[leaf[0]]] = 1.0
-
-        # Return tuple of the features and labels tensors
-        return (features,labels)
+                return -1
+        else:
+            return 0
         
     #Returns array of all pairs of gene from given array of genes
     def makePairs(self,genes):
-        pairs = []
-        #Loop over all genes
-        
-        arr = np.array([(genes[i],genes[j]) for i in range(len(genes)) for j in range(i+1,len(genes))])
+        arr = np.array([(genes[i],genes[j]) for i in range(len(genes)) for j in range(i+1,len(genes))],dtype='U10')
         return arr
-
-    def testTrainingPollution(self):
-        trainSet = set(self.training)
-        testSet = set(self.validation)
-        print(f'Length testing: {len(testSet)}\nLength training: {len(trainSet)}')
-        print(f'Intersection of train and test: {len(trainSet & testSet)}')
-        trainPairs = set(list(self.makePairs(self.training)))
-        testPairs = set(list(self.makePairs(self.validation)))
-        print(f'Length testing pairs: {len(testPairs)}\nLength training pairs: {len(trainPairs)}')
-        print(f'Intersection of train and test: {len(trainPairs & testPairs)}')
+    
+    def makeNewGeneFolds(self,foldFile):
+        #Take the union of all genes in the GO slim
+        folds = []
+        genes = set()
+        for leaf in self.leaves:
+            genes = genes | leaf[1]
+        
+        genes = list(genes)
+        random.shuffle(genes)
+        partition = int(len(genes) / self.numFolds)
+        for  i in range(self.numFolds):
+            for gene in genes[i*partition:(i+1)*partition]:
+                folds.append([gene,i])
+        pd.DataFrame(folds,columns=['Gene','Fold']).to_csv(foldFile,index=False)
+        return folds
 
     def compareOverlap(self):
         pairs = self.makePairs(np.concatenate([self.training,self.validation],axis=0))
