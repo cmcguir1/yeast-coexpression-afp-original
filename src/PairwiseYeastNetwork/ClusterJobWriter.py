@@ -61,7 +61,9 @@ def writeJobs(JobName,pythonFile,arg1=['0','1','2','3'],arg2=None,arg3=None,arg4
     f.close()
 
 
-writeJobs('BioProc+Local_Graph','GraphMain.py',arg2=['25000','2000'])
+# writeJobs('BioProc+Local_Graph','GraphMain.py',arg2=['25000','2000'])
+writeJobs('Overfit_BioProcOnly','Main6.py')
+writeJobs('Overfit_BioProcOnly_Dropout','Main7.py')
 
 
 
