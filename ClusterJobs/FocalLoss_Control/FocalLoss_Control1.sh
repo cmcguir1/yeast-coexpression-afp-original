@@ -11,4 +11,4 @@
 
 cd data/SummerResearch2022
 
-/data/hibbslab/anaconda3/bin/python src/PairwiseYeastNetwork/TestMain.py 1 0.001   
+/data/hibbslab/anaconda3/bin/python src/PairwiseYeastNetwork/TestMain.py 1 FL   

@@ -62,7 +62,7 @@ def writeJobs(JobName,pythonFile,arg1=['0','1','2','3'],arg2=None,arg3=None,arg4
 
 
 # writeJobs('BioProc+Local_Graph','GraphMain.py',arg2=['25000','2000'])
-writeJobs('FocalLoss_Control','TestMain.py',arg2=[0.001,0.005])
+writeJobs('FocalLoss_Control','TestMain.py',arg2=['FL','CE'])
 # writeJobs('Overfit_BioProcOnly_Dropout','Main7.py')
 
 
