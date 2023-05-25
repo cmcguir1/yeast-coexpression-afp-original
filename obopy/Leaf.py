@@ -36,7 +36,7 @@ def getYORF(genes):
     return yorfList
 
 #Get all GO terms that are leaves, each leaf being a tuple of the leaf term name and a set of all genes annotated to that term
-def getLeaves(cutoff,dataset='original',bioProc=True,molFunc=True,cellComp=True):
+def getLeaves(cutoff,dataset='original',bioProc=True,molFunc=False,cellComp=False):
     #Initialize the datsets that annotations will be pulled from, either the 2009 dataset or the current 2022 dataset
     if dataset == '2009' or dataset == 'original':
         goAnnos = Ontology('./obopy/go-basic.obo','./obopy/sgd_2009_Jan_unzip.gaf',loadLocal=True)

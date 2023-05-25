@@ -54,6 +54,7 @@ class AllGoGraph(AllGoModel):
             net.load_state_dict(torch.load(f'{networkPath}{i+1}.pth'))
             net.to(self.device)
             self.nets.append(net)
+        self.struct = structure
 
         self.softmax = softmax
         self.sm = torch.nn.Softmax(dim=1)
@@ -91,16 +92,16 @@ class AllGoGraph(AllGoModel):
                     #offset is an integer that is used to offest the GOTermDict to evaluate on the wrong term
                     return [pair[0],pair[1],outputs[0,self.GOTermDict[term]+offSet].item()]
 
-            if not os.path.exists(f'{self.path}/Scores.dat') and not(resetScores):
+            if not os.path.exists(f'{self.path}/{self.struct}_Scores.dat') and not(resetScores):
                 score_mode = 'w+'
             else:
                 score_mode = 'r+'
-            if not os.path.exists(f'{self.path}/Pairs.dat') and not(resetScores):
+            if not os.path.exists(f'{self.path}/{self.struct}_Pairs.dat') and not(resetScores):
                 pairs_mode = 'w+'
             else:
                 pairs_mode = 'r+'
-            scoresMemmap = np.memmap(f'{self.path}/Scores.dat',dtype='float32',shape=(self.memMapLen,self.outputSize),mode=score_mode)
-            pairsMemap = np.memmap(f'{self.path}/Pairs.dat',shape=(self.memMapLen,2),dtype='U10',mode=pairs_mode)
+            scoresMemmap = np.memmap(f'{self.path}/{self.struct}_Scores.dat',dtype='float32',shape=(self.memMapLen,self.outputSize),mode=score_mode)
+            pairsMemap = np.memmap(f'{self.path}/{self.struct}_Pairs.dat',shape=(self.memMapLen,2),dtype='U10',mode=pairs_mode)
             
             #Set of all genes that are annotated to tested term
             if os.path.exists(f'./Yeast Resources/TermPos/GO-{term[3:]}_Pos_{dataset}.csv'):
@@ -176,8 +177,8 @@ class AllGoGraph(AllGoModel):
 
         termIndex = self.GOTermDict[term]
 
-        scoresMemmap = np.memmap(f'{self.path}/Scores.dat',dtype='float32',shape=(self.memMapLen,self.outputSize),mode='r+')
-        pairsMemMap = np.memmap(f'{self.path}/Pairs.dat',shape=(self.memMapLen,2),dtype='U10',mode='r+')
+        scoresMemmap = np.memmap(f'{self.path}/{self.struct}_Scores.dat',dtype='float32',shape=(self.memMapLen,self.outputSize),mode='r+')
+        pairsMemMap = np.memmap(f'{self.path}/{self.struct}_Pairs.dat',shape=(self.memMapLen,2),dtype='U10',mode='r+')
 
         # posGenes = set(pd.read_csv(f'./Yeast Resources/GeneSets/{term[0:2]}{term[3:]}_Pos_original.txt').to_numpy().flatten())
         # negGenes = set(pd.read_csv(f'./Yeast Resources/GeneSets/{term[0:2]}{term[3:]}_Neg_original.txt').to_numpy().flatten())

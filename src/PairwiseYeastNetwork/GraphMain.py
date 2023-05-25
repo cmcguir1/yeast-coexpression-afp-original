@@ -32,7 +32,7 @@ def main():
     #graph.rankGenes()
 
     graph = AllGoGraph(f'./Yeast Resources/Pairwise/Spell/LocalizationData/Localization_136x{sys.argv[2]}x53_Net_fold',f'136x{sys.argv[2]}x53','BioProc+LocalizationData',ontologyDataset='original',localization=True)
-    graph.feedForward(int(sys.argv[1]),saveAll=True,resetScores=True)
+    graph.feedForward(int(sys.argv[1]),saveAll=True)
     
 
 
