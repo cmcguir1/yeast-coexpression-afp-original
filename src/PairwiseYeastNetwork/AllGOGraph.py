@@ -14,36 +14,60 @@ sys.path.insert(0,'./obopy')
 from Leaf import getLeaves, getGenes
 
 class AllGoGraph(AllGoModel):
-    def __init__(self,networkPath,structure,folder,numfolds=4,geneFolds='./src/PairwiseYeastNetwork/AllGOGeneFold1.csv',ontologyDataset='modern',calcDataset='original',softmax=False,localization=False,bioProc=True,molFunc=False,cellComp=False):
+    def __init__(self,networkPath,structure,folder,numfolds=4,geneFolds='./src/PairwiseYeastNetwork/AllGOGeneFold1.csv',ontologyDataset='modern',calcDataset='original',softmax=False,inputVector='xl',outputVector='b',addTerms=[]):
         #Intialize file path for folder where results will be saved
         self.path = f'./Yeast Resources/GraphResults/{folder}'
         if(not os.path.exists(self.path)):
             os.mkdir(self.path)
 
-        # GoTerms = pd.read_csv('./src/PairwiseYeastNetwork/GOTermIndexDictionary.csv').to_numpy()
-        # self.GOTermDict = {term[0]: term[1] for term in GoTerms}
+        self.inputSize = 0
 
-        #Correlations Dictionary that will be retrieve precalculated correlation values
-        self.corrDict = CorrelationDictionary(dictLoc='../YeastMemMap/YeastCorrDictionary.dat' if (os.path.exists('../YeastMemMap/YeastCorrDictionary.dat')) else '../YeastDict.dat',datasetType=calcDataset)
-        self.datasets = self.corrDict.expDataset.datasets
+        # These four booleans are used for control flow later of data inclusion throughout the Model Object
+        self.expression = 'x' in inputVector
+        self.localization = 'l' in inputVector
+        self.genomicInteraction = 'g' in inputVector
+        self.physical = 'p' in inputVector
+
+        if self.expression:
+            # Correlations Dictionary that will be retrieve precalculated correlation values
+            self.corrDict = CorrelationDictionary(dictLoc='../YeastMemMap/YeastCorrDictionary.dat' if (os.path.exists('../YeastMemMap/YeastCorrDictionary.dat')) else '../YeastDict.dat',datasetType=ontologyDataset,inMemory=False)
+            self.datasets = self.corrDict.expDataset.datasets
+            self.inputSize += len(self.datasets)
+            print('Initialized Expression Datasets')
+
+        if self.localization:
+            # Localization Data Map
+            localizationData = pd.read_csv('./Yeast Resources/Datasets/All Spell/YeastLocalizationData.txt',sep="\t",index_col=False).drop(['Unnamed: 32'],axis=1).to_numpy()
+            self.localMap = {}
+            for row in localizationData:
+                self.localMap[row[1]] = [local == 'T' for local in row[9:]]
+            self.inputSize += 23
+            print('Initialized Localization Data')
+
+        if self.genomicInteraction:
+            # genomic interaction data has not been implemented yet
+            pass
+
+        if self.physical:
+            # physical interaction data has not been implemented yet
+            pass
+
+
+        #   outputVector determines what types of GO terms are included as labels for the output vector
+        #       b - Biological Processes
+        #       m - Molecular Functions
+        #       c - Cellular Components       
+        #   Additional GO terms can be added with 'addTerm' """
+        
+        self.leaves = getLeaves(10,dataset=ontologyDataset,bioProc=('b' in outputVector),molFunc=('m' in outputVector),cellComp=('c' in outputVector))
+        for term in addTerms:
+            self.leaves.append([term,set(getGenes(term,dataset=ontologyDataset))])
+        self.GOTermDict = {term[0]: i for i,term in enumerate(self.leaves)}
+
+
 
         self.regularize = True
-        
-        self.leaves = getLeaves(10,dataset=ontologyDataset,bioProc=bioProc,molFunc=molFunc,cellComp=cellComp)
 
-        self.GOTermDict = {}
-        for i, leaf in enumerate(self.leaves):
-            self.GOTermDict[leaf[0]] = i
-        
-
-        self.includeLocalization = localization
-        localizationData = pd.read_csv('./Yeast Resources/Datasets/All Spell/YeastLocalizationData.txt',sep="\t",index_col=False).drop(['Unnamed: 32'],axis=1).to_numpy()
-        self.localMap = {}
-        for row in localizationData:
-            self.localMap[row[1]] = [local == 'T' for local in row[9:]]
-
-        self.outputSize = len(self.leaves)
-        
 
         #Intiailize list of networks and device tensor will be calculated on
         self.numFolds = numfolds
@@ -73,7 +97,7 @@ class AllGoGraph(AllGoModel):
             offsetTotal += pow(len(self.folds[i]),2)
         self.agnOffset = offsetTotal
 
-        print(f'MemMap Dimensions: ({self.memMapLen,self.outputSize})')
+        print(f'MemMap Dimensions: ({self.memMapLen,len(self.leaves)})')
 
 
     def feedForward(self,fold,term='GO:0007005',trackTime=True,dataset='original',offSet=0,runNegatives=True,calcPos=True,calcAgn=True,saveAll=False,debug=False,resetScores=False):
@@ -100,7 +124,7 @@ class AllGoGraph(AllGoModel):
                 pairs_mode = 'w+'
             else:
                 pairs_mode = 'r+'
-            scoresMemmap = np.memmap(f'{self.path}/{self.struct}_Scores.dat',dtype='float32',shape=(self.memMapLen,self.outputSize),mode=score_mode)
+            scoresMemmap = np.memmap(f'{self.path}/{self.struct}_Scores.dat',dtype='float32',shape=(self.memMapLen,len(self.leaves)),mode=score_mode)
             pairsMemap = np.memmap(f'{self.path}/{self.struct}_Pairs.dat',shape=(self.memMapLen,2),dtype='U10',mode=pairs_mode)
             
             #Set of all genes that are annotated to tested term
