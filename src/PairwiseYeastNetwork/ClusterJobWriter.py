@@ -43,12 +43,12 @@ def writeJobs(JobName,pythonFile,arg1=['0','1','2','3'],arg2=None,arg3=None,arg4
                        f.write('#PBS -m ae\n\n')
                        f.write('cd data/SummerResearch2022\n\n')
                        #f.write(f'touch data/SummerResearch2022/ClusterJobs/{JobName}/{JobName}{jobNum}_output.txt\n')
-                       #f.write(f'{command} {pythonFilePath}{pythonFile} {arg1[a1]} {arg2[a2]} {arg3[a3]} {arg4[a4]} {arg5[a5]} &> data/SummerResearch2022/ClusterJobs/{JobName}/{JobName}{jobNum}_output.txt')
+                       #f.write(f'{command} {pythonFilePath}{pythonFile} {arg1[a1]} {arg2[a2]} {arg3[a3]} {arg4[a4]} {arg5[a5]} > data/SummerResearch2022/ClusterJobs/{JobName}/{JobName}{jobNum}_output.txt')
                        f.write(f'{command} {pythonFilePath}{pythonFile} {arg1[a1]} {arg2[a2]} {arg3[a3]} {arg4[a4]} {arg5[a5]}')
                        f.close()
 
                        jobNum += 1
-    f = open(f'./ClusterJobs/{JobName}/{JobName}_SubmitJobs.sh','w')
+    f = open(f'./ClusterJobs/{JobName}/SubmitJobs.sh','w')
     f.write('#!/usr/bin/sh\n\n')
     f.write('for i in {0..%s}\n' %f'{jobNum-1}')
     f.write(f'do\n\tqsub data/SummerResearch2022/ClusterJobs/{JobName}/{JobName}$i.sh \ndone\n')
@@ -61,8 +61,8 @@ def writeJobs(JobName,pythonFile,arg1=['0','1','2','3'],arg2=None,arg3=None,arg4
     f.close()
 
 
-writeJobs('BioProc+Local_Graph','GraphMain.py',arg2=['25000','2000'])
-# writeJobs('BioProc+Local_Graph','GraphMain.py',arg2=['FL','CE'])
+writeJobs('FocalLoss_ParaSearch','Main3.py',arg2=['1','2'])
+writeJobs('bioPIXIE_Data','Main2.py',arg2=['2000','25000'])
 # writeJobs('Overfit_BioProcOnly_Dropout','Main7.py')
 
 

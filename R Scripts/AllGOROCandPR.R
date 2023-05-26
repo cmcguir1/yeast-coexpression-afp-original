@@ -38,13 +38,13 @@ replaceTest <- function(str) {
 
 #Gets all files from Working directory
 wd <- getwd()
-saveDir <- "C:/Users/colem/Yeast Graphs/FocalLoss"
+saveDir <- "C:/Users/colem/Yeast Graphs/Overfit_BioProc"
 #saveDir <- "D:/YeastStor/lr_decay"
 
 dirs <- list.dirs(path = getwd(),full.names = TRUE)
 dirs <- dirs[2:length(dirs)]
 testDirs <- dirs[grepl("Test",dirs,fixed=TRUE)]
-testDirs <- testDirs[grepl("CE",testDirs,fixed=TRUE)]
+#testDirs <- testDirs[grepl("CE",testDirs,fixed=TRUE)]
 #testDirs <- testDirs[grepl("Alpha_0_",testDirs,fixed=TRUE)]
 print(testDirs)
 

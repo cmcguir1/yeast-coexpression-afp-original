@@ -27,7 +27,7 @@ class AllGoModel():
         #        x - gene expression data
         #        l - localization data
         #        g - genomic interaction data
-        #        p - physical interaction data """
+        #        p - physical interaction data
         
         self.inputSize = 0
 
@@ -54,19 +54,57 @@ class AllGoModel():
             print('Initialized Localization Data')
 
         if self.genomicInteraction:
-            # genomic interaction data has not been implemented yet
-            pass
+            
+            interactions = pd.read_csv('./InteractionData.txt',sep="\t").to_numpy()
+            interactionsList = pd.read_csv('./bioGRID_Interactions.csv').to_numpy().flatten()
+            genomicIndex = {item: i for i, item in enumerate(interactionsList[9:])}
+            
+            self.genomicMap = {}
+            for row in interactions:
+                genePairStrA = row[0] + " " + row[1]
+                genePairStrB = row[1] + " " + row[0]
+                if (not (genePairStrA in self.genomicMap)) or (not (genePairStrB in self.genomicMap)):
+                    self.genomicMap[genePairStrA] = [0 for i in range(6)]
+                    self.genomicMap[genePairStrB] = [0 for i in range(6)]
+                if row[6] in genomicIndex:
+                    tmp = self.genomicMap[genePairStrA]
+                    tmp[genomicIndex[row[6]]] = 1
+                    self.genomicMap[genePairStrA] = tmp
+                    self.genomicMap[genePairStrB] = tmp
+            
+            self.inputSize += 6
+                
 
         if self.physical:
-            # physical interaction data has not been implemented yet
-            pass
+            interactions = pd.read_csv('./InteractionData.txt',sep="\t").to_numpy()
+            interactionsList = pd.read_csv('./bioGRID_Interactions.csv').to_numpy().flatten()
+            
+            physicalIndex = {item: i for i, item in enumerate(interactionsList[2:9])}
+            physicalIndex['Affinity Capture-MS'] = 0
+            physicalIndex['Affinity Capture-Western'] = 0
+            
+            
+            self.physicalMap = {}
+            for row in interactions:
+                genePairStrA = row[0] + " " + row[1]
+                genePairStrB = row[1] + " " + row[0]
+                if (not (genePairStrA in self.physicalMap)) or (not (genePairStrB in self.physicalMap)):
+                    self.physicalMap[genePairStrA] = [0 for i in range(7)]
+                    self.physicalMap[genePairStrB] = [0 for i in range(7)]
+                if row[6] in physicalIndex:
+                    tmp = self.physicalMap[genePairStrA]
+                    tmp[physicalIndex[row[6]]] = 1
+                    self.physicalMap[genePairStrA] = tmp
+                    self.physicalMap[genePairStrB] = tmp
+            
+            self.inputSize += 7
 
 
         #   outputVector determines what types of GO terms are included as labels for the output vector
         #       b - Biological Processes
         #       m - Molecular Functions
         #       c - Cellular Components       
-        #   Additional GO terms can be added with 'addTerm' """
+        #   Additional GO terms can be added with 'addTerm'
         
         self.leaves = getLeaves(10,dataset=ontologyDataset,bioProc=('b' in outputVector),molFunc=('m' in outputVector),cellComp=('c' in outputVector))
         for term in addTerms:
@@ -353,11 +391,9 @@ class AllGoModel():
         if self.localization:
             featuresList.append(torch.tensor([[self.localizationScore(genePair,index) for index in range(23)] for genePair in batchArray],dtype=torch.float))
         if self.genomicInteraction:
-            # This has not been implemented yet
-            pass
+            featuresList.append(torch.tensor([self.genomicScore(genePair) for genePair in batchArray],dtype=torch.float))
         if self.physical:
-            # This had not been implemented
-            pass
+            featuresList.append(torch.tensor([self.physicalScore(genePair) for genePair in batchArray],dtype=torch.float))
 
         # Take array of features and convert it into a tensor
         features = torch.cat(featuresList,dim=1)
@@ -411,6 +447,22 @@ class AllGoModel():
                 return -1
         else:
             return 0
+
+    # Helper Function for makeBatchTensor - returns list of what genetic interactions occur between gene pairs   
+    def genomicScore(self,gp):
+        genePairStr = gp[0] + ' ' + gp[1]
+        if genePairStr in self.genomicMap:
+            return self.genomicMap[genePairStr]
+        else:
+            return [0 for _ in range(6)]
+        
+    # Helper Function for makeBatchTensor - returns list of what physical interactions occur between gene pairs
+    def physicalScore(self,gp):
+        genePairStr = gp[0] + ' ' + gp[1]
+        if genePairStr in self.physicalMap:
+            return self.physicalMap[genePairStr]
+        else:
+            return [0 for _ in range(7)]
         
     #Returns array of all pairs of gene from given array of genes
     def makePairs(self,genes):

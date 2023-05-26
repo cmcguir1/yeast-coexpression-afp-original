@@ -26,7 +26,8 @@ def main():
     # GOTest.testNetworkAll(runAll=True,validation=False)
 
 
-    GOTest = AllGoModel(int(sys.argv[1]),'25000','FocalLoss_Control',f'Control_{sys.argv[2]}',foldFile='./src/PairwiseYeastNetwork/AllGOGeneFold1.csv',ontologyDataset='original',lossFunc=sys.argv[2],lr=0.005,resetNet=True,gamma=0,alpha=1)
+    GOTest = AllGoModel(0,'2000','Test_bioPIXIEdata',f'Test',foldFile='./src/PairwiseYeastNetwork/AllGOGeneFold1.csv',ontologyDataset='original',inputVector='xlgp')
+    print(f'Time to intialize Network: {(time.time()-start)/60}')
     GOTest.trainNetwork(80000)
     GOTest.testNetworkAll(runAll=True)
     GOTest.testNetworkAll(runAll=True,validation=False)
