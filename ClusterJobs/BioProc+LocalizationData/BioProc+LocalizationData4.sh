@@ -11,4 +11,4 @@
 
 cd data/SummerResearch2022
 
-/data/hibbslab/anaconda3/bin/python src/PairwiseYeastNetwork/GraphMain.py 0 2000    > data/SummerResearch2022/ClusterJobs/BioProc+LocalizationData/BioProc+LocalizationData4_output.txt/data/hibbslab/anaconda3/bin/python src/PairwiseYeastNetwork/GraphMain.py 0 2000   
+/data/hibbslab/anaconda3/bin/python src/PairwiseYeastNetwork/GraphMain.py 0 2000   

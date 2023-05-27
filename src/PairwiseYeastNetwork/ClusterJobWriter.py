@@ -43,7 +43,7 @@ def writeJobs(JobName,pythonFile,arg1=['0','1','2','3'],arg2=None,arg3=None,arg4
                        f.write('#PBS -m ae\n\n')
                        f.write('cd data/SummerResearch2022\n\n')
                        #f.write(f'touch data/SummerResearch2022/ClusterJobs/{JobName}/{JobName}{jobNum}_output.txt\n')
-                       f.write(f'{command} {pythonFilePath}{pythonFile} {arg1[a1]} {arg2[a2]} {arg3[a3]} {arg4[a4]} {arg5[a5]} > data/SummerResearch2022/ClusterJobs/{JobName}/{JobName}{jobNum}_output.txt')
+                       #f.write(f'{command} {pythonFilePath}{pythonFile} {arg1[a1]} {arg2[a2]} {arg3[a3]} {arg4[a4]} {arg5[a5]} > data/SummerResearch2022/ClusterJobs/{JobName}/{JobName}{jobNum}_output.txt')
                        f.write(f'{command} {pythonFilePath}{pythonFile} {arg1[a1]} {arg2[a2]} {arg3[a3]} {arg4[a4]} {arg5[a5]}')
                        f.close()
 
