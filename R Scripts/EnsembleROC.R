@@ -46,8 +46,8 @@ ensembleROC <- function(dataFile,graphName) {
 dataFile <- file.choose()
 #dataFile <- "C:\\Users\\colem\\SummerResearch2022\\Yeast Resources\\Pairwise\\Spell\\Test\\Regular430_20x1_fold1_Val.csv"
 
-graphName <- "AllGO 113x2000x1"
-pdf("EnsembleComparision_ST_113x2000x1_ROC.pdf",width=6,height=6)
+graphName <- "AllGO 136x2000x53"
+pdf("EnsembleComparision_AG_136x2000x53_ROC.pdf",width=6,height=6)
 ensembleROC(dataFile=dataFile,graphName=graphName)
 dev.off()
 

@@ -33,8 +33,9 @@ def main():
     # GOTest.testNetworkAll(runAll=True)
     # GOTest.testNetworkAll(runAll=True,validation=False)
 
-    graph = AllGoGraph(f'./Yeast Resources/Pairwise/Spell/BioProcessOnly/BioProcessOnly_113x{sys.argv[2]}x53_Net_fold',f'113x{sys.argv[2]}x53','BioProcOnly')
+    graph = AllGoGraph(f'./Yeast Resources/Pairwise/Spell/BioProcessOnly/BioProcessOnly_113x{sys.argv[1]}x53_Net_fold',f'113x{sys.argv[1]}x53','BioProcOnly')
     graph.feedForward(int(sys.argv[1]),saveAll=True)
+    # graph.rankGenes()
     
 
 

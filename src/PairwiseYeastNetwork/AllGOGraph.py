@@ -89,15 +89,14 @@ class AllGoGraph(AllGoModel):
         self.allGenes = pd.read_csv('./Yeast Resources/GeneSets/BiologicalProcessGenes.csv').values.flatten().tolist()
         self.agnGenes = pd.read_csv('./Yeast Resources/TermPos/AgnosticGenes.csv').to_numpy().flatten()
 
-        self.memMapLen = (sum([len(fold) for fold in self.folds]) * len(self.allGenes)) + (len(self.agnGenes) * len(self.allGenes)) 
+        self.memMapLen = (sum([len(fold) for fold in self.folds]) * len(self.allGenes) - len(foldTable)) + (len(self.agnGenes) * len(self.allGenes)) - len(set(self.agnGenes) & set(self.allGenes))
         self.foldOffsets = []
         offsetTotal = 0
         for i in range(numfolds):
             self.foldOffsets.append(offsetTotal)
-            offsetTotal += pow(len(self.folds[i]),2)
+            # offsetTotal += pow(len(self.folds[i]),2)
+            offsetTotal += len(self.folds[i]) * len(self.allGenes) - len(self.folds[i])
         self.agnOffset = offsetTotal
-
-        print(f'MemMap Dimensions: ({self.memMapLen,len(self.leaves)})')
 
 
     def feedForward(self,fold,term='GO:0007005',trackTime=True,dataset='original',offSet=0,runNegatives=True,calcPos=True,calcAgn=True,saveAll=False,debug=False,resetScores=False):
@@ -158,9 +157,9 @@ class AllGoGraph(AllGoModel):
                         pairsMemap[i+self.foldOffsets[fold],:] =  np.array(pair,dtype='U10') 
 
                         # foldScores.append(calcPair(pair))
-                        if i % 10000 == 0:
+                        if i % 10000 == 0 and i != 0:
                             ratio = i/(len(pairs)+len(agnPairs))
-                            print(f'Calculated {ratio*100}% of pairs\nEstimated Time Remaining: {((time.time()-start)/60) * (((len(pairs)+len(agnPairs)) - (i+1)) / (i+1))}')
+                            print(f'Calculated {ratio*100}% of pairs\nTime Spent: {((time.time()-start)/60)}\nEstimated Time Remaining: {((time.time()-start)/60) * ((self.memMapLen - (i+1))) / (i+1)}')
                 
                 agnScores = []
                 if calcAgn:
@@ -201,7 +200,7 @@ class AllGoGraph(AllGoModel):
 
         termIndex = self.GOTermDict[term]
 
-        scoresMemmap = np.memmap(f'{self.path}/{self.struct}_Scores.dat',dtype='float32',shape=(self.memMapLen,self.outputSize),mode='r+')
+        scoresMemmap = np.memmap(f'{self.path}/{self.struct}_Scores.dat',dtype='float32',shape=(self.memMapLen,len(self.leaves)),mode='r+')
         pairsMemMap = np.memmap(f'{self.path}/{self.struct}_Pairs.dat',shape=(self.memMapLen,2),dtype='U10',mode='r+')
 
         # posGenes = set(pd.read_csv(f'./Yeast Resources/GeneSets/{term[0:2]}{term[3:]}_Pos_original.txt').to_numpy().flatten())
@@ -243,7 +242,9 @@ class AllGoGraph(AllGoModel):
         #         posScore[genePair[0]] = posScore[genePair[0]] + (float(genePair[2]) / self.numFolds)
         start = time.time()
         for i in range(self.memMapLen):
-            
+            if pairsMemMap[i,0] not in posScore or pairsMemMap[i,0] not in totalScore:
+                posScore[pairsMemMap[i,0]] = 0
+                totalScore[pairsMemMap[i,0]] = 0
             if pairsMemMap[i,1] in posSet:
                 posScore[pairsMemMap[i,0]] = posScore[pairsMemMap[i,0]] + scoresMemmap[i,termIndex]
             totalScore[pairsMemMap[i,0]] = totalScore[pairsMemMap[i,0]] + scoresMemmap[i,termIndex]
@@ -267,7 +268,7 @@ class AllGoGraph(AllGoModel):
                 scoreTable.append([gene,checkPosNeg(gene),score,totalScore[gene]])
             
         confMat = ConfusionMatrix.calculateMatrix(np.array(scoreTable,dtype=object),1,2)
-        pd.DataFrame(confMat,columns=['Gene','Label','Score','Background Score','Precision','Recall','False Positive Rate']).to_csv(f'{self.path}/GeneRanking.csv',index=False)
+        pd.DataFrame(confMat,columns=['Gene','Label','Score','Background Score','Precision','Recall','False Positive Rate']).to_csv(f'{self.path}/{self.struct}_GeneRanking_{term[0:2]}{term[3:]}.csv',index=False)
 
     
     #Makes all possible pairs between 2 sets of genes

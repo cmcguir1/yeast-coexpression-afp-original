@@ -54,19 +54,22 @@ class AllGoModel():
             print('Initialized Localization Data')
 
         if self.genomicInteraction:
-            
+            # Dataset of all bioGRID interactions
             interactions = pd.read_csv('./InteractionData.txt',sep="\t").to_numpy()
             interactionsList = pd.read_csv('./bioGRID_Interactions.csv').to_numpy().flatten()
+            # genomic index maps the genomic interactions we care about to an index
             genomicIndex = {item: i for i, item in enumerate(interactionsList[9:])}
             
             self.genomicMap = {}
             for row in interactions:
+                # The string of the concatenated gene pair must be stored for both orders of which gene is first
                 genePairStrA = row[0] + " " + row[1]
                 genePairStrB = row[1] + " " + row[0]
                 if (not (genePairStrA in self.genomicMap)) or (not (genePairStrB in self.genomicMap)):
                     self.genomicMap[genePairStrA] = [0 for i in range(6)]
                     self.genomicMap[genePairStrB] = [0 for i in range(6)]
                 if row[6] in genomicIndex:
+                    # If a gene pair has a interaction, change the value of the interactions list for that pair from 0 to 1 at that specific interaction's index
                     tmp = self.genomicMap[genePairStrA]
                     tmp[genomicIndex[row[6]]] = 1
                     self.genomicMap[genePairStrA] = tmp
@@ -76,22 +79,27 @@ class AllGoModel():
                 
 
         if self.physical:
+            # Dataset of all bioGRID interactions
             interactions = pd.read_csv('./InteractionData.txt',sep="\t").to_numpy()
             interactionsList = pd.read_csv('./bioGRID_Interactions.csv').to_numpy().flatten()
             
+            # physical index maps physical interactions to indicies
             physicalIndex = {item: i for i, item in enumerate(interactionsList[2:9])}
+            # All types of affinity capture are represented by one node, so they are all mapped to index 0
             physicalIndex['Affinity Capture-MS'] = 0
             physicalIndex['Affinity Capture-Western'] = 0
             
             
             self.physicalMap = {}
             for row in interactions:
+                # The string of the concatenated gene pair must be stored for both orders of which gene is first
                 genePairStrA = row[0] + " " + row[1]
                 genePairStrB = row[1] + " " + row[0]
                 if (not (genePairStrA in self.physicalMap)) or (not (genePairStrB in self.physicalMap)):
                     self.physicalMap[genePairStrA] = [0 for i in range(7)]
                     self.physicalMap[genePairStrB] = [0 for i in range(7)]
                 if row[6] in physicalIndex:
+                    # If a gene pair has a interaction, change the value of the interactions list for that pair from 0 to 1 at that specific interaction's index
                     tmp = self.physicalMap[genePairStrA]
                     tmp[physicalIndex[row[6]]] = 1
                     self.physicalMap[genePairStrA] = tmp
@@ -103,13 +111,15 @@ class AllGoModel():
         #   outputVector determines what types of GO terms are included as labels for the output vector
         #       b - Biological Processes
         #       m - Molecular Functions
-        #       c - Cellular Components       
+        #       c - Cellular Components   
+        #       n - non specific gene pair interaction (co-annotated to any biological process)    
         #   Additional GO terms can be added with 'addTerm'
         
         self.leaves = getLeaves(10,dataset=ontologyDataset,bioProc=('b' in outputVector),molFunc=('m' in outputVector),cellComp=('c' in outputVector))
         for term in addTerms:
             self.leaves.append([term,set(getGenes(term,dataset=ontologyDataset))])
         self.GOTermDict = {term[0]: i for i,term in enumerate(self.leaves)}
+        self.outputSize = len(self.leaves)
         
         
         
@@ -147,7 +157,7 @@ class AllGoModel():
         inputDropString = '' if inputDropout == None or inputDropout == 0 else f'_inputDrop{inputDropout}'
         hiddenDropString = '' if hiddenDropout == None or hiddenDropout == 0 else f'_hiddenDrop{hiddenDropout}'
 
-        struct = f'{self.inputSize}x{structure}x{len(self.leaves)}'
+        struct = f'{self.inputSize}x{structure}x{self.outputSize}'
         #Initialize the network, the size of the input layer is the number of expression datasets, and the size of the output is the number of leaf go terms
         self.networkLoc = f'./Yeast Resources/Pairwise/Spell/{folderName}/{modelName}_{struct}{inputDropString}{hiddenDropString}_Net_fold{self.fold+1}.pth'
         
@@ -157,8 +167,7 @@ class AllGoModel():
             hiddenDropout = None
 
         self.resetNet = resetNet
-        self.softmax = softmax
-        self.sm = torch.nn.Softmax(dim=1)
+        
 
         self.net = FlexNet(struct,sigmoid=False,activation=activation,inputDrop=inputDropout,hiddenDrop=hiddenDropout)
         if(os.path.exists(self.networkLoc) and not(resetNet)):
@@ -169,16 +178,14 @@ class AllGoModel():
         self.net.to(self.device)
         print('Initialized Network')
 
-        # Know that this conditional is currently being blocked
-        if weighted and False:
-            alphaValues = pd.read_csv('./src/PairwiseYeastNetwork/AllGOAlphaDictionary.csv').to_numpy()
-            self.weights=torch.zeros((92,),dtype=torch.float32)
-            for val in alphaValues:
-                self.weights[self.GOTermDict[val[0]]] = val[1]
-            self.weights = self.weights**alpha
-            self.weights = (self.weights / torch.sum(self.weights)) * 92.0
-            #self.weights = torch.ones(size=(92,))
-            print(self.weights)
+        if weighted:
+            # Formula for the weight of each GO term is (N^2/n^2) where:
+            #   N - the total number of genes across all fold
+            #   n - the number of gene annotated to a given go term
+            # Weights are then divided by the sum of weights so that they add to zero, then they are multiplied by the number of output nodes
+            self.weights = torch.tensor([pow(len(fold),2) / pow(len(leaf[1],2)) for leaf in self.leaves],dtype=torch.float)
+            self.weights = (self.weights / torch.sum(self.weights)) * self.outputSize
+
         else:
             self.weights = torch.ones((92,),dtype=float)
         
@@ -282,8 +289,6 @@ class AllGoModel():
                 features, labels = self.makeBatchTensors(np.array([pair]))
                 features = features.to(self.device)
                 outputsTensor = self.net(features.float(),test=True).cpu()
-                if self.softmax:
-                    outputsTensor = self.sm(outputsTensor)
                 outputs = np.array(outputsTensor,dtype='float32')
                 labels = np.array(labels,dtype=np.intc)
                 return([pair[0],pair[1],labels[0,termIndex],outputs[0,termIndex]])
@@ -336,7 +341,7 @@ class AllGoModel():
             
             #Loops over all Go Slim terms
             for i, leaf in enumerate(self.leaves):
-                print(f'Testing GO Term: {leaf[0]} ({i} / {len(self.leaves)})')
+                print(f'Testing GO Term: {leaf[0]} ({i} / {self.outputSize})')
                 #Conditional determines whether a given GO term's performance is calculated
                 if leaf[0] in saveTerms or runAll:
                     #Positive genes are all genes in the validation set that are annotated to the GO term
