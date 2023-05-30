@@ -13,7 +13,7 @@ Yeast\ Resources/Yeast\ Graphs/**
 Yeast\ Resources/Pairwise/Spell/Overfit/*.pth
 Yeast\ Resources/Pairwise/Spell/Overfit_LargeNet/*
 Yeast\ Resources/GraphResults/*
-!Yeast\ Resources/GraphResults/*GeneRanking*
+!Yeast\ Resources/GraphResults/**/*GeneRanking*
 negDist.csv
 scoresLst.csv
 negDist_nonCoAnno.csv
