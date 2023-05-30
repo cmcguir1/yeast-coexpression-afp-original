@@ -31,9 +31,9 @@ def main():
     # graph.feedForward(int(sys.argv[1]),saveAll=True)
     #graph.rankGenes()
 
-    graph = AllGoGraph(f'./Yeast Resources/Pairwise/Spell/LocalizationData/Localization_136x{sys.argv[2]}x53_Net_fold',f'136x{sys.argv[2]}x53','BioProc+LocalizationData',ontologyDataset='original',inputVector='xl')
+    graph = AllGoGraph(f'./Yeast Resources/Pairwise/Spell/LocalizationData/Localization_136x{sys.argv[2]}x53_Net_fold',f'136x{sys.argv[2]}x53','BatchTest',ontologyDataset='original',inputVector='xl')
     # graph.rankGenes()
-    graph.feedForward(int(sys.argv[1]),saveAll=True)
+    graph.feedForward(int(sys.argv[1]),saveAll=True,runBatch=True,batchSize=1)
     
 
 

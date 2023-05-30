@@ -60,5 +60,7 @@ from Leaf import getLeaves, getGenes
 # # pd.DataFrame([key for key,value in interactionMap.items()],columns=['Interactions']).to_csv('./bioGRID_Interactions.csv',index=False)
 # print(pd.read_csv('./bioGRID_Interactions.csv').to_numpy())
 
+mito = set(getGenes('GO:0005739',dataset='modern'))
+
 
 

@@ -8,6 +8,8 @@ from Leaf import getLeaves, getGenes
 def compare(filePath):
     ensemble = pd.read_csv('./Yeast Resources/ensembleData.csv').to_numpy()
     singleTerm = pd.read_csv('./Yeast Resources/GraphResults/AllSingle_New/GO0007005_SingleGeneRanking_OnlyPos.csv').to_numpy()
+    # Ranking where all cell comp and mol func GO terms are included in the output
+    allOutput = pd.read_csv('./Yeast Resources/GraphResults/MemMap_Original_113x2000x92/GO-0007005_GeneRanking.csv').to_numpy()
     ranking = pd.read_csv(filePath).to_numpy()
 
     ensembleGenes = set(ensemble[:,0])
@@ -32,6 +34,10 @@ def compare(filePath):
     stMap = {}
     for i in range(len(singleTerm)):
         stMap[singleTerm[i,0]] = i+1
+    
+    allOutMap = {}
+    for i in range(len(allOutput)):
+        allOutMap[allOutput[i,0]] = i+1
 
     origPos = set(getGenes('GO:0007005',dataset='original'))
     modernPos = set(getGenes('GO:0007005',dataset='modern'))
@@ -49,6 +55,8 @@ def compare(filePath):
         if leaf[0] != 'GO:0007005':
             modernNeg = modernNeg.union(leaf[1])
     modernNeg = modernNeg - modernPos
+
+    mitoLoc = set(getGenes('GO:0005739',dataset='modern'))
      
 
     
@@ -72,13 +80,14 @@ def compare(filePath):
             mLabel = 0
         
         if gene in ensembleGenes and gene in stGenes:
-            compareList.append([gene,oLabel,mLabel,ranking[i,2]/len(origPos),ranking[i,3]/len(ranking),i+1,stMap[gene],spellMap[gene],mefitMap[gene],pixieMap[gene],i+1-stMap[gene],i+1-spellMap[gene],i+1-mefitMap[gene],i+1-pixieMap[gene]])
-    rankedGenes = sorted(compareList,reverse=False,key=lambda row: row[5])
+            compareList.append([gene,oLabel,mLabel,1 if gene in mitoLoc else -1,ranking[i,2]/len(origPos),ranking[i,3]/len(ranking),i+1,allOutMap[gene],stMap[gene],spellMap[gene],mefitMap[gene],pixieMap[gene]])
+    rankedGenes = sorted(compareList,reverse=False,key=lambda row: row[6])
     print(rankedGenes)
-    pd.DataFrame(rankedGenes,columns=['Gene','Original Label','Modern Label','Confidence','Background Confidence','AG Rank','ST Rank','SPELL Rank','MEFIT Rank','bioPIXIE Rank','ST Diff','SPELL Diff','MEFIT Diff','bioPIXIE Diff']).to_csv('./RankingComparison.csv',index=False)
+    pd.DataFrame(rankedGenes,columns=['Gene','Original Label','Modern Label','Mito Localized','Confidence','Background Confidence','AG Rank','CellCompOutput Rank','ST Rank','SPELL Rank','MEFIT Rank','bioPIXIE Rank']).to_csv('./RankingComparison_MitoLoc.csv',index=False)
+
 
     # filteredRanking = filter((lambda row: row[3] <= 1000),rankedGenes)
     # pd.DataFrame(filteredRanking,columns=['Gene','Original Label','Modern Label','NN Rank','Spell Rank','Difference']).to_csv('./RankingComparison_Filtered.csv',index=False)
         
 
-compare('./Yeast Resources/GraphResults/MemMap_Original_113x2000x92/GO-0007005_GeneRanking.csv')
+compare('./Yeast Resources/GraphResults/BioProc+LocalizationData/136x25000x53_GeneRanking_GO0007005.csv')
