@@ -34,8 +34,8 @@ def main():
     # GOTest.testNetworkAll(runAll=True,validation=False)
 
     graph = AllGoGraph(f'./Yeast Resources/Pairwise/Spell/BioProcessOnly/BioProcessOnly_113x{sys.argv[2]}x53_Net_fold',f'113x{sys.argv[2]}x53','BioProcOnly',inputVector='x',ontologyDataset='original')
-    graph.feedForward(int(sys.argv[1]),saveAll=True,runBatch=True)
-    # graph.rankGenes()
+    # graph.feedForward(int(sys.argv[1]),saveAll=True,runBatch=True)
+    graph.rankGenes()
     
 
 
