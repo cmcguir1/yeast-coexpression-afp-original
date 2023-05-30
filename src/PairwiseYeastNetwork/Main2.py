@@ -33,7 +33,7 @@ def main():
     # GOTest.testNetworkAll(runAll=True)
     # GOTest.testNetworkAll(runAll=True,validation=False)
 
-    graph = AllGoGraph(f'./Yeast Resources/Pairwise/Spell/bioPIXIE_Data/bioPIXIE_Data_149x{sys.argv[2]}x53_Net_fold',f'149x{sys.argv[2]}x53','bioPIXIE_Data',inputVector='xlgp',ontologyDataset='original')
+    graph = AllGoGraph(f'./Yeast Resources/Pairwise/Spell/bioPIXIE_Data/Original_149x{sys.argv[2]}x53_Net_fold',f'149x{sys.argv[2]}x53','bioPIXIE_Data',inputVector='xlgp',ontologyDataset='original')
     graph.feedForward(int(sys.argv[1]),saveAll=True,runBatch=True)
     # graph.rankGenes()
     

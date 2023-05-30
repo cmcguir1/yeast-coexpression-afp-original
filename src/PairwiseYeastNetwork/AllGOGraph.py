@@ -45,12 +45,58 @@ class AllGoGraph(AllGoModel):
             print('Initialized Localization Data')
 
         if self.genomicInteraction:
-            # genomic interaction data has not been implemented yet
-            pass
+            # Dataset of all bioGRID interactions
+            interactions = pd.read_csv('./InteractionData.txt',sep="\t").to_numpy()
+            interactionsList = pd.read_csv('./bioGRID_Interactions.csv').to_numpy().flatten()
+            # genomic index maps the genomic interactions we care about to an index
+            genomicIndex = {item: i for i, item in enumerate(interactionsList[9:])}
+            
+            self.genomicMap = {}
+            for row in interactions:
+                # The string of the concatenated gene pair must be stored for both orders of which gene is first
+                genePairStrA = row[0] + " " + row[1]
+                genePairStrB = row[1] + " " + row[0]
+                if (not (genePairStrA in self.genomicMap)) or (not (genePairStrB in self.genomicMap)):
+                    self.genomicMap[genePairStrA] = [0 for i in range(6)]
+                    self.genomicMap[genePairStrB] = [0 for i in range(6)]
+                if row[6] in genomicIndex:
+                    # If a gene pair has a interaction, change the value of the interactions list for that pair from 0 to 1 at that specific interaction's index
+                    tmp = self.genomicMap[genePairStrA]
+                    tmp[genomicIndex[row[6]]] = 1
+                    self.genomicMap[genePairStrA] = tmp
+                    self.genomicMap[genePairStrB] = tmp
+            
+            self.inputSize += 6
+                
 
         if self.physical:
-            # physical interaction data has not been implemented yet
-            pass
+            # Dataset of all bioGRID interactions
+            interactions = pd.read_csv('./InteractionData.txt',sep="\t").to_numpy()
+            interactionsList = pd.read_csv('./bioGRID_Interactions.csv').to_numpy().flatten()
+            
+            # physical index maps physical interactions to indicies
+            physicalIndex = {item: i for i, item in enumerate(interactionsList[2:9])}
+            # All types of affinity capture are represented by one node, so they are all mapped to index 0
+            physicalIndex['Affinity Capture-MS'] = 0
+            physicalIndex['Affinity Capture-Western'] = 0
+            
+            
+            self.physicalMap = {}
+            for row in interactions:
+                # The string of the concatenated gene pair must be stored for both orders of which gene is first
+                genePairStrA = row[0] + " " + row[1]
+                genePairStrB = row[1] + " " + row[0]
+                if (not (genePairStrA in self.physicalMap)) or (not (genePairStrB in self.physicalMap)):
+                    self.physicalMap[genePairStrA] = [0 for i in range(7)]
+                    self.physicalMap[genePairStrB] = [0 for i in range(7)]
+                if row[6] in physicalIndex:
+                    # If a gene pair has a interaction, change the value of the interactions list for that pair from 0 to 1 at that specific interaction's index
+                    tmp = self.physicalMap[genePairStrA]
+                    tmp[physicalIndex[row[6]]] = 1
+                    self.physicalMap[genePairStrA] = tmp
+                    self.physicalMap[genePairStrB] = tmp
+            
+            self.inputSize += 7
 
 
         #   outputVector determines what types of GO terms are included as labels for the output vector
