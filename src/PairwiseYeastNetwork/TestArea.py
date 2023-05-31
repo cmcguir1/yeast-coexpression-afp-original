@@ -2,6 +2,14 @@ import torch
 import numpy as np
 from FocalLoss import FocalLoss
 
+import sys
+sys.path.insert(0,'./obopy')
+from Leaf import getLeaves, getGenes
+
+print(len(getGenes('GO:0032543',dataset='original')))
+print(len(getGenes('GO:0007005',dataset='original')))
+print(len(set(getGenes('GO:0032543',dataset='original'))&set(getGenes('GO:0007005',dataset='original'))))
+
 # ce = torch.nn.CrossEntropyLoss(reduction='none')
 # fl = FocalLoss(alpha=1,gamma=0)
 # lsm = torch.nn.LogSoftmax(dim=1)
@@ -19,4 +27,3 @@ from FocalLoss import FocalLoss
 # print(torch.nn.functional.cross_entropy(output,labels,reduction='mean'))
 # print(torch.nn.functional.cross_entropy(output,labels,reduction='none'))
 
-old = np.memmap

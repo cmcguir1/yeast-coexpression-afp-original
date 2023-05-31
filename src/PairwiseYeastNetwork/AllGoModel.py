@@ -183,7 +183,7 @@ class AllGoModel():
             #   N - the total number of genes across all fold
             #   n - the number of gene annotated to a given go term
             # Weights are then divided by the sum of weights so that they add to zero, then they are multiplied by the number of output nodes
-            self.weights = torch.tensor([pow(len(fold),2) / pow(len(leaf[1],2)) for leaf in self.leaves],dtype=torch.float)
+            self.weights = torch.tensor([pow(len(folds),2) / pow(len(leaf[1]),2) for leaf in self.leaves],dtype=torch.float)
             self.weights = (self.weights / torch.sum(self.weights)) * self.outputSize
 
         else:
@@ -279,7 +279,7 @@ class AllGoModel():
                 pd.DataFrame(lossList,columns=['Loss']).to_csv(self.lossLoc,index=False)
                 print(f'Time for 100 Batches: {(time.time()-start)/60}\n---------------------')
                 start = time.time()
-        torch.save(self.net.state_dict(),self.networkLoc)
+                torch.save(self.net.state_dict(),self.networkLoc)
 
 
     def testNetworkAll(self,proportionNeg=10,saveTerms={'GO:0007005','GO:0006302','GO:0007127'},runAll=True,validation=True):

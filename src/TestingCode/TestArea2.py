@@ -10,57 +10,35 @@ import os
 sys.path.insert(0,'./obopy')
 from Leaf import getLeaves, getGenes
 
-# leaves = getLeaves(10,bioProc=True,dataset='original')
-# allGenes = getGenes('GO:0008150',dataset='original')
+leaves = getLeaves(10,bioProc=True,dataset='modern')
 
-# names = pd.read_csv('./src\PairwiseYeastNetwork/TermNameDict.csv').to_numpy()
-# namesDict = {name[0]: name[1] for name in names}
+termArray = pd.read_csv('./src/PairwiseYeastNetwork/TermNameDict.csv').to_numpy()
+termDict = {}
+for term in termArray:
+    termDict[term[0]] = term[1]
+allGenes = getGenes('GO:0008150',dataset='original')
 
-# pairs = []
-# for i in range(len(allGenes)):
-#     for j in range(i+1,len(allGenes)):
-#         pairs.append([allGenes[i],allGenes[j]])
+allGenesMap = {}
+for gene in allGenes:
+    annos = set()
+    for leaf in leaves:
+        if gene in leaf[1]:
+            annos.add(leaf[0] + ": " + termDict[leaf[0]])
+    allGenesMap[gene] = annos
 
-# multiCoAnnos = 0
-# mca_list = []
-# coAnnos = 0
-# for pair in pairs:
-#     annos = 0
-#     coAnnosList = []
-#     for leaf in leaves:
-#         if pair[0] in leaf[1] and pair[1] in leaf[1]:
-#             annos += 1
-#             coAnnosList.append(namesDict[leaf[0]])
-#     if annos != 0:
-#         coAnnos += 1
-#     if annos > 1:
-#         multiCoAnnos += 1
-#         mca_list.append(coAnnosList)
 
-# finalList = []
-# _ = [finalList.append(item) for item in mca_list if not (item in finalList)]
-
-# print(f'Total Pairs: {len(pairs)}')
-# print(f'Pairs Co-annotated to any GO Term: {coAnnos}')
-# print(f'Percentage of Co-annotations: {(coAnnos/len(pairs))*100}%')
-# print(f'Pairs Co-annotated to multiple GO Terms: {multiCoAnnos}')
-# print(f'Percentage of multiple Co-annotations {(multiCoAnnos/len(pairs))*100}%')
-# pd.DataFrame(finalList).to_csv('./CoAnnos.csv',index=False)
-
-# inter = pd.read_csv('./InteractionData.txt',sep="\t").to_numpy()
-# interactionMap = {}
-# for i in inter[:,6]:
-#     if not(i in interactionMap):
-#         interactionMap[i] = 1
-#     else:
-#         interactionMap[i] += 1
-# for key,value in interactionMap.items():
-#     print(f'{key}: {value}')
-
-# # pd.DataFrame([key for key,value in interactionMap.items()],columns=['Interactions']).to_csv('./bioGRID_Interactions.csv',index=False)
-# print(pd.read_csv('./bioGRID_Interactions.csv').to_numpy())
-
-mito = set(getGenes('GO:0005739',dataset='modern'))
-
+again = True
+while again:
+    userGene = input("Gene: ")
+    if userGene == 'q':
+        again = False
+    else:
+        if len(allGenesMap[userGene]) == 0:
+            print("This gene does not have any annotations in the GO Slim")
+        else:
+            print("")
+            for term in allGenesMap[userGene]:
+                print(f'\t{term}')
+            print("")
 
 

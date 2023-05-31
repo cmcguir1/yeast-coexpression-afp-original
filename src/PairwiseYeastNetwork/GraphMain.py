@@ -13,6 +13,7 @@ from AllGoModel import AllGoModel
 from CorrelationDictionary import CorrelationDictionary
 import os
 from AllGOGraph import AllGoGraph
+from MemMapGraph import MemMapGraph
 
 # This import should fix the ssl import verificiation error
 import ssl
@@ -31,9 +32,12 @@ def main():
     # graph.feedForward(int(sys.argv[1]),saveAll=True)
     #graph.rankGenes()
 
-    graph = AllGoGraph(f'./Yeast Resources/Pairwise/Spell/LocalizationData/Localization_136x{sys.argv[2]}x53_Net_fold',f'136x{sys.argv[2]}x53','BatchTest',ontologyDataset='original',inputVector='xl')
-    # graph.rankGenes()
-    graph.feedForward(int(sys.argv[1]),saveAll=True,runBatch=True,batchSize=1)
+    # graph = AllGoGraph(f'./Yeast Resources/Pairwise/Spell/LocalizationData/Localization_136x{sys.argv[2]}x53_Net_fold',f'136x{sys.argv[2]}x53','BatchTest',ontologyDataset='original',inputVector='xl')
+    # # graph.rankGenes()
+    # graph.feedForward(int(sys.argv[1]),saveAll=True,runBatch=True,batchSize=1)
+
+    m = MemMapGraph('./AllScoreMemMap.dat','AllTerm')
+    m.rankTerm('GO:0007005')
     
 
 

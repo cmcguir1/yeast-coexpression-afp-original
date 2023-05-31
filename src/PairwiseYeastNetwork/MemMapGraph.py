@@ -78,12 +78,15 @@ class MemMapGraph():
             
             if gene in posGenes:
                 label = 1
+                divisor = 1
             elif gene in negGenes:
                 label = -1
+                divisor = 1
             else:
                 label = 0
             if score != 0:
-                singleGenes.append([gene,label,score,totalScore[gene]])
+                divisor = 4
+                singleGenes.append([gene,label,score/divisor,totalScore[gene]])
 
         print(singleGenes)
         cm = ConfusionMatrix.calculateMatrix(singleGenes,1,2)

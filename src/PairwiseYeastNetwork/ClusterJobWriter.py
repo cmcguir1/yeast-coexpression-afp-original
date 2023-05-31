@@ -62,10 +62,14 @@ def writeJobs(JobName,pythonFile,arg1=['0','1','2','3'],arg2=None,arg3=None,arg4
 
 
 # writeJobs('BioProc+LocalizationData','GraphMain.py',arg2=['25000','2000'])
-writeJobs('BioProcOnly_Graph','Main.py',arg2=['25000'])
-writeJobs('bioPIXIE_Data_Graph','Main2.py',arg2=['25000'])
+# writeJobs('BioProcOnly_Graph','Main.py',arg2=['25000'])
+# writeJobs('bioPIXIE_Data_Graph','Main2.py',arg2=['25000'])
 # writeJobs('bioPIXIE_Data','Main2.py',arg2=['2000','25000'])
 # writeJobs('Overfit_BioProcOnly_Dropout','Main7.py')
+writeJobs('Overfit_bioPIXIE_NoDropout','Main2.py')
+writeJobs('Overfit_bioPIXIE_Dropout','Main.py')
+writeJobs('Overfit_Unreasonable','Main3.py')
+writeJobs('Modern_bioPIXIE','Main4.py')
 
 
 
