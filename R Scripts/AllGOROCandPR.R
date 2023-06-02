@@ -38,7 +38,7 @@ replaceTest <- function(str) {
 
 #Gets all files from Working directory
 wd <- getwd()
-saveDir <- "C:/Users/colem/Yeast Graphs/Overfit_BioProc"
+saveDir <- "C:/Users/colem/Yeast Graphs/ModernNetworks"
 #saveDir <- "D:/YeastStor/lr_decay"
 
 dirs <- list.dirs(path = getwd(),full.names = TRUE)
@@ -53,8 +53,8 @@ plotAll <- FALSE
 desiredTerms <- c("GO-0042273","GO-0032196","GO-0009451","GO-0006897","GO-0006979","GO-0006325","GO-0000278","GO-0051321","GO-0003700","GO-0000747","GO-0006470","GO-0007033","GO-0007005")
 
 
-netType <- "AllGO_Overfit_Dropout"
-dataset <- "Original"
+netType <- "AllGO_bioPIXIE_Data"
+dataset <- "Modern"
 
 for(dir in testDirs) {
   setwd(dir)
