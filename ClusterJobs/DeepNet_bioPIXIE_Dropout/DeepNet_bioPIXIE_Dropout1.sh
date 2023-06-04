@@ -1,6 +1,6 @@
 #!/usr/bin/sh
 
-## Job Created May-31-2023
+## Job Created Jun-04-2023
 
 ##Place PBS directives here
 #PBS -N DeepNet_bioPIXIE_Dropout
@@ -11,4 +11,4 @@
 
 cd data/SummerResearch2022
 
-/data/hibbslab/anaconda3/bin/python src/PairwiseYeastNetwork/Main.py 1    
+/data/hibbslab/anaconda3/bin/python src/PairwiseYeastNetwork/Main4.py 1    

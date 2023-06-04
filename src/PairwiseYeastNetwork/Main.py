@@ -26,7 +26,7 @@ def main():
     # GOTest.testNetworkAll(runAll=True,validation=False)
 
 
-    GOTest = AllGoModel(int(sys.argv[1]),'25000x5000x5000x5000x5000x5000x5000x5000x5000','DeepNet_bioPIXIE_Dropout0.5',f'Overfit',foldFile='./src/PairwiseYeastNetwork/AllGOGeneFold1.csv',ontologyDataset='original',resetNet=True,hiddenDropout=0.5,inputVector='xlpg',cuda=False)
+    GOTest = AllGoModel(int(sys.argv[1]),'50000x10000x5000x5000','OverFit_bioPIXIE_Dropout0.5',f'Overfit',foldFile='./src/PairwiseYeastNetwork/AllGOGeneFold1.csv',ontologyDataset='original',resetNet=False,hiddenDropout=0.5,inputVector='xlpg',cuda=False)
     GOTest.trainNetwork(200000,track=100)
     GOTest.testNetworkAll(runAll=True)
     GOTest.testNetworkAll(runAll=True,validation=False)
