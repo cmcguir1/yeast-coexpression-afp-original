@@ -20,7 +20,7 @@ from Leaf import getLeaves, getGenes
 
 
 class AllGoModel():
-    def __init__(self,fold,structure,folderName,modelName,numFolds=4,lr=0.01,momentum=0.9,batch=50,gamma=2,alpha=1,weighted=True,step=1000,stepGamma=0.95,decay_lr=False,lossFunc='CE',softmax=False,foldFile='./src/PairwiseYeastNetwork/AllGOGeneFold1.csv',ontologyDataset='modern',regularize=True,inputDropout=None,hiddenDropout=None,activation='relu',resetNet=False,cuda=True,inputVector = 'xl',outputVector = 'b',addTerms=[]):
+    def __init__(self,fold,structure,folderName,modelName,numFolds=4,lr=0.01,min_lr=1e-7,momentum=0.9,batch=50,gamma=2,alpha=1,weighted=True,lossFunc='CE',softmax=False,foldFile='./src/PairwiseYeastNetwork/AllGOGeneFold1.csv',ontologyDataset='modern',regularize=True,inputDropout=None,hiddenDropout=None,activation='relu',resetNet=False,cuda=True,inputVector = 'xl',outputVector = 'b',addTerms=[]):
         # Handling what data is in the input and output vector of the vector
 
         #   The argument 'inputVector' determines what data is included in the input vector of the network based off of what characters are included in 'inputVector'
@@ -147,6 +147,7 @@ class AllGoModel():
 
         # Instance variables
         self.batch = batch
+        self.lr = lr
         self.fold = fold
         self.regularize = regularize
         self.numFolds = numFolds
@@ -202,15 +203,14 @@ class AllGoModel():
         elif lossFunc in ['FL','focalLoss','focal_loss']:
             self.lossFunc = FocalLoss(gamma=gamma,alpha=alpha)
         else:
-            self.lossFunc = torch.nn.CrossEntropyLoss()
+            self.lossFunc = torch.nn.CrossEntropyLoss(reduction='sum')
             print('Used Cross Entropy Loss Function')
         
         
         #Stochastic Gradient Descent Optimizer
         self.opt = torch.optim.SGD(self.net.parameters(),lr=lr,momentum=momentum)
         lamb = lambda epoch: 0.95**epoch
-        self.scheduler = torch.optim.lr_scheduler.LambdaLR(self.opt,lr_lambda=lamb)
-        self.decay_lr = decay_lr
+        self.scheduler = torch.optim.lr_scheduler.CyclicLR(self.opt,base_lr=min_lr,max_lr=lr,step_size_up=10000,step_size_down=10000)
 
         
 
@@ -235,9 +235,10 @@ class AllGoModel():
 
         
 
-    def trainNetwork(self,epochs,track=100,step_lr=5000):
+    def trainNetwork(self,epochs,track=100,step_lr=5000,cyclicLr=False):
         #Initialize all pairs of training genes
         pairs = self.makePairs(self.training)
+        testPairs = self.makePairs(self.validation)
 
         runningLoss = 0.0
         # If there already exists a lossList for this model and the network is not being reset, intialize the lost list from a file
@@ -247,39 +248,58 @@ class AllGoModel():
             lossList = []
 
         start = time.time()
+        
         #Run training loop epochs number of times
-        for epoch in range(epochs):
+        for iteration in range(epochs):
             #Reset gradients before running each training step
             self.opt.zero_grad()
             
             #Make batch array of gene pairs
             batchArray = self.makeBatchArray(pairs)
+            
             #Make features and labels tensors from batcharray
             features, labels = self.makeBatchTensors(batchArray)
+            
             #Move both tensors to device of model
             features = features.to(self.device)
             labels = labels.to(self.device)
+
 
             outputs = self.net(features.float())
 
             loss = self.lossFunc(outputs.float(),labels.float())
             runningLoss += loss.item()
             loss.backward()
+
             self.opt.step()
-            if epoch % (step_lr) == 0 and epoch != 0:
+            if cyclicLr:
                 self.scheduler.step()
             
-            if epoch % track == 0:
+            if iteration % track == 0:
                 # If we are tracking the intial loss of the network, we need to scale to the loss as if it were the loss of a set of 'track' batches
-                if epoch == 0:
+                if iteration == 0:
                     runningLoss *= track
-                lossList.append(runningLoss)
+                
+                with torch.no_grad():
+                    testBatch = self.makeBatchArray(testPairs)
+                    testFeatures, testLabels = self.makeBatchTensors(testBatch)
+                    testFeatures = testFeatures.to(self.device)
+                    testLabels = testLabels.to(self.device)
+
+                    testOutput = self.net(testFeatures.float())
+
+                    testLoss = self.lossFunc(outputs.float(),labels.float()).item() * track
+
+
+
+                lossList.append([iteration,runningLoss,testLoss,self.scheduler.get_last_lr()[0] if cyclicLr else self.lr])
                 print(f'{track} Batch Cumulative Loss: {runningLoss}')
                 runningLoss = 0.0
-                pd.DataFrame(lossList,columns=['Loss']).to_csv(self.lossLoc,index=False)
-                print(f'Time for 100 Batches: {(time.time()-start)/60}\n---------------------')
+                pd.DataFrame(lossList,columns=['Batch','Training Loss','Testing Loss','Learning Rate']).to_csv(self.lossLoc,index=False)
+                print(f'Time for 100 Batches: {(time.time()-start)/60}')
                 start = time.time()
                 torch.save(self.net.state_dict(),self.networkLoc)
+
 
 
     def testNetworkAll(self,proportionNeg=10,saveTerms={'GO:0007005','GO:0006302','GO:0007127'},runAll=True,validation=True):
