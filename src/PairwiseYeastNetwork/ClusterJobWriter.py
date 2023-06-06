@@ -69,9 +69,9 @@ def writeJobs(JobName,pythonFile,arg1=['0','1','2','3'],arg2=None,arg3=None,arg4
 # writeJobs('DeepNet_bioPIXIE_NoDropout','Main3.py')
 # writeJobs('DeepNet_bioPIXIE_Dropout','Main4.py')
 # writeJobs('Overfit_Unreasonable','Main3.py')
-# writeJobs('Modern_bioPIXIE','Main4.py')
+writeJobs('Modern_bioPIXIE','Main4.py')
 # writeJobs('Modern_bioPIXIE_Graph','GraphMain.py')
-writeJobs('Cyclic_lr','Main.py')
+# writeJobs('Cyclic_lr','Main.py')
 
 
 

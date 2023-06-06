@@ -235,7 +235,7 @@ class AllGoModel():
 
         
 
-    def trainNetwork(self,epochs,track=100,step_lr=5000,cyclicLr=False):
+    def trainNetwork(self,epochs,track=100,step_lr=5000,cyclicLr=False,partiallyTrained=False):
         #Initialize all pairs of training genes
         pairs = self.makePairs(self.training)
         testPairs = self.makePairs(self.validation)
@@ -247,10 +247,16 @@ class AllGoModel():
         else:
             lossList = []
 
+        if partiallyTrained:
+            iterationRange = range(len(lossList*track),epochs)
+        else:
+            iterationRange = range(epochs)
+
+
         start = time.time()
         
         #Run training loop epochs number of times
-        for iteration in range(epochs):
+        for iteration in iterationRange:
             #Reset gradients before running each training step
             self.opt.zero_grad()
             
