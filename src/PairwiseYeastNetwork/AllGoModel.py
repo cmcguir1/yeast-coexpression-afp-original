@@ -209,7 +209,6 @@ class AllGoModel():
         
         #Stochastic Gradient Descent Optimizer
         self.opt = torch.optim.SGD(self.net.parameters(),lr=lr,momentum=momentum)
-        lamb = lambda epoch: 0.95**epoch
         self.scheduler = torch.optim.lr_scheduler.CyclicLR(self.opt,base_lr=min_lr,max_lr=lr,step_size_up=10000,step_size_down=10000)
 
         
