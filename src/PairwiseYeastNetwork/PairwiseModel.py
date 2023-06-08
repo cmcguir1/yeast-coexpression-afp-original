@@ -12,7 +12,7 @@ from random import sample
 import os
 
 class PairwiseModel():
-    def __init__(self,data,fold,structure,folderName,modelName,lr=0.01,momentum=0.9,batch=20,activation='relu',inputDrop=None,hiddenDrop=None):
+    def __init__(self,data,fold,structure,folderName,modelName,lr=0.0001,momentum=0.9,batch=500,activation='relu',inputDrop=None,hiddenDrop=None):
         #Pass in PairwiseYeastData
         self.data : PairwiseYeastData = data
         #Get training and validation data from specified fold of data

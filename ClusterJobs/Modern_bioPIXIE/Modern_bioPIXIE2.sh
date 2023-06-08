@@ -4,7 +4,7 @@
 
 ##Place PBS directives here
 #PBS -N Modern_bioPIXIE
-#PBS -l nodes=1:ppn=36
+#PBS -l nodes=n36:ppn=36
 #PBS -l walltime=168:00:00
 #PBS -M cmcguir1@trinity.edu
 #PBS -m ae
