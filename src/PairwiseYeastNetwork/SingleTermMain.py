@@ -29,8 +29,8 @@ def main():
             model.testNetworkTraining(limitNegative=True)
             model.testNetworkValidation(limitNegative=True)
     else:
-        model = PairwiseModel(modelData,int(sys.argv[3]),f'{sys.argv[2]}x1','Spell/SingleTerm_lr_0.0001',f'{term[0:2]}{term[3:]}',batch=50,lr=0.001)
-        # model.trainNetwork(100000,printLoss=True)
+        model = PairwiseModel(modelData,int(sys.argv[3]),f'{sys.argv[2]}x1','Spell/SingleTerm_lr_0.0001',f'{term[0:2]}{term[3:]}',batch=50,lr=0.001,resetNet=True)
+        model.trainNetwork(100000,printLoss=True)
         model.testNetworkTraining(limitNegative=True)
         model.testNetworkValidation(limitNegative=True)
 

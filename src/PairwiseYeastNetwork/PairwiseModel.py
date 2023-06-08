@@ -102,7 +102,7 @@ class PairwiseModel():
                 if(saveLoss):
                     frame = pd.DataFrame(lossList,columns=['Loss'])
                     frame.to_csv(self.lossLocation,index=False)
-        torch.save(self.net.state_dict(), f'{self.networkLocation}.pth')
+        torch.save(self.net.state_dict(), f'{self.networkLocation}')
 
 
     def testNetwork(self,save,testingType,limitNegative,negProportion=10,regularize=True,posProportion=0):
