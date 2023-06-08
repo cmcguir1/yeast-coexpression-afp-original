@@ -12,7 +12,7 @@ from random import sample
 import os
 
 class PairwiseModel():
-    def __init__(self,data,fold,structure,folderName,modelName,lr=0.0001,momentum=0.9,batch=500,activation='relu',inputDrop=None,hiddenDrop=None):
+    def __init__(self,data,fold,structure,folderName,modelName,lr=0.0001,momentum=0.9,batch=500,activation='relu',inputDrop=None,hiddenDrop=None,resetNet=False):
         #Pass in PairwiseYeastData
         self.data : PairwiseYeastData = data
         #Get training and validation data from specified fold of data
@@ -20,6 +20,10 @@ class PairwiseModel():
 
         #Intializes network using number of input datasets and the specified hidden layer structure
         self.net = FlexNet(f'{len(self.data.datasets)}x{structure}',activation=activation,inputDrop=inputDrop,hiddenDrop=hiddenDrop)
+        self.networkLocation = f'./Yeast Resources/Pairwise/{folderName}/{modelName}_{structure}_Net_fold{fold+1}.pth'
+        if os.path.exists(f'./Yeast Resources/Pairwise/{folderName}/{modelName}_{structure}_Net_fold{fold+1}.pth') and not(resetNet):
+            self.net.load_state_dict(torch.load(self.networkLocation))
+            print('Loaded Network from file')
         #Determines device the network will train on, then moves network to that device
         #self.device = 'cuda:0' if torch.cuda.is_available() else 'cpu'
         self.device = 'cpu'
@@ -39,7 +43,7 @@ class PairwiseModel():
 
         #Locations to save files
         self.dataTableLocation = f'./Yeast Resources/Pairwise/{folderName}/{modelName}_{structure}'
-        self.networkLocation = f'./Yeast Resources/Pairwise/{folderName}/{modelName}_{structure}_Net_fold{fold+1}.pth'
+        
         self.lossLocation = f'./Yeast Resources/Pairwise/{folderName}/{modelName}_{structure}_Loss_fold{fold+1}.csv'
 
         if not os.path.exists(f'./Yeast Resources/Pairwise/{folderName}'):
@@ -104,7 +108,7 @@ class PairwiseModel():
     def testNetwork(self,save,testingType,limitNegative,negProportion=10,regularize=True,posProportion=0):
         with torch.no_grad():
             #Create positive and negative pairs from the validation data
-            posPairs, negPairs = self.makeTestPairs(self.posVal,self.negVal) if testingType == 'Test' else self.makeTestPairs(self.posTrain,self.negTrain)
+            posPairs, negPairs = self.makeTestPairs(self.posVal,self.negVal) if testingType == 'Test' or testingType == 'Val' else self.makeTestPairs(self.posTrain,self.negTrain)
             #Create an input array to make batch tensor by concatentating
             np.random.shuffle(posPairs)
             if posProportion == 0:
