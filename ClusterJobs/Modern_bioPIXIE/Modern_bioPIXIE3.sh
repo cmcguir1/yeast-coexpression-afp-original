@@ -1,6 +1,6 @@
 #!/usr/bin/sh
 
-## Job Created Jun-06-2023
+## Job Created Jun-09-2023
 
 ##Place PBS directives here
 #PBS -N Modern_bioPIXIE
@@ -11,4 +11,4 @@
 
 cd data/SummerResearch2022
 
-/data/hibbslab/anaconda3/bin/python src/PairwiseYeastNetwork/Main4.py 3    
+/data/hibbslab/anaconda3/bin/python src/PairwiseYeastNetwork/Main3.py 3    
