@@ -20,7 +20,7 @@ from Leaf import getLeaves, getGenes
 
 
 class AllGoModel():
-    def __init__(self,fold,structure,folderName,modelName,numFolds=4,lr=0.01,min_lr=1e-7,momentum=0.9,batch=50,gamma=2,alpha=1,weighted=True,lossFunc='CE',softmax=False,foldFile='./src/PairwiseYeastNetwork/AllGOGeneFold1.csv',ontologyDataset='modern',regularize=True,inputDropout=None,hiddenDropout=None,activation='relu',resetNet=False,cuda=True,inputVector = 'xl',outputVector = 'b',addTerms=[]):
+    def __init__(self,fold,structure,folderName,modelName,numFolds=4,lr=0.001,min_lr=1e-7,momentum=0.9,batch=50,gamma=2,alpha=1,weighted=True,lossFunc='CE',softmax=False,foldFile='./src/PairwiseYeastNetwork/AllGOGeneFold1.csv',ontologyDataset='modern',regularize=True,inputDropout=None,hiddenDropout=None,activation='relu',resetNet=False,cuda=True,inputVector = 'xl',outputVector = 'b',addTerms=[]):
         # Handling what data is in the input and output vector of the vector
 
         #   The argument 'inputVector' determines what data is included in the input vector of the network based off of what characters are included in 'inputVector'
@@ -285,25 +285,28 @@ class AllGoModel():
                 if iteration == 0:
                     runningLoss *= track
                 
-                with torch.no_grad():
-                    testBatch = self.makeBatchArray(testPairs)
-                    testFeatures, testLabels = self.makeBatchTensors(testBatch)
-                    testFeatures = testFeatures.to(self.device)
-                    testLabels = testLabels.to(self.device)
+                # with torch.no_grad():
+                #     testBatch = self.makeBatchArray(testPairs)
+                #     testFeatures, testLabels = self.makeBatchTensors(testBatch)
+                #     testFeatures = testFeatures.to(self.device)
+                #     testLabels = testLabels.to(self.device)
 
-                    testOutput = self.net(testFeatures.float())
+                #     testOutput = self.net(testFeatures.float())
 
-                    testLoss = self.lossFunc(outputs.float(),labels.float()).item() * track
+                #     testLoss = self.lossFunc(testOutput.float(),labels.float()).item() * track
 
 
 
-                lossList.append([iteration,runningLoss,testLoss,self.scheduler.get_last_lr()[0] if cyclicLr else self.lr])
+                # lossList.append([iteration,runningLoss,testLoss,self.scheduler.get_last_lr()[0] if cyclicLr else self.lr])
+                lossList.append([iteration,runningLoss])
                 print(f'{track} Batch Cumulative Loss: {runningLoss}')
                 runningLoss = 0.0
-                pd.DataFrame(lossList,columns=['Batch','Training Loss','Testing Loss','Learning Rate']).to_csv(self.lossLoc,index=False)
+                # pd.DataFrame(lossList,columns=['Batch','Training Loss','Testing Loss','Learning Rate']).to_csv(self.lossLoc,index=False)
+                pd.DataFrame(lossList,columns=['Batch','Training Loss']).to_csv(self.lossLoc,index=False)
+                
                 print(f'Time for 100 Batches: {(time.time()-start)/60}')
                 start = time.time()
-                torch.save(self.net.state_dict(),self.networkLoc)
+        torch.save(self.net.state_dict(),self.networkLoc)
 
 
 

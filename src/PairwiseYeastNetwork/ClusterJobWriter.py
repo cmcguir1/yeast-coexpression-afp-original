@@ -74,5 +74,6 @@ writeJobs('Modern_bioPIXIE','Main3.py')
 # writeJobs('Cyclic_lr','Main.py')
 # writeJobs('MitoOrg_ST','SingleTermMain.py',arg1=['GO:0007005'],arg2=['2000'],arg3=['0','1','2','3'])
 # writeJobs('AG_Overfit_lr','Main4.py',arg2=['0.001','0.0001','0.00001'])
+# writeJobs('MitoOrg_ST_Graph')
 
 
