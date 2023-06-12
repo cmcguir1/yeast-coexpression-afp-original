@@ -1,0 +1,13 @@
+Model Infromation\nHyperparameters
+	lr: 0.001
+	momentum: 0.9
+	batch: 50
+
+Optimization
+	Optimizer: SGD
+	Loss Function: CE
+
+Networks Information
+	Structure: 430x2000x53
+	Input Dropout: None
+	Hidden Dropout: None

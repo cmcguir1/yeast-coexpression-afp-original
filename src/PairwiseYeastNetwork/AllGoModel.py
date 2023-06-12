@@ -8,6 +8,7 @@ import time
 import os
 import random
 from FocalLoss import FocalLoss
+import threading
 
 from scipy import stats
 
@@ -155,12 +156,26 @@ class AllGoModel():
 
 
         # Neural Network code
-        inputDropString = '' if inputDropout == None or inputDropout == 0 else f'_inputDrop{inputDropout}'
-        hiddenDropString = '' if hiddenDropout == None or hiddenDropout == 0 else f'_hiddenDrop{hiddenDropout}'
+        inputDrop_name = '' if inputDropout == None or inputDropout == 0 else f'_inputDrop{inputDropout}'
+        hiddenDrop_name = '' if hiddenDropout == None or hiddenDropout == 0 else f'_hiddenDrop{hiddenDropout}'
+
+        lr_name = '' if lr == 0.001 else f'_lr{lr}'
+        batch_name = '' if batch == 500 else f'_batch{batch}'
+        lf_name = '' if lossFunc == 'CE' else f'lf{lossFunc}'
+        momentum_name = '' if momentum == 0.9 else f'_momentum{momentum}'
+        alpha_name = '' if alpha == 1 else f'_alpha{alpha}'
+        gamma_name = '' if gamma == 2 else f'_gamma{gamma}'
+
+        input_name = ''.join(sorted(inputVector))
+        output_name = ''.join(sorted(outputVector))
 
         struct = f'{self.inputSize}x{structure}x{self.outputSize}'
+
+        model_specification = f'{modelName}_{input_name}_{output_name}_{struct}{lr_name}{batch_name}{lf_name}{momentum_name}{alpha_name}{gamma_name}{inputDrop_name}{hiddenDrop_name}'
+
+        
         #Initialize the network, the size of the input layer is the number of expression datasets, and the size of the output is the number of leaf go terms
-        self.networkLoc = f'./Yeast Resources/Pairwise/Spell/{folderName}/{modelName}_{struct}{inputDropString}{hiddenDropString}_Net_fold{self.fold+1}.pth'
+        self.networkLoc = f'./Yeast Resources/Pairwise/Spell/{folderName}/{model_specification}_Net_fold{self.fold+1}.pth'
         
         if inputDropout == 0:
             inputDropout = None
@@ -213,12 +228,15 @@ class AllGoModel():
 
         
 
-        #Locations to save all output data
+        # This section of is used to determine what names networks, losses, and testing data are saved under
+        # The general pattern is that if a parameter diverges from the norm, its value is included in the filename
         
-        self.lossLoc = f'./Yeast Resources/Pairwise/Spell/{folderName}/{modelName}_{struct}{inputDropString}{hiddenDropString}_Loss_fold{self.fold+1}.csv'
+    
+
+        self.lossLoc = f'./Yeast Resources/Pairwise/Spell/{folderName}/{model_specification}_Loss_fold{self.fold+1}.csv'
         #The locations for the testing and training data will be folder because they will be storing a csv file for each GO term
-        self.trainLoc = f'./Yeast Resources/Pairwise/Spell/{folderName}/{modelName}_{struct}{inputDropString}{hiddenDropString}_Train_/'
-        self.testLoc = f'./Yeast Resources/Pairwise/Spell/{folderName}/{modelName}_{struct}{inputDropString}{hiddenDropString}_Test_/'
+        self.trainLoc = f'./Yeast Resources/Pairwise/Spell/{folderName}/{model_specification}_Train_/'
+        self.testLoc = f'./Yeast Resources/Pairwise/Spell/{folderName}/{model_specification}_Test_/'
         print(self.trainLoc)
         print(self.testLoc)
 
@@ -232,9 +250,22 @@ class AllGoModel():
         if not os.path.exists(self.trainLoc):
             os.mkdir(self.trainLoc)
 
+        if not os.path.exists(f'./Yeast Resources/Pairwise/Spell/{folderName}/{model_specification}_specification.txt'):
+            f = open(f'./Yeast Resources/Pairwise/Spell/{folderName}/{model_specification}_specification.txt','w')
+            f.write('Model Infromation\n')
+            f.write(f'Hyperparameters\n\tlr: {lr}\n\tmomentum: {momentum}\n\tbatch: {batch}\n\n')
+            f.write(f'Optimization\n\tOptimizer: SGD\n\tLoss Function: {lossFunc}\n')
+            if lossFunc == 'FL' or lossFunc == 'WCE':
+                f.write(f'\talpha: {alpha}\n')
+            if lossFunc == 'FL':
+                f.write(f'\tgamma: {gamma}\n')
+            f.write(f'\nNetworks Information\n\tStructure: {struct}\n\tInput Dropout: {inputDropout}\n\tHidden Dropout: {hiddenDropout}\n')
+            f.close()
         
 
-    def trainNetwork(self,epochs,track=100,step_lr=5000,cyclicLr=False,partiallyTrained=False):
+        
+
+    def trainNetwork(self,epochs,track=100,step_lr=5000,cyclicLr=False,partiallyTrained=False,parallel=False):
         #Initialize all pairs of training genes
         pairs = self.makePairs(self.training)
         testPairs = self.makePairs(self.validation)
@@ -263,7 +294,10 @@ class AllGoModel():
             batchArray = self.makeBatchArray(pairs)
             
             #Make features and labels tensors from batcharray
-            features, labels = self.makeBatchTensors(batchArray)
+            if parallel:
+                features, labels = self.parallelMakeBatchTensor(batchArray)
+            else:
+                features, labels = self.makeBatchTensors(batchArray)
             
             #Move both tensors to device of model
             features = features.to(self.device)
@@ -441,6 +475,52 @@ class AllGoModel():
         #             labels[i,self.GOTermDict[leaf[0]]] = 1.0
 
         return (features,labels)
+
+    def parallelMakeBatchTensor(self,batchArray):
+        features = torch.zeros(size=(self.batch,self.inputSize),dtype=torch.float)
+        labels = torch.zeros(size=(self.batch,self.outputSize),dtype=torch.float)
+        
+
+        def fillFeatures(start,finish):
+            featuresList = []
+            if self.expression:
+                
+                featuresList.append(torch.tensor([[self.calcCorr(dataset,genePair) for dataset in self.datasets] for genePair in batchArray[start:finish]],dtype=torch.float))
+            if self.localization:
+                featuresList.append(torch.tensor([[self.localizationScore(genePair,index) for index in range(23)] for genePair in batchArray[start:finish]],dtype=torch.float))
+            if self.genomicInteraction:
+                featuresList.append(torch.tensor([self.genomicScore(genePair) for genePair in batchArray[start:finish]],dtype=torch.float))
+            if self.physical:
+                featuresList.append(torch.tensor([self.physicalScore(genePair) for genePair in batchArray[start:finish]],dtype=torch.float))
+            features[start:finish,:] = torch.cat(featuresList,dim=1)
+            
+        def fillLabels(start,finish):
+            labels[start:finish,:] = torch.tensor([[self.calcLabel(leaf,genePair) for leaf in self.leaves] for genePair in batchArray[start:finish]],dtype=torch.float)
+        
+        def fillTensors(start,finish):
+            fillFeatures(start,finish)
+            fillLabels(start,finish)
+        
+        
+        cpus = os.cpu_count()
+        part = int(self.batch/cpus)
+
+        threads = []
+        for c in range(cpus):
+            if c != cpus - 1:
+                
+                threads.append(threading.Thread(target=fillTensors,args=(part*c,part*(c+1))))
+                threads[c].start()
+            else:
+                threads.append(threading.Thread(target=fillTensors,args=(part*c,self.batch)))
+                threads[c].start()
+        for c in range(cpus):
+            threads[c].join()
+
+        return(features,labels)
+            
+
+
     
     #Helper function for makeBatchTensors - looks up and modifies correlation for a gene pair in a given dataset
     def calcCorr(self,d,gp):
@@ -544,6 +624,7 @@ class AllGoModel():
             terms[index] = term
         pd.DataFrame(mat,columns=terms).to_csv('./Yeast Resources/OverlapResults/Overlap.csv',index=False)
         
+
 
         
         
