@@ -40,7 +40,7 @@ class AllGoModel():
 
         if self.expression:
             # Correlations Dictionary that will be retrieve precalculated correlation values
-            self.corrDict = CorrelationDictionary(dictLoc='../YeastMemMap/YeastCorrDictionary.dat' if (os.path.exists('../YeastMemMap/YeastCorrDictionary.dat')) else '../YeastDict.dat',datasetType=ontologyDataset,inMemory=False)
+            self.corrDict = CorrelationDictionary(dictLoc='../YeastMemMap/YeastDict_float16.npy' if (os.path.exists('../YeastMemMap/YeastDict_float16.npy')) else '../YeastDict_float16.npy',datasetType=ontologyDataset)
             self.datasets = self.corrDict.expDataset.datasets
             self.inputSize += len(self.datasets)
             print('Initialized Expression Datasets')
