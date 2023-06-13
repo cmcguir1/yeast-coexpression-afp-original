@@ -41,10 +41,18 @@ class PairwiseModel():
         self.batch = batch
         self.fold = fold
 
-        #Locations to save files
-        self.dataTableLocation = f'./Yeast Resources/Pairwise/{folderName}/{modelName}_{structure}'
+        lr_name = '' if lr == 0.001 else f'_lr{lr}'
+        batch_name = '' if batch == 500 else f'_batch{batch}'
+        momentum_name = '' if momentum == 0.9 else f'_momentum{momentum}'
         
-        self.lossLocation = f'./Yeast Resources/Pairwise/{folderName}/{modelName}_{structure}_Loss_fold{fold+1}.csv'
+
+        # input_name = ''.join(sorted(inputVector))
+        # output_name = ''.join(sorted(outputVector))
+
+        #Locations to save files
+        self.dataTableLocation = f'./Yeast Resources/Pairwise/{folderName}/{modelName}_{structure}{lr_name}{batch_name}{momentum_name}'
+        
+        self.lossLocation = f'./Yeast Resources/Pairwise/{folderName}/{modelName}_{structure}{lr_name}{batch_name}{momentum_name}_Loss_fold{fold+1}.csv'
 
         if not os.path.exists(f'./Yeast Resources/Pairwise/{folderName}'):
             os.mkdir(f'./Yeast Resources/Pairwise/{folderName}')
