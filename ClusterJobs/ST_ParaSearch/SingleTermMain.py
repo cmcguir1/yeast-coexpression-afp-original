@@ -24,7 +24,7 @@ def main():
     modelData = PairwiseYeastData(dataset='original',foldFile=f'./Yeast Resources/Datasets/All Spell/{term[0:2]}{term[3:]}_Folds_Original_1.csv',term=term,memMapLoc='../YeastMemMap/YeastCorrDictionary.dat')
     if sys.argv[4] == 'runAll':
         for i in range(4):
-            model = PairwiseModel(modelData,i,f'{sys.argv[2]}x1','Spell/lr_struct_ParaSearch',f'{term[0:2]}{term[3:]}',lr=float(sys.argv[3]))
+            model = PairwiseModel(modelData,i,f'{sys.argv[2]}x1','Spell/lr_struct_ParaSearch',f'{term[0:2]}{term[3:]}',lr=float(sys.argv[3]),resetNet=True)
             model.trainNetwork(80000,printLoss=True)
             model.testNetworkTraining(limitNegative=True)
             model.testNetworkValidation(limitNegative=True)

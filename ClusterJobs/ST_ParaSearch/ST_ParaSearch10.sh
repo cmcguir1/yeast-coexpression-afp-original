@@ -1,6 +1,6 @@
 #!/usr/bin/sh
 
-## Job Created Jun-12-2023
+## Job Created Jun-13-2023
 
 ##Place PBS directives here
 #PBS -N ST_ParaSearch
@@ -11,4 +11,4 @@
 
 cd data/SummerResearch2022
 
-/data/hibbslab/anaconda3/bin/python src/PairwiseYeastNetwork/SingleTermMain.py GO:0007005 500 0,0001 runAll 
+/data/hibbslab/anaconda3/bin/python src/PairwiseYeastNetwork/SingleTermMain.py GO:0007005 500 0.0001 runAll 
