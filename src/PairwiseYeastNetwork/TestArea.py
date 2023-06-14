@@ -1,21 +1,35 @@
 import torch
 import numpy as np
 from FocalLoss import FocalLoss
+import torch.nn.functional as F
 
 import sys
 sys.path.insert(0,'./obopy')
 from Leaf import getLeaves, getGenes
 
-print(len(getGenes('GO:0032543',dataset='original')))
-print(len(getGenes('GO:0007005',dataset='original')))
-print(len(set(getGenes('GO:0032543',dataset='original'))&set(getGenes('GO:0007005',dataset='original'))))
 
-# ce = torch.nn.CrossEntropyLoss(reduction='none')
-# fl = FocalLoss(alpha=1,gamma=0)
-# lsm = torch.nn.LogSoftmax(dim=1)
+ce = torch.nn.CrossEntropyLoss()
+fl = FocalLoss(alpha=torch.tensor([1,1,1,1,1]),gamma=0)
 
-# output = torch.tensor([[10,1,10,1,2]],dtype=torch.float)
-# labels = torch.tensor([[1,0,1,0,0]],dtype=torch.float)
+
+output = torch.tensor([[10,1,10,1,2]],dtype=torch.float)
+labels = torch.tensor([[1,0,1,0,0]],dtype=torch.float)
+
+print(f'Cross Entropy: {ce(output,labels)}')
+print(f'Focal Loss: {fl(output,labels)}')
+
+
+
+# soft = F.softmax(output.view(-1),dim=-1)
+# print(soft)
+# ce_loss = F.nll_loss(soft,labels.view(-1).type(torch.LongTensor),reduction='mean')
+# print(labels.view(-1))
+# ce_loss = -1 * torch.sum(torch.log(soft))
+
+
+# print(f'Cross Entropy Loss: {CE(output,labels).item()}')
+# print(f'Functional ce: {F.cross_entropy(output,labels,reduction="none")}')
+# print(f'My ce: {ce_loss}')
 # print(f'CE: {ce(output,labels)}')
 # print(f'FL: {fl(output,labels)}')
 # print(torch.nn.functional.binary_cross_entropy(torch.sigmoid(output),labels,reduction='none'))

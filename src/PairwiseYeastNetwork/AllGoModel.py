@@ -21,7 +21,7 @@ from Leaf import getLeaves, getGenes
 
 
 class AllGoModel():
-    def __init__(self,fold,structure,folderName,modelName,numFolds=4,lr=0.001,min_lr=1e-7,momentum=0.9,batch=50,gamma=2,alpha=1,weighted=True,lossFunc='CE',softmax=False,foldFile='./src/PairwiseYeastNetwork/AllGOGeneFold1.csv',ontologyDataset='modern',regularize=True,inputDropout=None,hiddenDropout=None,activation='relu',resetNet=False,cuda=True,inputVector = 'xl',outputVector = 'b',addTerms=[]):
+    def __init__(self,fold,structure,folderName,modelName,numFolds=4,lr=0.001,min_lr=1e-7,momentum=0.9,batch=50,gamma=2,alpha=1,weighted=False,lossFunc='CE',softmax=False,foldFile='./src/PairwiseYeastNetwork/AllGOGeneFold1.csv',ontologyDataset='modern',regularize=True,inputDropout=None,hiddenDropout=None,activation='relu',resetNet=False,cuda=True,inputVector = 'xl',outputVector = 'b',addTerms=[]):
         # Handling what data is in the input and output vector of the vector
 
         #   The argument 'inputVector' determines what data is included in the input vector of the network based off of what characters are included in 'inputVector'
@@ -161,7 +161,7 @@ class AllGoModel():
 
         lr_name = '' if lr == 0.001 else f'_lr{lr}'
         batch_name = '' if batch == 500 else f'_batch{batch}'
-        lf_name = '' if lossFunc == 'CE' else f'lf{lossFunc}'
+        lf_name = '' if lossFunc == 'CE' else f'_lf{lossFunc}'
         momentum_name = '' if momentum == 0.9 else f'_momentum{momentum}'
         alpha_name = '' if alpha == 1 else f'_alpha{alpha}'
         gamma_name = '' if gamma == 2 else f'_gamma{gamma}'
@@ -199,11 +199,11 @@ class AllGoModel():
             #   N - the total number of genes across all fold
             #   n - the number of gene annotated to a given go term
             # Weights are then divided by the sum of weights so that they add to zero, then they are multiplied by the number of output nodes
-            self.weights = torch.tensor([pow(len(folds),2) / pow(len(leaf[1]),2) for leaf in self.leaves],dtype=torch.float)
+            self.weights = torch.tensor([pow(len(folds),2) / pow(len(leaf[1]),2) for leaf in self.leaves],dtype=torch.float) 
             self.weights = (self.weights / torch.sum(self.weights)) * self.outputSize
 
         else:
-            self.weights = torch.ones((92,),dtype=float)
+            self.weights = torch.ones((self.outputSize,),dtype=float)
         
         self.weights = self.weights.to(self.device)
         
@@ -216,7 +216,7 @@ class AllGoModel():
             self.lossFunc = torch.nn.CrossEntropyLoss(weight=self.weights)
             print('Used Weighted Cross Entropy Loss Function')
         elif lossFunc in ['FL','focalLoss','focal_loss']:
-            self.lossFunc = FocalLoss(gamma=gamma,alpha=alpha)
+            self.lossFunc = FocalLoss(gamma=gamma,alpha=self.weights)
         else:
             self.lossFunc = torch.nn.CrossEntropyLoss(reduction='mean')
             print('Used Cross Entropy Loss Function')
