@@ -11,4 +11,4 @@
 
 cd data/SummerResearch2022
 
-/data/hibbslab/anaconda3/bin/python src/PairwiseYeastNetwork/Main3.py 0    
+/data/hibbslab/anaconda3/bin/python src/PairwiseYeastNetwork/Main3.py 0     > ClusterJobs/Modern_bioPIXIE/Modern_bioPIXIE0_output.txt

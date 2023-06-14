@@ -22,7 +22,7 @@ from Leaf import getLeaves, getGenes
 
 
 class AllGoModel():
-    def __init__(self,fold,structure,folderName,modelName,numFolds=4,lr=0.001,min_lr=1e-7,momentum=0.9,batch=50,gamma=2,alpha=1,weighted=False,lossFunc='CE',foldFile='./src/PairwiseYeastNetwork/AllGOGeneFold1.csv',ontologyDataset='modern',regularize=True,inputDropout=None,hiddenDropout=None,activation='relu',resetNet=False,cuda=True,inputVector = 'xl',outputVector = 'b',addTerms=[]):
+    def __init__(self,fold,structure,folderName,modelName,numFolds=4,lr=0.01,min_lr=1e-7,momentum=0.9,batch=50,gamma=2,alpha=1,weighted=False,lossFunc='CE',foldFile='./src/PairwiseYeastNetwork/AllGOGeneFold1.csv',ontologyDataset='modern',regularize=True,inputDropout=None,hiddenDropout=None,activation='relu',resetNet=False,cuda=True,inputVector = 'xl',outputVector = 'b',addTerms=[]):
         # Handling what data is in the input and output vector of the vector
 
         #   The argument 'inputVector' determines what data is included in the input vector of the network based off of what characters are included in 'inputVector'
@@ -223,6 +223,8 @@ class AllGoModel():
             print('Used Weighted Cross Entropy Loss Function')
         elif lossFunc in ['FL','focalLoss','focal_loss']:
             self.lossFunc = FocalLoss(gamma=gamma,alpha=self.weights,nonSpecific='n' in outputVector)
+        elif lossFunc in ['BCE','binaryCrossEntropy','binary_cross_entropy']:
+            self.lossFunc = torch.nn.BCEWithLogitsLoss(weight=self.weights)
         else:
             # self.lossFunc = torch.nn.CrossEntropyLoss(reduction='mean')
             self.lossFunc = CustomCrossEntropyLoss(alpha=self.weights,nonSpecific='n' in outputVector)
