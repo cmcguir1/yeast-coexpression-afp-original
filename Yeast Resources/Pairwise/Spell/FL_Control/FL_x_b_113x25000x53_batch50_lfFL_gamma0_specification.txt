@@ -1,0 +1,16 @@
+Model Infromation
+Hyperparameters
+	lr: 0.001
+	momentum: 0.9
+	batch: 50
+
+Optimization
+	Optimizer: SGD
+	Loss Function: FL
+	alpha: 1
+	gamma: 0
+
+Networks Information
+	Structure: 113x25000x53
+	Input Dropout: None
+	Hidden Dropout: None
