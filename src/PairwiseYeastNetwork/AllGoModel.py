@@ -333,12 +333,12 @@ class AllGoModel():
 
                 # lossList.append([iteration,runningLoss,testLoss,self.scheduler.get_last_lr()[0] if cyclicLr else self.lr])
                 lossList.append([iteration,runningLoss])
-                print(f'{track} Batch Cumulative Loss: {runningLoss}')
+                print(f'{track} Batch Cumulative Loss: {runningLoss}',flush=True)
                 runningLoss = 0.0
                 # pd.DataFrame(lossList,columns=['Batch','Training Loss','Testing Loss','Learning Rate']).to_csv(self.lossLoc,index=False)
                 pd.DataFrame(lossList,columns=['Batch','Training Loss']).to_csv(self.lossLoc,index=False)
                 
-                print(f'Time for 100 Batches: {(time.time()-start)/60}')
+                print(f'Time for 100 Batches: {(time.time()-start)/60}',flush=True)
                 start = time.time()
         torch.save(self.net.state_dict(),self.networkLoc)
 

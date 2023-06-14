@@ -43,8 +43,11 @@ def writeJobs(JobName,pythonFile,arg1=['0','1','2','3'],arg2=None,arg3=None,arg4
                        f.write('#PBS -m ae\n\n')
                        f.write('cd data/SummerResearch2022\n\n')
                        #f.write(f'touch data/SummerResearch2022/ClusterJobs/{JobName}/{JobName}{jobNum}_output.txt\n')
-                       #f.write(f'{command} {pythonFilePath}{pythonFile} {arg1[a1]} {arg2[a2]} {arg3[a3]} {arg4[a4]} {arg5[a5]} > data/SummerResearch2022/ClusterJobs/{JobName}/{JobName}{jobNum}_output.txt')
-                       f.write(f'{command} {pythonFilePath}{pythonFile} {arg1[a1]} {arg2[a2]} {arg3[a3]} {arg4[a4]} {arg5[a5]}')
+                       f.write(f'{command} {pythonFilePath}{pythonFile} {arg1[a1]} {arg2[a2]} {arg3[a3]} {arg4[a4]} {arg5[a5]} > data/SummerResearch2022/ClusterJobs/{JobName}/{JobName}{jobNum}_output.txt')
+                    #    f.write(f'{command} {pythonFilePath}{pythonFile} {arg1[a1]} {arg2[a2]} {arg3[a3]} {arg4[a4]} {arg5[a5]}')
+                       f.close()
+
+                       f = open(f'./ClusterJobs/{JobName}/{JobName}{jobNum}_output.txt','w')
                        f.close()
 
                        jobNum += 1
@@ -69,12 +72,13 @@ def writeJobs(JobName,pythonFile,arg1=['0','1','2','3'],arg2=None,arg3=None,arg4
 # writeJobs('DeepNet_bioPIXIE_NoDropout','Main3.py')
 # writeJobs('DeepNet_bioPIXIE_Dropout','Main4.py')
 # writeJobs('Overfit_Unreasonable','Main3.py')
-writeJobs('Modern_bioPIXIE','Main3.py')
+# writeJobs('Modern_bioPIXIE','Main3.py')
 # writeJobs('Modern_bioPIXIE_Graph','GraphMain.py')
 # writeJobs('Cyclic_lr','Main.py')
 # writeJobs('MitoOrg_ST','SingleTermMain.py',arg1=['GO:0007005'],arg2=['2000'],arg3=['0','1','2','3'])
 # writeJobs('AG_Overfit_lr','Main4.py',arg2=['0.001','0.0001','0.00001'])
 # writeJobs('MitoOrg_ST_Graph')
-writeJobs('ST_ParaSearch','SingleTermMain.py',arg1=['GO:0007005'],arg2=['100','500','1000'],arg3=['0.1','0.01','0.001','0.0001'],arg4=['runAll'])
+# writeJobs('ST_ParaSearch','SingleTermMain.py',arg1=['GO:0007005'],arg2=['100','500','1000'],arg3=['0.1','0.01','0.001','0.0001'],arg4=['runAll'])
+writeJobs('TestClusterSpeed','Main7.py',arg1=['GO:007005'],arg2=['2000'],arg3=['0.01'],arg4=['0'],arg5=['50','500'])
 
 
