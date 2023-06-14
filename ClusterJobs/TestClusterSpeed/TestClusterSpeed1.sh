@@ -11,4 +11,4 @@
 
 cd data/SummerResearch2022
 
-/data/hibbslab/anaconda3/bin/python src/PairwiseYeastNetwork/Main7.py GO:007005 2000 0.01 0 500 > ClusterJobs/TestClusterSpeed/TestClusterSpeed1_output.txt
+/data/hibbslab/anaconda3/bin/python src/PairwiseYeastNetwork/Main7.py GO:0007005 2000 0.01 0 500 > ClusterJobs/TestClusterSpeed/TestClusterSpeed1_output.txt
