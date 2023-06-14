@@ -26,8 +26,8 @@ def main():
     # GOTest.testNetworkAll(runAll=True,validation=False)
 
 
-    GOTest = AllGoModel(int(sys.argv[1]),'25000','Overfit_lr',f'Original',foldFile='./src/PairwiseYeastNetwork/AllGOGeneFold1.csv',ontologyDataset='original',resetNet=True,inputVector='x',cuda=False,lr=float(sys.argv[2]))
-    GOTest.trainNetwork(200000,track=100,cyclicLr=False)
+    GOTest = AllGoModel(0,'25000','Test_NonSpecific',f'Original',foldFile='./src/PairwiseYeastNetwork/AllGOGeneFold1.csv',ontologyDataset='original',resetNet=True,inputVector='x',outputVector='bn',cuda=False)
+    GOTest.trainNetwork(1000,track=100)
     GOTest.testNetworkAll(runAll=True)
     GOTest.testNetworkAll(runAll=True,validation=False)
 

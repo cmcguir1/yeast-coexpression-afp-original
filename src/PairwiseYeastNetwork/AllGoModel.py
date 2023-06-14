@@ -8,6 +8,7 @@ import time
 import os
 import random
 from FocalLoss import FocalLoss
+from CustomCrossEntropyLoss import CustomCrossEntropyLoss
 import threading
 
 from scipy import stats
@@ -21,7 +22,7 @@ from Leaf import getLeaves, getGenes
 
 
 class AllGoModel():
-    def __init__(self,fold,structure,folderName,modelName,numFolds=4,lr=0.001,min_lr=1e-7,momentum=0.9,batch=50,gamma=2,alpha=1,weighted=False,lossFunc='CE',softmax=False,foldFile='./src/PairwiseYeastNetwork/AllGOGeneFold1.csv',ontologyDataset='modern',regularize=True,inputDropout=None,hiddenDropout=None,activation='relu',resetNet=False,cuda=True,inputVector = 'xl',outputVector = 'b',addTerms=[]):
+    def __init__(self,fold,structure,folderName,modelName,numFolds=4,lr=0.001,min_lr=1e-7,momentum=0.9,batch=50,gamma=2,alpha=1,weighted=False,lossFunc='CE',foldFile='./src/PairwiseYeastNetwork/AllGOGeneFold1.csv',ontologyDataset='modern',regularize=True,inputDropout=None,hiddenDropout=None,activation='relu',resetNet=False,cuda=True,inputVector = 'xl',outputVector = 'b',addTerms=[]):
         # Handling what data is in the input and output vector of the vector
 
         #   The argument 'inputVector' determines what data is included in the input vector of the network based off of what characters are included in 'inputVector'
@@ -122,6 +123,10 @@ class AllGoModel():
         self.GOTermDict = {term[0]: i for i,term in enumerate(self.leaves)}
         self.outputSize = len(self.leaves)
         
+        self.nonSpecific = 'n' in outputVector
+        if self.nonSpecific:
+            self.outputSize += 1
+        
         
         
         
@@ -200,25 +205,27 @@ class AllGoModel():
             #   n - the number of gene annotated to a given go term
             # Weights are then divided by the sum of weights so that they add to zero, then they are multiplied by the number of output nodes
             self.weights = torch.tensor([pow(len(folds),2) / pow(len(leaf[1]),2) for leaf in self.leaves],dtype=torch.float) 
-            self.weights = (self.weights / torch.sum(self.weights)) * self.outputSize
+            self.weights = (self.weights / torch.sum(self.weights)) * len(self.leaves)
 
         else:
-            self.weights = torch.ones((self.outputSize,),dtype=float)
+            self.weights = torch.ones((len(self.leaves),),dtype=float)
         
         self.weights = self.weights.to(self.device)
         
 
         #Initialize Loss function, we are using CEL because we have multiple outputs that could be true
         if lossFunc in ['CE','crossEntropy','cross_entropy']:
-            self.lossFunc = torch.nn.CrossEntropyLoss()
+            # self.lossFunc = torch.nn.CrossEntropyLoss()
+            self.lossFunc = CustomCrossEntropyLoss(alpha=self.weights,nonSpecific='n' in outputVector)
             print('Used Cross Entropy Loss Function')
         elif lossFunc in ['WCE','weightedCrossEntropy','weighted_cross_entropy']:
             self.lossFunc = torch.nn.CrossEntropyLoss(weight=self.weights)
             print('Used Weighted Cross Entropy Loss Function')
         elif lossFunc in ['FL','focalLoss','focal_loss']:
-            self.lossFunc = FocalLoss(gamma=gamma,alpha=self.weights)
+            self.lossFunc = FocalLoss(gamma=gamma,alpha=self.weights,nonSpecific='n' in outputVector)
         else:
-            self.lossFunc = torch.nn.CrossEntropyLoss(reduction='mean')
+            # self.lossFunc = torch.nn.CrossEntropyLoss(reduction='mean')
+            self.lossFunc = CustomCrossEntropyLoss(alpha=self.weights,nonSpecific='n' in outputVector)
             print('Used Cross Entropy Loss Function')
         
         
@@ -402,53 +409,69 @@ class AllGoModel():
             columnNames = ['Gene A','Gene B','Label','Score','True Positive','False Negative','True Negative','False Positive','Accuracy','Precision','Recall','False Positive Rate','Selectivity']
             
             #Loops over all Go Slim terms
-            for i, leaf in enumerate(self.leaves):
-                print(f'Testing GO Term: {leaf[0]} ({i} / {self.outputSize})')
-                #Conditional determines whether a given GO term's performance is calculated
-                if leaf[0] in saveTerms or runAll:
-                    #Positive genes are all genes in the validation set that are annotated to the GO term
-                    posGenes = [gene for gene in self.validation if gene in leaf[1]]
+            for i in range(self.outputSize):
+                if self.outputSize - 1 != i or (not(self.nonSpecific) and i == self.outputSize):
+                    leaf = self.leaves[i]
+                    print(f'Testing GO Term: {leaf[0]} ({i} / {self.outputSize})')
+                    #Conditional determines whether a given GO term's performance is calculated
+                    if leaf[0] in saveTerms or runAll:
+                        #Positive genes are all genes in the validation set that are annotated to the GO term
+                        posGenes = [gene for gene in self.validation if gene in leaf[1]]
 
-                    #If no genes are annoated to the term in validation, make pair from all annotated genes
-                    #This was put in termporarily to allow for the test function to run, but this is not a good way to test terms with no genes and should be replaced
-                    if len(posGenes) == 0 or True:
-                        posGenes = list(leaf[1])
-                    posPairs = self.makePairs(np.array(posGenes))
+                        #If no genes are annoated to the term in validation, make pair from all annotated genes
+                        #This was put in termporarily to allow for the test function to run, but this is not a good way to test terms with no genes and should be replaced
+                        if len(posGenes) == 0 or True:
+                            posGenes = list(leaf[1])
+                        posPairs = self.makePairs(np.array(posGenes))
 
-                    #If there are more than 1000 positive pairs, shuffle the array and take the first 1000
-                    if len(posPairs) > 1000:
-                        np.random.shuffle(posPairs)
-                        posPairs = posPairs[:1000]
-                    
-                    negPairs = np.array([[pair[0],pair[1]] for pair in allPairs - set([(pair[0],pair[1]) for pair in posPairs])])
-                    np.random.shuffle(negPairs)
-                    negPairs = negPairs[:len(posPairs)*proportionNeg]
-                    testingPairs = np.concatenate([posPairs,negPairs])
+                        #If there are more than 1000 positive pairs, shuffle the array and take the first 1000
+                        if len(posPairs) > 1000:
+                            np.random.shuffle(posPairs)
+                            posPairs = posPairs[:1000]
+                        
+                        negPairs = np.array([[pair[0],pair[1]] for pair in allPairs - set([(pair[0],pair[1]) for pair in posPairs])])
+                        np.random.shuffle(negPairs)
+                        negPairs = negPairs[:len(posPairs)*proportionNeg]
+                        testingPairs = np.concatenate([posPairs,negPairs])
 
-                    # print(f'Pos Genes: {posGenes}')
-                    # print(f'Pos piars: {posPairs}\nNeg Pairs: {negPairs}')
+                        # print(f'Pos Genes: {posGenes}')
+                        # print(f'Pos piars: {posPairs}\nNeg Pairs: {negPairs}')
 
-                    #Calculate the data for a term
-                    termData = np.array([calcPair(pair,self.GOTermDict[leaf[0]]) for pair in testingPairs],dtype=object)
+                        #Calculate the data for a term
+                        termData = np.array([calcPair(pair,self.GOTermDict[leaf[0]]) for pair in testingPairs],dtype=object)
+                        sortedData = termData[termData[:,3].argsort()[::-1]]
+                        
+                        stats = calcStats(termData)
+                        termResults = np.concatenate([sortedData,stats],axis=1)
+                        leafStatsDist.append([leaf[0],np.mean(termResults[:,10]),averagePrecision(termResults[:,9])])
+                        goTerm = leaf[0].replace(':','-')
+                        print('Are we attempting to save')
+                        termDataFrame = pd.DataFrame(termResults,columns=columnNames)
+                        termDataFrame.drop(termDataFrame.columns[[4,5,6,7,8,12]],axis=1,inplace=True)
+                        termDataFrame.to_csv(f'{self.testLoc if validation else self.trainLoc}/{goTerm}_stats_fold{self.fold}.csv',index=False)
+                else:
+                    testingPairs = self.makeBatchArray(allPairs,batchSize=20000)
+
+                    termData = np.array([calcPair(pair,self.outputSize-1) for pair in testingPairs],dtype=object)
                     sortedData = termData[termData[:,3].argsort()[::-1]]
                     
                     stats = calcStats(termData)
                     termResults = np.concatenate([sortedData,stats],axis=1)
-                    leafStatsDist.append([leaf[0],np.mean(termResults[:,10]),averagePrecision(termResults[:,9])])
-                    goTerm = leaf[0].replace(':','-')
-                    print('Are we attempting to save')
+                    leafStatsDist.append(['AnyCoAnno',np.mean(termResults[:,10]),averagePrecision(termResults[:,9])])
                     termDataFrame = pd.DataFrame(termResults,columns=columnNames)
                     termDataFrame.drop(termDataFrame.columns[[4,5,6,7,8,12]],axis=1,inplace=True)
-                    termDataFrame.to_csv(f'{self.testLoc if validation else self.trainLoc}/{goTerm}_stats_fold{self.fold}.csv',index=False)
+                    termDataFrame.to_csv(f'{self.testLoc if validation else self.trainLoc}/AnyCoAnno_stats_fold{self.fold}.csv',index=False)
             if runAll:
                 pd.DataFrame(leafStatsDist,columns=['GO Term','AUC','Average Precision']).to_csv(f'{self.testLoc if validation else self.trainLoc}/GOTermDistribution_fold{self.fold}.csv',index=False)
             
 
 
     #Makes input batches with pairs of genes, each pair being a list of two strings
-    def makeBatchArray(self,pairs):
+    def makeBatchArray(self,pairs,batchSize=None):
+        if batchSize == None:
+            batchSize = self.batch
         #Returns array with batch size number of random gene pairs
-        return pairs[np.random.choice(len(pairs),self.batch,replace=False),:]
+        return pairs[np.random.choice(len(pairs),batchSize,replace=False),:]
 
     def makeBatchTensors(self,batchArray):
         # First, make an array of the features that are the pearson correlations between the gene pair in every gene expression dataset
@@ -467,12 +490,10 @@ class AllGoModel():
 
         # Create lists of labels
         labels = torch.tensor([[self.calcLabel(leaf,genePair) for leaf in self.leaves] for genePair in batchArray],dtype=torch.float)
-        
-        
-        # for i in range(len(batchArray)):
-        #     for leaf in self.leaves:
-        #         if batchArray[i,0] in leaf[1] and batchArray[i,1] in leaf[1]:
-        #             labels[i,self.GOTermDict[leaf[0]]] = 1.0
+        if self.nonSpecific:
+            # print(torch.tensor([self.nonSpecificLabel(lab) for lab in labels]).size())
+            # print(labels)
+            labels = torch.cat([labels,torch.tensor([self.nonSpecificLabel(lab) for lab in labels])],dim=1)
 
         return (features,labels)
 
@@ -550,6 +571,12 @@ class AllGoModel():
                 return 1
             else:
                 return 0
+            
+    def nonSpecificLabel(self,vector):
+        if torch.sum(vector).item() > 0:
+            return [1]
+        else:
+            return [0]
 
     # Helper Function for makeBatchTensors - Predicate that is used to make the localization data section of the features tensor
     def localizationScore(self,gp,index):
@@ -576,6 +603,7 @@ class AllGoModel():
             return self.physicalMap[genePairStr]
         else:
             return [0 for _ in range(7)]
+        
         
     #Returns array of all pairs of gene from given array of genes
     def makePairs(self,genes):

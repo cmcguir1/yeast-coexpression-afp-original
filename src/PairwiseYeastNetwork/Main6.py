@@ -26,7 +26,7 @@ def main():
     # GOTest.testNetworkAll(runAll=True,validation=False)
 
 
-    GOTest = AllGoModel(int(sys.argv[1]),'25000',f'FL_Control',f'{sys.argv[2]}',foldFile='./src/PairwiseYeastNetwork/AllGOGeneFold1.csv',ontologyDataset='original',resetNet=True,cuda=False,inputVector='x',lossFunc=sys.argv[2],batch=50)
+    GOTest = AllGoModel(int(sys.argv[1]),'25000',f'FL_Control',f'{sys.argv[2]}',foldFile='./src/PairwiseYeastNetwork/AllGOGeneFold1.csv',ontologyDataset='original',resetNet=True,cuda=False,inputVector='x',lossFunc=sys.argv[2],batch=50,gamma=0)
     GOTest.trainNetwork(40000,track=100)
     GOTest.testNetworkAll(runAll=True)
     GOTest.testNetworkAll(runAll=True,validation=False)

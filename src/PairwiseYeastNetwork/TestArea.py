@@ -1,22 +1,25 @@
 import torch
 import numpy as np
 from FocalLoss import FocalLoss
+from CustomCrossEntropyLoss import CustomCrossEntropyLoss
 import torch.nn.functional as F
 
 import sys
 sys.path.insert(0,'./obopy')
 from Leaf import getLeaves, getGenes
 
+print(torch.tensor([[0],[1],[1]]).size())
+# ce = torch.nn.CrossEntropyLoss()
+# c_ce = CustomCrossEntropyLoss()
+# fl = FocalLoss(alpha=torch.tensor([1,1,1,1]),gamma=0,nonSpecific=True)
 
-ce = torch.nn.CrossEntropyLoss()
-fl = FocalLoss(alpha=torch.tensor([1,1,1,1,1]),gamma=0)
 
+# output = torch.tensor([[10,1,10,1,2]],dtype=torch.float)
+# labels = torch.tensor([[1,0,1,0,0]],dtype=torch.float)
 
-output = torch.tensor([[10,1,10,1,2]],dtype=torch.float)
-labels = torch.tensor([[1,0,1,0,0]],dtype=torch.float)
-
-print(f'Cross Entropy: {ce(output,labels)}')
-print(f'Focal Loss: {fl(output,labels)}')
+# print(f'Cross Entropy: {ce(output,labels)}')
+# print(f'Focal Loss: {fl(output,labels)}')
+# print(f'Custom Cross Entropy: {c_ce(output,labels)}')
 
 
 
