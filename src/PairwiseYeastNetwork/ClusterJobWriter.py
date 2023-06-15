@@ -81,6 +81,7 @@ def writeJobs(JobName,pythonFile,arg1=['0','1','2','3'],arg2=None,arg3=None,arg4
 # writeJobs('TestClusterSpeed','Main7.py',arg1=['GO:0007005'],arg2=['2000'],arg3=['0.01'],arg4=['0'],arg5=['50','500'])
 # writeJobs('FL_Control','Main6.py',arg2=['FL','CE'])
 # writeJobs('LossFunc','Main4.py',arg2=['BCE','CE','FL'])
-writeJobs('CorrelationDict','Main.py',arg1=[''])
+# writeJobs('CorrelationDict','Main.py',arg1=[''])
+writeJobs('MemMapTest','Main.py',arg2=['YeastDict_Redo.dat','YeastDict.dat'])
 
 
