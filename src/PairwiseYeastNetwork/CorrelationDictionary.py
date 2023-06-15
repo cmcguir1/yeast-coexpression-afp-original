@@ -66,6 +66,6 @@ class CorrelationDictionary():
     def unifyCorrelations(self,absLocation):
         # memMap = np.zeros((len(self.datasets),(self.geneNumber*self.geneNumber - sum(range(self.geneNumber)))),dtype=np.float16)
         memMap = np.memmap(absLocation,'float32',mode='w+',shape =(len(self.datasets),(self.geneNumber*self.geneNumber - sum(range(self.geneNumber))) + self.geneNumber))
-        for dataset, index in self.datasetsDict:
-            memMap[self.expDataset[dataset],:] = np.memmap(f'/home/cmcguir1/YeastMemMap/{dataset}_corrDict.dat',mode='r+',shape=((self.geneNumber*self.geneNumber - sum(range(self.geneNumber))) + self.geneNumber,))
+        for dataset, index in self.datasetsDict.items():
+            memMap[self.datasetsDict[dataset],:] = np.memmap(f'/home/cmcguir1/data/YeastMemMap/{dataset}_corrDict.dat',mode='r+',shape=((self.geneNumber*self.geneNumber - sum(range(self.geneNumber))) + self.geneNumber,))
             memMap.flush()
