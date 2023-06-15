@@ -18,18 +18,8 @@ ssl._create_default_https_context = ssl._create_unverified_context
 
 def main():
 
-    #GOTest = AllGoModel(i,sys.argv[1],'AllGO_Original_Parameter','Original',foldFile='./src/PairwiseYeastNetwork/AllGOGeneFold_Orignial_1.csv',ontologyDataset='original',inputDropout=float(sys.argv[2]),hiddenDropout=float(sys.argv[3]))
-    start = time.time()
-    # GOTest = AllGoModel(int(sys.argv[1]),'50000x10000x5000x1000','Overfit_Dropout',f'Dropout_0.3',foldFile='./src/PairwiseYeastNetwork/AllGOGeneFold1.csv',ontologyDataset='original',resetNet=True,cuda=False,hiddenDropout=0.3)
-    # GOTest.trainNetwork(60000,track=100)
-    # GOTest.testNetworkAll(runAll=True)
-    # GOTest.testNetworkAll(runAll=True,validation=False)
-
-
-    GOTest = AllGoModel(0,'2000','Test',f'Cyclic',foldFile='./src/PairwiseYeastNetwork/AllGOGeneFold1.csv',ontologyDataset='modern',inputVector='x',cuda=False,batch=500,resetNet=True)
-    GOTest.trainNetwork(80000,track=10,cyclicLr=False,parallel=True)
-    GOTest.testNetworkAll(runAll=True)
-    GOTest.testNetworkAll(runAll=True,validation=False)
+   corr = CorrelationDictionary('../YeastMemMap/YeastDict_float16.npy')
+   corr.unifyCorrelations('../YeastMemMap/YeastDict_Redo.dat')
 
 
 

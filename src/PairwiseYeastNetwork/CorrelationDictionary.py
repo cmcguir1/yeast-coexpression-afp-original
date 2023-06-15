@@ -7,7 +7,7 @@ from sympy import pdsolve
 from ExpressionDatasets import ExpressionDatasets
 
 class CorrelationDictionary():
-    def __init__(self,dictLoc='../YeastDict_float16.npy',datasetType='modern',inMemory=False):
+    def __init__(self,dictLoc='../YeastDict_float16.npy',datasetType='modern'):
         #Dictionary of Gene Name to its index in the correlation dictionary
         self.genes = pd.read_csv('./src/PairwiseYeastNetwork/geneIndexDictionary_full.csv').to_numpy()
         self.indexDict = {gene[0]: gene[1] for gene in self.genes}
@@ -32,10 +32,9 @@ class CorrelationDictionary():
             print('Used Modern Datasets')
 
         
-        #Correlations dictionary initialization
+        # Correlations dictionary initialization
         # self.memMap = np.memmap(dictLoc,'float32',mode='r+',shape=(430,(self.geneNumber*self.geneNumber - sum(range(self.geneNumber))) + self.geneNumber))
         self.memMap = np.load(dictLoc)
-        # print(np.shape(self.memMap))
 
 
     def lookupCorrelation(self,gene1,gene2,dataset):
@@ -50,7 +49,6 @@ class CorrelationDictionary():
     def calculateDataset(self,datasetIndex,location='./MemoryMapTest.dat'):
         memMap = np.memmap(location,dtype='float32',mode='r+',shape=((self.geneNumber*self.geneNumber - sum(range(self.geneNumber))) + self.geneNumber,))
         for pair in self.pairs:
-            # print(pair)
             dset = self.expDataset.datasets[datasetIndex]
             val = dset.customCorrelation(pair)
             memMap[self.calcIndex(pair[0],pair[1])] = val
@@ -66,7 +64,8 @@ class CorrelationDictionary():
         return (col * self.geneNumber - sum(range(col))) + row
 
     def unifyCorrelations(self,absLocation):
+        # memMap = np.zeros((len(self.datasets),(self.geneNumber*self.geneNumber - sum(range(self.geneNumber)))),dtype=np.float16)
         memMap = np.memmap(absLocation,'float32',mode='w+',shape =(len(self.datasets),(self.geneNumber*self.geneNumber - sum(range(self.geneNumber))) + self.geneNumber))
         for dataset, index in self.datasetsDict:
-            memMap[self.expDataset[dataset]] = np.memmap(f'/home/cmcguir1/YeastMemMap/{dataset}_corrDict.dat',mode='w+',shape=((self.geneNumber*self.geneNumber - sum(range(self.geneNumber))) + self.geneNumber,))
+            memMap[self.expDataset[dataset],:] = np.memmap(f'/home/cmcguir1/YeastMemMap/{dataset}_corrDict.dat',mode='r+',shape=((self.geneNumber*self.geneNumber - sum(range(self.geneNumber))) + self.geneNumber,))
             memMap.flush()
