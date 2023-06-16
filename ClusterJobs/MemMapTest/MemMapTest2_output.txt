@@ -1,0 +1,779 @@
+Used 2009 Datasets
+Initialized Expression Datasets
+Initialized training and validation data
+Initialized Network
+Used Cross Entropy Loss Function
+./Yeast Resources/Pairwise/Spell/Test_MemMap/Redo_x_b_113x2000x53_lr0.01_batch50_Train_/
+./Yeast Resources/Pairwise/Spell/Test_MemMap/Redo_x_b_113x2000x53_lr0.01_batch50_Test_/
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.09121252298355102
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 1.0819584687550863
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.6893181165059408
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.7062418619791667
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.7075169086456299
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.6793958266576131
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.6795020778973897
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.6827056487401326
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.6874689579010009
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.6914356907208761
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.6858707547187806
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.6906027237574259
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.6940351168314616
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.6916088024775188
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.6930972337722778
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.6855450391769409
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.6816393693288167
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.6831294337908427
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.6812147974967957
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.6788614153861999
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.68598419825236
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.6777668793996176
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.6880974133809408
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.6790353377660115
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.6719946543375651
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.6777800440788269
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.683538027604421
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.6793087323506674
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.6803786873817443
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.6789160410563151
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.6796267827351888
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.6755150000254313
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.680383837223053
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.6796227097511292
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.6752736608187357
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.6761073668797811
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.6789998610814413
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.683509373664856
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.682437288761139
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.6823602914810181
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.6825304309527079
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.6808573802312216
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.6841315547625224
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.6791263341903686
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.6858423312505086
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.6772000590960184
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.6782568693161011
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.6767996152242025
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.6759418884913126
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.6806659817695617
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.6844082713127136
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.6844810763994853
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.6769782304763794
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.6825613101323446
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.6750252882639567
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.6772358218828837
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.6855902393658956
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.6799878398577373
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.6757714668909709
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.6735502243041992
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.6817347725232442
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.6772733290990194
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.6809853593508403
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.6807339310646057
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.6852233012517294
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.6797095696131389
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.6823750933011373
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.6827784538269043
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.6848977088928223
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.6804551482200623
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.6831310749053955
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.6791786630948384
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.68194659948349
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.6825583299001058
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.6849834283192953
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.6811596075693767
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.6834929664929708
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.6798806508382161
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.6811055660247802
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.679872194925944
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.6806546529134114
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.6846583167711894
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.684603194395701
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.6823656479517619
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.6829117854436239
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.6812222401301066
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.6766861081123352
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.6776248892148335
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.6803633093833923
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.6863273779551188
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.6807449460029602
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.6802587111790975
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.6790735562642415
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.6787435571352641
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.6833569327990214
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.6811214804649353
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.6735361417134603
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.6816437800725301
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.6824822982152303
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.6836995800336202
+Began Testing the Network
+Testing GO Term: GO:0000054 (0 / 53)
+Sorted Data: [['YBR082C' 'YMR201C' 0 nan]
+ ['YOR179C' 'YHR036W' 0 nan]
+ ['YOL018C' 'YDL095W' 0 nan]
+ ...
+ ['YDL085W' 'YGR002C' 0 nan]
+ ['YDR342C' 'YAL025C' 0 nan]
+ ['YOR206W' 'YJL041W' 1 nan]]
+Are we attempting to save
+Testing GO Term: GO:0000278 (1 / 53)
+Sorted Data: [['YMR316W' 'YDR126W' 0 nan]
+ ['YOR075W' 'YGR075C' 0 nan]
+ ['YMR247C' 'YHL009W-B' 0 nan]
+ ...
+ ['YDR248C' 'YER148W' 0 nan]
+ ['YOR167C' 'YLR439W' 0 nan]
+ ['YKR028W' 'YFL029C' 1 nan]]
+Are we attempting to save
+Testing GO Term: GO:0000747 (2 / 53)
+Sorted Data: [['YAR019C' 'YCL059C' 0 nan]
+ ['YOR192C-A' 'YOR063W' 0 nan]
+ ['YIL125W' 'YJL041W' 0 nan]
+ ...
+ ['YER159C-A' 'YER089C' 0 nan]
+ ['YOR265W' 'YOR069W' 0 nan]
+ ['YJL073W' 'YIL122W' 1 nan]]
+Are we attempting to save
+Testing GO Term: GO:0001403 (3 / 53)
+Sorted Data: [['YER091C' 'YHR044C' 0 nan]
+ ['YLR427W' 'YHR064C' 0 nan]
+ ['YOL072W' 'YDR101C' 0 nan]
+ ...
+ ['YDR130C' 'YML088W' 0 nan]
+ ['YML042W' 'YHR064C' 0 nan]
+ ['YBR066C' 'YOR371C' 1 nan]]
+Are we attempting to save
+Testing GO Term: GO:0002181 (4 / 53)
+Sorted Data: [['YHR207C' 'YIL026C' 0 nan]
+ ['YEL015W' 'YDR342C' 0 nan]
+ ['YBL017C' 'YDL008W' 0 nan]
+ ['YJR065C' 'YLR074C' 0 nan]
+ ['YPR178W' 'YGR158C' 0 nan]
+ ['YIL093C' 'YPL154C' 0 nan]
+ ['YDL033C' 'YML091C' 0 nan]
+ ['YIL172C' 'YHR099W' 0 nan]
+ ['YIR012W' 'YDR524C' 0 nan]
+ ['YDR121W' 'YCL031C' 0 nan]
+ ['YMR056C' 'YJL090C' 0 nan]
+ ['YMR088C' 'YBR176W' 0 nan]
+ ['YFL029C' 'YPL189C-A' 0 nan]
+ ['YDR531W' 'YDR238C' 0 nan]
+ ['YGR029W' 'YDR529C' 0 nan]
+ ['YML048W' 'YPL149W' 0 nan]
+ ['YGL136C' 'YHL019C' 0 nan]
+ ['YPL157W' 'YKL195W' 0 nan]
+ ['YGL009C' 'YMR211W' 0 nan]
+ ['YOR265W' 'YMR042W' 0 nan]
+ ['YLR170C' 'YDL120W' 0 nan]
+ ['YAL010C' 'YDL006W' 0 nan]
+ ['YBR289W' 'YGR008C' 0 nan]
+ ['YDR440W' 'YBR084W' 0 nan]
+ ['YIL074C' 'YML085C' 0 nan]
+ ['YLR381W' 'YML009C' 0 nan]
+ ['YLR283W' 'YHL009W-B' 0 nan]
+ ['YDR478W' 'YDR524C' 0 nan]
+ ['YGR292W' 'YDR342C' 0 nan]
+ ['YAL041W' 'YMR109W' 0 nan]
+ ['YBL071W-A' 'YKL191W' 1 nan]
+ ['YBL071W-A' 'YJR097W' 1 nan]
+ ['YBL071W-A' 'YIL103W' 1 nan]
+ ['YLR172C' 'YKL191W' 1 nan]
+ ['YLR172C' 'YJR097W' 1 nan]
+ ['YLR172C' 'YIL103W' 1 nan]
+ ['YKL191W' 'YJR097W' 1 nan]
+ ['YKL191W' 'YIL103W' 1 nan]
+ ['YJR097W' 'YIL103W' 1 nan]
+ ['YBL021C' 'YMR017W' 0 nan]
+ ['YPL174C' 'YLR403W' 0 nan]
+ ['YOR356W' 'YBL030C' 0 nan]
+ ['YNL166C' 'YHL016C' 0 nan]
+ ['YAL053W' 'YOR182C' 0 nan]
+ ['YJR121W' 'YPL281C' 0 nan]
+ ['YGR184C' 'YHR081W' 0 nan]
+ ['YFL047W' 'YLR154C' 0 nan]
+ ['YNR027W' 'YHR081W' 0 nan]
+ ['YER051W' 'YJL008C' 0 nan]
+ ['YML074C' 'YIL138C' 0 nan]
+ ['YGL136C' 'YIL090W' 0 nan]
+ ['YNL001W' 'YBR176W' 0 nan]
+ ['YPR041W' 'YMR017W' 0 nan]
+ ['YOR347C' 'YPL143W' 0 nan]
+ ['YER086W' 'YML048W' 0 nan]
+ ['YNR011C' 'YML077W' 0 nan]
+ ['YMR100W' 'YDR421W' 0 nan]
+ ['YDR420W' 'YMR012W' 0 nan]
+ ['YFR032C-A' 'YCL075W' 0 nan]
+ ['YEL059C-A' 'YGL040C' 0 nan]
+ ['YJL073W' 'YOL149W' 0 nan]
+ ['YDR326C' 'YLR176C' 0 nan]
+ ['YJL129C' 'YHR171W' 0 nan]
+ ['YMR201C' 'YJL148W' 0 nan]
+ ['YLR192C' 'YPL101W' 0 nan]
+ ['YPR054W' 'YER106W' 0 nan]
+ ['YML104C' 'YJL065C' 0 nan]
+ ['YOR131C' 'YDR031W' 0 nan]
+ ['YMR094W' 'YGR124W' 0 nan]
+ ['YMR297W' 'YMR042W' 0 nan]
+ ['YOR347C' 'YAR070W-A' 0 nan]
+ ['YGL128C' 'YBR123C' 0 nan]
+ ['YER180C' 'YMR152W' 0 nan]
+ ['YGL141W' 'YPL092W' 0 nan]
+ ['YDL138W' 'YER164W' 0 nan]
+ ['YBR237W' 'YHR207C' 0 nan]
+ ['YER027C' 'YLR385C' 0 nan]
+ ['YJR045C' 'YKL158W' 0 nan]
+ ['YAR019C' 'YBR289W' 0 nan]
+ ['YDL033C' 'YJL125C' 0 nan]
+ ['YGR008C' 'YMR312W' 0 nan]
+ ['YDR228C' 'YDR251W' 0 nan]
+ ['YGL173C' 'YNL268W' 0 nan]
+ ['YDL051W' 'YPL155C' 0 nan]
+ ['YCR028C' 'YKL198C' 0 nan]
+ ['YJL056C' 'YNL213C' 0 nan]
+ ['YPL174C' 'YLL001W' 0 nan]
+ ['YDL019C' 'YJL136C' 0 nan]
+ ['YOL139C' 'YPL214C' 0 nan]
+ ['YJL073W' 'YOL157C' 0 nan]
+ ['YML129C' 'YBR175W' 0 nan]
+ ['YOL133W' 'YLL038C' 0 nan]
+ ['YFL002W-A' 'YDR320C-A' 0 nan]
+ ['YDR379W' 'YLR381W' 0 nan]
+ ['YDR388W' 'YML015C' 0 nan]
+ ['YKL198C' 'YKL024C' 0 nan]
+ ['YNL112W' 'YGR295C' 0 nan]
+ ['YPL174C' 'YDL112W' 0 nan]
+ ['YHR027C' 'YML074C' 0 nan]
+ ['YDL138W' 'YJR076C' 0 nan]
+ ['YBL060W' 'YMR184W' 0 nan]
+ ['YHR092C' 'YGR188C' 0 nan]
+ ['YJL153C' 'YKL158W' 0 nan]
+ ['YDR283C' 'YER082C' 0 nan]
+ ['YDR316W-A' 'YOR069W' 0 nan]
+ ['YDL130W' 'YKL212W' 0 nan]
+ ['YPL148C' 'YMR306W' 0 nan]
+ ['YPL091W' 'YCR054C' 0 nan]
+ ['YHR206W' 'YOR039W' 0 nan]
+ ['YBL071W-A' 'YLR172C' 1 nan]]
+Are we attempting to save
+Testing GO Term: GO:0006260 (5 / 53)
+Sorted Data: [['YLR098C' 'YFR041C' 0 nan]
+ ['YLR371W' 'YOR092W' 0 nan]
+ ['YDR420W' 'YKL028W' 0 nan]
+ ...
+ ['YNL077W' 'YDR197W' 0 nan]
+ ['YEL058W' 'YDR116C' 0 nan]
+ ['YLR321C' 'YPL209C' 1 nan]]
+Are we attempting to save
+Testing GO Term: GO:0006281 (6 / 53)
+Sorted Data: [['YDR424C' 'YKL056C' 0 nan]
+ ['YBR166C' 'YMR071C' 0 nan]
+ ['YPL271W' 'YBR289W' 0 nan]
+ ...
+ ['YNR022C' 'YPL155C' 0 nan]
+ ['YDR503C' 'YLL011W' 0 nan]
+ ['YNL082W' 'YNL307C' 1 nan]]
+Are we attempting to save
+Testing GO Term: GO:0006310 (7 / 53)
+Sorted Data: [['YMR080C' 'YHR064C' 0 nan]
+ ['YNL188W' 'YGL123W' 0 nan]
+ ['YPR048W' 'YER027C' 0 nan]
+ ...
+ ['YOR240W' 'YDR251W' 0 nan]
+ ['YNL054W-B' 'YKR105C' 0 nan]
+ ['YFL002W-A' 'YOL090W' 1 nan]]
+Are we attempting to save
+Testing GO Term: GO:0006325 (8 / 53)
+Sorted Data: [['YOR373W' 'YCR047C' 0 nan]
+ ['YOR201C' 'YML060W' 0 nan]
+ ['YAR015W' 'YBR175W' 0 nan]
+ ...
+ ['YER106W' 'YPL204W' 0 nan]
+ ['YNL280C' 'YMR287C' 0 nan]
+ ['YNL021W' 'YMR239C' 1 nan]]
+Are we attempting to save
+Testing GO Term: GO:0006352 (9 / 53)
+Sorted Data: [['YDL129W' 'YKL056C' 0 nan]
+ ['YER096W' 'YIR006C' 0 nan]
+ ['YDL019C' 'YML113W' 0 nan]
+ ...
+ ['YGL035C' 'YOR244W' 0 nan]
+ ['YER148W' 'YPR108W' 0 nan]
+ ['YPR008W' 'YKL144C' 1 nan]]
+Are we attempting to save
+Testing GO Term: GO:0006353 (10 / 53)
+Sorted Data: [['YLR418C' 'YGR008C' 0 nan]
+ ['YBR087W' 'YPL214C' 0 nan]
+ ['YGL040C' 'YCL050C' 0 nan]
+ ...
+ ['YMR042W' 'YPL028W' 0 nan]
+ ['YGL120C' 'YOL065C' 0 nan]
+ ['YBR049C' 'YOR048C' 1 nan]]
+Are we attempting to save
+Testing GO Term: GO:0006360 (11 / 53)
+Sorted Data: [['YGL173C' 'YGL253W' 0 nan]
+ ['YDR177W' 'YKL010C' 0 nan]
+ ['YLR090W' 'YER091C' 0 nan]
+ ...
+ ['YIL074C' 'YGR054W' 0 nan]
+ ['YHR028C' 'YDR356W' 0 nan]
+ ['YGR068C' 'YKL006C-A' 1 nan]]
+Are we attempting to save
+Testing GO Term: GO:0006364 (12 / 53)
+Sorted Data: [['YER120W' 'YHR117W' 0 nan]
+ ['YFR041C' 'YDR210W-B' 0 nan]
+ ['YDR261W-B' 'YOR246C' 0 nan]
+ ...
+ ['YER007W' 'YLR430W' 0 nan]
+ ['YML054C' 'YKL010C' 0 nan]
+ ['YDL060W' 'YDL111C' 1 nan]]
+Are we attempting to save
+Testing GO Term: GO:0006366 (13 / 53)
+Sorted Data: [['YDL007W' 'YDR400W' 0 nan]
+ ['YBR097W' 'YML042W' 0 nan]
+ ['YOR373W' 'YLR441C' 0 nan]
+ ...
+ ['YDR465C' 'YAL034W-A' 0 nan]
+ ['YDR316W-A' 'YMR139W' 0 nan]
+ ['YPL047W' 'YPL089C' 1 nan]]
+Are we attempting to save
+Testing GO Term: GO:0006383 (14 / 53)
+Sorted Data: [['YDR465C' 'YJR160C' 0 nan]
+ ['YJL129C' 'YJL073W' 0 nan]
+ ['YDR086C' 'YGL258W-A' 0 nan]
+ ...
+ ['YCR040W' 'YLR079W' 0 nan]
+ ['YGL120C' 'YDR356W' 0 nan]
+ ['YOR207C' 'YDR362C' 1 nan]]
+Are we attempting to save
+Testing GO Term: GO:0006397 (15 / 53)
+Sorted Data: [['YLR356W' 'YDR487C' 0 nan]
+ ['YKL198C' 'YPR042C' 0 nan]
+ ['YLR096W' 'YML037C' 0 nan]
+ ...
+ ['YBL101W-A' 'YNL191W' 0 nan]
+ ['YOL065C' 'YIL160C' 0 nan]
+ ['YMR302C' 'YNL245C' 1 nan]]
+Are we attempting to save
+Testing GO Term: GO:0006401 (16 / 53)
+Sorted Data: [['YLR459W' 'YJL148W' 0 nan]
+ ['YMR211W' 'YAL012W' 0 nan]
+ ['YOL067C' 'YBR159W' 0 nan]
+ ...
+ ['YJL219W' 'YBR291C' 0 nan]
+ ['YPL157W' 'YLR109W' 0 nan]
+ ['YHR077C' 'YER146W' 1 nan]]
+Are we attempting to save
+Testing GO Term: GO:0006413 (17 / 53)
+Sorted Data: [['YIL084C' 'YDR044W' 0 nan]
+ ['YNL311C' 'YDL164C' 0 nan]
+ ['YHR031C' 'YML074C' 0 nan]
+ ...
+ ['YFR037C' 'YER045C' 0 nan]
+ ['YBR092C' 'YJL109C' 0 nan]
+ ['YEL034W' 'YMR146C' 1 nan]]
+Are we attempting to save
+Testing GO Term: GO:0006414 (18 / 53)
+Sorted Data: [['YJR110W' 'YHR064C' 0 nan]
+ ['YDR018C' 'YCL069W' 0 nan]
+ ['YBR097W' 'YJR033C' 0 nan]
+ ...
+ ['YMR128W' 'YGR006W' 0 nan]
+ ['YBL074C' 'YLR176C' 0 nan]
+ ['YNL014W' 'YKL191W' 1 nan]]
+Are we attempting to save
+Testing GO Term: GO:0006418 (19 / 53)
+Sorted Data: [['YGR154C' 'YMR071C' 0 nan]
+ ['YPR192W' 'YLR381W' 0 nan]
+ ['YIL074C' 'YPR102C' 0 nan]
+ ...
+ ['YDR177W' 'YNL119W' 0 nan]
+ ['YER110C' 'YPL095C' 0 nan]
+ ['YKL194C' 'YHR011W' 1 nan]]
+Are we attempting to save
+Testing GO Term: GO:0006457 (20 / 53)
+Sorted Data: [['YIL093C' 'YMR071C' 0 nan]
+ ['YJR016C' 'YBR231C' 0 nan]
+ ['YDL229W' 'YJR016C' 0 nan]
+ ...
+ ['YFL029C' 'YNL012W' 0 nan]
+ ['YHL008C' 'YJL190C' 0 nan]
+ ['YGR231C' 'YAL058W' 1 nan]]
+Are we attempting to save
+Testing GO Term: GO:0006468 (21 / 53)
+Sorted Data: [['YOR288C' 'YMR150C' 0 nan]
+ ['YJL129C' 'YNL166C' 0 nan]
+ ['YML040W' 'YDR297W' 0 nan]
+ ...
+ ['YML116W' 'YGR274C' 0 nan]
+ ['YDR341C' 'YER025W' 0 nan]
+ ['YNR031C' 'YJL095W' 1 nan]]
+Are we attempting to save
+Testing GO Term: GO:0006470 (22 / 53)
+Sorted Data: [['YHL047C' 'YPL202C' 0 nan]
+ ['YAR044W' 'YLR176C' 0 nan]
+ ['YHR076W' 'YDL082W' 0 nan]
+ ...
+ ['YHR215W' 'YPR073C' 0 nan]
+ ['YIL072W' 'YDR047W' 0 nan]
+ ['YDL236W' 'YGL190C' 1 nan]]
+Are we attempting to save
+Testing GO Term: GO:0006486 (23 / 53)
+Sorted Data: [['YGR035C' 'YLR079W' 0 nan]
+ ['YJL033W' 'YML094W' 0 nan]
+ ['YDR034C-C' 'YKL056C' 0 nan]
+ ...
+ ['YPR096C' 'YPL048W' 0 nan]
+ ['YCL027W' 'YKL021C' 0 nan]
+ ['YBR110W' 'YML115C' 1 nan]]
+Are we attempting to save
+Testing GO Term: GO:0006629 (24 / 53)
+Sorted Data: [['YBR050C' 'YJL121C' 0 nan]
+ ['YDL129W' 'YCR096C' 0 nan]
+ ['YGL206C' 'YMR303C' 0 nan]
+ ...
+ ['YKR105C' 'YJL121C' 0 nan]
+ ['YPL144W' 'YDR418W' 0 nan]
+ ['YGL126W' 'YDR294C' 1 nan]]
+Are we attempting to save
+Testing GO Term: GO:0006811 (25 / 53)
+Sorted Data: [['YML042W' 'YCL050C' 0 nan]
+ ['YCL075W' 'YPL038W' 0 nan]
+ ['YHL032C' 'YLR433C' 0 nan]
+ ...
+ ['YDR011W' 'YPR122W' 0 nan]
+ ['YIL093C' 'YBR012W-A' 0 nan]
+ ['YJR152W' 'YGR217W' 1 nan]]
+Are we attempting to save
+Testing GO Term: GO:0006865 (26 / 53)
+Sorted Data: [['YKR061W' 'YOR057W' 0 nan]
+ ['YJL062W-A' 'YGR063C' 0 nan]
+ ['YGR002C' 'YPR184W' 0 nan]
+ ...
+ ['YNL158W' 'YBR245C' 0 nan]
+ ['YMR006C' 'YMR042W' 0 nan]
+ ['YCL025C' 'YPR021C' 1 nan]]
+Are we attempting to save
+Testing GO Term: GO:0006869 (27 / 53)
+Sorted Data: [['YMR316W' 'YNL128W' 0 nan]
+ ['YGL089C' 'YGR006W' 0 nan]
+ ['YLR142W' 'YBL010C' 0 nan]
+ ...
+ ['YCL063W' 'YOR092W' 0 nan]
+ ['YDL137W' 'YMR289W' 0 nan]
+ ['YNR047W' 'YAL026C' 1 nan]]
+Are we attempting to save
+Testing GO Term: GO:0006873 (28 / 53)
+Sorted Data: [['YOR096W' 'YNL244C' 0 nan]
+ ['YFL004W' 'YBR058C-A' 0 nan]
+ ['YLR008C' 'YEL061C' 0 nan]
+ ...
+ ['YPR178W' 'YBR273C' 0 nan]
+ ['YIL027C' 'YIR015W' 0 nan]
+ ['YBR127C' 'YJR040W' 1 nan]]
+Are we attempting to save
+Testing GO Term: GO:0006887 (29 / 53)
+Sorted Data: [['YMR094W' 'YMR045C' 0 nan]
+ ['YNL166C' 'YGL147C' 0 nan]
+ ['YMR152W' 'YGR272C' 0 nan]
+ ...
+ ['YMR264W' 'YML012W' 0 nan]
+ ['YMR307W' 'YJL153C' 0 nan]
+ ['YML099C' 'YKR031C' 1 nan]]
+Are we attempting to save
+Testing GO Term: GO:0006897 (30 / 53)
+Sorted Data: [['YJR065C' 'YDR510W' 0 nan]
+ ['YOL018C' 'YBL055C' 0 nan]
+ ['YPL090C' 'YIL115C' 0 nan]
+ ...
+ ['YBR036C' 'YFL039C' 0 nan]
+ ['YHR081W' 'YPL202C' 0 nan]
+ ['YDR490C' 'YOR109W' 1 nan]]
+Are we attempting to save
+Testing GO Term: GO:0006970 (31 / 53)
+Sorted Data: [['YDL043C' 'YGR116W' 0 nan]
+ ['YBR058C' 'YJR065C' 0 nan]
+ ['YIR015W' 'YCL031C' 0 nan]
+ ...
+ ['YPL051W' 'YLR120C' 0 nan]
+ ['YMR080C' 'YDL190C' 0 nan]
+ ['YOR367W' 'YKL088W' 1 nan]]
+Are we attempting to save
+Testing GO Term: GO:0006979 (32 / 53)
+Sorted Data: [['YKL173W' 'YER180C' 0 nan]
+ ['YMR130W' 'YCR054C' 0 nan]
+ ['YER140W' 'YER113C' 0 nan]
+ ...
+ ['YER061C' 'YOR217W' 0 nan]
+ ['YML043C' 'YLR172C' 0 nan]
+ ['YIL010W' 'YML007W' 1 nan]]
+Are we attempting to save
+Testing GO Term: GO:0007005 (33 / 53)
+Sorted Data: [['YDL006W' 'YPL026C' 0 nan]
+ ['YDL043C' 'YHR105W' 0 nan]
+ ['YGR088W' 'YAL035W' 0 nan]
+ ...
+ ['YDR242W' 'YML124C' 0 nan]
+ ['YAL044C' 'YMR037C' 0 nan]
+ ['YPR083W' 'YDR470C' 1 nan]]
+Are we attempting to save
+Testing GO Term: GO:0007010 (34 / 53)
+Sorted Data: [['YPL269W' 'YJR089W' 1 nan]
+ ['YPR096C' 'YGR037C' 0 nan]
+ ['YOR373W' 'YHR067W' 0 nan]
+ ...
+ ['YPL060W' 'YDL184C' 0 nan]
+ ['YIL171W' 'YCR092C' 0 nan]
+ ['YKR055W' 'YNL172W' 1 nan]]
+Are we attempting to save
+Testing GO Term: GO:0007031 (35 / 53)
+Sorted Data: [['YER111C' 'YGR188C' 0 nan]
+ ['YKL140W' 'YOR269W' 0 nan]
+ ['YLR048W' 'YOL007C' 0 nan]
+ ...
+ ['YHR147C' 'YMR221C' 0 nan]
+ ['YOL152W' 'YNL115C' 0 nan]
+ ['YNL214W' 'YAL055W' 1 nan]]
+Are we attempting to save
+Testing GO Term: GO:0007033 (36 / 53)
+Sorted Data: [['YOR066W' 'YPR122W' 0 nan]
+ ['YGR159C' 'YNL096C' 0 nan]
+ ['YBR092C' 'YMR127C' 0 nan]
+ ...
+ ['YDR533C' 'YBR251W' 0 nan]
+ ['YHR160C' 'YNL268W' 0 nan]
+ ['YLR396C' 'YDR495C' 1 nan]]
+Are we attempting to save
+Testing GO Term: GO:0007059 (37 / 53)
+Sorted Data: [['YOR374W' 'YNL151C' 0 nan]
+ ['YDR315C' 'YOR228C' 0 nan]
+ ['YMR289W' 'YDR534C' 0 nan]
+ ...
+ ['YER070W' 'YGL084C' 0 nan]
+ ['YMR127C' 'YNL227C' 0 nan]
+ ['YEL061C' 'YNR010W' 1 nan]]
+Are we attempting to save
+Testing GO Term: GO:0007124 (38 / 53)
+Sorted Data: [['YOR039W' 'YGR189C' 0 nan]
+ ['YDR503C' 'YPL028W' 0 nan]
+ ['YNL218W' 'YJL062W' 0 nan]
+ ...
+ ['YOR150W' 'YDR330W' 0 nan]
+ ['YHR039C-B' 'YGL106W' 0 nan]
+ ['YHR011W' 'YER108C' 1 nan]]
+Are we attempting to save
+Testing GO Term: GO:0008033 (39 / 53)
+Sorted Data: [['YAL053W' 'YDR210W-B' 0 nan]
+ ['YOR057W' 'YBR058C-A' 0 nan]
+ ['YLR373C' 'YDL101C' 0 nan]
+ ...
+ ['YPL195W' 'YDR363W-A' 0 nan]
+ ['YPR019W' 'YIL136W' 0 nan]
+ ['YPR047W' 'YPL086C' 1 nan]]
+Are we attempting to save
+Testing GO Term: GO:0008380 (40 / 53)
+Sorted Data: [['YOL003C' 'YEL064C' 0 nan]
+ ['YGR035C' 'YKL108W' 0 nan]
+ ['YER091C' 'YBR283C' 0 nan]
+ ...
+ ['YOR066W' 'YDR524C' 0 nan]
+ ['YPL269W' 'YBL101W-A' 0 nan]
+ ['YOR319W' 'YML049C' 1 nan]]
+Are we attempting to save
+Testing GO Term: GO:0008643 (41 / 53)
+Sorted Data: [['YGL232W' 'YIL026C' 0 nan]
+ ['YER099C' 'YGR075C' 0 nan]
+ ['YCR072C' 'YGR223C' 0 nan]
+ ...
+ ['YLR427W' 'YCR081W' 0 nan]
+ ['YDL231C' 'YFL002W-A' 0 nan]
+ ['YCL040W' 'YJR158W' 1 nan]]
+Are we attempting to save
+Testing GO Term: GO:0009408 (42 / 53)
+Sorted Data: [['YDR166C' 'YIR009W' 0 nan]
+ ['YGR029W' 'YNL119W' 0 nan]
+ ['YIL070C' 'YDR376W' 0 nan]
+ ...
+ ['YER068W' 'YNR050C' 0 nan]
+ ['YLL050C' 'YPR108W' 0 nan]
+ ['YJL101C' 'YNL123W' 1 nan]]
+Are we attempting to save
+Testing GO Term: GO:0009451 (43 / 53)
+Sorted Data: [['YDR219C' 'YGR286C' 0 nan]
+ ['YLR439W' 'YAL003W' 0 nan]
+ ['YPL144W' 'YER148W' 0 nan]
+ ...
+ ['YDL080C' 'YJR068W' 0 nan]
+ ['YNL331C' 'YDR060W' 0 nan]
+ ['YER168C' 'YBL055C' 1 nan]]
+Are we attempting to save
+Testing GO Term: GO:0016197 (44 / 53)
+Sorted Data: [['YER083C' 'YDR523C' 0 nan]
+ ['YHL019C' 'YPL257W-A' 0 nan]
+ ['YBL103C' 'YOR332W' 0 nan]
+ ...
+ ['YBR289W' 'YPR118W' 0 nan]
+ ['YJL143W' 'YLR154C' 0 nan]
+ ['YJL053W' 'YDR484W' 1 nan]]
+Are we attempting to save
+Testing GO Term: GO:0032196 (45 / 53)
+Sorted Data: [['YDR486C' 'YPL092W' 0 nan]
+ ['YBR001C' 'YML042W' 0 nan]
+ ['YFR041C' 'YCR053W' 0 nan]
+ ...
+ ['YDR425W' 'YER012W' 0 nan]
+ ['YOR233W' 'YHR129C' 0 nan]
+ ['YOL004W' 'YMR046C' 1 nan]]
+Are we attempting to save
+Testing GO Term: GO:0032543 (46 / 53)
+Sorted Data: [['YER068W' 'YOR246C' 0 nan]
+ ['YIL051C' 'YAL012W' 0 nan]
+ ['YDR536W' 'YDR298C' 0 nan]
+ ...
+ ['YJR098C' 'YNL101W' 0 nan]
+ ['YJR025C' 'YDR101C' 0 nan]
+ ['YBR122C' 'YOL023W' 1 nan]]
+Are we attempting to save
+Testing GO Term: GO:0042273 (47 / 53)
+Sorted Data: [['YJL046W' 'YBL057C' 0 nan]
+ ['YAL020C' 'YJL097W' 0 nan]
+ ['YKR038C' 'YDR326C' 0 nan]
+ ...
+ ['YBL061C' 'YNL115C' 0 nan]
+ ['YOR348C' 'YOL140W' 0 nan]
+ ['YPL131W' 'YLR276C' 1 nan]]
+Are we attempting to save
+Testing GO Term: GO:0042274 (48 / 53)
+Sorted Data: [['YNL001W' 'YGL232W' 0 nan]
+ ['YKL109W' 'YNL339C' 0 nan]
+ ['YJL164C' 'YBR160W' 0 nan]
+ ...
+ ['YML042W' 'YDR077W' 0 nan]
+ ['YOR224C' 'YOL139C' 0 nan]
+ ['YKR057W' 'YDR450W' 1 nan]]
+Are we attempting to save
+Testing GO Term: GO:0045333 (49 / 53)
+Sorted Data: [['YKL004W' 'YPL214C' 0 nan]
+ ['YNL308C' 'YFR007W' 0 nan]
+ ['YML104C' 'YIR037W' 0 nan]
+ ...
+ ['YDR279W' 'YFR008W' 0 nan]
+ ['YER025W' 'YDR520C' 0 nan]
+ ['YDR487C' 'YMR267W' 1 nan]]
+Are we attempting to save
+Testing GO Term: GO:0051321 (50 / 53)
+Sorted Data: [['YDR219C' 'YLR318W' 0 nan]
+ ['YHR101C' 'YJR065C' 0 nan]
+ ['YPL172C' 'YIL115C' 0 nan]
+ ...
+ ['YGR159C' 'YKR097W' 0 nan]
+ ['YGR061C' 'YDR054C' 0 nan]
+ ['YLR219W' 'YAL009W' 1 nan]]
+Are we attempting to save
+Testing GO Term: GO:0051603 (51 / 53)
+Sorted Data: [['YDR347W' 'YER025W' 0 nan]
+ ['YMR184W' 'YFR007W' 0 nan]
+ ['YIL074C' 'YNR007C' 0 nan]
+ ...
+ ['YPL174C' 'YCR054C' 0 nan]
+ ['YPR132W' 'YOL077C' 0 nan]
+ ['YJR131W' 'YKL213C' 1 nan]]
+Are we attempting to save
