@@ -561,6 +561,11 @@ class AllGoModel():
         if self.regularize:
             mean, std = self.corrDict.expDataset.statsDict[d]
             regularizedRho = (np.arctanh(rho) -  mean) / std
+            if np.isnan(regularizedRho):
+                print(rho)
+                print(std)
+                print(mean)
+                print('-----------------')
             return regularizedRho
         else:
             return rho

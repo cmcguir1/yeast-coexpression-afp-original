@@ -5,6 +5,7 @@ import pandas as pd
 from pyparsing import col
 from sympy import pdsolve
 from ExpressionDatasets import ExpressionDatasets
+import time
 
 class CorrelationDictionary():
     def __init__(self,dictLoc='../YeastDict_float16.npy',datasetType='modern'):
@@ -16,6 +17,7 @@ class CorrelationDictionary():
         self.geneNumber = len(self.genes)
 
         self.pairs = np.array([[self.genes[i,0],self.genes[j,0]] for i in range(len(self.genes)) for j in range(i,len(self.genes))])
+        
 
         #Dictionary of dataset same to index of dataset in gene dictionary
         datasets = pd.read_csv('./src/PairwiseYeastNetwork/datasetDictionaryRevised.csv' if datasetType != '2009' and datasetType != 'original' else './src/PairwiseYeastNetwork/datasetDictionaryOriginal.csv').to_numpy()
@@ -33,8 +35,8 @@ class CorrelationDictionary():
 
         
         # Correlations dictionary initialization
-        # self.memMap = np.memmap(dictLoc,'float32',mode='r+',shape=(430,(self.geneNumber*self.geneNumber - sum(range(self.geneNumber))) + self.geneNumber))
-        self.memMap = np.load(dictLoc)
+        self.memMap = np.memmap(dictLoc,'float32',mode='r+',shape=(430,(self.geneNumber*self.geneNumber - sum(range(self.geneNumber))) + self.geneNumber))
+        # self.memMap = np.load(dictLoc)
 
 
     def lookupCorrelation(self,gene1,gene2,dataset):
@@ -46,13 +48,18 @@ class CorrelationDictionary():
             return 0
     
     
-    def calculateDataset(self,datasetIndex,location='./MemoryMapTest.dat'):
-        memMap = np.memmap(location,dtype='float32',mode='r+',shape=((self.geneNumber*self.geneNumber - sum(range(self.geneNumber))) + self.geneNumber,))
-        for pair in self.pairs:
+    def calculateDataset(self,datasetIndex,location='./RecalcTest.npy'):
+        # memMap = np.memmap(location,dtype='float32',mode='r+',shape=((self.geneNumber*self.geneNumber - sum(range(self.geneNumber))) + self.geneNumber,))
+        memMap = np.zeros(shape=((self.geneNumber*self.geneNumber - sum(range(self.geneNumber))) + self.geneNumber,),dtype=np.float16)
+        start = time.time()
+        for i, pair in enumerate(self.pairs):
             dset = self.expDataset.datasets[datasetIndex]
-            val = dset.customCorrelation(pair)
+            val = dset.customCorrelation(pair,regularize=True)
             memMap[self.calcIndex(pair[0],pair[1])] = val
-        memMap.flush()
+            if i % 100000 == 0:
+                print(f'Time for 100000 pairs: {(time.time()-start)/60}')
+                start = time.time()
+        np.save(location,memMap)
 
     def calcIndex(self,gene1,gene2):
         if self.indexDict[gene1] > self.indexDict[gene2]:

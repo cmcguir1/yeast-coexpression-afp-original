@@ -18,18 +18,15 @@ ssl._create_default_https_context = ssl._create_unverified_context
 
 def main():
 
-    #GOTest = AllGoModel(i,sys.argv[1],'AllGO_Original_Parameter','Original',foldFile='./src/PairwiseYeastNetwork/AllGOGeneFold_Orignial_1.csv',ontologyDataset='original',inputDropout=float(sys.argv[2]),hiddenDropout=float(sys.argv[3]))
-    start = time.time()
-    # GOTest = AllGoModel(int(sys.argv[1]),'50000x10000x5000x1000','Overfit_Dropout',f'Dropout_0.3',foldFile='./src/PairwiseYeastNetwork/AllGOGeneFold1.csv',ontologyDataset='original',resetNet=True,cuda=False,hiddenDropout=0.3)
-    # GOTest.trainNetwork(60000,track=100)
-    # GOTest.testNetworkAll(runAll=True)
-    # GOTest.testNetworkAll(runAll=True,validation=False)
+    start = int(sys.argv[1]) * 27
+    end = start + 27
+    if end > 430:
+        end = 430
 
-
-    GOTest = AllGoModel(int(sys.argv[1]),'50000x10000x5000x5000','OverFit_bioPIXIE',f'Overfit',foldFile='./src/PairwiseYeastNetwork/AllGOGeneFold1.csv',ontologyDataset='original',resetNet=False,inputVector='xlpg',cuda=False)
-    GOTest.trainNetwork(200000,track=100)
-    GOTest.testNetworkAll(runAll=True)
-    GOTest.testNetworkAll(runAll=True,validation=False)
+    corr = CorrelationDictionary(dictLoc='../YeastDict_float16.npy')
+    for dataset in corr.datasets[start:end]:
+        corr.calculateDataset(corr.datasetsDict[dataset],location=f'../YeastMemMap_Recalc/{dataset}_correlations.npy')
+    
 
 
 

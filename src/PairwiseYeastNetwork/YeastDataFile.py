@@ -80,7 +80,7 @@ class YeastDataFile():
             # print(f'Subset {subset} std: {self.std}')
             # print(f'Subset {subset} mean: {self.mean}')
 
-    def customCorrelation(self,genePair):
+    def customCorrelation(self,genePair,regularize):
         
         #First checks if the gene pair is in this dataset's gene library
         # print(f'{genePair[0]} in dataset : {genePair[0] in self.geneDict}\n{genePair[1]} in dataset : {genePair[1] in self.geneDict}')
@@ -131,7 +131,16 @@ class YeastDataFile():
                 geneBFilter = np.array([geneB[index] for index in validIndicies],dtype=float)
                 if(np.std(geneAFilter) == 0 or np.std(geneBFilter) == 0):
                     return 0.0
-                return np.corrcoef(geneAFilter,geneBFilter)[1,0]
+                if regularize:
+                    rho = np.corrcoef(geneAFilter,geneBFilter)[1,0]
+                    if rho == 1:
+                        rho = 0.99
+                    elif rho == -1:
+                        rho = -0.99
+                    regularizedRho = (np.arctanh(rho) -  self.mean) / self.std
+                    return regularizedRho
+                else:
+                    return np.corrcoef(geneAFilter,geneBFilter)[1,0]
         #If gene pair is not in this dataset's dictionary, return 0, i. e. there is no correlation between these genes
         else:
             return 0.0
