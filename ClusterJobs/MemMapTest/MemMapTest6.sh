@@ -1,6 +1,6 @@
 #!/usr/bin/sh
 
-## Job Created Jun-15-2023
+## Job Created Jun-16-2023
 
 ##Place PBS directives here
 #PBS -N MemMapTest
@@ -11,4 +11,4 @@
 
 cd data/SummerResearch2022
 
-/data/hibbslab/anaconda3/bin/python src/PairwiseYeastNetwork/Main.py 2 YeastDict.dat    > ClusterJobs/MemMapTest/MemMapTest6_output.txt
+/data/hibbslab/anaconda3/bin/python src/PairwiseYeastNetwork/Main.py 2 YeastDict_float16.npy    > ClusterJobs/MemMapTest/MemMapTest6_output.txt
