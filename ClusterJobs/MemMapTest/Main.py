@@ -18,13 +18,13 @@ ssl._create_default_https_context = ssl._create_unverified_context
 
 def main():
 
-    if sys.argv[2] == 'YeastDict_Redo.dat':
+    if sys.argv[2] == 'YeastDict_float16_Redo.npy':
         name = 'Redo'
     else:
         name = 'Original'
 
     GOTest = AllGoModel(int(sys.argv[1]),'2000','Test_MemMap',name,foldFile='./src/PairwiseYeastNetwork/AllGOGeneFold1.csv',ontologyDataset='original',resetNet=True,inputVector='x',cuda=False,batch=50,memMapName=sys.argv[2])
-    GOTest.trainNetwork(10000,track=100)
+    GOTest.trainNetwork(40000,track=100)
     GOTest.testNetworkAll(runAll=True)
     GOTest.testNetworkAll(runAll=True,validation=False)
 

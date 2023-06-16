@@ -219,9 +219,6 @@ class AllGoModel():
             # self.lossFunc = torch.nn.CrossEntropyLoss()
             self.lossFunc = CustomCrossEntropyLoss(alpha=self.weights,nonSpecific='n' in outputVector)
             print('Used Cross Entropy Loss Function')
-        elif lossFunc in ['WCE','weightedCrossEntropy','weighted_cross_entropy']:
-            self.lossFunc = torch.nn.CrossEntropyLoss(weight=self.weights)
-            print('Used Weighted Cross Entropy Loss Function')
         elif lossFunc in ['FL','focalLoss','focal_loss']:
             self.lossFunc = FocalLoss(gamma=gamma,alpha=self.weights,nonSpecific='n' in outputVector)
         elif lossFunc in ['BCE','binaryCrossEntropy','binary_cross_entropy']:
@@ -260,6 +257,7 @@ class AllGoModel():
         if not os.path.exists(self.trainLoc):
             os.mkdir(self.trainLoc)
 
+        # This section saves the information about a network's hyperparameters, loss function, and network structure to a text file
         if not os.path.exists(f'./Yeast Resources/Pairwise/Spell/{folderName}/{model_specification}_specification.txt'):
             f = open(f'./Yeast Resources/Pairwise/Spell/{folderName}/{model_specification}_specification.txt','w')
             f.write('Model Infromation\n')

@@ -1,5 +1,6 @@
 Batch,Training Loss
 0,
+<<<<<<< HEAD
 100,
 200,
 300,
@@ -99,3 +100,5 @@ Batch,Training Loss
 9700,
 9800,
 9900,
+=======
+>>>>>>> d1b0e46c0e5c73e116b86af9178d6946cf4d4545
