@@ -18,14 +18,10 @@ ssl._create_default_https_context = ssl._create_unverified_context
 
 def main():
 
-    start = int(sys.argv[1]) * 27
-    end = start + 27
-    if end > 430:
-        end = 430
 
     corr = CorrelationDictionary(dictLoc='../YeastDict_float16.npy')
-    for dataset in corr.datasets[start:end]:
-        corr.calculateDataset(corr.datasetsDict[dataset],location=f'../YeastMemMap_Recalc/{dataset}_correlations.npy')
+    corr.unifyCorrelations('../YeastMemMap_ReCalc/YeastDict_ReCalc.npy')
+    
     
 
 

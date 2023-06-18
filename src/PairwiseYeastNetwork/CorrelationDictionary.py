@@ -15,8 +15,6 @@ class CorrelationDictionary():
         # print(f'Index Dict: {self.indexDict}\n----------------------------')
 
         self.geneNumber = len(self.genes)
-
-        self.pairs = np.array([[self.genes[i,0],self.genes[j,0]] for i in range(len(self.genes)) for j in range(i,len(self.genes))])
         
 
         #Dictionary of dataset same to index of dataset in gene dictionary
@@ -50,6 +48,7 @@ class CorrelationDictionary():
     
     def calculateDataset(self,datasetIndex,location='./RecalcTest.npy'):
         # memMap = np.memmap(location,dtype='float32',mode='r+',shape=((self.geneNumber*self.geneNumber - sum(range(self.geneNumber))) + self.geneNumber,))
+        self.pairs = np.array([[self.genes[i,0],self.genes[j,0]] for i in range(len(self.genes)) for j in range(i,len(self.genes))])
         memMap = np.zeros(shape=((self.geneNumber*self.geneNumber - sum(range(self.geneNumber))) + self.geneNumber,),dtype=np.float16)
         start = time.time()
         for i, pair in enumerate(self.pairs):
@@ -71,8 +70,10 @@ class CorrelationDictionary():
         return (col * self.geneNumber - sum(range(col))) + row
 
     def unifyCorrelations(self,absLocation):
-        # memMap = np.zeros((len(self.datasets),(self.geneNumber*self.geneNumber - sum(range(self.geneNumber)))),dtype=np.float16)
-        memMap = np.memmap(absLocation,'float32',mode='w+',shape =(len(self.datasets),(self.geneNumber*self.geneNumber - sum(range(self.geneNumber))) + self.geneNumber))
-        for dataset, index in self.datasetsDict.items():
-            memMap[self.datasetsDict[dataset],:] = np.memmap(f'/home/cmcguir1/data/YeastMemMap/{dataset}_corrDict.dat',mode='r+',shape=((self.geneNumber*self.geneNumber - sum(range(self.geneNumber))) + self.geneNumber,))
-            memMap.flush()
+        memMap = np.zeros((len(self.datasets),(self.geneNumber*self.geneNumber - sum(range(self.geneNumber)))),dtype=np.float16)
+        # memMap = np.memmap(absLocation,'float32',mode='w+',shape =(len(self.datasets),(self.geneNumber*self.geneNumber - sum(range(self.geneNumber))) + self.geneNumber))
+        
+        for dataset in self.datasets:
+            # memMap[self.datasetsDict[dataset],:] = np.memmap(f'/home/cmcguir1/data/YeastMemMap/{dataset}_corrDict.dat',mode='r+',shape=((self.geneNumber*self.geneNumber - sum(range(self.geneNumber))) + self.geneNumber,))
+            memMap[self.datasetsDict[dataset],:] = np.load(f'../YeastMemMap_Recalc/{dataset}_correlations.npy')
+        np.save(absLocation,memMap)
