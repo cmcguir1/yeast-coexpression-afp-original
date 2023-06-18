@@ -23,9 +23,9 @@ def main():
     if end > 430:
         end = 430
 
-    corr = CorrelationDictionary(dictLoc='../YeastDict_float16.npy')
+    corr = CorrelationDictionary(dictLoc='../YeastMemMap/YeastDict.dat')
     for dataset in corr.datasets[start:end]:
-        corr.calculateDataset(corr.datasetsDict[dataset],location=f'../YeastMemMap_Recalc/{dataset}_correlations.npy')
+        corr.calculateDataset(corr.datasetsDict[dataset],location=f'../YeastMemMap_ReCalc/{dataset}_correlations.npy')
     
 
 
