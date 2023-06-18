@@ -75,5 +75,5 @@ class CorrelationDictionary():
         
         for dataset in self.datasets:
             # memMap[self.datasetsDict[dataset],:] = np.memmap(f'/home/cmcguir1/data/YeastMemMap/{dataset}_corrDict.dat',mode='r+',shape=((self.geneNumber*self.geneNumber - sum(range(self.geneNumber))) + self.geneNumber,))
-            memMap[self.datasetsDict[dataset],:] = np.load(f'../YeastMemMap_ReCalc/{dataset}_correlations.npy')
+            memMap[self.datasetsDict[dataset],:] = np.load(f'../YeastMemMap_ReCalc/{dataset}_correlations.npy'[:(self.geneNumber*self.geneNumber - sum(range(self.geneNumber)))])
         np.save(absLocation,memMap)
