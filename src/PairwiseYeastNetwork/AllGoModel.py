@@ -405,7 +405,7 @@ class AllGoModel():
             
 
             print("Began Testing the Network")
-            allPairs = set([(pair[0],pair[1]) for pair in self.makePairs(self.validation if validation else self.training)])
+            allPairs = [(pair[0],pair[1]) for pair in self.makePairs(self.validation if validation else self.training)]
             leafStatsDist = []
             columnNames = ['Gene A','Gene B','Label','Score','True Positive','False Negative','True Negative','False Positive','Accuracy','Precision','Recall','False Positive Rate','Selectivity']
             
@@ -430,13 +430,12 @@ class AllGoModel():
                             np.random.shuffle(posPairs)
                             posPairs = posPairs[:1000]
                         
-                        negPairs = np.array([[pair[0],pair[1]] for pair in allPairs - set([(pair[0],pair[1]) for pair in posPairs])])
+                        negPairs = np.array([[pair[0],pair[1]] for pair in set(allPairs) - set([(pair[0],pair[1]) for pair in posPairs])])
                         np.random.shuffle(negPairs)
                         negPairs = negPairs[:len(posPairs)*proportionNeg]
                         testingPairs = np.concatenate([posPairs,negPairs])
 
-                        # print(f'Pos Genes: {posGenes}')
-                        # print(f'Pos piars: {posPairs}\nNeg Pairs: {negPairs}')
+                        
 
                         #Calculate the data for a term
                         termData = np.array([calcPair(pair,self.GOTermDict[leaf[0]]) for pair in testingPairs],dtype=object)
@@ -505,8 +504,7 @@ class AllGoModel():
 
         def fillFeatures(start,finish):
             featuresList = []
-            if self.expression:
-                
+            if self.expression:  
                 featuresList.append(torch.tensor([[self.calcCorr(dataset,genePair) for dataset in self.datasets] for genePair in batchArray[start:finish]],dtype=torch.float))
             if self.localization:
                 featuresList.append(torch.tensor([[self.localizationScore(genePair,index) for index in range(23)] for genePair in batchArray[start:finish]],dtype=torch.float))
@@ -561,11 +559,7 @@ class AllGoModel():
         if self.regularize:
             mean, std = self.corrDict.expDataset.statsDict[d]
             regularizedRho = (np.arctanh(rho) -  mean) / std
-            if np.isnan(regularizedRho):
-                print(rho)
-                print(std)
-                print(mean)
-                print('-----------------')
+            
             return regularizedRho
         else:
             return rho
