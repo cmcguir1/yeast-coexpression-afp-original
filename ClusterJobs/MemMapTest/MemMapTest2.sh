@@ -11,4 +11,4 @@
 
 cd data/SummerResearch2022
 
-/data/hibbslab/anaconda3/bin/python src/PairwiseYeastNetwork/Main.py 2 YeastDict_ReCalc.npy    > ClusterJobs/MemMapTest/MemMapTest2_output.txt
+/data/hibbslab/anaconda3/bin/python src/PairwiseYeastNetwork/Main.py 2 YeastDict_ReCalc2.npy    > ClusterJobs/MemMapTest/MemMapTest2_output.txt
