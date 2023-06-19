@@ -22,7 +22,7 @@ from Leaf import getLeaves, getGenes
 
 
 class AllGoModel():
-    def __init__(self,fold,structure,folderName,modelName,numFolds=4,lr=0.01,min_lr=1e-7,momentum=0.9,batch=50,gamma=2,alpha=1,weighted=False,lossFunc='CE',foldFile='./src/PairwiseYeastNetwork/AllGOGeneFold1.csv',ontologyDataset='modern',regularize=True,inputDropout=None,hiddenDropout=None,activation='relu',resetNet=False,cuda=True,inputVector = 'xl',outputVector = 'b',addTerms=[],memMapName='YeastDict_Redo.dat'):
+    def __init__(self,fold,structure,folderName,modelName,numFolds=4,lr=0.01,min_lr=1e-7,momentum=0.9,batch=50,gamma=2,alpha=1,weighted=False,lossFunc='CE',foldFile='./src/PairwiseYeastNetwork/AllGOGeneFold1.csv',ontologyDataset='modern',regularize=False,inputDropout=None,hiddenDropout=None,activation='relu',resetNet=False,cuda=True,inputVector = 'xl',outputVector = 'b',addTerms=[],memMapName='YeastDict_Regularized.npy'):
         # Handling what data is in the input and output vector of the vector
 
         #   The argument 'inputVector' determines what data is included in the input vector of the network based off of what characters are included in 'inputVector'
@@ -216,22 +216,22 @@ class AllGoModel():
 
         #Initialize Loss function, we are using CEL because we have multiple outputs that could be true
         if lossFunc in ['CE','crossEntropy','cross_entropy']:
-            # self.lossFunc = torch.nn.CrossEntropyLoss()
-            self.lossFunc = CustomCrossEntropyLoss(alpha=self.weights,nonSpecific='n' in outputVector)
+            self.lossFunc = torch.nn.CrossEntropyLoss()
+            # self.lossFunc = CustomCrossEntropyLoss(alpha=self.weights,nonSpecific='n' in outputVector)
             print('Used Cross Entropy Loss Function')
         elif lossFunc in ['FL','focalLoss','focal_loss']:
             self.lossFunc = FocalLoss(gamma=gamma,alpha=self.weights,nonSpecific='n' in outputVector)
         elif lossFunc in ['BCE','binaryCrossEntropy','binary_cross_entropy']:
             self.lossFunc = torch.nn.BCEWithLogitsLoss(weight=self.weights)
         else:
-            # self.lossFunc = torch.nn.CrossEntropyLoss(reduction='mean')
-            self.lossFunc = CustomCrossEntropyLoss(alpha=self.weights,nonSpecific='n' in outputVector)
+            self.lossFunc = torch.nn.CrossEntropyLoss()
+            # self.lossFunc = CustomCrossEntropyLoss(alpha=self.weights,nonSpecific='n' in outputVector)
             print('Used Cross Entropy Loss Function')
         
         
         #Stochastic Gradient Descent Optimizer
         self.opt = torch.optim.SGD(self.net.parameters(),lr=lr,momentum=momentum)
-        self.scheduler = torch.optim.lr_scheduler.CyclicLR(self.opt,base_lr=min_lr,max_lr=lr,step_size_up=10000,step_size_down=10000)
+        # self.scheduler = torch.optim.lr_scheduler.CyclicLR(self.opt,base_lr=min_lr,max_lr=lr,step_size_up=10000,step_size_down=10000)
 
         
 
@@ -273,7 +273,7 @@ class AllGoModel():
 
         
 
-    def trainNetwork(self,epochs,track=100,step_lr=5000,cyclicLr=False,partiallyTrained=False,parallel=False):
+    def trainNetwork(self,epochs,track=100,step_lr=5000,cyclicLr=False,partiallyTrained=False,parallel=False,printTensors=False):
         #Initialize all pairs of training genes
         pairs = self.makePairs(self.training)
         testPairs = self.makePairs(self.validation)
@@ -301,26 +301,37 @@ class AllGoModel():
             #Make batch array of gene pairs
             batchArray = self.makeBatchArray(pairs)
             
+            
             #Make features and labels tensors from batcharray
-            if parallel:
-                features, labels = self.parallelMakeBatchTensor(batchArray)
-            else:
-                features, labels = self.makeBatchTensors(batchArray)
+            # if parallel:
+            #     features, labels = self.parallelMakeBatchTensor(batchArray)
+            # else:
+            features, labels = self.makeBatchTensors(batchArray)
             
             #Move both tensors to device of model
             features = features.to(self.device)
             labels = labels.to(self.device)
+            
 
 
             outputs = self.net(features.float())
+            
 
             loss = self.lossFunc(outputs.float(),labels.float())
+            
             runningLoss += loss.item()
             loss.backward()
 
             self.opt.step()
-            if cyclicLr:
-                self.scheduler.step()
+            # if cyclicLr:
+            #     self.scheduler.step()
+
+            if printTensors:
+                print(f'Batch Array: {batchArray}')
+                print(f'Features: {features}')
+                print(f'Labels: {torch.sum(labels)}')
+                print(f'Outputs: {outputs}')
+                print(f'Loss: {loss}\n')
             
             if iteration % track == 0:
                 # If we are tracking the intial loss of the network, we need to scale to the loss as if it were the loss of a set of 'track' batches
