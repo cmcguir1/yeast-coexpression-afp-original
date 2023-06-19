@@ -33,8 +33,8 @@ class CorrelationDictionary():
 
         
         # Correlations dictionary initialization
-        self.memMap = np.memmap(dictLoc,'float32',mode='r+',shape=(430,(self.geneNumber*self.geneNumber - sum(range(self.geneNumber))) + self.geneNumber))
-        # self.memMap = np.load(dictLoc)
+        # self.memMap = np.memmap(dictLoc,'float32',mode='r+',shape=(430,(self.geneNumber*self.geneNumber - sum(range(self.geneNumber))) + self.geneNumber))
+        self.memMap = np.load(dictLoc)
 
 
     def lookupCorrelation(self,gene1,gene2,dataset):
@@ -70,10 +70,10 @@ class CorrelationDictionary():
         return (col * self.geneNumber - sum(range(col))) + row
 
     def unifyCorrelations(self,absLocation):
-        memMap = np.zeros((len(self.datasets),(self.geneNumber*self.geneNumber - sum(range(self.geneNumber)))),dtype=np.float16)
+        memMap = np.zeros((len(self.datasets),(self.geneNumber*self.geneNumber - sum(range(self.geneNumber))+self.geneNumber)),dtype=np.float16)
         # memMap = np.memmap(absLocation,'float32',mode='w+',shape =(len(self.datasets),(self.geneNumber*self.geneNumber - sum(range(self.geneNumber))) + self.geneNumber))
         
         for dataset in self.datasets:
             # memMap[self.datasetsDict[dataset],:] = np.memmap(f'/home/cmcguir1/data/YeastMemMap/{dataset}_corrDict.dat',mode='r+',shape=((self.geneNumber*self.geneNumber - sum(range(self.geneNumber))) + self.geneNumber,))
-            memMap[self.datasetsDict[dataset],:] = np.load(f'../YeastMemMap_ReCalc/{dataset}_correlations.npy')[:(self.geneNumber*self.geneNumber - sum(range(self.geneNumber)))]
+            memMap[self.datasetsDict[dataset],:] = np.load(f'../YeastMemMap_ReCalc/{dataset}_correlations.npy')
         np.save(absLocation,memMap)

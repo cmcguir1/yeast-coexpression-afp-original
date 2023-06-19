@@ -23,7 +23,7 @@ def main():
     else:
         name = 'Original'
 
-    GOTest = AllGoModel(int(sys.argv[1]),'2000','Test_MemMap_ReCalc',name,foldFile='./src/PairwiseYeastNetwork/AllGOGeneFold1.csv',ontologyDataset='original',resetNet=True,inputVector='x',cuda=False,batch=50,memMapName=sys.argv[2])
+    GOTest = AllGoModel(int(sys.argv[1]),'2000','Test_MemMap_ReCalc2',name,foldFile='./src/PairwiseYeastNetwork/AllGOGeneFold1.csv',ontologyDataset='original',resetNet=True,inputVector='x',cuda=False,batch=50,memMapName=sys.argv[2])
     GOTest.trainNetwork(40000,track=100)
     GOTest.testNetworkAll(runAll=True)
     GOTest.testNetworkAll(runAll=True,validation=False)

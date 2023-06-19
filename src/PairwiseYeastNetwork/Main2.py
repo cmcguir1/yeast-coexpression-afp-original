@@ -20,7 +20,7 @@ def main():
 
 
     corr = CorrelationDictionary(dictLoc='../YeastMemMap/YeastDict_float16.npy')
-    corr.unifyCorrelations('../YeastMemMap_ReCalc/YeastDict_ReCalc.npy')
+    corr.unifyCorrelations('../YeastMemMap_ReCalc/YeastDict_ReCalc2.npy')
     
 
     

@@ -548,6 +548,7 @@ class AllGoModel():
         gene1 = gp[0]
         gene2 = gp[1]
         rho = self.corrDict.lookupCorrelation(gene1,gene2,d)
+        return rho
 
         #Adjust rho if 1 or -1 because of problems with fisher z transform
         if rho == 1:
