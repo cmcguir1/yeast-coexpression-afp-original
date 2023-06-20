@@ -38,7 +38,7 @@ replaceTest <- function(str) {
 
 #Gets all files from Working directory
 wd <- getwd()
-saveDir <- "C:/Users/colem/Yeast Graphs/ModernNetworks"
+saveDir <- "C:/Users/colem/Yeast Graphs/LossFunc"
 #saveDir <- "D:/YeastStor/lr_decay"
 
 dirs <- list.dirs(path = getwd(),full.names = TRUE)
@@ -54,8 +54,10 @@ desiredTerms <- c("GO-0007005","GO-0042273","GO-0032196","GO-0009451","GO-000689
 
 
 netType <- "AllGO_Modern_bioPIXIE"
+netTypes <- c("AG_BCE","AG_CE","AG_FL")
 dataset <- "Modern"
 
+i <- 1
 for(dir in testDirs) {
   setwd(dir)
   files <- list.files(full.names = TRUE,include.dirs = TRUE,path=getwd())
@@ -70,10 +72,10 @@ for(dir in testDirs) {
   testDistFiles <- files[grepl("GOTermDistribution",files,fixed=TRUE)]
   trainDistFiles <- unlist(map(testDistFiles,replaceTest))
   
-  pdf(paste(netType,"_",struct,"_",dataset,"_AUCDist.pdf",sep=""),height=10,width=6)
+  pdf(paste(netType[i],"_",struct,"_",dataset,"_AUCDist.pdf",sep=""),height=10,width=6)
   par(mfrow=c(2,1))
-  plotAUCDist(testDistFiles,paste(netType,struct,"Testing"))
-  plotAUCDist(trainDistFiles,paste(netType,struct,"Training"))
+  plotAUCDist(testDistFiles,paste(netType[i],struct,"Testing"))
+  plotAUCDist(trainDistFiles,paste(netType[i],struct,"Training"))
   
   dev.off()
   
@@ -85,15 +87,16 @@ for(dir in testDirs) {
     
     
     if(length(testFiles) == 4) {
-      pdf(paste(term,"_",netType,"_",struct,"_",dataset,".pdf",sep=""),height=10,width=10)
+      pdf(paste(term,"_",netType[i],"_",struct,"_",dataset,".pdf",sep=""),height=10,width=10)
       par(mfrow=c(2,2))
-      plotROC(testFiles,paste(netType,term,struct,"Testing"))
-      plotROC(trainFiles,paste(netType,term,struct,"Training"))
-      plotPrecRecall(testFiles,paste(netType,term,struct,"Testing"))
-      plotPrecRecall(trainFiles,paste(netType,term,struct,"Training"))
+      plotROC(testFiles,paste(netType[i],term,struct,"Testing"))
+      plotROC(trainFiles,paste(netType[i],term,struct,"Training"))
+      plotPrecRecall(testFiles,paste(netType[i],term,struct,"Testing"))
+      plotPrecRecall(trainFiles,paste(netType[i],term,struct,"Training"))
       dev.off()
     }
     
   }
+  i <- i + 1
 }
 setwd(wd)

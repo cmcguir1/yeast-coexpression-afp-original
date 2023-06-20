@@ -461,7 +461,7 @@ class AllGoModel():
                         termDataFrame.drop(termDataFrame.columns[[4,5,6,7,8,12]],axis=1,inplace=True)
                         termDataFrame.to_csv(f'{self.testLoc if validation else self.trainLoc}/{goTerm}_stats_fold{self.fold}.csv',index=False)
                 else:
-                    testingPairs = self.makeBatchArray(allPairs,batchSize=20000)
+                    testingPairs = self.makeBatchArray(self.makePairs(self.validation if validation else self.training),batchSize=20000)
 
                     termData = np.array([calcPair(pair,self.outputSize-1) for pair in testingPairs],dtype=object)
                     sortedData = termData[termData[:,3].argsort()[::-1]]
