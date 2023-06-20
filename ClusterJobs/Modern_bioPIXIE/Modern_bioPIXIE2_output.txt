@@ -1537,7 +1537,10 @@ Time for 100 Batches: 1.440715527534485
 100 Batch Cumulative Loss: 7.92945244726161
 Time for 100 Batches: 1.4574933926264444
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 891ae0901743bc0a407d560be345870c81eb5721
 100 Batch Cumulative Loss: 8.059296277431713
 Time for 100 Batches: 1.441590464115143
 100 Batch Cumulative Loss: 9.520221612119713
@@ -1736,4 +1739,7 @@ Time for 100 Batches: 1.4559292435646056
 Time for 100 Batches: 1.4555167198181151
 100 Batch Cumulative Loss: 8.239095223718323
 Time for 100 Batches: 1.4516527613004049
+<<<<<<< HEAD
+>>>>>>> 891ae0901743bc0a407d560be345870c81eb5721
+=======
 >>>>>>> 891ae0901743bc0a407d560be345870c81eb5721
