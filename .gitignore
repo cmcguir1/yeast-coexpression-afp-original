@@ -23,5 +23,6 @@ AllScoreMemMap.dat
 Yeast\ Resources/Pairwise/Spell/MassiveNetwork/*.pth
 **/*.dat
 Yeast_Resources/Pairwise/Spell/AllGO_Original_Struct/**
-
+OGRID-ORGANISM-Saccharomyces_cerevisiae_S288c-4.4.222.tab.txt
+BIOGRID-ORGANISM-Saccharomyces_cerevisiae_S288c-4.4.222.tab.txt
 
