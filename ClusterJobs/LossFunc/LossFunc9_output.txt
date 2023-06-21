@@ -1,3 +1,5 @@
+<<<<<<< HEAD
+=======
 Used 2009 Datasets
 Initialized Expression Datasets
 Initialized training and validation data
@@ -1162,3 +1164,7 @@ Sorted Data: [['YGR108W' 'YPL159C' 0 17.17864]
  ['YDL014W' 'YER119C' 0 -10.779778]
  ['YER002W' 'YKL091C' 0 -11.067757]
  ['YMR146C' 'YML128C' 0 -11.332883]]
+<<<<<<< HEAD
+>>>>>>> 891ae0901743bc0a407d560be345870c81eb5721
+=======
+>>>>>>> 891ae0901743bc0a407d560be345870c81eb5721

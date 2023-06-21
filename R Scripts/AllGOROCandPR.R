@@ -57,25 +57,28 @@ netType <- "AllGO_Modern_bioPIXIE"
 netTypes <- c("AG_BCE","AG_CE","AG_FL")
 dataset <- "Modern"
 
+if(plotAll) terms <- scrapeGoTerms(files)
+else terms <- desiredTerms
+print(terms)
+terms <- append("AnyCoAnnos",terms)
+
 i <- 1
 for(dir in testDirs) {
   setwd(dir)
   files <- list.files(full.names = TRUE,include.dirs = TRUE,path=getwd())
   setwd(saveDir)
   
-  if(plotAll) terms <- scrapeGoTerms(files)
-  else terms <- desiredTerms
-  print(terms)
+  
   
   struct <- getStruct(dir)
   
   testDistFiles <- files[grepl("GOTermDistribution",files,fixed=TRUE)]
   trainDistFiles <- unlist(map(testDistFiles,replaceTest))
   
-  pdf(paste(netType[i],"_",struct,"_",dataset,"_AUCDist.pdf",sep=""),height=10,width=6)
+  pdf(paste(netTypes[i],"_",struct,"_",dataset,"_AUCDist.pdf",sep=""),height=10,width=6)
   par(mfrow=c(2,1))
-  plotAUCDist(testDistFiles,paste(netType[i],struct,"Testing"))
-  plotAUCDist(trainDistFiles,paste(netType[i],struct,"Training"))
+  plotAUCDist(testDistFiles,paste(netTypes[i],struct,"Testing"))
+  plotAUCDist(trainDistFiles,paste(netTypes[i],struct,"Training"))
   
   dev.off()
   
@@ -87,12 +90,12 @@ for(dir in testDirs) {
     
     
     if(length(testFiles) == 4) {
-      pdf(paste(term,"_",netType[i],"_",struct,"_",dataset,".pdf",sep=""),height=10,width=10)
+      pdf(paste(term,"_",netTypes[i],"_",struct,"_",dataset,".pdf",sep=""),height=10,width=10)
       par(mfrow=c(2,2))
-      plotROC(testFiles,paste(netType[i],term,struct,"Testing"))
-      plotROC(trainFiles,paste(netType[i],term,struct,"Training"))
-      plotPrecRecall(testFiles,paste(netType[i],term,struct,"Testing"))
-      plotPrecRecall(trainFiles,paste(netType[i],term,struct,"Training"))
+      plotROC(testFiles,paste(netTypes[i],term,struct,"Testing"))
+      plotROC(trainFiles,paste(netTypes[i],term,struct,"Training"))
+      plotPrecRecall(testFiles,paste(netTypes[i],term,struct,"Testing"))
+      plotPrecRecall(trainFiles,paste(netTypes[i],term,struct,"Training"))
       dev.off()
     }
     
