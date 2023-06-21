@@ -7,8 +7,7 @@ import torch
 import time
 import os
 import random
-from FocalLoss import FocalLoss
-from CustomCrossEntropyLoss import CustomCrossEntropyLoss
+from CustomLossFunctions import FocalLoss, CustomCrossEntropyLoss, SM_BCE, SM_MSE
 import threading
 
 from scipy import stats
@@ -224,6 +223,12 @@ class AllGoModel():
             self.lossFunc = FocalLoss(gamma=gamma,alpha=self.weights,nonSpecific='n' in outputVector)
         elif lossFunc in ['BCE','binaryCrossEntropy','binary_cross_entropy']:
             self.lossFunc = torch.nn.BCEWithLogitsLoss(weight=self.weights)
+        elif lossFunc in ['SF_MSE']:
+            self.lossFunc = SM_MSE()
+        elif lossFunc in ['MSE']:
+            self.lossFunc = torch.nn.MSELoss()
+        elif lossFunc in ['SM_BCE']:
+            self.lossFunc = SM_BCE()
         else:
             self.lossFunc = torch.nn.CrossEntropyLoss()
             # self.lossFunc = CustomCrossEntropyLoss(alpha=self.weights,nonSpecific='n' in outputVector)
@@ -274,7 +279,16 @@ class AllGoModel():
 
         
 
-    def trainNetwork(self,epochs,track=100,step_lr=5000,cyclicLr=False,partiallyTrained=False,parallel=False,printTensors=False):
+    def trainNetwork(self,epochs,track=100,step_lr=5000,cyclicLr=False,partiallyTrained=False,parallel=False,printTensors=False,maxTensors=50):
+        createTensors = True
+        tensorList = []
+        def parallelMakeTensors():
+            while(createTensors):
+                if(len(tensorList) < maxTensors):
+                    batchArray = self.makeBatchArray(pairs)
+                    features, labels = self.makeBatchTensors(batchArray)
+                    tensorList.append((features,labels))
+        
         #Initialize all pairs of training genes
         pairs = self.makePairs(self.training)
         testPairs = self.makePairs(self.validation)
@@ -286,28 +300,26 @@ class AllGoModel():
         else:
             lossList = []
 
-        if partiallyTrained:
-            iterationRange = range(len(lossList*track),epochs)
-        else:
-            iterationRange = range(epochs)
+        
+        if parallel:
+            for i in range(2):
+                threading.Thread(target=parallelMakeTensors).start()
+
 
 
         start = time.time()
-        
         #Run training loop epochs number of times
-        for iteration in iterationRange:
+        for iteration in range(epochs):
             #Reset gradients before running each training step
             self.opt.zero_grad()
             
             #Make batch array of gene pairs
-            batchArray = self.makeBatchArray(pairs)
-            
-            
-            #Make features and labels tensors from batcharray
-            # if parallel:
-            #     features, labels = self.parallelMakeBatchTensor(batchArray)
-            # else:
-            features, labels = self.makeBatchTensors(batchArray)
+            if parallel and len(tensorList) > 0:
+                features, labels = tensorList.pop()
+            else:        
+                batchArray = self.makeBatchArray(pairs)
+                features, labels = self.makeBatchTensors(batchArray)
+            # print(len(tensorList))
             
             #Move both tensors to device of model
             features = features.to(self.device)
@@ -319,6 +331,8 @@ class AllGoModel():
             
 
             loss = self.lossFunc(outputs.float(),labels.float())
+            
+
             
             runningLoss += loss.item()
             loss.backward()

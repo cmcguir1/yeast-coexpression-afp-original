@@ -84,6 +84,7 @@ def writeJobs(JobName,pythonFile,arg1=['0','1','2','3'],arg2=None,arg3=None,arg4
 # writeJobs('CorrelationDict','Main.py',arg1=[''])
 # writeJobs('MemMapTest','Main.py',arg2=['YeastDict_ReCalc2.npy'])
 # writeJobs('CorrelationRecalc','Main2.py',arg1=['0','1','2','3','4','5','6','7','8','9','10','11','12','13','14','15'])
-writeJobs('LR_ps','Main3.py',arg2=['0.01','0.001','0.0001','0.00001'])
+# writeJobs('LR_ps','Main3.py',arg2=['0.01','0.001','0.0001','0.00001'])
+writeJobs('LossFunc2','Main4.py',arg2=['SM_BCE','SM_MSE','MSE'])
 
 

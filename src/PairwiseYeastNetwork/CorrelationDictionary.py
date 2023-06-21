@@ -36,8 +36,6 @@ class CorrelationDictionary():
         # Correlations dictionary initialization
         # self.memMap = np.memmap(dictLoc,'float32',mode='r+',shape=(430,(self.geneNumber*self.geneNumber - sum(range(self.geneNumber))) + self.geneNumber))
         self.memMap = np.load(dictLoc)
-        print(f'Correlation Dictionary: {sys.getsizeof(self.memMap)}')
-        print(f'Expression Datasets: {sys.getsizeof(self.expDataset)}')
 
 
     def lookupCorrelation(self,gene1,gene2,dataset):
