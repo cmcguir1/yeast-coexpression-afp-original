@@ -1,6 +1,6 @@
 #!/usr/bin/sh
 
-## Job Created Jun-19-2023
+## Job Created Jun-22-2023
 
 ##Place PBS directives here
 #PBS -N Modern_bioPIXIE
