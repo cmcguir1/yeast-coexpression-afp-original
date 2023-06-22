@@ -30,7 +30,7 @@ class AllGoGraph(AllGoModel):
 
         if self.expression:
             # Correlations Dictionary that will be retrieve precalculated correlation values
-            self.corrDict = CorrelationDictionary(dictLoc='../YeastMemMap/YeastCorrDictionary.dat' if (os.path.exists('../YeastMemMap/YeastCorrDictionary.dat')) else '../YeastDict.dat',datasetType=ontologyDataset)
+            self.corrDict = CorrelationDictionary(dictLoc='../YeastMemMap/YeastDict_Regularized.npy' if (os.path.exists('../YeastMemMap/YeastDict_Regularized.npy')) else '../YeastDict_Regularized.npy',datasetType=ontologyDataset)
             self.datasets = self.corrDict.expDataset.datasets
             self.inputSize += len(self.datasets)
             print('Initialized Expression Datasets')
@@ -102,17 +102,19 @@ class AllGoGraph(AllGoModel):
         #   outputVector determines what types of GO terms are included as labels for the output vector
         #       b - Biological Processes
         #       m - Molecular Functions
-        #       c - Cellular Components       
+        #       c - Cellular Components     
+        #       n - non specific interaction  
         #   Additional GO terms can be added with 'addTerm' """
         
         self.leaves = getLeaves(10,dataset=ontologyDataset,bioProc=('b' in outputVector),molFunc=('m' in outputVector),cellComp=('c' in outputVector))
         for term in addTerms:
             self.leaves.append([term,set(getGenes(term,dataset=ontologyDataset))])
         self.GOTermDict = {term[0]: i for i,term in enumerate(self.leaves)}
+        self.nonSpecific = 'n' in outputVector
 
 
 
-        self.regularize = True
+        self.regularize = False
 
 
         #Intiailize list of networks and device tensor will be calculated on
