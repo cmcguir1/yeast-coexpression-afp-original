@@ -436,7 +436,7 @@ class AllGoModel():
             columnNames = ['Gene A','Gene B','Label','Score','True Positive','False Negative','True Negative','False Positive','Accuracy','Precision','Recall','False Positive Rate','Selectivity']
             
             #Loops over all Go Slim terms
-            for i in range(self.outputSize - 1 if self.nonSpecific else 0):
+            for i in range(self.outputSize - (1 if self.nonSpecific else 0)):
                 # if self.outputSize - 1 != i and (not(self.nonSpecific)):
                 leaf = self.leaves[i]
                 print(f'Testing GO Term: {leaf[0]} ({i} / {self.outputSize})')
