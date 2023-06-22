@@ -436,57 +436,57 @@ class AllGoModel():
             columnNames = ['Gene A','Gene B','Label','Score','True Positive','False Negative','True Negative','False Positive','Accuracy','Precision','Recall','False Positive Rate','Selectivity']
             
             #Loops over all Go Slim terms
-            for i in range(self.outputSize):
-                if self.outputSize - 1 != i or (not(self.nonSpecific) and i == self.outputSize):
-                    leaf = self.leaves[i]
-                    print(f'Testing GO Term: {leaf[0]} ({i} / {self.outputSize})')
-                    #Conditional determines whether a given GO term's performance is calculated
-                    if leaf[0] in saveTerms or runAll:
-                        #Positive genes are all genes in the validation set that are annotated to the GO term
-                        posGenes = [gene for gene in self.validation if gene in leaf[1]]
+            for i in range(self.outputSize - 1 if self.nonSpecific else 0):
+                # if self.outputSize - 1 != i and (not(self.nonSpecific)):
+                leaf = self.leaves[i]
+                print(f'Testing GO Term: {leaf[0]} ({i} / {self.outputSize})')
+                #Conditional determines whether a given GO term's performance is calculated
+                if leaf[0] in saveTerms or runAll:
+                    #Positive genes are all genes in the validation set that are annotated to the GO term
+                    posGenes = [gene for gene in self.validation if gene in leaf[1]]
 
-                        #If no genes are annoated to the term in validation, make pair from all annotated genes
-                        #This was put in termporarily to allow for the test function to run, but this is not a good way to test terms with no genes and should be replaced
-                        if len(posGenes) == 0 or True:
-                            posGenes = list(leaf[1])
-                        posPairs = self.makePairs(np.array(posGenes))
+                    #If no genes are annoated to the term in validation, make pair from all annotated genes
+                    #This was put in termporarily to allow for the test function to run, but this is not a good way to test terms with no genes and should be replaced
+                    if len(posGenes) == 0 or True:
+                        posGenes = list(leaf[1])
+                    posPairs = self.makePairs(np.array(posGenes))
 
-                        #If there are more than 1000 positive pairs, shuffle the array and take the first 1000
-                        if len(posPairs) > 1000:
-                            np.random.shuffle(posPairs)
-                            posPairs = posPairs[:1000]
-                        
-                        negPairs = np.array([[pair[0],pair[1]] for pair in set(allPairs) - set([(pair[0],pair[1]) for pair in posPairs])])
-                        np.random.shuffle(negPairs)
-                        negPairs = negPairs[:len(posPairs)*proportionNeg]
-                        testingPairs = np.concatenate([posPairs,negPairs])
+                    #If there are more than 1000 positive pairs, shuffle the array and take the first 1000
+                    if len(posPairs) > 1000:
+                        np.random.shuffle(posPairs)
+                        posPairs = posPairs[:1000]
+                    
+                    negPairs = np.array([[pair[0],pair[1]] for pair in set(allPairs) - set([(pair[0],pair[1]) for pair in posPairs])])
+                    np.random.shuffle(negPairs)
+                    negPairs = negPairs[:len(posPairs)*proportionNeg]
+                    testingPairs = np.concatenate([posPairs,negPairs])
 
-                        
+                    
 
-                        #Calculate the data for a term
-                        termData = np.array([calcPair(pair,self.GOTermDict[leaf[0]]) for pair in testingPairs],dtype=object)
-                        sortedData = termData[termData[:,3].argsort()[::-1]]
-                        
-                        stats = calcStats(termData)
-                        termResults = np.concatenate([sortedData,stats],axis=1)
-                        leafStatsDist.append([leaf[0],np.mean(termResults[:,10]),averagePrecision(termResults[:,9])])
-                        goTerm = leaf[0].replace(':','-')
-                        print('Are we attempting to save')
-                        termDataFrame = pd.DataFrame(termResults,columns=columnNames)
-                        termDataFrame.drop(termDataFrame.columns[[4,5,6,7,8,12]],axis=1,inplace=True)
-                        termDataFrame.to_csv(f'{self.testLoc if validation else self.trainLoc}/{goTerm}_stats_fold{self.fold}.csv',index=False)
-                else:
-                    testingPairs = self.makeBatchArray(self.makePairs(self.validation if validation else self.training),batchSize=20000)
-
-                    termData = np.array([calcPair(pair,self.outputSize-1) for pair in testingPairs],dtype=object)
+                    #Calculate the data for a term
+                    termData = np.array([calcPair(pair,self.GOTermDict[leaf[0]]) for pair in testingPairs],dtype=object)
                     sortedData = termData[termData[:,3].argsort()[::-1]]
                     
                     stats = calcStats(termData)
                     termResults = np.concatenate([sortedData,stats],axis=1)
-                    leafStatsDist.append(['AnyCoAnno',np.mean(termResults[:,10]),averagePrecision(termResults[:,9])])
+                    leafStatsDist.append([leaf[0],np.mean(termResults[:,10]),averagePrecision(termResults[:,9])])
+                    goTerm = leaf[0].replace(':','-')
+                    print('Are we attempting to save')
                     termDataFrame = pd.DataFrame(termResults,columns=columnNames)
                     termDataFrame.drop(termDataFrame.columns[[4,5,6,7,8,12]],axis=1,inplace=True)
-                    termDataFrame.to_csv(f'{self.testLoc if validation else self.trainLoc}/AnyCoAnno_stats_fold{self.fold}.csv',index=False)
+                    termDataFrame.to_csv(f'{self.testLoc if validation else self.trainLoc}/{goTerm}_stats_fold{self.fold}.csv',index=False)
+            if self.nonSpecific:  
+                testingPairs = self.makeBatchArray(self.makePairs(self.validation if validation else self.training),batchSize=20000)
+
+                termData = np.array([calcPair(pair,self.outputSize-1) for pair in testingPairs],dtype=object)
+                sortedData = termData[termData[:,3].argsort()[::-1]]
+                
+                stats = calcStats(termData)
+                termResults = np.concatenate([sortedData,stats],axis=1)
+                leafStatsDist.append(['AnyCoAnno',np.mean(termResults[:,10]),averagePrecision(termResults[:,9])])
+                termDataFrame = pd.DataFrame(termResults,columns=columnNames)
+                termDataFrame.drop(termDataFrame.columns[[4,5,6,7,8,12]],axis=1,inplace=True)
+                termDataFrame.to_csv(f'{self.testLoc if validation else self.trainLoc}/AnyCoAnno_stats_fold{self.fold}.csv',index=False)
             if runAll:
                 pd.DataFrame(leafStatsDist,columns=['GO Term','AUC','Average Precision']).to_csv(f'{self.testLoc if validation else self.trainLoc}/GOTermDistribution_fold{self.fold}.csv',index=False)
             
