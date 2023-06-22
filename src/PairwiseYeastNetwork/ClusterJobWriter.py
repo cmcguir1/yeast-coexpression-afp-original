@@ -72,11 +72,11 @@ def writeJobs(JobName,pythonFile,arg1=['0','1','2','3'],arg2=None,arg3=None,arg4
 # writeJobs('DeepNet_bioPIXIE_Dropout','Main4.py')
 # writeJobs('Overfit_Unreasonable','Main3.py')
 # writeJobs('Modern_bioPIXIE','Main3.py')
-# writeJobs('Modern_bioPIXIE_Graph','GraphMain.py')
+writeJobs('Modern_bioPIXIE_Graph_new','Main6.py')
 # writeJobs('Cyclic_lr','Main.py')
 # writeJobs('MitoOrg_ST','SingleTermMain.py',arg1=['GO:0007005'],arg2=['2000'],arg3=['0','1','2','3'])
 # writeJobs('AG_Overfit_lr','Main4.py',arg2=['0.001','0.0001','0.00001'])
-# writeJobs('MitoOrg_ST_Graph')
+# writeJobs('MitoOrg_ST_Graph','Main6.py')
 # writeJobs('ST_ParaSearch','SingleTermMain.py',arg1=['GO:0007005'],arg2=['100','500','1000'],arg3=['0.1','0.01','0.001','0.0001'],arg4=['runAll'])
 # writeJobs('TestClusterSpeed','Main7.py',arg1=['GO:0007005'],arg2=['2000'],arg3=['0.01'],arg4=['0'],arg5=['50','500'])
 # writeJobs('FL_Control','Main6.py',arg2=['FL','CE'])
@@ -85,6 +85,6 @@ def writeJobs(JobName,pythonFile,arg1=['0','1','2','3'],arg2=None,arg3=None,arg4
 # writeJobs('MemMapTest','Main.py',arg2=['YeastDict_ReCalc2.npy'])
 # writeJobs('CorrelationRecalc','Main2.py',arg1=['0','1','2','3','4','5','6','7','8','9','10','11','12','13','14','15'])
 # writeJobs('LR_ps','Main3.py',arg2=['0.01','0.001','0.0001','0.00001'])
-writeJobs('LossFunc2','Main4.py',arg2=['SM_BCE','SM_MSE','MSE'])
+# writeJobs('LossFunc2','Main4.py',arg2=['SM_BCE','SM_MSE','MSE'])
 
 

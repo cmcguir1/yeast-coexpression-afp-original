@@ -145,7 +145,7 @@ class AllGoGraph(AllGoModel):
         self.agnOffset = offsetTotal
 
 
-    def feedForward(self,fold,term='GO:0007005',trackTime=True,dataset='original',offSet=0,runNegatives=True,calcPos=True,calcAgn=True,saveAll=False,debug=False,resetScores=False,batchSize=50,runBatch=False):
+    def feedForward(self,fold,term='GO:0007005',trackTime=True,dataset='original',offSet=0,runNegatives=True,calcPos=True,calcAgn=True,saveAll=True,debug=False,resetScores=False,batchSize=50,runBatch=True):
         with torch.no_grad():
             def calcPair(pair):
                 features, labels = self.makeBatchTensors(np.array([pair]))
