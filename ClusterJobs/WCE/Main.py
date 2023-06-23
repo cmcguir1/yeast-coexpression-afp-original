@@ -20,8 +20,8 @@ def main():
 
     
 
-    GOTest = AllGoModel(int(sys.argv[1]),'25000','WeightedCrossEntropy_Test','Original',foldFile='./src/PairwiseYeastNetwork/AllGOGeneFold1.csv',ontologyDataset='original',resetNet=True,inputVector='x',cuda=False,batch=50,regularize=False,lossFunc='WCE',weighted=True)
-    GOTest.trainNetwork(100000,track=100)
+    GOTest = AllGoModel(int(sys.argv[1]),'25000','WeightedCrossEntropy_Alpha','Original',foldFile='./src/PairwiseYeastNetwork/AllGOGeneFold1.csv',ontologyDataset='original',resetNet=True,inputVector='x',cuda=False,batch=50,regularize=False,lossFunc='WCE',weighted=True,alpha=float(sys.argv[2]))
+    GOTest.trainNetwork(150000,track=100)
     GOTest.testNetworkAll(runAll=True)
     GOTest.testNetworkAll(runAll=True,validation=False)
 

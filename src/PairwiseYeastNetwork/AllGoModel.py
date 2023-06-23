@@ -205,7 +205,7 @@ class AllGoModel():
             #   N - the total number of genes across all fold
             #   n - the number of gene annotated to a given go term
             # Weights are then divided by the sum of weights so that they add to zero, then they are multiplied by the number of output nodes
-            self.weights = torch.tensor([pow(len(folds),2) / pow(len(leaf[1]),2) for leaf in self.leaves],dtype=torch.float) 
+            self.weights = torch.tensor([pow(len(folds),2) / pow(len(leaf[1]),2) for leaf in self.leaves],dtype=torch.float)**alpha
             self.weights = (self.weights / torch.sum(self.weights)) * len(self.leaves)
 
         else:
@@ -307,11 +307,14 @@ class AllGoModel():
             for i in range(2):
                 threading.Thread(target=parallelMakeTensors).start()
 
-
+        if len(lossList) > 0:
+            iterRange = range(lossList[len(lossList),0],lossList[len(lossList),0]+epochs)
+        else:
+            iterRange = range(epochs)
 
         start = time.time()
         #Run training loop epochs number of times
-        for iteration in range(epochs):
+        for iteration in iterRange:
             #Reset gradients before running each training step
             self.opt.zero_grad()
             

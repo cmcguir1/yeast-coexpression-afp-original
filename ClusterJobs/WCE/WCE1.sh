@@ -1,6 +1,6 @@
 #!/usr/bin/sh
 
-## Job Created Jun-22-2023
+## Job Created Jun-23-2023
 
 ##Place PBS directives here
 #PBS -N WCE
@@ -11,4 +11,4 @@
 
 cd data/SummerResearch2022
 
-/data/hibbslab/anaconda3/bin/python src/PairwiseYeastNetwork/Main.py 1     > ClusterJobs/WCE/WCE1_output.txt
+/data/hibbslab/anaconda3/bin/python src/PairwiseYeastNetwork/Main.py 1 1    > ClusterJobs/WCE/WCE1_output.txt

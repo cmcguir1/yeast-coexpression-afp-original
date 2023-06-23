@@ -38,9 +38,9 @@ replaceTest <- function(str) {
 
 #Gets all files from Working directory
 wd <- getwd()
-saveDir <- "C:/Users/colem/Yeast Graphs/Modern_bioPIXIE_new"
+saveDir <- "C:/Users/colem/Yeast Graphs/LossFunc"
 if(!dir.exists(saveDir)) dir.create(saveDir)
-#saveDir <- "D:/YeastStor/lr_decay"
+
 
 dirs <- list.dirs(path = getwd(),full.names = TRUE)
 dirs <- dirs[2:length(dirs)]
@@ -55,7 +55,7 @@ desiredTerms <- c("GO-0007005","GO-0042273","GO-0032196","GO-0009451","GO-000689
 
 
 netType <- "AllGO_Modern_bioPIXIE"
-netTypes <- c("AG_bioPIXIE")
+netTypes <- c("AG_WCE")
 dataset <- "Modern"
 
 if(plotAll) { terms <- scrapeGoTerms(files)
@@ -101,6 +101,6 @@ for(dir in testDirs) {
     }
     
   }
-  #i <- i + 1
+  i <- i + 1
 }
 setwd(wd)
