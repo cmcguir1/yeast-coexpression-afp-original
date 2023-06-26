@@ -28,7 +28,8 @@ def main():
 
 
     graph = AllGoGraph('./Yeast Resources/Pairwise/Spell/Modern_bioPIXIE_Data_new/Modern_glpx_b_466x25000x53_lr0.01_batch50_Net_fold','466x25000x53','Modern_bioPIXIE_new',calcDataset='modern',inputVector='xlpg',outputVector='b')
-    graph.feedForward(int(sys.argv[1]),saveAll=True)
+    # graph.feedForward(int(sys.argv[1]),saveAll=True)
+    graph.rankGenes(dataset='modern')
 
 
 

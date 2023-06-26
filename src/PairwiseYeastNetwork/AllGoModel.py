@@ -9,6 +9,7 @@ import os
 import random
 from CustomLossFunctions import FocalLoss, CustomCrossEntropyLoss, SM_BCE, SM_MSE
 import threading
+from torch.utils.data import Dataset
 
 from scipy import stats
 
@@ -116,6 +117,7 @@ class AllGoModel():
         #       m - Molecular Functions
         #       c - Cellular Components   
         #       n - non specific gene pair interaction (co-annotated to any biological process)    
+        #       u - unrelated node (not co-annotated to any biological process)
         #   Additional GO terms can be added with 'addTerm'
         
         self.leaves = getLeaves(10,dataset=ontologyDataset,bioProc=('b' in outputVector),molFunc=('m' in outputVector),cellComp=('c' in outputVector))
@@ -126,6 +128,10 @@ class AllGoModel():
         
         self.nonSpecific = 'n' in outputVector
         if self.nonSpecific:
+            self.outputSize += 1
+
+        self.unrelated= 'u' in outputVector
+        if self.unrelated:
             self.outputSize += 1
         
         
@@ -282,14 +288,7 @@ class AllGoModel():
         
 
     def trainNetwork(self,epochs,track=100,step_lr=5000,cyclicLr=False,partiallyTrained=False,parallel=False,printTensors=False,maxTensors=50):
-        createTensors = True
-        tensorList = []
-        def parallelMakeTensors():
-            while(createTensors):
-                if(len(tensorList) < maxTensors):
-                    batchArray = self.makeBatchArray(pairs)
-                    features, labels = self.makeBatchTensors(batchArray)
-                    tensorList.append((features,labels))
+        
         
         #Initialize all pairs of training genes
         pairs = self.makePairs(self.training)
@@ -303,9 +302,7 @@ class AllGoModel():
             lossList = []
 
         
-        if parallel:
-            for i in range(2):
-                threading.Thread(target=parallelMakeTensors).start()
+        
 
         if len(lossList) > 0:
             iterRange = range(lossList[len(lossList),0],lossList[len(lossList),0]+epochs)
@@ -318,13 +315,10 @@ class AllGoModel():
             #Reset gradients before running each training step
             self.opt.zero_grad()
             
-            #Make batch array of gene pairs
-            if parallel and len(tensorList) > 0:
-                features, labels = tensorList.pop()
-            else:        
-                batchArray = self.makeBatchArray(pairs)
-                features, labels = self.makeBatchTensors(batchArray)
-            # print(len(tensorList))
+                 
+            batchArray = self.makeBatchArray(pairs)
+            features, labels = self.makeBatchTensors(batchArray)
+            
             
             #Move both tensors to device of model
             features = features.to(self.device)
@@ -657,6 +651,20 @@ class AllGoModel():
                 folds.append([gene,i])
         pd.DataFrame(folds,columns=['Gene','Fold']).to_csv(foldFile,index=False)
         return folds
+    
+    class CustomDataset(Dataset):
+        def __init__(self,outerClass,pairs):
+            self.out = outerClass
+            self.pairs = pairs
+
+        def __len__(self):
+            return len(self.pairs)
+
+        def __getitem__(self):
+            batchArray = self.out.makeBatchArray(self.pairs)
+            features, labels = self.out.makeBatchTensors(batchArray)
+            return (features, labels)
+            
 
     def compareOverlap(self):
         pairs = self.makePairs(np.concatenate([self.training,self.validation],axis=0))
@@ -683,6 +691,8 @@ class AllGoModel():
         for term, index in self.GOTermDict.items():
             terms[index] = term
         pd.DataFrame(mat,columns=terms).to_csv('./Yeast Resources/OverlapResults/Overlap.csv',index=False)
+
+    
         
 
 
