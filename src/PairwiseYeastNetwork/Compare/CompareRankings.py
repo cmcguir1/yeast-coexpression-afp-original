@@ -11,7 +11,7 @@ def compare(filePath):
     # Ranking where all cell comp and mol func GO terms are included in the output
     allOutput = pd.read_csv('./Yeast Resources/GraphResults/MemMap_Original_113x2000x92/GO-0007005_GeneRanking.csv').to_numpy()
     agLoc = pd.read_csv('./Yeast Resources/GraphResults/BioProc+LocalizationData/136x25000x53_GeneRanking_GO0007005.csv').to_numpy()
-    bpData = pd.read_csv('./Yeast Resources/GraphResults/bioPIXIE_Data/149x25000x53_GeneRanking_GO0007005.csv').to_numpy()
+    bpData = pd.read_csv('./Yeast Resources/GraphResults/Modern_bioPIXIE_new/466x25000x53_GeneRanking_GO0007005.csv').to_numpy()
     ranking = pd.read_csv(filePath).to_numpy()
 
     ensembleGenes = set(ensemble[:,0])
@@ -93,7 +93,7 @@ def compare(filePath):
             compareList.append([gene,oLabel,mLabel,1 if gene in mitoLoc else -1,ranking[i,2]/len(origPos),ranking[i,3]/len(ranking),i+1,allOutMap[gene],agLocMap[gene],bpMap[gene],stMap[gene],spellMap[gene],mefitMap[gene],pixieMap[gene]])
     rankedGenes = sorted(compareList,reverse=False,key=lambda row: row[6])
     print(rankedGenes)
-    pd.DataFrame(rankedGenes,columns=['Gene','Original Label','Modern Label','Mito Localized','Confidence','Background Confidence','AG bioProcOnly Rank','AG AllTerm Rank','AG Local','AG bioPIXIE','ST Rank','SPELL Rank','MEFIT Rank','bioPIXIE Rank']).to_csv('./RankingComparison_Final.csv',index=False)
+    pd.DataFrame(rankedGenes,columns=['Gene','Original Label','Modern Label','Mito Localized','Confidence','Background Confidence','AG bioProcOnly Rank','AG AllTerm Rank','AG Local','AG bioPIXIE Modern','ST Rank','SPELL Rank','MEFIT Rank','bioPIXIE Rank']).to_csv('./RankingComparison_withModern.csv',index=False)
 
 
     # filteredRanking = filter((lambda row: row[3] <= 1000),rankedGenes)
