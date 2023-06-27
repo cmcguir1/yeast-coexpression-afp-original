@@ -1,0 +1,6 @@
+Used 2009 Datasets
+Initialized Expression Datasets
+Initialized training and validation data
+Initialized Network
+./Yeast Resources/Pairwise/Spell/FocalLoss_ps/Original_x_b_113x25000x53_lr0.01_batch50_lfFL_gamma1_Train_/
+./Yeast Resources/Pairwise/Spell/FocalLoss_ps/Original_x_b_113x25000x53_lr0.01_batch50_lfFL_gamma1_Test_/
