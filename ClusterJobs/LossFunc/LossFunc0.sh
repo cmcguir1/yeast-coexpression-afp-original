@@ -1,6 +1,6 @@
 #!/usr/bin/sh
 
-## Job Created Jun-19-2023
+## Job Created Jun-27-2023
 
 ##Place PBS directives here
 #PBS -N LossFunc
@@ -11,4 +11,4 @@
 
 cd data/SummerResearch2022
 
-/data/hibbslab/anaconda3/bin/python src/PairwiseYeastNetwork/Main4.py 0 BCE    > ClusterJobs/LossFunc/LossFunc0_output.txt
+/data/hibbslab/anaconda3/bin/python src/PairwiseYeastNetwork/Main4.py 0 CCE    > ClusterJobs/LossFunc/LossFunc0_output.txt

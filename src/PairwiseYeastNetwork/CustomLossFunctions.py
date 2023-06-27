@@ -71,6 +71,15 @@ class CustomCrossEntropyLoss(nn.Module):
         
         return CE
     
+class ComboCrossEntropy(nn.Module):
+    def __init__(self):
+        super(ComboCrossEntropy,self).__init__()
+        self.sm = torch.nn.Softmax(dim=1)
+
+    def forward(self,inputs,targets):
+        loss = F.cross_entropy(inputs,targets,reduction='mean') + F.mse_loss(self.sm(inputs),targets)
+        return loss
+    
 
     
 

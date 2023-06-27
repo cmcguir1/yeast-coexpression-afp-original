@@ -7,7 +7,7 @@ import torch
 import time
 import os
 import random
-from CustomLossFunctions import FocalLoss, CustomCrossEntropyLoss, SM_BCE, SM_MSE
+from CustomLossFunctions import FocalLoss, CustomCrossEntropyLoss, SM_BCE, SM_MSE, ComboCrossEntropy
 import threading
 from torch.utils.data import Dataset
 
@@ -237,6 +237,8 @@ class AllGoModel():
             self.lossFunc = torch.nn.MSELoss()
         elif lossFunc in ['SM_BCE']:
             self.lossFunc = SM_BCE()
+        elif lossFunc in ['CCE']:
+            self.lossFunc = ComboCrossEntropy()
         else:
             self.lossFunc = torch.nn.CrossEntropyLoss()
             # self.lossFunc = CustomCrossEntropyLoss(alpha=self.weights,nonSpecific='n' in outputVector)
@@ -287,12 +289,19 @@ class AllGoModel():
 
         
 
-    def trainNetwork(self,epochs,track=100,step_lr=5000,cyclicLr=False,partiallyTrained=False,parallel=False,printTensors=False,maxTensors=50):
+    def trainNetwork(self,epochs,track=100,step_lr=5000,cyclicLr=False,printTensors=False,partition=False,onlyPos=False):
         
         
         #Initialize all pairs of training genes
-        pairs = self.makePairs(self.training)
-        testPairs = self.makePairs(self.validation)
+        if partition:
+            posPairs, negPairs = self.makePosNegPairs(self.training)
+        elif onlyPos:
+            posPairs, negPairs = self.makePosNegPairs(self.training)
+        else:
+            posPairs = self.makePairs(self.training)
+            negPairs = None
+        
+        
 
         runningLoss = 0.0
         # If there already exists a lossList for this model and the network is not being reset, intialize the lost list from a file
@@ -315,8 +324,10 @@ class AllGoModel():
             #Reset gradients before running each training step
             self.opt.zero_grad()
             
-                 
-            batchArray = self.makeBatchArray(pairs)
+            if partition:
+                batchArray = self.makeBatchArrayPartitioned(posPairs,negPairs)
+            else:
+                batchArray = self.makeBatchArray(posPairs)
             features, labels = self.makeBatchTensors(batchArray)
             
             
@@ -497,6 +508,13 @@ class AllGoModel():
             batchSize = self.batch
         #Returns array with batch size number of random gene pairs
         return pairs[np.random.choice(len(pairs),batchSize,replace=False),:]
+    
+    def makeBatchArrayPartitioned(self,posPairs,negPairs,batchSize=None):
+        if batchSize == None:
+            batchSize = self.batch
+        posBatch = posPairs[np.random.choice(len(posPairs),int(batchSize/2),replace=False),:]
+        negBatch = negPairs[np.random.choice(len(negPairs),int(batchSize/2),replace=False),:]
+        return np.concatenate([posBatch,negBatch],axis=1)
 
     def makeBatchTensors(self,batchArray):
         # First, make an array of the features that are the pearson correlations between the gene pair in every gene expression dataset
@@ -515,7 +533,7 @@ class AllGoModel():
 
         # Create lists of labels
         labels = torch.tensor([[self.calcLabel(leaf,genePair) for leaf in self.leaves] for genePair in batchArray],dtype=torch.float)
-        if self.nonSpecific:
+        if self.nonSpecific or self.unrelated:
             # print(torch.tensor([self.nonSpecificLabel(lab) for lab in labels]).size())
             # print(labels)
             labels = torch.cat([labels,torch.tensor([self.nonSpecificLabel(lab) for lab in labels])],dim=1)
@@ -575,6 +593,7 @@ class AllGoModel():
         rho = self.corrDict.lookupCorrelation(gene1,gene2,d)
         return rho
 
+        # The Correlation Dictionary hasbeen recalcuated to already have the correlations regularized
         #Adjust rho if 1 or -1 because of problems with fisher z transform
         if rho == 1:
             rho = 0.99
@@ -599,10 +618,16 @@ class AllGoModel():
                 return 0
             
     def nonSpecificLabel(self,vector):
-        if torch.sum(vector).item() > 0:
-            return [1]
+        if self.unrelated:
+            if torch.sum(vector).item() == 0:
+                return [1]
+            else:
+                return [0]
         else:
-            return [0]
+            if torch.sum(vector).item() > 0:
+                return [1]
+            else:
+                return [0]
 
     # Helper Function for makeBatchTensors - Predicate that is used to make the localization data section of the features tensor
     def localizationScore(self,gp,index):
@@ -635,6 +660,25 @@ class AllGoModel():
     def makePairs(self,genes):
         arr = np.array([(genes[i],genes[j]) for i in range(len(genes)) for j in range(i+1,len(genes))],dtype='U10')
         return arr
+    
+    # Returns tuple of array of positive pairs (gene pairs with at least one coAnnotation), and negative pairs (gene pair with no coAnnotations)
+    def makePosNegPairs(self,genes):
+        posPairs = []
+        negPairs = []
+        for i in range(len(genes)):
+            for j in range(i+1,len(genes)):
+                if self.coAnnotated(genes[i],genes[j]):
+                    posPairs.append([genes[i],genes[j]])
+                else:
+                    negPairs.append([genes[i],genes[j]])
+        return (np.array(posPairs,dtype='U10'),np.array(negPairs,dtype='U10'))
+
+    def coAnnotated(self,geneA,geneB):
+        for leaf in self.leaves:
+            if geneA in leaf[1] and geneB in leaf[1]:
+                return True
+        return False
+
     
     def makeNewGeneFolds(self,foldFile):
         #Take the union of all genes in the GO slim
