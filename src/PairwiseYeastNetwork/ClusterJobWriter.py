@@ -90,7 +90,8 @@ def writeJobs(JobName,pythonFile,arg1=['0','1','2','3'],arg2=None,arg3=None,arg4
 # writeJobs('LossFunc2','Main4.py',arg2=['SM_BCE','SM_MSE','MSE'])
 # writeJobs('WCE','Main.py',arg2=['0'])
 # writeJobs('FL_ps','Main2.py',arg2=['1','2','5'])
-writeJobs('Modern_phys_gene','Main2.py')
+# writeJobs('Modern_phys_gene','Main2.py')
+writeJobs('OnlyPos_ps','Main6.py',arg2=['0.01','0.001','0.0001'],arg3=['CE','FL'])
 
 
 

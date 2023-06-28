@@ -9,13 +9,13 @@ class FocalLoss(nn.Module):
         super(FocalLoss, self).__init__()
         self.alpha = alpha
         self.gamma = gamma
-        self.noneSpecific = nonSpecific
+        self.nonSpecific = nonSpecific
         
 
     def forward(self, inputs, targets,smooth=1):
         
         
-        if self.noneSpecific:
+        if self.nonSpecific:
 
             end = len(inputs[0]) - 1
             
