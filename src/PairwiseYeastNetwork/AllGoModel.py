@@ -59,10 +59,16 @@ class AllGoModel():
 
         if self.genomicInteraction:
             # Dataset of all bioGRID interactions
-            interactions = pd.read_csv('./InteractionData.txt',sep="\t").to_numpy()
-            interactionsList = pd.read_csv('./bioGRID_Interactions.csv').to_numpy().flatten()
+            if ontologyDataset == 'original':
+                interactions = pd.read_csv('./InteractionData.txt',sep="\t").to_numpy()
+                interactionsList = pd.read_csv('./GeneticInteractions_Original.csv').to_numpy().flatten()
+            else:
+                interactions = pd.read_csv('../BIOGRID-ORGANISM-Saccharomyces_cerevisiae_S288c-4.4.222.tab.txt',sep="\t").to_numpy()
+                interactionsList = pd.read_csv('./GeneticInteractions_Modern.csv').to_numpy().flatten()
+                self.genomic_len = len(interactionsList)
+                
             # genomic index maps the genomic interactions we care about to an index
-            genomicIndex = {item: i for i, item in enumerate(interactionsList[9:])}
+            genomicIndex = {item: i for i, item in enumerate(interactionsList)}
             
             self.genomicMap = {}
             for row in interactions:
@@ -70,8 +76,8 @@ class AllGoModel():
                 genePairStrA = row[0] + " " + row[1]
                 genePairStrB = row[1] + " " + row[0]
                 if (not (genePairStrA in self.genomicMap)) or (not (genePairStrB in self.genomicMap)):
-                    self.genomicMap[genePairStrA] = [0 for i in range(6)]
-                    self.genomicMap[genePairStrB] = [0 for i in range(6)]
+                    self.genomicMap[genePairStrA] = [0 for i in range(self.genomic_len)]
+                    self.genomicMap[genePairStrB] = [0 for i in range(self.genomic_len)]
                 if row[6] in genomicIndex:
                     # If a gene pair has a interaction, change the value of the interactions list for that pair from 0 to 1 at that specific interaction's index
                     tmp = self.genomicMap[genePairStrA]
@@ -79,16 +85,22 @@ class AllGoModel():
                     self.genomicMap[genePairStrA] = tmp
                     self.genomicMap[genePairStrB] = tmp
             
-            self.inputSize += 6
+            self.inputSize += self.genomic_len
                 
 
         if self.physical:
             # Dataset of all bioGRID interactions
-            interactions = pd.read_csv('./InteractionData.txt',sep="\t").to_numpy()
-            interactionsList = pd.read_csv('./bioGRID_Interactions.csv').to_numpy().flatten()
+            if ontologyDataset == 'original':
+                interactions = pd.read_csv('./InteractionData.txt',sep="\t").to_numpy()
+                interactionsList = pd.read_csv('./PhysicalInteractions_Original.csv').to_numpy().flatten()
+            else:
+                interactions = pd.read_csv('../BIOGRID-ORGANISM-Saccharomyces_cerevisiae_S288c-4.4.222.tab.txt',sep="\t").to_numpy()
+                interactionsList = pd.read_csv('./PhysicalInteractions_Modern.csv').to_numpy().flatten()
+            self.phys_len = len(interactionsList)-2
+
             
             # physical index maps physical interactions to indicies
-            physicalIndex = {item: i for i, item in enumerate(interactionsList[2:9])}
+            physicalIndex = {item: i for i, item in enumerate(interactionsList[2:])}
             # All types of affinity capture are represented by one node, so they are all mapped to index 0
             physicalIndex['Affinity Capture-MS'] = 0
             physicalIndex['Affinity Capture-Western'] = 0
@@ -100,8 +112,8 @@ class AllGoModel():
                 genePairStrA = row[0] + " " + row[1]
                 genePairStrB = row[1] + " " + row[0]
                 if (not (genePairStrA in self.physicalMap)) or (not (genePairStrB in self.physicalMap)):
-                    self.physicalMap[genePairStrA] = [0 for i in range(7)]
-                    self.physicalMap[genePairStrB] = [0 for i in range(7)]
+                    self.physicalMap[genePairStrA] = [0 for i in range(self.phys_len)]
+                    self.physicalMap[genePairStrB] = [0 for i in range(self.phys_len)]
                 if row[6] in physicalIndex:
                     # If a gene pair has a interaction, change the value of the interactions list for that pair from 0 to 1 at that specific interaction's index
                     tmp = self.physicalMap[genePairStrA]
@@ -109,7 +121,7 @@ class AllGoModel():
                     self.physicalMap[genePairStrA] = tmp
                     self.physicalMap[genePairStrB] = tmp
             
-            self.inputSize += 7
+            self.inputSize += self.phys_len
 
 
         #   outputVector determines what types of GO terms are included as labels for the output vector
@@ -645,7 +657,7 @@ class AllGoModel():
         if genePairStr in self.genomicMap:
             return self.genomicMap[genePairStr]
         else:
-            return [0 for _ in range(6)]
+            return [0 for _ in range(self.genomic_len)]
         
     # Helper Function for makeBatchTensor - returns list of what physical interactions occur between gene pairs
     def physicalScore(self,gp):
@@ -653,7 +665,7 @@ class AllGoModel():
         if genePairStr in self.physicalMap:
             return self.physicalMap[genePairStr]
         else:
-            return [0 for _ in range(7)]
+            return [0 for _ in range(self.phys_len)]
         
         
     #Returns array of all pairs of gene from given array of genes
