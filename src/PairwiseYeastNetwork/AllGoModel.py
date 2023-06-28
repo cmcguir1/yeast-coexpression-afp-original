@@ -301,7 +301,7 @@ class AllGoModel():
 
         
 
-    def trainNetwork(self,epochs,track=100,step_lr=5000,cyclicLr=False,printTensors=False,partition=False,onlyPos=False):
+    def trainNetwork(self,epochs,track=100,step_lr=5000,cyclicLr=False,printTensors=False,partition=False,onlyPos=False,randomizeLabels=False):
         
         
         #Initialize all pairs of training genes
@@ -346,6 +346,9 @@ class AllGoModel():
             #Move both tensors to device of model
             features = features.to(self.device)
             labels = labels.to(self.device)
+
+            if randomizeLabels:
+                labels = labels[torch.randperm(labels.size()[0])]
             
 
 

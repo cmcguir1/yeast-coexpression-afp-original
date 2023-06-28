@@ -8,9 +8,13 @@ import sys
 sys.path.insert(0,'./obopy')
 from Leaf import getLeaves, getGenes
 
+labels = torch.tensor([[1,2,3],[4,5,6],[7,8,9]])
+randomized = labels[torch.randperm(labels.size()[0])]
+print(f'Labels:\n{labels}')
+print(f'Randomized:\n{randomized}')
 
-interactionsList = pd.read_csv('./GeneticInteractions_Original.csv').to_numpy().flatten()
-print(interactionsList)
+# interactionsList = pd.read_csv('./GeneticInteractions_Original.csv').to_numpy().flatten()
+# print(interactionsList)
 # interactions = pd.read_csv('../BIOGRID-ORGANISM-Saccharomyces_cerevisiae_S288c-4.4.222.tab.txt',sep='\t').to_numpy()
 # # interactions = pd.read_csv('./InteractionData.txt',sep='\t').to_numpy()
 
