@@ -22,7 +22,7 @@ from Leaf import getLeaves, getGenes
 
 
 class AllGoModel():
-    def __init__(self,fold,structure,folderName,modelName,numFolds=4,lr=0.01,min_lr=1e-7,momentum=0.9,batch=50,gamma=2,alpha=1,weighted=False,lossFunc='CE',foldFile='./src/PairwiseYeastNetwork/AllGOGeneFold1.csv',ontologyDataset='modern',regularize=False,inputDropout=None,hiddenDropout=None,activation='relu',resetNet=False,cuda=True,inputVector = 'xl',outputVector = 'b',addTerms=[],memMapName='YeastDict_Regularized.npy'):
+    def __init__(self,fold,structure,folderName,modelName,numFolds=4,lr=0.01,min_lr=1e-7,momentum=0.9,batch=50,gamma=2,alpha=1,weighted=False,lossFunc='CE',foldFile='./src/PairwiseYeastNetwork/AllGOGeneFold1.csv',ontologyDataset='modern',regularize=False,inputDropout=None,hiddenDropout=None,activation='relu',resetNet=False,cuda=True,inputVector = 'xl',outputVector = 'b',addTerms=[],memMapName='YeastDict_Regularized.npy',randomizeLabels=True):
         # Handling what data is in the input and output vector of the vector
 
         #   The argument 'inputVector' determines what data is included in the input vector of the network based off of what characters are included in 'inputVector'
@@ -162,9 +162,14 @@ class AllGoModel():
             #Read in file of gene folds
             folds = pd.read_csv(foldFile).to_numpy()
 
-       
+        self.geneSwap = {}
+        randomFolds = np.random.RandomState(seed=42).permutation(folds)
+        for gene, randomGene in zip(folds,randomFolds):
+            self.geneSwap[gene] = randomGene
+        self.randomizeLabels = randomizeLabels
         
         self.validation = np.array([gene[0] for gene in folds if gene[1] == fold],dtype='U10')
+        
         self.training = np.array([gene[0] for gene in folds if gene[1] != fold],dtype='U10')
         np.random.shuffle(self.training)
         print('Initialized training and validation data')
@@ -626,6 +631,12 @@ class AllGoModel():
         
     # Helper Function for makeBatchTensors - calcs label for a given GO Term
     def calcLabel(self,l,gpair):
+        if self.randomizeLabels:
+            if self.geneSwap[gpair[0]] in l[1] and self.geneSwap[gpair[1]] in l[1]:
+                return 1
+            else:
+                return 0
+        else:
             #If both genes are annotated to that GO term, return 1, otherwise, return 0
             if gpair[0] in l[1] and gpair[1] in l[1]:
                 return 1
