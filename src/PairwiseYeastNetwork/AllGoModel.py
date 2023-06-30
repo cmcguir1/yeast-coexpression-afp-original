@@ -65,7 +65,7 @@ class AllGoModel():
             else:
                 interactions = pd.read_csv('../BIOGRID-ORGANISM-Saccharomyces_cerevisiae_S288c-4.4.222.tab.txt',sep="\t").to_numpy()
                 interactionsList = pd.read_csv('./GeneticInteractions_Modern.csv').to_numpy().flatten()
-                self.genomic_len = len(interactionsList)
+            self.genomic_len = len(interactionsList)
                 
             # genomic index maps the genomic interactions we care about to an index
             genomicIndex = {item: i for i, item in enumerate(interactionsList)}
