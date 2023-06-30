@@ -25,11 +25,11 @@ def main():
     # GOTest.testNetworkAll(runAll=True)
     # GOTest.testNetworkAll(runAll=True,validation=False)
 
-
-    GOTest = AllGoModel(int(sys.argv[1]),'25000','CE_RandomLabels',f'Original',foldFile='./src/PairwiseYeastNetwork/AllGOGeneFold1.csv',ontologyDataset='original',resetNet=True,inputVector='x',outputVector='b',cuda=False,lossFunc='CE')
-    GOTest.trainNetwork(100000,track=100,onlyPos=True,randomizeLabels=True)
-    GOTest.testNetworkAll(runAll=True)
-    GOTest.testNetworkAll(runAll=True,validation=False)
+    for i in range(4):
+        GOTest = AllGoModel(i,'25000','CE_RandomLabels',f'Original',foldFile='./src/PairwiseYeastNetwork/AllGOGeneFold1.csv',ontologyDataset='original',resetNet=True,inputVector='x',outputVector='b',cuda=False,lossFunc='CE')
+        GOTest.trainNetwork(100000,track=100,onlyPos=True,randomizeLabels=True)
+        GOTest.testNetworkAll(runAll=True)
+        GOTest.testNetworkAll(runAll=True,validation=False)
 
 
 

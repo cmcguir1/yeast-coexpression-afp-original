@@ -8,8 +8,8 @@ import sys
 sys.path.insert(0,'./obopy')
 from Leaf import getLeaves, getGenes
 
-labels = torch.tensor([[1,2,3],[4,5,6],[7,8,9]])
-randomized = labels[torch.randperm(labels.size()[0])]
+labels = np.array([[1,2,3],[4,5,6],[7,8,9],[10,11,12],[13,14,15]])
+randomized = np.random.permutation(labels)
 print(f'Labels:\n{labels}')
 print(f'Randomized:\n{randomized}')
 
