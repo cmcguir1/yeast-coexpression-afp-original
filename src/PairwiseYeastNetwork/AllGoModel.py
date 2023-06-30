@@ -165,7 +165,7 @@ class AllGoModel():
         self.geneSwap = {}
         randomFolds = np.random.RandomState(seed=42).permutation(folds)
         for gene, randomGene in zip(folds,randomFolds):
-            self.geneSwap[gene] = randomGene
+            self.geneSwap[gene[0]] = randomGene[0]
         self.randomizeLabels = randomizeLabels
         
         self.validation = np.array([gene[0] for gene in folds if gene[1] == fold],dtype='U10')
