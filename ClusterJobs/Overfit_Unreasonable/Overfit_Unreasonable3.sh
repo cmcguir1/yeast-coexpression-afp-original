@@ -1,6 +1,6 @@
 #!/usr/bin/sh
 
-## Job Created May-31-2023
+## Job Created Jun-30-2023
 
 ##Place PBS directives here
 #PBS -N Overfit_Unreasonable
@@ -11,4 +11,4 @@
 
 cd data/SummerResearch2022
 
-/data/hibbslab/anaconda3/bin/python src/PairwiseYeastNetwork/Main3.py 3    
+/data/hibbslab/anaconda3/bin/python src/PairwiseYeastNetwork/Main4.py 3 100000    > ClusterJobs/Overfit_Unreasonable/Overfit_Unreasonable3_output.txt

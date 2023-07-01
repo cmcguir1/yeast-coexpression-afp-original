@@ -11,4 +11,4 @@
 
 cd data/SummerResearch2022
 
-/data/hibbslab/anaconda3/bin/python src/PairwiseYeastNetwork/Main4.py 1 100000    > ClusterJobs/Overfit_Unreasonable/Overfit_Unreasonable1_output.txt
+/data/hibbslab/anaconda3/bin/python src/PairwiseYeastNetwork/Main4.py 0 500000    > ClusterJobs/Overfit_Unreasonable/Overfit_Unreasonable8_output.txt
