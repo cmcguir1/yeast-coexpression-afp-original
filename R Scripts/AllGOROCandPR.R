@@ -56,7 +56,7 @@ desiredTerms <- c("GO-0000054","GO-0002181","GO-0006353","GO-0006413","GO-000641
 
 
 netType <- "AllGO_Modern_phys_gene"
-netTypes <- c("AllGO_Random")
+netTypes <- c("Overift_1000000","Overift_100000","Overfit_250000","Overfit_25000x5000x5000x5000","Overfit_500000")
 dataset <- "Original"
 
 if(plotAll) { terms <- scrapeGoTerms(files)
