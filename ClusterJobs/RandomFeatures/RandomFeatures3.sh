@@ -3,7 +3,7 @@
 ## Job Created Jul-10-2023
 
 ##Place PBS directives here
-#PBS -N Modern_OnlyPos
+#PBS -N RandomFeatures
 #PBS -l nodes=1:ppn=36
 #PBS -l walltime=168:00:00
 #PBS -M cmcguir1@trinity.edu
@@ -11,4 +11,4 @@
 
 cd data/SummerResearch2022
 
-/data/hibbslab/anaconda3/bin/python src/PairwiseYeastNetwork/Main3.py 2     > ClusterJobs/Modern_OnlyPos/Modern_OnlyPos2_output.txt
+/data/hibbslab/anaconda3/bin/python src/PairwiseYeastNetwork/Main2.py 3     > ClusterJobs/RandomFeatures/RandomFeatures3_output.txt

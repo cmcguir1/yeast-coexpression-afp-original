@@ -22,7 +22,7 @@ from Leaf import getLeaves, getGenes
 
 
 class AllGoModel():
-    def __init__(self,fold,structure,folderName,modelName,numFolds=4,lr=0.01,min_lr=1e-7,momentum=0.9,batch=50,gamma=2,alpha=1,weighted=False,lossFunc='CE',foldFile='./src/PairwiseYeastNetwork/AllGOGeneFold1.csv',ontologyDataset='modern',regularize=False,inputDropout=None,hiddenDropout=None,activation='relu',resetNet=False,cuda=True,inputVector = 'xl',outputVector = 'b',addTerms=[],memMapName='YeastDict_Regularized.npy',randomizeLabels=True):
+    def __init__(self,fold,structure,folderName,modelName,numFolds=4,lr=0.01,min_lr=1e-7,momentum=0.9,batch=50,gamma=2,alpha=1,weighted=False,lossFunc='CE',foldFile='./src/PairwiseYeastNetwork/AllGOGeneFold1.csv',ontologyDataset='modern',regularize=False,inputDropout=None,hiddenDropout=None,activation='relu',resetNet=False,cuda=True,inputVector = 'xl',outputVector = 'b',addTerms=[],memMapName='YeastDict_Regularized.npy',randomizeLabels=False,randomizeFeatures=False):
         # Handling what data is in the input and output vector of the vector
 
         #   The argument 'inputVector' determines what data is included in the input vector of the network based off of what characters are included in 'inputVector'
@@ -163,10 +163,13 @@ class AllGoModel():
             folds = pd.read_csv(foldFile).to_numpy()
 
         self.geneSwap = {}
+        self.geneSwapReverse = {}
         randomFolds = np.random.RandomState(seed=42).permutation(folds)
         for gene, randomGene in zip(folds,randomFolds):
             self.geneSwap[gene[0]] = randomGene[0]
+            self.geneSwap[randomGene[0]] = gene[0]
         self.randomizeLabels = randomizeLabels
+        self.randomizeFeatures = randomizeFeatures
         
         self.validation = np.array([gene[0] for gene in folds if gene[1] == fold],dtype='U10')
         
@@ -306,7 +309,7 @@ class AllGoModel():
 
         
 
-    def trainNetwork(self,epochs,track=100,step_lr=5000,cyclicLr=False,printTensors=False,partition=False,onlyPos=False,randomizeLabels=False):
+    def trainNetwork(self,epochs,track=100,step_lr=5000,cyclicLr=False,printTensors=False,partition=False,onlyPos=True):
         
         
         #Initialize all pairs of training genes
@@ -351,9 +354,6 @@ class AllGoModel():
             #Move both tensors to device of model
             features = features.to(self.device)
             labels = labels.to(self.device)
-
-            if randomizeLabels:
-                labels = labels[torch.randperm(labels.size()[0])]
             
 
 
@@ -559,57 +559,25 @@ class AllGoModel():
             labels = torch.cat([labels,torch.tensor([self.nonSpecificLabel(lab) for lab in labels])],dim=1)
 
         return (features,labels)
+    
+    def swap(self,batch):
+        swapped = []
+        for pair in batch:
+            swapped.append([self.geneSwap[pair[0]],self.geneSwap[pair[1]]])
+        return np.array(swapped,dtype='U10')
 
-    def parallelMakeBatchTensor(self,batchArray):
-        features = torch.zeros(size=(self.batch,self.inputSize),dtype=torch.float)
-        labels = torch.zeros(size=(self.batch,self.outputSize),dtype=torch.float)
-        
-
-        def fillFeatures(start,finish):
-            featuresList = []
-            if self.expression:  
-                featuresList.append(torch.tensor([[self.calcCorr(dataset,genePair) for dataset in self.datasets] for genePair in batchArray[start:finish]],dtype=torch.float))
-            if self.localization:
-                featuresList.append(torch.tensor([[self.localizationScore(genePair,index) for index in range(23)] for genePair in batchArray[start:finish]],dtype=torch.float))
-            if self.genomicInteraction:
-                featuresList.append(torch.tensor([self.genomicScore(genePair) for genePair in batchArray[start:finish]],dtype=torch.float))
-            if self.physical:
-                featuresList.append(torch.tensor([self.physicalScore(genePair) for genePair in batchArray[start:finish]],dtype=torch.float))
-            features[start:finish,:] = torch.cat(featuresList,dim=1)
-            
-        def fillLabels(start,finish):
-            labels[start:finish,:] = torch.tensor([[self.calcLabel(leaf,genePair) for leaf in self.leaves] for genePair in batchArray[start:finish]],dtype=torch.float)
-        
-        def fillTensors(start,finish):
-            fillFeatures(start,finish)
-            fillLabels(start,finish)
-        
-        
-        cpus = os.cpu_count()
-        part = int(self.batch/cpus)
-
-        threads = []
-        for c in range(cpus):
-            if c != cpus - 1:
-                
-                threads.append(threading.Thread(target=fillTensors,args=(part*c,part*(c+1))))
-                threads[c].start()
-            else:
-                threads.append(threading.Thread(target=fillTensors,args=(part*c,self.batch)))
-                threads[c].start()
-        for c in range(cpus):
-            threads[c].join()
-
-        return(features,labels)
-            
 
 
     
     #Helper function for makeBatchTensors - looks up and modifies correlation for a gene pair in a given dataset
     def calcCorr(self,d,gp):
         d = d.dataFile
-        gene1 = gp[0]
-        gene2 = gp[1]
+        if self.randomizeFeatures:
+            gene1 = gp[0]
+            gene2 = gp[1]
+        else:
+            gene1 = gp[0]
+            gene2 = gp[1]
         rho = self.corrDict.lookupCorrelation(gene1,gene2,d)
         return rho
 
@@ -657,6 +625,9 @@ class AllGoModel():
 
     # Helper Function for makeBatchTensors - Predicate that is used to make the localization data section of the features tensor
     def localizationScore(self,gp,index):
+        if self.randomizeFeatures:
+            gp[0] = self.geneSwap[gp[0]]
+            gp[1] = self.geneSwap[gp[1]]
         if gp[0] in self.localMap and gp[1] in self.localMap:
             if self.localMap[gp[0]][index] and self.localMap[gp[0]][index]:
                 return 1
@@ -667,6 +638,9 @@ class AllGoModel():
 
     # Helper Function for makeBatchTensor - returns list of what genetic interactions occur between gene pairs   
     def genomicScore(self,gp):
+        if self.randomizeFeatures:
+            gp[0] = self.geneSwap[gp[0]]
+            gp[1] = self.geneSwap[gp[1]]
         genePairStr = gp[0] + ' ' + gp[1]
         if genePairStr in self.genomicMap:
             return self.genomicMap[genePairStr]
@@ -675,6 +649,9 @@ class AllGoModel():
         
     # Helper Function for makeBatchTensor - returns list of what physical interactions occur between gene pairs
     def physicalScore(self,gp):
+        if self.randomizeFeatures:
+            gp[0] = self.geneSwap[gp[0]]
+            gp[1] = self.geneSwap[gp[1]]
         genePairStr = gp[0] + ' ' + gp[1]
         if genePairStr in self.physicalMap:
             return self.physicalMap[genePairStr]
