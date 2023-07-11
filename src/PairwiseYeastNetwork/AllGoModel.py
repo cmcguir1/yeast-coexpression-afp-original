@@ -573,8 +573,8 @@ class AllGoModel():
     def calcCorr(self,d,gp):
         d = d.dataFile
         if self.randomizeFeatures:
-            gp[0] = self.geneSwap[gp[0]]
-            gp[1] = self.geneSwap[gp[1]]
+            gene1 = self.geneSwap[gp[0]]
+            gene2 = self.geneSwap[gp[1]]
         else:
             gene1 = gp[0]
             gene2 = gp[1]
