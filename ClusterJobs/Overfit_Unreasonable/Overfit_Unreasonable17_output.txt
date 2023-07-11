@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Used 2009 Datasets
 Initialized Expression Datasets
 Initialized training and validation data
@@ -3359,3 +3360,5 @@ Time for 100 Batches: 0.7563721855481466
 Time for 100 Batches: 0.7509973684946696
 100 Batch Cumulative Loss: 67.8018651008606
 Time for 100 Batches: 0.7491775989532471
+=======
+>>>>>>> 50196faa95a0834632553ac4177486d6c0962d8b

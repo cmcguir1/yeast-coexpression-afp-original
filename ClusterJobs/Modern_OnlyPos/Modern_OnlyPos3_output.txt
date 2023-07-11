@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Used Modern Datasets
 Initialized Expression Datasets
 Initialized Localization Data
@@ -2296,3 +2297,5 @@ Time for 100 Batches: 1.2123931527137757
 Time for 100 Batches: 1.2377956628799438
 100 Batch Cumulative Loss: 210.54886366426945
 Time for 100 Batches: 1.2190803329149882
+=======
+>>>>>>> 50196faa95a0834632553ac4177486d6c0962d8b
