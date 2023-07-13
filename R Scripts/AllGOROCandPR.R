@@ -38,7 +38,7 @@ replaceTest <- function(str) {
 
 #Gets all files from Working directory
 wd <- getwd()
-saveDir <- "C:/Users/colem/Yeast Graphs/RandomLabels"
+saveDir <- "C:/Users/colem/Yeast Graphs/RandomFeatures"
 if(!dir.exists(saveDir)) dir.create(saveDir)
 
 
@@ -56,7 +56,7 @@ desiredTerms <- c("GO-0000054","GO-0002181","GO-0006353","GO-0006413","GO-000641
 
 
 netType <- "AllGO_Modern_phys_gene"
-netTypes <- c("Overift_1000000","Overift_100000","Overfit_250000","Overfit_25000x5000x5000x5000","Overfit_500000")
+netTypes <- c("RandomFeatures")
 dataset <- "Original"
 
 if(plotAll) { terms <- scrapeGoTerms(files)

@@ -22,7 +22,7 @@ from Leaf import getLeaves, getGenes
 
 
 class AllGoModel():
-    def __init__(self,fold,structure,folderName,modelName,numFolds=4,lr=0.01,min_lr=1e-7,momentum=0.9,batch=50,gamma=2,alpha=1,weighted=False,lossFunc='CE',foldFile='./src/PairwiseYeastNetwork/AllGOGeneFold1.csv',ontologyDataset='modern',regularize=False,inputDropout=None,hiddenDropout=None,activation='relu',resetNet=False,cuda=True,inputVector = 'xl',outputVector = 'b',addTerms=[],memMapName='YeastDict_Regularized.npy',randomizeLabels=False,randomizeFeatures=False):
+    def __init__(self,fold,structure,folderName,modelName,numFolds=4,lr=0.01,min_lr=1e-7,momentum=0.9,batch=50,gamma=2,alpha=1,weighted=False,lossFunc='CE',foldFile='./src/PairwiseYeastNetwork/AllGOGeneFold1.csv',ontologyDataset='modern',regularize=False,inputDropout=None,hiddenDropout=None,activation='relu',resetNet=False,cuda=True,inputVector = 'xl',outputVector = 'b',addTerms=[],memMapName='YeastDict_Regularized.npy',randomizeLabels=False,randomizeFeatures=False,swapGenes=False):
         # Handling what data is in the input and output vector of the vector
 
         #   The argument 'inputVector' determines what data is included in the input vector of the network based off of what characters are included in 'inputVector'
@@ -168,8 +168,10 @@ class AllGoModel():
         for gene, randomGene in zip(folds,randomFolds):
             self.geneSwap[gene[0]] = randomGene[0]
             self.geneSwap[randomGene[0]] = gene[0]
-        self.randomizeLabels = randomizeLabels
-        self.randomizeFeatures = randomizeFeatures
+        # self.randomizeLabels = randomizeLabels
+        # self.randomizeFeatures = randomizeFeatures
+        self.swapGenes = swapGenes
+        
         
         self.validation = np.array([gene[0] for gene in folds if gene[1] == fold],dtype='U10')
         
@@ -220,6 +222,7 @@ class AllGoModel():
         self.net = FlexNet(struct,sigmoid=False,activation=activation,inputDrop=inputDropout,hiddenDrop=hiddenDropout)
         if(os.path.exists(self.networkLoc) and not(resetNet)):
             self.net.load_state_dict(torch.load(self.networkLoc))
+            print(f'Loaded Network from Hard drive')
         
         #Choose which device to run network on, then move network to that device
         self.device = 'cuda:0' if torch.cuda.is_available() and cuda else 'cpu'
@@ -311,7 +314,10 @@ class AllGoModel():
 
     def trainNetwork(self,epochs,track=100,step_lr=5000,cyclicLr=False,printTensors=False,partition=False,onlyPos=True):
         
-        
+        if self.swapGenes:
+            self.randomizeLabels = True
+            self.randomizeFeatures = False
+
         #Initialize all pairs of training genes
         if partition:
             posPairs, negPairs = self.makePosNegPairs(self.training)
@@ -409,6 +415,10 @@ class AllGoModel():
 
 
     def testNetworkAll(self,proportionNeg=10,saveTerms={'GO:0007005','GO:0006302','GO:0007127'},runAll=True,validation=True):
+        if self.swapGenes:
+            self.randomizeLabels = False
+            self.randomizeFeatures = True
+        
         with torch.no_grad():
             #Helper function that passes a pair through the trained network, then grabs the outputs of that pair for a given GO term
             def calcPair(pair,termIndex):
