@@ -95,7 +95,8 @@ def writeJobs(JobName,pythonFile,arg1=['0','1','2','3'],arg2=None,arg3=None,arg4
 # writeJobs('RandomizedLabels_swapGenes','Main2.py')
 # writeJobs('Overfit_OnlyPos','Main4.py',arg2=['0.0001','0.00001'])
 # writeJobs('Overfit_Unreasonable','Main4.py',arg2=['100000','250000','500000','1000000','25000x5000x5000x5000x5000'])
-writeJobs('Random_SwapGenesTest','Main2.py')
+writeJobs('Random_SwapGenes','Main2.py')
+writeJobs('RandomInputs','Main3.py')
 
 
 

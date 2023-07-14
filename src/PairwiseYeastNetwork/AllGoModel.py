@@ -168,8 +168,8 @@ class AllGoModel():
         for gene, randomGene in zip(folds,randomFolds):
             self.geneSwap[gene[0]] = randomGene[0]
             self.geneSwap[randomGene[0]] = gene[0]
-        # self.randomizeLabels = randomizeLabels
-        # self.randomizeFeatures = randomizeFeatures
+        self.randomizeLabels = False
+        self.randomizeFeatures = False
         self.swapGenes = swapGenes
         
         
