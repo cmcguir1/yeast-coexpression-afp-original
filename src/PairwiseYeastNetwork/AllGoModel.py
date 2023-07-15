@@ -176,6 +176,7 @@ class AllGoModel():
         self.validation = np.array([gene[0] for gene in folds if gene[1] == fold],dtype='U10')
         
         self.training = np.array([gene[0] for gene in folds if gene[1] != fold],dtype='U10')
+        print(f'Intersection: {len(set(self.training) & set(self.validation))}')
         np.random.shuffle(self.training)
         print('Initialized training and validation data')
 
@@ -483,7 +484,7 @@ class AllGoModel():
                 #Conditional determines whether a given GO term's performance is calculated
                 if leaf[0] in saveTerms or runAll:
                     #Positive genes are all genes in the validation set that are annotated to the GO term
-                    posGenes = [gene for gene in self.validation if gene in leaf[1]]
+                    posGenes = [gene for gene in (self.validation if validation else self.training) if gene in leaf[1]]
 
                     #If no genes are annoated to the term in validation, make pair from all annotated genes
                     #This was put in termporarily to allow for the test function to run, but this is not a good way to test terms with no genes and should be replaced

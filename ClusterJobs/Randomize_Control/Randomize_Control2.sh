@@ -3,7 +3,7 @@
 ## Job Created Jul-15-2023
 
 ##Place PBS directives here
-#PBS -N RandomInputs
+#PBS -N Randomize_Control
 #PBS -l nodes=1:ppn=36
 #PBS -l walltime=168:00:00
 #PBS -M cmcguir1@trinity.edu
@@ -11,4 +11,4 @@
 
 cd data/SummerResearch2022
 
-/data/hibbslab/anaconda3/bin/python src/PairwiseYeastNetwork/Main3.py 0     > ClusterJobs/RandomInputs/RandomInputs0_output.txt
+/data/hibbslab/anaconda3/bin/python src/PairwiseYeastNetwork/Main4.py 2     > ClusterJobs/Randomize_Control/Randomize_Control2_output.txt
