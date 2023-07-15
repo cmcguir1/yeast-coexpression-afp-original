@@ -56,7 +56,7 @@ desiredTerms <- c("GO-0000054","GO-0002181","GO-0006353","GO-0006413","GO-000641
 
 
 netType <- "AllGO_Modern_phys_gene"
-netTypes <- c("RandomLabels")
+netTypes <- c("SwapGenes_Redo")
 dataset <- "Original"
 
 if(plotAll) { terms <- scrapeGoTerms(files)

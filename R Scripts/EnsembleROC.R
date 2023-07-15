@@ -54,10 +54,4 @@ pdf("EnsembleComparision_AG_bioPIXIEData_Modern_ROC.pdf",width=6,height=6)
 ensembleROC(dataFile=dataFile,graphName=graphName)
 dev.off()
 
-datafile1 <- "C:\\Users\\colem\\SummerResearch2022\\Yeast Resources\\GraphResults\\Original_Rerun_113x100x50x1\\Original_113x100x50x1_Ranked.csv"
-datafile2 <- "C:\\Users\\colem\\SummerResearch2022\\Yeast Resources\\GraphResults\\BioProcOnly\\113x25000x53_GeneRanking_GO0007005.csv"
-
-plot(nn[,"False.Positive.Rate"],nn[,"Recall"],type="l",lwd=w,col="#7713BA",main=graphName,xlab="False Positive Rate",ylab="Recall",lty="dashed")
-lines(nn[,"False.Positive.Rate"],nn[,"Recall"],type="l",lwd=w,col="#7713BA",main=graphName,xlab="False Positive Rate",ylab="Recall")
-lines(c(0,1),c(0,1),lwd=w,col="#000000")
 

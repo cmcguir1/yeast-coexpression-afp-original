@@ -583,8 +583,8 @@ class AllGoModel():
     def calcCorr(self,d,gp):
         d = d.dataFile
         if self.randomizeFeatures:
-            gene1 = self.geneSwap[gp[0]]
-            gene2 = self.geneSwap[gp[1]]
+            gene1 = self.geneSwapReverse[gp[0]]
+            gene2 = self.geneSwapReverse[gp[1]]
         else:
             gene1 = gp[0]
             gene2 = gp[1]
@@ -636,8 +636,8 @@ class AllGoModel():
     # Helper Function for makeBatchTensors - Predicate that is used to make the localization data section of the features tensor
     def localizationScore(self,gp,index):
         if self.randomizeFeatures:
-            gp[0] = self.geneSwap[gp[0]]
-            gp[1] = self.geneSwap[gp[1]]
+            gp[0] = self.geneSwapReverse[gp[0]]
+            gp[1] = self.geneSwapReverse[gp[1]]
         if gp[0] in self.localMap and gp[1] in self.localMap:
             if self.localMap[gp[0]][index] and self.localMap[gp[0]][index]:
                 return 1
@@ -649,8 +649,8 @@ class AllGoModel():
     # Helper Function for makeBatchTensor - returns list of what genetic interactions occur between gene pairs   
     def genomicScore(self,gp):
         if self.randomizeFeatures:
-            gp[0] = self.geneSwap[gp[0]]
-            gp[1] = self.geneSwap[gp[1]]
+            gp[0] = self.geneSwapReverse[gp[0]]
+            gp[1] = self.geneSwapReverse[gp[1]]
         genePairStr = gp[0] + ' ' + gp[1]
         if genePairStr in self.genomicMap:
             return self.genomicMap[genePairStr]
@@ -660,8 +660,8 @@ class AllGoModel():
     # Helper Function for makeBatchTensor - returns list of what physical interactions occur between gene pairs
     def physicalScore(self,gp):
         if self.randomizeFeatures:
-            gp[0] = self.geneSwap[gp[0]]
-            gp[1] = self.geneSwap[gp[1]]
+            gp[0] = self.geneSwapReverse[gp[0]]
+            gp[1] = self.geneSwapReverse[gp[1]]
         genePairStr = gp[0] + ' ' + gp[1]
         if genePairStr in self.physicalMap:
             return self.physicalMap[genePairStr]
