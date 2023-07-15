@@ -1,0 +1,11 @@
+Used 2009 Datasets
+Initialized Expression Datasets
+Intersection: 0
+Initialized training and validation data
+Loaded Network from Hard drive
+Initialized Network
+Used Cross Entropy Loss Function
+./Yeast Resources/Pairwise/Spell/SwapGenes_ProperSwapBack/Original_x_b_113x25000x53_lr0.01_batch50_Train_/
+./Yeast Resources/Pairwise/Spell/SwapGenes_ProperSwapBack/Original_x_b_113x25000x53_lr0.01_batch50_Test_/
+Began Testing the Network
+Testing GO Term: GO:0000054 (0 / 53)
