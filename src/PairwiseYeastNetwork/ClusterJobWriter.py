@@ -97,7 +97,7 @@ def writeJobs(JobName,pythonFile,arg1=['0','1','2','3'],arg2=None,arg3=None,arg4
 # writeJobs('Overfit_Unreasonable','Main4.py',arg2=['100000','250000','500000','1000000','25000x5000x5000x5000x5000'])
 writeJobs('Random_SwapGenes','Main2.py')
 writeJobs('RandomInputs','Main3.py')
-writeJobs('Randomize_Control','Main4.py')
+# writeJobs('Randomize_Control','Main4.py')
 
 
 

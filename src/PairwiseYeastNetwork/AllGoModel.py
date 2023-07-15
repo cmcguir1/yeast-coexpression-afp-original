@@ -167,7 +167,9 @@ class AllGoModel():
         randomFolds = np.random.RandomState(seed=42).permutation(folds)
         for gene, randomGene in zip(folds,randomFolds):
             self.geneSwap[gene[0]] = randomGene[0]
-            self.geneSwap[randomGene[0]] = gene[0]
+            self.geneSwapReverse[randomGene[0]] = gene[0]
+        print(self.geneSwap)
+        print(self.geneSwapReverse)
         self.randomizeLabels = randomizeLabels
         self.randomizeFeatures = randomizeFeatures
         self.swapGenes = swapGenes
@@ -341,7 +343,7 @@ class AllGoModel():
         
 
         if len(lossList) > 0:
-            iterRange = range(lossList[len(lossList),0],lossList[len(lossList),0]+epochs)
+            iterRange = range(lossList[len(lossList)][0],lossList[len(lossList)][0]+epochs)
         else:
             iterRange = range(epochs)
 
