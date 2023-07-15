@@ -20,8 +20,8 @@ def main():
 
     
 
-    GOTest = AllGoModel(int(sys.argv[1]),'25000','Random_Control','Control',foldFile='./src/PairwiseYeastNetwork/AllGOGeneFold1.csv',ontologyDataset='original',resetNet=True,inputVector='x',cuda=False,batch=50)
-    GOTest.trainNetwork(100000,track=100,onlyPos=True)
+    GOTest = AllGoModel(int(sys.argv[1]),sys.argv[2],'OnlyPos_Unreasonable_nonRandom','Original',foldFile='./src/PairwiseYeastNetwork/AllGOGeneFold1.csv',ontologyDataset='original',resetNet=False,inputVector='x',cuda=False,batch=50,lr=0.001)
+    # GOTest.trainNetwork(500000,track=100,onlyPos=True)
     GOTest.testNetworkAll(runAll=True)
     GOTest.testNetworkAll(runAll=True,validation=False)
 
