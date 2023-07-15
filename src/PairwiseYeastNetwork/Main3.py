@@ -21,7 +21,7 @@ def main():
     
 
     GOTest = AllGoModel(int(sys.argv[1]),'25000','RandomInputs_original','Original',foldFile='./src/PairwiseYeastNetwork/AllGOGeneFold1.csv',ontologyDataset='original',resetNet=False,inputVector='x',cuda=False,batch=50,memMapName='YeastDict_Random.npy')
-    GOTest.trainNetwork(100000,track=100,onlyPos=True)
+    # GOTest.trainNetwork(100000,track=100,onlyPos=True)
     GOTest.testNetworkAll(runAll=True)
     GOTest.testNetworkAll(runAll=True,validation=False)
 
