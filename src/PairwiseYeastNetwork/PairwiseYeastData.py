@@ -12,17 +12,12 @@ sys.path.insert(0,'./obopy')
 from Leaf import makePosNegFiles
 
 class PairwiseYeastData():
-    def __init__(self,dataset,foldFile,numFolds=4,filterMissingGenes=False,recalc=False,statsDictLoc='./Yeast Resources/Datasets/All Spell/revisedStatsDict.csv',subset=100000,term='GO:0007005',memMapLoc='../YeastDict.dat'):
-
-        if False and term == 'GO:0007005':
-            #Reads in lists of positive and negatice genes, then turns each data frame into an array, flattens that array, then turns it into a list
-            self.posDataList = pd.read_csv('./Yeast Resources/positives_00_go04-15-07.txt').to_numpy().flatten().tolist()
-            self.negDataList = pd.read_csv('./Yeast Resources/negatives_00_go04-15-07.txt').to_numpy().flatten().tolist()
-        else:
-            if not os.path.exists(f'./Yeast Resources/GeneSets/{term[0:2] + term[3:]}_Pos_{dataset}.txt'):
-                makePosNegFiles(term,dataset=dataset)
-            self.posDataList = pd.read_csv(f'./Yeast Resources/GeneSets/{term[0:2] + term[3:]}_Pos_{dataset}.txt').to_numpy().flatten().tolist()
-            self.negDataList = pd.read_csv(f'./Yeast Resources/GeneSets/{term[0:2] + term[3:]}_Neg_{dataset}.txt').to_numpy().flatten().tolist()
+    def __init__(self,dataset,foldFile,numFolds=4,filterMissingGenes=False,term='GO:0007005',memMapLoc='../YeastDict.dat'):
+        
+        if not os.path.exists(f'./Yeast Resources/GeneSets/{term[0:2] + term[3:]}_Pos_{dataset}.txt'):
+            makePosNegFiles(term,dataset=dataset)
+        self.posDataList = pd.read_csv(f'./Yeast Resources/GeneSets/{term[0:2] + term[3:]}_Pos_{dataset}.txt').to_numpy().flatten().tolist()
+        self.negDataList = pd.read_csv(f'./Yeast Resources/GeneSets/{term[0:2] + term[3:]}_Neg_{dataset}.txt').to_numpy().flatten().tolist()
         #Set of all positive genes
         self.posDataSet = set(self.posDataList)
 
@@ -36,23 +31,23 @@ class PairwiseYeastData():
         #Generate all possible gene pairs, concatentate them into one array
         #This array is used to calculate the mean and std of each dataset
 
-        posPairs, negPairs, agnPairs = PairwiseYeastData.makePairs(self.posArray,self.negArray,makeAgnositc=True)
-        pairs = np.concatenate((posPairs,negPairs,agnPairs))
+        # posPairs, negPairs, agnPairs = PairwiseYeastData.makePairs(self.posArray,self.negArray,makeAgnositc=True)
+        # pairs = np.concatenate((posPairs,negPairs,agnPairs))
 
         
-        if dataset == 'modern' or dataset == 'Modern':
-            folder = f'./Yeast Resources/Datasets/All Spell/all spell datasets'
-            recur = True
-            sort = True
-        else:
-            folder = './Yeast Resources/Datasets/All Spell/original'
-            recur = False
-            sort = False
-        self.expression = ExpressionDatasets(folder,pairs=pairs,subset=subset,sort=sort,recur=recur,recalc=recalc,statsDictLoc=statsDictLoc)
-        self.datasets = self.expression.datasets
+        # if dataset == 'modern' or dataset == 'Modern':
+        #     folder = f'./Yeast Resources/Datasets/All Spell/all spell datasets'
+        #     recur = True
+        #     sort = True
+        # else:
+        #     folder = './Yeast Resources/Datasets/All Spell/original'
+        #     recur = False
+        #     sort = False
+        # self.expression = ExpressionDatasets(folder,pairs=pairs,subset=subset,sort=sort,recur=recur,recalc=recalc,statsDictLoc=statsDictLoc)
+        # self.datasets = self.expression.datasets
 
         #Correlations Dictionary that will be retrieve precalculated correlation values
-        self.corrDict = CorrelationDictionary(dictLoc='../YeastMemMap/YeastDict_float16.npy' if (os.path.exists('../YeastMemMap/YeastDict_float16.npy')) else '../YeastDict_float16.npy',datasetType=dataset)
+        self.corrDict = CorrelationDictionary(dictLoc=f'../YeastMemMap/{memMapLoc}' if (os.path.exists(f'../YeastMemMap/{memMapLoc}')) else f'../{memMapLoc}',datasetType=dataset)
         self.datasets = self.corrDict.expDataset.datasets
         
         if(filterMissingGenes):

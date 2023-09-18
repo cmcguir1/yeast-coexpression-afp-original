@@ -14,12 +14,21 @@ sys.path.insert(0,'./obopy')
 from Leaf import getLeaves, getGenes
 
 class AllGoGraph(AllGoModel):
-    def __init__(self,networkPath,structure,folder,numfolds=4,geneFolds='./src/PairwiseYeastNetwork/AllGOGeneFold1.csv',ontologyDataset='modern',calcDataset='original',softmax=False,inputVector='xl',outputVector='b',addTerms=[]):
+    def __init__(self,networkPath,structure,folder,numfolds=4,geneFolds='./src/PairwiseYeastNetwork/AllGOGeneFold1.csv',ontologyDataset='modern',memMapName='YeastDict_Regularized.npy',softmax=False,inputVector='xl',outputVector='b',addTerms=[]):
+        
         #Intialize file path for folder where results will be saved
         self.path = f'./Yeast Resources/GraphResults/{folder}'
+        
         if(not os.path.exists(self.path)):
             os.mkdir(self.path)
 
+        
+        #   The argument 'inputVector' determines what data is included in the input vector of the network based off of what characters are included in 'inputVector'
+        #        x - gene expression data
+        #        l - localization data
+        #        g - genomic interaction data
+        #        p - physical interaction data
+        
         self.inputSize = 0
 
         # These four booleans are used for control flow later of data inclusion throughout the Model Object
@@ -30,7 +39,9 @@ class AllGoGraph(AllGoModel):
 
         if self.expression:
             # Correlations Dictionary that will be retrieve precalculated correlation values
-            self.corrDict = CorrelationDictionary(dictLoc='../YeastMemMap/YeastDict_Regularized.npy' if (os.path.exists('../YeastMemMap/YeastDict_Regularized.npy')) else '../YeastDict_Regularized.npy',datasetType=ontologyDataset)
+            # self.corrDict = CorrelationDictionary(dictLoc='../YeastMemMap/YeastDict_float16.npy' if (os.path.exists('../YeastMemMap/YeastDict_float16.npy')) else '../YeastDict_float16.npy',datasetType=ontologyDataset)
+            self.corrDict = CorrelationDictionary(dictLoc=f'../YeastMemMap/{memMapName}' if (os.path.exists(f'../YeastMemMap/{memMapName}')) else f'../{memMapName}',datasetType=ontologyDataset)
+            
             self.datasets = self.corrDict.expDataset.datasets
             self.inputSize += len(self.datasets)
             print('Initialized Expression Datasets')
@@ -46,10 +57,16 @@ class AllGoGraph(AllGoModel):
 
         if self.genomicInteraction:
             # Dataset of all bioGRID interactions
-            interactions = pd.read_csv('./InteractionData.txt',sep="\t").to_numpy()
-            interactionsList = pd.read_csv('./bioGRID_Interactions.csv').to_numpy().flatten()
+            if ontologyDataset == 'original':
+                interactions = pd.read_csv('./InteractionData.txt',sep="\t").to_numpy()
+                interactionsList = pd.read_csv('./GeneticInteractions_Original.csv').to_numpy().flatten()
+            else:
+                interactions = pd.read_csv('../BIOGRID-ORGANISM-Saccharomyces_cerevisiae_S288c-4.4.222.tab.txt',sep="\t").to_numpy()
+                interactionsList = pd.read_csv('./GeneticInteractions_Modern.csv').to_numpy().flatten()
+            self.genomic_len = len(interactionsList)
+                
             # genomic index maps the genomic interactions we care about to an index
-            genomicIndex = {item: i for i, item in enumerate(interactionsList[9:])}
+            genomicIndex = {item: i for i, item in enumerate(interactionsList)}
             
             self.genomicMap = {}
             for row in interactions:
@@ -57,8 +74,8 @@ class AllGoGraph(AllGoModel):
                 genePairStrA = row[0] + " " + row[1]
                 genePairStrB = row[1] + " " + row[0]
                 if (not (genePairStrA in self.genomicMap)) or (not (genePairStrB in self.genomicMap)):
-                    self.genomicMap[genePairStrA] = [0 for i in range(6)]
-                    self.genomicMap[genePairStrB] = [0 for i in range(6)]
+                    self.genomicMap[genePairStrA] = [0 for _ in range(self.genomic_len)]
+                    self.genomicMap[genePairStrB] = [0 for _ in range(self.genomic_len)]
                 if row[6] in genomicIndex:
                     # If a gene pair has a interaction, change the value of the interactions list for that pair from 0 to 1 at that specific interaction's index
                     tmp = self.genomicMap[genePairStrA]
@@ -66,16 +83,22 @@ class AllGoGraph(AllGoModel):
                     self.genomicMap[genePairStrA] = tmp
                     self.genomicMap[genePairStrB] = tmp
             
-            self.inputSize += 6
+            self.inputSize += self.genomic_len
                 
 
         if self.physical:
             # Dataset of all bioGRID interactions
-            interactions = pd.read_csv('./InteractionData.txt',sep="\t").to_numpy()
-            interactionsList = pd.read_csv('./bioGRID_Interactions.csv').to_numpy().flatten()
+            if ontologyDataset == 'original':
+                interactions = pd.read_csv('./InteractionData.txt',sep="\t").to_numpy()
+                interactionsList = pd.read_csv('./PhysicalInteractions_Original.csv').to_numpy().flatten()
+            else:
+                interactions = pd.read_csv('../BIOGRID-ORGANISM-Saccharomyces_cerevisiae_S288c-4.4.222.tab.txt',sep="\t").to_numpy()
+                interactionsList = pd.read_csv('./PhysicalInteractions_Modern.csv').to_numpy().flatten()
+            self.phys_len = len(interactionsList)-2
+
             
             # physical index maps physical interactions to indicies
-            physicalIndex = {item: i for i, item in enumerate(interactionsList[2:9])}
+            physicalIndex = {item: i for i, item in enumerate(interactionsList[2:])}
             # All types of affinity capture are represented by one node, so they are all mapped to index 0
             physicalIndex['Affinity Capture-MS'] = 0
             physicalIndex['Affinity Capture-Western'] = 0
@@ -87,8 +110,8 @@ class AllGoGraph(AllGoModel):
                 genePairStrA = row[0] + " " + row[1]
                 genePairStrB = row[1] + " " + row[0]
                 if (not (genePairStrA in self.physicalMap)) or (not (genePairStrB in self.physicalMap)):
-                    self.physicalMap[genePairStrA] = [0 for i in range(7)]
-                    self.physicalMap[genePairStrB] = [0 for i in range(7)]
+                    self.physicalMap[genePairStrA] = [0 for _ in range(self.phys_len)]
+                    self.physicalMap[genePairStrB] = [0 for _ in range(self.phys_len)]
                 if row[6] in physicalIndex:
                     # If a gene pair has a interaction, change the value of the interactions list for that pair from 0 to 1 at that specific interaction's index
                     tmp = self.physicalMap[genePairStrA]
@@ -96,26 +119,35 @@ class AllGoGraph(AllGoModel):
                     self.physicalMap[genePairStrA] = tmp
                     self.physicalMap[genePairStrB] = tmp
             
-            self.inputSize += 7
+            self.inputSize += self.phys_len
 
 
         #   outputVector determines what types of GO terms are included as labels for the output vector
         #       b - Biological Processes
         #       m - Molecular Functions
-        #       c - Cellular Components     
-        #       n - non specific interaction  
-        #   Additional GO terms can be added with 'addTerm' """
+        #       c - Cellular Components   
+        #       n - non specific gene pair interaction (co-annotated to any biological process)    
+        #       u - unrelated node (not co-annotated to any biological process)
+        #   Additional GO terms can be added with 'addTerm'
         
         self.leaves = getLeaves(10,dataset=ontologyDataset,bioProc=('b' in outputVector),molFunc=('m' in outputVector),cellComp=('c' in outputVector))
         for term in addTerms:
             self.leaves.append([term,set(getGenes(term,dataset=ontologyDataset))])
         self.GOTermDict = {term[0]: i for i,term in enumerate(self.leaves)}
+        self.outputSize = len(self.leaves)
+        
         self.nonSpecific = 'n' in outputVector
+        if self.nonSpecific:
+            self.outputSize += 1
+
+        self.unrelated= 'u' in outputVector
+        if self.unrelated:
+            self.outputSize += 1
 
 
-
-        self.regularize = False
-
+        genes = pd.read_csv('./src/PairwiseYeastNetwork/geneIndexDictionary_full.csv').to_numpy()
+        self.indexDict = {gene[0]: gene[1] for gene in genes}
+        self.geneNum = len(self.indexDict)
 
         #Intiailize list of networks and device tensor will be calculated on
         self.numFolds = numfolds
@@ -142,12 +174,11 @@ class AllGoGraph(AllGoModel):
         offsetTotal = 0
         for i in range(numfolds):
             self.foldOffsets.append(offsetTotal)
-            # offsetTotal += pow(len(self.folds[i]),2)
             offsetTotal += len(self.folds[i]) * len(self.allGenes) - len(self.folds[i])
         self.agnOffset = offsetTotal
 
 
-    def feedForward(self,fold,term='GO:0007005',trackTime=True,dataset='original',offSet=0,runNegatives=True,calcPos=True,calcAgn=True,saveAll=True,debug=False,resetScores=False,batchSize=50,runBatch=True):
+    def feedForward(self,fold,term='GO:0007005',dataset='original',calcPos=True,calcAgn=True,saveAll=True,debug=False,resetScores=False,batchSize=50,runBatch=True):
         with torch.no_grad():
             def calcPair(pair):
                 features, labels = self.makeBatchTensors(np.array([pair]))
@@ -161,7 +192,7 @@ class AllGoGraph(AllGoModel):
                     return np.array(outputs.tolist()[0],dtype='float32')
                 else:
                     #offset is an integer that is used to offest the GOTermDict to evaluate on the wrong term
-                    return [pair[0],pair[1],outputs[0,self.GOTermDict[term]+offSet].item()]
+                    return [pair[0],pair[1],outputs[0,self.GOTermDict[term]].item()]
                 
             def calcBatch(batch):
                 features, labels = self.makeBatchTensors(np.array(batch))
@@ -175,7 +206,7 @@ class AllGoGraph(AllGoModel):
                     return np.array(outputs.cpu(),dtype='float32')
                 else:
                     #offset is an integer that is used to offest the GOTermDict to evaluate on the wrong term
-                    return [pair[0],pair[1],outputs[0,self.GOTermDict[term]+offSet].item()]
+                    return [pair[0],pair[1],outputs[0,self.GOTermDict[term]].item()]
 
             if not os.path.exists(f'{self.path}/{self.struct}_Scores.dat') and not(resetScores):
                 score_mode = 'w+'
@@ -196,90 +227,63 @@ class AllGoGraph(AllGoModel):
                 pd.DataFrame(posGenes,columns=['Gene']).to_csv(f'./Yeast Resources/TermPos/GO-{term[3:]}_Pos_{dataset}.csv',index=False)
             
 
-            if runNegatives:
-                pairs = AllGoGraph.makePairs(self.folds[fold],self.allGenes)
-            else:
-                pairs = AllGoGraph.makePairs(self.folds[fold],posGenes)
-
-
-            #agnPairs = AllGoGraph.makePairs(self.folds[fold],agnGenes)
+            
+            
+            pairs = AllGoGraph.makePairs(self.folds[fold],self.allGenes)
             agnPairs = AllGoGraph.makePairs(self.agnGenes,self.allGenes)
-            print(len(agnPairs))
-
+        
             pairLen = len(pairs)
 
             if debug:
                 pairs = pairs[:5]
                 agnPairs = agnPairs[:5]
 
-            if trackTime:
-                foldScores = []
-                start = time.time()
-                if calcPos:
-                    if not runBatch:
-                        for i,pair in enumerate(pairs,0):
-                            scoresMemmap[i+self.foldOffsets[fold],:] = calcPair(pair)
-                            pairsMemap[i+self.foldOffsets[fold],:] =  np.array(pair,dtype='U10') 
+            
+            start = time.time()
+            if calcPos:
+                if not runBatch:
+                    for i,pair in enumerate(pairs,0):
+                        scoresMemmap[i+self.foldOffsets[fold],:] = calcPair(pair)
+                        pairsMemap[i+self.foldOffsets[fold],:] =  np.array(pair,dtype='U10') 
 
-                            # foldScores.append(calcPair(pair))
-                            if i % 10000 == 0 and i != 0:
-                                ratio = i/(len(pairs)+len(agnPairs))
-                                print(f'Calculated {ratio*100}% of pairs\nTime Spent: {((time.time()-start)/60)}\nEstimated Time Remaining: {((time.time()-start)/60) * ((self.memMapLen - (i+1))) / (i+1)}')
-                    else:
-                        for i in range(0,len(pairs),batchSize):
-                            if i > pairLen - batchSize:
-                                batch = pairs[i:]
-                                batchOffset = len(batch)
-                            else:
-                                batch = pairs[i:i+batchSize]
-                                batchOffset = batchSize
-                            scoresMemmap[i+self.foldOffsets[fold]:i+self.foldOffsets[fold]+batchOffset,:] = calcBatch(batch)
-                            pairsMemap[i+self.foldOffsets[fold]:i+self.foldOffsets[fold]+batchOffset,:] =  np.array(batch,dtype='U10') 
-                            if i % (10000 / batchSize) == 0 and i != 0:
-                                ratio = (i)/len(pairs)
-                                print(f'Calculated {ratio*100}% of pairs\nTime Spent: {((time.time()-start)/60)}\nEstimated Time Remaining: {((time.time()-start)/60) * ((self.memMapLen - (i+1))) / (i+1)}')
-                    
-
-
-                agnScores = []
-                if calcAgn:
-                    if not batch:
-                        for i,pair in enumerate(agnPairs,len(pairs)):
-                            # agnScores.append(calcPair(pair))
-                            scoresMemmap[i+self.agnOffset,:] = scoresMemmap[i+self.agnOffset,:] + (calcPair(pair) / self.numFolds)
-                            pairsMemap[i+self.agnOffset,:] = np.array(pair,dtype='U10')
-                            if i % 10000 == 0:
-                                ratio = (i)/len(pairs)
-                                print(f'Calculated {ratio*100}% of pairs\nEstimated Time Remaining: {((time.time()-start)/60) * (((len(pairs)+len(agnPairs)) - (i+i)) / (i+1))}')
-                    else:
+                        
+                        if i % 10000 == 0 and i != 0:
+                            ratio = i/(len(pairs)+len(agnPairs))
+                            print(f'Calculated {ratio*100}% of pairs\nTime Spent: {((time.time()-start)/60)}\nEstimated Time Remaining: {((time.time()-start)/60) * ((self.memMapLen - (i+1))) / (i+1)}')
+                else:
+                    for i in range(0,len(pairs),batchSize):
                         if i > pairLen - batchSize:
                             batch = pairs[i:]
                             batchOffset = len(batch)
                         else:
                             batch = pairs[i:i+batchSize]
                             batchOffset = batchSize
-                        scoresMemmap[i+self.agnOffset:i+self.agnOffset+batchOffset,:] = scoresMemmap[i+self.agnOffset:i+self.agnOffset+batchOffset,:] + (calcBatch(batch) / self.numFolds)
-                        pairsMemap[i+self.agnOffset:i+self.agnOffset+batchOffset,:] =  np.array(batch,dtype='U10') 
+                        scoresMemmap[i+self.foldOffsets[fold]:i+self.foldOffsets[fold]+batchOffset,:] = calcBatch(batch)
+                        pairsMemap[i+self.foldOffsets[fold]:i+self.foldOffsets[fold]+batchOffset,:] =  np.array(batch,dtype='U10') 
                         if i % (10000 / batchSize) == 0 and i != 0:
-                            ratio = (i+self.agnOffset)/len(pairs)
+                            ratio = (i)/len(pairs)
                             print(f'Calculated {ratio*100}% of pairs\nTime Spent: {((time.time()-start)/60)}\nEstimated Time Remaining: {((time.time()-start)/60) * ((self.memMapLen - (i+1))) / (i+1)}')
-                    
-
-            else:
-                foldScores = [calcPair(pair) for pair in pairs]
-                agnScores = [calcPair(pair) for pair in agnPairs]
-            
-            # if saveAll:
-            #     GoTerms = pd.read_csv('./src/PairwiseYeastNetwork/GOTermIndexDictionary.csv').values.tolist()
-            #     cols = ['Gene A','Gene B']
-            #     for term in GoTerms:
-            #         cols.append(term[0])
-            # else:
-            #     cols = ['Gene A', 'Gene B', 'Score']
-            # if calcPos:
-            #     pd.DataFrame(foldScores,columns=cols).to_csv(f'{self.path}/posScores_fold{fold}.csv',index=False)
-            # if calcAgn:
-            #     pd.DataFrame(agnScores,columns=cols).to_csv(f'{self.path}/agnScores_fold{fold}.csv',index=False)
+                
+            if calcAgn:
+                if not batch:
+                    for i,pair in enumerate(agnPairs,len(pairs)):
+                        scoresMemmap[i+self.agnOffset,:] = scoresMemmap[i+self.agnOffset,:] + (calcPair(pair) / self.numFolds)
+                        pairsMemap[i+self.agnOffset,:] = np.array(pair,dtype='U10')
+                        if i % 10000 == 0:
+                            ratio = (i)/len(pairs)
+                            print(f'Calculated {ratio*100}% of pairs\nEstimated Time Remaining: {((time.time()-start)/60) * (((len(pairs)+len(agnPairs)) - (i+i)) / (i+1))}')
+                else:
+                    if i > pairLen - batchSize:
+                        batch = pairs[i:]
+                        batchOffset = len(batch)
+                    else:
+                        batch = pairs[i:i+batchSize]
+                        batchOffset = batchSize
+                    scoresMemmap[i+self.agnOffset:i+self.agnOffset+batchOffset,:] = scoresMemmap[i+self.agnOffset:i+self.agnOffset+batchOffset,:] + (calcBatch(batch) / self.numFolds)
+                    pairsMemap[i+self.agnOffset:i+self.agnOffset+batchOffset,:] =  np.array(batch,dtype='U10') 
+                    if i % (10000 / batchSize) == 0 and i != 0:
+                        ratio = (i+self.agnOffset)/len(pairs)
+                        print(f'Calculated {ratio*100}% of pairs\nTime Spent: {((time.time()-start)/60)}\nEstimated Time Remaining: {((time.time()-start)/60) * ((self.memMapLen - (i+1))) / (i+1)}')
 
 
     #rankGenes takes all of the calculated pair scores then ranks the genes by their involvment in a given process
@@ -298,9 +302,6 @@ class AllGoGraph(AllGoModel):
         scoresMemmap = np.memmap(f'{self.path}/{self.struct}_Scores.dat',dtype='float32',shape=(self.memMapLen,len(self.leaves)),mode='r+')
         pairsMemMap = np.memmap(f'{self.path}/{self.struct}_Pairs.dat',shape=(self.memMapLen,2),dtype='U10',mode='r+')
 
-        # posGenes = set(pd.read_csv(f'./Yeast Resources/GeneSets/{term[0:2]}{term[3:]}_Pos_original.txt').to_numpy().flatten())
-        # negGenes = set(pd.read_csv(f'./Yeast Resources/GeneSets/{term[0:2]}{term[3:]}_Neg_original.txt').to_numpy().flatten())
-        # agnGenes = pd.read_csv(f'./Yeast Resources/GeneSets/{term[0:2]}{term[3:]}_Agn_original.txt').to_numpy().flatten()
 
         def checkPosNeg(gene):
             if gene in posGenes: 
@@ -311,11 +312,6 @@ class AllGoGraph(AllGoModel):
                 return 0
         
         posSet = set(posGenes)
-        # folds = [pd.read_csv(f'{self.path}/posScores_fold{i}.csv').to_numpy(dtype=object) for i in range(self.numFolds)]
-        # genePairs = np.concatenate(folds,axis=0)
-        # agnFolds = [pd.read_csv(f'{self.path}/agnScores_fold{i}.csv').to_numpy(dtype=object) for i in range(self.numFolds)]
-        # agnGenePairs = np.concatenate(agnFolds,axis=0)
-        # agnGenes = pd.read_csv('./Yeast Resources/TermPos/AgnosticGenes.csv').to_numpy().flatten()
         
         posScore = {}
         totalScore = {}
@@ -327,14 +323,7 @@ class AllGoGraph(AllGoModel):
             posScore[gene] = 0
             totalScore[gene] = 0
 
-        # for genePair in genePairs:
-        #     totalScore[genePair[0]] = totalScore[genePair[0]] + float(genePair[2])
-        #     if genePair[1] in posSet:
-        #         posScore[genePair[0]] = posScore[genePair[0]] + float(genePair[2])
-        # for genePair in agnGenePairs:
-        #     totalScore[genePair[0]] = totalScore[genePair[0]] + (float(genePair[2]) / self.numFolds)
-        #     if genePair[1] in posSet:
-        #         posScore[genePair[0]] = posScore[genePair[0]] + (float(genePair[2]) / self.numFolds)
+
         start = time.time()
         for i in range(self.memMapLen):
             if pairsMemMap[i,0] not in posScore or pairsMemMap[i,0] not in totalScore:
@@ -348,15 +337,7 @@ class AllGoGraph(AllGoModel):
 
 
         
-            
-        # if checkProportion:
-        #     scoreTable = [[gene,checkPosNeg(gene),(0 if totalScore[gene] == 0 else score/totalScore[gene])] for gene,score in posScore.items()]
-        # else:
-        #     #scoreTable = [[gene,checkPosNeg(gene),score] for gene,score in posScore.items()]
-        #     scoreTable = []
-        #     for gene,score in posScore.items():
-        #         if score != 0:
-        #             scoreTable.append([gene,checkPosNeg(gene),score])
+        
         scoreTable = []
         for gene,score in posScore.items():
             if score != 0:
@@ -364,6 +345,32 @@ class AllGoGraph(AllGoModel):
             
         confMat = ConfusionMatrix.calculateMatrix(np.array(scoreTable,dtype=object),1,2)
         pd.DataFrame(confMat,columns=['Gene','Label','Score','Background Score','Precision','Recall','False Positive Rate']).to_csv(f'{self.path}/{self.struct}_GeneRanking_{term[0:2]}{term[3:]}.csv',index=False)
+
+    def makeGraph(self):
+        print(f'{self.path}/{self.struct}_Scores.dat')
+        print(os.path.exists(f'{self.path}/{self.struct}_Scores.dat'))
+        print(f'{self.path}/{self.struct}_Pairs.dat')
+        print(os.path.exists(f'{self.path}/{self.struct}_Pairs.dat'))
+        if not(os.path.exists(f'{self.path}/{self.struct}_Scores.dat') and os.path.exists(f'{self.path}/{self.struct}_Pairs.dat')):
+            print('Pairs have not been calculated yet')
+        else:
+            scoresMemmap = np.memmap(f'{self.path}/{self.struct}_Scores.dat',dtype='float32',shape=(self.memMapLen,len(self.leaves)),mode='r+')
+            pairsMemap = np.memmap(f'{self.path}/{self.struct}_Pairs.dat',shape=(self.memMapLen,2),dtype='U10',mode='r+')
+            graph = np.zeros(shape=(len(self.leaves),sum(range(len(self.allGenes+1)))),dtype=np.float16)
+            for i in range(len(pairsMemap)):
+                graph[:,self.calcIndex(pairsMemap[i,0],pairsMemap[i,1])] += scoresMemmap[i,:] / 2
+            np.save(f'{self.path}/Graph.npy',arr=graph)
+
+
+    def calcIndex(self,gene1,gene2):
+        if self.indexDict[gene1] > self.indexDict[gene2]:
+            row = self.indexDict[gene1]
+            col = self.indexDict[gene2]
+        else:
+            col = self.indexDict[gene1]
+            row = self.indexDict[gene2]
+        return (col * self.geneNum - sum(range(col))) + row
+
 
     
     #Makes all possible pairs between 2 sets of genes

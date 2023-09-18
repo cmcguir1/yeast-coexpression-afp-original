@@ -1,0 +1,4467 @@
+Used 2009 Datasets
+Initialized Expression Datasets
+Intersection: 0
+Initialized training and validation data
+Initialized Network
+Used Cross Entropy Loss Function
+./Yeast Resources/Pairwise/Spell/Batch_Test_Fixed/Control_x_b_113x2000x53_lr0.01_Train_/
+./Yeast Resources/Pairwise/Spell/Batch_Test_Fixed/Control_x_b_113x2000x53_lr0.01_Test_/
+100 Batch Cumulative Loss: 444.966983795166
+Time for 100 Batches: 0.3223313252131144
+100 Batch Cumulative Loss: 344.1488301753998
+Time for 100 Batches: 3.282777365048726
+100 Batch Cumulative Loss: 314.8575186729431
+Time for 100 Batches: 3.274159248669942
+100 Batch Cumulative Loss: 306.0063827037811
+Time for 100 Batches: 3.281430208683014
+100 Batch Cumulative Loss: 298.0159857273102
+Time for 100 Batches: 3.278269052505493
+100 Batch Cumulative Loss: 293.45381569862366
+Time for 100 Batches: 3.2659090797106427
+100 Batch Cumulative Loss: 288.3628866672516
+Time for 100 Batches: 3.2754257400830586
+100 Batch Cumulative Loss: 284.88325667381287
+Time for 100 Batches: 3.2742290616035463
+100 Batch Cumulative Loss: 281.18656730651855
+Time for 100 Batches: 3.2633807182312013
+100 Batch Cumulative Loss: 277.45789861679077
+Time for 100 Batches: 3.265697479248047
+100 Batch Cumulative Loss: 276.7122850418091
+Time for 100 Batches: 3.2723615447680157
+100 Batch Cumulative Loss: 273.9129431247711
+Time for 100 Batches: 3.2775094429651896
+100 Batch Cumulative Loss: 270.53312134742737
+Time for 100 Batches: 3.257629410425822
+100 Batch Cumulative Loss: 268.84091353416443
+Time for 100 Batches: 3.283287998040517
+100 Batch Cumulative Loss: 266.0064070224762
+Time for 100 Batches: 3.2745373249053955
+100 Batch Cumulative Loss: 264.8675673007965
+Time for 100 Batches: 3.2847672939300536
+100 Batch Cumulative Loss: 261.4553198814392
+Time for 100 Batches: 3.2599849065144855
+100 Batch Cumulative Loss: 258.96747040748596
+Time for 100 Batches: 3.272055649757385
+100 Batch Cumulative Loss: 257.5629332065582
+Time for 100 Batches: 3.2589999357859294
+100 Batch Cumulative Loss: 256.82190918922424
+Time for 100 Batches: 3.2525566538174946
+100 Batch Cumulative Loss: 252.84147453308105
+Time for 100 Batches: 3.2748151262601217
+100 Batch Cumulative Loss: 251.99274277687073
+Time for 100 Batches: 3.2802377382914227
+100 Batch Cumulative Loss: 249.42258977890015
+Time for 100 Batches: 3.281029824415843
+100 Batch Cumulative Loss: 248.2929720878601
+Time for 100 Batches: 3.264814229806264
+100 Batch Cumulative Loss: 245.9796290397644
+Time for 100 Batches: 3.27719646692276
+100 Batch Cumulative Loss: 245.93675804138184
+Time for 100 Batches: 3.2803560217221577
+100 Batch Cumulative Loss: 241.52796626091003
+Time for 100 Batches: 3.2723069985707602
+100 Batch Cumulative Loss: 240.28556561470032
+Time for 100 Batches: 3.2810687820116677
+100 Batch Cumulative Loss: 238.9776735305786
+Time for 100 Batches: 3.272466230392456
+100 Batch Cumulative Loss: 237.19380855560303
+Time for 100 Batches: 3.2486125747362773
+100 Batch Cumulative Loss: 236.8986029624939
+Time for 100 Batches: 3.279280654589335
+100 Batch Cumulative Loss: 234.87296724319458
+Time for 100 Batches: 3.2762093504269916
+100 Batch Cumulative Loss: 234.0189061164856
+Time for 100 Batches: 3.26624588171641
+100 Batch Cumulative Loss: 231.39182329177856
+Time for 100 Batches: 3.258666714032491
+100 Batch Cumulative Loss: 230.27773714065552
+Time for 100 Batches: 3.2775909105936685
+100 Batch Cumulative Loss: 229.32424473762512
+Time for 100 Batches: 3.262492235501607
+100 Batch Cumulative Loss: 226.85240364074707
+Time for 100 Batches: 3.24912478129069
+100 Batch Cumulative Loss: 227.62651944160461
+Time for 100 Batches: 3.2707101702690125
+100 Batch Cumulative Loss: 226.4477424621582
+Time for 100 Batches: 3.27208381096522
+100 Batch Cumulative Loss: 222.92906665802002
+Time for 100 Batches: 3.292599284648895
+100 Batch Cumulative Loss: 223.5202498435974
+Time for 100 Batches: 3.2673300822575886
+100 Batch Cumulative Loss: 219.71188116073608
+Time for 100 Batches: 3.2748231569925945
+100 Batch Cumulative Loss: 219.5276939868927
+Time for 100 Batches: 3.280959622065226
+100 Batch Cumulative Loss: 218.31433010101318
+Time for 100 Batches: 3.2616012493769326
+100 Batch Cumulative Loss: 216.9417349100113
+Time for 100 Batches: 3.2549991170565287
+100 Batch Cumulative Loss: 216.09806072711945
+Time for 100 Batches: 3.266942620277405
+100 Batch Cumulative Loss: 213.69290828704834
+Time for 100 Batches: 3.2740582823753357
+100 Batch Cumulative Loss: 214.08311927318573
+Time for 100 Batches: 3.2668343504269917
+100 Batch Cumulative Loss: 212.68132495880127
+Time for 100 Batches: 3.2645631353060405
+100 Batch Cumulative Loss: 212.5031110048294
+Time for 100 Batches: 3.2633145689964294
+100 Batch Cumulative Loss: 210.5777611732483
+Time for 100 Batches: 3.272989368438721
+100 Batch Cumulative Loss: 209.5992395877838
+Time for 100 Batches: 3.2757313013076783
+100 Batch Cumulative Loss: 208.2112934589386
+Time for 100 Batches: 3.2824616034825644
+100 Batch Cumulative Loss: 208.87944412231445
+Time for 100 Batches: 3.2628275116284686
+100 Batch Cumulative Loss: 204.88523948192596
+Time for 100 Batches: 3.2586332162221274
+100 Batch Cumulative Loss: 206.08983993530273
+Time for 100 Batches: 3.2760579268137615
+100 Batch Cumulative Loss: 204.51412510871887
+Time for 100 Batches: 3.273050578435262
+100 Batch Cumulative Loss: 205.02593791484833
+Time for 100 Batches: 3.272987671693166
+100 Batch Cumulative Loss: 203.13441240787506
+Time for 100 Batches: 3.2692349354426065
+100 Batch Cumulative Loss: 201.87032973766327
+Time for 100 Batches: 3.277977446715037
+100 Batch Cumulative Loss: 201.37833726406097
+Time for 100 Batches: 3.2756545543670654
+100 Batch Cumulative Loss: 200.9833401441574
+Time for 100 Batches: 3.2690176606178283
+100 Batch Cumulative Loss: 199.85357248783112
+Time for 100 Batches: 3.264258368810018
+100 Batch Cumulative Loss: 198.3082673549652
+Time for 100 Batches: 3.2546905080477395
+100 Batch Cumulative Loss: 199.12205398082733
+Time for 100 Batches: 3.2553080320358276
+100 Batch Cumulative Loss: 197.041721701622
+Time for 100 Batches: 3.2556564172108966
+100 Batch Cumulative Loss: 196.4535617828369
+Time for 100 Batches: 3.251855130990346
+100 Batch Cumulative Loss: 195.3317699432373
+Time for 100 Batches: 3.2649526874224346
+100 Batch Cumulative Loss: 195.5736449956894
+Time for 100 Batches: 3.278249486287435
+100 Batch Cumulative Loss: 193.58787071704865
+Time for 100 Batches: 3.2700167020161945
+100 Batch Cumulative Loss: 192.60962331295013
+Time for 100 Batches: 3.268602895736694
+100 Batch Cumulative Loss: 193.4856321811676
+Time for 100 Batches: 3.256352786223094
+100 Batch Cumulative Loss: 192.33405470848083
+Time for 100 Batches: 3.264497625827789
+100 Batch Cumulative Loss: 190.47414433956146
+Time for 100 Batches: 3.264858682950338
+100 Batch Cumulative Loss: 190.51891112327576
+Time for 100 Batches: 3.2746073802312217
+100 Batch Cumulative Loss: 190.5768381357193
+Time for 100 Batches: 3.273642404874166
+100 Batch Cumulative Loss: 188.77608215808868
+Time for 100 Batches: 3.273040461540222
+100 Batch Cumulative Loss: 188.30921685695648
+Time for 100 Batches: 3.2779481291770933
+100 Batch Cumulative Loss: 187.15111243724823
+Time for 100 Batches: 3.259743420283
+100 Batch Cumulative Loss: 187.05868184566498
+Time for 100 Batches: 3.2734863718350726
+100 Batch Cumulative Loss: 186.91561138629913
+Time for 100 Batches: 3.2685659607251485
+100 Batch Cumulative Loss: 186.01751244068146
+Time for 100 Batches: 3.2656302452087402
+100 Batch Cumulative Loss: 184.62875318527222
+Time for 100 Batches: 3.2640265385309855
+100 Batch Cumulative Loss: 184.93813264369965
+Time for 100 Batches: 3.2592290600140887
+100 Batch Cumulative Loss: 182.83057534694672
+Time for 100 Batches: 3.255642664432526
+100 Batch Cumulative Loss: 183.13088357448578
+Time for 100 Batches: 3.2607093254725137
+100 Batch Cumulative Loss: 183.73622298240662
+Time for 100 Batches: 3.257013976573944
+100 Batch Cumulative Loss: 181.27170419692993
+Time for 100 Batches: 3.276920163631439
+100 Batch Cumulative Loss: 182.36504364013672
+Time for 100 Batches: 3.2948011557261148
+100 Batch Cumulative Loss: 182.19029188156128
+Time for 100 Batches: 3.2610641916592917
+100 Batch Cumulative Loss: 180.38791418075562
+Time for 100 Batches: 3.2815008958180747
+100 Batch Cumulative Loss: 179.27916741371155
+Time for 100 Batches: 3.2548627495765685
+100 Batch Cumulative Loss: 177.97499537467957
+Time for 100 Batches: 3.2514378825823465
+100 Batch Cumulative Loss: 179.1887230873108
+Time for 100 Batches: 3.265327151616414
+100 Batch Cumulative Loss: 177.07927560806274
+Time for 100 Batches: 3.2656040946642557
+100 Batch Cumulative Loss: 178.03781461715698
+Time for 100 Batches: 3.267621469497681
+100 Batch Cumulative Loss: 175.76394736766815
+Time for 100 Batches: 3.257949701944987
+100 Batch Cumulative Loss: 176.67542016506195
+Time for 100 Batches: 3.277169239521027
+100 Batch Cumulative Loss: 175.78724086284637
+Time for 100 Batches: 3.2708920160929362
+100 Batch Cumulative Loss: 174.22918045520782
+Time for 100 Batches: 3.2702750166257224
+100 Batch Cumulative Loss: 174.76308369636536
+Time for 100 Batches: 3.288740257422129
+100 Batch Cumulative Loss: 173.14417695999146
+Time for 100 Batches: 3.2730300029118857
+100 Batch Cumulative Loss: 174.00555062294006
+Time for 100 Batches: 3.273686444759369
+100 Batch Cumulative Loss: 173.74616658687592
+Time for 100 Batches: 3.269091844558716
+100 Batch Cumulative Loss: 173.7871927022934
+Time for 100 Batches: 3.2734603842099506
+100 Batch Cumulative Loss: 173.8103575706482
+Time for 100 Batches: 3.2531428138415017
+100 Batch Cumulative Loss: 171.5220081806183
+Time for 100 Batches: 3.274066988627116
+100 Batch Cumulative Loss: 171.84983360767365
+Time for 100 Batches: 3.273766513665517
+100 Batch Cumulative Loss: 170.09221267700195
+Time for 100 Batches: 3.2750571608543395
+100 Batch Cumulative Loss: 170.55599308013916
+Time for 100 Batches: 3.2677820205688475
+100 Batch Cumulative Loss: 170.1603251695633
+Time for 100 Batches: 3.267974619070689
+100 Batch Cumulative Loss: 168.71980488300323
+Time for 100 Batches: 3.255722431341807
+100 Batch Cumulative Loss: 167.77364826202393
+Time for 100 Batches: 3.2858835140864056
+100 Batch Cumulative Loss: 168.28285205364227
+Time for 100 Batches: 3.2594351808230084
+100 Batch Cumulative Loss: 167.2432041168213
+Time for 100 Batches: 3.2532973686854043
+100 Batch Cumulative Loss: 167.38218593597412
+Time for 100 Batches: 3.278109606107076
+100 Batch Cumulative Loss: 167.00917255878448
+Time for 100 Batches: 3.2655150373776753
+100 Batch Cumulative Loss: 165.18333899974823
+Time for 100 Batches: 3.2633346199989317
+100 Batch Cumulative Loss: 166.1751490831375
+Time for 100 Batches: 3.2659626921017963
+100 Batch Cumulative Loss: 164.09087324142456
+Time for 100 Batches: 3.263031490643819
+100 Batch Cumulative Loss: 164.76376712322235
+Time for 100 Batches: 3.2688042362531027
+100 Batch Cumulative Loss: 164.64215624332428
+Time for 100 Batches: 3.283878227074941
+100 Batch Cumulative Loss: 163.82744240760803
+Time for 100 Batches: 3.258947265148163
+100 Batch Cumulative Loss: 164.696471452713
+Time for 100 Batches: 3.272647734483083
+100 Batch Cumulative Loss: 161.64787375926971
+Time for 100 Batches: 3.2591268658638
+100 Batch Cumulative Loss: 162.4462275505066
+Time for 100 Batches: 3.278193922837575
+100 Batch Cumulative Loss: 162.24710273742676
+Time for 100 Batches: 3.2627658009529115
+100 Batch Cumulative Loss: 163.08990156650543
+Time for 100 Batches: 3.2652417341868083
+100 Batch Cumulative Loss: 162.73132061958313
+Time for 100 Batches: 3.285418713092804
+100 Batch Cumulative Loss: 160.61262142658234
+Time for 100 Batches: 3.27232453028361
+100 Batch Cumulative Loss: 160.7082018852234
+Time for 100 Batches: 3.254117961724599
+100 Batch Cumulative Loss: 160.93738520145416
+Time for 100 Batches: 3.2658441185951235
+100 Batch Cumulative Loss: 159.63571774959564
+Time for 100 Batches: 3.2507278958956403
+100 Batch Cumulative Loss: 158.596506357193
+Time for 100 Batches: 3.2701945543289184
+100 Batch Cumulative Loss: 160.04735624790192
+Time for 100 Batches: 3.2781227548917133
+100 Batch Cumulative Loss: 158.72642946243286
+Time for 100 Batches: 3.2690919677416486
+100 Batch Cumulative Loss: 158.7934192419052
+Time for 100 Batches: 3.248181144396464
+100 Batch Cumulative Loss: 157.54506123065948
+Time for 100 Batches: 3.2573810776074725
+100 Batch Cumulative Loss: 158.101393699646
+Time for 100 Batches: 3.275725789864858
+100 Batch Cumulative Loss: 157.70106053352356
+Time for 100 Batches: 3.284470065434774
+100 Batch Cumulative Loss: 156.82205283641815
+Time for 100 Batches: 3.270280881722768
+100 Batch Cumulative Loss: 156.6960655450821
+Time for 100 Batches: 3.2727862278620403
+100 Batch Cumulative Loss: 155.32260751724243
+Time for 100 Batches: 3.2473831097284953
+100 Batch Cumulative Loss: 156.09602510929108
+Time for 100 Batches: 3.2623295187950134
+100 Batch Cumulative Loss: 154.42449486255646
+Time for 100 Batches: 3.253776439030965
+100 Batch Cumulative Loss: 155.69525825977325
+Time for 100 Batches: 3.2652022083600363
+100 Batch Cumulative Loss: 154.15388333797455
+Time for 100 Batches: 3.2565425515174864
+100 Batch Cumulative Loss: 155.08529424667358
+Time for 100 Batches: 3.276325718561808
+100 Batch Cumulative Loss: 153.93193697929382
+Time for 100 Batches: 3.27382550239563
+100 Batch Cumulative Loss: 153.76376116275787
+Time for 100 Batches: 3.2708078185717264
+100 Batch Cumulative Loss: 153.75099527835846
+Time for 100 Batches: 3.2570319890975954
+100 Batch Cumulative Loss: 153.60214269161224
+Time for 100 Batches: 3.2709824721018474
+100 Batch Cumulative Loss: 152.93958938121796
+Time for 100 Batches: 3.250553850332896
+100 Batch Cumulative Loss: 153.0717931985855
+Time for 100 Batches: 3.260524797439575
+100 Batch Cumulative Loss: 153.28779804706573
+Time for 100 Batches: 3.2707751472791036
+100 Batch Cumulative Loss: 151.0822048187256
+Time for 100 Batches: 3.2893564144770306
+100 Batch Cumulative Loss: 151.3204528093338
+Time for 100 Batches: 3.2627492427825926
+100 Batch Cumulative Loss: 151.7139549255371
+Time for 100 Batches: 3.263167079289754
+100 Batch Cumulative Loss: 152.6647173166275
+Time for 100 Batches: 3.2618659019470213
+100 Batch Cumulative Loss: 150.27924025058746
+Time for 100 Batches: 3.2650395115216573
+100 Batch Cumulative Loss: 151.67540872097015
+Time for 100 Batches: 3.250628825028737
+100 Batch Cumulative Loss: 150.54123306274414
+Time for 100 Batches: 3.2724884748458862
+100 Batch Cumulative Loss: 150.54459059238434
+Time for 100 Batches: 3.266359293460846
+100 Batch Cumulative Loss: 149.3946533203125
+Time for 100 Batches: 3.261634095509847
+100 Batch Cumulative Loss: 148.6866091489792
+Time for 100 Batches: 3.281528854370117
+100 Batch Cumulative Loss: 148.2523968219757
+Time for 100 Batches: 3.279218439261119
+100 Batch Cumulative Loss: 149.4089320898056
+Time for 100 Batches: 3.282015113035838
+100 Batch Cumulative Loss: 148.24577403068542
+Time for 100 Batches: 3.261976977189382
+100 Batch Cumulative Loss: 146.87746798992157
+Time for 100 Batches: 3.286164132754008
+100 Batch Cumulative Loss: 147.2482372522354
+Time for 100 Batches: 3.2853838404019675
+100 Batch Cumulative Loss: 147.58231580257416
+Time for 100 Batches: 3.2755943218866985
+100 Batch Cumulative Loss: 146.79950046539307
+Time for 100 Batches: 3.2729171832402546
+100 Batch Cumulative Loss: 146.9434850215912
+Time for 100 Batches: 3.2678940733273825
+100 Batch Cumulative Loss: 146.56903219223022
+Time for 100 Batches: 3.2704384605089825
+100 Batch Cumulative Loss: 147.62616276741028
+Time for 100 Batches: 3.272900100549062
+100 Batch Cumulative Loss: 146.04089069366455
+Time for 100 Batches: 3.277690227826436
+100 Batch Cumulative Loss: 146.0754508972168
+Time for 100 Batches: 3.2799936652183534
+100 Batch Cumulative Loss: 145.71096789836884
+Time for 100 Batches: 3.2781060576438903
+100 Batch Cumulative Loss: 145.62769830226898
+Time for 100 Batches: 3.278210937976837
+100 Batch Cumulative Loss: 144.0923787355423
+Time for 100 Batches: 3.2509461561838786
+100 Batch Cumulative Loss: 146.4216672182083
+Time for 100 Batches: 3.255285056432088
+100 Batch Cumulative Loss: 142.23470950126648
+Time for 100 Batches: 3.2787067254384357
+100 Batch Cumulative Loss: 145.29521596431732
+Time for 100 Batches: 3.26421719789505
+100 Batch Cumulative Loss: 144.77593982219696
+Time for 100 Batches: 3.2563961505889893
+100 Batch Cumulative Loss: 144.04267275333405
+Time for 100 Batches: 3.2665129701296487
+100 Batch Cumulative Loss: 142.44401454925537
+Time for 100 Batches: 3.2710191369056703
+100 Batch Cumulative Loss: 144.769672870636
+Time for 100 Batches: 3.2697954177856445
+100 Batch Cumulative Loss: 142.32768523693085
+Time for 100 Batches: 3.2708177169164023
+100 Batch Cumulative Loss: 142.69236016273499
+Time for 100 Batches: 3.263535686333974
+100 Batch Cumulative Loss: 142.5881004333496
+Time for 100 Batches: 3.28714421192805
+100 Batch Cumulative Loss: 142.64136683940887
+Time for 100 Batches: 3.2788109103838603
+100 Batch Cumulative Loss: 140.72522604465485
+Time for 100 Batches: 3.2833468357721967
+100 Batch Cumulative Loss: 142.49274921417236
+Time for 100 Batches: 3.269309349854787
+100 Batch Cumulative Loss: 142.36623799800873
+Time for 100 Batches: 3.2663386821746827
+100 Batch Cumulative Loss: 141.27419257164001
+Time for 100 Batches: 3.2792792081832887
+100 Batch Cumulative Loss: 140.67607581615448
+Time for 100 Batches: 3.2660463372866313
+100 Batch Cumulative Loss: 141.50164139270782
+Time for 100 Batches: 3.2736608227094015
+100 Batch Cumulative Loss: 140.48904371261597
+Time for 100 Batches: 3.2744498292605084
+100 Batch Cumulative Loss: 140.3024673461914
+Time for 100 Batches: 3.262585445245107
+100 Batch Cumulative Loss: 138.69894444942474
+Time for 100 Batches: 3.2709041833877563
+100 Batch Cumulative Loss: 138.42551398277283
+Time for 100 Batches: 3.2812289118766786
+100 Batch Cumulative Loss: 140.23486876487732
+Time for 100 Batches: 3.2591913382212323
+100 Batch Cumulative Loss: 137.81692028045654
+Time for 100 Batches: 3.2737728635470074
+100 Batch Cumulative Loss: 139.6381995677948
+Time for 100 Batches: 3.258318130175273
+100 Batch Cumulative Loss: 139.03405952453613
+Time for 100 Batches: 3.2455206672350565
+100 Batch Cumulative Loss: 139.435706615448
+Time for 100 Batches: 3.272062345345815
+100 Batch Cumulative Loss: 136.70819187164307
+Time for 100 Batches: 3.2512874881426495
+100 Batch Cumulative Loss: 139.262890458107
+Time for 100 Batches: 3.268215537071228
+100 Batch Cumulative Loss: 137.15175592899323
+Time for 100 Batches: 3.261930251121521
+100 Batch Cumulative Loss: 136.46409952640533
+Time for 100 Batches: 3.2710877219835917
+100 Batch Cumulative Loss: 138.48430609703064
+Time for 100 Batches: 3.27043217420578
+100 Batch Cumulative Loss: 135.05197525024414
+Time for 100 Batches: 3.2717912753423053
+100 Batch Cumulative Loss: 137.25985407829285
+Time for 100 Batches: 3.2590589046478273
+100 Batch Cumulative Loss: 137.0016976594925
+Time for 100 Batches: 3.2565716902414956
+100 Batch Cumulative Loss: 137.15137135982513
+Time for 100 Batches: 3.274100144704183
+100 Batch Cumulative Loss: 135.62060225009918
+Time for 100 Batches: 3.2743345975875853
+100 Batch Cumulative Loss: 135.86232995986938
+Time for 100 Batches: 3.2696069796880085
+100 Batch Cumulative Loss: 135.93446958065033
+Time for 100 Batches: 3.2717862486839295
+100 Batch Cumulative Loss: 135.8419008255005
+Time for 100 Batches: 3.2648954669634502
+100 Batch Cumulative Loss: 135.23336517810822
+Time for 100 Batches: 3.2615485986073813
+100 Batch Cumulative Loss: 134.68836212158203
+Time for 100 Batches: 3.2791986227035523
+100 Batch Cumulative Loss: 135.637065410614
+Time for 100 Batches: 3.2686726689338683
+100 Batch Cumulative Loss: 134.09658288955688
+Time for 100 Batches: 3.2741822361946107
+100 Batch Cumulative Loss: 134.69473123550415
+Time for 100 Batches: 3.275083291530609
+100 Batch Cumulative Loss: 133.69339191913605
+Time for 100 Batches: 3.263856565952301
+100 Batch Cumulative Loss: 133.92481362819672
+Time for 100 Batches: 3.2584668397903442
+100 Batch Cumulative Loss: 132.91375744342804
+Time for 100 Batches: 3.261920118331909
+100 Batch Cumulative Loss: 132.89062905311584
+Time for 100 Batches: 3.2561043461163837
+100 Batch Cumulative Loss: 133.6416870355606
+Time for 100 Batches: 3.263075264294942
+100 Batch Cumulative Loss: 133.5095626115799
+Time for 100 Batches: 3.2628565271695456
+100 Batch Cumulative Loss: 132.92258417606354
+Time for 100 Batches: 3.263683287302653
+100 Batch Cumulative Loss: 132.60009622573853
+Time for 100 Batches: 3.267723274230957
+100 Batch Cumulative Loss: 131.5161054134369
+Time for 100 Batches: 3.26674933830897
+100 Batch Cumulative Loss: 132.49247860908508
+Time for 100 Batches: 3.2653069853782655
+100 Batch Cumulative Loss: 132.92371356487274
+Time for 100 Batches: 3.2762650807698566
+100 Batch Cumulative Loss: 132.07064151763916
+Time for 100 Batches: 3.253841547171275
+100 Batch Cumulative Loss: 130.75580072402954
+Time for 100 Batches: 3.2598582108815513
+100 Batch Cumulative Loss: 132.79627859592438
+Time for 100 Batches: 3.266791494687398
+100 Batch Cumulative Loss: 130.32761478424072
+Time for 100 Batches: 3.2565024733543395
+100 Batch Cumulative Loss: 131.68943166732788
+Time for 100 Batches: 3.2660969734191894
+100 Batch Cumulative Loss: 130.22931385040283
+Time for 100 Batches: 3.2877525448799134
+100 Batch Cumulative Loss: 130.1301726102829
+Time for 100 Batches: 3.262256173292796
+100 Batch Cumulative Loss: 130.71630334854126
+Time for 100 Batches: 3.2861464540163676
+100 Batch Cumulative Loss: 129.60489153862
+Time for 100 Batches: 3.2778783798217774
+100 Batch Cumulative Loss: 129.91528403759003
+Time for 100 Batches: 3.2648017207781472
+100 Batch Cumulative Loss: 131.0215541124344
+Time for 100 Batches: 3.2712466518084207
+100 Batch Cumulative Loss: 130.2150502204895
+Time for 100 Batches: 3.2599311749140423
+100 Batch Cumulative Loss: 129.79054844379425
+Time for 100 Batches: 3.2777116974194844
+100 Batch Cumulative Loss: 128.71184659004211
+Time for 100 Batches: 3.2580510497093202
+100 Batch Cumulative Loss: 128.54536771774292
+Time for 100 Batches: 3.2785924434661866
+100 Batch Cumulative Loss: 128.3100175857544
+Time for 100 Batches: 3.278868305683136
+100 Batch Cumulative Loss: 129.71242797374725
+Time for 100 Batches: 3.271357798576355
+100 Batch Cumulative Loss: 129.19076192378998
+Time for 100 Batches: 3.2737110257148743
+100 Batch Cumulative Loss: 127.34782993793488
+Time for 100 Batches: 3.24926407734553
+100 Batch Cumulative Loss: 128.42985367774963
+Time for 100 Batches: 3.248736270268758
+100 Batch Cumulative Loss: 128.80526661872864
+Time for 100 Batches: 3.249192202091217
+100 Batch Cumulative Loss: 126.75048661231995
+Time for 100 Batches: 3.264153754711151
+100 Batch Cumulative Loss: 126.82600057125092
+Time for 100 Batches: 3.276048715909322
+100 Batch Cumulative Loss: 126.63692104816437
+Time for 100 Batches: 3.2698439081509907
+100 Batch Cumulative Loss: 126.77885568141937
+Time for 100 Batches: 3.2671703338623046
+100 Batch Cumulative Loss: 127.40268683433533
+Time for 100 Batches: 3.2683605313301087
+100 Batch Cumulative Loss: 125.52579605579376
+Time for 100 Batches: 3.285734677314758
+100 Batch Cumulative Loss: 126.80770409107208
+Time for 100 Batches: 3.2577457745869953
+100 Batch Cumulative Loss: 126.90116608142853
+Time for 100 Batches: 3.2483976085980735
+100 Batch Cumulative Loss: 125.51540577411652
+Time for 100 Batches: 3.2680979013442992
+100 Batch Cumulative Loss: 126.3835037946701
+Time for 100 Batches: 3.2604140122731526
+100 Batch Cumulative Loss: 126.22390222549438
+Time for 100 Batches: 3.2756350517272947
+100 Batch Cumulative Loss: 124.24254071712494
+Time for 100 Batches: 3.2651979804039
+100 Batch Cumulative Loss: 124.19472241401672
+Time for 100 Batches: 3.268196141719818
+100 Batch Cumulative Loss: 126.23594534397125
+Time for 100 Batches: 3.278562879562378
+100 Batch Cumulative Loss: 126.40733563899994
+Time for 100 Batches: 3.273233624299367
+100 Batch Cumulative Loss: 125.41707074642181
+Time for 100 Batches: 3.260023574034373
+100 Batch Cumulative Loss: 124.72558224201202
+Time for 100 Batches: 3.2795536716779075
+100 Batch Cumulative Loss: 125.06507360935211
+Time for 100 Batches: 3.273061041037242
+100 Batch Cumulative Loss: 123.68824851512909
+Time for 100 Batches: 3.2804060339927674
+100 Batch Cumulative Loss: 123.41106152534485
+Time for 100 Batches: 3.25650243361791
+100 Batch Cumulative Loss: 124.83700788021088
+Time for 100 Batches: 3.2664127190907797
+100 Batch Cumulative Loss: 123.46077942848206
+Time for 100 Batches: 3.2758136709531147
+100 Batch Cumulative Loss: 124.03914177417755
+Time for 100 Batches: 3.2642295440038045
+100 Batch Cumulative Loss: 123.4006826877594
+Time for 100 Batches: 3.253055465221405
+100 Batch Cumulative Loss: 123.54283905029297
+Time for 100 Batches: 3.275629985332489
+100 Batch Cumulative Loss: 124.04917478561401
+Time for 100 Batches: 3.2688419977823893
+100 Batch Cumulative Loss: 124.54551768302917
+Time for 100 Batches: 3.2593298673629763
+100 Batch Cumulative Loss: 122.88218116760254
+Time for 100 Batches: 3.2644518693288167
+100 Batch Cumulative Loss: 122.55287253856659
+Time for 100 Batches: 3.262153748671214
+100 Batch Cumulative Loss: 122.48329186439514
+Time for 100 Batches: 3.283608635266622
+100 Batch Cumulative Loss: 121.68928527832031
+Time for 100 Batches: 3.2713919560114544
+100 Batch Cumulative Loss: 123.18513417243958
+Time for 100 Batches: 3.2718119939168293
+100 Batch Cumulative Loss: 122.40367352962494
+Time for 100 Batches: 3.277255415916443
+100 Batch Cumulative Loss: 121.21874010562897
+Time for 100 Batches: 3.268094233671824
+100 Batch Cumulative Loss: 121.24691152572632
+Time for 100 Batches: 3.278052639961243
+100 Batch Cumulative Loss: 121.35959148406982
+Time for 100 Batches: 3.2719998757044473
+100 Batch Cumulative Loss: 120.67727756500244
+Time for 100 Batches: 3.2648942351341246
+100 Batch Cumulative Loss: 120.65853345394135
+Time for 100 Batches: 3.267487434546153
+100 Batch Cumulative Loss: 121.54197299480438
+Time for 100 Batches: 3.2645585179328918
+100 Batch Cumulative Loss: 120.27021265029907
+Time for 100 Batches: 3.270472017923991
+100 Batch Cumulative Loss: 121.656953394413
+Time for 100 Batches: 3.271625256538391
+100 Batch Cumulative Loss: 121.71566331386566
+Time for 100 Batches: 3.2658031980196633
+100 Batch Cumulative Loss: 119.07679975032806
+Time for 100 Batches: 3.267837063471476
+100 Batch Cumulative Loss: 119.92308557033539
+Time for 100 Batches: 3.251696308453878
+100 Batch Cumulative Loss: 120.59106206893921
+Time for 100 Batches: 3.2676685452461243
+100 Batch Cumulative Loss: 119.47626328468323
+Time for 100 Batches: 3.2687968293825787
+100 Batch Cumulative Loss: 119.41102206707001
+Time for 100 Batches: 3.2532419244448345
+100 Batch Cumulative Loss: 119.63455939292908
+Time for 100 Batches: 3.270915146668752
+100 Batch Cumulative Loss: 119.25249111652374
+Time for 100 Batches: 3.264602796236674
+100 Batch Cumulative Loss: 119.03692579269409
+Time for 100 Batches: 3.268974224726359
+100 Batch Cumulative Loss: 121.41108644008636
+Time for 100 Batches: 3.2711368759473163
+100 Batch Cumulative Loss: 118.77417230606079
+Time for 100 Batches: 3.270011333624522
+100 Batch Cumulative Loss: 118.92663478851318
+Time for 100 Batches: 3.2813351154327393
+100 Batch Cumulative Loss: 117.97004574537277
+Time for 100 Batches: 3.2725940942764282
+100 Batch Cumulative Loss: 119.14115476608276
+Time for 100 Batches: 3.2810418287913006
+100 Batch Cumulative Loss: 119.04858386516571
+Time for 100 Batches: 3.267637813091278
+100 Batch Cumulative Loss: 118.30297183990479
+Time for 100 Batches: 3.269130257765452
+100 Batch Cumulative Loss: 117.86708688735962
+Time for 100 Batches: 3.28259859085083
+100 Batch Cumulative Loss: 117.39580368995667
+Time for 100 Batches: 3.2709667086601257
+100 Batch Cumulative Loss: 119.93765664100647
+Time for 100 Batches: 3.279491662979126
+100 Batch Cumulative Loss: 117.60599839687347
+Time for 100 Batches: 3.2580834229787192
+100 Batch Cumulative Loss: 117.46380150318146
+Time for 100 Batches: 3.260611303647359
+100 Batch Cumulative Loss: 119.48191797733307
+Time for 100 Batches: 3.2625484506289166
+100 Batch Cumulative Loss: 117.49746215343475
+Time for 100 Batches: 3.272142688433329
+100 Batch Cumulative Loss: 116.57098424434662
+Time for 100 Batches: 3.2575996279716493
+100 Batch Cumulative Loss: 117.1224650144577
+Time for 100 Batches: 3.27624671459198
+100 Batch Cumulative Loss: 115.96064889431
+Time for 100 Batches: 3.289547344048818
+100 Batch Cumulative Loss: 116.27237558364868
+Time for 100 Batches: 3.2658751130104067
+100 Batch Cumulative Loss: 116.18336534500122
+Time for 100 Batches: 3.2450762192408242
+100 Batch Cumulative Loss: 116.30979490280151
+Time for 100 Batches: 3.279359149932861
+100 Batch Cumulative Loss: 116.11026561260223
+Time for 100 Batches: 3.269664255777995
+100 Batch Cumulative Loss: 116.2868926525116
+Time for 100 Batches: 3.2659256855646768
+100 Batch Cumulative Loss: 114.99604022502899
+Time for 100 Batches: 3.2715526938438417
+100 Batch Cumulative Loss: 116.05998504161835
+Time for 100 Batches: 3.2700157006581625
+100 Batch Cumulative Loss: 115.21812957525253
+Time for 100 Batches: 3.266444726785024
+100 Batch Cumulative Loss: 116.21353161334991
+Time for 100 Batches: 3.2653475483258565
+100 Batch Cumulative Loss: 116.80757713317871
+Time for 100 Batches: 3.26826993227005
+100 Batch Cumulative Loss: 114.45049291849136
+Time for 100 Batches: 3.265874524911245
+100 Batch Cumulative Loss: 115.4456262588501
+Time for 100 Batches: 3.2669336557388307
+100 Batch Cumulative Loss: 113.95831650495529
+Time for 100 Batches: 3.2772786537806193
+100 Batch Cumulative Loss: 115.43453109264374
+Time for 100 Batches: 3.2769301692644754
+100 Batch Cumulative Loss: 115.50817704200745
+Time for 100 Batches: 3.2745194594065348
+100 Batch Cumulative Loss: 115.5575298666954
+Time for 100 Batches: 3.258713177839915
+100 Batch Cumulative Loss: 113.48687958717346
+Time for 100 Batches: 3.279246989885966
+100 Batch Cumulative Loss: 113.52372336387634
+Time for 100 Batches: 3.2627435247103374
+100 Batch Cumulative Loss: 114.23305416107178
+Time for 100 Batches: 3.2763750632603963
+100 Batch Cumulative Loss: 114.4132896065712
+Time for 100 Batches: 3.268252070744832
+100 Batch Cumulative Loss: 115.54873728752136
+Time for 100 Batches: 3.2562864820162454
+100 Batch Cumulative Loss: 114.08430236577988
+Time for 100 Batches: 3.2700429201126098
+100 Batch Cumulative Loss: 113.98197329044342
+Time for 100 Batches: 3.2684433619181315
+100 Batch Cumulative Loss: 113.94664961099625
+Time for 100 Batches: 3.2658275445302327
+100 Batch Cumulative Loss: 113.57237112522125
+Time for 100 Batches: 3.260903298854828
+100 Batch Cumulative Loss: 113.14815962314606
+Time for 100 Batches: 3.2632866700490317
+100 Batch Cumulative Loss: 112.80237454175949
+Time for 100 Batches: 3.272787344455719
+100 Batch Cumulative Loss: 113.16756069660187
+Time for 100 Batches: 3.2796666860580443
+100 Batch Cumulative Loss: 111.44190859794617
+Time for 100 Batches: 3.2737507303555806
+100 Batch Cumulative Loss: 112.10712587833405
+Time for 100 Batches: 3.266796123981476
+100 Batch Cumulative Loss: 112.12789076566696
+Time for 100 Batches: 3.2673594395319623
+100 Batch Cumulative Loss: 112.75896430015564
+Time for 100 Batches: 3.2748650431632997
+100 Batch Cumulative Loss: 111.575244307518
+Time for 100 Batches: 3.2663691798845926
+100 Batch Cumulative Loss: 111.43237698078156
+Time for 100 Batches: 3.269342760245005
+100 Batch Cumulative Loss: 112.01535654067993
+Time for 100 Batches: 3.253801472981771
+100 Batch Cumulative Loss: 111.76005899906158
+Time for 100 Batches: 3.2745037317276
+100 Batch Cumulative Loss: 111.63315159082413
+Time for 100 Batches: 3.2557175676027934
+100 Batch Cumulative Loss: 111.80205291509628
+Time for 100 Batches: 3.259311306476593
+100 Batch Cumulative Loss: 111.05470257997513
+Time for 100 Batches: 3.269047808647156
+100 Batch Cumulative Loss: 111.43837583065033
+Time for 100 Batches: 3.270720036824544
+100 Batch Cumulative Loss: 110.66899883747101
+Time for 100 Batches: 3.2794730186462404
+100 Batch Cumulative Loss: 110.04406100511551
+Time for 100 Batches: 3.26278102795283
+100 Batch Cumulative Loss: 110.20642572641373
+Time for 100 Batches: 3.2692187945048015
+100 Batch Cumulative Loss: 109.83712017536163
+Time for 100 Batches: 3.275739928086599
+100 Batch Cumulative Loss: 110.62498116493225
+Time for 100 Batches: 3.2630163272221884
+100 Batch Cumulative Loss: 110.25679856538773
+Time for 100 Batches: 3.27492995262146
+100 Batch Cumulative Loss: 111.04961335659027
+Time for 100 Batches: 3.2624665101369223
+100 Batch Cumulative Loss: 109.84563714265823
+Time for 100 Batches: 3.2711764216423034
+100 Batch Cumulative Loss: 109.843117415905
+Time for 100 Batches: 3.2727916916211446
+100 Batch Cumulative Loss: 109.60322886705399
+Time for 100 Batches: 3.2591333826382956
+100 Batch Cumulative Loss: 109.30164736509323
+Time for 100 Batches: 3.2803954005241396
+100 Batch Cumulative Loss: 109.28662544488907
+Time for 100 Batches: 3.2705706397692365
+100 Batch Cumulative Loss: 109.49084341526031
+Time for 100 Batches: 3.2617976744969686
+100 Batch Cumulative Loss: 110.40567529201508
+Time for 100 Batches: 3.267998254299164
+100 Batch Cumulative Loss: 109.7525584101677
+Time for 100 Batches: 3.295170466105143
+100 Batch Cumulative Loss: 108.80224645137787
+Time for 100 Batches: 3.2788576046625773
+100 Batch Cumulative Loss: 109.62321639060974
+Time for 100 Batches: 3.272072907288869
+100 Batch Cumulative Loss: 109.63079899549484
+Time for 100 Batches: 3.2668978452682493
+100 Batch Cumulative Loss: 109.33232128620148
+Time for 100 Batches: 3.279244116942088
+100 Batch Cumulative Loss: 108.36919790506363
+Time for 100 Batches: 3.272600988547007
+100 Batch Cumulative Loss: 108.30446630716324
+Time for 100 Batches: 3.2726432124773663
+100 Batch Cumulative Loss: 107.89438223838806
+Time for 100 Batches: 3.267987020810445
+100 Batch Cumulative Loss: 108.49447274208069
+Time for 100 Batches: 3.259375468889872
+100 Batch Cumulative Loss: 108.50332176685333
+Time for 100 Batches: 3.2698360045750934
+100 Batch Cumulative Loss: 108.1631024479866
+Time for 100 Batches: 3.2720781524976092
+100 Batch Cumulative Loss: 107.0083795785904
+Time for 100 Batches: 3.2705217440923056
+100 Batch Cumulative Loss: 108.31233191490173
+Time for 100 Batches: 3.284347712993622
+100 Batch Cumulative Loss: 108.39129757881165
+Time for 100 Batches: 3.2685749769210815
+100 Batch Cumulative Loss: 108.00712710618973
+Time for 100 Batches: 3.2714235305786135
+100 Batch Cumulative Loss: 108.10694706439972
+Time for 100 Batches: 3.271111766497294
+100 Batch Cumulative Loss: 107.9410884976387
+Time for 100 Batches: 3.2689154545466104
+100 Batch Cumulative Loss: 108.2653580904007
+Time for 100 Batches: 3.2649089376131695
+100 Batch Cumulative Loss: 107.90886121988297
+Time for 100 Batches: 3.257709582646688
+100 Batch Cumulative Loss: 106.02283626794815
+Time for 100 Batches: 3.2816398541132608
+100 Batch Cumulative Loss: 106.15699166059494
+Time for 100 Batches: 3.2549448649088544
+100 Batch Cumulative Loss: 105.28716963529587
+Time for 100 Batches: 3.2588116049766542
+100 Batch Cumulative Loss: 107.28919512033463
+Time for 100 Batches: 3.2684635798136394
+100 Batch Cumulative Loss: 106.41614365577698
+Time for 100 Batches: 3.2673765261967977
+100 Batch Cumulative Loss: 106.1048401594162
+Time for 100 Batches: 3.2600266536076865
+100 Batch Cumulative Loss: 107.10919779539108
+Time for 100 Batches: 3.271772841612498
+100 Batch Cumulative Loss: 105.61337298154831
+Time for 100 Batches: 3.2627382397651674
+100 Batch Cumulative Loss: 106.72105515003204
+Time for 100 Batches: 3.26354573170344
+100 Batch Cumulative Loss: 106.49414074420929
+Time for 100 Batches: 3.257328764597575
+100 Batch Cumulative Loss: 105.18292146921158
+Time for 100 Batches: 3.272567145029704
+100 Batch Cumulative Loss: 105.44355016946793
+Time for 100 Batches: 3.2699895898501077
+100 Batch Cumulative Loss: 105.50220048427582
+Time for 100 Batches: 3.2700958530108135
+100 Batch Cumulative Loss: 104.90260702371597
+Time for 100 Batches: 3.266006545225779
+100 Batch Cumulative Loss: 106.73896223306656
+Time for 100 Batches: 3.243609344959259
+100 Batch Cumulative Loss: 104.9447609782219
+Time for 100 Batches: 3.2596481601397196
+100 Batch Cumulative Loss: 105.60919314622879
+Time for 100 Batches: 3.2747224013010663
+100 Batch Cumulative Loss: 106.98536944389343
+Time for 100 Batches: 3.2626020153363546
+100 Batch Cumulative Loss: 103.40050137042999
+Time for 100 Batches: 3.258647382259369
+100 Batch Cumulative Loss: 105.43666571378708
+Time for 100 Batches: 3.2808144450187684
+100 Batch Cumulative Loss: 103.8365268111229
+Time for 100 Batches: 3.267281762758891
+100 Batch Cumulative Loss: 104.2745960354805
+Time for 100 Batches: 3.2792774359385173
+100 Batch Cumulative Loss: 104.10610502958298
+Time for 100 Batches: 3.2560163617134092
+100 Batch Cumulative Loss: 103.90428972244263
+Time for 100 Batches: 3.273705569903056
+100 Batch Cumulative Loss: 105.51470017433167
+Time for 100 Batches: 3.2634324471155804
+100 Batch Cumulative Loss: 103.77081805467606
+Time for 100 Batches: 3.2589576125144957
+100 Batch Cumulative Loss: 103.9455361366272
+Time for 100 Batches: 3.2714740792910257
+100 Batch Cumulative Loss: 103.87842607498169
+Time for 100 Batches: 3.266797435283661
+100 Batch Cumulative Loss: 104.09080970287323
+Time for 100 Batches: 3.263564662138621
+100 Batch Cumulative Loss: 103.35111963748932
+Time for 100 Batches: 3.2814847389856974
+100 Batch Cumulative Loss: 104.508913397789
+Time for 100 Batches: 3.2730042974154157
+100 Batch Cumulative Loss: 103.24989193677902
+Time for 100 Batches: 3.2733012398084003
+100 Batch Cumulative Loss: 102.73097169399261
+Time for 100 Batches: 3.278973480065664
+100 Batch Cumulative Loss: 103.68224561214447
+Time for 100 Batches: 3.2579050064086914
+100 Batch Cumulative Loss: 102.96057373285294
+Time for 100 Batches: 3.2798107067743936
+100 Batch Cumulative Loss: 103.24453622102737
+Time for 100 Batches: 3.2474358280499778
+100 Batch Cumulative Loss: 103.46773141622543
+Time for 100 Batches: 3.2887054284413657
+100 Batch Cumulative Loss: 105.35311597585678
+Time for 100 Batches: 3.2641010721524557
+100 Batch Cumulative Loss: 102.72626787424088
+Time for 100 Batches: 3.25957346757253
+100 Batch Cumulative Loss: 104.0726329088211
+Time for 100 Batches: 3.2591915289560953
+100 Batch Cumulative Loss: 101.83434510231018
+Time for 100 Batches: 3.2705428838729858
+100 Batch Cumulative Loss: 102.71172910928726
+Time for 100 Batches: 3.2761568427085876
+100 Batch Cumulative Loss: 102.63159823417664
+Time for 100 Batches: 3.281726642449697
+100 Batch Cumulative Loss: 101.10868912935257
+Time for 100 Batches: 3.285758312543233
+100 Batch Cumulative Loss: 101.75604945421219
+Time for 100 Batches: 3.2617071986198427
+100 Batch Cumulative Loss: 101.02733945846558
+Time for 100 Batches: 3.2654573202133177
+100 Batch Cumulative Loss: 101.37748688459396
+Time for 100 Batches: 3.2670369664827983
+100 Batch Cumulative Loss: 101.23781007528305
+Time for 100 Batches: 3.263588766256968
+100 Batch Cumulative Loss: 104.02059960365295
+Time for 100 Batches: 3.2691432078679403
+100 Batch Cumulative Loss: 102.52683699131012
+Time for 100 Batches: 3.249348696072896
+100 Batch Cumulative Loss: 101.97241252660751
+Time for 100 Batches: 3.2730867346127828
+100 Batch Cumulative Loss: 102.21838051080704
+Time for 100 Batches: 3.2736567815144855
+100 Batch Cumulative Loss: 101.07172411680222
+Time for 100 Batches: 3.26130823691686
+100 Batch Cumulative Loss: 102.63542491197586
+Time for 100 Batches: 3.2598419229189557
+100 Batch Cumulative Loss: 101.48704171180725
+Time for 100 Batches: 3.2801514148712156
+100 Batch Cumulative Loss: 101.2204697728157
+Time for 100 Batches: 3.273500657081604
+100 Batch Cumulative Loss: 102.87669622898102
+Time for 100 Batches: 3.2563281695048016
+100 Batch Cumulative Loss: 104.26738142967224
+Time for 100 Batches: 3.272040859858195
+100 Batch Cumulative Loss: 101.42319631576538
+Time for 100 Batches: 3.283837080001831
+100 Batch Cumulative Loss: 100.7877014875412
+Time for 100 Batches: 3.2666247804959614
+100 Batch Cumulative Loss: 100.72147500514984
+Time for 100 Batches: 3.2603227416674296
+100 Batch Cumulative Loss: 100.41842859983444
+Time for 100 Batches: 3.2708078463872274
+100 Batch Cumulative Loss: 101.2432746887207
+Time for 100 Batches: 3.2684356490770976
+100 Batch Cumulative Loss: 102.03477400541306
+Time for 100 Batches: 3.2675955057144166
+100 Batch Cumulative Loss: 101.22221440076828
+Time for 100 Batches: 3.273309071858724
+100 Batch Cumulative Loss: 101.07924050092697
+Time for 100 Batches: 3.2764450470606485
+100 Batch Cumulative Loss: 99.99728029966354
+Time for 100 Batches: 3.2774755875269572
+100 Batch Cumulative Loss: 99.01603043079376
+Time for 100 Batches: 3.262751070658366
+100 Batch Cumulative Loss: 99.79991567134857
+Time for 100 Batches: 3.2645026286443075
+100 Batch Cumulative Loss: 99.0202185511589
+Time for 100 Batches: 3.279066534837087
+100 Batch Cumulative Loss: 99.13874959945679
+Time for 100 Batches: 3.249982396761576
+100 Batch Cumulative Loss: 99.87073934078217
+Time for 100 Batches: 3.2688393433888754
+100 Batch Cumulative Loss: 99.74639922380447
+Time for 100 Batches: 3.260367019971212
+100 Batch Cumulative Loss: 99.79331451654434
+Time for 100 Batches: 3.2847842613856
+100 Batch Cumulative Loss: 98.8973160982132
+Time for 100 Batches: 3.2574516932169595
+100 Batch Cumulative Loss: 99.49705129861832
+Time for 100 Batches: 3.255222233136495
+100 Batch Cumulative Loss: 98.77364897727966
+Time for 100 Batches: 3.250947944323222
+100 Batch Cumulative Loss: 98.48541045188904
+Time for 100 Batches: 3.270363696416219
+100 Batch Cumulative Loss: 98.61606311798096
+Time for 100 Batches: 3.271052610874176
+100 Batch Cumulative Loss: 99.10312962532043
+Time for 100 Batches: 3.26607985496521
+100 Batch Cumulative Loss: 99.50308620929718
+Time for 100 Batches: 3.259934385617574
+100 Batch Cumulative Loss: 99.86695271730423
+Time for 100 Batches: 3.2535105466842653
+100 Batch Cumulative Loss: 98.46448010206223
+Time for 100 Batches: 3.263190042972565
+100 Batch Cumulative Loss: 99.3318458199501
+Time for 100 Batches: 3.2658880670865376
+100 Batch Cumulative Loss: 97.76382333040237
+Time for 100 Batches: 3.2669649720191956
+100 Batch Cumulative Loss: 98.22922509908676
+Time for 100 Batches: 3.2606036901474
+100 Batch Cumulative Loss: 98.29027777910233
+Time for 100 Batches: 3.2826111872990924
+100 Batch Cumulative Loss: 98.50158727169037
+Time for 100 Batches: 3.2608952005704244
+100 Batch Cumulative Loss: 97.6829160451889
+Time for 100 Batches: 3.274832785129547
+100 Batch Cumulative Loss: 97.12185460329056
+Time for 100 Batches: 3.2579840342203776
+100 Batch Cumulative Loss: 97.32632356882095
+Time for 100 Batches: 3.281989586353302
+100 Batch Cumulative Loss: 96.3817155957222
+Time for 100 Batches: 3.2824554800987245
+100 Batch Cumulative Loss: 97.15419381856918
+Time for 100 Batches: 3.271470379829407
+100 Batch Cumulative Loss: 97.71954190731049
+Time for 100 Batches: 3.2826329628626505
+100 Batch Cumulative Loss: 97.56391096115112
+Time for 100 Batches: 3.2829725623130797
+100 Batch Cumulative Loss: 97.81955391168594
+Time for 100 Batches: 3.2758336782455446
+100 Batch Cumulative Loss: 98.18241906166077
+Time for 100 Batches: 3.287963612874349
+100 Batch Cumulative Loss: 97.38445907831192
+Time for 100 Batches: 3.259398182233175
+100 Batch Cumulative Loss: 96.63452172279358
+Time for 100 Batches: 3.2697670698165893
+100 Batch Cumulative Loss: 97.68856298923492
+Time for 100 Batches: 3.260851037502289
+100 Batch Cumulative Loss: 97.18357849121094
+Time for 100 Batches: 3.2553153236707053
+100 Batch Cumulative Loss: 97.12198328971863
+Time for 100 Batches: 3.2623900294303896
+100 Batch Cumulative Loss: 95.08418375253677
+Time for 100 Batches: 3.267063593864441
+100 Batch Cumulative Loss: 97.42018002271652
+Time for 100 Batches: 3.2707598924636843
+100 Batch Cumulative Loss: 96.91661876440048
+Time for 100 Batches: 3.2636472821235656
+100 Batch Cumulative Loss: 96.78541254997253
+Time for 100 Batches: 3.275074374675751
+100 Batch Cumulative Loss: 97.85464030504227
+Time for 100 Batches: 3.2578213890393575
+100 Batch Cumulative Loss: 97.96395516395569
+Time for 100 Batches: 3.264925718307495
+100 Batch Cumulative Loss: 94.79901874065399
+Time for 100 Batches: 3.2649309357007343
+100 Batch Cumulative Loss: 96.67543756961823
+Time for 100 Batches: 3.281532581647237
+100 Batch Cumulative Loss: 95.5652534365654
+Time for 100 Batches: 3.290035271644592
+100 Batch Cumulative Loss: 95.33219927549362
+Time for 100 Batches: 3.264716116587321
+100 Batch Cumulative Loss: 95.68911498785019
+Time for 100 Batches: 3.273407272497813
+100 Batch Cumulative Loss: 98.10606294870377
+Time for 100 Batches: 3.2834781130154926
+100 Batch Cumulative Loss: 97.0926542878151
+Time for 100 Batches: 3.255564546585083
+100 Batch Cumulative Loss: 97.82088881731033
+Time for 100 Batches: 3.2755330721537272
+100 Batch Cumulative Loss: 95.61722481250763
+Time for 100 Batches: 3.2687249620755514
+100 Batch Cumulative Loss: 95.63043910264969
+Time for 100 Batches: 3.259999517599742
+100 Batch Cumulative Loss: 95.3801400065422
+Time for 100 Batches: 3.2682495713233948
+100 Batch Cumulative Loss: 95.23993283510208
+Time for 100 Batches: 3.2786159912745156
+100 Batch Cumulative Loss: 97.51770979166031
+Time for 100 Batches: 3.278417197863261
+100 Batch Cumulative Loss: 95.07807677984238
+Time for 100 Batches: 3.2635064760843915
+100 Batch Cumulative Loss: 95.56042462587357
+Time for 100 Batches: 3.2763232390085855
+100 Batch Cumulative Loss: 95.1197584271431
+Time for 100 Batches: 3.2528624176979064
+100 Batch Cumulative Loss: 94.89168208837509
+Time for 100 Batches: 3.2503944198290506
+100 Batch Cumulative Loss: 95.43190693855286
+Time for 100 Batches: 3.2702576835950214
+100 Batch Cumulative Loss: 94.74274432659149
+Time for 100 Batches: 3.2660862763722736
+100 Batch Cumulative Loss: 93.63174933195114
+Time for 100 Batches: 3.2689886649449664
+100 Batch Cumulative Loss: 95.3227264881134
+Time for 100 Batches: 3.264873743057251
+100 Batch Cumulative Loss: 95.10737574100494
+Time for 100 Batches: 3.2756500601768495
+100 Batch Cumulative Loss: 95.19735318422318
+Time for 100 Batches: 3.2519898255666098
+100 Batch Cumulative Loss: 95.52802443504333
+Time for 100 Batches: 3.2650776783625286
+100 Batch Cumulative Loss: 95.00405353307724
+Time for 100 Batches: 3.263680084546407
+100 Batch Cumulative Loss: 94.28862696886063
+Time for 100 Batches: 3.2893476764361065
+100 Batch Cumulative Loss: 93.73339122533798
+Time for 100 Batches: 3.2656777421633403
+100 Batch Cumulative Loss: 95.10694152116776
+Time for 100 Batches: 3.266024887561798
+100 Batch Cumulative Loss: 93.09393686056137
+Time for 100 Batches: 3.271270040671031
+100 Batch Cumulative Loss: 93.75031185150146
+Time for 100 Batches: 3.2642975211143495
+100 Batch Cumulative Loss: 93.66055446863174
+Time for 100 Batches: 3.2790509263674417
+100 Batch Cumulative Loss: 93.54016655683517
+Time for 100 Batches: 3.2701247652371723
+100 Batch Cumulative Loss: 94.46066677570343
+Time for 100 Batches: 3.2707297682762144
+100 Batch Cumulative Loss: 93.10048550367355
+Time for 100 Batches: 3.267826251188914
+100 Batch Cumulative Loss: 92.95973455905914
+Time for 100 Batches: 3.2711477239926654
+100 Batch Cumulative Loss: 93.74398130178452
+Time for 100 Batches: 3.264903803666433
+100 Batch Cumulative Loss: 93.7363178730011
+Time for 100 Batches: 3.271920379002889
+100 Batch Cumulative Loss: 93.3148462176323
+Time for 100 Batches: 3.27592693567276
+100 Batch Cumulative Loss: 93.04271328449249
+Time for 100 Batches: 3.2708704590797426
+100 Batch Cumulative Loss: 93.11871683597565
+Time for 100 Batches: 3.272342832883199
+100 Batch Cumulative Loss: 92.40562206506729
+Time for 100 Batches: 3.27154362599055
+100 Batch Cumulative Loss: 94.15737742185593
+Time for 100 Batches: 3.260890869299571
+100 Batch Cumulative Loss: 93.3515065908432
+Time for 100 Batches: 3.2775588472684225
+100 Batch Cumulative Loss: 93.56937676668167
+Time for 100 Batches: 3.268896047274272
+100 Batch Cumulative Loss: 92.06934916973114
+Time for 100 Batches: 3.273017156124115
+100 Batch Cumulative Loss: 92.14872467517853
+Time for 100 Batches: 3.2715941309928893
+100 Batch Cumulative Loss: 93.37487089633942
+Time for 100 Batches: 3.268195434411367
+100 Batch Cumulative Loss: 92.3161091208458
+Time for 100 Batches: 3.2697396794954936
+100 Batch Cumulative Loss: 92.6314794421196
+Time for 100 Batches: 3.2623935262362163
+100 Batch Cumulative Loss: 91.6530511379242
+Time for 100 Batches: 3.265675600369771
+100 Batch Cumulative Loss: 92.45782959461212
+Time for 100 Batches: 3.2652946869532267
+100 Batch Cumulative Loss: 92.39245146512985
+Time for 100 Batches: 3.265836282571157
+100 Batch Cumulative Loss: 92.58651775121689
+Time for 100 Batches: 3.261692523956299
+100 Batch Cumulative Loss: 91.14698624610901
+Time for 100 Batches: 3.2683558265368142
+100 Batch Cumulative Loss: 90.87721365690231
+Time for 100 Batches: 3.268839438756307
+100 Batch Cumulative Loss: 92.12140917778015
+Time for 100 Batches: 3.270952943960826
+100 Batch Cumulative Loss: 91.29369473457336
+Time for 100 Batches: 3.273796025911967
+100 Batch Cumulative Loss: 90.54959082603455
+Time for 100 Batches: 3.2634262760480244
+100 Batch Cumulative Loss: 91.7913088798523
+Time for 100 Batches: 3.2664460221926372
+100 Batch Cumulative Loss: 91.9480636715889
+Time for 100 Batches: 3.2747297922770184
+100 Batch Cumulative Loss: 91.01413249969482
+Time for 100 Batches: 3.2697691877683
+100 Batch Cumulative Loss: 93.1463891863823
+Time for 100 Batches: 3.2728376348813373
+100 Batch Cumulative Loss: 91.76526141166687
+Time for 100 Batches: 3.2763481974601745
+100 Batch Cumulative Loss: 92.54885929822922
+Time for 100 Batches: 3.272471276919047
+100 Batch Cumulative Loss: 90.72867387533188
+Time for 100 Batches: 3.253328820069631
+100 Batch Cumulative Loss: 91.70038890838623
+Time for 100 Batches: 3.2648453672726947
+100 Batch Cumulative Loss: 89.0154305100441
+Time for 100 Batches: 3.266555043061574
+100 Batch Cumulative Loss: 91.29934763908386
+Time for 100 Batches: 3.2681989153226216
+100 Batch Cumulative Loss: 90.2337257862091
+Time for 100 Batches: 3.2656747738520306
+100 Batch Cumulative Loss: 90.95937591791153
+Time for 100 Batches: 3.262675102551778
+100 Batch Cumulative Loss: 91.27180522680283
+Time for 100 Batches: 3.2748552044232686
+100 Batch Cumulative Loss: 91.97046518325806
+Time for 100 Batches: 3.2737444917360943
+100 Batch Cumulative Loss: 91.27090102434158
+Time for 100 Batches: 3.269727945327759
+100 Batch Cumulative Loss: 90.23386323451996
+Time for 100 Batches: 3.2483147104581196
+100 Batch Cumulative Loss: 91.84860730171204
+Time for 100 Batches: 3.2796705325444537
+100 Batch Cumulative Loss: 89.93680554628372
+Time for 100 Batches: 3.2545668760935467
+100 Batch Cumulative Loss: 91.7157883644104
+Time for 100 Batches: 3.263907249768575
+100 Batch Cumulative Loss: 91.48082160949707
+Time for 100 Batches: 3.265320901075999
+100 Batch Cumulative Loss: 89.46203154325485
+Time for 100 Batches: 3.2718181133270265
+100 Batch Cumulative Loss: 90.43579667806625
+Time for 100 Batches: 3.282768170038859
+100 Batch Cumulative Loss: 90.59946191310883
+Time for 100 Batches: 3.2627145210901896
+100 Batch Cumulative Loss: 91.5054692029953
+Time for 100 Batches: 3.2745689868927004
+100 Batch Cumulative Loss: 90.15404331684113
+Time for 100 Batches: 3.255076018969218
+100 Batch Cumulative Loss: 90.14125299453735
+Time for 100 Batches: 3.2755819241205852
+100 Batch Cumulative Loss: 90.5426515340805
+Time for 100 Batches: 3.2729960441589356
+100 Batch Cumulative Loss: 90.92079663276672
+Time for 100 Batches: 3.2478069345156353
+100 Batch Cumulative Loss: 90.86240696907043
+Time for 100 Batches: 3.2599337021509807
+100 Batch Cumulative Loss: 90.06007218360901
+Time for 100 Batches: 3.278563416004181
+100 Batch Cumulative Loss: 91.51923948526382
+Time for 100 Batches: 3.272903549671173
+100 Batch Cumulative Loss: 88.67787444591522
+Time for 100 Batches: 3.280463993549347
+100 Batch Cumulative Loss: 90.52660393714905
+Time for 100 Batches: 3.287104288736979
+100 Batch Cumulative Loss: 89.4066064953804
+Time for 100 Batches: 3.2731922388076784
+100 Batch Cumulative Loss: 90.39184206724167
+Time for 100 Batches: 3.2587994853655498
+100 Batch Cumulative Loss: 90.45312291383743
+Time for 100 Batches: 3.27356299161911
+100 Batch Cumulative Loss: 87.9498997926712
+Time for 100 Batches: 3.2503929932912192
+100 Batch Cumulative Loss: 88.83444565534592
+Time for 100 Batches: 3.2744202613830566
+100 Batch Cumulative Loss: 88.65253973007202
+Time for 100 Batches: 3.2832098762194315
+100 Batch Cumulative Loss: 89.58004301786423
+Time for 100 Batches: 3.264730381965637
+100 Batch Cumulative Loss: 89.07482492923737
+Time for 100 Batches: 3.286435067653656
+100 Batch Cumulative Loss: 91.01004070043564
+Time for 100 Batches: 3.288778777917226
+100 Batch Cumulative Loss: 89.16038924455643
+Time for 100 Batches: 3.266291097799937
+100 Batch Cumulative Loss: 88.75086313486099
+Time for 100 Batches: 3.2716169516245523
+100 Batch Cumulative Loss: 90.15631234645844
+Time for 100 Batches: 3.2648680408795676
+100 Batch Cumulative Loss: 87.8487291932106
+Time for 100 Batches: 3.255499772230784
+100 Batch Cumulative Loss: 89.10596519708633
+Time for 100 Batches: 3.27639817794164
+100 Batch Cumulative Loss: 87.76618587970734
+Time for 100 Batches: 3.263647711277008
+100 Batch Cumulative Loss: 89.24179404973984
+Time for 100 Batches: 3.2820547819137573
+100 Batch Cumulative Loss: 87.00239282846451
+Time for 100 Batches: 3.2688210884730022
+100 Batch Cumulative Loss: 88.23185443878174
+Time for 100 Batches: 3.29006058772405
+100 Batch Cumulative Loss: 87.29984736442566
+Time for 100 Batches: 3.2816135485967
+100 Batch Cumulative Loss: 86.4876698255539
+Time for 100 Batches: 3.276947486400604
+100 Batch Cumulative Loss: 87.06533551216125
+Time for 100 Batches: 3.265962815284729
+100 Batch Cumulative Loss: 87.34924447536469
+Time for 100 Batches: 3.2672783970832824
+100 Batch Cumulative Loss: 87.60888475179672
+Time for 100 Batches: 3.263898694515228
+100 Batch Cumulative Loss: 86.82533943653107
+Time for 100 Batches: 3.2666892806688943
+100 Batch Cumulative Loss: 88.51265972852707
+Time for 100 Batches: 3.2719220678011576
+100 Batch Cumulative Loss: 89.58103805780411
+Time for 100 Batches: 3.264019163449605
+100 Batch Cumulative Loss: 88.85716158151627
+Time for 100 Batches: 3.2771180589993794
+100 Batch Cumulative Loss: 87.76941072940826
+Time for 100 Batches: 3.2578799804051717
+100 Batch Cumulative Loss: 88.03751975297928
+Time for 100 Batches: 3.280515968799591
+100 Batch Cumulative Loss: 86.6456498503685
+Time for 100 Batches: 3.2625325043996174
+100 Batch Cumulative Loss: 87.49688816070557
+Time for 100 Batches: 3.2723152160644533
+100 Batch Cumulative Loss: 87.98662143945694
+Time for 100 Batches: 3.275555713971456
+100 Batch Cumulative Loss: 87.08518326282501
+Time for 100 Batches: 3.2691801389058432
+100 Batch Cumulative Loss: 89.2786357998848
+Time for 100 Batches: 3.272644889354706
+100 Batch Cumulative Loss: 87.50128024816513
+Time for 100 Batches: 3.2724343101183573
+100 Batch Cumulative Loss: 87.70063614845276
+Time for 100 Batches: 3.2731395880381267
+100 Batch Cumulative Loss: 85.93801099061966
+Time for 100 Batches: 3.267351226011912
+100 Batch Cumulative Loss: 87.25403219461441
+Time for 100 Batches: 3.2666142106056215
+100 Batch Cumulative Loss: 86.29561740159988
+Time for 100 Batches: 3.2775657812754315
+100 Batch Cumulative Loss: 86.94954735040665
+Time for 100 Batches: 3.2603245774904885
+100 Batch Cumulative Loss: 87.01267546415329
+Time for 100 Batches: 3.2803473989168803
+100 Batch Cumulative Loss: 87.65212416648865
+Time for 100 Batches: 3.2722710212071737
+100 Batch Cumulative Loss: 86.51709967851639
+Time for 100 Batches: 3.2773531079292297
+100 Batch Cumulative Loss: 86.38669168949127
+Time for 100 Batches: 3.2720258076985678
+100 Batch Cumulative Loss: 87.36363279819489
+Time for 100 Batches: 3.2778529644012453
+100 Batch Cumulative Loss: 86.55174642801285
+Time for 100 Batches: 3.2623438755671184
+100 Batch Cumulative Loss: 86.64956587553024
+Time for 100 Batches: 3.266033434867859
+100 Batch Cumulative Loss: 87.22762393951416
+Time for 100 Batches: 3.2656256794929504
+100 Batch Cumulative Loss: 86.7643329501152
+Time for 100 Batches: 3.252007555961609
+100 Batch Cumulative Loss: 87.41102868318558
+Time for 100 Batches: 3.2570154031117755
+100 Batch Cumulative Loss: 87.47831642627716
+Time for 100 Batches: 3.2829523285230002
+100 Batch Cumulative Loss: 86.3837913274765
+Time for 100 Batches: 3.2638103286425273
+100 Batch Cumulative Loss: 85.69576460123062
+Time for 100 Batches: 3.263565190633138
+100 Batch Cumulative Loss: 85.63072007894516
+Time for 100 Batches: 3.2699570218722025
+100 Batch Cumulative Loss: 86.61125165224075
+Time for 100 Batches: 3.281413737932841
+100 Batch Cumulative Loss: 85.34388464689255
+Time for 100 Batches: 3.263655153910319
+100 Batch Cumulative Loss: 86.60529309511185
+Time for 100 Batches: 3.2714260180791217
+100 Batch Cumulative Loss: 86.28239470720291
+Time for 100 Batches: 3.2881525993347167
+100 Batch Cumulative Loss: 85.19376599788666
+Time for 100 Batches: 3.258379797140757
+100 Batch Cumulative Loss: 85.87400478124619
+Time for 100 Batches: 3.268526323636373
+100 Batch Cumulative Loss: 84.71438843011856
+Time for 100 Batches: 3.2666589697202046
+100 Batch Cumulative Loss: 85.48940163850784
+Time for 100 Batches: 3.270629020531972
+100 Batch Cumulative Loss: 86.98213624954224
+Time for 100 Batches: 3.2740214705467223
+100 Batch Cumulative Loss: 84.97457206249237
+Time for 100 Batches: 3.2695789098739625
+100 Batch Cumulative Loss: 85.93329191207886
+Time for 100 Batches: 3.2633052706718444
+100 Batch Cumulative Loss: 85.79368925094604
+Time for 100 Batches: 3.284459960460663
+100 Batch Cumulative Loss: 85.27276879549026
+Time for 100 Batches: 3.27591233253479
+100 Batch Cumulative Loss: 85.46459639072418
+Time for 100 Batches: 3.272526979446411
+100 Batch Cumulative Loss: 83.95010936260223
+Time for 100 Batches: 3.255624357859294
+100 Batch Cumulative Loss: 86.60786068439484
+Time for 100 Batches: 3.280178662141164
+100 Batch Cumulative Loss: 85.3716567158699
+Time for 100 Batches: 3.2480117042859393
+100 Batch Cumulative Loss: 83.05751031637192
+Time for 100 Batches: 3.27669514020284
+100 Batch Cumulative Loss: 84.10007774829865
+Time for 100 Batches: 3.269705426692963
+100 Batch Cumulative Loss: 85.60935962200165
+Time for 100 Batches: 3.2456657965977986
+100 Batch Cumulative Loss: 85.3977872133255
+Time for 100 Batches: 3.2695277094841004
+100 Batch Cumulative Loss: 84.94005006551743
+Time for 100 Batches: 3.2503789186477663
+100 Batch Cumulative Loss: 84.73671120405197
+Time for 100 Batches: 3.2744667092959086
+100 Batch Cumulative Loss: 84.70647263526917
+Time for 100 Batches: 3.273240884145101
+100 Batch Cumulative Loss: 84.25680732727051
+Time for 100 Batches: 3.2695295174916583
+100 Batch Cumulative Loss: 84.45940893888474
+Time for 100 Batches: 3.2638525287310283
+100 Batch Cumulative Loss: 83.53411954641342
+Time for 100 Batches: 3.287596011161804
+100 Batch Cumulative Loss: 84.39594358205795
+Time for 100 Batches: 3.2602349797884624
+100 Batch Cumulative Loss: 85.14154440164566
+Time for 100 Batches: 3.2567747592926026
+100 Batch Cumulative Loss: 85.65128993988037
+Time for 100 Batches: 3.2703428347905477
+100 Batch Cumulative Loss: 84.82648622989655
+Time for 100 Batches: 3.2757410407066345
+100 Batch Cumulative Loss: 85.41752177476883
+Time for 100 Batches: 3.276309784253438
+100 Batch Cumulative Loss: 84.08130258321762
+Time for 100 Batches: 3.285102172692617
+100 Batch Cumulative Loss: 83.6483742594719
+Time for 100 Batches: 3.2692366162935893
+100 Batch Cumulative Loss: 83.39684611558914
+Time for 100 Batches: 3.2873780687650043
+100 Batch Cumulative Loss: 83.80976355075836
+Time for 100 Batches: 3.2682350595792133
+100 Batch Cumulative Loss: 84.73147773742676
+Time for 100 Batches: 3.2614010135332743
+100 Batch Cumulative Loss: 83.15007215738297
+Time for 100 Batches: 3.270975975195567
+100 Batch Cumulative Loss: 82.78143751621246
+Time for 100 Batches: 3.2769817312558494
+100 Batch Cumulative Loss: 83.66696000099182
+Time for 100 Batches: 3.253668208916982
+100 Batch Cumulative Loss: 86.05974036455154
+Time for 100 Batches: 3.2706310550371804
+100 Batch Cumulative Loss: 83.25007462501526
+Time for 100 Batches: 3.2708327889442446
+100 Batch Cumulative Loss: 84.2381900548935
+Time for 100 Batches: 3.2781666994094847
+100 Batch Cumulative Loss: 83.4047582745552
+Time for 100 Batches: 3.263307770093282
+100 Batch Cumulative Loss: 83.55822068452835
+Time for 100 Batches: 3.2512316942214965
+100 Batch Cumulative Loss: 83.7684776186943
+Time for 100 Batches: 3.2829403479894004
+100 Batch Cumulative Loss: 84.14368885755539
+Time for 100 Batches: 3.2643954038619993
+100 Batch Cumulative Loss: 83.87900990247726
+Time for 100 Batches: 3.2651816248893737
+100 Batch Cumulative Loss: 84.87197399139404
+Time for 100 Batches: 3.261987590789795
+100 Batch Cumulative Loss: 83.02554565668106
+Time for 100 Batches: 3.2645105441411335
+100 Batch Cumulative Loss: 82.91258108615875
+Time for 100 Batches: 3.266234536965688
+100 Batch Cumulative Loss: 81.4399528503418
+Time for 100 Batches: 3.2719557762145994
+100 Batch Cumulative Loss: 82.306385576725
+Time for 100 Batches: 3.27549604177475
+100 Batch Cumulative Loss: 82.2325006723404
+Time for 100 Batches: 3.2664790789286298
+100 Batch Cumulative Loss: 82.68509370088577
+Time for 100 Batches: 3.274176589647929
+100 Batch Cumulative Loss: 83.07901358604431
+Time for 100 Batches: 3.276520375410716
+100 Batch Cumulative Loss: 83.88503980636597
+Time for 100 Batches: 3.2796372334162394
+100 Batch Cumulative Loss: 83.3329576253891
+Time for 100 Batches: 3.253254000345866
+100 Batch Cumulative Loss: 83.12152844667435
+Time for 100 Batches: 3.2616501013437906
+100 Batch Cumulative Loss: 82.01743620634079
+Time for 100 Batches: 3.272976577281952
+100 Batch Cumulative Loss: 82.4361743927002
+Time for 100 Batches: 3.278730376561483
+100 Batch Cumulative Loss: 83.13032925128937
+Time for 100 Batches: 3.259201769034068
+100 Batch Cumulative Loss: 85.21560162305832
+Time for 100 Batches: 3.268845542271932
+100 Batch Cumulative Loss: 83.08158373832703
+Time for 100 Batches: 3.271163054307302
+100 Batch Cumulative Loss: 83.36423349380493
+Time for 100 Batches: 3.2709140102068583
+100 Batch Cumulative Loss: 84.79177564382553
+Time for 100 Batches: 3.2625749707221985
+100 Batch Cumulative Loss: 82.27328997850418
+Time for 100 Batches: 3.284097981452942
+100 Batch Cumulative Loss: 83.11587846279144
+Time for 100 Batches: 3.256163275241852
+100 Batch Cumulative Loss: 82.90874487161636
+Time for 100 Batches: 3.2745570659637453
+100 Batch Cumulative Loss: 82.02594447135925
+Time for 100 Batches: 3.264137283960978
+100 Batch Cumulative Loss: 81.72493851184845
+Time for 100 Batches: 3.259656830628713
+100 Batch Cumulative Loss: 81.62301689386368
+Time for 100 Batches: 3.259514097372691
+100 Batch Cumulative Loss: 82.34559035301208
+Time for 100 Batches: 3.2633543292681377
+100 Batch Cumulative Loss: 82.11050063371658
+Time for 100 Batches: 3.2800612409909564
+100 Batch Cumulative Loss: 82.83651107549667
+Time for 100 Batches: 3.277594840526581
+100 Batch Cumulative Loss: 81.4330233335495
+Time for 100 Batches: 3.257733976840973
+100 Batch Cumulative Loss: 81.63473176956177
+Time for 100 Batches: 3.2824908177057903
+100 Batch Cumulative Loss: 83.29400032758713
+Time for 100 Batches: 3.258147056897481
+100 Batch Cumulative Loss: 80.59902113676071
+Time for 100 Batches: 3.267259403069814
+100 Batch Cumulative Loss: 80.73375380039215
+Time for 100 Batches: 3.284030572573344
+100 Batch Cumulative Loss: 81.08891409635544
+Time for 100 Batches: 3.2666421929995217
+100 Batch Cumulative Loss: 81.58747607469559
+Time for 100 Batches: 3.246853812535604
+100 Batch Cumulative Loss: 81.31650650501251
+Time for 100 Batches: 3.2787593364715577
+100 Batch Cumulative Loss: 81.72381955385208
+Time for 100 Batches: 3.273881193002065
+100 Batch Cumulative Loss: 81.37456119060516
+Time for 100 Batches: 3.278680849075317
+100 Batch Cumulative Loss: 81.95304131507874
+Time for 100 Batches: 3.265326452255249
+100 Batch Cumulative Loss: 82.6167865395546
+Time for 100 Batches: 3.272480881214142
+100 Batch Cumulative Loss: 81.37381887435913
+Time for 100 Batches: 3.2792445460955304
+100 Batch Cumulative Loss: 80.05841714143753
+Time for 100 Batches: 3.2771356542905172
+100 Batch Cumulative Loss: 81.21593105792999
+Time for 100 Batches: 3.2735953529675803
+100 Batch Cumulative Loss: 79.24603486061096
+Time for 100 Batches: 3.269441831111908
+100 Batch Cumulative Loss: 81.19774514436722
+Time for 100 Batches: 3.275917414824168
+100 Batch Cumulative Loss: 80.8878282904625
+Time for 100 Batches: 3.278105366230011
+100 Batch Cumulative Loss: 79.5427862405777
+Time for 100 Batches: 3.2667023738225303
+100 Batch Cumulative Loss: 80.42093229293823
+Time for 100 Batches: 3.2804818948109946
+100 Batch Cumulative Loss: 80.19708251953125
+Time for 100 Batches: 3.266632362206777
+100 Batch Cumulative Loss: 80.60493755340576
+Time for 100 Batches: 3.2628796974817913
+100 Batch Cumulative Loss: 79.61796808242798
+Time for 100 Batches: 3.267068151632945
+100 Batch Cumulative Loss: 80.64589065313339
+Time for 100 Batches: 3.272541042168935
+100 Batch Cumulative Loss: 80.57051944732666
+Time for 100 Batches: 3.268190336227417
+100 Batch Cumulative Loss: 79.58576190471649
+Time for 100 Batches: 3.2829519311587014
+100 Batch Cumulative Loss: 80.54072362184525
+Time for 100 Batches: 3.270843144257863
+100 Batch Cumulative Loss: 80.43396931886673
+Time for 100 Batches: 3.256709293524424
+100 Batch Cumulative Loss: 80.19557321071625
+Time for 100 Batches: 3.2721128463745117
+100 Batch Cumulative Loss: 80.17306113243103
+Time for 100 Batches: 3.2734262625376385
+100 Batch Cumulative Loss: 79.51065844297409
+Time for 100 Batches: 3.2767743825912476
+100 Batch Cumulative Loss: 79.4653063416481
+Time for 100 Batches: 3.2624871015548704
+100 Batch Cumulative Loss: 78.78110843896866
+Time for 100 Batches: 3.2756962339083353
+100 Batch Cumulative Loss: 79.9228127002716
+Time for 100 Batches: 3.263555916150411
+100 Batch Cumulative Loss: 79.09474951028824
+Time for 100 Batches: 3.2688485662142437
+100 Batch Cumulative Loss: 78.46407526731491
+Time for 100 Batches: 3.272397553920746
+100 Batch Cumulative Loss: 79.77832847833633
+Time for 100 Batches: 3.268372348944346
+100 Batch Cumulative Loss: 79.96597349643707
+Time for 100 Batches: 3.2834275086720783
+100 Batch Cumulative Loss: 79.4877518415451
+Time for 100 Batches: 3.277466559410095
+100 Batch Cumulative Loss: 80.42872035503387
+Time for 100 Batches: 3.268299233913422
+100 Batch Cumulative Loss: 80.46166288852692
+Time for 100 Batches: 3.2626195271809895
+100 Batch Cumulative Loss: 79.96563148498535
+Time for 100 Batches: 3.275793743133545
+100 Batch Cumulative Loss: 79.63516640663147
+Time for 100 Batches: 3.28009254137675
+100 Batch Cumulative Loss: 79.42762613296509
+Time for 100 Batches: 3.26771852572759
+100 Batch Cumulative Loss: 79.16866219043732
+Time for 100 Batches: 3.258290382226308
+100 Batch Cumulative Loss: 79.35090160369873
+Time for 100 Batches: 3.2544368624687197
+100 Batch Cumulative Loss: 79.089060485363
+Time for 100 Batches: 3.27314262787501
+100 Batch Cumulative Loss: 79.37474453449249
+Time for 100 Batches: 3.2605520327885946
+100 Batch Cumulative Loss: 82.19331353902817
+Time for 100 Batches: 3.2591310580571493
+100 Batch Cumulative Loss: 79.82627201080322
+Time for 100 Batches: 3.268262716134389
+100 Batch Cumulative Loss: 77.7964454293251
+Time for 100 Batches: 3.264051679770152
+100 Batch Cumulative Loss: 77.82918441295624
+Time for 100 Batches: 3.2697882056236267
+100 Batch Cumulative Loss: 81.26282459497452
+Time for 100 Batches: 3.270041068394979
+100 Batch Cumulative Loss: 83.27057468891144
+Time for 100 Batches: 3.2596471826235454
+100 Batch Cumulative Loss: 79.7475460767746
+Time for 100 Batches: 3.2565139055252077
+100 Batch Cumulative Loss: 79.39389634132385
+Time for 100 Batches: 3.2672094345092773
+100 Batch Cumulative Loss: 78.40789747238159
+Time for 100 Batches: 3.2843636512756347
+100 Batch Cumulative Loss: 78.56471145153046
+Time for 100 Batches: 3.27070974111557
+100 Batch Cumulative Loss: 80.19866931438446
+Time for 100 Batches: 3.27017236550649
+100 Batch Cumulative Loss: 79.08239394426346
+Time for 100 Batches: 3.2601164976755777
+100 Batch Cumulative Loss: 78.16223353147507
+Time for 100 Batches: 3.2642672220865885
+100 Batch Cumulative Loss: 79.09998732805252
+Time for 100 Batches: 3.261512895425161
+100 Batch Cumulative Loss: 78.56853312253952
+Time for 100 Batches: 3.2612762411435443
+100 Batch Cumulative Loss: 79.56086254119873
+Time for 100 Batches: 3.2828428149223328
+100 Batch Cumulative Loss: 80.64923697710037
+Time for 100 Batches: 3.2644762635231017
+100 Batch Cumulative Loss: 77.6460554599762
+Time for 100 Batches: 3.2745759884516397
+100 Batch Cumulative Loss: 78.44347721338272
+Time for 100 Batches: 3.2777342359224955
+100 Batch Cumulative Loss: 77.9559730887413
+Time for 100 Batches: 3.2753947178522744
+100 Batch Cumulative Loss: 77.04555207490921
+Time for 100 Batches: 3.268598798910777
+100 Batch Cumulative Loss: 78.71501243114471
+Time for 100 Batches: 3.2668683966000875
+100 Batch Cumulative Loss: 78.75886172056198
+Time for 100 Batches: 3.267950697739919
+100 Batch Cumulative Loss: 77.9526104927063
+Time for 100 Batches: 3.255103393395742
+100 Batch Cumulative Loss: 76.96571987867355
+Time for 100 Batches: 3.271724553902944
+100 Batch Cumulative Loss: 77.83847439289093
+Time for 100 Batches: 3.281033710638682
+100 Batch Cumulative Loss: 76.98881620168686
+Time for 100 Batches: 3.255658745765686
+100 Batch Cumulative Loss: 77.50530731678009
+Time for 100 Batches: 3.276469651858012
+100 Batch Cumulative Loss: 76.9308853149414
+Time for 100 Batches: 3.2697094360987347
+100 Batch Cumulative Loss: 78.98111552000046
+Time for 100 Batches: 3.2759655634562175
+100 Batch Cumulative Loss: 79.17469483613968
+Time for 100 Batches: 3.243928241729736
+100 Batch Cumulative Loss: 77.73734682798386
+Time for 100 Batches: 3.278618037700653
+100 Batch Cumulative Loss: 77.11565071344376
+Time for 100 Batches: 3.270817216237386
+100 Batch Cumulative Loss: 78.95717948675156
+Time for 100 Batches: 3.273339911301931
+100 Batch Cumulative Loss: 77.18352764844894
+Time for 100 Batches: 3.272615937391917
+100 Batch Cumulative Loss: 77.50883197784424
+Time for 100 Batches: 3.2672677755355837
+100 Batch Cumulative Loss: 78.19762408733368
+Time for 100 Batches: 3.2653900106747944
+100 Batch Cumulative Loss: 77.66491061449051
+Time for 100 Batches: 3.263981854915619
+100 Batch Cumulative Loss: 77.12582796812057
+Time for 100 Batches: 3.2746644417444863
+100 Batch Cumulative Loss: 76.67138451337814
+Time for 100 Batches: 3.28702304760615
+100 Batch Cumulative Loss: 76.72355020046234
+Time for 100 Batches: 3.2584399739901224
+100 Batch Cumulative Loss: 77.38897156715393
+Time for 100 Batches: 3.2858054637908936
+100 Batch Cumulative Loss: 75.87804836034775
+Time for 100 Batches: 3.2729050199190777
+100 Batch Cumulative Loss: 77.06395047903061
+Time for 100 Batches: 3.259093733628591
+100 Batch Cumulative Loss: 77.12635833024979
+Time for 100 Batches: 3.271160066127777
+100 Batch Cumulative Loss: 79.48645335435867
+Time for 100 Batches: 3.2686457951863606
+100 Batch Cumulative Loss: 76.60135686397552
+Time for 100 Batches: 3.2679526170094806
+100 Batch Cumulative Loss: 78.45544213056564
+Time for 100 Batches: 3.2662330071131387
+100 Batch Cumulative Loss: 75.46374040842056
+Time for 100 Batches: 3.2641515652338664
+100 Batch Cumulative Loss: 76.71540969610214
+Time for 100 Batches: 3.264119021097819
+100 Batch Cumulative Loss: 77.60754066705704
+Time for 100 Batches: 3.2789915959040323
+100 Batch Cumulative Loss: 75.6716656088829
+Time for 100 Batches: 3.284666673342387
+100 Batch Cumulative Loss: 77.82804518938065
+Time for 100 Batches: 3.2571943918863933
+100 Batch Cumulative Loss: 75.49837237596512
+Time for 100 Batches: 3.2654523491859435
+100 Batch Cumulative Loss: 77.76510381698608
+Time for 100 Batches: 3.2731324712435406
+100 Batch Cumulative Loss: 77.33785235881805
+Time for 100 Batches: 3.283944924672445
+100 Batch Cumulative Loss: 76.64186328649521
+Time for 100 Batches: 3.280948289235433
+100 Batch Cumulative Loss: 77.2708569765091
+Time for 100 Batches: 3.2620747327804565
+100 Batch Cumulative Loss: 78.47467792034149
+Time for 100 Batches: 3.2763832410176597
+100 Batch Cumulative Loss: 77.10381090641022
+Time for 100 Batches: 3.2796085119247436
+100 Batch Cumulative Loss: 75.8100910782814
+Time for 100 Batches: 3.283840795358022
+100 Batch Cumulative Loss: 75.52277946472168
+Time for 100 Batches: 3.255034637451172
+100 Batch Cumulative Loss: 76.2651829123497
+Time for 100 Batches: 3.2813878734906514
+100 Batch Cumulative Loss: 77.8792655467987
+Time for 100 Batches: 3.2762035449345905
+100 Batch Cumulative Loss: 76.74631881713867
+Time for 100 Batches: 3.272157839934031
+100 Batch Cumulative Loss: 75.84713691473007
+Time for 100 Batches: 3.254722897211711
+100 Batch Cumulative Loss: 76.4616157412529
+Time for 100 Batches: 3.257917328675588
+100 Batch Cumulative Loss: 77.72483897209167
+Time for 100 Batches: 3.2666937947273254
+100 Batch Cumulative Loss: 76.26637291908264
+Time for 100 Batches: 3.278774845600128
+100 Batch Cumulative Loss: 76.33225548267365
+Time for 100 Batches: 3.263371741771698
+100 Batch Cumulative Loss: 76.33948266506195
+Time for 100 Batches: 3.262549364566803
+100 Batch Cumulative Loss: 76.83714777231216
+Time for 100 Batches: 3.2641459782918294
+100 Batch Cumulative Loss: 77.39504206180573
+Time for 100 Batches: 3.2701839645703634
+100 Batch Cumulative Loss: 77.31910175085068
+Time for 100 Batches: 3.277571105957031
+100 Batch Cumulative Loss: 75.8977906703949
+Time for 100 Batches: 3.279336436589559
+100 Batch Cumulative Loss: 75.19662463665009
+Time for 100 Batches: 3.268669044971466
+100 Batch Cumulative Loss: 76.68564540147781
+Time for 100 Batches: 3.2776877681414285
+100 Batch Cumulative Loss: 75.47277730703354
+Time for 100 Batches: 3.2694377541542052
+100 Batch Cumulative Loss: 77.64846867322922
+Time for 100 Batches: 3.262575348218282
+100 Batch Cumulative Loss: 76.87978971004486
+Time for 100 Batches: 3.2651238600413004
+100 Batch Cumulative Loss: 75.64714646339417
+Time for 100 Batches: 3.2590214530626933
+100 Batch Cumulative Loss: 79.12071776390076
+Time for 100 Batches: 3.2733728885650635
+100 Batch Cumulative Loss: 74.89082109928131
+Time for 100 Batches: 3.264640923341115
+100 Batch Cumulative Loss: 76.53444528579712
+Time for 100 Batches: 3.273852332433065
+100 Batch Cumulative Loss: 76.83852928876877
+Time for 100 Batches: 3.2702208161354065
+100 Batch Cumulative Loss: 76.10408961772919
+Time for 100 Batches: 3.267715652783712
+100 Batch Cumulative Loss: 75.68132001161575
+Time for 100 Batches: 3.274695054690043
+100 Batch Cumulative Loss: 74.68827730417252
+Time for 100 Batches: 3.2708691199620565
+100 Batch Cumulative Loss: 76.5222475528717
+Time for 100 Batches: 3.273623033364614
+100 Batch Cumulative Loss: 75.50939404964447
+Time for 100 Batches: 3.2474244515101116
+100 Batch Cumulative Loss: 75.36807626485825
+Time for 100 Batches: 3.274166202545166
+100 Batch Cumulative Loss: 75.12682515382767
+Time for 100 Batches: 3.254021914800008
+100 Batch Cumulative Loss: 76.49029350280762
+Time for 100 Batches: 3.2699937343597414
+100 Batch Cumulative Loss: 75.7623410820961
+Time for 100 Batches: 3.2686704953511554
+100 Batch Cumulative Loss: 74.75646978616714
+Time for 100 Batches: 3.2763121525446572
+100 Batch Cumulative Loss: 78.2160274386406
+Time for 100 Batches: 3.2635719776153564
+100 Batch Cumulative Loss: 74.16500049829483
+Time for 100 Batches: 3.2805448532104493
+100 Batch Cumulative Loss: 74.61063295602798
+Time for 100 Batches: 3.2647587021191913
+100 Batch Cumulative Loss: 74.58114260435104
+Time for 100 Batches: 3.2876818855603536
+100 Batch Cumulative Loss: 74.62094390392303
+Time for 100 Batches: 3.2586838006973267
+100 Batch Cumulative Loss: 75.66043663024902
+Time for 100 Batches: 3.2714204589525857
+100 Batch Cumulative Loss: 73.00090479850769
+Time for 100 Batches: 3.2577709754308066
+100 Batch Cumulative Loss: 76.86732488870621
+Time for 100 Batches: 3.2732251485188804
+100 Batch Cumulative Loss: 74.35438615083694
+Time for 100 Batches: 3.275537645816803
+100 Batch Cumulative Loss: 74.53461027145386
+Time for 100 Batches: 3.264972213904063
+100 Batch Cumulative Loss: 76.93562418222427
+Time for 100 Batches: 3.26588374376297
+100 Batch Cumulative Loss: 78.54527068138123
+Time for 100 Batches: 3.273621447881063
+100 Batch Cumulative Loss: 75.4572982788086
+Time for 100 Batches: 3.254852600892385
+100 Batch Cumulative Loss: 74.92245149612427
+Time for 100 Batches: 3.282735280195872
+100 Batch Cumulative Loss: 75.18616735935211
+Time for 100 Batches: 3.2713417172431947
+100 Batch Cumulative Loss: 74.43145453929901
+Time for 100 Batches: 3.2682097911834718
+100 Batch Cumulative Loss: 73.90803468227386
+Time for 100 Batches: 3.271483794848124
+100 Batch Cumulative Loss: 73.49175584316254
+Time for 100 Batches: 3.2767122546831766
+100 Batch Cumulative Loss: 75.01514452695847
+Time for 100 Batches: 3.2617913126945495
+100 Batch Cumulative Loss: 74.64036417007446
+Time for 100 Batches: 3.263516314824422
+100 Batch Cumulative Loss: 74.20781594514847
+Time for 100 Batches: 3.2765190243721007
+100 Batch Cumulative Loss: 76.05589753389359
+Time for 100 Batches: 3.2696293512980144
+100 Batch Cumulative Loss: 74.30155158042908
+Time for 100 Batches: 3.272601262728373
+100 Batch Cumulative Loss: 73.89158701896667
+Time for 100 Batches: 3.263378135363261
+100 Batch Cumulative Loss: 73.7290461063385
+Time for 100 Batches: 3.269217348098755
+100 Batch Cumulative Loss: 73.83441132307053
+Time for 100 Batches: 3.2764116207758587
+100 Batch Cumulative Loss: 73.49885529279709
+Time for 100 Batches: 3.273567795753479
+100 Batch Cumulative Loss: 74.58337336778641
+Time for 100 Batches: 3.280143944422404
+100 Batch Cumulative Loss: 74.58189576864243
+Time for 100 Batches: 3.2795740286509196
+100 Batch Cumulative Loss: 74.59699499607086
+Time for 100 Batches: 3.266653311252594
+100 Batch Cumulative Loss: 74.20099610090256
+Time for 100 Batches: 3.2768863439559937
+100 Batch Cumulative Loss: 74.59535139799118
+Time for 100 Batches: 3.263139466444651
+100 Batch Cumulative Loss: 73.73715806007385
+Time for 100 Batches: 3.286520497004191
+100 Batch Cumulative Loss: 73.38399493694305
+Time for 100 Batches: 3.283143198490143
+100 Batch Cumulative Loss: 73.50897705554962
+Time for 100 Batches: 3.262441651026408
+100 Batch Cumulative Loss: 72.82084810733795
+Time for 100 Batches: 3.2583919326464335
+100 Batch Cumulative Loss: 76.54307156801224
+Time for 100 Batches: 3.262729895114899
+100 Batch Cumulative Loss: 76.7217584848404
+Time for 100 Batches: 3.271901520093282
+100 Batch Cumulative Loss: 73.91279703378677
+Time for 100 Batches: 3.2839037577311196
+100 Batch Cumulative Loss: 74.28674983978271
+Time for 100 Batches: 3.276174871126811
+100 Batch Cumulative Loss: 72.87016654014587
+Time for 100 Batches: 3.2789129892985027
+100 Batch Cumulative Loss: 73.09838527441025
+Time for 100 Batches: 3.277938910325368
+100 Batch Cumulative Loss: 73.15582358837128
+Time for 100 Batches: 3.2705374161402383
+100 Batch Cumulative Loss: 74.2165476679802
+Time for 100 Batches: 3.2706509669621786
+100 Batch Cumulative Loss: 73.50290107727051
+Time for 100 Batches: 3.2574190219243366
+100 Batch Cumulative Loss: 73.2004936337471
+Time for 100 Batches: 3.2706910173098245
+100 Batch Cumulative Loss: 71.68064945936203
+Time for 100 Batches: 3.2803967356681825
+100 Batch Cumulative Loss: 75.24600332975388
+Time for 100 Batches: 3.2752627968788146
+100 Batch Cumulative Loss: 73.31894850730896
+Time for 100 Batches: 3.265411369005839
+100 Batch Cumulative Loss: 73.80387699604034
+Time for 100 Batches: 3.285493508974711
+100 Batch Cumulative Loss: 73.79306554794312
+Time for 100 Batches: 3.257969844341278
+100 Batch Cumulative Loss: 72.93324136734009
+Time for 100 Batches: 3.284822579224904
+100 Batch Cumulative Loss: 73.2889484167099
+Time for 100 Batches: 3.264603575070699
+100 Batch Cumulative Loss: 71.08965563774109
+Time for 100 Batches: 3.289145994186401
+100 Batch Cumulative Loss: 74.78655695915222
+Time for 100 Batches: 3.2714649637540183
+100 Batch Cumulative Loss: 73.63495790958405
+Time for 100 Batches: 3.26522034406662
+100 Batch Cumulative Loss: 73.07840317487717
+Time for 100 Batches: 3.259944005807241
+100 Batch Cumulative Loss: 72.57340693473816
+Time for 100 Batches: 3.2682977676391602
+100 Batch Cumulative Loss: 72.68642520904541
+Time for 100 Batches: 3.2594898064931233
+100 Batch Cumulative Loss: 72.11268329620361
+Time for 100 Batches: 3.26507869164149
+100 Batch Cumulative Loss: 73.97714453935623
+Time for 100 Batches: 3.267618413766225
+100 Batch Cumulative Loss: 72.57234036922455
+Time for 100 Batches: 3.286963947614034
+100 Batch Cumulative Loss: 74.02569437026978
+Time for 100 Batches: 3.271454147497813
+100 Batch Cumulative Loss: 73.03244042396545
+Time for 100 Batches: 3.280679702758789
+100 Batch Cumulative Loss: 74.08665329217911
+Time for 100 Batches: 3.2635516564051312
+100 Batch Cumulative Loss: 72.74979674816132
+Time for 100 Batches: 3.265914825598399
+100 Batch Cumulative Loss: 73.67043513059616
+Time for 100 Batches: 3.269633138179779
+100 Batch Cumulative Loss: 72.13517844676971
+Time for 100 Batches: 3.269179817040761
+100 Batch Cumulative Loss: 72.60782462358475
+Time for 100 Batches: 3.2554605841636657
+100 Batch Cumulative Loss: 71.917052090168
+Time for 100 Batches: 3.277027912934621
+100 Batch Cumulative Loss: 74.25549346208572
+Time for 100 Batches: 3.282838757832845
+100 Batch Cumulative Loss: 75.22311037778854
+Time for 100 Batches: 3.268690315882365
+100 Batch Cumulative Loss: 73.61348813772202
+Time for 100 Batches: 3.277372992038727
+100 Batch Cumulative Loss: 71.34172064065933
+Time for 100 Batches: 3.272135885556539
+100 Batch Cumulative Loss: 72.90054386854172
+Time for 100 Batches: 3.2799394687016803
+100 Batch Cumulative Loss: 73.36029773950577
+Time for 100 Batches: 3.266175107161204
+100 Batch Cumulative Loss: 72.50059121847153
+Time for 100 Batches: 3.2763102372487385
+100 Batch Cumulative Loss: 74.66204154491425
+Time for 100 Batches: 3.272363030910492
+100 Batch Cumulative Loss: 73.39900863170624
+Time for 100 Batches: 3.270424520969391
+100 Batch Cumulative Loss: 72.79336392879486
+Time for 100 Batches: 3.2717124144236247
+100 Batch Cumulative Loss: 74.26154345273972
+Time for 100 Batches: 3.2762900908788044
+100 Batch Cumulative Loss: 72.83006435632706
+Time for 100 Batches: 3.2811105926831563
+100 Batch Cumulative Loss: 71.9778733253479
+Time for 100 Batches: 3.2631437381108603
+100 Batch Cumulative Loss: 71.50410658121109
+Time for 100 Batches: 3.2593377033869424
+100 Batch Cumulative Loss: 72.5432500243187
+Time for 100 Batches: 3.2779964089393614
+100 Batch Cumulative Loss: 70.95252466201782
+Time for 100 Batches: 3.261332909266154
+100 Batch Cumulative Loss: 71.6721630692482
+Time for 100 Batches: 3.2770201166470847
+100 Batch Cumulative Loss: 71.77673488855362
+Time for 100 Batches: 3.2659423112869264
+100 Batch Cumulative Loss: 71.42421048879623
+Time for 100 Batches: 3.2717328826586405
+100 Batch Cumulative Loss: 72.31105691194534
+Time for 100 Batches: 3.276812986532847
+100 Batch Cumulative Loss: 72.69231790304184
+Time for 100 Batches: 3.285398805141449
+100 Batch Cumulative Loss: 71.85449665784836
+Time for 100 Batches: 3.2733519713083905
+100 Batch Cumulative Loss: 71.61928170919418
+Time for 100 Batches: 3.265296045939128
+100 Batch Cumulative Loss: 71.0273055434227
+Time for 100 Batches: 3.280497165520986
+100 Batch Cumulative Loss: 71.50188219547272
+Time for 100 Batches: 3.272223897775014
+100 Batch Cumulative Loss: 71.76542699337006
+Time for 100 Batches: 3.2707971890767413
+100 Batch Cumulative Loss: 71.28672683238983
+Time for 100 Batches: 3.2725341439247133
+100 Batch Cumulative Loss: 72.50727784633636
+Time for 100 Batches: 3.2594494303067525
+100 Batch Cumulative Loss: 70.79058057069778
+Time for 100 Batches: 3.27748263279597
+100 Batch Cumulative Loss: 71.2779335975647
+Time for 100 Batches: 3.2641051491101583
+100 Batch Cumulative Loss: 71.50227576494217
+Time for 100 Batches: 3.2605607668558756
+100 Batch Cumulative Loss: 71.07843226194382
+Time for 100 Batches: 3.2677642504374185
+100 Batch Cumulative Loss: 71.59285372495651
+Time for 100 Batches: 3.2750138878822326
+100 Batch Cumulative Loss: 71.88770228624344
+Time for 100 Batches: 3.2867300709088645
+100 Batch Cumulative Loss: 70.4929438829422
+Time for 100 Batches: 3.2720321973164874
+100 Batch Cumulative Loss: 70.84558498859406
+Time for 100 Batches: 3.2804887811342875
+100 Batch Cumulative Loss: 70.40310245752335
+Time for 100 Batches: 3.260711693763733
+100 Batch Cumulative Loss: 70.91253846883774
+Time for 100 Batches: 3.2760740439097087
+100 Batch Cumulative Loss: 71.35025334358215
+Time for 100 Batches: 3.277072318394979
+100 Batch Cumulative Loss: 73.84073674678802
+Time for 100 Batches: 3.2679001609484355
+100 Batch Cumulative Loss: 70.67954581975937
+Time for 100 Batches: 3.2730491797129315
+100 Batch Cumulative Loss: 71.09795218706131
+Time for 100 Batches: 3.2668644785881042
+100 Batch Cumulative Loss: 69.9299698472023
+Time for 100 Batches: 3.2494739373524983
+100 Batch Cumulative Loss: 72.91808313131332
+Time for 100 Batches: 3.287917176882426
+100 Batch Cumulative Loss: 72.05768394470215
+Time for 100 Batches: 3.2761871854464215
+100 Batch Cumulative Loss: 71.83399075269699
+Time for 100 Batches: 3.2770190795262653
+100 Batch Cumulative Loss: 69.8224550485611
+Time for 100 Batches: 3.283728301525116
+100 Batch Cumulative Loss: 69.33990579843521
+Time for 100 Batches: 3.263778205712636
+100 Batch Cumulative Loss: 69.12548673152924
+Time for 100 Batches: 3.269795064131419
+100 Batch Cumulative Loss: 70.84460067749023
+Time for 100 Batches: 3.2848079562187196
+100 Batch Cumulative Loss: 71.530182659626
+Time for 100 Batches: 3.2635451515515643
+100 Batch Cumulative Loss: 71.26772665977478
+Time for 100 Batches: 3.2627774477005005
+100 Batch Cumulative Loss: 70.30078220367432
+Time for 100 Batches: 3.2754501899083457
+100 Batch Cumulative Loss: 70.60127383470535
+Time for 100 Batches: 3.2691731572151186
+100 Batch Cumulative Loss: 69.81795597076416
+Time for 100 Batches: 3.2706491390864056
+100 Batch Cumulative Loss: 70.71671462059021
+Time for 100 Batches: 3.2789748827616374
+100 Batch Cumulative Loss: 70.61498749256134
+Time for 100 Batches: 3.2622938831647237
+100 Batch Cumulative Loss: 71.06556034088135
+Time for 100 Batches: 3.271128002802531
+100 Batch Cumulative Loss: 71.5640058517456
+Time for 100 Batches: 3.2702594359715778
+100 Batch Cumulative Loss: 71.45679521560669
+Time for 100 Batches: 3.262801786263784
+100 Batch Cumulative Loss: 70.23862111568451
+Time for 100 Batches: 3.2988876501719155
+100 Batch Cumulative Loss: 69.67958450317383
+Time for 100 Batches: 3.2597450613975525
+100 Batch Cumulative Loss: 70.59882307052612
+Time for 100 Batches: 3.27823934952418
+Began Testing the Network
+Testing GO Term: GO:0000054 (0 / 53)
+[['YJL010C' 'YGL099W']
+ ['YJL010C' 'YIL063C']
+ ['YJL010C' 'YDR267C']
+ ['YJL010C' 'YGL097W']
+ ['YJL010C' 'YLR022C']]
+[['YNL169C' 'YDR258C']
+ ['YPL237W' 'YIR003W']
+ ['YAR066W' 'YOR133W']
+ ['YMR014W' 'YCR008W']
+ ['YDR073W' 'YDR020C']]
+Sorted Data: [['YJL010C' 'YGL099W' 1 11.761621]
+ ['YOR056C' 'YDR156W' 0 8.372049]
+ ['YJL010C' 'YLR022C' 1 8.2283535]
+ ['YIL063C' 'YGL097W' 1 7.4362173]
+ ['YGL099W' 'YLR022C' 1 5.280231]
+ ['YJL010C' 'YIL063C' 1 4.3810487]
+ ['YGL099W' 'YGL097W' 1 4.2991424]
+ ['YJL010C' 'YGL097W' 1 3.1522815]
+ ['YOL021C' 'YDL092W' 0 1.7988083]
+ ['YJL137C' 'YML093W' 0 1.5269831]
+ ['YPL084W' 'YBR154C' 0 1.4343687]
+ ['YOR321W' 'YKL084W' 0 1.0675044]
+ ['YGL099W' 'YIL063C' 1 0.90655684]
+ ['YHR072W' 'YOL137W' 0 0.8772558]
+ ['YIR034C' 'YHR183W' 0 0.7650547]
+ ['YDR267C' 'YGL097W' 1 0.48234233]
+ ['YBR210W' 'YDR452W' 0 0.4062867]
+ ['YMR214W' 'YDR477W' 0 0.24166402]
+ ['YGR271C-A' 'YCR033W' 0 0.13839385]
+ ['YCR017C' 'YML093W' 0 0.128275]
+ ['YFL016C' 'YHR121W' 0 -0.041886374]
+ ['YLR071C' 'YDR037W' 0 -0.2069203]
+ ['YJL010C' 'YDR267C' 1 -0.38981763]
+ ['YOL033W' 'YGR132C' 0 -0.48067978]
+ ['YMR266W' 'YNL327W' 0 -0.7267598]
+ ['YNL300W' 'YHR042W' 0 -0.9465649]
+ ['YGL099W' 'YDR267C' 1 -0.9999701]
+ ['YIL063C' 'YDR267C' 1 -1.272749]
+ ['YBR228W' 'YPL283C' 0 -1.4824165]
+ ['YDR097C' 'YER075C' 0 -1.5393938]
+ ['YDR267C' 'YLR022C' 1 -1.6285518]
+ ['YBR021W' 'YDL044C' 0 -1.7774913]
+ ['YPR181C' 'YDR143C' 0 -1.8284402]
+ ['YDL020C' 'YBL005W-A' 0 -2.244189]
+ ['YPR029C' 'YNL272C' 0 -2.493972]
+ ['YGL097W' 'YLR022C' 1 -2.858593]
+ ['YGR121C' 'YBR171W' 0 -2.899742]
+ ['YLR424W' 'YML001W' 0 -2.9113572]
+ ['YJL145W' 'YGR277C' 0 -3.1247804]
+ ['YLR298C' 'YPL060C-A' 0 -3.233586]
+ ['YFL009W' 'YHR107C' 0 -3.3664534]
+ ['YGR023W' 'YLR449W' 0 -3.4486578]
+ ['YDL005C' 'YIR013C' 0 -3.4772596]
+ ['YPR158W-A' 'YJR044C' 0 -3.4971137]
+ ['YBL002W' 'YLR355C' 0 -3.5210624]
+ ['YPL047W' 'YNR026C' 0 -3.522103]
+ ['YKR010C' 'YML114C' 0 -3.5633655]
+ ['YLR157C-A' 'YOL017W' 0 -3.6389272]
+ ['YJL047C' 'YDR524C-B' 0 -3.6389272]
+ ['YBR210W' 'YOR005C' 0 -3.9531615]
+ ['YDR034C-D' 'YBL099W' 0 -3.9732215]
+ ['YBR288C' 'YCR097W' 0 -3.9738295]
+ ['YGR027W-A' 'YDL058W' 0 -4.010675]
+ ['YKL046C' 'YPL030W' 0 -4.0570016]
+ ['YJL063C' 'YNL229C' 0 -4.2085323]
+ ['YIL063C' 'YLR022C' 1 -4.511175]
+ ['YDR346C' 'YLR216C' 0 -4.8002987]
+ ['YOR293W' 'YDR480W' 0 -4.9066668]
+ ['YNL064C' 'YCR102C' 0 -4.995357]
+ ['YBR235W' 'YDL226C' 0 -5.263814]
+ ['YCR017C' 'YGL131C' 0 -5.321226]
+ ['YDL126C' 'YGR109C' 0 -5.3445644]
+ ['YAR066W' 'YOR133W' 0 -5.4479227]
+ ['YGR125W' 'YNL336W' 0 -5.7617264]
+ ['YOR094W' 'YPL032C' 0 -5.8148174]
+ ['YHR094C' 'YMR024W' 0 -5.8533354]
+ ['YNL071W' 'YMR189W' 0 -5.9068537]
+ ['YLL032C' 'YHR084W' 0 -6.0799985]
+ ['YBL097W' 'YHR026W' 0 -6.2009583]
+ ['YER119C' 'YPL029W' 0 -6.2515545]
+ ['YDR307W' 'YCR048W' 0 -6.363981]
+ ['YIL010W' 'YBL009W' 0 -6.681815]
+ ['YAL005C' 'YER003C' 0 -6.761644]
+ ['YOL091W' 'YMR189W' 0 -6.8157926]
+ ['YER144C' 'YML001W' 0 -6.840904]
+ ['YDR073W' 'YDR020C' 0 -7.012102]
+ ['YDR214W' 'YLR229C' 0 -7.1070976]
+ ['YGR183C' 'YBL027W' 0 -7.173343]
+ ['YCR102C' 'YKR003W' 0 -7.3101206]
+ ['YKR067W' 'YIL158W' 0 -7.328008]
+ ['YBL097W' 'YOR188W' 0 -7.3299475]
+ ['YNL088W' 'YBR204C' 0 -7.449461]
+ ['YNL275W' 'YHR018C' 0 -7.609481]
+ ['YGL124C' 'YER073W' 0 -7.650551]
+ ['YLR372W' 'YJR014W' 0 -7.7116218]
+ ['YER006W' 'YGL175C' 0 -7.742568]
+ ['YGR240C' 'YJL159W' 0 -7.7500176]
+ ['YMR014W' 'YCR008W' 0 -7.757494]
+ ['YML058W' 'YBL100W-A' 0 -7.8984485]
+ ['YCR097W' 'YNL087W' 0 -7.9399376]
+ ['YOR178C' 'YGR163W' 0 -8.207975]
+ ['YLR405W' 'YJL184W' 0 -8.290975]
+ ['YOR003W' 'YMR162C' 0 -8.437888]
+ ['YDL212W' 'YER058W' 0 -8.527718]
+ ['YKL193C' 'YBR135W' 0 -8.595768]
+ ['YJL138C' 'YAL055W' 0 -8.791381]
+ ['YPL237W' 'YIR003W' 0 -8.87731]
+ ['YCR017C' 'YGR109C' 0 -8.891903]
+ ['YOR321W' 'YAL055W' 0 -9.086451]
+ ['YER078C' 'YJR125C' 0 -9.291604]
+ ['YML131W' 'YLR095C' 0 -9.623245]
+ ['YDL213C' 'YER166W' 0 -9.780545]
+ ['YNL088W' 'YPL124W' 0 -10.0986395]
+ ['YDL153C' 'YBR070C' 0 -10.22246]
+ ['YCR027C' 'YPL088W' 0 -10.290376]
+ ['YBR210W' 'YER183C' 0 -10.470518]
+ ['YOL034W' 'YER169W' 0 -10.654343]
+ ['YIL091C' 'YKL065C' 0 -10.667247]
+ ['YGL079W' 'YHR200W' 0 -10.670758]
+ ['YGL131C' 'YHR016C' 0 -11.032513]
+ ['YAL042W' 'YNL106C' 0 -11.0382805]
+ ['YER039C' 'YBL018C' 0 -11.123123]
+ ['YHR115C' 'YDR452W' 0 -11.231001]
+ ['YKR098C' 'YPR140W' 0 -11.425453]
+ ['YAL009W' 'YIL044C' 0 -11.713375]
+ ['YKL073W' 'YNL005C' 0 -11.720134]
+ ['YMR323W' 'YNL152W' 0 -11.766195]
+ ['YOL013C' 'YPL008W' 0 -11.866119]
+ ['YGR028W' 'YER001W' 0 -11.977465]
+ ['YJL091C' 'YJL184W' 0 -12.116344]
+ ['YDR349C' 'YBR154C' 0 -12.161451]
+ ['YPL047W' 'YPL016W' 0 -12.2279825]
+ ['YNL323W' 'YLR178C' 0 -12.228246]
+ ['YDR519W' 'YJR019C' 0 -12.247822]
+ ['YHR094C' 'YLR453C' 0 -12.267954]
+ ['YMR283C' 'YGL133W' 0 -12.285767]
+ ['YOR095C' 'YLR424W' 0 -12.308207]
+ ['YLR423C' 'YMR024W' 0 -12.369104]
+ ['YKL071W' 'YBR106W' 0 -12.435215]
+ ['YDR073W' 'YNL222W' 0 -12.478893]
+ ['YNL264C' 'YJR113C' 0 -12.785854]
+ ['YDL044C' 'YOR064C' 0 -13.096384]
+ ['YPL227C' 'YDR540C' 0 -13.720953]
+ ['YLL052C' 'YDL201W' 0 -14.401042]
+ ['YDR446W' 'YLR421C' 0 -14.515218]
+ ['YPL012W' 'YJL036W' 0 -14.738464]
+ ['YGR023W' 'YLR174W' 0 -14.76479]
+ ['YGL043W' 'YEL004W' 0 -14.778717]
+ ['YKL008C' 'YOR368W' 0 -14.950583]
+ ['YER169W' 'YBL027W' 0 -15.127951]
+ ['YNL021W' 'YGL055W' 0 -15.4746475]
+ ['YER021W' 'YLR398C' 0 -15.544416]
+ ['YOL017W' 'YML075C' 0 -16.034937]
+ ['YHL007C' 'YNR056C' 0 -16.229586]
+ ['YNL071W' 'YCL026C-A' 0 -16.466637]
+ ['YJR090C' 'YAL055W' 0 -16.795103]
+ ['YBR258C' 'YMR190C' 0 -16.892675]
+ ['YLR071C' 'YCR089W' 0 -16.967457]
+ ['YAR003W' 'YLR362W' 0 -17.640978]
+ ['YOR256C' 'YBL003C' 0 -17.881155]
+ ['YIL162W' 'YML121W' 0 -17.955462]
+ ['YPR124W' 'YNL116W' 0 -18.427895]
+ ['YDL020C' 'YMR121C' 0 -18.497519]
+ ['YDL079C' 'YMR309C' 0 -19.095587]
+ ['YCL026C-A' 'YBR288C' 0 -19.127062]
+ ['YDR293C' 'YOL049W' 0 -20.02373]
+ ['YDR182W' 'YLR424W' 0 -20.075865]
+ ['YKL221W' 'YLL010C' 0 -20.274044]
+ ['YMR277W' 'YIL097W' 0 -20.325113]
+ ['YER124C' 'YPR112C' 0 -20.329668]
+ ['YNL169C' 'YDR258C' 0 -20.91093]
+ ['YGL255W' 'YEL011W' 0 -21.589144]
+ ['YHR124W' 'YLR035C' 0 -21.936407]
+ ['YBR073W' 'YGL055W' 0 -22.407686]
+ ['YCL040W' 'YLR222C' 0 -25.050371]]
+Are we attempting to save
+Testing GO Term: GO:0000278 (1 / 53)
+[['YNL225C' 'YPL008W']
+ ['YGL054C' 'YOR073W']
+ ['YFL009W' 'YOR122C']
+ ['YMR052W' 'YER016W']
+ ['YHR191C' 'YOR178C']]
+[['YBR302C' 'YER075C']
+ ['YDR006C' 'YKR080W']
+ ['YPL029W' 'YKL084W']
+ ['YDL232W' 'YOR339C']
+ ['YMR236W' 'YML123C']]
+Sorted Data: [['YDR171W' 'YML093W' 0 26.599598]
+ ['YGR028W' 'YDR147W' 0 25.632732]
+ ['YNR012W' 'YJL036W' 0 24.903465]
+ ...
+ ['YGR148C' 'YDR339C' 0 -12.538021]
+ ['YPL246C' 'YGR192C' 0 -12.876505]
+ ['YDL153C' 'YPL086C' 0 -15.039343]]
+Are we attempting to save
+Testing GO Term: GO:0000747 (2 / 53)
+[['YPL256C' 'YJR090C']
+ ['YPL256C' 'YIL117C']
+ ['YPL256C' 'YGR059W']
+ ['YPL256C' 'YHL007C']
+ ['YPL256C' 'YJL018W']]
+[['YPL060C-A' 'YDR141C']
+ ['YDR147W' 'YCR048W']
+ ['YKR022C' 'YPR004C']
+ ['YBR199W' 'YLR319C']
+ ['YER042W' 'YNL275W']]
+Sorted Data: [['YIL015W' 'YGL032C' 1 33.518173]
+ ['YHR084W' 'YNL279W' 1 27.40973]
+ ['YBL016W' 'YHR084W' 1 24.359344]
+ ...
+ ['YGR148C' 'YDR302W' 0 -13.211775]
+ ['YNR023W' 'YGR121C' 0 -13.996487]
+ ['YKL125W' 'YGL029W' 0 -15.18078]]
+Are we attempting to save
+Testing GO Term: GO:0001403 (3 / 53)
+[['YHL007C' 'YBL016W']
+ ['YHL007C' 'YDL159W']
+ ['YHL007C' 'YGL208W']
+ ['YHL007C' 'YOR371C']
+ ['YHL007C' 'YMR116C']]
+[['YMR121C' 'YOL113W']
+ ['YGL029W' 'YKL167C']
+ ['YNR012W' 'YBL045C']
+ ['YMR202W' 'YLR157C-B']
+ ['YMR190C' 'YDL239C']]
+Sorted Data: [['YKL073W' 'YNL093W' 0 15.242199]
+ ['YDR171W' 'YNL097C' 0 13.880774]
+ ['YDR084C' 'YPL046C' 0 13.421114]
+ ...
+ ['YMR116C' 'YLR229C' 1 -12.682701]
+ ['YGR148C' 'YOR064C' 0 -12.759117]
+ ['YJR113C' 'YGL011C' 0 -16.485895]]
+Are we attempting to save
+Testing GO Term: GO:0002181 (4 / 53)
+[['YIL103W' 'YBL071W-A']]
+[['YFR046C' 'YLR368W']
+ ['YHR079C-A' 'YCR069W']
+ ['YOL013C' 'YHR001W']
+ ['YFR042W' 'YDR349C']
+ ['YML110C' 'YPL249C']]
+Sorted Data: [['YCR083W' 'YIL065C' 0 -5.733833]
+ ['YHR079C-A' 'YCR069W' 0 -6.1720757]
+ ['YBL003C' 'YDL213C' 0 -6.3316464]
+ ['YFR046C' 'YLR368W' 0 -6.750834]
+ ['YOL013C' 'YHR001W' 0 -7.555675]
+ ['YML110C' 'YPL249C' 0 -8.484961]
+ ['YIL103W' 'YBL071W-A' 1 -11.006672]
+ ['YOR033C' 'YGL257C' 0 -12.274609]
+ ['YFR042W' 'YDR349C' 0 -13.606517]
+ ['YBR298C' 'YOL058W' 0 -15.586963]
+ ['YDL214C' 'YBR135W' 0 -20.20015]]
+Are we attempting to save
+Testing GO Term: GO:0006260 (5 / 53)
+[['YOL094C' 'YOL146W']
+ ['YOL094C' 'YNL072W']
+ ['YOL094C' 'YIL066C']
+ ['YOL094C' 'YPL055C']
+ ['YOL094C' 'YKL113C']]
+[['YCR089W' 'YML075C']
+ ['YCL026C-A' 'YMR044W']
+ ['YPL212C' 'YDR237W']
+ ['YMR024W' 'YPR033C']
+ ['YGR161C-C' 'YBR265W']]
+Sorted Data: [['YOR328W' 'YPR065W' 0 23.684061]
+ ['YJL177W' 'YLR089C' 0 21.992401]
+ ['YGR109C' 'YBR070C' 1 21.595688]
+ ...
+ ['YGL234W' 'YJL122W' 0 -18.919014]
+ ['YOR095C' 'YOR293W' 0 -19.542377]
+ ['YLL039C' 'YDR171W' 0 -24.12183]]
+Are we attempting to save
+Testing GO Term: GO:0006281 (6 / 53)
+[['YDR311W' 'YDR180W']
+ ['YDL020C' 'YNL312W']
+ ['YOR033C' 'YOL034W']
+ ['YNL139C' 'YLR135W']
+ ['YBR088C' 'YPR056W']]
+[['YBL016W' 'YDR016C']
+ ['YHR063C' 'YDR322C-A']
+ ['YMR134W' 'YDL222C']
+ ['YEL047C' 'YIL017C']
+ ['YLR034C' 'YJR014W']]
+Sorted Data: [['YOR293W' 'YPL124W' 0 31.220896]
+ ['YLR421C' 'YKR025W' 0 30.947325]
+ ['YLR340W' 'YLR362W' 0 29.358837]
+ ...
+ ['YKR010C' 'YPR151C' 0 -18.397562]
+ ['YPR151C' 'YMR251W-A' 0 -18.475372]
+ ['YHR065C' 'YLL028W' 0 -19.708136]]
+Are we attempting to save
+Testing GO Term: GO:0006310 (7 / 53)
+[['YJL113W' 'YOR005C']
+ ['YGL250W' 'YLR135W']
+ ['YDR210W-D' 'YMR167W']
+ ['YCL019W' 'YLR157C-B']
+ ['YOR368W' 'YOR005C']]
+[['YPL024W' 'YOL075C']
+ ['YHR112C' 'YDL222C']
+ ['YDR506C' 'YAL055W']
+ ['YGR256W' 'YJL020C']
+ ['YDR141C' 'YMR305C']]
+Sorted Data: [['YMR116C' 'YLR136C' 0 26.000008]
+ ['YMR170C' 'YFL008W' 0 25.38028]
+ ['YMR260C' 'YMR271C' 0 21.517693]
+ ...
+ ['YKR060W' 'YOL097C' 0 -22.980417]
+ ['YPR145W' 'YMR083W' 0 -23.113602]
+ ['YPL237W' 'YNR046W' 0 -23.463348]]
+Are we attempting to save
+Testing GO Term: GO:0006325 (8 / 53)
+[['YKR010C' 'YDR073W']
+ ['YKR010C' 'YDL002C']
+ ['YKR010C' 'YNR023W']
+ ['YKR010C' 'YMR263W']
+ ['YKR010C' 'YBL006C']]
+[['YCR067C' 'YIL114C']
+ ['YLR166C' 'YGR133W']
+ ['YOL013C' 'YLR178C']
+ ['YOR329C' 'YGL201C']
+ ['YGL022W' 'YPL072W']]
+Sorted Data: [['YBL002W' 'YLR449W' 1 24.362242]
+ ['YGR148C' 'YHR115C' 0 23.670498]
+ ['YDR202C' 'YPL079W' 0 23.2471]
+ ...
+ ['YDR216W' 'YOR173W' 0 -22.489243]
+ ['YMR170C' 'YMR162C' 0 -23.630379]
+ ['YMR154C' 'YLR178C' 0 -23.775326]]
+Are we attempting to save
+Testing GO Term: GO:0006352 (9 / 53)
+[['YDR311W' 'YML114C']
+ ['YDR311W' 'YGR186W']
+ ['YDR311W' 'YMR236W']
+ ['YDR311W' 'YGL043W']
+ ['YDR311W' 'YML069W']]
+[['YPL283C' 'YAL047C']
+ ['YNR051C' 'YGR261C']
+ ['YDR027C' 'YLL015W']
+ ['YLR166C' 'YKL055C']
+ ['YBL101C' 'YPL187W']]
+Sorted Data: [['YPR101W' 'YOL137W' 0 14.483654]
+ ['YGL043W' 'YOL089C' 1 14.464716]
+ ['YDL005C' 'YMR113W' 0 13.5959215]
+ ...
+ ['YOR007C' 'YFL022C' 0 -18.82709]
+ ['YFL062W' 'YER094C' 0 -22.210972]
+ ['YPL037C' 'YML046W' 0 -23.383387]]
+Are we attempting to save
+Testing GO Term: GO:0006353 (10 / 53)
+[['YNL222W' 'YIL131C']
+ ['YNL222W' 'YPL190C']
+ ['YNL222W' 'YKL018W']
+ ['YNL222W' 'YJR017C']
+ ['YIL131C' 'YPL190C']]
+[['YOL039W' 'YOR231W']
+ ['YOR368W' 'YFL034C-A']
+ ['YBR186W' 'YCL038C']
+ ['YOR329C' 'YLR084C']
+ ['YGL099W' 'YFL050C']]
+Sorted Data: [['YDR194C' 'YIL122W' 0 9.11664]
+ ['YJL123C' 'YBR210W' 0 7.2054524]
+ ['YKR067W' 'YPL086C' 0 6.414352]
+ ['YPR029C' 'YOR360C' 0 5.2403154]
+ ['YGR195W' 'YDR051C' 0 4.67168]
+ ['YFL024C' 'YPR033C' 0 4.037438]
+ ['YMR214W' 'YDR099W' 0 3.929428]
+ ['YKL160W' 'YDR258C' 0 3.8197026]
+ ['YNL222W' 'YKL018W' 1 3.628755]
+ ['YML126C' 'YKL012W' 0 3.0528214]
+ ['YNL252C' 'YLR453C' 0 2.934236]
+ ['YMR283C' 'YMR113W' 0 2.6782804]
+ ['YBL067C' 'YPR124W' 0 2.438507]
+ ['YGL133W' 'YDL058W' 0 2.4348361]
+ ['YLR423C' 'YJL115W' 0 2.34249]
+ ['YGL099W' 'YFL050C' 0 2.3405352]
+ ['YMR214W' 'YLR310C' 0 2.0375373]
+ ['YOR368W' 'YFL034C-A' 0 1.8856856]
+ ['YNL222W' 'YPL190C' 1 1.6652958]
+ ['YPL190C' 'YJR017C' 1 1.5247148]
+ ['YPR104C' 'YAR071W' 0 1.46199]
+ ['YDL153C' 'YIL097W' 0 1.325971]
+ ['YHR124W' 'YPL084W' 0 1.2811463]
+ ['YNL222W' 'YJR017C' 1 1.2773784]
+ ['YGL054C' 'YGL153W' 0 1.2573732]
+ ['YER157W' 'YCR048W' 0 1.1457428]
+ ['YBL045C' 'YPL266W' 0 1.1347905]
+ ['YNL222W' 'YIL131C' 1 1.0524155]
+ ['YDL159W' 'YDR324C' 0 1.002812]
+ ['YAR003W' 'YBR293W' 0 0.6880617]
+ ['YBL005W-A' 'YBR008C' 0 0.4374136]
+ ['YDR314C' 'YPL228W' 0 0.43178025]
+ ['YGR090W' 'YLR210W' 0 0.42937866]
+ ['YJR056C' 'YDR191W' 0 0.35882106]
+ ['YOR141C' 'YBR167C' 0 0.28895226]
+ ['YDR432W' 'YML075C' 0 0.2541646]
+ ['YFL062W' 'YMR083W' 0 0.25212017]
+ ['YMR021C' 'YER074W-A' 0 0.21506348]
+ ['YIL041W' 'YGL245W' 0 0.18586281]
+ ['YMR106C' 'YKL073W' 0 0.087476164]
+ ['YHR183W' 'YLR119W' 0 0.064243704]
+ ['YER122C' 'YCR003W' 0 0.0017708838]
+ ['YER019W' 'YIR028W' 0 -0.02602753]
+ ['YOR094W' 'YGR277C' 0 -0.039379805]
+ ['YKL073W' 'YCR003W' 0 -0.20462188]
+ ['YDR307W' 'YOR188W' 0 -0.28583536]
+ ['YGR048W' 'YOR231W' 0 -0.36563882]
+ ['YOL039W' 'YOR231W' 0 -0.3770412]
+ ['YOR329C' 'YLR084C' 0 -0.42923382]
+ ['YIL131C' 'YPL190C' 1 -0.5340978]
+ ['YBR068C' 'YPR052C' 0 -0.6336094]
+ ['YOR375C' 'YOR077W' 0 -0.756647]
+ ['YIL131C' 'YKL018W' 1 -0.8972181]
+ ['YML118W' 'YMR280C' 0 -0.90681136]
+ ['YLR064W' 'YCR033W' 0 -0.97136545]
+ ['YJR105W' 'YKL092C' 0 -1.001674]
+ ['YIR007W' 'YNL327W' 0 -1.0810331]
+ ['YLR297W' 'YDR147W' 0 -1.0960629]
+ ['YHR191C' 'YIL044C' 0 -1.1545302]
+ ['YIL085C' 'YDL064W' 0 -1.1810958]
+ ['YPL009C' 'YCL030C' 0 -1.1948656]
+ ['YNL126W' 'YPL228W' 0 -1.19621]
+ ['YLR077W' 'YLR022C' 0 -1.2054274]
+ ['YKL091C' 'YIR028W' 0 -1.334961]
+ ['YOL146W' 'YLR408C' 0 -1.3509508]
+ ['YJL028W' 'YBR253W' 0 -1.4268173]
+ ['YBR102C' 'YOR231W' 0 -1.5368387]
+ ['YLR225C' 'YJL113W' 0 -1.5890584]
+ ['YGL257C' 'YBR014C' 0 -1.6209904]
+ ['YML131W' 'YDL155W' 0 -1.6290878]
+ ['YJL010C' 'YML022W' 0 -1.6322781]
+ ['YBR236C' 'YKL157W' 0 -1.7274286]
+ ['YNR023W' 'YBL006C' 0 -1.739591]
+ ['YGR059W' 'YGL250W' 0 -1.845781]
+ ['YKL018W' 'YJR017C' 1 -1.8666629]
+ ['YOL110W' 'YDL193W' 0 -1.9770638]
+ ['YDR339C' 'YHR003C' 0 -2.0135536]
+ ['YAL009W' 'YML065W' 0 -2.031294]
+ ['YJR043C' 'YOR028C' 0 -2.079056]
+ ['YLR064W' 'YMR278W' 0 -2.1752226]
+ ['YGR125W' 'YNL093W' 0 -2.2169778]
+ ['YPL086C' 'YGR065C' 0 -2.3592167]
+ ['YIL091C' 'YNL241C' 0 -2.4088593]
+ ['YNL177C' 'YDL044C' 0 -2.4120264]
+ ['YGR027W-A' 'YBR167C' 0 -2.7132254]
+ ['YMR202W' 'YGR096W' 0 -2.725974]
+ ['YBL027W' 'YLR256W' 0 -2.8522854]
+ ['YJR064W' 'YJL118W' 0 -2.867579]
+ ['YDR186C' 'YLL054C' 0 -2.9656715]
+ ['YDL132W' 'YMR121C' 0 -3.029669]
+ ['YLR398C' 'YDR099W' 0 -3.1661754]
+ ['YCR071C' 'YAR071W' 0 -3.2466366]
+ ['YNL021W' 'YOR245C' 0 -3.3163764]
+ ['YPL190C' 'YKL018W' 1 -3.4084148]
+ ['YBL045C' 'YBR077C' 0 -3.5541096]
+ ['YML114C' 'YBL027W' 0 -3.67901]
+ ['YER118C' 'YOR362C' 0 -3.717844]
+ ['YER003C' 'YOR214C' 0 -3.7670736]
+ ['YBL084C' 'YIL065C' 0 -3.8140576]
+ ['YDL214C' 'YNL047C' 0 -4.134718]
+ ['YGR192C' 'YBR161W' 0 -4.1889935]
+ ['YIL131C' 'YJR017C' 1 -4.422361]
+ ['YLR035C' 'YGR172C' 0 -4.4626007]
+ ['YDR485C' 'YGR065C' 0 -4.8499036]
+ ['YGR128C' 'YML072C' 0 -5.153299]
+ ['YDR006C' 'YDL004W' 0 -5.669076]
+ ['YGL048C' 'YDL239C' 0 -6.282849]
+ ['YOL119C' 'YBR139W' 0 -7.8285985]
+ ['YBR186W' 'YCL038C' 0 -7.9607663]
+ ['YAR050W' 'YHR098C' 0 -10.080798]]
+Are we attempting to save
+Testing GO Term: GO:0006360 (11 / 53)
+[['YBL006C' 'YKL125W']
+ ['YBL006C' 'YCR073C']
+ ['YBL006C' 'YGR068C']
+ ['YBL006C' 'YGR271C-A']
+ ['YBL006C' 'YKR080W']]
+[['YDL025C' 'YJR137C']
+ ['YFR046C' 'YKR018C']
+ ['YDR450W' 'YNL270C']
+ ['YDL010W' 'YER073W']
+ ['YGR198W' 'YOL021C']]
+Sorted Data: [['YOR210W' 'YNL113W' 1 25.350935]
+ ['YBR154C' 'YNL113W' 1 20.404026]
+ ['YOR210W' 'YBR154C' 1 18.62822]
+ ...
+ ['YNL002C' 'YLR178C' 0 -27.543516]
+ ['YDR258C' 'YBR104W' 0 -32.790283]
+ ['YBR126C' 'YGL099W' 0 -33.821075]]
+Are we attempting to save
+Testing GO Term: GO:0006364 (12 / 53)
+[['YDL014W' 'YJR002W']
+ ['YLR222C' 'YDR450W']
+ ['YPL081W' 'YFL002C']
+ ['YDR450W' 'YKR024C']
+ ['YGR195W' 'YLR002C']]
+[['YLL032C' 'YMR167W']
+ ['YCR027C' 'YHL013C']
+ ['YDR293C' 'YGL077C']
+ ['YGL033W' 'YCR068W']
+ ['YPL045W' 'YMR305C']]
+Sorted Data: [['YCR069W' 'YCR070W' 0 96.53661]
+ ['YOL039W' 'YDR382W' 0 41.462505]
+ ['YNR054C' 'YLR051C' 1 37.173325]
+ ...
+ ['YDL181W' 'YPL265W' 0 -30.457207]
+ ['YOR173W' 'YHR191C' 0 -31.589647]
+ ['YDR171W' 'YIL157C' 0 -33.07888]]
+Are we attempting to save
+Testing GO Term: GO:0006366 (13 / 53)
+[['YGL254W' 'YER169W']
+ ['YMR164C' 'YGL254W']
+ ['YIL131C' 'YOL001W']
+ ['YKL112W' 'YLR256W']
+ ['YGR163W' 'YEL009C']]
+[['YFR046C' 'YNR075W']
+ ['YGR059W' 'YLR133W']
+ ['YAL061W' 'YMR305C']
+ ['YGR049W' 'YLR205C']
+ ['YHL033C' 'YKR046C']]
+Sorted Data: [['YOR056C' 'YCL040W' 0 33.155495]
+ ['YDL181W' 'YBR201W' 0 29.493856]
+ ['YGL038C' 'YBR104W' 0 27.827005]
+ ...
+ ['YNL075W' 'YPR112C' 0 -17.65624]
+ ['YJL050W' 'YNL113W' 0 -17.716696]
+ ['YBR154C' 'YLR449W' 1 -18.392756]]
+Are we attempting to save
+Testing GO Term: GO:0006383 (14 / 53)
+[['YDR006C' 'YPR104C']
+ ['YDR006C' 'YGR068C']
+ ['YDR006C' 'YKR080W']
+ ['YDR006C' 'YAL001C']
+ ['YDR006C' 'YOR210W']]
+[['YPR075C' 'YMR305C']
+ ['YGR240C' 'YIL044C']
+ ['YMR197C' 'YLR210W']
+ ['YDR524C-B' 'YBR227C']
+ ['YPL237W' 'YIL157C']]
+Sorted Data: [['YMR014W' 'YNR046W' 0 20.48111]
+ ['YOR210W' 'YBR154C' 1 17.40038]
+ ['YCR071C' 'YOR035C' 0 15.763978]
+ ...
+ ['YLL052C' 'YML026C' 0 -19.630367]
+ ['YDR214W' 'YFL022C' 0 -20.561275]
+ ['YMR189W' 'YPL084W' 0 -23.416195]]
+Are we attempting to save
+Testing GO Term: GO:0006397 (15 / 53)
+[['YLR298C' 'YMR216C']
+ ['YBR152W' 'YML010W']
+ ['YER146W' 'YJL209W']
+ ['YLR116W' 'YKL139W']
+ ['YLR132C' 'YLR298C']]
+[['YMR170C' 'YBR239C']
+ ['YCR008W' 'YMR134W']
+ ['YHL013C' 'YCL026C-A']
+ ['YGL086W' 'YOL113W']
+ ['YDR147W' 'YLR066W']]
+Sorted Data: [['YKL139W' 'YLR117C' 1 26.09913]
+ ['YPL020C' 'YLR003C' 0 23.6297]
+ ['YML046W' 'YKL012W' 1 23.284172]
+ ...
+ ['YIL099W' 'YOR321W' 0 -16.959414]
+ ['YML126C' 'YLR216C' 0 -17.935238]
+ ['YDR099W' 'YBR135W' 0 -19.73893]]
+Are we attempting to save
+Testing GO Term: GO:0006401 (16 / 53)
+[['YNL072W' 'YER146W']
+ ['YNL072W' 'YOL115W']
+ ['YNL072W' 'YOR173W']
+ ['YNL072W' 'YKL113C']
+ ['YNL072W' 'YJL209W']]
+[['YJL123C' 'YIL073C']
+ ['YGL043W' 'YDL147W']
+ ['YDR266C' 'YDR489W']
+ ['YDR432W' 'YFL052W']
+ ['YBR073W' 'YER074W-A']]
+Sorted Data: [['YPL086C' 'YKR024C' 0 22.464682]
+ ['YBR290W' 'YOR344C' 0 18.854082]
+ ['YDR016C' 'YFL034C-A' 0 18.390863]
+ ...
+ ['YHR124W' 'YKL176C' 0 -20.015078]
+ ['YOR173W' 'YER035W' 1 -20.543627]
+ ['YER054C' 'YDL079C' 0 -22.28666]]
+Are we attempting to save
+Testing GO Term: GO:0006413 (17 / 53)
+[['YEL034W' 'YJR047C']
+ ['YEL034W' 'YPL237W']
+ ['YEL034W' 'YOR361C']
+ ['YEL034W' 'YJR007W']
+ ['YEL034W' 'YPR025C']]
+[['YGR108W' 'YDR266C']
+ ['YBR154C' 'YIL050W']
+ ['YER019W' 'YIL066C']
+ ['YGL131C' 'YPL057C']
+ ['YNL067W' 'YEL077C']]
+Sorted Data: [['YJL138C' 'YMR309C' 1 19.89999]
+ ['YPL237W' 'YOR361C' 1 19.577715]
+ ['YOR361C' 'YBR079C' 1 19.295185]
+ ...
+ ['YPL164C' 'YGR257C' 0 -13.494241]
+ ['YLR388W' 'YOR188W' 0 -14.591305]
+ ['YMR119W' 'YBL009W' 0 -21.29401]]
+Are we attempting to save
+Testing GO Term: GO:0006414 (18 / 53)
+[['YDR385W' 'YLR340W']
+ ['YDR385W' 'YLR069C']
+ ['YDR385W' 'YOL039W']
+ ['YDR385W' 'YFR009W']
+ ['YDR385W' 'YNL014W']]
+[['YGR271C-A' 'YIR003W']
+ ['YFL009W' 'YGL002W']
+ ['YGR287C' 'YKL055C']
+ ['YDR221W' 'YDL207W']
+ ['YOL033W' 'YBR265W']]
+Sorted Data: [['YOL039W' 'YOR133W' 1 18.575855]
+ ['YDR382W' 'YOR133W' 1 18.45892]
+ ['YLR340W' 'YOR133W' 1 18.132921]
+ ...
+ ['YDL194W' 'YMR283C' 0 -13.705166]
+ ['YMR288W' 'YFL050C' 0 -13.863792]
+ ['YER039C' 'YBR098W' 0 -13.86883]]
+Are we attempting to save
+Testing GO Term: GO:0006418 (19 / 53)
+[['YOL097C' 'YOL033W']
+ ['YOL097C' 'YHR091C']
+ ['YOL097C' 'YHR019C']
+ ['YOL097C' 'YFL022C']
+ ['YOL097C' 'YGL245W']]
+[['YLR388W' 'YEL026W']
+ ['YDR202C' 'YOL034W']
+ ['YEL034W' 'YEL011W']
+ ['YPL020C' 'YML033W']
+ ['YDR346C' 'YJL014W']]
+Sorted Data: [['YOL033W' 'YHR019C' 1 28.942928]
+ ['YHR091C' 'YHR019C' 1 27.627155]
+ ['YOL097C' 'YOL033W' 1 26.927937]
+ ...
+ ['YDR097C' 'YDR291W' 0 -17.817326]
+ ['YFR042W' 'YHR115C' 0 -18.86598]
+ ['YBR070C' 'YKL065C' 0 -21.402843]]
+Are we attempting to save
+Testing GO Term: GO:0006457 (20 / 53)
+[['YDL212W' 'YNL064C']
+ ['YDL212W' 'YAL005C']
+ ['YDL212W' 'YML078W']
+ ['YDL212W' 'YMR214W']
+ ['YDL212W' 'YOL088C']]
+[['YLR225C' 'YML118W']
+ ['YFL055W' 'YJL020C']
+ ['YML062C' 'YBR236C']
+ ['YER144C' 'YFL052W']
+ ['YHL009C' 'YGL097W']]
+Sorted Data: [['YCR069W' 'YCR070W' 1 61.90803]
+ ['YDR214W' 'YLR216C' 1 33.660862]
+ ['YFL016C' 'YLR216C' 1 33.53494]
+ ...
+ ['YDR142C' 'YGL150C' 0 -20.380169]
+ ['YKL188C' 'YMR052W' 0 -21.195154]
+ ['YPL045W' 'YKR029C' 0 -23.909977]]
+Are we attempting to save
+Testing GO Term: GO:0006468 (21 / 53)
+[['YPL256C' 'YHL007C']
+ ['YPL256C' 'YKL025C']
+ ['YPL256C' 'YOL128C']
+ ['YPL256C' 'YLR240W']
+ ['YPL256C' 'YBL016W']]
+[['YML066C' 'YJL207C']
+ ['YHR121W' 'YML029W']
+ ['YOR307C' 'YIL082W-A']
+ ['YOR368W' 'YPL037C']
+ ['YMR068W' 'YNR069C']]
+Sorted Data: [['YMR104C' 'YGR109C' 1 26.013878]
+ ['YOR035C' 'YBL101C' 0 24.786238]
+ ['YBR298C' 'YHR072W' 0 24.237219]
+ ...
+ ['YGR240C' 'YNL177C' 0 -17.660742]
+ ['YML024W' 'YKL221W' 0 -17.838903]
+ ['YLR155C' 'YDL014W' 0 -18.884474]]
+Are we attempting to save
+Testing GO Term: GO:0006470 (22 / 53)
+[['YOR208W' 'YBL046W']
+ ['YOR208W' 'YDL188C']
+ ['YOR208W' 'YNL053W']
+ ['YOR208W' 'YCR079W']
+ ['YOR208W' 'YER054C']]
+[['YPR101W' 'YDL132W']
+ ['YGR087C' 'YOR367W']
+ ['YER078C' 'YJL203W']
+ ['YEL034W' 'YDR480W']
+ ['YCL011C' 'YOR256C']]
+Sorted Data: [['YDR001C' 'YLR449W' 0 22.752918]
+ ['YHR104W' 'YDL213C' 0 17.119453]
+ ['YDL132W' 'YKR092C' 0 16.544716]
+ ...
+ ['YOR178C' 'YBR179C' 0 -13.76085]
+ ['YER003C' 'YKL216W' 0 -14.486856]
+ ['YOL033W' 'YFR044C' 0 -14.8352785]]
+Are we attempting to save
+Testing GO Term: GO:0006486 (23 / 53)
+[['YDL232W' 'YGR227W']
+ ['YDL232W' 'YJL139C']
+ ['YDL232W' 'YDL193W']
+ ['YDL232W' 'YIL085C']
+ ['YDL232W' 'YPL227C']]
+[['YNL099C' 'YPL192C']
+ ['YNL264C' 'YGR067C']
+ ['YPR025C' 'YNL220W']
+ ['YLR336C' 'YJR099W']
+ ['YML064C' 'YPL212C']]
+Sorted Data: [['YJL002C' 'YER001W' 1 17.266886]
+ ['YER003C' 'YPR183W' 1 16.93601]
+ ['YCR017C' 'YDL049C' 0 15.815733]
+ ...
+ ['YOL068C' 'YNL093W' 0 -35.727642]
+ ['YNL037C' 'YIL157C' 0 -35.961617]
+ ['YDL004W' 'YDR001C' 0 -51.284824]]
+Are we attempting to save
+Testing GO Term: GO:0006629 (24 / 53)
+[['YCR017C' 'YNL106C']
+ ['YGR157W' 'YML126C']
+ ['YGR157W' 'YHR007C']
+ ['YDR302W' 'YBR110W']
+ ['YPR183W' 'YJL100W']]
+[['YKR018C' 'YPR009W']
+ ['YHR141C' 'YGR256W']
+ ['YHL013C' 'YNL152W']
+ ['YNL088W' 'YER169W']
+ ['YGL255W' 'YNL323W']]
+Sorted Data: [['YDR294C' 'YMR202W' 1 36.31638]
+ ['YML126C' 'YCR034W' 1 32.635303]
+ ['YGR157W' 'YHR007C' 1 32.620438]
+ ...
+ ['YCR071C' 'YBR244W' 0 -15.469622]
+ ['YBL018C' 'YOR336W' 0 -15.724142]
+ ['YFL024C' 'YDL147W' 0 -24.251844]]
+Are we attempting to save
+Testing GO Term: GO:0006811 (25 / 53)
+[['YPR020W' 'YGL254W']
+ ['YML121W' 'YKR039W']
+ ['YGL254W' 'YHR026W']
+ ['YJR152W' 'YOL077W-A']
+ ['YBR290W' 'YNL275W']]
+[['YPR082C' 'YOR028C']
+ ['YAL005C' 'YDR001C']
+ ['YLR336C' 'YHL018W']
+ ['YNL139C' 'YJL047C']
+ ['YLR233C' 'YBL066C']]
+Sorted Data: [['YJR095W' 'YBR039W' 1 35.007034]
+ ['YML123C' 'YMR058W' 1 31.243696]
+ ['YOR173W' 'YGL055W' 0 30.012402]
+ ...
+ ['YIL110W' 'YIL044C' 0 -17.941944]
+ ['YLR369W' 'YNL152W' 0 -18.183233]
+ ['YER039C' 'YBR073W' 0 -19.48778]]
+Are we attempting to save
+Testing GO Term: GO:0006865 (26 / 53)
+[['YEL063C' 'YDL212W']
+ ['YEL063C' 'YNR056C']
+ ['YEL063C' 'YBR132C']
+ ['YEL063C' 'YER119C']
+ ['YEL063C' 'YKL146W']]
+[['YMR293C' 'YER141W']
+ ['YKL025C' 'YDL165W']
+ ['YOR149C' 'YBR004C']
+ ['YOL077W-A' 'YBR044C']
+ ['YLR095C' 'YOR375C']]
+Sorted Data: [['YHR016C' 'YKR042W' 0 22.359388]
+ ['YBR068C' 'YKR039W' 1 21.978693]
+ ['YOL119C' 'YLR372W' 0 17.386179]
+ ...
+ ['YNL326C' 'YOR188W' 0 -15.882172]
+ ['YBR070C' 'YKL073W' 0 -16.637793]
+ ['YDL002C' 'YGL001C' 0 -17.070314]]
+Are we attempting to save
+Testing GO Term: GO:0006869 (27 / 53)
+[['YMR079W' 'YKL091C']
+ ['YMR079W' 'YKL188C']
+ ['YMR079W' 'YJL145W']
+ ['YMR079W' 'YNL264C']
+ ['YMR079W' 'YLR242C']]
+[['YDL025C' 'YPL192C']
+ ['YNL148C' 'YER058W']
+ ['YNR023W' 'YML025C']
+ ['YKL092C' 'YIR010W']
+ ['YDR006C' 'YIL099W']]
+Sorted Data: [['YIR033W' 'YOR245C' 0 14.027701]
+ ['YNL264C' 'YER166W' 1 14.003524]
+ ['YGL001C' 'YBR044C' 0 11.924046]
+ ...
+ ['YPL012W' 'YML026C' 0 -10.511575]
+ ['YOR210W' 'YHR065C' 0 -12.604333]
+ ['YPL012W' 'YKL012W' 0 -13.215779]]
+Are we attempting to save
+Testing GO Term: GO:0006873 (28 / 53)
+[['YDR182W' 'YDR202C']
+ ['YDR182W' 'YMR021C']
+ ['YDR182W' 'YLR034C']
+ ['YDR182W' 'YLR369W']
+ ['YDR182W' 'YLR138W']]
+[['YCR068W' 'YBR008C']
+ ['YER039C' 'YNL299W']
+ ['YKL113C' 'YDR113C']
+ ['YDL212W' 'YCR027C']
+ ['YHR104W' 'YMR280C']]
+Sorted Data: [['YDR202C' 'YLR136C' 1 24.179815]
+ ['YER065C' 'YDL153C' 0 22.887]
+ ['YDR202C' 'YBR127C' 1 21.609385]
+ ...
+ ['YPR018W' 'YPL241C' 0 -11.337069]
+ ['YHR203C' 'YML014W' 0 -11.703222]
+ ['YBR102C' 'YOR293W' 0 -13.5618515]]
+Are we attempting to save
+Testing GO Term: GO:0006887 (29 / 53)
+[['YLR166C' 'YBR102C']
+ ['YLR166C' 'YLR148W']
+ ['YLR166C' 'YHR001W']
+ ['YLR166C' 'YKR003W']
+ ['YLR166C' 'YNL272C']]
+[['YDL044C' 'YBR106W']
+ ['YLR027C' 'YNL099C']
+ ['YOR234C' 'YBL019W']
+ ['YDL193W' 'YNL071W']
+ ['YMR197C' 'YDR480W']]
+Sorted Data: [['YHR001W' 'YPL249C' 1 14.273674]
+ ['YIL162W' 'YIL010W' 0 14.209007]
+ ['YLR027C' 'YNL099C' 0 13.301672]
+ ...
+ ['YEL026W' 'YDL213C' 0 -14.263382]
+ ['YKL113C' 'YKL163W' 0 -18.045004]
+ ['YPR151C' 'YKR080W' 0 -18.068691]]
+Are we attempting to save
+Testing GO Term: GO:0006897 (30 / 53)
+[['YIL041W' 'YLR342W']
+ ['YIL041W' 'YOR329C']
+ ['YIL041W' 'YJL204C']
+ ['YIL041W' 'YNL154C']
+ ['YIL041W' 'YGR198W']]
+[['YFR004W' 'YLR399C']
+ ['YIR033W' 'YDL159W']
+ ['YCL045C' 'YNL241C']
+ ['YIL103W' 'YJL104W']
+ ['YDL042C' 'YIR013C']]
+Sorted Data: [['YJR125C' 'YER166W' 1 23.534277]
+ ['YLR240W' 'YIL040W' 0 20.378698]
+ ['YLR423C' 'YDR324C' 0 19.108053]
+ ...
+ ['YNL336W' 'YLR089C' 0 -15.918875]
+ ['YOR095C' 'YGL029W' 0 -16.386461]
+ ['YOR095C' 'YMR309C' 0 -23.024824]]
+Are we attempting to save
+Testing GO Term: GO:0006970 (31 / 53)
+[['YHL007C' 'YPL152W']
+ ['YHL007C' 'YER019W']
+ ['YHL007C' 'YBR132C']
+ ['YHL007C' 'YML131W']
+ ['YHL007C' 'YLR332W']]
+[['YDL092W' 'YLL015W']
+ ['YFL034C-B' 'YGR247W']
+ ['YDL079C' 'YHR102W']
+ ['YGR215W' 'YCL027C-A']
+ ['YLR077W' 'YHR072W']]
+Sorted Data: [['YKL193C' 'YKR024C' 0 22.547014]
+ ['YLL039C' 'YHR128W' 0 22.38351]
+ ['YMR119W' 'YKL163W' 0 21.186975]
+ ...
+ ['YDR097C' 'YOR056C' 0 -14.127706]
+ ['YBR234C' 'YKR001C' 0 -16.50197]
+ ['YKR060W' 'YDR180W' 0 -19.115108]]
+Are we attempting to save
+Testing GO Term: GO:0006979 (32 / 53)
+[['YKL086W' 'YBR216C']
+ ['YKL086W' 'YCL033C']
+ ['YKL086W' 'YLR225C']
+ ['YKL086W' 'YDR346C']
+ ['YKL086W' 'YHR104W']]
+[['YLR081W' 'YKR046C']
+ ['YKL163W' 'YIR013C']
+ ['YGL033W' 'YML069W']
+ ['YKL184W' 'YEL004W']
+ ['YGR275W' 'YKL096W']]
+Sorted Data: [['YHR104W' 'YGR209C' 1 29.845604]
+ ['YHR104W' 'YCR083W' 1 28.05143]
+ ['YGR209C' 'YNL241C' 1 25.837233]
+ ...
+ ['YDL044C' 'YPL008W' 0 -17.066082]
+ ['YFL031W' 'YKL208W' 0 -17.51773]
+ ['YIL073C' 'YDL161W' 0 -21.343285]]
+Are we attempting to save
+Testing GO Term: GO:0007005 (33 / 53)
+[['YJL116C' 'YNL064C']
+ ['YJL116C' 'YBR234C']
+ ['YJL116C' 'YAL005C']
+ ['YJL116C' 'YJL063C']
+ ['YJL116C' 'YGR028W']]
+[['YOL146W' 'YLR319C']
+ ['YOL041C' 'YOR188W']
+ ['YLR242C' 'YOL021C']
+ ['YMR202W' 'YMR121C']
+ ['YHL009C' 'YOR231W']]
+Sorted Data: [['YCR079W' 'YKR065C' 1 31.217344]
+ ['YGR215W' 'YOR005C' 0 31.07236]
+ ['YGR028W' 'YGR132C' 1 30.78645]
+ ...
+ ['YOR033C' 'YGL047W' 0 -17.262533]
+ ['YJL116C' 'YGR033C' 1 -19.343592]
+ ['YER011W' 'YMR170C' 0 -19.863512]]
+Are we attempting to save
+Testing GO Term: GO:0007010 (34 / 53)
+[['YJL014W' 'YBL105C']
+ ['YOR367W' 'YOR122C']
+ ['YCR088W' 'YAL047C']
+ ['YDL188C' 'YER016W']
+ ['YOR329C' 'YLR319C']]
+[['YHR121W' 'YFL018C']
+ ['YMR280C' 'YLR216C']
+ ['YKL055C' 'YLR136C']
+ ['YPR029C' 'YDL079C']
+ ['YLR262C' 'YBR200W']]
+Sorted Data: [['YDL064W' 'YMR092C' 1 26.052551]
+ ['YBR126C' 'YAR008W' 0 24.969673]
+ ['YOR173W' 'YHR072W' 0 23.305466]
+ ...
+ ['YJL010C' 'YKR092C' 0 -12.190659]
+ ['YGL184C' 'YJR002W' 0 -12.74748]
+ ['YOL097C' 'YHR094C' 0 -12.81175]]
+Are we attempting to save
+Testing GO Term: GO:0007031 (35 / 53)
+[['YGR133W' 'YDR216W']
+ ['YGR133W' 'YDR142C']
+ ['YGR133W' 'YJL210W']
+ ['YGR133W' 'YNL329C']
+ ['YGR133W' 'YAL055W']]
+[['YNR032W' 'YJR088C']
+ ['YLR393W' 'YNL254C']
+ ['YLR002C' 'YEL009C']
+ ['YML126C' 'YKL018W']
+ ['YOR375C' 'YPR112C']]
+Sorted Data: [['YOR173W' 'YJL047C' 0 13.563099]
+ ['YKL213C' 'YBR298C' 0 11.360233]
+ ['YJL111W' 'YIL097W' 0 10.518013]
+ ...
+ ['YCR024C-A' 'YBL027W' 0 -12.452298]
+ ['YFL022C' 'YHR018C' 0 -12.594136]
+ ['YOR293W' 'YDL239C' 0 -14.742918]]
+Are we attempting to save
+Testing GO Term: GO:0007033 (36 / 53)
+[['YIL041W' 'YBR217W']
+ ['YIL041W' 'YBL050W']
+ ['YIL041W' 'YLR423C']
+ ['YIL041W' 'YPL045W']
+ ['YIL041W' 'YCL062W']]
+[['YLR157C-B' 'YLR424W']
+ ['YDL232W' 'YJL145W']
+ ['YPR183W' 'YKL157W']
+ ['YER011W' 'YPL072W']
+ ['YOR035C' 'YGR256W']]
+Sorted Data: [['YJL042W' 'YDR171W' 0 18.869192]
+ ['YML007W' 'YOR375C' 0 17.844942]
+ ['YOL115W' 'YOR231W' 0 16.53632]
+ ...
+ ['YGR132C' 'YER170W' 0 -15.389045]
+ ['YNL256W' 'YNL113W' 0 -17.016367]
+ ['YNL069C' 'YPL237W' 0 -17.107286]]
+Are we attempting to save
+Testing GO Term: GO:0007059 (37 / 53)
+[['YOL094C' 'YJL018W']
+ ['YOL094C' 'YBL084C']
+ ['YOL094C' 'YBR073W']
+ ['YOL094C' 'YKL049C']
+ ['YOL094C' 'YGR275W']]
+[['YDR034C-D' 'YCR088W']
+ ['YNR012W' 'YML038C']
+ ['YDR261C-C' 'YNL279W']
+ ['YLR240W' 'YAR008W']
+ ['YER144C' 'YLR410W']]
+Sorted Data: [['YPL029W' 'YLL005C' 0 20.8209]
+ ['YLR174W' 'YNL197C' 0 20.74277]
+ ['YKL113C' 'YLR222C' 0 20.599356]
+ ...
+ ['YHR216W' 'YLR388W' 0 -15.449014]
+ ['YPL230W' 'YMR251W-A' 0 -16.871395]
+ ['YML123C' 'YLR178C' 0 -17.360865]]
+Are we attempting to save
+Testing GO Term: GO:0007124 (38 / 53)
+[['YHL007C' 'YIL049W']
+ ['YHL007C' 'YER118C']
+ ['YHL007C' 'YMR164C']
+ ['YHL007C' 'YDR432W']
+ ['YHL007C' 'YDL159W']]
+[['YNL327W' 'YDR409W']
+ ['YDL079C' 'YAL009W']
+ ['YDR338C' 'YCL026C-A']
+ ['YKL008C' 'YKR025W']
+ ['YDL049C' 'YBL066C']]
+Sorted Data: [['YDL226C' 'YHR176W' 0 22.08454]
+ ['YGL017W' 'YBL002W' 0 21.204838]
+ ['YDR155C' 'YBL009W' 0 18.814632]
+ ...
+ ['YLR144C' 'YLR310C' 0 -10.352877]
+ ['YNL299W' 'YNL252C' 0 -12.699552]
+ ['YNR054C' 'YPL237W' 0 -12.902942]]
+Are we attempting to save
+Testing GO Term: GO:0008033 (39 / 53)
+[['YHR187W' 'YER146W']
+ ['YHR187W' 'YAR008W']
+ ['YHR187W' 'YMR283C']
+ ['YHR187W' 'YGL210W-A']
+ ['YHR187W' 'YMR047C']]
+[['YML123C' 'YOR088W']
+ ['YGR059W' 'YMR029C']
+ ['YJR007W' 'YOR293W']
+ ['YPL241C' 'YNL009W']
+ ['YDR432W' 'YGL201C']]
+Sorted Data: [['YOR095C' 'YGL099W' 0 25.865616]
+ ['YLR405W' 'YML014W' 1 25.289898]
+ ['YBR167C' 'YDL201W' 1 25.141909]
+ ...
+ ['YHR124W' 'YPR140W' 0 -18.608692]
+ ['YBR127C' 'YKR046C' 0 -18.787683]
+ ['YKL065C' 'YLR362W' 0 -19.883804]]
+Are we attempting to save
+Testing GO Term: GO:0008380 (40 / 53)
+[['YLR132C' 'YLR116W']
+ ['YLR132C' 'YMR288W']
+ ['YLR132C' 'YER146W']
+ ['YLR132C' 'YPR082C']
+ ['YLR132C' 'YLR298C']]
+[['YLR144C' 'YJL092W']
+ ['YLR393W' 'YFR055W']
+ ['YHR072W' 'YDR409W']
+ ['YGL208W' 'YBR293W']
+ ['YKR098C' 'YJR007W']]
+Sorted Data: [['YML046W' 'YKL012W' 1 24.051098]
+ ['YLR275W' 'YKL012W' 1 23.312336]
+ ['YNR023W' 'YOR017W' 0 22.696781]
+ ...
+ ['YKR080W' 'YMR170C' 0 -20.869324]
+ ['YKR013W' 'YKL163W' 0 -22.313889]
+ ['YOL049W' 'YPR065W' 0 -24.254257]]
+Are we attempting to save
+Testing GO Term: GO:0008643 (41 / 53)
+[['YER039C' 'YMR011W']
+ ['YER039C' 'YML038C']
+ ['YER039C' 'YBR298C']
+ ['YER039C' 'YDL194W']
+ ['YER039C' 'YCL040W']]
+[['YJR043C' 'YBR221C']
+ ['YMR283C' 'YDR382W']
+ ['YKL071W' 'YPL162C']
+ ['YNL254C' 'YML010W']
+ ['YPL023C' 'YBR265W']]
+Sorted Data: [['YKL049C' 'YLR178C' 0 21.60579]
+ ['YCL040W' 'YHR094C' 1 19.903225]
+ ['YDL194W' 'YCL040W' 1 19.538885]
+ ...
+ ['YML114C' 'YDR051C' 0 -16.33361]
+ ['YJR125C' 'YNL265C' 0 -17.425894]
+ ['YHR191C' 'YML014W' 0 -18.373165]]
+Are we attempting to save
+Testing GO Term: GO:0009408 (42 / 53)
+[['YFL016C' 'YDR162C']
+ ['YFL016C' 'YOR178C']
+ ['YFL016C' 'YOR007C']
+ ['YFL016C' 'YML007W']
+ ['YFL016C' 'YOL049W']]
+[['YMR278W' 'YLR119W']
+ ['YBR161W' 'YHR018C']
+ ['YGL201C' 'YLL042C']
+ ['YNL021W' 'YGR027W-A']
+ ['YDL066W' 'YNL265C']]
+Sorted Data: [['YMR278W' 'YLR119W' 0 9.336485]
+ ['YHL007C' 'YDL147W' 0 7.6996255]
+ ['YKR080W' 'YGR289C' 0 7.5736895]
+ ['YGL184C' 'YDL207W' 0 6.6520514]
+ ['YFL016C' 'YOR007C' 1 6.6246552]
+ ['YJL207C' 'YOR028C' 0 6.485959]
+ ['YFL016C' 'YML007W' 1 6.410946]
+ ['YOL027C' 'YOR360C' 0 6.3798194]
+ ['YDL226C' 'YGR284C' 0 5.9476156]
+ ['YMR092C' 'YML008C' 0 5.90208]
+ ['YMR162C' 'YHR102W' 0 5.6694546]
+ ['YDR162C' 'YOL049W' 1 5.348066]
+ ['YLR332W' 'YNL154C' 0 5.2023206]
+ ['YLR077W' 'YIL114C' 0 5.0862746]
+ ['YOR178C' 'YOR007C' 1 4.959453]
+ ['YDL066W' 'YNL265C' 0 4.2302966]
+ ['YOL013C' 'YDL020C' 0 4.036826]
+ ['YDR162C' 'YOR007C' 1 4.0055957]
+ ['YIL131C' 'YAR071W' 0 3.991177]
+ ['YLR262C' 'YLR174W' 0 3.8446727]
+ ['YJL204C' 'YDL222C' 0 3.7471566]
+ ['YPL084W' 'YOL044W' 0 3.733759]
+ ['YML007W' 'YOL049W' 1 3.654945]
+ ['YLR144C' 'YMR024W' 0 3.6268425]
+ ['YNL315C' 'YPL230W' 0 3.2807713]
+ ['YPL230W' 'YJR077C' 0 3.016189]
+ ['YGL029W' 'YJR077C' 0 2.7122962]
+ ['YOR231W' 'YIL044C' 0 2.6665406]
+ ['YEL011W' 'YNL222W' 0 2.6335526]
+ ['YIL103W' 'YGL181W' 0 2.5250397]
+ ['YDR182W' 'YLR003C' 0 2.415997]
+ ['YHR188C' 'YGL254W' 0 2.413949]
+ ['YJR019C' 'YMR060C' 0 2.4109707]
+ ['YFL016C' 'YOL049W' 1 2.39926]
+ ['YNL067W' 'YKL120W' 0 2.2726989]
+ ['YBR302C' 'YHR191C' 0 2.2263048]
+ ['YFL016C' 'YDR162C' 1 2.2207139]
+ ['YOR149C' 'YHR094C' 0 2.1634502]
+ ['YLR077W' 'YML130C' 0 2.1154234]
+ ['YKL188C' 'YFR004W' 0 2.0987012]
+ ['YDL181W' 'YOR360C' 0 2.0625067]
+ ['YJL115W' 'YPR121W' 0 2.0565114]
+ ['YJR091C' 'YKL148C' 0 2.032393]
+ ['YIL015W' 'YPL249C' 0 1.851701]
+ ['YJL151C' 'YGL012W' 0 1.7827129]
+ ['YHR062C' 'YHR196W' 0 1.6706424]
+ ['YNL021W' 'YJR064W' 0 1.4230764]
+ ['YBR186W' 'YBL066C' 0 1.3329387]
+ ['YGR038W' 'YLR272C' 0 1.1758764]
+ ['YJL123C' 'YDR198C' 0 1.0744556]
+ ['YOR007C' 'YOL049W' 1 1.0541143]
+ ['YDL002C' 'YOR083W' 0 0.94408333]
+ ['YIL041W' 'YDR221W' 0 0.9208361]
+ ['YNL323W' 'YBR070C' 0 0.88319206]
+ ['YDL064W' 'YKL065C' 0 0.57596827]
+ ['YKL221W' 'YNL279W' 0 0.54583144]
+ ['YLR138W' 'YBR014C' 0 0.3413303]
+ ['YKR080W' 'YOL021C' 0 0.0814836]
+ ['YGL131C' 'YML046W' 0 0.019777298]
+ ['YPL047W' 'YDR302W' 0 -0.06778264]
+ ['YFL053W' 'YER004W' 0 -0.11019397]
+ ['YDR462W' 'YML066C' 0 -0.41432214]
+ ['YPR145W' 'YPL020C' 0 -0.46038532]
+ ['YDR162C' 'YML007W' 1 -0.47137213]
+ ['YLR128W' 'YBL004W' 0 -0.5267675]
+ ['YKL113C' 'YNL270C' 0 -0.53956234]
+ ['YGR091W' 'YGR289C' 0 -0.63586783]
+ ['YLR084C' 'YBR204C' 0 -0.69798696]
+ ['YNL064C' 'YMR162C' 0 -0.7319727]
+ ['YGR172C' 'YDR255C' 0 -0.7881017]
+ ['YGL011C' 'YPL029W' 0 -0.9784651]
+ ['YGL121C' 'YER016W' 0 -1.0293062]
+ ['YDR202C' 'YIR034C' 0 -1.1003122]
+ ['YMR079W' 'YDL079C' 0 -1.1328787]
+ ['YOR007C' 'YML007W' 1 -1.4925985]
+ ['YOR178C' 'YOL049W' 1 -1.5011725]
+ ['YOR100C' 'YPL265W' 0 -1.5393145]
+ ['YDR221W' 'YGR048W' 0 -1.6293441]
+ ['YFL016C' 'YOR178C' 1 -1.738992]
+ ['YLR368W' 'YKR024C' 0 -1.7978618]
+ ['YPL275W' 'YGR098C' 0 -1.9049838]
+ ['YNL264C' 'YNL186W' 0 -1.9752016]
+ ['YJL210W' 'YCR003W' 0 -2.0214844]
+ ['YMR162C' 'YGR289C' 0 -2.0655947]
+ ['YGL224C' 'YCR069W' 0 -2.1598954]
+ ['YFL031W' 'YBR110W' 0 -2.2700977]
+ ['YPL032C' 'YHR062C' 0 -2.2728465]
+ ['YMR021C' 'YOR231W' 0 -2.3354502]
+ ['YLR084C' 'YBR039W' 0 -2.365263]
+ ['YDL079C' 'YDR540C' 0 -2.5265791]
+ ['YNL021W' 'YAR066W' 0 -2.5335255]
+ ['YDR162C' 'YOR178C' 1 -2.5411935]
+ ['YGR231C' 'YLR133W' 0 -2.5654826]
+ ['YMR092C' 'YPL275W' 0 -2.6631174]
+ ['YPR022C' 'YOR295W' 0 -2.7247424]
+ ['YDR141C' 'YOR197W' 0 -2.7311862]
+ ['YNL222W' 'YPL003W' 0 -2.7610135]
+ ['YOR371C' 'YPL024W' 0 -2.767847]
+ ['YBR204C' 'YKR046C' 0 -2.7943583]
+ ['YDL126C' 'YIL082W-A' 0 -2.7959528]
+ ['YKL107W' 'YNL336W' 0 -3.0363374]
+ ['YDR104C' 'YNL257C' 0 -3.0808208]
+ ['YPL053C' 'YHR143W-A' 0 -3.09218]
+ ['YKL220C' 'YER170W' 0 -3.1096847]
+ ['YBR127C' 'YNL134C' 0 -3.149166]
+ ['YDL052C' 'YDR489W' 0 -3.19599]
+ ['YNL082W' 'YJR056C' 0 -3.2009966]
+ ['YNL090W' 'YKL112W' 0 -3.3645124]
+ ['YER146W' 'YFL002C' 0 -3.423987]
+ ['YFL050C' 'YML046W' 0 -3.461042]
+ ['YJL116C' 'YMR291W' 0 -3.4877503]
+ ['YIL050W' 'YMR231W' 0 -3.5889587]
+ ['YDR155C' 'YDR489W' 0 -3.606617]
+ ['YPL227C' 'YDL153C' 0 -3.620506]
+ ['YOR149C' 'YOR005C' 0 -3.639278]
+ ['YNR026C' 'YKL209C' 0 -3.64321]
+ ['YER048C' 'YLR013W' 0 -3.6881166]
+ ['YOR149C' 'YPL072W' 0 -3.8136673]
+ ['YAR008W' 'YCL062W' 0 -3.8901148]
+ ['YBR068C' 'YIR010W' 0 -3.971742]
+ ['YPL283C' 'YCL027C-A' 0 -3.9860823]
+ ['YDR338C' 'YER016W' 0 -4.077965]
+ ['YLR070C' 'YJL113W' 0 -4.1444216]
+ ['YLR135W' 'YKL222C' 0 -4.2262135]
+ ['YLR148W' 'YLR368W' 0 -4.254762]
+ ['YCR088W' 'YMR277W' 0 -4.2932644]
+ ['YKL071W' 'YEL004W' 0 -4.2972736]
+ ['YGL201C' 'YLL042C' 0 -4.323866]
+ ['YGR271C-A' 'YDR324C' 0 -4.45548]
+ ['YOR141C' 'YDR141C' 0 -4.4594216]
+ ['YLR410W' 'YCL062W' 0 -4.5201344]
+ ['YOR100C' 'YPL162C' 0 -4.538267]
+ ['YNL072W' 'YBR215W' 0 -4.565449]
+ ['YPL227C' 'YIL082W-A' 0 -4.6223016]
+ ['YBR216C' 'YJL036W' 0 -4.695557]
+ ['YPL242C' 'YLR157C-B' 0 -4.704101]
+ ['YCR079W' 'YHL009W-A' 0 -4.737136]
+ ['YNL125C' 'YDR210W-A' 0 -4.834246]
+ ['YLR081W' 'YLR399C' 0 -4.925654]
+ ['YJL028W' 'YLR035C' 0 -4.9626975]
+ ['YJL028W' 'YDR267C' 0 -5.0022016]
+ ['YEL004W' 'YIL017C' 0 -5.0038176]
+ ['YNL021W' 'YGR027W-A' 0 -5.020152]
+ ['YOL097C' 'YOL017W' 0 -5.100971]
+ ['YJL204C' 'YOR022C' 0 -5.1672893]
+ ['YNL090W' 'YDR352W' 0 -5.5666537]
+ ['YLR423C' 'YLR341W' 0 -5.610767]
+ ['YGL038C' 'YNL279W' 0 -5.877354]
+ ['YNL064C' 'YOR028C' 0 -6.004452]
+ ['YLR225C' 'YLR256W' 0 -6.00563]
+ ['YOL094C' 'YML022W' 0 -6.203337]
+ ['YBR133C' 'YIR028W' 0 -6.353116]
+ ['YLR320W' 'YDR051C' 0 -6.374615]
+ ['YDR182W' 'YOR030W' 0 -6.3821654]
+ ['YOR178C' 'YML007W' 1 -6.439654]
+ ['YDR519W' 'YKL120W' 0 -7.4974656]
+ ['YBR132C' 'YPL232W' 0 -7.764314]
+ ['YHR098C' 'YDL213C' 0 -7.960894]
+ ['YBR161W' 'YHR018C' 0 -8.295137]
+ ['YBR084C-A' 'YLR229C' 0 -8.513382]
+ ['YHR141C' 'YOR064C' 0 -8.53017]
+ ['YLL052C' 'YDL058W' 0 -9.574251]
+ ['YDR058C' 'YDL004W' 0 -9.906521]
+ ['YNL072W' 'YOR361C' 0 -11.367605]
+ ['YDL159W' 'YGL145W' 0 -14.395636]]
+Are we attempting to save
+Testing GO Term: GO:0009451 (43 / 53)
+[['YJR056C' 'YPL086C']
+ ['YNL035C' 'YDR352W']
+ ['YKR045C' 'YHR084W']
+ ['YMR288W' 'YLR405W']
+ ['YMR266W' 'YKR045C']]
+[['YLR262C' 'YCR043C']
+ ['YNR036C' 'YIL082W-A']
+ ['YPL132W' 'YOR198C']
+ ['YCL010C' 'YOR298C-A']
+ ['YDR522C' 'YPL192C']]
+Sorted Data: [['YML014W' 'YDL201W' 1 29.570597]
+ ['YPR058W' 'YMR083W' 0 27.412289]
+ ['YIL023C' 'YKL216W' 0 27.379223]
+ ...
+ ['YDR001C' 'YGL153W' 0 -28.233862]
+ ['YKL163W' 'YPL181W' 0 -29.747759]
+ ['YLR216C' 'YPR056W' 0 -32.634045]]
+Are we attempting to save
+Testing GO Term: GO:0016197 (44 / 53)
+[['YLR262C' 'YDR027C']
+ ['YLR262C' 'YCR027C']
+ ['YLR262C' 'YDR153C']
+ ['YLR262C' 'YJL207C']
+ ['YLR262C' 'YPL084W']]
+[['YBR236C' 'YDR264C']
+ ['YJL204C' 'YMR199W']
+ ['YGR140W' 'YGL257C']
+ ['YML010W' 'YBR044C']
+ ['YBR253W' 'YDL132W']]
+Sorted Data: [['YJR125C' 'YNL265C' 1 15.739371]
+ ['YDR027C' 'YJL036W' 1 13.027106]
+ ['YJR125C' 'YJL036W' 1 13.018104]
+ ...
+ ['YJL010C' 'YHR001W' 0 -21.04679]
+ ['YOL041C' 'YNL005C' 0 -22.464031]
+ ['YER026C' 'YGR128C' 0 -23.864794]]
+Are we attempting to save
+Testing GO Term: GO:0032196 (45 / 53)
+[['YPL256C' 'YDR210W-D']
+ ['YPL256C' 'YCL019W']
+ ['YPL256C' 'YLR157C-A']
+ ['YPL256C' 'YDR034C-D']
+ ['YPL256C' 'YDR365W-B']]
+[['YPL072W' 'YOR022C']
+ ['YBR215W' 'YMR197C']
+ ['YDL064W' 'YNL134C']
+ ['YKR098C' 'YDR020C']
+ ['YDL002C' 'YNL177C']]
+Sorted Data: [['YCL020W' 'YBL100W-A' 1 22.934925]
+ ['YGR038C-A' 'YGR027W-A' 1 21.385784]
+ ['YGR038C-A' 'YPR158W-A' 1 21.061443]
+ ...
+ ['YLL052C' 'YNL220W' 0 -31.005703]
+ ['YJL177W' 'YHR091C' 0 -31.116581]
+ ['YCL040W' 'YDL191W' 0 -31.943214]]
+Are we attempting to save
+Testing GO Term: GO:0032543 (46 / 53)
+[['YDR462W' 'YJL063C']
+ ['YDR462W' 'YLR069C']
+ ['YDR462W' 'YOL033W']
+ ['YDR462W' 'YCR071C']
+ ['YDR462W' 'YNR036C']]
+[['YGL234W' 'YOL034W']
+ ['YBL006C' 'YDL174C']
+ ['YPR151C' 'YER042W']
+ ['YDR017C' 'YML033W']
+ ['YIL066C' 'YIL158W']]
+Sorted Data: [['YNL005C' 'YCR003W' 1 40.21977]
+ ['YNL177C' 'YML025C' 1 40.117588]
+ ['YNL177C' 'YMR024W' 1 39.26749]
+ ...
+ ['YKR080W' 'YJL036W' 0 -43.042946]
+ ['YKR081C' 'YFR004W' 0 -43.549973]
+ ['YBR265W' 'YIL097W' 0 -44.99201]]
+Are we attempting to save
+Testing GO Term: GO:0042273 (47 / 53)
+[['YPL211W' 'YKR081C']
+ ['YPL211W' 'YNL002C']
+ ['YPL211W' 'YLR340W']
+ ['YPL211W' 'YML025C']
+ ['YPL211W' 'YJL122W']]
+[['YJR064W' 'YGR280C']
+ ['YIR013C' 'YGL121C']
+ ['YKL146W' 'YNL005C']
+ ['YDR162C' 'YML111W']
+ ['YER019W' 'YIL065C']]
+Sorted Data: [['YKR081C' 'YJL122W' 1 32.10566]
+ ['YPL211W' 'YLR340W' 1 26.815222]
+ ['YNL002C' 'YLR340W' 1 25.360243]
+ ...
+ ['YHR104W' 'YER118C' 0 -30.505102]
+ ['YJR043C' 'YOR100C' 0 -34.653263]
+ ['YAL061W' 'YPL079W' 0 -44.636612]]
+Are we attempting to save
+Testing GO Term: GO:0042274 (48 / 53)
+[['YNR054C' 'YKR060W']
+ ['YNR054C' 'YJL010C']
+ ['YNR054C' 'YGR090W']
+ ['YNR054C' 'YDR339C']
+ ['YNR054C' 'YLR051C']]
+[['YJL139C' 'YJL137C']
+ ['YBR302C' 'YLR319C']
+ ['YGL032C' 'YPL046C']
+ ['YFL024C' 'YHR152W']
+ ['YDR267C' 'YLR095C']]
+Sorted Data: [['YML093W' 'YML026C' 1 34.59979]
+ ['YML024W' 'YHR196W' 1 33.956905]
+ ['YHR196W' 'YML026C' 1 33.672062]
+ ...
+ ['YLL039C' 'YHR083W' 0 -26.28528]
+ ['YJL139C' 'YNL099C' 0 -26.382355]
+ ['YMR135C' 'YOR368W' 0 -27.13959]]
+Are we attempting to save
+Testing GO Term: GO:0045333 (49 / 53)
+[['YPL132W' 'YJL063C']
+ ['YPL132W' 'YOR354C']
+ ['YPL132W' 'YML110C']
+ ['YPL132W' 'YOL008W']
+ ['YPL132W' 'YJL209W']]
+[['YOR336W' 'YDR538W']
+ ['YFL050C' 'YDR352W']
+ ['YDR338C' 'YBR044C']
+ ['YIL082W-A' 'YOR188W']
+ ['YHR065C' 'YDR186C']]
+Sorted Data: [['YGR183C' 'YGL187C' 1 49.631]
+ ['YNL037C' 'YKL148C' 1 46.796455]
+ ['YGR183C' 'YNL037C' 1 46.225086]
+ ...
+ ['YDR385W' 'YHR141C' 0 -26.632376]
+ ['YPL211W' 'YLR372W' 0 -29.918724]
+ ['YDL010W' 'YCR034W' 0 -31.97265]]
+Are we attempting to save
+Testing GO Term: GO:0051321 (50 / 53)
+[['YLL005C' 'YBR057C']
+ ['YBR136W' 'YCR033W']
+ ['YGL250W' 'YLR399C']
+ ['YHR039C' 'YKR029C']
+ ['YML066C' 'YOR354C']]
+[['YDR043C' 'YNL009W']
+ ['YDR363W' 'YGR284C']
+ ['YBR019C' 'YBR265W']
+ ['YGL255W' 'YNL030W']
+ ['YBR084C-A' 'YGR277C']]
+Sorted Data: [['YJL151C' 'YNL014W' 0 35.35416]
+ ['YDR446W' 'YGL033W' 1 30.924461]
+ ['YNL245C' 'YBR244W' 0 29.772812]
+ ...
+ ['YJL177W' 'YOR312C' 0 -11.736144]
+ ['YDR324C' 'YJL122W' 0 -13.246645]
+ ['YPL086C' 'YLR022C' 0 -14.662189]]
+Are we attempting to save
+Testing GO Term: GO:0051603 (51 / 53)
+[['YLR128W' 'YGL048C']
+ ['YJL047C' 'YOR339C']
+ ['YFL016C' 'YDL064W']
+ ['YNL186W' 'YDL122W']
+ ['YNR026C' 'YFR004W']]
+[['YNL154C' 'YMR068W']
+ ['YGL184C' 'YOR371C']
+ ['YDR346C' 'YAR066W']
+ ['YBL102W' 'YIL049W']
+ ['YJL207C' 'YJR129C']]
+Sorted Data: [['YBR280C' 'YOR362C' 1 34.49067]
+ ['YBR280C' 'YFR004W' 1 32.504993]
+ ['YGL048C' 'YER094C' 1 31.988354]
+ ...
+ ['YHR007C' 'YDL207W' 0 -21.94897]
+ ['YJR047C' 'YHR107C' 0 -22.334232]
+ ['YLR110C' 'YBL009W' 0 -23.29912]]
+Are we attempting to save
+Testing GO Term: GO:0051726 (52 / 53)
+[['YHR166C' 'YLR229C']
+ ['YIL131C' 'YCR033W']
+ ['YHL007C' 'YOR368W']
+ ['YBR136W' 'YIL050W']
+ ['YPR075C' 'YGR108W']]
+[['YKR087C' 'YFR055W']
+ ['YKR092C' 'YDR180W']
+ ['YHR034C' 'YER183C']
+ ['YCL026C-A' 'YER001W']
+ ['YDR314C' 'YDR237W']]
+Sorted Data: [['YPL256C' 'YDL194W' 1 20.79779]
+ ['YJR090C' 'YHR166C' 1 20.090122]
+ ['YBR203W' 'YPL016W' 0 19.808325]
+ ...
+ ['YPR151C' 'YLR362W' 0 -13.679351]
+ ['YJR113C' 'YLR178C' 0 -14.974605]
+ ['YML130C' 'YPR151C' 0 -15.343978]]
+Are we attempting to save
+Began Testing the Network
+Testing GO Term: GO:0000054 (0 / 53)
+[['YKL186C' 'YGR218W']
+ ['YKL186C' 'YER036C']
+ ['YKL186C' 'YPL169C']
+ ['YKL186C' 'YAL059W']
+ ['YKL186C' 'YHR197W']]
+[['YDR531W' 'YLR391W']
+ ['YIL013C' 'YOL107W']
+ ['YMR262W' 'YKL156W']
+ ['YJL213W' 'YIL022W']
+ ['YNL138W-A' 'YPL234C']]
+Sorted Data: [['YLL034C' 'YHR170W' 1 34.875626]
+ ['YDR361C' 'YHR170W' 1 34.44329]
+ ['YNR053C' 'YOR206W' 1 33.518333]
+ ...
+ ['YPR005C' 'YIL039W' 0 -27.769526]
+ ['YER015W' 'YLR185W' 0 -27.83928]
+ ['YLR165C' 'YDL142C' 0 -27.861]]
+Are we attempting to save
+Testing GO Term: GO:0000278 (1 / 53)
+[['YDL028C' 'YJR092W']
+ ['YOR026W' 'YML127W']
+ ['YBL007C' 'YDR166C']
+ ['YGR058W' 'YMR048W']
+ ['YAL021C' 'YDL134C']]
+[['YJR096W' 'YBR059C']
+ ['YLR433C' 'YHR035W']
+ ['YMR059W' 'YIL108W']
+ ['YGR103W' 'YOL147C']
+ ['YIR018W' 'YGL205W']]
+Sorted Data: [['YLR337W' 'YLR337C' 1 54.937862]
+ ['YIL135C' 'YFL023W' 1 30.031298]
+ ['YMR036C' 'YGL174W' 1 28.186155]
+ ...
+ ['YNR053C' 'YJR145C' 0 -14.197999]
+ ['YML063W' 'YPR187W' 0 -15.366878]
+ ['YGR027C' 'YBL092W' 0 -17.13204]]
+Are we attempting to save
+Testing GO Term: GO:0000747 (2 / 53)
+[['YNL127W' 'YLL021W']
+ ['YGR238C' 'YGR040W']
+ ['YJL034W' 'YIL026C']
+ ['YKR031C' 'YGR238C']
+ ['YDL038C' 'YPL156C']]
+[['YJL029C' 'YOR287C']
+ ['YGL085W' 'YFL036W']
+ ['YER148W' 'YMR040W']
+ ['YOR078W' 'YHR111W']
+ ['YAR002C-A' 'YML040W']]
+Sorted Data: [['YMR065W' 'YMR232W' 1 30.903872]
+ ['YFL026W' 'YKL178C' 1 28.574596]
+ ['YNR044W' 'YLR452C' 1 27.830582]
+ ...
+ ['YJL117W' 'YBR112C' 0 -17.310078]
+ ['YBR282W' 'YLR312W-A' 0 -19.16774]
+ ['YCR057C' 'YPL146C' 0 -21.209139]]
+Are we attempting to save
+Testing GO Term: GO:0001403 (3 / 53)
+[['YOR080W' 'YIR019C']
+ ['YOR080W' 'YHR073W']
+ ['YOR080W' 'YER113C']
+ ['YOR080W' 'YDL035C']
+ ['YOR080W' 'YOR127W']]
+[['YPL117C' 'YKL097W-A']
+ ['YDR500C' 'YLR172C']
+ ['YOR253W' 'YBR082C']
+ ['YAR010C' 'YKR038C']
+ ['YAL002W' 'YHR088W']]
+Sorted Data: [['YGL045W' 'YGL046W' 1 60.40566]
+ ['YER108C' 'YER109C' 1 48.90589]
+ ['YPL203W' 'YNL119W' 1 27.450592]
+ ...
+ ['YBR296C' 'YMR143W' 0 -16.766073]
+ ['YNL302C' 'YMR142C' 0 -19.197884]
+ ['YMR246W' 'YDR483W' 0 -21.033976]]
+Are we attempting to save
+Testing GO Term: GO:0002181 (4 / 53)
+[['YJR097W' 'YLR172C']
+ ['YJR097W' 'YKL191W']
+ ['YLR172C' 'YKL191W']]
+[['YLR460C' 'YOL026C']
+ ['YDR297W' 'YBR081C']
+ ['YDR471W' 'YGL190C']
+ ['YER130C' 'YML005W']
+ ['YLR023C' 'YGL053W']]
+Sorted Data: [['YJR097W' 'YKL191W' 1 15.478977]
+ ['YLR172C' 'YKL191W' 1 14.447543]
+ ['YJR097W' 'YLR172C' 1 14.033631]
+ ['YFL035C-A' 'YDR134C' 0 -3.1011844]
+ ['YFL002W-B' 'YDR283C' 0 -3.138557]
+ ['YNL054W-A' 'YKL143W' 0 -3.1765947]
+ ['YMR220W' 'YGR031C-A' 0 -3.712765]
+ ['YER130C' 'YML005W' 0 -4.801207]
+ ['YOR262W' 'YGR085C' 0 -4.918609]
+ ['YPL027W' 'YPR106W' 0 -6.6471343]
+ ['YCR052W' 'YJR083C' 0 -7.694594]
+ ['YJL069C' 'YHR059W' 0 -7.7496934]
+ ['YLR460C' 'YOL026C' 0 -7.8002515]
+ ['YDL114W' 'YDL082W' 0 -8.718579]
+ ['YDR091C' 'YER060W' 0 -9.166555]
+ ['YPR167C' 'YBR281C' 0 -11.225501]
+ ['YFL047W' 'YAL043C' 0 -11.445429]
+ ['YJL019W' 'YML098W' 0 -11.798372]
+ ['YGR057C' 'YOR089C' 0 -12.082131]
+ ['YBR069C' 'YKL096W-A' 0 -12.64703]
+ ['YBR169C' 'YLR079W' 0 -13.843901]
+ ['YER055C' 'YJL171C' 0 -14.317224]
+ ['YDR297W' 'YBR081C' 0 -15.2184925]
+ ['YJL062W' 'YNR010W' 0 -15.8792515]
+ ['YDR410C' 'YHR103W' 0 -16.17612]
+ ['YDR471W' 'YGL190C' 0 -16.404715]
+ ['YLR023C' 'YGL053W' 0 -16.645851]
+ ['YOR391C' 'YDL112W' 0 -17.592152]
+ ['YAL035W' 'YGR077C' 0 -19.432858]
+ ['YPR041W' 'YJR052W' 0 -21.212917]
+ ['YDR101C' 'YLR097C' 0 -25.698969]
+ ['YIL033C' 'YMR177W' 0 -29.89962]
+ ['YJL141C' 'YLR344W' 0 -38.23816]]
+Are we attempting to save
+Testing GO Term: GO:0006260 (5 / 53)
+[['YKL045W' 'YGR221C']
+ ['YKL045W' 'YBL031W']
+ ['YOR074C' 'YLR321C']
+ ['YDR501W' 'YBR087W']
+ ['YOR330C' 'YJL181W']]
+[['YKR103W' 'YDL046W']
+ ['YJR132W' 'YNL111C']
+ ['YKL064W' 'YCR011C']
+ ['YDR105C' 'YDR059C']
+ ['YHL047C' 'YKL183W']]
+Sorted Data: [['YCL061C' 'YCL060C' 1 39.757133]
+ ['YHL024W' 'YBL035C' 1 25.305086]
+ ['YGL113W' 'YLL004W' 1 25.246365]
+ ...
+ ['YDL110C' 'YDR079W' 0 -21.542665]
+ ['YML100W' 'YGR088W' 0 -22.098373]
+ ['YBL087C' 'YER074W' 0 -25.03073]]
+Are we attempting to save
+Testing GO Term: GO:0006281 (6 / 53)
+[['YBR100W' 'YJR082C']
+ ['YIL126W' 'YKR008W']
+ ['YML060W' 'YDR386W']
+ ['YDR014W-A' 'YNL262W']
+ ['YJL173C' 'YOR258W']]
+[['YOL020W' 'YDR011W']
+ ['YDR434W' 'YER117W']
+ ['YGL120C' 'YER106W']
+ ['YDR189W' 'YFL054C']
+ ['YML031W' 'YPR173C']]
+Sorted Data: [['YBR170C' 'YPL011C' 0 31.86955]
+ ['YDR419W' 'YBR114W' 1 31.723524]
+ ['YPR135W' 'YMR201C' 1 28.861448]
+ ...
+ ['YFL045C' 'YLR343W' 0 -17.270292]
+ ['YMR312W' 'YML054C' 0 -18.95538]
+ ['YOR047C' 'YDR496C' 0 -20.245834]]
+Are we attempting to save
+Testing GO Term: GO:0006310 (7 / 53)
+[['YER147C' 'YDR210W-B']
+ ['YER044C-A' 'YLL033W']
+ ['YNL284C-B' 'YDR316W-B']
+ ['YBL100W-B' 'YOR142W-B']
+ ['YGL163C' 'YDL185W']]
+[['YOR145C' 'YCR016W']
+ ['YEL021W' 'YDR226W']
+ ['YER110C' 'YOR148C']
+ ['YPL064C' 'YMR086W']
+ ['YER063W' 'YPL234C']]
+Sorted Data: [['YHR081W' 'YML128C' 1 31.417852]
+ ['YBL075C' 'YML043C' 0 28.195768]
+ ['YHR214C-B' 'YJR027W' 1 25.374302]
+ ...
+ ['YOR047C' 'YOR113W' 0 -20.228323]
+ ['YER061C' 'YOR209C' 0 -20.252762]
+ ['YLR350W' 'YOR204W' 0 -22.563707]]
+Are we attempting to save
+Testing GO Term: GO:0006325 (8 / 53)
+[['YFR013W' 'YMR227C']
+ ['YBR060C' 'YIL126W']
+ ['YPR034W' 'YER161C']
+ ['YLR357W' 'YNL206C']
+ ['YHL025W' 'YNL206C']]
+[['YBR149W' 'YJR046W']
+ ['YDL202W' 'YDR160W']
+ ['YMR097C' 'YOR236W']
+ ['YLR105C' 'YNL178W']
+ ['YEL022W' 'YKL179C']]
+Sorted Data: [['YGL037C' 'YMR091C' 1 35.934402]
+ ['YGL037C' 'YKR008W' 1 30.969765]
+ ['YER088C' 'YBR010W' 1 26.82133]
+ ...
+ ['YNL242W' 'YIL155C' 0 -27.035213]
+ ['YHL016C' 'YPL196W' 0 -27.343193]
+ ['YMR105C' 'YLR203C' 0 -31.45996]]
+Are we attempting to save
+Testing GO Term: GO:0006352 (9 / 53)
+[['YGR246C' 'YPL177C']
+ ['YLR005W' 'YGR274C']
+ ['YPR008W' 'YNL039W']
+ ['YGR047C' 'YDR448W']
+ ['YDR167W' 'YPR186C']]
+[['YJL048C' 'YHR168W']
+ ['YMR203W' 'YHR153C']
+ ['YLR154C' 'YIL017W']
+ ['YBR275C' 'YPL214C']
+ ['YBL010C' 'YDR260C']]
+Sorted Data: [['YMR005W' 'YDR460W' 1 32.422993]
+ ['YKL028W' 'YDR460W' 1 29.417318]
+ ['YIL143C' 'YNL039W' 1 28.799925]
+ ...
+ ['YBL087C' 'YNL132W' 0 -23.759897]
+ ['YDR492W' 'YOR150W' 0 -24.747976]
+ ['YDL022W' 'YEL050C' 0 -25.063602]]
+Are we attempting to save
+Testing GO Term: GO:0006353 (10 / 53)
+[['YMR039C' 'YGL246C']
+ ['YMR039C' 'YLR115W']
+ ['YMR039C' 'YDR228C']
+ ['YMR039C' 'YBR121C']
+ ['YMR039C' 'YER133W']]
+[['YFR019W' 'YPL226W']
+ ['YPL063W' 'YCL035C']
+ ['YLR045C' 'YDR412W']
+ ['YDL192W' 'YBL090W']
+ ['YGR246C' 'YDR472W']]
+Sorted Data: [['YLR430W' 'YDR289C' 1 20.727236]
+ ['YDR228C' 'YOR048C' 1 19.071066]
+ ['YDR228C' 'YLR277C' 1 17.751596]
+ ...
+ ['YMR105C' 'YGL168W' 0 -15.55153]
+ ['YLR327C' 'YML034W' 0 -18.020514]
+ ['YEL039C' 'YBL051C' 0 -18.224678]]
+Are we attempting to save
+Testing GO Term: GO:0006360 (11 / 53)
+[['YML077W' 'YJL148W']
+ ['YNL056W' 'YJL006C']
+ ['YGL063W' 'YHR039C-A']
+ ['YBR049C' 'YPR095C']
+ ['YDR420W' 'YGL063W']]
+[['YBL072C' 'YGL107C']
+ ['YNL081C' 'YKL059C']
+ ['YPL173W' 'YNL029C']
+ ['YOL052C-A' 'YGL174W']
+ ['YKR006C' 'YML009C']]
+Sorted Data: [['YHR039C-B' 'YHR039C-A' 1 53.63881]
+ ['YOL002C' 'YNL248C' 1 36.092728]
+ ['YJL148W' 'YPL126W' 1 31.585888]
+ ...
+ ['YHR170W' 'YAR027W' 0 -27.56926]
+ ['YMR250W' 'YER031C' 0 -28.780277]
+ ['YOR271C' 'YOL052C-A' 0 -33.851845]]
+Are we attempting to save
+Testing GO Term: GO:0006364 (12 / 53)
+[['YGR214W' 'YGR030C']
+ ['YCR035C' 'YGR276C']
+ ['YGL173C' 'YNR038W']
+ ['YLR059C' 'YCR047C']
+ ['YER127W' 'YMR285C']]
+[['YNL189W' 'YDR456W']
+ ['YIL134W' 'YGL098W']
+ ['YNL291C' 'YKL058W']
+ ['YFL037W' 'YDR483W']
+ ['YOR313C' 'YDR144C']]
+Sorted Data: [['YLR276C' 'YLR048W' 1 41.007835]
+ ['YDR025W' 'YBR181C' 1 40.706528]
+ ['YKL021C' 'YBL072C' 1 38.861935]
+ ...
+ ['YBR169C' 'YAL056W' 0 -30.088669]
+ ['YKL005C' 'YPL240C' 0 -30.25647]
+ ['YMR171C' 'YLR142W' 0 -34.415447]]
+Are we attempting to save
+Testing GO Term: GO:0006366 (13 / 53)
+[['YDR228C' 'YOR224C']
+ ['YLR115W' 'YGR200C']
+ ['YGL244W' 'YKL015W']
+ ['YDR176W' 'YER028C']
+ ['YGL246C' 'YDR303C']]
+[['YCL057W' 'YPL139C']
+ ['YMR086W' 'YPL145C']
+ ['YDR515W' 'YMR267W']
+ ['YKR069W' 'YGR095C']
+ ['YLR106C' 'YNL190W']]
+Sorted Data: [['YDR145W' 'YMR037C' 1 32.608707]
+ ['YDR463W' 'YPR030W' 1 29.727541]
+ ['YKR066C' 'YOL061W' 0 28.630709]
+ ...
+ ['YAL051W' 'YHR076W' 0 -18.258589]
+ ['YHR148W' 'YMR131C' 0 -19.822977]
+ ['YJL166W' 'YHR051W' 0 -25.35102]]
+Are we attempting to save
+Testing GO Term: GO:0006383 (14 / 53)
+[['YML107C' 'YMR172W']
+ ['YML107C' 'YKL108W']
+ ['YML107C' 'YGL019W']
+ ['YML107C' 'YOR039W']
+ ['YML107C' 'YDR461W']]
+[['YNL127W' 'YOR250C']
+ ['YGR037C' 'YMR115W']
+ ['YJR070C' 'YFR032C-A']
+ ['YIR031C' 'YNL199C']
+ ['YLR227W-B' 'YPL259C']]
+Sorted Data: [['YBR090C-A' 'YBR089C-A' 1 38.241886]
+ ['YNL151C' 'YNL039W' 1 28.956455]
+ ['YNR003C' 'YKL144C' 1 27.958885]
+ ...
+ ['YER150W' 'YBR162C' 0 -26.191833]
+ ['YFL014W' 'YLR384C' 0 -28.355307]
+ ['YHR096C' 'YML085C' 0 -31.68061]]
+Are we attempting to save
+Testing GO Term: GO:0006397 (15 / 53)
+[['YPL064C' 'YJR050W']
+ ['YGL094C' 'YJL133W']
+ ['YFL018W-A' 'YJL006C']
+ ['YMR240C' 'YBR065C']
+ ['YKL095W' 'YPL151C']]
+[['YOL067C' 'YIL108W']
+ ['YGL212W' 'YER177W']
+ ['YNL080C' 'YMR176W']
+ ['YHR090C' 'YIL088C']
+ ['YDL054C' 'YDR494W']]
+Sorted Data: [['YJL140W' 'YPL151C' 1 28.896362]
+ ['YMR180C' 'YGL174W' 1 27.75536]
+ ['YLR438C-A' 'YJL006C' 1 26.63397]
+ ...
+ ['YHR156C' 'YDL115C' 0 -19.243729]
+ ['YNL331C' 'YBR082C' 0 -20.19699]
+ ['YDR358W' 'YNL007C' 0 -22.827484]]
+Are we attempting to save
+Testing GO Term: GO:0006401 (16 / 53)
+[['YER068W' 'YOL149W']
+ ['YJR006W' 'YGL213C']
+ ['YDL175C' 'YOR076C']
+ ['YJL124C' 'YNL232W']
+ ['YNL118C' 'YGR158C']]
+[['YCL029C' 'YHR027C']
+ ['YJL062W' 'YBL020W']
+ ['YMR313C' 'YGR034W']
+ ['YMR311C' 'YNL339C']
+ ['YDR036C' 'YDR533C']]
+Sorted Data: [['YGL014W' 'YKL009W' 1 29.922037]
+ ['YKL009W' 'YNR024W' 1 29.475744]
+ ['YKL009W' 'YCR035C' 1 29.353971]
+ ...
+ ['YPL186C' 'YER101C' 0 -21.413637]
+ ['YBR240C' 'YDR069C' 0 -22.63223]
+ ['YJL079C' 'YER104W' 0 -24.828548]]
+Are we attempting to save
+Testing GO Term: GO:0006413 (17 / 53)
+[['YOR260W' 'YGR054W']
+ ['YOR260W' 'YNL007C']
+ ['YOR260W' 'YNL062C']
+ ['YOR260W' 'YDR494W']
+ ['YOR260W' 'YPR041W']]
+[['YDR065W' 'YDR129C']
+ ['YER161C' 'YHR171W']
+ ['YOR138C' 'YOL080C']
+ ['YBR301W' 'YLR391W']
+ ['YLR121C' 'YGR205W']]
+Sorted Data: [['YGR162W' 'YGR246C' 1 28.927485]
+ ['YGR162W' 'YBL090W' 1 28.558847]
+ ['YPR163C' 'YGR083C' 1 28.479992]
+ ...
+ ['YLR200W' 'YDR517W' 0 -16.840792]
+ ['YPL153C' 'YLR343W' 0 -18.403648]
+ ['YKR061W' 'YDL028C' 0 -21.944078]]
+Are we attempting to save
+Testing GO Term: GO:0006414 (18 / 53)
+[['YPL048W' 'YKL081W']
+ ['YPL048W' 'YDL081C']
+ ['YPL048W' 'YJR097W']
+ ['YPL048W' 'YLR249W']
+ ['YPL048W' 'YLR172C']]
+[['YLR391W' 'YDR262W']
+ ['YNL219C' 'YHR168W']
+ ['YIL123W' 'YMR226C']
+ ['YLR078C' 'YOL032W']
+ ['YKR095W-A' 'YKL013C']]
+Sorted Data: [['YOR187W' 'YJL102W' 1 28.38142]
+ ['YLR172C' 'YDL130W' 1 28.364399]
+ ['YLR249W' 'YJL102W' 1 27.242153]
+ ...
+ ['YJR004C' 'YOL054W' 0 -14.724356]
+ ['YHR090C' 'YGL071W' 0 -15.276766]
+ ['YDR482C' 'YPL208W' 0 -15.924091]]
+Are we attempting to save
+Testing GO Term: GO:0006418 (19 / 53)
+[['YNL247W' 'YGR264C']
+ ['YNL247W' 'YDR341C']
+ ['YNL247W' 'YDR268W']
+ ['YNL247W' 'YLR382C']
+ ['YNL247W' 'YGR171C']]
+[['YMR241W' 'YJR153W']
+ ['YGL103W' 'YMR063W']
+ ['YLR246W' 'YKL199C']
+ ['YPL258C' 'YLR411W']
+ ['YER093C' 'YKR038C']]
+Sorted Data: [['YDR023W' 'YPL104W' 1 36.21543]
+ ['YGR171C' 'YLR060W' 1 34.70686]
+ ['YGR264C' 'YPL104W' 1 33.332333]
+ ...
+ ['YOR316C' 'YDL006W' 0 -23.581015]
+ ['YPL193W' 'YDR069C' 0 -23.94463]
+ ['YER040W' 'YPR125W' 0 -25.599808]]
+Are we attempting to save
+Testing GO Term: GO:0006457 (20 / 53)
+[['YIL142W' 'YJL117W']
+ ['YBR072W' 'YPL106C']
+ ['YPL064C' 'YNL310C']
+ ['YDR304C' 'YAL058W']
+ ['YOR020C' 'YDR304C']]
+[['YMR179W' 'YML005W']
+ ['YMR076C' 'YPL193W']
+ ['YOR004W' 'YJL189W']
+ ['YOL042W' 'YJR109C']
+ ['YBR038W' 'YJR153W']]
+Sorted Data: [['YBR072W' 'YOR027W' 1 55.61665]
+ ['YNL077W' 'YBR101C' 1 50.10513]
+ ['YBL075C' 'YPL240C' 1 46.53527]
+ ...
+ ['YJL054W' 'YML104C' 0 -21.818684]
+ ['YNL025C' 'YGL089C' 0 -22.841234]
+ ['YMR173W' 'YJR025C' 0 -25.599834]]
+Are we attempting to save
+Testing GO Term: GO:0006468 (21 / 53)
+[['YBR160W' 'YPL031C']
+ ['YNL020C' 'YBL056W']
+ ['YOR061W' 'YLR079W']
+ ['YMR036C' 'YJL141C']
+ ['YLR113W' 'YGR188C']]
+[['YPL021W' 'YER161C']
+ ['YHR092C' 'YMR183C']
+ ['YLR109W' 'YCR063W']
+ ['YMR303C' 'YDL015C']
+ ['YJR150C' 'YGR088W']]
+Sorted Data: [['YOR267C' 'YGL180W' 1 32.99979]
+ ['YHR030C' 'YDR507C' 1 30.992188]
+ ['YPR120C' 'YJL141C' 1 30.108118]
+ ...
+ ['YGR085C' 'YHR013C' 0 -17.576237]
+ ['YDR145W' 'YNL117W' 0 -18.565895]
+ ['YKL024C' 'YPL231W' 0 -19.523336]]
+Are we attempting to save
+Testing GO Term: GO:0006470 (22 / 53)
+[['YBR045C' 'YOR014W']
+ ['YBR045C' 'YNL128W']
+ ['YBR045C' 'YPL179W']
+ ['YBR045C' 'YGR123C']
+ ['YBR045C' 'YLR361C']]
+[['YKR097W' 'YGL256W']
+ ['YDR283C' 'YMR186W']
+ ['YOR168W' 'YLR201C']
+ ['YKL186C' 'YCL024W']
+ ['YOL003C' 'YBR012W-B']]
+Sorted Data: [['YGR161C' 'YDR075W' 1 29.45847]
+ ['YNL128W' 'YOR090C' 1 26.437605]
+ ['YFR003C' 'YBR125C' 1 26.122004]
+ ...
+ ['YLR186W' 'YDR101C' 0 -13.555603]
+ ['YMR308C' 'YLR060W' 0 -14.047692]
+ ['YPL169C' 'YOL040C' 0 -14.381334]]
+Are we attempting to save
+Testing GO Term: GO:0006486 (23 / 53)
+[['YML115C' 'YKL200C']
+ ['YKL200C' 'YGL027C']
+ ['YNR030W' 'YGL027C']
+ ['YDR483W' 'YGL225W']
+ ['YBL020W' 'YGL226C-A']]
+[['YLL018C' 'YPR032W']
+ ['YLR145W' 'YGL222C']
+ ['YLR429W' 'YBR281C']
+ ['YBR114W' 'YPR134W']
+ ['YOR008C' 'YLR432W']]
+Sorted Data: [['YKL201C' 'YKL200C' 1 86.24823]
+ ['YMR101C' 'YDL095W' 1 32.524315]
+ ['YKL201C' 'YJL183W' 1 30.529305]
+ ...
+ ['YNL077W' 'YNL159C' 0 -34.20576]
+ ['YOR317W' 'YMR256C' 0 -34.78276]
+ ['YML100W' 'YML101C' 0 -36.435875]]
+Are we attempting to save
+Testing GO Term: GO:0006629 (24 / 53)
+[['YGR216C' 'YER005W']
+ ['YLR305C' 'YGR007W']
+ ['YNL156C' 'YDR213W']
+ ['YKR019C' 'YOR175C']
+ ['YHR073W' 'YJR073C']]
+[['YNL310C' 'YBR043C']
+ ['YFL023W' 'YNR048W']
+ ['YFL013C' 'YBR150C']
+ ['YGR004W' 'YBR085W']
+ ['YDR435C' 'YJR004C']]
+Sorted Data: [['YNR019W' 'YPR006C' 1 45.077396]
+ ['YJR073C' 'YBR042C' 1 38.202904]
+ ['YKR009C' 'YGL205W' 1 36.282215]
+ ...
+ ['YGR113W' 'YFR037C' 0 -16.62656]
+ ['YLR403W' 'YKL002W' 0 -23.127115]
+ ['YLR427W' 'YPL106C' 0 -24.635426]]
+Are we attempting to save
+Testing GO Term: GO:0006811 (25 / 53)
+[['YPL224C' 'YKR050W']
+ ['YCR021C' 'YJL133W']
+ ['YPR128C' 'YOR273C']
+ ['YHL016C' 'YDR270W']
+ ['YMR034C' 'YKR052C']]
+[['YDR403W' 'YBR286W']
+ ['YBR301W' 'YDL121C']
+ ['YJR066W' 'YLR377C']
+ ['YGR252W' 'YER005W']
+ ['YNR031C' 'YMR059W']]
+Sorted Data: [['YML081C-A' 'YDR377W' 1 45.198837]
+ ['YML081C-A' 'YKL016C' 1 38.742687]
+ ['YHL040C' 'YOR382W' 1 37.455566]
+ ...
+ ['YBR274W' 'YIR023W' 0 -16.513893]
+ ['YDR140W' 'YDL106C' 0 -17.599518]
+ ['YBR273C' 'YPL026C' 0 -20.154467]]
+Are we attempting to save
+Testing GO Term: GO:0006865 (26 / 53)
+[['YFL010W-A' 'YCL069W']
+ ['YFL010W-A' 'YCR075C']
+ ['YFL010W-A' 'YJL059W']
+ ['YFL010W-A' 'YGR142W']
+ ['YFL010W-A' 'YEL064C']]
+[['YIR005W' 'YJL065C']
+ ['YDR224C' 'YJR130C']
+ ['YGR120C' 'YGR103W']
+ ['YDR025W' 'YNL311C']
+ ['YGL259W' 'YBR248C']]
+Sorted Data: [['YFL010W-A' 'YFL011W-A' 1 131.84222]
+ ['YOR348C' 'YDR046C' 1 41.611694]
+ ['YMR088C' 'YDR508C' 1 37.09267]
+ ...
+ ['YER112W' 'YJL103C' 0 -17.923534]
+ ['YGL241W' 'YBL035C' 0 -17.991926]
+ ['YMR235C' 'YHL015W' 0 -21.733438]]
+Are we attempting to save
+Testing GO Term: GO:0006869 (27 / 53)
+[['YDL019C' 'YHR073W']
+ ['YDL019C' 'YBR041W']
+ ['YDL019C' 'YCR094W']
+ ['YDL019C' 'YPL006W']
+ ['YDL019C' 'YNL231C']]
+[['YHL047C' 'YNL149C']
+ ['YJR094W-A' 'YJR066W']
+ ['YCL048W-A' 'YPL141C']
+ ['YLR425W' 'YBL013W']
+ ['YDL039C' 'YCR107W']]
+Sorted Data: [['YAR044W' 'YAR042W' 1 116.83376]
+ ['YPL147W' 'YOR317W' 1 26.083273]
+ ['YMR246W' 'YOR317W' 1 25.222097]
+ ...
+ ['YLR007W' 'YGL003C' 0 -13.781499]
+ ['YKL015W' 'YGL050W' 0 -14.135791]
+ ['YJL095W' 'YKL001C' 0 -17.51928]]
+Are we attempting to save
+Testing GO Term: GO:0006873 (28 / 53)
+[['YOR061W' 'YJR040W']
+ ['YGL019W' 'YOR316C']
+ ['YDR328C' 'YHR194W']
+ ['YOL158C' 'YKL134C']
+ ['YKL190W' 'YHR039C-B']]
+[['YDR304C' 'YDR478W']
+ ['YNR019W' 'YPR194C']
+ ['YPL274W' 'YGL178W']
+ ['YER137C-A' 'YOR240W']
+ ['YAL021C' 'YGL185C']]
+Sorted Data: [['YMR105C' 'YGL006W' 1 37.989693]
+ ['YOR226C' 'YMR105C' 1 35.937614]
+ ['YKL040C' 'YMR105C' 1 34.64505]
+ ...
+ ['YDL197C' 'YER148W' 0 -16.73709]
+ ['YOL093W' 'YHR070W' 0 -16.775455]
+ ['YER165W' 'YMR285C' 0 -17.388988]]
+Are we attempting to save
+Testing GO Term: GO:0006887 (29 / 53)
+[['YDL019C' 'YHR073W']
+ ['YDL019C' 'YML099C']
+ ['YDL019C' 'YKR031C']
+ ['YDL019C' 'YNL079C']
+ ['YDL019C' 'YJL085W']]
+[['YGR063C' 'YNL286W']
+ ['YML012W' 'YLR359W']
+ ['YHR202W' 'YBR105C']
+ ['YEL013W' 'YBR005W']
+ ['YPL195W' 'YHR118C']]
+Sorted Data: [['YAR044W' 'YAR042W' 1 110.778946]
+ ['YDR122W' 'YDR164C' 1 28.972425]
+ ['YDL019C' 'YGL095C' 1 26.98337]
+ ...
+ ['YMR242C' 'YLR172C' 0 -18.038008]
+ ['YMR143W' 'YER126C' 0 -19.130365]
+ ['YNL110C' 'YBR183W' 0 -19.831003]]
+Are we attempting to save
+Testing GO Term: GO:0006897 (30 / 53)
+[['YDR490C' 'YPL004C']
+ ['YDR388W' 'YKR014C']
+ ['YPL145C' 'YDR177W']
+ ['YNL243W' 'YIL048W']
+ ['YIL048W' 'YDR177W']]
+[['YCL047C' 'YMR225C']
+ ['YNL223W' 'YPL171C']
+ ['YLR442C' 'YDR398W']
+ ['YML028W' 'YOL040C']
+ ['YDR067C' 'YMR184W']]
+Sorted Data: [['YAR044W' 'YAR042W' 1 116.31863]
+ ['YLR206W' 'YLR056W' 1 28.325644]
+ ['YDL019C' 'YKR014C' 1 26.198536]
+ ...
+ ['YHR197W' 'YKR062W' 0 -18.73523]
+ ['YLL008W' 'YIL153W' 0 -19.597546]
+ ['YHR133C' 'YGL189C' 0 -20.25793]]
+Are we attempting to save
+Testing GO Term: GO:0006970 (31 / 53)
+[['YER062C' 'YER089C']
+ ['YOR008C' 'YKL048C']
+ ['YMR175W' 'YMR109W']
+ ['YPL059W' 'YDL235C']
+ ['YIL153W' 'YMR109W']]
+[['YDL171C' 'YER015W']
+ ['YLR357W' 'YLR447C']
+ ['YDR268W' 'YGR239C']
+ ['YER052C' 'YDR425W']
+ ['YDR313C' 'YKR007W']]
+Sorted Data: [['YGR008C' 'YPL223C' 1 30.580849]
+ ['YER062C' 'YOR181W' 1 29.51058]
+ ['YDR129C' 'YOR297C' 1 29.399313]
+ ...
+ ['YPR060C' 'YNL188W' 0 -16.88664]
+ ['YLR288C' 'YNL314W' 0 -17.34899]
+ ['YLR425W' 'YFR047C' 0 -17.969778]]
+Are we attempting to save
+Testing GO Term: GO:0006979 (32 / 53)
+[['YLR011W' 'YDR011W']
+ ['YER174C' 'YPL188W']
+ ['YHR111W' 'YGR088W']
+ ['YKL056C' 'YLR109W']
+ ['YDR222W' 'YDL166C']]
+[['YKL088W' 'YNR028W']
+ ['YDR098C-B' 'YDL160C']
+ ['YOR299W' 'YNL020C']
+ ['YNL103W' 'YPL234C']
+ ['YPL120W' 'YOR228C']]
+Sorted Data: [['YMR250W' 'YPL091W' 1 44.86663]
+ ['YBR046C' 'YGR088W' 1 44.16048]
+ ['YDR353W' 'YGR088W' 1 43.101707]
+ ...
+ ['YPR031W' 'YPR008W' 0 -23.785036]
+ ['YJR068W' 'YKR008W' 0 -31.183346]
+ ['YHR039C-B' 'YHR039C-A' 0 -34.77441]]
+Are we attempting to save
+Testing GO Term: GO:0007005 (33 / 53)
+[['YLL006W' 'YKL013C']
+ ['YGR101W' 'YIL098C']
+ ['YFL039C' 'YGR029W']
+ ['YER017C' 'YOL076W']
+ ['YOR326W' 'YDR150W']]
+[['YBR097W' 'YFR031C-A']
+ ['YDR435C' 'YJR155W']
+ ['YLR309C' 'YBR066C']
+ ['YOR337W' 'YNR007C']
+ ['YDL060W' 'YMR032W']]
+Sorted Data: [['YJL112W' 'YLR163C' 1 36.01425]
+ ['YKL195W' 'YOR045W' 1 35.7806]
+ ['YJL180C' 'YDR393W' 1 34.49629]
+ ...
+ ['YGL071W' 'YIL056W' 0 -17.912748]
+ ['YMR105C' 'YLR099C' 0 -18.016588]
+ ['YOR377W' 'YDL021W' 0 -24.127005]]
+Are we attempting to save
+Testing GO Term: GO:0007010 (34 / 53)
+[['YDR389W' 'YAL016W']
+ ['YOL069W' 'YPR188C']
+ ['YMR198W' 'YFR036W']
+ ['YPR120C' 'YNL094W']
+ ['YOR127W' 'YML124C']]
+[['YNL291C' 'YMR201C']
+ ['YAL040C' 'YGR234W']
+ ['YAL007C' 'YDL140C']
+ ['YKR044W' 'YJL187C']
+ ['YDR087C' 'YMR123W']]
+Sorted Data: [['YNL110C' 'YGR268C' 1 30.70932]
+ ['YIL062C' 'YCR030C' 1 29.467045]
+ ['YPR154W' 'YGL061C' 1 28.730621]
+ ...
+ ['YPL160W' 'YDR045C' 0 -14.0320835]
+ ['YMR015C' 'YNL096C' 0 -16.060032]
+ ['YJL140W' 'YPR028W' 0 -16.289616]]
+Are we attempting to save
+Testing GO Term: GO:0007031 (35 / 53)
+[['YPL112C' 'YAL051W']
+ ['YPL112C' 'YIR004W']
+ ['YPL112C' 'YMR026C']
+ ['YPL112C' 'YDR265W']
+ ['YPL112C' 'YDL065C']]
+[['YOL042W' 'YJL112W']
+ ['YEL043W' 'YGR189C']
+ ['YHR136C' 'YMR115W']
+ ['YMR039C' 'YKL196C']
+ ['YML028W' 'YJL192C']]
+Sorted Data: [['YDR329C' 'YOR084W' 1 28.518309]
+ ['YHR150W' 'YDR479C' 1 27.114275]
+ ['YLR191W' 'YLR324W' 1 26.903854]
+ ...
+ ['YER017C' 'YMR131C' 0 -15.610638]
+ ['YLR276C' 'YOR206W' 0 -15.884266]
+ ['YMR243C' 'YIR026C' 0 -17.869143]]
+Are we attempting to save
+Testing GO Term: GO:0007033 (36 / 53)
+[['YOR068C' 'YBR109C']
+ ['YJL012C' 'YER072W']
+ ['YGL180W' 'YHR138C']
+ ['YCL063W' 'YIL138C']
+ ['YPL100W' 'YBR080C']]
+[['YLL011W' 'YLL035W']
+ ['YDR494W' 'YFL026W']
+ ['YPR131C' 'YHL004W']
+ ['YPL160W' 'YBR166C']
+ ['YLR244C' 'YBL026W']]
+Sorted Data: [['YJL012C-A' 'YJL012C' 1 74.0631]
+ ['YBL078C' 'YGL180W' 1 38.255543]
+ ['YOR332W' 'YGL180W' 1 30.417444]
+ ...
+ ['YJL140W' 'YBR198C' 0 -20.17954]
+ ['YNL081C' 'YGL068W' 0 -22.534626]
+ ['YJL033W' 'YKR055W' 0 -23.679567]]
+Are we attempting to save
+Testing GO Term: GO:0007059 (37 / 53)
+[['YBR156C' 'YPR141C']
+ ['YFR031C' 'YBL079W']
+ ['YNL262W' 'YMR198W']
+ ['YNL164C' 'YPL200W']
+ ['YML034W' 'YDR014W']]
+[['YGL183C' 'YNL166C']
+ ['YIL080W' 'YOR098C']
+ ['YMR040W' 'YBR177C']
+ ['YJR051W' 'YDR018C']
+ ['YOR110W' 'YBR193C']]
+Sorted Data: [['YIR025W' 'YAL034W-A' 1 30.518122]
+ ['YLR381W' 'YBR156C' 1 25.008568]
+ ['YIL026C' 'YIR011C' 1 24.607155]
+ ...
+ ['YPR160W' 'YOR065W' 0 -14.657347]
+ ['YJR009C' 'YAL038W' 0 -16.569843]
+ ['YAR044W' 'YAR042W' 0 -34.652496]]
+Are we attempting to save
+Testing GO Term: GO:0007124 (38 / 53)
+[['YER113C' 'YDR392W']
+ ['YER109C' 'YKL043W']
+ ['YOR127W' 'YNL001W']
+ ['YER149C' 'YMR016C']
+ ['YLR353W' 'YMR316W']]
+[['YOR142W-A' 'YOR037W']
+ ['YPR204W' 'YGL009C']
+ ['YMR006C' 'YNL102W']
+ ['YDL137W' 'YOR106W']
+ ['YPR106W' 'YLL048C']]
+Sorted Data: [['YLR313C' 'YLR312C-B' 1 184.62599]
+ ['YER108C' 'YER109C' 1 73.532394]
+ ['YKL048C' 'YLR083C' 1 26.88587]
+ ...
+ ['YGL171W' 'YDL097C' 0 -14.233658]
+ ['YPL202C' 'YOR076C' 0 -14.39958]
+ ['YIL155C' 'YDR416W' 0 -16.89991]]
+Are we attempting to save
+Testing GO Term: GO:0008033 (39 / 53)
+[['YNR015W' 'YOR243C']
+ ['YAL020C' 'YFL001W']
+ ['YML005W' 'YDL036C']
+ ['YPL083C' 'YOR274W']
+ ['YBR061C' 'YBL026W']]
+[['YLR425W' 'YLR239C']
+ ['YPR204W' 'YLR219W']
+ ['YBL034C' 'YMR112C']
+ ['YMR081C' 'YDL217C']
+ ['YBR193C' 'YKR038C']]
+Sorted Data: [['YMR059W' 'YJL035C' 1 32.700806]
+ ['YOL125W' 'YGR169C' 1 31.29481]
+ ['YNL062C' 'YDL112W' 1 31.27731]
+ ...
+ ['YMR105C' 'YBR208C' 0 -23.003393]
+ ['YCL051W' 'YGR088W' 0 -23.217533]
+ ['YOR071C' 'YPL106C' 0 -23.287302]]
+Are we attempting to save
+Testing GO Term: GO:0008380 (40 / 53)
+[['YNR011C' 'YJL133W']
+ ['YDR378C' 'YDL006W']
+ ['YKL173W' 'YBR022W']
+ ['YDR416W' 'YKL074C']
+ ['YDR240C' 'YGL174W']]
+[['YFR024C' 'YPL214C']
+ ['YGL135W' 'YGL127C']
+ ['YIL048W' 'YPL159C']
+ ['YDR117C' 'YDL097C']
+ ['YPL168W' 'YCL014W']]
+Sorted Data: [['YDR482C' 'YLR323C' 1 29.222416]
+ ['YBR119W' 'YDR473C' 1 27.193008]
+ ['YDR473C' 'YNL147W' 1 26.466099]
+ ...
+ ['YDR380W' 'YJR104C' 0 -21.587185]
+ ['YBR069C' 'YOR374W' 0 -22.974834]
+ ['YDR055W' 'YLR142W' 0 -25.707893]]
+Are we attempting to save
+Testing GO Term: GO:0008643 (41 / 53)
+[['YFR053C' 'YJR158W']
+ ['YFR053C' 'YNR072W']
+ ['YFR053C' 'YDL138W']
+ ['YFR053C' 'YDL245C']
+ ['YFR053C' 'YDR536W']]
+[['YGR292W' 'YNL050C']
+ ['YPL097W' 'YDR057W']
+ ['YDR304C' 'YDR337W']
+ ['YKR056W' 'YBR081C']
+ ['YNL045W' 'YDR130C']]
+Sorted Data: [['YDR343C' 'YDR342C' 1 107.49534]
+ ['YJR158W' 'YEL069C' 1 45.178516]
+ ['YJR158W' 'YDL245C' 1 40.38806]
+ ...
+ ['YOL142W' 'YCR030C' 0 -20.555119]
+ ['YBR142W' 'YDR245W' 0 -22.119694]
+ ['YOR340C' 'YAL059W' 0 -22.602505]]
+Are we attempting to save
+Testing GO Term: GO:0009408 (42 / 53)
+[['YOR008C' 'YFL014W']
+ ['YOR008C' 'YDL100C']
+ ['YOR008C' 'YKL062W']
+ ['YOR008C' 'YPL004C']
+ ['YOR008C' 'YHL028W']]
+[['YOR247W' 'YDR096W']
+ ['YDR481C' 'YKR020W']
+ ['YBR257W' 'YPR011C']
+ ['YJR009C' 'YDL211C']
+ ['YOR219C' 'YNL023C']]
+Sorted Data: [['YFL014W' 'YCL051W' 1 27.87973]
+ ['YGR086C' 'YPL087W' 1 25.76247]
+ ['YFL014W' 'YDL100C' 1 25.199242]
+ ...
+ ['YLR024C' 'YPL131W' 0 -14.201046]
+ ['YGL171W' 'YKL009W' 0 -15.834993]
+ ['YGL171W' 'YPL254W' 0 -17.303923]]
+Are we attempting to save
+Testing GO Term: GO:0009451 (43 / 53)
+[['YHR206W' 'YGR211W']
+ ['YGR211W' 'YDR165W']
+ ['YPL038W' 'YCL029C']
+ ['YOR061W' 'YGR024C']
+ ['YNL191W' 'YCR047C']]
+[['YDR410C' 'YKL145W']
+ ['YDR168W' 'YKR057W']
+ ['YJL190C' 'YLR347C']
+ ['YBR237W' 'YJR010C-A']
+ ['YDL056W' 'YGR047C']]
+Sorted Data: [['YDL227C' 'YML080W' 1 38.714985]
+ ['YER127W' 'YDR281C' 1 38.186832]
+ ['YPL252C' 'YOR243C' 1 34.68682]
+ ...
+ ['YBR231C' 'YER053C' 0 -28.376389]
+ ['YJL053W' 'YIL052C' 0 -28.489048]
+ ['YAR007C' 'YDR166C' 0 -32.467285]]
+Are we attempting to save
+Testing GO Term: GO:0016197 (44 / 53)
+[['YOR132W' 'YDR358W']
+ ['YOR132W' 'YDR456W']
+ ['YOR132W' 'YDR137W']
+ ['YOR132W' 'YHR108W']
+ ['YOR132W' 'YGR142W']]
+[['YGR129W' 'YOL093W']
+ ['YMR051C' 'YEL062W']
+ ['YOL070C' 'YPR166C']
+ ['YNL050C' 'YOR322C']
+ ['YER025W' 'YJL208C']]
+Sorted Data: [['YDR358W' 'YGR142W' 1 28.302683]
+ ['YDR358W' 'YDL113C' 1 26.363432]
+ ['YDR358W' 'YMR171C' 1 25.597357]
+ ...
+ ['YDL039C' 'YKL062W' 0 -21.516996]
+ ['YMR290C' 'YGL071W' 0 -22.447136]
+ ['YOL116W' 'YLR249W' 0 -22.794458]]
+Are we attempting to save
+Testing GO Term: GO:0032196 (45 / 53)
+[['YGR109W-B' 'YGL127C']
+ ['YHR214C-B' 'YML040W']
+ ['YKL149C' 'YDR210W-B']
+ ['YGR109W-A' 'YOL103W-B']
+ ['YLR035C-A' 'YMR046C']]
+[['YAL051W' 'YKL034W']
+ ['YLR427W' 'YNL046W']
+ ['YIL011W' 'YPR083W']
+ ['YAL015C' 'YDR074W']
+ ['YDL080C' 'YGR225W']]
+Sorted Data: [['YML040W' 'YBR012W-A' 1 31.820017]
+ ['YMR051C' 'YMR046C' 1 28.471014]
+ ['YJR028W' 'YMR046C' 1 28.017914]
+ ...
+ ['YPL215W' 'YMR198W' 0 -28.310879]
+ ['YDR487C' 'YDL149W' 0 -28.89589]
+ ['YBL087C' 'YML094W' 0 -31.705452]]
+Are we attempting to save
+Testing GO Term: GO:0032543 (46 / 53)
+[['YKL003C' 'YDR405W']
+ ['YBL038W' 'YKL170W']
+ ['YOR335C' 'YBR146W']
+ ['YHL004W' 'YOL023W']
+ ['YLR312W-A' 'YMR188C']]
+[['YOR091W' 'YLR160C']
+ ['YHR206W' 'YHR142W']
+ ['YER007C-A' 'YHR119W']
+ ['YPR168W' 'YFR041C']
+ ['YML092C' 'YMR218C']]
+Sorted Data: [['YOR158W' 'YKR085C' 1 49.07879]
+ ['YBL038W' 'YER050C' 1 47.694138]
+ ['YNL284C' 'YER050C' 1 46.127926]
+ ...
+ ['YMR049C' 'YDR022C' 0 -46.70828]
+ ['YOL127W' 'YPL123C' 0 -48.583935]
+ ['YER096W' 'YGR234W' 0 -55.36929]]
+Are we attempting to save
+Testing GO Term: GO:0042273 (47 / 53)
+[['YHR197W' 'YLR106C']
+ ['YOL144W' 'YHR066W']
+ ['YPR143W' 'YLR075W']
+ ['YOL080C' 'YMR229C']
+ ['YLR106C' 'YNL182C']]
+[['YNL231C' 'YGL220W']
+ ['YML006C' 'YHR008C']
+ ['YER023W' 'YGL241W']
+ ['YLR035C-A' 'YDR500C']
+ ['YER068W' 'YDR056C']]
+Sorted Data: [['YNL110C' 'YML073C' 1 43.015602]
+ ['YGR085C' 'YPR102C' 1 41.46859]
+ ['YLR009W' 'YDR101C' 1 41.122253]
+ ...
+ ['YGL030W' 'YIL046W' 0 -44.41397]
+ ['YDR120C' 'YJL057C' 0 -45.586823]
+ ['YDR064W' 'YPL123C' 0 -46.55383]]
+Are we attempting to save
+Testing GO Term: GO:0042274 (48 / 53)
+[['YHR021C' 'YGR081C']
+ ['YKL099C' 'YJL109C']
+ ['YDR064W' 'YCR058C']
+ ['YLR167W' 'YNL308C']
+ ['YHL015W' 'YOR287C']]
+[['YNR052C' 'YAL008W']
+ ['YML013W' 'YGR024C']
+ ['YGR178C' 'YCL027W']
+ ['YPL193W' 'YEL006W']
+ ['YBR031W' 'YDR011W']]
+Sorted Data: [['YMR269W' 'YMR268W-A' 1 115.24725]
+ ['YCR057C' 'YCR058C' 1 86.08716]
+ ['YCR057C' 'YCR055C' 1 86.08716]
+ ...
+ ['YJR021C' 'YNR020C' 0 -30.879543]
+ ['YDR377W' 'YGR161C' 0 -31.720833]
+ ['YGR142W' 'YHR132C' 0 -36.66069]]
+Are we attempting to save
+Testing GO Term: GO:0045333 (49 / 53)
+[['YJL200C' 'YPL061W']
+ ['YPL172C' 'YDR322W']
+ ['YLR067C' 'YNL185C']
+ ['YIL070C' 'YDR175C']
+ ['YCR005C' 'YLR439W']]
+[['YPR046W' 'YOR308C']
+ ['YOL144W' 'YFL029C']
+ ['YJR036C' 'YBR177C']
+ ['YOL123W' 'YER117W']
+ ['YOR232W' 'YAL016W']]
+Sorted Data: [['YPR191W' 'YHR051W' 1 53.83689]
+ ['YEL024W' 'YJR048W' 1 53.42152]
+ ['YDL067C' 'YPR191W' 1 51.114277]
+ ...
+ ['YOR247W' 'YBR121C' 0 -28.86051]
+ ['YER099C' 'YDL142C' 0 -30.199114]
+ ['YBR092C' 'YML056C' 0 -46.318172]]
+Are we attempting to save
+Testing GO Term: GO:0051321 (50 / 53)
+[['YBR082C' 'YHR079C-B']
+ ['YGL158W' 'YGL213C']
+ ['YDR059C' 'YLR234W']
+ ['YBR045C' 'YML032C']
+ ['YLL040C' 'YMR306W']]
+[['YGR204W' 'YHR118C']
+ ['YMR250W' 'YER185W']
+ ['YKL016C' 'YDR165W']
+ ['YOL142W' 'YIL101C']
+ ['YNL123W' 'YJR025C']]
+Sorted Data: [['YHR185C' 'YGL170C' 1 43.331432]
+ ['YMR017W' 'YDR096W' 1 37.43404]
+ ['YBR045C' 'YDR523C' 1 36.301823]
+ ...
+ ['YIR012W' 'YLR221C' 0 -14.272425]
+ ['YGR159C' 'YLR009W' 0 -15.45846]
+ ['YNR003C' 'YOL061W' 0 -15.730663]]
+Are we attempting to save
+Testing GO Term: GO:0051603 (51 / 53)
+[['YJR036C' 'YER125W']
+ ['YDR059C' 'YKL145W']
+ ['YER087C-A' 'YNL159C']
+ ['YER087C-A' 'YFL044C']
+ ['YML013W' 'YNL159C']]
+[['YMR297W' 'YJL083W']
+ ['YOR279C' 'YKL038W']
+ ['YLR381W' 'YNL262W']
+ ['YDR243C' 'YMR063W']
+ ['YOR002W' 'YOR254C']]
+Sorted Data: [['YOL038W' 'YOR259C' 1 39.26413]
+ ['YDR358W' 'YIR011C' 1 39.213978]
+ ['YDR358W' 'YIL075C' 1 37.57301]
+ ...
+ ['YGR138C' 'YMR292W' 0 -17.954426]
+ ['YKL060C' 'YIL145C' 0 -18.052563]
+ ['YCL064C' 'YJL012C' 0 -20.230282]]
+Are we attempting to save
+Testing GO Term: GO:0051726 (52 / 53)
+[['YLR238W' 'YGL190C']
+ ['YOL104C' 'YNL078W']
+ ['YDR168W' 'YPL200W']
+ ['YAL040C' 'YMR048W']
+ ['YOR249C' 'YFR036W']]
+[['YDR501W' 'YMR177W']
+ ['YEL006W' 'YJR140C']
+ ['YIL123W' 'YNL156C']
+ ['YOR297C' 'YPR071W']
+ ['YMR321C' 'YHR108W']]
+Sorted Data: [['YIL072W' 'YHR153C' 1 25.481295]
+ ['YDR207C' 'YJL013C' 1 24.514952]
+ ['YLR238W' 'YDR283C' 1 24.13991]
+ ...
+ ['YPR160W' 'YCR044C' 0 -11.672751]
+ ['YPR002W' 'YPL134C' 0 -12.245667]
+ ['YPR154W' 'YHR001W-A' 0 -12.6715355]]
+Are we attempting to save

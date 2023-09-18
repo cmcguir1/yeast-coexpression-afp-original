@@ -12,11 +12,11 @@ from random import sample
 import os
 
 class PairwiseModel():
-    def __init__(self,data,fold,structure,folderName,modelName,lr=0.01,momentum=0.9,batch=500,activation='relu',inputDrop=None,hiddenDrop=None,resetNet=False):
+    def __init__(self,fold,structure,folderName,modelName,lr=0.01,momentum=0.9,batch=500,activation='relu',inputDrop=None,hiddenDrop=None,resetNet=False,dataset='original',term='GO:0007005'):
         #Pass in PairwiseYeastData
-        self.data : PairwiseYeastData = data
-        #Get training and validation data from specified fold of data
-        self.posTrain, self.negTrain, self.posVal, self.negVal = data.getFold(fold)
+        foldFile=f'./Yeast Resources/Datasets/All Spell/{term[0:2]}{term[3:]}_Folds_Original_1.csv'
+        self.data : PairwiseYeastData = PairwiseYeastData(dataset=dataset,foldFile=foldFile)
+        self.posTrain, self.negTrain, self.posVal, self.negVal = self.data.getFold(fold)
 
         #Intializes network using number of input datasets and the specified hidden layer structure
         self.net = FlexNet(f'{len(self.data.datasets)}x{structure}',activation=activation,inputDrop=inputDrop,hiddenDrop=hiddenDrop)
@@ -24,14 +24,15 @@ class PairwiseModel():
         if os.path.exists(f'./Yeast Resources/Pairwise/{folderName}/{modelName}_{structure}_Net_fold{fold+1}.pth') and not(resetNet):
             self.net.load_state_dict(torch.load(self.networkLocation))
             print('Loaded Network from file')
-        #Determines device the network will train on, then moves network to that device
-        #self.device = 'cuda:0' if torch.cuda.is_available() else 'cpu'
-        self.device = 'cpu'
         
+        #Determines device the network will train on, then moves network to that device
+        self.device = 'cuda:0' if torch.cuda.is_available() else 'cpu'
         self.net.to(self.device)
+
 
         #Initializes loss function, Binary Cross Entropy loss
         self.lossFunc = nn.BCELoss()
+
         #Initializes optimizer variables and optimizer
         self.lr = lr
         self.momentum = momentum       
@@ -41,13 +42,10 @@ class PairwiseModel():
         self.batch = batch
         self.fold = fold
 
+
         lr_name = '' if lr == 0.001 else f'_lr{lr}'
         batch_name = '' if batch == 500 else f'_batch{batch}'
         momentum_name = '' if momentum == 0.9 else f'_momentum{momentum}'
-        
-
-        # input_name = ''.join(sorted(inputVector))
-        # output_name = ''.join(sorted(outputVector))
 
         #Locations to save files
         self.dataTableLocation = f'./Yeast Resources/Pairwise/{folderName}/{modelName}_{structure}{lr_name}{batch_name}{momentum_name}'
@@ -121,20 +119,12 @@ class PairwiseModel():
             np.random.shuffle(posPairs)
             if posProportion == 0:
                 posProportion = len(posPairs)
+            
             if(limitNegative):
                 np.random.shuffle(negPairs)
                 inputArray = np.concatenate((posPairs[0:posProportion],negPairs[0:int(len(posPairs)*negProportion)]))
             else:
                 inputArray = np.concatenate((posPairs[0:posProportion],negPairs))
-
-
-            #Create features and labels tensors, then move them both to the gpu
-            # features, labels = self.makeBatchTensors(inputArray,regularize=regularize)
-            # features = features.to(self.device)
-            # labels = labels.to(self.device)
-
-            #Feeds forward all of the validation data
-            # outputs = self.net(features.float(),test=True)
 
             
             outputsList = []
@@ -235,10 +225,7 @@ class PairwiseModel():
         if(save):
             dataFrame = pd.DataFrame(dataTable,columns=['Name','+/-','Folds','Score','True Positive', 'False Positive', 'True Negative', 'False Negative', 'Accuracy', 'Precision', 'Recall', 'False Positive Rate', 'Selectivity'])
             dataFrame.to_csv(f'{self.dataTableLocation}_{testingType}_fold{self.fold+1}.csv') 
-    
 
-
-                
 
 
 
@@ -271,19 +258,19 @@ class PairwiseModel():
             #Loops over all datasets
             for dataset in self.data.datasets:
                 #Calculates the correlation coefficient between the expresssion levels of the two genes in a given data set, [0,1] is used because corrcoeff returns a matrix
-                #p = dataset.customCorrelation(genePair)
                 p = self.data.corrDict.lookupCorrelation(genePair[0],genePair[1],dataset=dataset.dataFile)
-                #If p is 1 or -1, then there will be in error in arctanh, so make them 0.99 and -0.99
-                if p == 1:
-                    p = 0.99
-                elif p == -1:
-                    p = -0.99
-                if(regularize):
-                    correlations.append((np.arctanh(p) - dataset.mean)/dataset.std)
-                else:
-                    correlations.append(p)
-   
-            #Appends list of correlations to features list
+                correlations.append(p)
+
+                # #If p is 1 or -1, then there will be in error in arctanh, so make them 0.99 and -0.99
+                # if p == 1:
+                #     p = 0.99
+                # elif p == -1:
+                #     p = -0.99
+                # if(regularize):
+                #     correlations.append((np.arctanh(p) - dataset.mean)/dataset.std)
+                # else:
+                #     correlations.append(p)
+
             featuresList.append(correlations)
 
             if(genePair[0] in self.data.posDataSet and genePair[1] in self.data.posDataSet):

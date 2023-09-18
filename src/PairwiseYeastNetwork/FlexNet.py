@@ -50,12 +50,6 @@ class FlexNet(nn.Module):
             # self.layers.append(nn.parameter.Parameter(nn.Linear(int(sizes[i]),int(sizes[i+1]))))
 
     def forward(self,x,test=False):
-        # This commented out section comes from a pervious implementation of dropout
-        # 
-        # If testing, change the dropout layers to not dropout
-        # if(not(test)):
-        #     self.dropHidden = nn.Dropout(p=0.0)
-        #     self.dropInput = nn.Dropout(p=0.0)
         if(test):
             self.eval()
         else:

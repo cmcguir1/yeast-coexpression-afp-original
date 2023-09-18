@@ -1,0 +1,7 @@
+Used 2009 Datasets
+Initialized Expression Datasets
+Intersection: 0
+Initialized training and validation data
+Initialized Network
+./Yeast Resources/Pairwise/Spell/LossFunc_Redo/BCE_x_b_113x100x53_lr0.01_batch50_lfBCE_Train_/
+./Yeast Resources/Pairwise/Spell/LossFunc_Redo/BCE_x_b_113x100x53_lr0.01_batch50_lfBCE_Test_/

@@ -32,9 +32,10 @@ def main():
     # graph.feedForward(int(sys.argv[1]),saveAll=True)
     #graph.rankGenes()
 
-    graph = AllGoGraph(f'./Yeast Resources/Pairwise/Spell/Modern_bioPIXIE_Data/Modern_466x25000x53_Net_fold',f'466x25000x53','Modern_bioPIXIE_Data',ontologyDataset='modern',inputVector='xlpg')
+    graph = AllGoGraph(f'./Yeast Resources/Pairwise/Spell/BioProcessOnly/BioProcessOnly_113x25000x53_Net_fold',f'113x25000x53','BioProcOnly',ontologyDataset='original',inputVector='x')
     # graph.rankGenes()
-    graph.feedForward(int(sys.argv[1]),saveAll=True,runBatch=True)
+    # graph.feedForward(int(sys.argv[1]),saveAll=True,runBatch=True)
+    graph.makeGraph()
 
     
 

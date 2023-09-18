@@ -1,0 +1,4467 @@
+Used 2009 Datasets
+Initialized Expression Datasets
+Intersection: 0
+Initialized training and validation data
+Initialized Network
+Used Cross Entropy Loss Function
+./Yeast Resources/Pairwise/Spell/Batch_Test_Fixed/Control_x_b_113x2000x53_lr0.01_batch1_Train_/
+./Yeast Resources/Pairwise/Spell/Batch_Test_Fixed/Control_x_b_113x2000x53_lr0.01_batch1_Test_/
+100 Batch Cumulative Loss: 373.1574535369873
+Time for 100 Batches: 0.0016870299975077312
+100 Batch Cumulative Loss: 1202.8315936873332
+Time for 100 Batches: 0.019092440605163574
+100 Batch Cumulative Loss: 1736.439814173762
+Time for 100 Batches: 0.01894048849741618
+100 Batch Cumulative Loss: 1707.829801087064
+Time for 100 Batches: 0.01862694025039673
+100 Batch Cumulative Loss: 3584.0332515817136
+Time for 100 Batches: 0.01936660607655843
+100 Batch Cumulative Loss: 3277.967729873024
+Time for 100 Batches: 0.01944666306177775
+100 Batch Cumulative Loss: 6255.292847201072
+Time for 100 Batches: 0.01893308162689209
+100 Batch Cumulative Loss: 10759.8397526443
+Time for 100 Batches: 0.02052677075068156
+100 Batch Cumulative Loss: 14030.77567845583
+Time for 100 Batches: 0.020198619365692137
+100 Batch Cumulative Loss: 16132.838267574225
+Time for 100 Batches: 0.019109944502512615
+100 Batch Cumulative Loss: 20933.627808913177
+Time for 100 Batches: 0.019886040687561037
+100 Batch Cumulative Loss: 29430.327744245384
+Time for 100 Batches: 0.018426211675008138
+100 Batch Cumulative Loss: 90043.25480043888
+Time for 100 Batches: 0.019310386975606282
+100 Batch Cumulative Loss: 111693.06444238633
+Time for 100 Batches: 0.018864381313323974
+100 Batch Cumulative Loss: 101052.75222052704
+Time for 100 Batches: 0.019179701805114746
+100 Batch Cumulative Loss: 179090.88419783115
+Time for 100 Batches: 0.019390563170115154
+100 Batch Cumulative Loss: 235660.14213562012
+Time for 100 Batches: 0.01923451821009318
+100 Batch Cumulative Loss: 347219.37287044525
+Time for 100 Batches: 0.01946020523707072
+100 Batch Cumulative Loss: 381176.88767933846
+Time for 100 Batches: 0.01853899161020915
+100 Batch Cumulative Loss: 625492.8851648569
+Time for 100 Batches: 0.018956844011942545
+100 Batch Cumulative Loss: 908740.4642705917
+Time for 100 Batches: 0.019842668374379476
+100 Batch Cumulative Loss: 1206795.6075286865
+Time for 100 Batches: 0.019380887349446613
+100 Batch Cumulative Loss: 1801110.7349758148
+Time for 100 Batches: 0.01884627342224121
+100 Batch Cumulative Loss: 2160125.6115927696
+Time for 100 Batches: 0.01961046059926351
+100 Batch Cumulative Loss: 3305597.8434963226
+Time for 100 Batches: 0.01957591374715169
+100 Batch Cumulative Loss: 4163310.843287945
+Time for 100 Batches: 0.019213744004567466
+100 Batch Cumulative Loss: 7063538.452764662
+Time for 100 Batches: 0.01969529390335083
+100 Batch Cumulative Loss: 8124101.130289555
+Time for 100 Batches: 0.019269855817159016
+100 Batch Cumulative Loss: 13264535.839040995
+Time for 100 Batches: 0.019236870606740317
+100 Batch Cumulative Loss: 23430074.67138672
+Time for 100 Batches: 0.01974221467971802
+100 Batch Cumulative Loss: 19088938.422641516
+Time for 100 Batches: 0.019608648618062337
+100 Batch Cumulative Loss: 23218004.867601275
+Time for 100 Batches: 0.018992523352305096
+100 Batch Cumulative Loss: 25619555.298217773
+Time for 100 Batches: 0.019233644008636475
+100 Batch Cumulative Loss: 55297525.09423828
+Time for 100 Batches: 0.019836326440175373
+100 Batch Cumulative Loss: 54557554.94658393
+Time for 100 Batches: 0.019837133089701333
+100 Batch Cumulative Loss: 98994521.390625
+Time for 100 Batches: 0.02013415495554606
+100 Batch Cumulative Loss: 152339148.2504955
+Time for 100 Batches: 0.019188316663106282
+100 Batch Cumulative Loss: 147429897.99365234
+Time for 100 Batches: 0.01953157186508179
+100 Batch Cumulative Loss: 369787709.39404297
+Time for 100 Batches: 0.01995241641998291
+100 Batch Cumulative Loss: 436875549.7438832
+Time for 100 Batches: 0.02033236026763916
+100 Batch Cumulative Loss: 508065256.53573805
+Time for 100 Batches: 0.020204087098439533
+100 Batch Cumulative Loss: 726829745.8845215
+Time for 100 Batches: 0.019197869300842284
+100 Batch Cumulative Loss: 881661149.75
+Time for 100 Batches: 0.0192248264948527
+100 Batch Cumulative Loss: 1343617773.868459
+Time for 100 Batches: 0.019226173559824627
+100 Batch Cumulative Loss: 1783186643.5778174
+Time for 100 Batches: 0.020657638708750408
+100 Batch Cumulative Loss: 2497445575.4375
+Time for 100 Batches: 0.019997902711232505
+100 Batch Cumulative Loss: 3680617860.2679768
+Time for 100 Batches: 0.01983323891957601
+100 Batch Cumulative Loss: 7293241622.875
+Time for 100 Batches: 0.01977791388829549
+100 Batch Cumulative Loss: 5749538108.644531
+Time for 100 Batches: 0.020674161116282144
+100 Batch Cumulative Loss: 8467387753.0
+Time for 100 Batches: 0.0194991668065389
+100 Batch Cumulative Loss: 22451482469.0
+Time for 100 Batches: 0.018817631403605144
+100 Batch Cumulative Loss: 19637830720.625
+Time for 100 Batches: 0.019376925627390542
+100 Batch Cumulative Loss: 31940849235.77832
+Time for 100 Batches: 0.019437734285990396
+100 Batch Cumulative Loss: 37625565967.65204
+Time for 100 Batches: 0.020225123564402262
+100 Batch Cumulative Loss: 43313727352.984375
+Time for 100 Batches: 0.01992811361948649
+100 Batch Cumulative Loss: 77972471425.94687
+Time for 100 Batches: 0.019631294409434
+100 Batch Cumulative Loss: 100558319534.0
+Time for 100 Batches: 0.019525579611460366
+100 Batch Cumulative Loss: 128150801169.75
+Time for 100 Batches: 0.019318846861521403
+100 Batch Cumulative Loss: 133610479144.25
+Time for 100 Batches: 0.02035915454228719
+100 Batch Cumulative Loss: 250906013920.07812
+Time for 100 Batches: 0.019252026081085206
+100 Batch Cumulative Loss: 463438516206.17365
+Time for 100 Batches: 0.01932638088862101
+100 Batch Cumulative Loss: 470028935320.1411
+Time for 100 Batches: 0.019528611501057943
+100 Batch Cumulative Loss: 614582316978.0
+Time for 100 Batches: 0.02031235694885254
+100 Batch Cumulative Loss: 910120164146.5059
+Time for 100 Batches: 0.018585169315338136
+100 Batch Cumulative Loss: 1147482042024.0
+Time for 100 Batches: 0.020321420828501382
+100 Batch Cumulative Loss: 1535825989655.3037
+Time for 100 Batches: 0.01957342227300008
+100 Batch Cumulative Loss: 2058253939037.25
+Time for 100 Batches: 0.01870638132095337
+100 Batch Cumulative Loss: 3043302947440.0
+Time for 100 Batches: 0.019309171040852866
+100 Batch Cumulative Loss: 4281765478147.671
+Time for 100 Batches: 0.018443826834360758
+100 Batch Cumulative Loss: 9470404157071.967
+Time for 100 Batches: 0.020058985551198324
+100 Batch Cumulative Loss: 6919597145987.753
+Time for 100 Batches: 0.019208439191182456
+100 Batch Cumulative Loss: 7623178137472.0
+Time for 100 Batches: 0.019380752245585123
+100 Batch Cumulative Loss: 12953637106026.926
+Time for 100 Batches: 0.01932311455408732
+100 Batch Cumulative Loss: 21962887011674.855
+Time for 100 Batches: 0.020153204600016277
+100 Batch Cumulative Loss: 26358447595967.96
+Time for 100 Batches: 0.019075838724772136
+100 Batch Cumulative Loss: 32433091622656.0
+Time for 100 Batches: 0.019232666492462157
+100 Batch Cumulative Loss: 35741589221120.0
+Time for 100 Batches: 0.020436851183573405
+100 Batch Cumulative Loss: 46651023001312.0
+Time for 100 Batches: 0.019378817081451415
+100 Batch Cumulative Loss: 74516387617536.0
+Time for 100 Batches: 0.019743720690409344
+100 Batch Cumulative Loss: 199258108409856.0
+Time for 100 Batches: 0.019314805666605633
+100 Batch Cumulative Loss: 239706579979859.5
+Time for 100 Batches: 0.01859662135442098
+100 Batch Cumulative Loss: 279807361444864.0
+Time for 100 Batches: 0.01958630879720052
+100 Batch Cumulative Loss: 409023948687604.6
+Time for 100 Batches: 0.019710532824198403
+100 Batch Cumulative Loss: 617133241585504.0
+Time for 100 Batches: 0.020058679580688476
+100 Batch Cumulative Loss: 708651171384922.8
+Time for 100 Batches: 0.019102307160695393
+100 Batch Cumulative Loss: 849810302694976.0
+Time for 100 Batches: 0.0193406343460083
+100 Batch Cumulative Loss: 1089982760353792.0
+Time for 100 Batches: 0.019651575883229574
+100 Batch Cumulative Loss: 1785741413218304.0
+Time for 100 Batches: 0.02000257174173991
+100 Batch Cumulative Loss: 2628082132680704.0
+Time for 100 Batches: 0.018749153614044188
+100 Batch Cumulative Loss: 4433862653640704.0
+Time for 100 Batches: 0.02013477881749471
+100 Batch Cumulative Loss: 5809192543085828.0
+Time for 100 Batches: 0.02011243502298991
+100 Batch Cumulative Loss: 8317475072114688.0
+Time for 100 Batches: 0.01885141134262085
+100 Batch Cumulative Loss: 7994220985212928.0
+Time for 100 Batches: 0.019743939240773518
+100 Batch Cumulative Loss: 1.5640984513904676e+16
+Time for 100 Batches: 0.020411479473114013
+100 Batch Cumulative Loss: 1.7606539969232854e+16
+Time for 100 Batches: 0.019665761788686117
+100 Batch Cumulative Loss: 2.837312682671296e+16
+Time for 100 Batches: 0.019505417346954344
+100 Batch Cumulative Loss: 4.263567428681728e+16
+Time for 100 Batches: 0.019845386346181233
+100 Batch Cumulative Loss: 5.688051921074534e+16
+Time for 100 Batches: 0.019915401935577393
+100 Batch Cumulative Loss: 7.930420945334477e+16
+Time for 100 Batches: 0.02062718868255615
+100 Batch Cumulative Loss: 8.649457325975757e+16
+Time for 100 Batches: 0.020145805676778157
+100 Batch Cumulative Loss: 1.2874698924648038e+17
+Time for 100 Batches: 0.01926875114440918
+100 Batch Cumulative Loss: 2.7673459306528768e+17
+Time for 100 Batches: 0.019586014747619628
+100 Batch Cumulative Loss: 4.199189296646267e+17
+Time for 100 Batches: 0.01925666332244873
+100 Batch Cumulative Loss: 5.6951634400169165e+17
+Time for 100 Batches: 0.019627559185028075
+100 Batch Cumulative Loss: 6.455360601582387e+17
+Time for 100 Batches: 0.019145095348358156
+100 Batch Cumulative Loss: 5.399630605853655e+17
+Time for 100 Batches: 0.019841670989990234
+100 Batch Cumulative Loss: 1.377960269389103e+18
+Time for 100 Batches: 0.01991238594055176
+100 Batch Cumulative Loss: 1.3309611796164116e+18
+Time for 100 Batches: 0.01929858128229777
+100 Batch Cumulative Loss: 1.5323071165306962e+18
+Time for 100 Batches: 0.019014402230580648
+100 Batch Cumulative Loss: 2.962131523194585e+18
+Time for 100 Batches: 0.021251126130421957
+100 Batch Cumulative Loss: 3.0005393281663534e+18
+Time for 100 Batches: 0.019201401869455972
+100 Batch Cumulative Loss: 3.951955113823323e+18
+Time for 100 Batches: 0.020040881633758546
+100 Batch Cumulative Loss: 5.491819041802682e+18
+Time for 100 Batches: 0.01930321455001831
+100 Batch Cumulative Loss: 5.601647938976612e+18
+Time for 100 Batches: 0.01863788366317749
+100 Batch Cumulative Loss: 1.0740017094478266e+19
+Time for 100 Batches: 0.019405635197957356
+100 Batch Cumulative Loss: 1.060793228543918e+19
+Time for 100 Batches: 0.019388302167256673
+100 Batch Cumulative Loss: 2.060939777887804e+19
+Time for 100 Batches: 0.02015522321065267
+100 Batch Cumulative Loss: 1.9231478297699287e+19
+Time for 100 Batches: 0.01892920732498169
+100 Batch Cumulative Loss: 4.944918633434631e+19
+Time for 100 Batches: 0.026638344923655192
+100 Batch Cumulative Loss: 8.631451658432073e+19
+Time for 100 Batches: 0.019799224535624185
+100 Batch Cumulative Loss: 1.2547600129230006e+20
+Time for 100 Batches: 0.019632204373677572
+100 Batch Cumulative Loss: 2.1328768290211994e+20
+Time for 100 Batches: 0.019121428330739338
+100 Batch Cumulative Loss: 2.3277688475607682e+20
+Time for 100 Batches: 0.019473397731781007
+100 Batch Cumulative Loss: 3.0762876802528235e+20
+Time for 100 Batches: 0.019873595237731932
+100 Batch Cumulative Loss: 4.95649371478607e+20
+Time for 100 Batches: 0.020281414190928142
+100 Batch Cumulative Loss: 4.993060769776722e+20
+Time for 100 Batches: 0.019381995995839438
+100 Batch Cumulative Loss: 7.898037979630168e+20
+Time for 100 Batches: 0.01912290652592977
+100 Batch Cumulative Loss: 1.0826294816705096e+21
+Time for 100 Batches: 0.01937865416208903
+100 Batch Cumulative Loss: 1.6634321788673196e+21
+Time for 100 Batches: 0.01971755822499593
+100 Batch Cumulative Loss: 2.529867307207482e+21
+Time for 100 Batches: 0.018136088053385416
+100 Batch Cumulative Loss: 3.4006051471860926e+21
+Time for 100 Batches: 0.02002867857615153
+100 Batch Cumulative Loss: 4.2376455362158925e+21
+Time for 100 Batches: 0.018737709522247313
+100 Batch Cumulative Loss: 6.746766593420949e+21
+Time for 100 Batches: 0.020124804973602296
+100 Batch Cumulative Loss: 1.6886602588776785e+22
+Time for 100 Batches: 0.01892741918563843
+100 Batch Cumulative Loss: 1.4044816753439627e+22
+Time for 100 Batches: 0.019541633129119874
+100 Batch Cumulative Loss: 2.3987519634772857e+22
+Time for 100 Batches: 0.01940918763478597
+100 Batch Cumulative Loss: 2.745504052588122e+22
+Time for 100 Batches: 0.019038212299346925
+100 Batch Cumulative Loss: 3.3469004762134163e+22
+Time for 100 Batches: 0.01903862158457438
+100 Batch Cumulative Loss: 6.510271221250853e+22
+Time for 100 Batches: 0.019599545001983642
+100 Batch Cumulative Loss: 1.010355289539098e+23
+Time for 100 Batches: 0.020398831367492674
+100 Batch Cumulative Loss: 1.6681415136311457e+23
+Time for 100 Batches: 0.020101523399353026
+100 Batch Cumulative Loss: 1.9093742103767595e+23
+Time for 100 Batches: 0.01968215306599935
+100 Batch Cumulative Loss: 2.9701254147816153e+23
+Time for 100 Batches: 0.02032738526662191
+100 Batch Cumulative Loss: 4.5790407266383074e+23
+Time for 100 Batches: 0.019860458374023438
+100 Batch Cumulative Loss: 4.520369915169794e+23
+Time for 100 Batches: 0.019175255298614503
+100 Batch Cumulative Loss: 6.275300401502442e+23
+Time for 100 Batches: 0.019630757967631023
+100 Batch Cumulative Loss: 5.704436806543725e+23
+Time for 100 Batches: 0.019283791383107502
+100 Batch Cumulative Loss: 9.146924050226087e+23
+Time for 100 Batches: 0.02020400365193685
+100 Batch Cumulative Loss: 1.5635445898342757e+24
+Time for 100 Batches: 0.019443249702453612
+100 Batch Cumulative Loss: 3.27203963613197e+24
+Time for 100 Batches: 0.019823364416758218
+100 Batch Cumulative Loss: 3.153867232119571e+24
+Time for 100 Batches: 0.019586825370788576
+100 Batch Cumulative Loss: 5.40106378034321e+24
+Time for 100 Batches: 0.01886301835378011
+100 Batch Cumulative Loss: 6.590339851200089e+24
+Time for 100 Batches: 0.018967262903849282
+100 Batch Cumulative Loss: 7.759529236340697e+24
+Time for 100 Batches: 0.02004376252492269
+100 Batch Cumulative Loss: 1.1300698703502255e+25
+Time for 100 Batches: 0.019160139560699462
+100 Batch Cumulative Loss: 7.054846528923548e+25
+Time for 100 Batches: 0.01918962796529134
+100 Batch Cumulative Loss: 8.189228313046669e+25
+Time for 100 Batches: 0.020379336675008138
+100 Batch Cumulative Loss: 7.874038923643969e+25
+Time for 100 Batches: 0.019089301427205402
+100 Batch Cumulative Loss: 8.964252161782388e+25
+Time for 100 Batches: 0.018410948912302653
+100 Batch Cumulative Loss: 1.31302916208406e+26
+Time for 100 Batches: 0.019968020915985107
+100 Batch Cumulative Loss: 2.9548238362921844e+26
+Time for 100 Batches: 0.019648849964141846
+100 Batch Cumulative Loss: 2.8953342199512545e+26
+Time for 100 Batches: 0.019913852214813232
+100 Batch Cumulative Loss: 6.065891514752191e+26
+Time for 100 Batches: 0.019585283597310384
+100 Batch Cumulative Loss: 7.876732838388523e+26
+Time for 100 Batches: 0.01951002279917399
+100 Batch Cumulative Loss: 1.3744087340606074e+27
+Time for 100 Batches: 0.018427844842274985
+100 Batch Cumulative Loss: 1.540688878365243e+27
+Time for 100 Batches: 0.01912293831507365
+100 Batch Cumulative Loss: 1.6509842619043689e+27
+Time for 100 Batches: 0.018932604789733888
+100 Batch Cumulative Loss: 2.5585253463704254e+27
+Time for 100 Batches: 0.018897199630737306
+100 Batch Cumulative Loss: 2.553877234312722e+27
+Time for 100 Batches: 0.019030455748240152
+100 Batch Cumulative Loss: 3.4062511284393864e+27
+Time for 100 Batches: 0.01917134126027425
+100 Batch Cumulative Loss: 7.05556201430012e+27
+Time for 100 Batches: 0.020106879870096843
+100 Batch Cumulative Loss: 1.2365638521044165e+28
+Time for 100 Batches: 0.020309833685557048
+100 Batch Cumulative Loss: 9.23255857682507e+27
+Time for 100 Batches: 0.01979723374048869
+100 Batch Cumulative Loss: 1.4324254817073221e+28
+Time for 100 Batches: 0.019499993324279784
+100 Batch Cumulative Loss: 1.544970640814454e+28
+Time for 100 Batches: 0.019111426671346028
+100 Batch Cumulative Loss: 3.674733450017511e+28
+Time for 100 Batches: 0.01910626490910848
+100 Batch Cumulative Loss: 5.226961387666043e+28
+Time for 100 Batches: 0.018763744831085206
+100 Batch Cumulative Loss: 6.652947914355581e+28
+Time for 100 Batches: 0.018775661786397297
+100 Batch Cumulative Loss: 6.546288141514226e+28
+Time for 100 Batches: 0.01912507216135661
+100 Batch Cumulative Loss: 8.986609577772513e+28
+Time for 100 Batches: 0.018950517972310385
+100 Batch Cumulative Loss: 1.8811804532203322e+29
+Time for 100 Batches: 0.018980419635772704
+100 Batch Cumulative Loss: 2.1000124768293073e+29
+Time for 100 Batches: 0.01900904973347982
+100 Batch Cumulative Loss: 1.91338211920159e+29
+Time for 100 Batches: 0.019093879063924155
+100 Batch Cumulative Loss: 2.442236286641827e+29
+Time for 100 Batches: 0.019182312488555908
+100 Batch Cumulative Loss: 2.593595104641423e+29
+Time for 100 Batches: 0.019139695167541503
+100 Batch Cumulative Loss: 4.313743747906578e+29
+Time for 100 Batches: 0.019837542374928793
+100 Batch Cumulative Loss: 6.301117639037555e+29
+Time for 100 Batches: 0.019483502705891928
+100 Batch Cumulative Loss: 9.222903039639216e+29
+Time for 100 Batches: 0.01940730810165405
+100 Batch Cumulative Loss: 1.2683128913835117e+30
+Time for 100 Batches: 0.01964033842086792
+100 Batch Cumulative Loss: 1.2668838951790278e+30
+Time for 100 Batches: 0.019723498821258546
+100 Batch Cumulative Loss: 1.605459631386438e+30
+Time for 100 Batches: 0.019109153747558595
+100 Batch Cumulative Loss: 2.0823005877809972e+30
+Time for 100 Batches: 0.01946258544921875
+100 Batch Cumulative Loss: 2.807378213693674e+30
+Time for 100 Batches: 0.019288257757822672
+100 Batch Cumulative Loss: 3.784567653810532e+30
+Time for 100 Batches: 0.01937721570332845
+100 Batch Cumulative Loss: 5.542263187929868e+30
+Time for 100 Batches: 0.01931737263997396
+100 Batch Cumulative Loss: 7.011267653622918e+30
+Time for 100 Batches: 0.019582462310791016
+100 Batch Cumulative Loss: 9.692507913232851e+30
+Time for 100 Batches: 0.019596922397613525
+100 Batch Cumulative Loss: 1.297465856198335e+31
+Time for 100 Batches: 0.020115423202514648
+100 Batch Cumulative Loss: 1.0747240265943838e+31
+Time for 100 Batches: 0.019223129749298094
+100 Batch Cumulative Loss: 1.394910812179008e+31
+Time for 100 Batches: 0.018628780047098795
+100 Batch Cumulative Loss: 4.416709577666911e+31
+Time for 100 Batches: 0.019459386666615803
+100 Batch Cumulative Loss: 4.422775154686525e+31
+Time for 100 Batches: 0.019378530979156493
+100 Batch Cumulative Loss: 6.918627889686877e+31
+Time for 100 Batches: 0.01961370309193929
+100 Batch Cumulative Loss: 9.926884733169907e+31
+Time for 100 Batches: 0.0196244478225708
+100 Batch Cumulative Loss: 1.1419007974723021e+32
+Time for 100 Batches: 0.020690421263376873
+100 Batch Cumulative Loss: 1.791372296462694e+32
+Time for 100 Batches: 0.019654560089111327
+100 Batch Cumulative Loss: 1.8834561774297697e+32
+Time for 100 Batches: 0.01959779659907023
+100 Batch Cumulative Loss: 4.6193234650532484e+32
+Time for 100 Batches: 0.019631739457448324
+100 Batch Cumulative Loss: 6.3321272895217684e+32
+Time for 100 Batches: 0.019000681241353352
+100 Batch Cumulative Loss: 1.5465300110158724e+33
+Time for 100 Batches: 0.01977248986562093
+100 Batch Cumulative Loss: 1.4367228381290355e+33
+Time for 100 Batches: 0.02006423075993856
+100 Batch Cumulative Loss: 1.634932569625578e+33
+Time for 100 Batches: 0.020050243536631266
+100 Batch Cumulative Loss: 2.09716639504188e+33
+Time for 100 Batches: 0.020227885246276854
+100 Batch Cumulative Loss: 2.6304815326170593e+33
+Time for 100 Batches: 0.020490070184071858
+100 Batch Cumulative Loss: 5.246141603499661e+33
+Time for 100 Batches: 0.018882222970326743
+100 Batch Cumulative Loss: 5.112601862398399e+33
+Time for 100 Batches: 0.01974344253540039
+100 Batch Cumulative Loss: 1.4937856320142997e+34
+Time for 100 Batches: 0.019575182596842447
+100 Batch Cumulative Loss: 1.2727030674271413e+34
+Time for 100 Batches: 0.019872426986694336
+100 Batch Cumulative Loss: 2.865850399190214e+34
+Time for 100 Batches: 0.0190183957417806
+100 Batch Cumulative Loss: 1.8488331529600688e+34
+Time for 100 Batches: 0.01918269395828247
+100 Batch Cumulative Loss: 4.688192088900182e+34
+Time for 100 Batches: 0.01854208707809448
+100 Batch Cumulative Loss: 7.969026026659945e+34
+Time for 100 Batches: 0.018539377053578696
+100 Batch Cumulative Loss: 8.241341650553203e+34
+Time for 100 Batches: 0.01882705291112264
+100 Batch Cumulative Loss: 1.3566805675792392e+35
+Time for 100 Batches: 0.01970593531926473
+100 Batch Cumulative Loss: 1.2044351281026283e+35
+Time for 100 Batches: 0.019972407817840578
+100 Batch Cumulative Loss: 2.5100780352089023e+35
+Time for 100 Batches: 0.01929982900619507
+100 Batch Cumulative Loss: 3.822304096346929e+35
+Time for 100 Batches: 0.01897725264231364
+100 Batch Cumulative Loss: 4.260313257049706e+35
+Time for 100 Batches: 0.019022019704182942
+100 Batch Cumulative Loss: 4.740138391768533e+35
+Time for 100 Batches: 0.01905359427134196
+100 Batch Cumulative Loss: 7.055998492893355e+35
+Time for 100 Batches: 0.01987078587214152
+100 Batch Cumulative Loss: 1.003594654902265e+36
+Time for 100 Batches: 0.019207402070363363
+100 Batch Cumulative Loss: 2.0051266257230766e+36
+Time for 100 Batches: 0.019721563657124838
+100 Batch Cumulative Loss: 3.1330423014839e+36
+Time for 100 Batches: 0.020250749588012696
+100 Batch Cumulative Loss: 3.5194221720820805e+36
+Time for 100 Batches: 0.01873955726623535
+100 Batch Cumulative Loss: 4.976304709888396e+36
+Time for 100 Batches: 0.01980594793955485
+100 Batch Cumulative Loss: 6.348832469831776e+36
+Time for 100 Batches: 0.019718011220296223
+100 Batch Cumulative Loss: 1.0123646105631999e+37
+Time for 100 Batches: 0.01902346611022949
+100 Batch Cumulative Loss: 1.5582407002303504e+37
+Time for 100 Batches: 0.019788312911987304
+100 Batch Cumulative Loss: 1.661266566753711e+37
+Time for 100 Batches: 0.019517787297566733
+100 Batch Cumulative Loss: 2.164351564775123e+37
+Time for 100 Batches: 0.01897056500116984
+100 Batch Cumulative Loss: 4.479298967437143e+37
+Time for 100 Batches: 0.01849356492360433
+100 Batch Cumulative Loss: 8.36698906000377e+37
+Time for 100 Batches: 0.018463162581125896
+100 Batch Cumulative Loss: 9.915843362627904e+37
+Time for 100 Batches: 0.019496226310729982
+100 Batch Cumulative Loss: 1.0049173475207285e+38
+Time for 100 Batches: 0.01919018030166626
+100 Batch Cumulative Loss: 2.0409555838292e+38
+Time for 100 Batches: 0.01928486426671346
+100 Batch Cumulative Loss: 1.750421590116438e+38
+Time for 100 Batches: 0.01989400784174601
+100 Batch Cumulative Loss: 2.1109506240312435e+38
+Time for 100 Batches: 0.020033995310465496
+100 Batch Cumulative Loss: 2.9342322748158516e+38
+Time for 100 Batches: 0.020066237449645995
+100 Batch Cumulative Loss: 3.804942274075159e+38
+Time for 100 Batches: 0.019300528367360435
+100 Batch Cumulative Loss: 4.6441691020302404e+38
+Time for 100 Batches: 0.019509836037953695
+100 Batch Cumulative Loss: 4.42727609242978e+38
+Time for 100 Batches: 0.019229352474212646
+100 Batch Cumulative Loss: 4.7222975853848455e+38
+Time for 100 Batches: 0.019226956367492675
+100 Batch Cumulative Loss: 6.5412949147794616e+38
+Time for 100 Batches: 0.01925923824310303
+100 Batch Cumulative Loss: 1.0154429987637088e+39
+Time for 100 Batches: 0.01871796449025472
+100 Batch Cumulative Loss: 1.0939332341956204e+39
+Time for 100 Batches: 0.019645941257476807
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019623589515686036
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.020142233371734618
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01990576982498169
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01946721076965332
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019003387292226157
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019885337352752684
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019521403312683105
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01946732997894287
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.020288920402526854
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019824965794881185
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019264225165049234
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019140660762786865
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.018549799919128418
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019399901231129963
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019805113474527996
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.018816439310709636
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019434348742167155
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019015189011891684
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.018988430500030518
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.018461898962656657
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01965949535369873
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019461941719055176
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.018772427241007486
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019740204016367596
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01914283831914266
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01837212642033895
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01872426668802897
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019726216793060303
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.020372362931569417
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.018671131134033202
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019430140654246014
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.018966094652811686
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.018893996874491375
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.018863757451375324
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.018950359026590983
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01923055648803711
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.018242367108662925
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01957403024037679
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.018747719128926595
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.018896321455637615
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01848945617675781
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019264578819274902
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019530228773752847
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.018704458077748617
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019956743717193602
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019141840934753417
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.020334041118621825
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.018754001458485922
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019654138882954916
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019258328278859458
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.0196111798286438
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019060166676839192
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01808561086654663
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.018951292832692465
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01928074359893799
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01916178862253825
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.018376453717549642
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.0192643404006958
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.0195213516553243
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019628254572550456
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019326825936635334
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01886965036392212
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019034544626871746
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.018860646088918052
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.018678434689839683
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.018367866675059002
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019059967994689942
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01869347890218099
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019087207317352296
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.020078933238983153
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019771885871887208
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.018696137269337974
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01892800728480021
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019035343329111734
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01974672476450602
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.018970497449239097
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019866482416788737
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.018164177735646565
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019398486614227294
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01944187084833781
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019395089149475096
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.018425341447194418
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01891281207402547
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01963976224263509
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01831424633661906
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01886907418568929
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019981618722279867
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019417949517567954
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01825136343638102
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01906659205754598
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01967678467432658
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019371175765991212
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01884696880976359
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01956088145573934
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019014811515808104
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.018921407063802083
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.0186631441116333
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01937840779622396
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.018634692827860514
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019845048586527508
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019195687770843507
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01907444397608439
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019133265813191733
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.018145402272542317
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.018738134702046712
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.018484147389729817
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.018282294273376465
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01929468313852946
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01818541685740153
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01920972267786662
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01829262971878052
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019540417194366454
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.02009611129760742
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.018966937065124513
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01952508290608724
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019517366091410318
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019767566521962484
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019086829821268716
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01932324965794881
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019039936860402427
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019878609975179037
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.018856151898701986
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01940667231877645
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01970318555831909
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019054563840230306
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019451653957366942
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.018684987227121988
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019616607824961343
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.020085354646046955
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019403239091237385
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019121352831522623
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.0189546267191569
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019152283668518066
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.020007661978403726
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019158327579498292
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019275744756062824
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01893606185913086
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01845541795094808
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019020636876424152
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.02026514212290446
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01936074495315552
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01942954460779826
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019605990250905356
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019071304798126222
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019702541828155517
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019004011154174806
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019092277685801188
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019022615750630696
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01831065813700358
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019025909900665283
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.018825105826059976
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01874961853027344
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.018597221374511717
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019715321063995362
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019522639115651448
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.018730207284291586
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019115146001180014
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.020496793588002524
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.018275944391886394
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019432242711385092
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01817479928334554
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019093565146128335
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.018626725673675536
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01922676960627238
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019578222433725992
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01904590129852295
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.018233521779378255
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019584246476491294
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.018472941716512044
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01919037103652954
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019223368167877196
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01955912113189697
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.020216508706410726
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.018425484498341877
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01888208786646525
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019382516543070476
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.018472953637441
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01986581881841024
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01879795789718628
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01884869337081909
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019038176536560057
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.018826587994893392
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019088669617970785
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01973599592844645
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.017782243092854817
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.018140618006388345
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019546282291412354
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019116775194803873
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.018434115250905356
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.018307173252105714
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.018750333786010744
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01960693597793579
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01962858041127523
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019357724984486898
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01898791790008545
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01948489745457967
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.018610421816507974
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019558183352152505
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01832121213277181
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01954302390416463
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.020016833146413168
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.018329139550526938
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01925821304321289
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.018304038047790527
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01929837465286255
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01872121493021647
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01856303612391154
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01965255339940389
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019489085674285887
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01855356295903524
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01925999720891317
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.018473589420318605
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019614807764689126
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.018996151288350423
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019013861815134685
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.018677695592244466
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01870040496190389
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019366347789764406
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01829621394475301
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019359461466471353
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01864707867304484
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019304867585500082
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.018757545948028566
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01834770441055298
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.018406959374745686
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.018930586179097493
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.018355131149291992
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019701747099558513
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.018620753288269044
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.018147695064544677
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.018811511993408202
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01908278465270996
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.018736863136291505
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.0199800173441569
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019601341088612875
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019315783182779947
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.018739986419677734
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01844511032104492
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01933565139770508
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.02003269592920939
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019282774130503336
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01971323092778524
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01890043020248413
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.018991986910502117
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019171273708343504
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01944365898768107
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.018306541442871093
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01910956303278605
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019815870126088462
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019484575589497885
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.017696821689605714
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01871367692947388
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01935046116511027
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019105136394500732
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019428586959838866
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019261109828948974
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.018686262766520183
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.018800973892211914
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019691781202952067
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019133126735687254
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019523493448893228
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019043970108032226
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01963397264480591
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019246033827463784
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019393742084503174
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.018770142396291097
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019831462701161703
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019899022579193116
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01955415407816569
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01923480033874512
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01960493326187134
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019232165813446046
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01978913148244222
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019817455609639486
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.020081432660420735
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.018876814842224122
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019781764348347983
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019051460425059
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.018831344445546468
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.018924347559611
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01886875629425049
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01998226245244344
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019556709130605063
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019325749079386393
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019498753547668456
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01846786340077718
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019587957859039308
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01833414634068807
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019441020488739014
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019308499495188394
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01951686938603719
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01887138287226359
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.021428839365641276
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.018390937646230062
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01946713924407959
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.018587096532185873
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.018873882293701173
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01883457104365031
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019693970680236816
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01892191171646118
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019200992584228516
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01896042823791504
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.018688011169433593
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019022417068481446
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019322466850280762
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.018068099021911622
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.018920330206553142
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01812132199605306
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01924527883529663
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01947762171427409
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019938353697458902
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.018989769617716472
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019498765468597412
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019472177823384604
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.018704712390899658
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.017619613806406656
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.018619378407796223
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.018788611888885497
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.018842228253682456
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019408802191416424
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01817527214686076
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019206480185190836
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01857756773630778
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019069023927052817
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019341603914896647
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019286040465037027
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.0192733367284139
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019099998474121093
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019018371899922688
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019433975219726562
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.018860057989756266
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01893547773361206
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01910395622253418
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.018375293413798014
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019212472438812255
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.018915081024169923
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019522178173065185
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01955065329869588
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.018870178858439127
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01783962647120158
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01875719626744588
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.020176708698272705
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01855306625366211
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019438143571217856
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019085319836934407
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019416757424672446
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.018971701463063557
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019329909483591715
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019743804136912027
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.018920755386352538
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.020636594295501708
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019402416547139485
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01886003017425537
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019370822111765544
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.018295816580454507
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01931964953740438
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.018333184719085693
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019392430782318115
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019000923633575438
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019706563154856364
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.0182994802792867
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01998159885406494
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019619997342427573
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019419209162394205
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.020504883925120034
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019611759980519613
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01991380055745443
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.018287197748819987
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.018540445963541666
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01943894624710083
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019941413402557374
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019933005174001057
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019705021381378175
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.018493751684824627
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019509665171305337
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.018811094760894775
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.0192752997080485
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019322951634724934
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.018785429000854493
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019725290934244792
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.018990707397460938
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019764129320780435
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01886486609776815
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.025300967693328857
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01922150452931722
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01961490313212077
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01909333070119222
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01966443459192912
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.018852647145589194
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019742647806803387
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019273916880289715
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.020077927907307943
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01956705649693807
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019679816563924153
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.018362394968668618
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019510761896769205
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01962206761042277
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.018459069728851318
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.018554814656575522
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01870657205581665
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01884376605351766
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01938175360361735
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01845969756444295
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019308908780415853
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.0191387136777242
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01851035753885905
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019533042112986246
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019005032380421956
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019401999314626057
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019358595212300617
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019167943795522054
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.0183180570602417
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.018185762564341228
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.018223957220713297
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.018052093187967935
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019378014405568442
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019379949569702147
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01964331070582072
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.018640307585398357
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01993345022201538
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01843207279841105
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019195977846781412
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019386919339497884
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.018815481662750246
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.017910762627919515
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01927136182785034
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.018583699067433675
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01981487274169922
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.018869900703430177
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019449186325073243
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01913563013076782
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019772001107533774
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01960604190826416
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019518625736236573
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.0193596084912618
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01961961587270101
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.018671158949534097
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.018990476926167805
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019675981998443604
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.018645989894866943
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.018498551845550538
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01929332415262858
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019396825631459554
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01949697732925415
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019225581487019857
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01861263910929362
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019671873251597086
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019186552365620932
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.018705145517985026
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019494426250457764
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019039106369018555
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019491787751515707
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019982516765594482
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.020356285572052
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019498900572458903
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019476826985677084
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01881036361058553
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.018742024898529053
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019604392846425376
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019627189636230467
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.018991812070210775
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01937875747680664
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019315818945566814
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01821988821029663
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019191316763559976
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019574101765950522
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01999128262201945
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01838667392730713
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.018566020329793296
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.018418566385904948
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01943560838699341
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019298303127288818
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01883145570755005
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.018531640370686848
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01843130588531494
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01878466606140137
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019949456055959065
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.018984071413675942
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019354426860809328
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.018850167592366535
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01943265994389852
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019348323345184326
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01925274133682251
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019592801729838055
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019556864102681478
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.018694929281870522
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.018850481510162352
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.018755233287811278
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019920798142751057
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.020020933945973714
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01948495308558146
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019058223565419516
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019928292433420817
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019814836978912353
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.018645071983337404
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019223697980244956
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019125568866729736
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.018969190120697022
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01917155981063843
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01854050556818644
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019148274262746175
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.02042050361633301
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01958149274190267
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019008235136667887
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019762595494588215
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019361432393391928
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019445935885111492
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01936254898707072
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.018784491221110027
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.018882409731547038
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019667073090871175
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01933278242746989
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01846564213434855
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01861071983973185
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01940305233001709
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01893637975056966
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01939414342244466
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019346992174784344
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.020122992992401122
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019516817728678384
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.018285008271535237
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019410693645477296
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.018665015697479248
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019040366013844807
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.018310614426930747
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.018783986568450928
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01891422669092814
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01946549415588379
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.018999767303466798
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01847765843073527
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019509891668955486
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01932260990142822
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.018600805600484212
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01859070857365926
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.018258174260457356
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.0182803471883138
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01927423079808553
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019457189242045085
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019126733144124348
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.018501245975494386
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019109265009562174
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01831396818161011
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.020111489295959472
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01923360824584961
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01889305909474691
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.018507874011993407
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019248727957407633
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01882826487223307
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01965326468149821
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01842259963353475
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.018408048152923583
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.018439082304636638
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019662237167358397
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.018655784924825034
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019044331709543862
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01930654843648275
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.018058915932973225
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01925434668858846
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.0205402135848999
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.018472087383270264
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019036356608072916
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01923361619313558
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01879729429880778
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.018610493342081705
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019388353824615477
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019247535864512125
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.018566930294036867
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.018437794844309487
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.018598079681396484
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019492030143737793
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019561684131622313
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019292147954305013
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01890285809834798
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01838252544403076
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01916631857554118
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.0193295160929362
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019128270943959556
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.018960440158843996
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01920667092005412
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01849284569422404
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.018551055590311685
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.018655240535736084
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019496635595957438
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019045464197794595
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01857215960820516
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.018814865748087564
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019878244400024413
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019481356938680014
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.020383024215698244
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.018113160133361818
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019495252768198648
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01844969590504964
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019127873579661052
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01884063482284546
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01908155679702759
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019765814145406086
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.018116839726765952
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01936826705932617
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019252641995747884
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01942942142486572
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.018749690055847167
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019382055600484213
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.0195587158203125
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019688344001770018
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01873116890589396
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.018616978327433267
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01835471789042155
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01930864651997884
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019386700789133706
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01874963045120239
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.018808213869730632
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019529978434244793
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.018701926867167155
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01943336327870687
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.018408870697021483
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01965178648630778
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.018959319591522215
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.017874757448832195
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019832444190979005
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01917785406112671
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.017956233024597167
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019792763392130534
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019785352547963462
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01900062561035156
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.0197907288869222
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.020618645350138347
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019480359554290772
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019833807150522867
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01892462174097697
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.0202475905418396
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.018735456466674804
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019166878859202065
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019347774982452392
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019197404384613037
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01867905855178833
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01963067054748535
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019135987758636473
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019840717315673828
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019105215867360432
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019681962331136067
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019465001424153645
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01867777109146118
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01995025873184204
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01935864289601644
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.020053438345591226
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01972045103708903
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.02023242712020874
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01913383404413859
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.018952838579813638
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019558393955230714
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.020124924182891846
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.018957893053690594
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019109908739725748
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.018520132700602213
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019733917713165284
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019249955813090008
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.018872042496999104
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.018627878030141196
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019664875666300454
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.018810816605885825
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019126602013905845
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019546258449554443
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.0196052352587382
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01977993647257487
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.018712679545084637
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01952195962270101
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01837894121805827
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01890339454015096
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019348510106404624
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.018786871433258058
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.018765823046366373
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01903065840403239
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.018119959036509196
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019431193669637043
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.020410966873168946
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.018552605311075845
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.018835373719533286
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019096076488494873
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.0183453639348348
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.0197549303372701
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019555226961771647
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.020153876145680746
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.0190888245900472
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019181851545969644
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019421541690826417
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.018533504009246825
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019830719629923502
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.018692660331726074
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01927528778711955
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01907037099202474
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019152351220448813
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.02033144235610962
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01963460842768351
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019073752562204997
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01976768175760905
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.018850048383076985
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01845170259475708
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019423429171244302
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019323118527730308
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.018818898995717367
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01943294604619344
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.018550777435302736
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019863168398539226
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019218409061431886
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.018622795740763348
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.018942924340566
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.018220182259877524
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01971445083618164
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019424696763356526
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019643890857696533
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.018948829174041747
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01886358658472697
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019019830226898193
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.018535161018371583
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.018983662128448486
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01931107441584269
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01922676165898641
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01880859136581421
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01888925234476725
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019140756130218504
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019049827257792154
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01890718936920166
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.018931269645690918
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.018193364143371582
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01889573335647583
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.017957615852355956
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019356409708658855
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01914052168528239
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.018631478150685627
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01966139078140259
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.018856585025787354
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019964981079101562
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.018564836184183756
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.017735111713409423
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019017457962036133
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01984747648239136
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019745337963104247
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01832925875981649
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019395732879638673
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.018734685579935708
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019195830821990965
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01949633757273356
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.01947023073832194
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019461512565612793
+100 Batch Cumulative Loss: nan
+Time for 100 Batches: 0.019104766845703124
+Began Testing the Network
+Testing GO Term: GO:0000054 (0 / 53)
+[['YJL010C' 'YGL099W']
+ ['YJL010C' 'YIL063C']
+ ['YJL010C' 'YDR267C']
+ ['YJL010C' 'YGL097W']
+ ['YJL010C' 'YLR022C']]
+[['YML064C' 'YER146W']
+ ['YOR298C-A' 'YML065W']
+ ['YCR017C' 'YPL088W']
+ ['YPR183W' 'YER166W']
+ ['YBR073W' 'YHR141C']]
+Sorted Data: [['YDR143C' 'YNL270C' 0 nan]
+ ['YPL016W' 'YGR287C' 0 nan]
+ ['YGL250W' 'YIR013C' 0 nan]
+ ['YLR275W' 'YIL065C' 0 nan]
+ ['YGL121C' 'YPL270W' 0 nan]
+ ['YNL257C' 'YLL005C' 0 nan]
+ ['YCL011C' 'YGL133W' 0 nan]
+ ['YML110C' 'YCR033W' 0 nan]
+ ['YOR095C' 'YIL015W' 0 nan]
+ ['YJL145W' 'YHL018W' 0 nan]
+ ['YAR008W' 'YNL083W' 0 nan]
+ ['YBR298C' 'YLR355C' 0 nan]
+ ['YER094C' 'YOR171C' 0 nan]
+ ['YKR010C' 'YGR157W' 0 nan]
+ ['YCL030C' 'YKL018W' 0 nan]
+ ['YFL034C-A' 'YMR029C' 0 nan]
+ ['YOL119C' 'YNL241C' 0 nan]
+ ['YBR126C' 'YPL016W' 0 nan]
+ ['YBR077C' 'YOR303W' 0 nan]
+ ['YAR050W' 'YHR191C' 0 nan]
+ ['YCL011C' 'YKL120W' 0 nan]
+ ['YMR079W' 'YOL001W' 0 nan]
+ ['YAL009W' 'YHR128W' 0 nan]
+ ['YKR098C' 'YDL159W' 0 nan]
+ ['YBR127C' 'YGL029W' 0 nan]
+ ['YLR132C' 'YHR007C' 0 nan]
+ ['YMR079W' 'YOR007C' 0 nan]
+ ['YKR080W' 'YJL020C' 0 nan]
+ ['YER169W' 'YDR316W' 0 nan]
+ ['YKR013W' 'YER144C' 0 nan]
+ ['YDL002C' 'YGR163W' 0 nan]
+ ['YLL005C' 'YGR041W' 0 nan]
+ ['YNL323W' 'YPL029W' 0 nan]
+ ['YIR013C' 'YBL018C' 0 nan]
+ ['YMR113W' 'YDR099W' 0 nan]
+ ['YMR030W' 'YJL036W' 0 nan]
+ ['YEL055C' 'YJR044C' 0 nan]
+ ['YEL063C' 'YOR336W' 0 nan]
+ ['YKL008C' 'YBR083W' 0 nan]
+ ['YJR152W' 'YNL224C' 0 nan]
+ ['YML019W' 'YBR229C' 0 nan]
+ ['YDR446W' 'YJL099W' 0 nan]
+ ['YBL002W' 'YOR030W' 0 nan]
+ ['YML064C' 'YGR183C' 0 nan]
+ ['YCR017C' 'YPL088W' 0 nan]
+ ['YOR298C-A' 'YML065W' 0 nan]
+ ['YML064C' 'YER146W' 0 nan]
+ ['YGL097W' 'YLR022C' 1 nan]
+ ['YDR267C' 'YLR022C' 1 nan]
+ ['YDR267C' 'YGL097W' 1 nan]
+ ['YIL063C' 'YLR022C' 1 nan]
+ ['YIL063C' 'YGL097W' 1 nan]
+ ['YIL063C' 'YDR267C' 1 nan]
+ ['YGL099W' 'YLR022C' 1 nan]
+ ['YGL099W' 'YGL097W' 1 nan]
+ ['YGL099W' 'YDR267C' 1 nan]
+ ['YGL099W' 'YIL063C' 1 nan]
+ ['YJL010C' 'YLR022C' 1 nan]
+ ['YJL010C' 'YGL097W' 1 nan]
+ ['YJL010C' 'YDR267C' 1 nan]
+ ['YJL010C' 'YIL063C' 1 nan]
+ ['YPR183W' 'YER166W' 0 nan]
+ ['YBR073W' 'YHR141C' 0 nan]
+ ['YNL329C' 'YOR339C' 0 nan]
+ ['YEL063C' 'YDL153C' 0 nan]
+ ['YDL049C' 'YKL127W' 0 nan]
+ ['YDR104C' 'YIR007W' 0 nan]
+ ['YKL112W' 'YDL064W' 0 nan]
+ ['YNL037C' 'YOR028C' 0 nan]
+ ['YOR058C' 'YGL175C' 0 nan]
+ ['YIR013C' 'YDR382W' 0 nan]
+ ['YHR034C' 'YLR002C' 0 nan]
+ ['YLR262C' 'YNL125C' 0 nan]
+ ['YKL027W' 'YMR030W' 0 nan]
+ ['YGL208W' 'YBR088C' 0 nan]
+ ['YAL005C' 'YKL012W' 0 nan]
+ ['YGR049W' 'YIL050W' 0 nan]
+ ['YDR182W' 'YBR201W' 0 nan]
+ ['YLR393W' 'YNL106C' 0 nan]
+ ['YOR118W' 'YDR208W' 0 nan]
+ ['YNL299W' 'YIL010W' 0 nan]
+ ['YKL027W' 'YGL131C' 0 nan]
+ ['YML131W' 'YBL046W' 0 nan]
+ ['YBL067C' 'YLR178C' 0 nan]
+ ['YMR214W' 'YDR316W' 0 nan]
+ ['YLR035C' 'YOR171C' 0 nan]
+ ['YER157W' 'YDL214C' 0 nan]
+ ['YNR023W' 'YNL002C' 0 nan]
+ ['YIL127C' 'YBL067C' 0 nan]
+ ['YMR202W' 'YPL255W' 0 nan]
+ ['YBL040C' 'YER119C' 0 nan]
+ ['YJL092W' 'YPL088W' 0 nan]
+ ['YER146W' 'YKL127W' 0 nan]
+ ['YBR298C' 'YML008C' 0 nan]
+ ['YDL226C' 'YGR284C' 0 nan]
+ ['YDR016C' 'YLR066W' 0 nan]
+ ['YMR113W' 'YPL162C' 0 nan]
+ ['YDR214W' 'YGR209C' 0 nan]
+ ['YOR144C' 'YPL086C' 0 nan]
+ ['YDR202C' 'YDR180W' 0 nan]
+ ['YKL163W' 'YPL005W' 0 nan]
+ ['YGR038C-A' 'YPL072W' 0 nan]
+ ['YBR290W' 'YPL057C' 0 nan]
+ ['YHR032W' 'YML065W' 0 nan]
+ ['YHR063C' 'YJR113C' 0 nan]
+ ['YGR038W' 'YJL092W' 0 nan]
+ ['YCR024C-A' 'YGL133W' 0 nan]
+ ['YKL027W' 'YKL046C' 0 nan]
+ ['YEL020C' 'YHR102W' 0 nan]
+ ['YLL036C' 'YKR018C' 0 nan]
+ ['YOR255W' 'YBR070C' 0 nan]
+ ['YHL007C' 'YNR073C' 0 nan]
+ ['YCR027C' 'YJR105W' 0 nan]
+ ['YPL152W' 'YNR039C' 0 nan]
+ ['YOR153W' 'YNR075W' 0 nan]
+ ['YGL065C' 'YMR271C' 0 nan]
+ ['YMR263W' 'YGR261C' 0 nan]
+ ['YNL126W' 'YLR368W' 0 nan]
+ ['YKR013W' 'YML123C' 0 nan]
+ ['YHL022C' 'YMR164C' 0 nan]
+ ['YER048C' 'YNL124W' 0 nan]
+ ['YIL114C' 'YNL279W' 0 nan]
+ ['YNL299W' 'YIL044C' 0 nan]
+ ['YOR371C' 'YML022W' 0 nan]
+ ['YHR098C' 'YDR180W' 0 nan]
+ ['YLR376C' 'YCR043C' 0 nan]
+ ['YGR133W' 'YDL132W' 0 nan]
+ ['YKL112W' 'YLR399C' 0 nan]
+ ['YPL246C' 'YJL091C' 0 nan]
+ ['YDR311W' 'YNR056C' 0 nan]
+ ['YDR006C' 'YJL151C' 0 nan]
+ ['YPR101W' 'YER042W' 0 nan]
+ ['YIL015W' 'YMR167W' 0 nan]
+ ['YKR081C' 'YJR095W' 0 nan]
+ ['YDL232W' 'YPR185W' 0 nan]
+ ['YER006W' 'YNL087W' 0 nan]
+ ['YPL164C' 'YLR071C' 0 nan]
+ ['YNL252C' 'YLR399C' 0 nan]
+ ['YDR316W' 'YOR360C' 0 nan]
+ ['YDL194W' 'YGL160W' 0 nan]
+ ['YBL009W' 'YDL165W' 0 nan]
+ ['YMR236W' 'YOL034W' 0 nan]
+ ['YNL300W' 'YLR431C' 0 nan]
+ ['YLR372W' 'YHL020C' 0 nan]
+ ['YER119C' 'YLR319C' 0 nan]
+ ['YLR084C' 'YHR123W' 0 nan]
+ ['YPR201W' 'YDL066W' 0 nan]
+ ['YOL001W' 'YCR003W' 0 nan]
+ ['YNR039C' 'YGL187C' 0 nan]
+ ['YCL010C' 'YPL012W' 0 nan]
+ ['YGR192C' 'YKL139W' 0 nan]
+ ['YBR217W' 'YKR001C' 0 nan]
+ ['YER119C' 'YBL004W' 0 nan]
+ ['YIL085C' 'YJR056C' 0 nan]
+ ['YNL072W' 'YNR032W' 0 nan]
+ ['YCR066W' 'YAL014C' 0 nan]
+ ['YPL268W' 'YCL019W' 0 nan]
+ ['YPR066W' 'YLR362W' 0 nan]
+ ['YIL103W' 'YLR089C' 0 nan]
+ ['YGL065C' 'YJR077C' 0 nan]
+ ['YGR192C' 'YLR242C' 0 nan]
+ ['YHL007C' 'YMR164C' 0 nan]
+ ['YML007W' 'YKR029C' 0 nan]
+ ['YHR018C' 'YGL008C' 0 nan]
+ ['YJL010C' 'YGL099W' 1 nan]]
+Are we attempting to save
+Testing GO Term: GO:0000278 (1 / 53)
+[['YFL009W' 'YHR115C']
+ ['YJL018W' 'YNL299W']
+ ['YNL299W' 'YCR008W']
+ ['YJL018W' 'YDL064W']
+ ['YJL076W' 'YOR198C']]
+[['YPL009C' 'YDR143C']
+ ['YHR134W' 'YDL049C']
+ ['YDR522C' 'YDR208W']
+ ['YPL241C' 'YER011W']
+ ['YPR023C' 'YJL002C']]
+Sorted Data: [['YER141W' 'YBL005W-A' 0 nan]
+ ['YCL062W' 'YJR014W' 0 nan]
+ ['YLR116W' 'YIL067C' 0 nan]
+ ...
+ ['YLR262C' 'YCR023C' 0 nan]
+ ['YHR121W' 'YCR070W' 0 nan]
+ ['YFL009W' 'YHR115C' 1 nan]]
+Are we attempting to save
+Testing GO Term: GO:0000747 (2 / 53)
+[['YPL256C' 'YJR090C']
+ ['YPL256C' 'YIL117C']
+ ['YPL256C' 'YGR059W']
+ ['YPL256C' 'YHL007C']
+ ['YPL256C' 'YJL018W']]
+[['YIL114C' 'YHR166C']
+ ['YML078W' 'YJL093C']
+ ['YDR385W' 'YBR244W']
+ ['YLR320W' 'YNL106C']
+ ['YJR056C' 'YOR058C']]
+Sorted Data: [['YPR025C' 'YER001W' 0 nan]
+ ['YML064C' 'YOR003W' 0 nan]
+ ['YDR216W' 'YCR097W' 0 nan]
+ ...
+ ['YGR038C-B' 'YLR089C' 0 nan]
+ ['YLL054C' 'YKL148C' 0 nan]
+ ['YPL256C' 'YJR090C' 1 nan]]
+Are we attempting to save
+Testing GO Term: GO:0001403 (3 / 53)
+[['YHL007C' 'YBL016W']
+ ['YHL007C' 'YDL159W']
+ ['YHL007C' 'YGL208W']
+ ['YHL007C' 'YOR371C']
+ ['YHL007C' 'YMR116C']]
+[['YNL075W' 'YGL187C']
+ ['YML131W' 'YGR278W']
+ ['YER006W' 'YGR087C']
+ ['YNL124W' 'YOR303W']
+ ['YIR035C' 'YAL047C']]
+Sorted Data: [['YDL188C' 'YOR028C' 0 nan]
+ ['YIL085C' 'YML111W' 0 nan]
+ ['YER157W' 'YLL036C' 0 nan]
+ ...
+ ['YOR003W' 'YGR289C' 0 nan]
+ ['YOR094W' 'YER004W' 0 nan]
+ ['YHL007C' 'YBL016W' 1 nan]]
+Are we attempting to save
+Testing GO Term: GO:0002181 (4 / 53)
+[['YIL103W' 'YBL071W-A']]
+[['YCR097W' 'YER074W-A']
+ ['YDR261C-C' 'YGR249W']
+ ['YIL049W' 'YMR268C']
+ ['YLR034C' 'YML126C']
+ ['YKR098C' 'YCR066W']]
+Sorted Data: [['YML029W' 'YER042W' 0 nan]
+ ['YDR147W' 'YGR013W' 0 nan]
+ ['YDR267C' 'YJR077C' 0 nan]
+ ['YNL264C' 'YCL026C-A' 0 nan]
+ ['YHR123W' 'YOR140W' 0 nan]
+ ['YKR098C' 'YCR066W' 0 nan]
+ ['YLR034C' 'YML126C' 0 nan]
+ ['YIL049W' 'YMR268C' 0 nan]
+ ['YDR261C-C' 'YGR249W' 0 nan]
+ ['YCR097W' 'YER074W-A' 0 nan]
+ ['YIL103W' 'YBL071W-A' 1 nan]]
+Are we attempting to save
+Testing GO Term: GO:0006260 (5 / 53)
+[['YOL094C' 'YOL146W']
+ ['YOL094C' 'YNL072W']
+ ['YOL094C' 'YIL066C']
+ ['YOL094C' 'YPL055C']
+ ['YOL094C' 'YKL113C']]
+[['YGR033C' 'YER073W']
+ ['YMR167W' 'YBL071W-A']
+ ['YDR261C-C' 'YHR152W']
+ ['YCR020W-B' 'YIL129C']
+ ['YGR096W' 'YER011W']]
+Sorted Data: [['YBR235W' 'YCR071C' 0 nan]
+ ['YML123C' 'YEL009C' 0 nan]
+ ['YCL033C' 'YHR050W' 0 nan]
+ ...
+ ['YPL211W' 'YMR014W' 0 nan]
+ ['YGR108W' 'YLR229C' 0 nan]
+ ['YOL094C' 'YOL146W' 1 nan]]
+Are we attempting to save
+Testing GO Term: GO:0006281 (6 / 53)
+[['YJR043C' 'YDR079C-A']
+ ['YMR190C' 'YLL036C']
+ ['YJR043C' 'YBR098W']
+ ['YPL164C' 'YKL113C']
+ ['YKL113C' 'YDR225W']]
+[['YBR083W' 'YOR339C']
+ ['YIL015W' 'YLL042C']
+ ['YEL034W' 'YDR485C']
+ ['YMR030W' 'YGR041W']
+ ['YDR365W-B' 'YOR256C']]
+Sorted Data: [['YOL128C' 'YNL222W' 0 nan]
+ ['YMR135C' 'YDR522C' 0 nan]
+ ['YHL018W' 'YHR032W' 0 nan]
+ ...
+ ['YBL006C' 'YDR202C' 0 nan]
+ ['YMR268C' 'YPL230W' 0 nan]
+ ['YJR043C' 'YDR079C-A' 1 nan]]
+Are we attempting to save
+Testing GO Term: GO:0006310 (7 / 53)
+[['YDR113C' 'YLR035C']
+ ['YDR180W' 'YIL082W-A']
+ ['YDR113C' 'YER160C']
+ ['YLR320W' 'YDR113C']
+ ['YJL051W' 'YGL033W']]
+[['YPL037C' 'YHR001W']
+ ['YIL127C' 'YOR171C']
+ ['YKL184W' 'YEL009C']
+ ['YMR202W' 'YDL165W']
+ ['YLR013W' 'YER183C']]
+Sorted Data: [['YGR261C' 'YDL222C' 0 nan]
+ ['YGL234W' 'YGL054C' 0 nan]
+ ['YFL050C' 'YDR352W' 0 nan]
+ ...
+ ['YML069W' 'YPL057C' 0 nan]
+ ['YDL178W' 'YOR125C' 0 nan]
+ ['YDR113C' 'YLR035C' 1 nan]]
+Are we attempting to save
+Testing GO Term: GO:0006325 (8 / 53)
+[['YKR010C' 'YDR073W']
+ ['YKR010C' 'YDL002C']
+ ['YKR010C' 'YNR023W']
+ ['YKR010C' 'YMR263W']
+ ['YKR010C' 'YBL006C']]
+[['YGL166W' 'YGL153W']
+ ['YNL072W' 'YPL118W']
+ ['YIL091C' 'YKL221W']
+ ['YBR228W' 'YCL010C']
+ ['YKL221W' 'YNL197C']]
+Sorted Data: [['YDR365W-B' 'YKL163W' 0 nan]
+ ['YJL151C' 'YDR206W' 0 nan]
+ ['YNL316C' 'YGR132C' 0 nan]
+ ...
+ ['YMR011W' 'YHR007C' 0 nan]
+ ['YOR095C' 'YKL084W' 0 nan]
+ ['YKR010C' 'YDR073W' 1 nan]]
+Are we attempting to save
+Testing GO Term: GO:0006352 (9 / 53)
+[['YDR311W' 'YML114C']
+ ['YDR311W' 'YGR186W']
+ ['YDR311W' 'YMR236W']
+ ['YDR311W' 'YGL043W']
+ ['YDR311W' 'YML069W']]
+[['YKR018C' 'YHR152W']
+ ['YDL002C' 'YNL224C']
+ ['YOR133W' 'YDL236W']
+ ['YMR113W' 'YER172C']
+ ['YPL246C' 'YLR431C']]
+Sorted Data: [['YBL042C' 'YCR102C' 0 nan]
+ ['YBR079C' 'YER122C' 0 nan]
+ ['YJL018W' 'YCR097W' 0 nan]
+ ...
+ ['YBL050W' 'YOR231W' 0 nan]
+ ['YKL188C' 'YNR069C' 0 nan]
+ ['YDR311W' 'YML114C' 1 nan]]
+Are we attempting to save
+Testing GO Term: GO:0006353 (10 / 53)
+[['YNL222W' 'YIL131C']
+ ['YNL222W' 'YPL190C']
+ ['YNL222W' 'YKL018W']
+ ['YNL222W' 'YJR017C']
+ ['YIL131C' 'YPL190C']]
+[['YLR070C' 'YLR003C']
+ ['YMR214W' 'YBR127C']
+ ['YIL066C' 'YDR488C']
+ ['YDR294C' 'YLR070C']
+ ['YKL101W' 'YDR258C']]
+Sorted Data: [['YEL060C' 'YER157W' 0 nan]
+ ['YOR293W' 'YGR261C' 0 nan]
+ ['YPR082C' 'YLR136C' 0 nan]
+ ['YLR320W' 'YDL159W' 0 nan]
+ ['YOR361C' 'YBR215W' 0 nan]
+ ['YNL209W' 'YNL312W' 0 nan]
+ ['YOL115W' 'YFL003C' 0 nan]
+ ['YLR376C' 'YKL220C' 0 nan]
+ ['YDL092W' 'YLR341W' 0 nan]
+ ['YDR294C' 'YLL032C' 0 nan]
+ ['YLR242C' 'YJL154C' 0 nan]
+ ['YGL043W' 'YGR284C' 0 nan]
+ ['YML126C' 'YPR004C' 0 nan]
+ ['YOR255W' 'YOR073W' 0 nan]
+ ['YKR092C' 'YBR070C' 0 nan]
+ ['YDL191W' 'YGL097W' 0 nan]
+ ['YGR148C' 'YPR004C' 0 nan]
+ ['YNR073C' 'YLR210W' 0 nan]
+ ['YLR138W' 'YDL194W' 0 nan]
+ ['YBR103W' 'YDR538W' 0 nan]
+ ['YNR056C' 'YDR017C' 0 nan]
+ ['YLR398C' 'YDR316W' 0 nan]
+ ['YKL184W' 'YNL113W' 0 nan]
+ ['YNR063W' 'YKR003W' 0 nan]
+ ['YJL076W' 'YNL312W' 0 nan]
+ ['YJR113C' 'YIL168W' 0 nan]
+ ['YEL020C' 'YDR307W' 0 nan]
+ ['YEL034W' 'YMR021C' 0 nan]
+ ['YCL020W' 'YMR029C' 0 nan]
+ ['YIL066C' 'YDR488C' 0 nan]
+ ['YNL222W' 'YPL190C' 1 nan]
+ ['YNL222W' 'YKL018W' 1 nan]
+ ['YNL222W' 'YJR017C' 1 nan]
+ ['YIL131C' 'YPL190C' 1 nan]
+ ['YIL131C' 'YKL018W' 1 nan]
+ ['YIL131C' 'YJR017C' 1 nan]
+ ['YPL190C' 'YKL018W' 1 nan]
+ ['YPL190C' 'YJR017C' 1 nan]
+ ['YKL018W' 'YJR017C' 1 nan]
+ ['YLR070C' 'YLR003C' 0 nan]
+ ['YMR214W' 'YBR127C' 0 nan]
+ ['YDR294C' 'YLR070C' 0 nan]
+ ['YLR077W' 'YAR014C' 0 nan]
+ ['YKL101W' 'YDR258C' 0 nan]
+ ['YJR099W' 'YER157W' 0 nan]
+ ['YOL017W' 'YGL055W' 0 nan]
+ ['YAR003W' 'YPL232W' 0 nan]
+ ['YCR073C' 'YGL207W' 0 nan]
+ ['YBR186W' 'YLL052C' 0 nan]
+ ['YDR363W' 'YDR266C' 0 nan]
+ ['YBR070C' 'YDR198C' 0 nan]
+ ['YOL068C' 'YGR098C' 0 nan]
+ ['YFR042W' 'YJL184W' 0 nan]
+ ['YOR339C' 'YHL009W-A' 0 nan]
+ ['YGL150C' 'YMR060C' 0 nan]
+ ['YPL268W' 'YGR215W' 0 nan]
+ ['YDR194C' 'YNR032W' 0 nan]
+ ['YBR088C' 'YER094C' 0 nan]
+ ['YPL072W' 'YBL101C' 0 nan]
+ ['YCR067C' 'YJR105W' 0 nan]
+ ['YGL250W' 'YDR346C' 0 nan]
+ ['YGL156W' 'YMR029C' 0 nan]
+ ['YML126C' 'YBR018C' 0 nan]
+ ['YCR071C' 'YHR091C' 0 nan]
+ ['YBR018C' 'YIR013C' 0 nan]
+ ['YKR029C' 'YFR044C' 0 nan]
+ ['YDR354W' 'YGL257C' 0 nan]
+ ['YNL002C' 'YOL008W' 0 nan]
+ ['YNL069C' 'YNR051C' 0 nan]
+ ['YLR310C' 'YGL054C' 0 nan]
+ ['YKR092C' 'YPR025C' 0 nan]
+ ['YLR138W' 'YLR013W' 0 nan]
+ ['YFL024C' 'YGL234W' 0 nan]
+ ['YKL025C' 'YOR140W' 0 nan]
+ ['YOL094C' 'YBR088C' 0 nan]
+ ['YHR001W' 'YHR084W' 0 nan]
+ ['YDR142C' 'YJR105W' 0 nan]
+ ['YJR047C' 'YJL159W' 0 nan]
+ ['YHR141C' 'YKR087C' 0 nan]
+ ['YNL169C' 'YBR083W' 0 nan]
+ ['YMR266W' 'YGR271C-A' 0 nan]
+ ['YKL208W' 'YGR284C' 0 nan]
+ ['YBR073W' 'YDR255C' 0 nan]
+ ['YOL006C' 'YKL008C' 0 nan]
+ ['YLR084C' 'YDR143C' 0 nan]
+ ['YOR056C' 'YLR453C' 0 nan]
+ ['YDR538W' 'YGL032C' 0 nan]
+ ['YCR027C' 'YHR178W' 0 nan]
+ ['YGR195W' 'YCR008W' 0 nan]
+ ['YDL181W' 'YER042W' 0 nan]
+ ['YHL002W' 'YEL003W' 0 nan]
+ ['YBL102W' 'YDL126C' 0 nan]
+ ['YDR385W' 'YGR065C' 0 nan]
+ ['YBL006C' 'YCR069W' 0 nan]
+ ['YDR073W' 'YMR083W' 0 nan]
+ ['YLR410W' 'YLL010C' 0 nan]
+ ['YDL178W' 'YDL058W' 0 nan]
+ ['YNL037C' 'YGR013W' 0 nan]
+ ['YGR157W' 'YFL002C' 0 nan]
+ ['YGL048C' 'YNL134C' 0 nan]
+ ['YHR141C' 'YLR119W' 0 nan]
+ ['YLL005C' 'YOR030W' 0 nan]
+ ['YDR155C' 'YHR178W' 0 nan]
+ ['YHR063C' 'YHR034C' 0 nan]
+ ['YKR098C' 'YOR312C' 0 nan]
+ ['YDR191W' 'YGL086W' 0 nan]
+ ['YPL024W' 'YMR067C' 0 nan]
+ ['YDR147W' 'YBR154C' 0 nan]
+ ['YOR229W' 'YPR165W' 0 nan]
+ ['YNL222W' 'YIL131C' 1 nan]]
+Are we attempting to save
+Testing GO Term: GO:0006360 (11 / 53)
+[['YBL006C' 'YKL125W']
+ ['YBL006C' 'YCR073C']
+ ['YBL006C' 'YGR068C']
+ ['YBL006C' 'YGR271C-A']
+ ['YBL006C' 'YKR080W']]
+[['YOL006C' 'YPR165W']
+ ['YOL091W' 'YOR140W']
+ ['YFL055W' 'YOR362C']
+ ['YMR011W' 'YDL236W']
+ ['YFR044C' 'YNL099C']]
+Sorted Data: [['YOR329C' 'YJL210W' 0 nan]
+ ['YGL255W' 'YHR016C' 0 nan]
+ ['YDL052C' 'YNL014W' 0 nan]
+ ...
+ ['YKL092C' 'YLR319C' 0 nan]
+ ['YDR541C' 'YHR123W' 0 nan]
+ ['YBL006C' 'YKL125W' 1 nan]]
+Are we attempting to save
+Testing GO Term: GO:0006364 (12 / 53)
+[['YNL222W' 'YKR024C']
+ ['YNR054C' 'YML093W']
+ ['YPL012W' 'YDR450W']
+ ['YHR034C' 'YPL012W']
+ ['YHR065C' 'YBR167C']]
+[['YGL208W' 'YNL256W']
+ ['YJR091C' 'YLR135W']
+ ['YBL042C' 'YGL008C']
+ ['YJL177W' 'YMR067C']
+ ['YDL002C' 'YMR067C']]
+Sorted Data: [['YDL042C' 'YER122C' 0 nan]
+ ['YPL053C' 'YCR089W' 0 nan]
+ ['YFL018C' 'YJR007W' 0 nan]
+ ...
+ ['YMR021C' 'YDL079C' 0 nan]
+ ['YKR086W' 'YPL079W' 0 nan]
+ ['YNL222W' 'YKR024C' 1 nan]]
+Are we attempting to save
+Testing GO Term: GO:0006366 (13 / 53)
+[['YPR025C' 'YGL150C']
+ ['YML062C' 'YKL018W']
+ ['YGR186W' 'YDL165W']
+ ['YML007W' 'YOL089C']
+ ['YHL009C' 'YPR065W']]
+[['YOR234C' 'YNL279W']
+ ['YKL096W' 'YHR003C']
+ ['YKR010C' 'YHR065C']
+ ['YAL005C' 'YBR133C']
+ ['YML110C' 'YCR073C']]
+Sorted Data: [['YOR007C' 'YOR245C' 0 nan]
+ ['YBR084C-A' 'YHL033C' 0 nan]
+ ['YOR329C' 'YGR195W' 0 nan]
+ ...
+ ['YGL100W' 'YDR348C' 0 nan]
+ ['YBL097W' 'YPL015C' 0 nan]
+ ['YPR025C' 'YGL150C' 1 nan]]
+Are we attempting to save
+Testing GO Term: GO:0006383 (14 / 53)
+[['YDR006C' 'YPR104C']
+ ['YDR006C' 'YGR068C']
+ ['YDR006C' 'YKR080W']
+ ['YDR006C' 'YAL001C']
+ ['YDR006C' 'YOR210W']]
+[['YOR035C' 'YKR099C-A']
+ ['YGR133W' 'YER054C']
+ ['YPL241C' 'YER124C']
+ ['YNL075W' 'YHR123W']
+ ['YML001W' 'YER001W']]
+Sorted Data: [['YLR057W' 'YNL106C' 0 nan]
+ ['YHL022C' 'YKL160W' 0 nan]
+ ['YCR066W' 'YJR056C' 0 nan]
+ ...
+ ['YNL014W' 'YDL174C' 0 nan]
+ ['YHR216W' 'YDR302W' 0 nan]
+ ['YDR006C' 'YPR104C' 1 nan]]
+Are we attempting to save
+Testing GO Term: GO:0006397 (15 / 53)
+[['YPR101W' 'YLR275W']
+ ['YDR194C' 'YMR268C']
+ ['YLR116W' 'YML046W']
+ ['YGR074W' 'YKL208W']
+ ['YMR288W' 'YKL208W']]
+[['YDR394W' 'YGR098C']
+ ['YKL146W' 'YGR033C']
+ ['YPL132W' 'YLR408C']
+ ['YNL264C' 'YBR161W']
+ ['YBR179C' 'YIL044C']]
+Sorted Data: [['YDR322C-A' 'YPR056W' 0 nan]
+ ['YER118C' 'YGR132C' 0 nan]
+ ['YOR173W' 'YCR068W' 0 nan]
+ ...
+ ['YPR065W' 'YGL187C' 0 nan]
+ ['YPR151C' 'YKL157W' 0 nan]
+ ['YPR101W' 'YLR275W' 1 nan]]
+Are we attempting to save
+Testing GO Term: GO:0006401 (16 / 53)
+[['YNL072W' 'YER146W']
+ ['YNL072W' 'YOL115W']
+ ['YNL072W' 'YOR173W']
+ ['YNL072W' 'YKL113C']
+ ['YNL072W' 'YJL209W']]
+[['YKL035W' 'YJR129C']
+ ['YDR462W' 'YNL125C']
+ ['YGL013C' 'YNL113W']
+ ['YEL011W' 'YGR092W']
+ ['YBR302C' 'YML114C']]
+Sorted Data: [['YPL283C' 'YNL305C' 0 nan]
+ ['YAL032C' 'YFR004W' 0 nan]
+ ['YIL015W' 'YJR019C' 0 nan]
+ ...
+ ['YDL156W' 'YNR049C' 0 nan]
+ ['YGR257C' 'YBL105C' 0 nan]
+ ['YNL072W' 'YER146W' 1 nan]]
+Are we attempting to save
+Testing GO Term: GO:0006413 (17 / 53)
+[['YEL034W' 'YJR047C']
+ ['YEL034W' 'YPL237W']
+ ['YEL034W' 'YOR361C']
+ ['YEL034W' 'YJR007W']
+ ['YEL034W' 'YPR025C']]
+[['YPR165W' 'YER170W']
+ ['YJL209W' 'YLL036C']
+ ['YPL086C' 'YER042W']
+ ['YCR079W' 'YHL018W']
+ ['YOR329C' 'YPL265W']]
+Sorted Data: [['YLR157C-A' 'YIL157C' 0 nan]
+ ['YOL049W' 'YCR070W' 0 nan]
+ ['YBR098W' 'YEL004W' 0 nan]
+ ...
+ ['YLR340W' 'YCR097W' 0 nan]
+ ['YBL042C' 'YPL012W' 0 nan]
+ ['YEL034W' 'YJR047C' 1 nan]]
+Are we attempting to save
+Testing GO Term: GO:0006414 (18 / 53)
+[['YDR385W' 'YLR340W']
+ ['YDR385W' 'YLR069C']
+ ['YDR385W' 'YOL039W']
+ ['YDR385W' 'YFR009W']
+ ['YDR385W' 'YNL014W']]
+[['YIR007W' 'YCR023C']
+ ['YMR283C' 'YJL014W']
+ ['YMR283C' 'YGR065C']
+ ['YML078W' 'YPL086C']
+ ['YDL226C' 'YHR042W']]
+Sorted Data: [['YER119C' 'YJL177W' 0 nan]
+ ['YOL033W' 'YMR116C' 0 nan]
+ ['YDR214W' 'YCR028C-A' 0 nan]
+ ...
+ ['YOR033C' 'YKL211C' 0 nan]
+ ['YBL050W' 'YER160C' 0 nan]
+ ['YDR385W' 'YLR340W' 1 nan]]
+Are we attempting to save
+Testing GO Term: GO:0006418 (19 / 53)
+[['YOL097C' 'YOL033W']
+ ['YOL097C' 'YHR091C']
+ ['YOL097C' 'YHR019C']
+ ['YOL097C' 'YFL022C']
+ ['YOL097C' 'YGL245W']]
+[['YOR094W' 'YKR024C']
+ ['YOR256C' 'YBR104W']
+ ['YNL067W' 'YJR137C']
+ ['YNR056C' 'YDR058C']
+ ['YOR312C' 'YLR229C']]
+Sorted Data: [['YFL034C-B' 'YNL254C' 0 nan]
+ ['YLL036C' 'YKR029C' 0 nan]
+ ['YML033W' 'YDL174C' 0 nan]
+ ...
+ ['YFR042W' 'YOR033C' 0 nan]
+ ['YCR089W' 'YNL220W' 0 nan]
+ ['YOL097C' 'YOL033W' 1 nan]]
+Are we attempting to save
+Testing GO Term: GO:0006457 (20 / 53)
+[['YDL212W' 'YNL064C']
+ ['YDL212W' 'YAL005C']
+ ['YDL212W' 'YML078W']
+ ['YDL212W' 'YMR214W']
+ ['YDL212W' 'YOL088C']]
+[['YLR110C' 'YDR037W']
+ ['YNL009W' 'YDR450W']
+ ['YER141W' 'YML029W']
+ ['YGL210W-A' 'YER124C']
+ ['YER019W' 'YCL027C-A']]
+Sorted Data: [['YDR073W' 'YOL077W-A' 0 nan]
+ ['YLR057W' 'YPL005W' 0 nan]
+ ['YJL204C' 'YNL254C' 0 nan]
+ ...
+ ['YBR216C' 'YBR239C' 0 nan]
+ ['YJR159W' 'YMR199W' 0 nan]
+ ['YDL212W' 'YNL064C' 1 nan]]
+Are we attempting to save
+Testing GO Term: GO:0006468 (21 / 53)
+[['YPL256C' 'YHL007C']
+ ['YPL256C' 'YKL025C']
+ ['YPL256C' 'YOL128C']
+ ['YPL256C' 'YLR240W']
+ ['YPL256C' 'YBL016W']]
+[['YOR140W' 'YML111W']
+ ['YOR329C' 'YOR375C']
+ ['YNL071W' 'YBR110W']
+ ['YOR130C' 'YPR140W']
+ ['YGL001C' 'YIL121W']]
+Sorted Data: [['YOL017W' 'YHR062C' 0 nan]
+ ['YMR293C' 'YCL027C-A' 0 nan]
+ ['YJR014W' 'YJL104W' 0 nan]
+ ...
+ ['YOR141C' 'YJL203W' 0 nan]
+ ['YGR023W' 'YBR098W' 0 nan]
+ ['YPL256C' 'YHL007C' 1 nan]]
+Are we attempting to save
+Testing GO Term: GO:0006470 (22 / 53)
+[['YOR208W' 'YBL046W']
+ ['YOR208W' 'YDL188C']
+ ['YOR208W' 'YNL053W']
+ ['YOR208W' 'YCR079W']
+ ['YOR208W' 'YER054C']]
+[['YNL225C' 'YBL100W-A']
+ ['YNL009W' 'YGR289C']
+ ['YMR268C' 'YOR188W']
+ ['YKL139W' 'YBR135W']
+ ['YFL062W' 'YML001W']]
+Sorted Data: [['YAL001C' 'YPL190C' 0 nan]
+ ['YCL033C' 'YPL069C' 0 nan]
+ ['YMR058W' 'YCR034W' 0 nan]
+ ...
+ ['YML110C' 'YIL016W' 0 nan]
+ ['YLR157C-B' 'YLR089C' 0 nan]
+ ['YOR208W' 'YBL046W' 1 nan]]
+Are we attempting to save
+Testing GO Term: GO:0006486 (23 / 53)
+[['YDL232W' 'YGR227W']
+ ['YDL232W' 'YJL139C']
+ ['YDL232W' 'YDL193W']
+ ['YDL232W' 'YIL085C']
+ ['YDL232W' 'YPL227C']]
+[['YBR239C' 'YHR196W']
+ ['YIL117C' 'YOR293W']
+ ['YBR102C' 'YPL255W']
+ ['YKL125W' 'YPR121W']
+ ['YHR094C' 'YKL139W']]
+Sorted Data: [['YDR214W' 'YPL024W' 0 nan]
+ ['YJL209W' 'YOR295W' 0 nan]
+ ['YOR362C' 'YHR034C' 0 nan]
+ ...
+ ['YOR234C' 'YJR086W' 0 nan]
+ ['YOR229W' 'YHR121W' 0 nan]
+ ['YDL232W' 'YGR227W' 1 nan]]
+Are we attempting to save
+Testing GO Term: GO:0006629 (24 / 53)
+[['YBR004C' 'YOR171C']
+ ['YDR191W' 'YOR196C']
+ ['YMR202W' 'YKL008C']
+ ['YKR003W' 'YBR004C']
+ ['YML008C' 'YHR001W']]
+[['YNR056C' 'YKL184W']
+ ['YGL184C' 'YML123C']
+ ['YPL152W' 'YMR323W']
+ ['YDL155W' 'YBL019W']
+ ['YKL065C' 'YGR289C']]
+Sorted Data: [['YBL008W-A' 'YDR162C' 0 nan]
+ ['YMR011W' 'YPR165W' 0 nan]
+ ['YFR051C' 'YKR018C' 0 nan]
+ ...
+ ['YMR068W' 'YJL014W' 0 nan]
+ ['YBR228W' 'YGR209C' 0 nan]
+ ['YBR004C' 'YOR171C' 1 nan]]
+Are we attempting to save
+Testing GO Term: GO:0006811 (25 / 53)
+[['YDL004W' 'YJR152W']
+ ['YGL254W' 'YKL120W']
+ ['YPL265W' 'YML121W']
+ ['YMR058W' 'YML121W']
+ ['YER166W' 'YKR039W']]
+[['YOR144C' 'YDL156W']
+ ['YAL014C' 'YBL009W']
+ ['YNL090W' 'YNL106C']
+ ['YOR229W' 'YMR266W']
+ ['YDR186C' 'YLR119W']]
+Sorted Data: [['YOL075C' 'YDR450W' 0 nan]
+ ['YJL010C' 'YLR071C' 0 nan]
+ ['YMR162C' 'YMR154C' 0 nan]
+ ...
+ ['YCR017C' 'YNL030W' 0 nan]
+ ['YLR275W' 'YOL021C' 0 nan]
+ ['YDL004W' 'YJR152W' 1 nan]]
+Are we attempting to save
+Testing GO Term: GO:0006865 (26 / 53)
+[['YEL063C' 'YDL212W']
+ ['YEL063C' 'YNR056C']
+ ['YEL063C' 'YBR132C']
+ ['YEL063C' 'YER119C']
+ ['YEL063C' 'YKL146W']]
+[['YOL137W' 'YPR112C']
+ ['YDR237W' 'YOR360C']
+ ['YPL053C' 'YNL224C']
+ ['YPL053C' 'YCL026C-A']
+ ['YHR065C' 'YGL125W']]
+Sorted Data: [['YOL119C' 'YCR048W' 0 nan]
+ ['YBR216C' 'YKR087C' 0 nan]
+ ['YLR340W' 'YGR172C' 0 nan]
+ ...
+ ['YGR108W' 'YDL239C' 0 nan]
+ ['YBR084C-A' 'YGR096W' 0 nan]
+ ['YEL063C' 'YDL212W' 1 nan]]
+Are we attempting to save
+Testing GO Term: GO:0006869 (27 / 53)
+[['YMR079W' 'YKL091C']
+ ['YMR079W' 'YKL188C']
+ ['YMR079W' 'YJL145W']
+ ['YMR079W' 'YNL264C']
+ ['YMR079W' 'YLR242C']]
+[['YDR462W' 'YDR147W']
+ ['YER054C' 'YOR344C']
+ ['YDL064W' 'YMR309C']
+ ['YJR095W' 'YGR247W']
+ ['YKR098C' 'YNL125C']]
+Sorted Data: [['YDR311W' 'YKL027W' 0 nan]
+ ['YLR084C' 'YBL018C' 0 nan]
+ ['YNL257C' 'YOR007C' 0 nan]
+ ...
+ ['YJL209W' 'YLR003C' 0 nan]
+ ['YJL042W' 'YAR003W' 0 nan]
+ ['YMR079W' 'YKL091C' 1 nan]]
+Are we attempting to save
+Testing GO Term: GO:0006873 (28 / 53)
+[['YDR182W' 'YDR202C']
+ ['YDR182W' 'YMR021C']
+ ['YDR182W' 'YLR034C']
+ ['YDR182W' 'YLR369W']
+ ['YDR182W' 'YLR138W']]
+[['YBR235W' 'YNL177C']
+ ['YNL124W' 'YDR316W']
+ ['YJL159W' 'YOL077W-A']
+ ['YER146W' 'YJL014W']
+ ['YER039C' 'YBR200W']]
+Sorted Data: [['YNR023W' 'YML066C' 0 nan]
+ ['YMR030W' 'YGL257C' 0 nan]
+ ['YNL072W' 'YBL002W' 0 nan]
+ ...
+ ['YOR149C' 'YPL015C' 0 nan]
+ ['YPL088W' 'YKR045C' 0 nan]
+ ['YDR182W' 'YDR202C' 1 nan]]
+Are we attempting to save
+Testing GO Term: GO:0006887 (29 / 53)
+[['YLR166C' 'YBR102C']
+ ['YLR166C' 'YLR148W']
+ ['YLR166C' 'YHR001W']
+ ['YLR166C' 'YKR003W']
+ ['YLR166C' 'YNL272C']]
+[['YGR277C' 'YNL177C']
+ ['YDL064W' 'YDR225W']
+ ['YNR012W' 'YDR524C-B']
+ ['YBR021W' 'YDL104C']
+ ['YPL236C' 'YOR295W']]
+Sorted Data: [['YBR073W' 'YHR045W' 0 nan]
+ ['YBL006C' 'YKL139W' 0 nan]
+ ['YNL053W' 'YEL071W' 0 nan]
+ ...
+ ['YGL048C' 'YBR139W' 0 nan]
+ ['YOR033C' 'YNL125C' 0 nan]
+ ['YLR166C' 'YBR102C' 1 nan]]
+Are we attempting to save
+Testing GO Term: GO:0006897 (30 / 53)
+[['YIL041W' 'YLR342W']
+ ['YIL041W' 'YOR329C']
+ ['YIL041W' 'YJL204C']
+ ['YIL041W' 'YNL154C']
+ ['YIL041W' 'YGR198W']]
+[['YBR265W' 'YJL002C']
+ ['YGL022W' 'YLL028W']
+ ['YGR109C' 'YIR035C']
+ ['YHR112C' 'YPL012W']
+ ['YDR171W' 'YDL191W']]
+Sorted Data: [['YOR368W' 'YBR221C' 0 nan]
+ ['YHR196W' 'YDR291W' 0 nan]
+ ['YPL192C' 'YBR244W' 0 nan]
+ ...
+ ['YGR148C' 'YJR091C' 0 nan]
+ ['YLR084C' 'YBL002W' 0 nan]
+ ['YIL041W' 'YLR342W' 1 nan]]
+Are we attempting to save
+Testing GO Term: GO:0006970 (31 / 53)
+[['YHL007C' 'YPL152W']
+ ['YHL007C' 'YER019W']
+ ['YHL007C' 'YBR132C']
+ ['YHL007C' 'YML131W']
+ ['YHL007C' 'YLR332W']]
+[['YJR047C' 'YGL121C']
+ ['YIL117C' 'YGL086W']
+ ['YLR340W' 'YCR027C']
+ ['YJL116C' 'YLR388W']
+ ['YGR090W' 'YPL032C']]
+Sorted Data: [['YBR258C' 'YBL100W-A' 0 nan]
+ ['YKL216W' 'YBR204C' 0 nan]
+ ['YPR058W' 'YPR004C' 0 nan]
+ ...
+ ['YLR225C' 'YML029W' 0 nan]
+ ['YOR115C' 'YMR068W' 0 nan]
+ ['YHL007C' 'YPL152W' 1 nan]]
+Are we attempting to save
+Testing GO Term: GO:0006979 (32 / 53)
+[['YKL086W' 'YBR216C']
+ ['YKL086W' 'YCL033C']
+ ['YKL086W' 'YLR225C']
+ ['YKL086W' 'YDR346C']
+ ['YKL086W' 'YHR104W']]
+[['YMR104C' 'YNL326C']
+ ['YGR271C-A' 'YMR134W']
+ ['YOR344C' 'YMR271C']
+ ['YER048C' 'YPL228W']
+ ['YIL131C' 'YDR143C']]
+Sorted Data: [['YDR311W' 'YLR399C' 0 nan]
+ ['YFR051C' 'YNL275W' 0 nan]
+ ['YHL009C' 'YKL120W' 0 nan]
+ ...
+ ['YPL232W' 'YLL032C' 0 nan]
+ ['YKL146W' 'YIL103W' 0 nan]
+ ['YKL086W' 'YBR216C' 1 nan]]
+Are we attempting to save
+Testing GO Term: GO:0007005 (33 / 53)
+[['YJL116C' 'YNL064C']
+ ['YJL116C' 'YBR234C']
+ ['YJL116C' 'YAL005C']
+ ['YJL116C' 'YJL063C']
+ ['YJL116C' 'YGR028W']]
+[['YIR007W' 'YOR140W']
+ ['YBL040C' 'YOL137W']
+ ['YDR354W' 'YDR489W']
+ ['YLR051C' 'YMR197C']
+ ['YNR023W' 'YDR339C']]
+Sorted Data: [['YBR186W' 'YDL226C' 0 nan]
+ ['YBR171W' 'YPL057C' 0 nan]
+ ['YKL216W' 'YIL097W' 0 nan]
+ ...
+ ['YIL131C' 'YKR003W' 0 nan]
+ ['YAR014C' 'YNL009W' 0 nan]
+ ['YJL116C' 'YNL064C' 1 nan]]
+Are we attempting to save
+Testing GO Term: GO:0007010 (34 / 53)
+[['YIL105C' 'YCR088W']
+ ['YIL041W' 'YOR367W']
+ ['YDL226C' 'YMR068W']
+ ['YBL105C' 'YIR010W']
+ ['YJR125C' 'YKR001C']]
+[['YCL033C' 'YDR034C-D']
+ ['YBR236C' 'YLR002C']
+ ['YHR143W-A' 'YNL093W']
+ ['YLR298C' 'YMR162C']
+ ['YCR067C' 'YOR094W']]
+Sorted Data: [['YLR398C' 'YDR538W' 0 nan]
+ ['YDR462W' 'YJL099W' 0 nan]
+ ['YOR328W' 'YBL071W-A' 0 nan]
+ ...
+ ['YER078C' 'YJR137C' 0 nan]
+ ['YIR022W' 'YNL030W' 0 nan]
+ ['YIL105C' 'YCR088W' 1 nan]]
+Are we attempting to save
+Testing GO Term: GO:0007031 (35 / 53)
+[['YGR133W' 'YDR216W']
+ ['YGR133W' 'YDR142C']
+ ['YGR133W' 'YJL210W']
+ ['YGR133W' 'YNL329C']
+ ['YGR133W' 'YAL055W']]
+[['YOR149C' 'YGR038C-B']
+ ['YPL211W' 'YLR222C']
+ ['YCR066W' 'YMR189W']
+ ['YEL055C' 'YCR033W']
+ ['YAR050W' 'YDR408C']]
+Sorted Data: [['YGR038C-A' 'YHR107C' 0 nan]
+ ['YJR007W' 'YDR524C-B' 0 nan]
+ ['YDR210W' 'YOR231W' 0 nan]
+ ...
+ ['YPL212C' 'YGL175C' 0 nan]
+ ['YDR338C' 'YBR253W' 0 nan]
+ ['YGR133W' 'YDR216W' 1 nan]]
+Are we attempting to save
+Testing GO Term: GO:0007033 (36 / 53)
+[['YIL041W' 'YBR217W']
+ ['YIL041W' 'YBL050W']
+ ['YIL041W' 'YLR423C']
+ ['YIL041W' 'YPL045W']
+ ['YIL041W' 'YCL062W']]
+[['YOR003W' 'YPR165W']
+ ['YOR118W' 'YER144C']
+ ['YIL158W' 'YGR163W']
+ ['YIL010W' 'YHR176W']
+ ['YPL055C' 'YBR293W']]
+Sorted Data: [['YHR121W' 'YNL275W' 0 nan]
+ ['YML130C' 'YER172C' 0 nan]
+ ['YMR277W' 'YHR026W' 0 nan]
+ ...
+ ['YGL048C' 'YNL169C' 0 nan]
+ ['YGR033C' 'YCR034W' 0 nan]
+ ['YIL041W' 'YBR217W' 1 nan]]
+Are we attempting to save
+Testing GO Term: GO:0007059 (37 / 53)
+[['YOL094C' 'YJL018W']
+ ['YOL094C' 'YBL084C']
+ ['YOL094C' 'YBR073W']
+ ['YOL094C' 'YKL049C']
+ ['YOL094C' 'YGR275W']]
+[['YIL016W' 'YCL011C']
+ ['YNR073C' 'YML008C']
+ ['YNL082W' 'YNL005C']
+ ['YIL117C' 'YOL091W']
+ ['YNR054C' 'YCR008W']]
+Sorted Data: [['YDR489W' 'YNR075W' 0 nan]
+ ['YIR033W' 'YGL160W' 0 nan]
+ ['YDR153C' 'YLR453C' 0 nan]
+ ...
+ ['YPL164C' 'YKR001C' 0 nan]
+ ['YKL025C' 'YBR236C' 0 nan]
+ ['YOL094C' 'YJL018W' 1 nan]]
+Are we attempting to save
+Testing GO Term: GO:0007124 (38 / 53)
+[['YHL007C' 'YIL049W']
+ ['YHL007C' 'YER118C']
+ ['YHL007C' 'YMR164C']
+ ['YHL007C' 'YDR432W']
+ ['YHL007C' 'YDL159W']]
+[['YER146W' 'YJL050W']
+ ['YEL063C' 'YML038C']
+ ['YJL204C' 'YML046W']
+ ['YJL018W' 'YNL058C']
+ ['YOR190W' 'YBR221C']]
+Sorted Data: [['YLR297W' 'YDR506C' 0 nan]
+ ['YMR135C' 'YKL157W' 0 nan]
+ ['YBL008W-A' 'YOL137W' 0 nan]
+ ...
+ ['YMR104C' 'YCL030C' 0 nan]
+ ['YKL027W' 'YDL103C' 0 nan]
+ ['YHL007C' 'YIL049W' 1 nan]]
+Are we attempting to save
+Testing GO Term: GO:0008033 (39 / 53)
+[['YHR187W' 'YER146W']
+ ['YHR187W' 'YAR008W']
+ ['YHR187W' 'YMR283C']
+ ['YHR187W' 'YGL210W-A']
+ ['YHR187W' 'YMR047C']]
+[['YPR029C' 'YPR009W']
+ ['YGL011C' 'YGL065C']
+ ['YKR003W' 'YHR203C']
+ ['YGR192C' 'YIL023C']
+ ['YIL049W' 'YGL044C']]
+Sorted Data: [['YJL010C' 'YML065W' 0 nan]
+ ['YGL184C' 'YLL042C' 0 nan]
+ ['YML062C' 'YOR375C' 0 nan]
+ ...
+ ['YBL040C' 'YIL063C' 0 nan]
+ ['YBR210W' 'YGR163W' 0 nan]
+ ['YHR187W' 'YER146W' 1 nan]]
+Are we attempting to save
+Testing GO Term: GO:0008380 (40 / 53)
+[['YLR132C' 'YLR116W']
+ ['YLR132C' 'YMR288W']
+ ['YLR132C' 'YER146W']
+ ['YLR132C' 'YPR082C']
+ ['YLR132C' 'YLR298C']]
+[['YNL252C' 'YKL221W']
+ ['YDL042C' 'YDR480W']
+ ['YGL150C' 'YHR026W']
+ ['YCL033C' 'YHL018W']
+ ['YOR255W' 'YDL104C']]
+Sorted Data: [['YBR126C' 'YDR142C' 0 nan]
+ ['YMR058W' 'YDR489W' 0 nan]
+ ['YDR538W' 'YDL014W' 0 nan]
+ ...
+ ['YDR182W' 'YER169W' 0 nan]
+ ['YKR060W' 'YDL092W' 0 nan]
+ ['YLR132C' 'YLR116W' 1 nan]]
+Are we attempting to save
+Testing GO Term: GO:0008643 (41 / 53)
+[['YER039C' 'YMR011W']
+ ['YER039C' 'YML038C']
+ ['YER039C' 'YBR298C']
+ ['YER039C' 'YDL194W']
+ ['YER039C' 'YCL040W']]
+[['YPL266W' 'YMR251W-A']
+ ['YJL076W' 'YBR008C']
+ ['YOL039W' 'YPL023C']
+ ['YLR013W' 'YJL118W']
+ ['YFR042W' 'YIL023C']]
+Sorted Data: [['YDL126C' 'YGL043W' 0 nan]
+ ['YDR184C' 'YLR216C' 0 nan]
+ ['YDR541C' 'YJL154C' 0 nan]
+ ...
+ ['YDR058C' 'YNR026C' 0 nan]
+ ['YBL042C' 'YNL106C' 0 nan]
+ ['YER039C' 'YMR011W' 1 nan]]
+Are we attempting to save
+Testing GO Term: GO:0009408 (42 / 53)
+[['YFL016C' 'YDR162C']
+ ['YFL016C' 'YOR178C']
+ ['YFL016C' 'YOR007C']
+ ['YFL016C' 'YML007W']
+ ['YFL016C' 'YOL049W']]
+[['YOR095C' 'YIL065C']
+ ['YDR027C' 'YGR207C']
+ ['YIR034C' 'YJL091C']
+ ['YNL090W' 'YCR042C']
+ ['YFL034C-B' 'YDR302W']]
+Sorted Data: [['YMR104C' 'YNR039C' 0 nan]
+ ['YJL154C' 'YOR028C' 0 nan]
+ ['YMR202W' 'YOR336W' 0 nan]
+ ['YLL039C' 'YBR265W' 0 nan]
+ ['YML111W' 'YGR261C' 0 nan]
+ ['YOR208W' 'YCL027C-A' 0 nan]
+ ['YOR141C' 'YOR130C' 0 nan]
+ ['YIL041W' 'YOL077W-A' 0 nan]
+ ['YCR102C' 'YER141W' 0 nan]
+ ['YMR236W' 'YPL181W' 0 nan]
+ ['YOR118W' 'YHR018C' 0 nan]
+ ['YDL155W' 'YHR072W' 0 nan]
+ ['YLR342W' 'YML064C' 0 nan]
+ ['YIL041W' 'YDL191W' 0 nan]
+ ['YHR026W' 'YLR178C' 0 nan]
+ ['YGL130W' 'YOL077W-A' 0 nan]
+ ['YOR056C' 'YMR251W-A' 0 nan]
+ ['YHR098C' 'YOL089C' 0 nan]
+ ['YDR524C-B' 'YIR035C' 0 nan]
+ ['YKL213C' 'YMR092C' 0 nan]
+ ['YIL110W' 'YOR073W' 0 nan]
+ ['YCR034W' 'YGL150C' 0 nan]
+ ['YLR332W' 'YCL062W' 0 nan]
+ ['YHR062C' 'YMR083W' 0 nan]
+ ['YPL084W' 'YDL150W' 0 nan]
+ ['YKL188C' 'YHR115C' 0 nan]
+ ['YLR148W' 'YPL015C' 0 nan]
+ ['YEL060C' 'YPR158W-A' 0 nan]
+ ['YFL018C' 'YNL113W' 0 nan]
+ ['YDR184C' 'YBR079C' 0 nan]
+ ['YOL041C' 'YGL179C' 0 nan]
+ ['YDR020C' 'YDR394W' 0 nan]
+ ['YKL073W' 'YER166W' 0 nan]
+ ['YDR485C' 'YBR079C' 0 nan]
+ ['YLR002C' 'YML058W' 0 nan]
+ ['YDR163W' 'YDR141C' 0 nan]
+ ['YFL034C-B' 'YOL044W' 0 nan]
+ ['YML126C' 'YNL252C' 0 nan]
+ ['YDR184C' 'YPL232W' 0 nan]
+ ['YKL220C' 'YOL089C' 0 nan]
+ ['YMR263W' 'YLL042C' 0 nan]
+ ['YML019W' 'YPR033C' 0 nan]
+ ['YNL069C' 'YGL038C' 0 nan]
+ ['YHR104W' 'YPL072W' 0 nan]
+ ['YIR034C' 'YJL091C' 0 nan]
+ ['YDR027C' 'YGR207C' 0 nan]
+ ['YOR095C' 'YIL065C' 0 nan]
+ ['YML007W' 'YOL049W' 1 nan]
+ ['YOR007C' 'YOL049W' 1 nan]
+ ['YOR007C' 'YML007W' 1 nan]
+ ['YOR178C' 'YOL049W' 1 nan]
+ ['YOR178C' 'YML007W' 1 nan]
+ ['YOR178C' 'YOR007C' 1 nan]
+ ['YDR162C' 'YOL049W' 1 nan]
+ ['YDR162C' 'YML007W' 1 nan]
+ ['YDR162C' 'YOR007C' 1 nan]
+ ['YDR162C' 'YOR178C' 1 nan]
+ ['YFL016C' 'YOL049W' 1 nan]
+ ['YFL016C' 'YML007W' 1 nan]
+ ['YFL016C' 'YOR007C' 1 nan]
+ ['YFL016C' 'YOR178C' 1 nan]
+ ['YNL090W' 'YCR042C' 0 nan]
+ ['YFL034C-B' 'YDR302W' 0 nan]
+ ['YDL042C' 'YPL030W' 0 nan]
+ ['YIL157C' 'YBR288C' 0 nan]
+ ['YLR128W' 'YBR167C' 0 nan]
+ ['YIL023C' 'YDL222C' 0 nan]
+ ['YJL076W' 'YNL272C' 0 nan]
+ ['YDR408C' 'YPR165W' 0 nan]
+ ['YGR161C-C' 'YGL153W' 0 nan]
+ ['YDR182W' 'YIL082W-A' 0 nan]
+ ['YGR096W' 'YGR261C' 0 nan]
+ ['YER078C' 'YER054C' 0 nan]
+ ['YGR161C-C' 'YIL010W' 0 nan]
+ ['YDR016C' 'YPL045W' 0 nan]
+ ['YGR090W' 'YDR034C-D' 0 nan]
+ ['YLR069C' 'YKL139W' 0 nan]
+ ['YMR161W' 'YGL156W' 0 nan]
+ ['YBR280C' 'YCR042C' 0 nan]
+ ['YGL166W' 'YML010W' 0 nan]
+ ['YDR462W' 'YHR072W-A' 0 nan]
+ ['YDR006C' 'YOR234C' 0 nan]
+ ['YLR336C' 'YKR046C' 0 nan]
+ ['YPL016W' 'YMR014W' 0 nan]
+ ['YGL131C' 'YBR088C' 0 nan]
+ ['YGR109C' 'YLL028W' 0 nan]
+ ['YDR153C' 'YBR161W' 0 nan]
+ ['YBR288C' 'YOL089C' 0 nan]
+ ['YNL154C' 'YER124C' 0 nan]
+ ['YLR242C' 'YJL092W' 0 nan]
+ ['YCL040W' 'YML029W' 0 nan]
+ ['YIL158W' 'YMR154C' 0 nan]
+ ['YNL256W' 'YGR280C' 0 nan]
+ ['YMR104C' 'YHL013C' 0 nan]
+ ['YHR187W' 'YGR198W' 0 nan]
+ ['YJL051W' 'YOL039W' 0 nan]
+ ['YPR151C' 'YDR266C' 0 nan]
+ ['YOL110W' 'YLR210W' 0 nan]
+ ['YGL033W' 'YER001W' 0 nan]
+ ['YIL131C' 'YGL234W' 0 nan]
+ ['YNL186W' 'YGR186W' 0 nan]
+ ['YMR119W' 'YER160C' 0 nan]
+ ['YMR021C' 'YLR069C' 0 nan]
+ ['YMR011W' 'YKL152C' 0 nan]
+ ['YKL107W' 'YNL275W' 0 nan]
+ ['YDR202C' 'YCL040W' 0 nan]
+ ['YBR234C' 'YIL162W' 0 nan]
+ ['YEL060C' 'YIL129C' 0 nan]
+ ['YNL264C' 'YLR378C' 0 nan]
+ ['YCR097W' 'YKL012W' 0 nan]
+ ['YNL069C' 'YOR312C' 0 nan]
+ ['YOL128C' 'YMR293C' 0 nan]
+ ['YML038C' 'YDL126C' 0 nan]
+ ['YGL156W' 'YFL003C' 0 nan]
+ ['YLR138W' 'YBL019W' 0 nan]
+ ['YML110C' 'YLR210W' 0 nan]
+ ['YKR081C' 'YOR234C' 0 nan]
+ ['YPL023C' 'YBR152W' 0 nan]
+ ['YGL048C' 'YGR013W' 0 nan]
+ ['YGL234W' 'YPR112C' 0 nan]
+ ['YDR153C' 'YML010W' 0 nan]
+ ['YOR284W' 'YHR152W' 0 nan]
+ ['YJR007W' 'YDL122W' 0 nan]
+ ['YDR408C' 'YPL217C' 0 nan]
+ ['YBR039W' 'YKL152C' 0 nan]
+ ['YDL212W' 'YIR008C' 0 nan]
+ ['YMR293C' 'YDR186C' 0 nan]
+ ['YLR308W' 'YLL042C' 0 nan]
+ ['YDR001C' 'YDL222C' 0 nan]
+ ['YNL064C' 'YGR065C' 0 nan]
+ ['YJR125C' 'YDL165W' 0 nan]
+ ['YKL113C' 'YDR540C' 0 nan]
+ ['YML038C' 'YGL038C' 0 nan]
+ ['YNL264C' 'YHR042W' 0 nan]
+ ['YGR038W' 'YGL054C' 0 nan]
+ ['YCL010C' 'YDL122W' 0 nan]
+ ['YAR008W' 'YJR067C' 0 nan]
+ ['YJL111W' 'YPL212C' 0 nan]
+ ['YPL032C' 'YGR067C' 0 nan]
+ ['YFL009W' 'YHL022C' 0 nan]
+ ['YNL024C-A' 'YKL148C' 0 nan]
+ ['YEL026W' 'YGR289C' 0 nan]
+ ['YER119C' 'YPR094W' 0 nan]
+ ['YDR385W' 'YDR408C' 0 nan]
+ ['YPL265W' 'YNL326C' 0 nan]
+ ['YNL299W' 'YLR398C' 0 nan]
+ ['YDR214W' 'YMR280C' 0 nan]
+ ['YGR275W' 'YPL069C' 0 nan]
+ ['YGR275W' 'YMR214W' 0 nan]
+ ['YGL011C' 'YNR032W' 0 nan]
+ ['YMR164C' 'YGR074W' 0 nan]
+ ['YJL139C' 'YNL257C' 0 nan]
+ ['YDL020C' 'YFR044C' 0 nan]
+ ['YFL018C' 'YJL100W' 0 nan]
+ ['YGL184C' 'YMR014W' 0 nan]
+ ['YGL048C' 'YIL010W' 0 nan]
+ ['YDR346C' 'YNL124W' 0 nan]
+ ['YPL108W' 'YOR028C' 0 nan]
+ ['YJL092W' 'YEL003W' 0 nan]
+ ['YLR408C' 'YGR261C' 0 nan]
+ ['YHR115C' 'YGR096W' 0 nan]
+ ['YGR090W' 'YPL232W' 0 nan]
+ ['YKR045C' 'YJL074C' 0 nan]
+ ['YIR022W' 'YCR024C-A' 0 nan]
+ ['YFL016C' 'YDR162C' 1 nan]]
+Are we attempting to save
+Testing GO Term: GO:0009451 (43 / 53)
+[['YPL086C' 'YNL254C']
+ ['YJR056C' 'YPL086C']
+ ['YJR129C' 'YNL254C']
+ ['YBR239C' 'YDR206W']
+ ['YHR003C' 'YDR352W']]
+[['YGL002W' 'YLR398C']
+ ['YGR289C' 'YBL100W-A']
+ ['YOR094W' 'YPR022C']
+ ['YOL088C' 'YHR001W']
+ ['YHR134W' 'YMR047C']]
+Sorted Data: [['YGR132C' 'YJL093C' 0 nan]
+ ['YMR278W' 'YGL145W' 0 nan]
+ ['YPL152W' 'YNL222W' 0 nan]
+ ...
+ ['YBR179C' 'YNL177C' 0 nan]
+ ['YDL181W' 'YNL002C' 0 nan]
+ ['YPL086C' 'YNL254C' 1 nan]]
+Are we attempting to save
+Testing GO Term: GO:0016197 (44 / 53)
+[['YLR262C' 'YDR027C']
+ ['YLR262C' 'YCR027C']
+ ['YLR262C' 'YDR153C']
+ ['YLR262C' 'YJL207C']
+ ['YLR262C' 'YPL084W']]
+[['YCR073C' 'YLR071C']
+ ['YJR099W' 'YDR225W']
+ ['YDR348C' 'YML062C']
+ ['YIL031W' 'YDR001C']
+ ['YER172C' 'YOR295W']]
+Sorted Data: [['YCL011C' 'YCR048W' 0 nan]
+ ['YDR020C' 'YHR166C' 0 nan]
+ ['YDR210W' 'YIL073C' 0 nan]
+ ...
+ ['YDR184C' 'YGR028W' 0 nan]
+ ['YKL188C' 'YOR298C-A' 0 nan]
+ ['YLR262C' 'YDR027C' 1 nan]]
+Are we attempting to save
+Testing GO Term: GO:0032196 (45 / 53)
+[['YPL256C' 'YDR210W-D']
+ ['YPL256C' 'YCL019W']
+ ['YPL256C' 'YLR157C-A']
+ ['YPL256C' 'YDR034C-D']
+ ['YPL256C' 'YDR365W-B']]
+[['YER124C' 'YMR291W']
+ ['YER141W' 'YKL222C']
+ ['YPR075C' 'YDL155W']
+ ['YDR522C' 'YJR064W']
+ ['YOR361C' 'YJR129C']]
+Sorted Data: [['YBR084C-A' 'YCL040W' 0 nan]
+ ['YBR293W' 'YOR030W' 0 nan]
+ ['YLR342W' 'YLR178C' 0 nan]
+ ...
+ ['YDR016C' 'YPR058W' 0 nan]
+ ['YOL033W' 'YPL069C' 0 nan]
+ ['YPL256C' 'YDR210W-D' 1 nan]]
+Are we attempting to save
+Testing GO Term: GO:0032543 (46 / 53)
+[['YDR462W' 'YJL063C']
+ ['YDR462W' 'YLR069C']
+ ['YDR462W' 'YOL033W']
+ ['YDR462W' 'YCR071C']
+ ['YDR462W' 'YNR036C']]
+[['YEL063C' 'YDL155W']
+ ['YNL323W' 'YPL158C']
+ ['YHL007C' 'YMR106C']
+ ['YAL061W' 'YPR022C']
+ ['YNL069C' 'YNR049C']]
+Sorted Data: [['YOR214C' 'YDR079C-A' 0 nan]
+ ['YLR064W' 'YNR049C' 0 nan]
+ ['YMR011W' 'YKL216W' 0 nan]
+ ...
+ ['YGR049W' 'YDL066W' 0 nan]
+ ['YDR452W' 'YBR008C' 0 nan]
+ ['YDR462W' 'YJL063C' 1 nan]]
+Are we attempting to save
+Testing GO Term: GO:0042273 (47 / 53)
+[['YPL211W' 'YKR081C']
+ ['YPL211W' 'YNL002C']
+ ['YPL211W' 'YLR340W']
+ ['YPL211W' 'YML025C']
+ ['YPL211W' 'YJL122W']]
+[['YLR132C' 'YAR066W']
+ ['YHR178W' 'YDR293C']
+ ['YJL123C' 'YAR014C']
+ ['YGL124C' 'YKL055C']
+ ['YLR132C' 'YOL033W']]
+Sorted Data: [['YMR280C' 'YJL118W' 0 nan]
+ ['YIL031W' 'YLR453C' 0 nan]
+ ['YKR022C' 'YJL113W' 0 nan]
+ ...
+ ['YER118C' 'YDL025C' 0 nan]
+ ['YOL110W' 'YOL091W' 0 nan]
+ ['YPL211W' 'YKR081C' 1 nan]]
+Are we attempting to save
+Testing GO Term: GO:0042274 (48 / 53)
+[['YNR054C' 'YKR060W']
+ ['YNR054C' 'YJL010C']
+ ['YNR054C' 'YGR090W']
+ ['YNR054C' 'YDR339C']
+ ['YNR054C' 'YLR051C']]
+[['YIL031W' 'YCL020W']
+ ['YFR009W' 'YOR130C']
+ ['YLR274W' 'YKL220C']
+ ['YKL091C' 'YGL029W']
+ ['YOR198C' 'YDR208W']]
+Sorted Data: [['YGR125W' 'YNR075W' 0 nan]
+ ['YHR143W-A' 'YAL055W' 0 nan]
+ ['YKL160W' 'YOR035C' 0 nan]
+ ...
+ ['YDR113C' 'YPR022C' 0 nan]
+ ['YDR184C' 'YGR033C' 0 nan]
+ ['YNR054C' 'YKR060W' 1 nan]]
+Are we attempting to save
+Testing GO Term: GO:0045333 (49 / 53)
+[['YPL132W' 'YJL063C']
+ ['YPL132W' 'YOR354C']
+ ['YPL132W' 'YML110C']
+ ['YPL132W' 'YOL008W']
+ ['YPL132W' 'YJL209W']]
+[['YLR240W' 'YBR171W']
+ ['YPR009W' 'YDL191W']
+ ['YLR449W' 'YDR291W']
+ ['YDR184C' 'YML007W']
+ ['YDR477W' 'YJL203W']]
+Sorted Data: [['YKL221W' 'YHR166C' 0 nan]
+ ['YPL256C' 'YOL021C' 0 nan]
+ ['YPL012W' 'YBR014C' 0 nan]
+ ...
+ ['YPL020C' 'YHR016C' 0 nan]
+ ['YBR018C' 'YCL010C' 0 nan]
+ ['YPL132W' 'YJL063C' 1 nan]]
+Are we attempting to save
+Testing GO Term: GO:0051321 (50 / 53)
+[['YJL074C' 'YGL175C']
+ ['YBR103W' 'YDR522C']
+ ['YBR073W' 'YLL005C']
+ ['YDR104C' 'YGR108W']
+ ['YML066C' 'YBR136W']]
+[['YIL085C' 'YMR060C']
+ ['YGR049W' 'YKL139W']
+ ['YJR161C' 'YNL279W']
+ ['YNL323W' 'YOR303W']
+ ['YJL151C' 'YKL211C']]
+Sorted Data: [['YLR225C' 'YPR121W' 0 nan]
+ ['YDL212W' 'YOR208W' 0 nan]
+ ['YNL148C' 'YJL093C' 0 nan]
+ ...
+ ['YGR183C' 'YPL255W' 0 nan]
+ ['YLR070C' 'YJR014W' 0 nan]
+ ['YJL074C' 'YGL175C' 1 nan]]
+Are we attempting to save
+Testing GO Term: GO:0051603 (51 / 53)
+[['YGL048C' 'YML111W']
+ ['YLL042C' 'YIL097W']
+ ['YOR362C' 'YIL097W']
+ ['YLR368W' 'YDL122W']
+ ['YOL013C' 'YPL046C']]
+[['YNL315C' 'YLR084C']
+ ['YDR058C' 'YOR197W']
+ ['YML123C' 'YGL181W']
+ ['YPL037C' 'YLR003C']
+ ['YBL016W' 'YJL051W']]
+Sorted Data: [['YER003C' 'YDL004W' 0 nan]
+ ['YMR011W' 'YKL073W' 0 nan]
+ ['YNL245C' 'YDR085C' 0 nan]
+ ...
+ ['YCR079W' 'YJR113C' 0 nan]
+ ['YMR079W' 'YKL025C' 0 nan]
+ ['YGL048C' 'YML111W' 1 nan]]
+Are we attempting to save
+Testing GO Term: GO:0051726 (52 / 53)
+[['YJL076W' 'YOL113W']
+ ['YOR178C' 'YLR210W']
+ ['YER016W' 'YMR199W']
+ ['YBL084C' 'YHR152W']
+ ['YOR229W' 'YDR099W']]
+[['YEL046C' 'YER122C']
+ ['YIR003W' 'YPR185W']
+ ['YLR340W' 'YOL039W']
+ ['YAL014C' 'YMR121C']
+ ['YMR216C' 'YAL055W']]
+Sorted Data: [['YOL016C' 'YPR025C' 0 nan]
+ ['YER146W' 'YLR256W' 0 nan]
+ ['YKR013W' 'YDR155C' 0 nan]
+ ...
+ ['YBR139W' 'YNL220W' 0 nan]
+ ['YKL188C' 'YGR065C' 0 nan]
+ ['YJL076W' 'YOL113W' 1 nan]]
+Are we attempting to save
+Began Testing the Network
+Testing GO Term: GO:0000054 (0 / 53)
+[['YPL169C' 'YJL041W']
+ ['YPL169C' 'YHR170W']
+ ['YPL169C' 'YDR361C']
+ ['YPL169C' 'YGR245C']
+ ['YPL169C' 'YPR016C']]
+[['YGL243W' 'YFL026W']
+ ['YDL065C' 'YJL060W']
+ ['YBR080C' 'YMR205C']
+ ['YML112W' 'YGR181W']
+ ['YGR235C' 'YHL040C']]
+Sorted Data: [['YBR162W-A' 'YIL017W' 0 nan]
+ ['YLR047C' 'YDR239C' 0 nan]
+ ['YDL106C' 'YPL214C' 0 nan]
+ ...
+ ['YDL091C' 'YIR036C' 0 nan]
+ ['YOR091W' 'YGR062C' 0 nan]
+ ['YPL169C' 'YJL041W' 1 nan]]
+Are we attempting to save
+Testing GO Term: GO:0000278 (1 / 53)
+[['YIL126W' 'YIL106W']
+ ['YCL012W' 'YDR118W']
+ ['YML034W' 'YFR037C']
+ ['YGL190C' 'YLR313C']
+ ['YGL174W' 'YGR080W']]
+[['YOR063W' 'YMR038C']
+ ['YLL008W' 'YJR010W']
+ ['YGR035C' 'YOL122C']
+ ['YJL206C' 'YDR422C']
+ ['YAR070W-A' 'YDR138W']]
+Sorted Data: [['YOR304W' 'YJL156C' 0 nan]
+ ['YMR180C' 'YLR270W' 0 nan]
+ ['YKR099W' 'YPL189W' 0 nan]
+ ...
+ ['YGL006W' 'YBR159W' 0 nan]
+ ['YMR026C' 'YDR527W' 0 nan]
+ ['YIL126W' 'YIL106W' 1 nan]]
+Are we attempting to save
+Testing GO Term: GO:0000747 (2 / 53)
+[['YOR127W' 'YAL041W']
+ ['YKR095W-A' 'YCR002C']
+ ['YJL080C' 'YBR109C']
+ ['YIL037C' 'YNL173C']
+ ['YOR127W' 'YBR129C']]
+[['YJL183W' 'YDL133C-A']
+ ['YKR049C' 'YJL168C']
+ ['YMR101C' 'YBR254C']
+ ['YLL040C' 'YOR087W']
+ ['YDR246W' 'YDL128W']]
+Sorted Data: [['YPR060C' 'YDR478W' 0 nan]
+ ['YGR154C' 'YLL003W' 0 nan]
+ ['YGR046W' 'YNR020C' 0 nan]
+ ...
+ ['YLR206W' 'YPL155C' 0 nan]
+ ['YJR025C' 'YMR192W' 0 nan]
+ ['YOR127W' 'YAL041W' 1 nan]]
+Are we attempting to save
+Testing GO Term: GO:0001403 (3 / 53)
+[['YOR127W' 'YOR212W']
+ ['YOR127W' 'YHR073W']
+ ['YOR127W' 'YER027C']
+ ['YOR127W' 'YMR316W']
+ ['YOR127W' 'YGL046W']]
+[['YMR087W' 'YBR026C']
+ ['YOR240W' 'YLR150W']
+ ['YJL013C' 'YIL119C']
+ ['YOR353C' 'YDL007W']
+ ['YGR238C' 'YJL048C']]
+Sorted Data: [['YPL183W-A' 'YPR161C' 0 nan]
+ ['YGR217W' 'YJL083W' 0 nan]
+ ['YHR070W' 'YIL112W' 0 nan]
+ ...
+ ['YGL063W' 'YGL127C' 0 nan]
+ ['YOL136C' 'YLR147C' 0 nan]
+ ['YOR127W' 'YOR212W' 1 nan]]
+Are we attempting to save
+Testing GO Term: GO:0002181 (4 / 53)
+[['YKL191W' 'YJR097W']
+ ['YKL191W' 'YLR172C']
+ ['YJR097W' 'YLR172C']]
+[['YIR032C' 'YHR175W']
+ ['YKL109W' 'YGL162W']
+ ['YNL244C' 'YHR066W']
+ ['YGL231C' 'YCR093W']
+ ['YPR096C' 'YNL138W-A']]
+Sorted Data: [['YCR026C' 'YHR023W' 0 nan]
+ ['YOL154W' 'YDR392W' 0 nan]
+ ['YKL191W' 'YLR172C' 1 nan]
+ ['YJR097W' 'YLR172C' 1 nan]
+ ['YIR032C' 'YHR175W' 0 nan]
+ ['YKL109W' 'YGL162W' 0 nan]
+ ['YNL244C' 'YHR066W' 0 nan]
+ ['YGL231C' 'YCR093W' 0 nan]
+ ['YPR096C' 'YNL138W-A' 0 nan]
+ ['YNL102W' 'YJL140W' 0 nan]
+ ['YGL231C' 'YMR239C' 0 nan]
+ ['YML128C' 'YIL036W' 0 nan]
+ ['YGR283C' 'YDR513W' 0 nan]
+ ['YDR059C' 'YGR003W' 0 nan]
+ ['YBR045C' 'YDR032C' 0 nan]
+ ['YPL213W' 'YLR285W' 0 nan]
+ ['YDR510W' 'YHL032C' 0 nan]
+ ['YLL002W' 'YPR160W' 0 nan]
+ ['YPR148C' 'YDL098C' 0 nan]
+ ['YGL104C' 'YJR025C' 0 nan]
+ ['YKR071C' 'YBR130C' 0 nan]
+ ['YGR161W-A' 'YPR083W' 0 nan]
+ ['YER014C-A' 'YMR089C' 0 nan]
+ ['YMR165C' 'YOR298W' 0 nan]
+ ['YGR193C' 'YPL064C' 0 nan]
+ ['YDL235C' 'YCR045C' 0 nan]
+ ['YFR018C' 'YOR068C' 0 nan]
+ ['YDR386W' 'YPR133W-A' 0 nan]
+ ['YDL083C' 'YPL127C' 0 nan]
+ ['YMR273C' 'YPL150W' 0 nan]
+ ['YJL102W' 'YNR010W' 0 nan]
+ ['YAL044C' 'YPL233W' 0 nan]
+ ['YKL191W' 'YJR097W' 1 nan]]
+Are we attempting to save
+Testing GO Term: GO:0006260 (5 / 53)
+[['YDL017W' 'YBR160W']
+ ['YDR014W' 'YGR180C']
+ ['YBR090C-A' 'YOR217W']
+ ['YDL102W' 'YHR164C']
+ ['YIL150C' 'YPR120C']]
+[['YBL058W' 'YDR421W']
+ ['YGL219C' 'YJL112W']
+ ['YDR301W' 'YER179W']
+ ['YLR109W' 'YKL124W']
+ ['YNR002C' 'YKR089C']]
+Sorted Data: [['YBR141C' 'YCL066W' 0 nan]
+ ['YDL170W' 'YOL051W' 0 nan]
+ ['YPL068C' 'YHR106W' 0 nan]
+ ...
+ ['YDR235W' 'YDL189W' 0 nan]
+ ['YDR261W-A' 'YNL167C' 0 nan]
+ ['YDL017W' 'YBR160W' 1 nan]]
+Are we attempting to save
+Testing GO Term: GO:0006281 (6 / 53)
+[['YLR427W' 'YNL085W']
+ ['YKL032C' 'YNL262W']
+ ['YDL084W' 'YNL133C']
+ ['YEL037C' 'YJR035W']
+ ['YNL307C' 'YMR156C']]
+[['YMR059W' 'YDR276C']
+ ['YGL158W' 'YCL017C']
+ ['YOR032C' 'YCR040W']
+ ['YGR142W' 'YKL178C']
+ ['YLR309C' 'YFR008W']]
+Sorted Data: [['YMR131C' 'YLR284C' 0 nan]
+ ['YLR153C' 'YIL070C' 0 nan]
+ ['YEL070W' 'YMR184W' 0 nan]
+ ...
+ ['YER027C' 'YOL129W' 0 nan]
+ ['YNL161W' 'YHR150W' 0 nan]
+ ['YLR427W' 'YNL085W' 1 nan]]
+Are we attempting to save
+Testing GO Term: GO:0006310 (7 / 53)
+[['YJR021C' 'YPR158W-B']
+ ['YML045W' 'YER095W']
+ ['YJL208C' 'YML039W']
+ ['YLR467W' 'YNL250W']
+ ['YER171W' 'YLR383W']]
+[['YER071C' 'YHR088W']
+ ['YDL113C' 'YGR252W']
+ ['YOR150W' 'YPL064C']
+ ['YBR001C' 'YNL068C']
+ ['YBR283C' 'YPL143W']]
+Sorted Data: [['YLR441C' 'YLL035W' 0 nan]
+ ['YML043C' 'YBR091C' 0 nan]
+ ['YBL008W' 'YNL273W' 0 nan]
+ ...
+ ['YDR108W' 'YCR081W' 0 nan]
+ ['YOR297C' 'YHR009C' 0 nan]
+ ['YJR021C' 'YPR158W-B' 1 nan]]
+Are we attempting to save
+Testing GO Term: GO:0006325 (8 / 53)
+[['YMR223W' 'YER088C']
+ ['YGL194C' 'YDR310C']
+ ['YKR019C' 'YGR274C']
+ ['YIL126W' 'YDR071C']
+ ['YLR103C' 'YDR334W']]
+[['YKL032C' 'YER140W']
+ ['YGR167W' 'YLL013C']
+ ['YKL154W' 'YKL124W']
+ ['YJL012C' 'YDR210W-B']
+ ['YAL029C' 'YIL096C']]
+Sorted Data: [['YOR172W' 'YER177W' 0 nan]
+ ['YIL051C' 'YGR212W' 0 nan]
+ ['YLR189C' 'YMR043W' 0 nan]
+ ...
+ ['YMR131C' 'YOL121C' 0 nan]
+ ['YGR279C' 'YKL082C' 0 nan]
+ ['YMR223W' 'YER088C' 1 nan]]
+Are we attempting to save
+Testing GO Term: GO:0006352 (9 / 53)
+[['YGR047C' 'YPL007C']
+ ['YDL108W' 'YOR194C']
+ ['YPR086W' 'YGL112C']
+ ['YPR086W' 'YKR062W']
+ ['YLR005W' 'YHR099W']]
+[['YLR197W' 'YHR118C']
+ ['YHR186C' 'YDR077W']
+ ['YIL128W' 'YCR087C-A']
+ ['YPL171C' 'YGR029W']
+ ['YBL020W' 'YLR259C']]
+Sorted Data: [['YLL002W' 'YPR169W' 0 nan]
+ ['YGR295C' 'YOL030W' 0 nan]
+ ['YDR536W' 'YHR012W' 0 nan]
+ ...
+ ['YLR409C' 'YHR158C' 0 nan]
+ ['YGL085W' 'YLR382C' 0 nan]
+ ['YGR047C' 'YPL007C' 1 nan]]
+Are we attempting to save
+Testing GO Term: GO:0006353 (10 / 53)
+[['YDR289C' 'YLR277C']
+ ['YDR289C' 'YDR301W']
+ ['YDR289C' 'YGR156W']
+ ['YDR289C' 'YLR115W']
+ ['YDR289C' 'YMR039C']]
+[['YMR086W' 'YMR081C']
+ ['YER148W' 'YBR158W']
+ ['YNL032W' 'YNL232W']
+ ['YER050C' 'YOL105C']
+ ['YGL095C' 'YJL216C']]
+Sorted Data: [['YIL080W' 'YOR228C' 0 nan]
+ ['YMR074C' 'YJL024C' 0 nan]
+ ['YLR190W' 'YHR202W' 0 nan]
+ ...
+ ['YIL046W' 'YOL065C' 0 nan]
+ ['YDR501W' 'YPR072W' 0 nan]
+ ['YDR289C' 'YLR277C' 1 nan]]
+Are we attempting to save
+Testing GO Term: GO:0006360 (11 / 53)
+[['YJL148W' 'YIR009W']
+ ['YMR233W' 'YGL019W']
+ ['YOR061W' 'YIL035C']
+ ['YKR007W' 'YKL006C-A']
+ ['YDL140C' 'YPL144W']]
+[['YBR121C' 'YIL039W']
+ ['YPR196W' 'YDR210W-C']
+ ['YPL123C' 'YGR035C']
+ ['YLR005W' 'YGL064C']
+ ['YBR036C' 'YDR536W']]
+Sorted Data: [['YNL189W' 'YBR211C' 0 nan]
+ ['YDR498C' 'YJL081C' 0 nan]
+ ['YGL045W' 'YGL196W' 0 nan]
+ ...
+ ['YOR047C' 'YOR226C' 0 nan]
+ ['YFL061W' 'YPL223C' 0 nan]
+ ['YJL148W' 'YIR009W' 1 nan]]
+Are we attempting to save
+Testing GO Term: GO:0006364 (12 / 53)
+[['YHR021C' 'YOR096W']
+ ['YGL136C' 'YER002W']
+ ['YER112W' 'YKL099C']
+ ['YJL033W' 'YER133W']
+ ['YHL015W' 'YBL072C']]
+[['YHR157W' 'YLR227W-B']
+ ['YLR103C' 'YGL167C']
+ ['YBR085W' 'YDL110C']
+ ['YDR047W' 'YLR321C']
+ ['YER060W' 'YMR205C']]
+Sorted Data: [['YAR035W' 'YDL192W' 0 nan]
+ ['YER173W' 'YBL061C' 0 nan]
+ ['YBL008W' 'YOR232W' 0 nan]
+ ...
+ ['YGR253C' 'YDL215C' 0 nan]
+ ['YER062C' 'YCL039W' 0 nan]
+ ['YHR021C' 'YOR096W' 1 nan]]
+Are we attempting to save
+Testing GO Term: GO:0006366 (13 / 53)
+[['YLR055C' 'YKL058W']
+ ['YDR228C' 'YAL068C']
+ ['YBR089C-A' 'YMR112C']
+ ['YKL043W' 'YDR451C']
+ ['YML127W' 'YLR451W']]
+[['YNL202W' 'YML054C']
+ ['YHR110W' 'YGR017W']
+ ['YLR141W' 'YOL082W']
+ ['YDR495C' 'YJL085W']
+ ['YBR125C' 'YPR184W']]
+Sorted Data: [['YKL074C' 'YNR008W' 0 nan]
+ ['YBR177C' 'YDL085W' 0 nan]
+ ['YDL229W' 'YKR058W' 0 nan]
+ ...
+ ['YLL019C' 'YLR385C' 0 nan]
+ ['YOR067C' 'YBR156C' 0 nan]
+ ['YLR055C' 'YKL058W' 1 nan]]
+Are we attempting to save
+Testing GO Term: GO:0006383 (14 / 53)
+[['YNR003C' 'YJL011C']
+ ['YNR003C' 'YOL005C']
+ ['YNR003C' 'YBR089C-A']
+ ['YNR003C' 'YGR047C']
+ ['YNR003C' 'YMR172W']]
+[['YDR052C' 'YER159C']
+ ['YFL023W' 'YFL011W-A']
+ ['YML077W' 'YPL092W']
+ ['YOR240W' 'YJL082W']
+ ['YHR077C' 'YDL045W-A']]
+Sorted Data: [['YJL097W' 'YFL025C' 0 nan]
+ ['YOR380W' 'YML030W' 0 nan]
+ ['YBL038W' 'YJL221C' 0 nan]
+ ...
+ ['YBR176W' 'YOR389W' 0 nan]
+ ['YLR314C' 'YIR012W' 0 nan]
+ ['YNR003C' 'YJL011C' 1 nan]]
+Are we attempting to save
+Testing GO Term: GO:0006397 (15 / 53)
+[['YPR182W' 'YLR204W']
+ ['YLR204W' 'YDL098C']
+ ['YER013W' 'YNL138W-A']
+ ['YGL122C' 'YHL038C']
+ ['YNL118C' 'YGL128C']]
+[['YKL103C' 'YER143W']
+ ['YML063W' 'YNL243W']
+ ['YOR259C' 'YOR008C']
+ ['YBR002C' 'YGR161C-D']
+ ['YLR258W' 'YPR200C']]
+Sorted Data: [['YGR154C' 'YBR022W' 0 nan]
+ ['YGL070C' 'YPR168W' 0 nan]
+ ['YKR009C' 'YOR195W' 0 nan]
+ ...
+ ['YDR281C' 'YEL043W' 0 nan]
+ ['YEL021W' 'YGR155W' 0 nan]
+ ['YPR182W' 'YLR204W' 1 nan]]
+Are we attempting to save
+Testing GO Term: GO:0006401 (16 / 53)
+[['YCR077C' 'YER049W']
+ ['YJL124C' 'YER068W']
+ ['YJL208C' 'YLL013C']
+ ['YGL222C' 'YBL026W']
+ ['YHR069C' 'YGL107C']]
+[['YPL059W' 'YOL103W-B']
+ ['YNL036W' 'YDR304C']
+ ['YMR115W' 'YFL021W']
+ ['YDL170W' 'YPL218W']
+ ['YGR262C' 'YBR023C']]
+Sorted Data: [['YOR201C' 'YDR372C' 0 nan]
+ ['YBR129C' 'YAL022C' 0 nan]
+ ['YML102W' 'YHL035C' 0 nan]
+ ...
+ ['YCL054W' 'YGR170W' 0 nan]
+ ['YLR414C' 'YPL026C' 0 nan]
+ ['YCR077C' 'YER049W' 1 nan]]
+Are we attempting to save
+Testing GO Term: GO:0006413 (17 / 53)
+[['YLR291C' 'YPR086W']
+ ['YLR291C' 'YGR083C']
+ ['YLR291C' 'YOL023W']
+ ['YLR291C' 'YOL139C']
+ ['YLR291C' 'YNL244C']]
+[['YKL005C' 'YOR192C-A']
+ ['YOR068C' 'YEL017C-A']
+ ['YPL183W-A' 'YOR008C']
+ ['YML023C' 'YER005W']
+ ['YDR265W' 'YMR145C']]
+Sorted Data: [['YOL156W' 'YPL209C' 0 nan]
+ ['YNL216W' 'YGR161W-B' 0 nan]
+ ['YIR014W' 'YPL007C' 0 nan]
+ ...
+ ['YHR193C' 'YDR304C' 0 nan]
+ ['YGL016W' 'YDR384C' 0 nan]
+ ['YLR291C' 'YPR086W' 1 nan]]
+Are we attempting to save
+Testing GO Term: GO:0006414 (18 / 53)
+[['YNL063W' 'YAL003W']
+ ['YNL063W' 'YKL191W']
+ ['YNL063W' 'YJL102W']
+ ['YNL063W' 'YDL081C']
+ ['YNL063W' 'YBR118W']]
+[['YPL064C' 'YDR110W']
+ ['YAL029C' 'YDR351W']
+ ['YLR345W' 'YCL035C']
+ ['YML094W' 'YDR478W']
+ ['YFL029C' 'YGR002C']]
+Sorted Data: [['YOR177C' 'YPL141C' 0 nan]
+ ['YMR071C' 'YLL013C' 0 nan]
+ ['YFL023W' 'YOR180C' 0 nan]
+ ...
+ ['YAR070W-A' 'YJR026W' 0 nan]
+ ['YLR011W' 'YLR333C' 0 nan]
+ ['YNL063W' 'YAL003W' 1 nan]]
+Are we attempting to save
+Testing GO Term: GO:0006418 (19 / 53)
+[['YOR335C' 'YPL160W']
+ ['YOR335C' 'YER087W']
+ ['YOR335C' 'YPL097W']
+ ['YOR335C' 'YHR020W']
+ ['YOR335C' 'YOR168W']]
+[['YAL035W' 'YDR064W']
+ ['YLR291C' 'YFL025C']
+ ['YML006C' 'YLR467W']
+ ['YOR110W' 'YKL007W']
+ ['YMR063W' 'YNL159C']]
+Sorted Data: [['YLL048C' 'YER159C' 0 nan]
+ ['YFL013C' 'YCL031C' 0 nan]
+ ['YCL064C' 'YPR173C' 0 nan]
+ ...
+ ['YMR061W' 'YML037C' 0 nan]
+ ['YDL045C' 'YOR126C' 0 nan]
+ ['YOR335C' 'YPL160W' 1 nan]]
+Are we attempting to save
+Testing GO Term: GO:0006457 (20 / 53)
+[['YNL006W' 'YBR169C']
+ ['YBL075C' 'YDL229W']
+ ['YML048W' 'YCL043C']
+ ['YKL117W' 'YJL008C']
+ ['YCR060W' 'YDR212W']]
+[['YMR078C' 'YGR060W']
+ ['YOR059C' 'YJR026W']
+ ['YOR206W' 'YOR120W']
+ ['YBR092C' 'YBR120C']
+ ['YDR242W' 'YDR031W']]
+Sorted Data: [['YCR106W' 'YNL095C' 0 nan]
+ ['YGR020C' 'YAL063C' 0 nan]
+ ['YPR031W' 'YLR417W' 0 nan]
+ ...
+ ['YJR134C' 'YOR162C' 0 nan]
+ ['YDR373W' 'YOR326W' 0 nan]
+ ['YNL006W' 'YBR169C' 1 nan]]
+Are we attempting to save
+Testing GO Term: GO:0006468 (21 / 53)
+[['YDR283C' 'YGR262C']
+ ['YIL095W' 'YBR160W']
+ ['YBR097W' 'YJL006C']
+ ['YKL198C' 'YKL116C']
+ ['YMR036C' 'YBR028C']]
+[['YML023C' 'YFR033C']
+ ['YOL009C' 'YMR250W']
+ ['YLR188W' 'YJL060W']
+ ['YPL221W' 'YLL006W']
+ ['YCR016W' 'YDL220C']]
+Sorted Data: [['YDR531W' 'YOR037W' 0 nan]
+ ['YGR086C' 'YBR294W' 0 nan]
+ ['YNL232W' 'YEL030W' 0 nan]
+ ...
+ ['YPL239W' 'YLR015W' 0 nan]
+ ['YKR100C' 'YGL256W' 0 nan]
+ ['YDR283C' 'YGR262C' 1 nan]]
+Are we attempting to save
+Testing GO Term: GO:0006470 (22 / 53)
+[['YOR090C' 'YIL113W']
+ ['YOR090C' 'YNL128W']
+ ['YOR090C' 'YBL056W']
+ ['YOR090C' 'YDL134C']
+ ['YOR090C' 'YBR045C']]
+[['YMR307W' 'YOR393W']
+ ['YLR284C' 'YMR204C']
+ ['YOR299W' 'YPL063W']
+ ['YLR278C' 'YGR103W']
+ ['YDL197C' 'YPL104W']]
+Sorted Data: [['YNL301C' 'YJR104C' 0 nan]
+ ['YOR251C' 'YNL218W' 0 nan]
+ ['YNL191W' 'YPL082C' 0 nan]
+ ...
+ ['YDR090C' 'YKR056W' 0 nan]
+ ['YKL165C' 'YGL212W' 0 nan]
+ ['YOR090C' 'YIL113W' 1 nan]]
+Are we attempting to save
+Testing GO Term: GO:0006486 (23 / 53)
+[['YGL225W' 'YOR103C']
+ ['YGL027C' 'YBR205W']
+ ['YNR030W' 'YKR061W']
+ ['YBR002C' 'YKR061W']
+ ['YBR243C' 'YGL226C-A']]
+[['YOL020W' 'YGL010W']
+ ['YOR014W' 'YBR012W-A']
+ ['YHR206W' 'YDR329C']
+ ['YNL102W' 'YDL112W']
+ ['YGR159C' 'YNL025C']]
+Sorted Data: [['YBR081C' 'YBR273C' 0 nan]
+ ['YOL023W' 'YDR212W' 0 nan]
+ ['YER138C' 'YDL216C' 0 nan]
+ ...
+ ['YNL288W' 'YPR046W' 0 nan]
+ ['YIL061C' 'YJR034W' 0 nan]
+ ['YGL225W' 'YOR103C' 1 nan]]
+Are we attempting to save
+Testing GO Term: GO:0006629 (24 / 53)
+[['YLR056W' 'YBR183W']
+ ['YLR305C' 'YCR044C']
+ ['YNL045W' 'YER093C']
+ ['YMR208W' 'YDR072C']
+ ['YKR031C' 'YDR492W']]
+[['YNL132W' 'YLR120C']
+ ['YJL112W' 'YBL051C']
+ ['YGR161C-D' 'YOR046C']
+ ['YBR211C' 'YMR117C']
+ ['YAR015W' 'YOL045W']]
+Sorted Data: [['YDR440W' 'YJR160C' 0 nan]
+ ['YNL322C' 'YPL203W' 0 nan]
+ ['YOR101W' 'YBR049C' 0 nan]
+ ...
+ ['YER086W' 'YOR246C' 0 nan]
+ ['YOR209C' 'YDR128W' 0 nan]
+ ['YLR056W' 'YBR183W' 1 nan]]
+Are we attempting to save
+Testing GO Term: GO:0006811 (25 / 53)
+[['YOR071C' 'YDL100C']
+ ['YDL185W' 'YOR382W']
+ ['YBR069C' 'YEL031W']
+ ['YMR034C' 'YDR205W']
+ ['YOR383C' 'YPR067W']]
+[['YHR211W' 'YFR038W']
+ ['YDL119C' 'YDL130W']
+ ['YHR179W' 'YOR358W']
+ ['YJL089W' 'YDL204W']
+ ['YDR064W' 'YGL151W']]
+Sorted Data: [['YPR204W' 'YIL136W' 0 nan]
+ ['YGL186C' 'YJR096W' 0 nan]
+ ['YBR166C' 'YPL100W' 0 nan]
+ ...
+ ['YKL032C' 'YMR098C' 0 nan]
+ ['YNL086W' 'YMR240C' 0 nan]
+ ['YOR071C' 'YDL100C' 1 nan]]
+Are we attempting to save
+Testing GO Term: GO:0006865 (26 / 53)
+[['YOL020W' 'YHL036W']
+ ['YOL020W' 'YDR160W']
+ ['YOL020W' 'YDR046C']
+ ['YOL020W' 'YCL025C']
+ ['YOL020W' 'YNL101W']]
+[['YER063W' 'YGR144W']
+ ['YML082W' 'YNL131W']
+ ['YML076C' 'YNL278W']
+ ['YHR114W' 'YNL123W']
+ ['YER082C' 'YNL231C']]
+Sorted Data: [['YJR083C' 'YLR383W' 0 nan]
+ ['YOR080W' 'YHR028C' 0 nan]
+ ['YOR182C' 'YDR056C' 0 nan]
+ ...
+ ['YFL029C' 'YPL269W' 0 nan]
+ ['YLL053C' 'YLR293C' 0 nan]
+ ['YOL020W' 'YHL036W' 1 nan]]
+Are we attempting to save
+Testing GO Term: GO:0006869 (27 / 53)
+[['YPL147W' 'YOR317W']
+ ['YPL147W' 'YDL019C']
+ ['YPL147W' 'YHR073W']
+ ['YPL147W' 'YBL020W']
+ ['YPL147W' 'YAR044W']]
+[['YOL029C' 'YDR023W']
+ ['YDR486C' 'YDR188W']
+ ['YOR304W' 'YDL209C']
+ ['YAL068C' 'YLR413W']
+ ['YGR292W' 'YDR482C']]
+Sorted Data: [['YBR162W-A' 'YIL138C' 0 nan]
+ ['YJL167W' 'YDR437W' 0 nan]
+ ['YGR221C' 'YHR193C' 0 nan]
+ ...
+ ['YBL051C' 'YLR451W' 0 nan]
+ ['YGR241C' 'YGR155W' 0 nan]
+ ['YPL147W' 'YOR317W' 1 nan]]
+Are we attempting to save
+Testing GO Term: GO:0006873 (28 / 53)
+[['YEL065W' 'YDR328C']
+ ['YOR226C' 'YBR024W']
+ ['YOR332W' 'YDR515W']
+ ['YDR495C' 'YDR328C']
+ ['YMR301C' 'YKR007W']]
+[['YKL062W' 'YNL061W']
+ ['YDR533C' 'YLR359W']
+ ['YNL227C' 'YGR282C']
+ ['YGR161W-A' 'YGR014W']
+ ['YNL178W' 'YFR007W']]
+Sorted Data: [['YLR141W' 'YLR426W' 0 nan]
+ ['YEL013W' 'YNL284C-A' 0 nan]
+ ['YDR419W' 'YOR089C' 0 nan]
+ ...
+ ['YKR069W' 'YOR274W' 0 nan]
+ ['YHR012W' 'YJR089W' 0 nan]
+ ['YEL065W' 'YDR328C' 1 nan]]
+Are we attempting to save
+Testing GO Term: GO:0006887 (29 / 53)
+[['YER008C' 'YDR189W']
+ ['YER008C' 'YDL019C']
+ ['YER008C' 'YFL005W']
+ ['YER008C' 'YHR073W']
+ ['YER008C' 'YKR031C']]
+[['YOR247W' 'YCL074W']
+ ['YHR164C' 'YBR084W']
+ ['YDR111C' 'YPR036W']
+ ['YPR021C' 'YHR160C']
+ ['YPL188W' 'YDR528W']]
+Sorted Data: [['YLL038C' 'YKR037C' 0 nan]
+ ['YPL106C' 'YPL174C' 0 nan]
+ ['YDR032C' 'YDR239C' 0 nan]
+ ...
+ ['YDL223C' 'YNL284C-B' 0 nan]
+ ['YDL045C' 'YJL136C' 0 nan]
+ ['YER008C' 'YDR189W' 1 nan]]
+Are we attempting to save
+Testing GO Term: GO:0006897 (30 / 53)
+[['YDR490C' 'YDR129C']
+ ['YLR337W' 'YGR086C']
+ ['YLR056W' 'YDR388W']
+ ['YLR337C' 'YHR161C']
+ ['YBR207W' 'YHR161C']]
+[['YLR145W' 'YLR187W']
+ ['YPL013C' 'YJR151C']
+ ['YBL010C' 'YGR084C']
+ ['YPL001W' 'YPR067W']
+ ['YOR117W' 'YDL065C']]
+Sorted Data: [['YEL001C' 'YOR193W' 0 nan]
+ ['YEL052W' 'YKR036C' 0 nan]
+ ['YNL244C' 'YJR009C' 0 nan]
+ ...
+ ['YKL011C' 'YOR258W' 0 nan]
+ ['YDR423C' 'YIL145C' 0 nan]
+ ['YDR490C' 'YDR129C' 1 nan]]
+Are we attempting to save
+Testing GO Term: GO:0006970 (31 / 53)
+[['YOL064C' 'YBR016W']
+ ['YOL064C' 'YPL240C']
+ ['YBR182C' 'YKL048C']
+ ['YBR016W' 'YKL048C']
+ ['YLR337C' 'YFL014W']]
+[['YMR165C' 'YDR412W']
+ ['YOR349W' 'YMR152W']
+ ['YJL096W' 'YBR146W']
+ ['YMR034C' 'YCL052C']
+ ['YMR091C' 'YGR037C']]
+Sorted Data: [['YML047C' 'YDL143W' 0 nan]
+ ['YGR156W' 'YBR247C' 0 nan]
+ ['YOR323C' 'YIL160C' 0 nan]
+ ...
+ ['YGR214W' 'YDR460W' 0 nan]
+ ['YBL035C' 'YHR197W' 0 nan]
+ ['YOL064C' 'YBR016W' 1 nan]]
+Are we attempting to save
+Testing GO Term: GO:0006979 (32 / 53)
+[['YKR066C' 'YKL026C']
+ ['YBR046C' 'YDR098C']
+ ['YIL008W' 'YDR453C']
+ ['YPL202C' 'YKR066C']
+ ['YPL059W' 'YBL064C']]
+[['YER074W' 'YGL148W']
+ ['YDR496C' 'YLR107W']
+ ['YOR069W' 'YOL051W']
+ ['YJL180C' 'YDR195W']
+ ['YPR021C' 'YLR426W']]
+Sorted Data: [['YBL005W-B' 'YLL019C' 0 nan]
+ ['YDR465C' 'YDR372C' 0 nan]
+ ['YLR055C' 'YLR008C' 0 nan]
+ ...
+ ['YMR314W' 'YJL219W' 0 nan]
+ ['YBL112C' 'YFL021W' 0 nan]
+ ['YKR066C' 'YKL026C' 1 nan]]
+Are we attempting to save
+Testing GO Term: GO:0007005 (33 / 53)
+[['YLL018C-A' 'YOR045W']
+ ['YBR091C' 'YLR370C']
+ ['YDR529C' 'YGR101W']
+ ['YOR037W' 'YDR079W']
+ ['YAL010C' 'YFL036W']]
+[['YER137C' 'YKR026C']
+ ['YOR291W' 'YDR381W']
+ ['YDL243C' 'YCL018W']
+ ['YGL071W' 'YDL101C']
+ ['YKL024C' 'YKL212W']]
+Sorted Data: [['YKR104W' 'YGL021W' 0 nan]
+ ['YCR010C' 'YOL072W' 0 nan]
+ ['YDR381C-A' 'YGL155W' 0 nan]
+ ...
+ ['YML125C' 'YNL162W' 0 nan]
+ ['YIL080W' 'YHR169W' 0 nan]
+ ['YLL018C-A' 'YOR045W' 1 nan]]
+Are we attempting to save
+Testing GO Term: GO:0007010 (34 / 53)
+[['YHR114W' 'YDL135C']
+ ['YLR313C' 'YKL129C']
+ ['YNL084C' 'YIL034C']
+ ['YOR240W' 'YDL029W']
+ ['YCR065W' 'YKL013C']]
+[['YDR283C' 'YLR318W']
+ ['YJR118C' 'YHR096C']
+ ['YPR016C' 'YBR075W']
+ ['YNL092W' 'YDR425W']
+ ['YDL006W' 'YBR181C']]
+Sorted Data: [['YMR180C' 'YHR005C-A' 0 nan]
+ ['YFL017W-A' 'YGR084C' 0 nan]
+ ['YPL112C' 'YOR330C' 0 nan]
+ ...
+ ['YDL007W' 'YMR242C' 0 nan]
+ ['YNL244C' 'YMR230W' 0 nan]
+ ['YHR114W' 'YDL135C' 1 nan]]
+Are we attempting to save
+Testing GO Term: GO:0007031 (35 / 53)
+[['YKL197C' 'YGR077C']
+ ['YKL197C' 'YGL115W']
+ ['YKL197C' 'YOR084W']
+ ['YKL197C' 'YGR239C']
+ ['YKL197C' 'YDR479C']]
+[['YHR206W' 'YBR160W']
+ ['YGR024C' 'YHR027C']
+ ['YJL133C-A' 'YJR103W']
+ ['YLR410W-A' 'YKL096W-A']
+ ['YJR092W' 'YBR230C']]
+Sorted Data: [['YHR058C' 'YPR137C-A' 0 nan]
+ ['YNL123W' 'YPR046W' 0 nan]
+ ['YDR299W' 'YFR033C' 0 nan]
+ ...
+ ['YDR046C' 'YOR330C' 0 nan]
+ ['YGR044C' 'YDR065W' 0 nan]
+ ['YKL197C' 'YGR077C' 1 nan]]
+Are we attempting to save
+Testing GO Term: GO:0007033 (36 / 53)
+[['YOR326W' 'YHR138C']
+ ['YLR396C' 'YHR039C-B']
+ ['YGL095C' 'YIL048W']
+ ['YEL013W' 'YAL002W']
+ ['YLR043C' 'YOR326W']]
+[['YDR003W' 'YNL318C']
+ ['YGR047C' 'YGL071W']
+ ['YML102W' 'YOL018C']
+ ['YBR264C' 'YPR001W']
+ ['YOR380W' 'YDR381C-A']]
+Sorted Data: [['YNL115C' 'YDR166C' 0 nan]
+ ['YHR089C' 'YDL018C' 0 nan]
+ ['YGR165W' 'YFL021W' 0 nan]
+ ...
+ ['YOR047C' 'YDR320C' 0 nan]
+ ['YJL011C' 'YPL194W' 0 nan]
+ ['YOR326W' 'YHR138C' 1 nan]]
+Are we attempting to save
+Testing GO Term: GO:0007059 (37 / 53)
+[['YGL240W' 'YIL144W']
+ ['YGR063C' 'YDR517W']
+ ['YOR249C' 'YJR068W']
+ ['YIL144W' 'YER147C']
+ ['YIR025W' 'YCL016C']]
+[['YGR204W' 'YJL046W']
+ ['YDR499W' 'YGR185C']
+ ['YPR182W' 'YDL231C']
+ ['YBL106C' 'YKR052C']
+ ['YDR265W' 'YGR138C']]
+Sorted Data: [['YHR009C' 'YDL246C' 0 nan]
+ ['YGR225W' 'YLR005W' 0 nan]
+ ['YBR191W' 'YIL109C' 0 nan]
+ ...
+ ['YNL119W' 'YPL096W' 0 nan]
+ ['YHR114W' 'YIL068C' 0 nan]
+ ['YGL240W' 'YIL144W' 1 nan]]
+Are we attempting to save
+Testing GO Term: GO:0007124 (38 / 53)
+[['YKL043W' 'YPL021W']
+ ['YNL119W' 'YPL021W']
+ ['YKL043W' 'YCR038C']
+ ['YLL021W' 'YNL079C']
+ ['YLR353W' 'YNL098C']]
+[['YML120C' 'YIL062C']
+ ['YJL030W' 'YKR058W']
+ ['YKL174C' 'YMR145C']
+ ['YPL099C' 'YDR403W']
+ ['YLR321C' 'YOR251C']]
+Sorted Data: [['YER178W' 'YLR170C' 0 nan]
+ ['YPL172C' 'YJL128C' 0 nan]
+ ['YHR161C' 'YPL269W' 0 nan]
+ ...
+ ['YGL147C' 'YBR297W' 0 nan]
+ ['YBR119W' 'YOL018C' 0 nan]
+ ['YKL043W' 'YPL021W' 1 nan]]
+Are we attempting to save
+Testing GO Term: GO:0008033 (39 / 53)
+[['YOR001W' 'YDR165W']
+ ['YNR015W' 'YAL020C']
+ ['YGL236C' 'YGL050W']
+ ['YER112W' 'YBR257W']
+ ['YOL066C' 'YGL243W']]
+[['YBR009C' 'YPR098C']
+ ['YPR111W' 'YGR264C']
+ ['YKR038C' 'YMR159C']
+ ['YMR290C' 'YBL089W']
+ ['YHR149C' 'YCL075W']]
+Sorted Data: [['YKL179C' 'YDL198C' 0 nan]
+ ['YOL061W' 'YGR205W' 0 nan]
+ ['YDL215C' 'YOR386W' 0 nan]
+ ...
+ ['YPR063C' 'YOL055C' 0 nan]
+ ['YNL180C' 'YMR296C' 0 nan]
+ ['YOR001W' 'YDR165W' 1 nan]]
+Are we attempting to save
+Testing GO Term: GO:0008380 (40 / 53)
+[['YNR032C-A' 'YNL147W']
+ ['YLR147C' 'YDR416W']
+ ['YGL030W' 'YPL083C']
+ ['YJL124C' 'YML049C']
+ ['YPL213W' 'YMR213W']]
+[['YGR094W' 'YLR078C']
+ ['YAL023C' 'YER171W']
+ ['YBL052C' 'YHR171W']
+ ['YIL083C' 'YDL051W']
+ ['YHR088W' 'YLL004W']]
+Sorted Data: [['YNR010W' 'YJR108W' 0 nan]
+ ['YHL044W' 'YML004C' 0 nan]
+ ['YPL040C' 'YAL051W' 0 nan]
+ ...
+ ['YLR055C' 'YDR440W' 0 nan]
+ ['YOR138C' 'YGL231C' 0 nan]
+ ['YNR032C-A' 'YNL147W' 1 nan]]
+Are we attempting to save
+Testing GO Term: GO:0008643 (41 / 53)
+[['YJR158W' 'YBL020W']
+ ['YJR158W' 'YDL138W']
+ ['YJR158W' 'YBR020W']
+ ['YJR158W' 'YDL247W']
+ ['YJR158W' 'YIL171W']]
+[['YPR171W' 'YPL209C']
+ ['YBR010W' 'YLR227W-B']
+ ['YDL081C' 'YJL073W']
+ ['YJL133W' 'YCL026C-B']
+ ['YGL062W' 'YFR031C-A']]
+Sorted Data: [['YDL230W' 'YCR035C' 0 nan]
+ ['YOR036W' 'YBL087C' 0 nan]
+ ['YLR099C' 'YLL029W' 0 nan]
+ ...
+ ['YML005W' 'YNL001W' 0 nan]
+ ['YDR117C' 'YBL106C' 0 nan]
+ ['YJR158W' 'YBL020W' 1 nan]]
+Are we attempting to save
+Testing GO Term: GO:0009408 (42 / 53)
+[['YDL100C' 'YKL062W']
+ ['YDL100C' 'YNL283C']
+ ['YDL100C' 'YGL073W']
+ ['YDL100C' 'YMR037C']
+ ['YDL100C' 'YHL028W']]
+[['YML021C' 'YDR411C']
+ ['YMR023C' 'YJR046W']
+ ['YKR072C' 'YGR030C']
+ ['YLL008W' 'YIL177C']
+ ['YOR182C' 'YDR067C']]
+Sorted Data: [['YLR006C' 'YLR040C' 0 nan]
+ ['YJR059W' 'YPL126W' 0 nan]
+ ['YBR125C' 'YDL065C' 0 nan]
+ ...
+ ['YMR296C' 'YFR052W' 0 nan]
+ ['YEL024W' 'YMR105C' 0 nan]
+ ['YDL100C' 'YKL062W' 1 nan]]
+Are we attempting to save
+Testing GO Term: GO:0009451 (43 / 53)
+[['YOL066C' 'YOL054W']
+ ['YIL061C' 'YLR430W']
+ ['YBR002C' 'YER127W']
+ ['YDR364C' 'YCL036W']
+ ['YBR061C' 'YFL001W']]
+[['YOL116W' 'YIR014W']
+ ['YDR105C' 'YOL135C']
+ ['YOL082W' 'YLR343W']
+ ['YJL196C' 'YHL031C']
+ ['YKL022C' 'YPL233W']]
+Sorted Data: [['YKL058W' 'YDR410C' 0 nan]
+ ['YLR192C' 'YDR045C' 0 nan]
+ ['YLR068W' 'YBR169C' 0 nan]
+ ...
+ ['YNL309W' 'YDR236C' 0 nan]
+ ['YDR052C' 'YPR047W' 0 nan]
+ ['YOL066C' 'YOL054W' 1 nan]]
+Are we attempting to save
+Testing GO Term: GO:0016197 (44 / 53)
+[['YLR039C' 'YMR171C']
+ ['YLR039C' 'YDR137W']
+ ['YLR039C' 'YHR108W']
+ ['YLR039C' 'YDR358W']
+ ['YLR039C' 'YGR142W']]
+[['YPL160W' 'YBR243C']
+ ['YIL034C' 'YDR165W']
+ ['YNR041C' 'YPR031W']
+ ['YDL067C' 'YCL004W']
+ ['YFL048C' 'YNL121C']]
+Sorted Data: [['YKL156W' 'YAL068C' 0 nan]
+ ['YMR049C' 'YPL134C' 0 nan]
+ ['YMR275C' 'YOL064C' 0 nan]
+ ...
+ ['YOR285W' 'YHR158C' 0 nan]
+ ['YOL071W' 'YDR463W' 0 nan]
+ ['YLR039C' 'YMR171C' 1 nan]]
+Are we attempting to save
+Testing GO Term: GO:0032196 (45 / 53)
+[['YLR035C-A' 'YNL284C-A']
+ ['YOL103W-A' 'YBL101W-B']
+ ['YDR315C' 'YAR009C']
+ ['YLL002W' 'YCL075W']
+ ['YNL284C-B' 'YGR109W-B']]
+[['YGR279C' 'YPR032W']
+ ['YNL050C' 'YOL065C']
+ ['YOR047C' 'YNL127W']
+ ['YDR329C' 'YMR221C']
+ ['YER033C' 'YOL072W']]
+Sorted Data: [['YDR500C' 'YLR196W' 0 nan]
+ ['YLR363C' 'YDR028C' 0 nan]
+ ['YOR143C' 'YDR460W' 0 nan]
+ ...
+ ['YOR357C' 'YOR216C' 0 nan]
+ ['YDR128W' 'YPL171C' 0 nan]
+ ['YLR035C-A' 'YNL284C-A' 1 nan]]
+Are we attempting to save
+Testing GO Term: GO:0032543 (46 / 53)
+[['YDR041W' 'YPL040C']
+ ['YOR158W' 'YDR268W']
+ ['YKL003C' 'YBR122C']
+ ['YNL306W' 'YDR116C']
+ ['YJR101W' 'YGL129C']]
+[['YDR516C' 'YOR201C']
+ ['YFL025C' 'YLR170C']
+ ['YMR307W' 'YDL198C']
+ ['YKR053C' 'YDR011W']
+ ['YDR532C' 'YDL136W']]
+Sorted Data: [['YER029C' 'YKR031C' 0 nan]
+ ['YGL139W' 'YKR019C' 0 nan]
+ ['YOR070C' 'YCR092C' 0 nan]
+ ...
+ ['YOR038C' 'YOL122C' 0 nan]
+ ['YCR097WB' 'YGR002C' 0 nan]
+ ['YDR041W' 'YPL040C' 1 nan]]
+Are we attempting to save
+Testing GO Term: GO:0042273 (47 / 53)
+[['YOL127W' 'YFR001W']
+ ['YPR016C' 'YPR143W']
+ ['YIR012W' 'YGR220C']
+ ['YOL080C' 'YER002W']
+ ['YGL120C' 'YPL146C']]
+[['YDR217C' 'YDR204W']
+ ['YPL214C' 'YOL138C']
+ ['YNL271C' 'YOL082W']
+ ['YBR129C' 'YIL132C']
+ ['YHL024W' 'YPR131C']]
+Sorted Data: [['YKL195W' 'YHR105W' 0 nan]
+ ['YBR237W' 'YDR165W' 0 nan]
+ ['YCR009C' 'YDR395W' 0 nan]
+ ...
+ ['YML011C' 'YJL069C' 0 nan]
+ ['YGL037C' 'YOR326W' 0 nan]
+ ['YOL127W' 'YFR001W' 1 nan]]
+Are we attempting to save
+Testing GO Term: GO:0042274 (48 / 53)
+[['YKL099C' 'YLR186W']
+ ['YIL069C' 'YCL059C']
+ ['YBR048W' 'YKL082C']
+ ['YLR409C' 'YKL099C']
+ ['YLR435W' 'YCR058C']]
+[['YML127W' 'YNL029C']
+ ['YHR036W' 'YNL044W']
+ ['YOR389W' 'YDR210W-B']
+ ['YOR066W' 'YNL173C']
+ ['YDR365W-A' 'YNL127W']]
+Sorted Data: [['YLL004W' 'YDR243C' 0 nan]
+ ['YMR055C' 'YHR154W' 0 nan]
+ ['YJR076C' 'YER014C-A' 0 nan]
+ ...
+ ['YDR030C' 'YML124C' 0 nan]
+ ['YDR046C' 'YDR242W' 0 nan]
+ ['YKL099C' 'YLR186W' 1 nan]]
+Are we attempting to save
+Testing GO Term: GO:0045333 (49 / 53)
+[['YJR048W' 'YDR115W']
+ ['YOL126C' 'YIL111W']
+ ['YKR006C' 'YMR256C']
+ ['YNR040W' 'YNL052W']
+ ['YPL040C' 'YLR154W-C']]
+[['YER112W' 'YER015W']
+ ['YJL094C' 'YDR411C']
+ ['YMR012W' 'YOL107W']
+ ['YOR123C' 'YCL068C']
+ ['YMR218C' 'YGL258W-A']]
+Sorted Data: [['YCR045C' 'YNL175C' 0 nan]
+ ['YBR173C' 'YPL183C' 0 nan]
+ ['YGR002C' 'YBR050C' 0 nan]
+ ...
+ ['YNL247W' 'YGL256W' 0 nan]
+ ['YLR305C' 'YGL026C' 0 nan]
+ ['YJR048W' 'YDR115W' 1 nan]]
+Are we attempting to save
+Testing GO Term: GO:0051321 (50 / 53)
+[['YJL001W' 'YBR160W']
+ ['YLR028C' 'YMR063W']
+ ['YDR096W' 'YOR014W']
+ ['YOR351C' 'YHR139C']
+ ['YGL183C' 'YMR224C']]
+[['YMR171C' 'YNR027W']
+ ['YOR358W' 'YJR110W']
+ ['YER161C' 'YOR327C']
+ ['YEL036C' 'YJL221C']
+ ['YGL006W' 'YJL026W']]
+Sorted Data: [['YGR017W' 'YFR025C' 0 nan]
+ ['YOR353C' 'YOR341W' 0 nan]
+ ['YGL178W' 'YNL027W' 0 nan]
+ ...
+ ['YNR038W' 'YLR348C' 0 nan]
+ ['YLR206W' 'YPL231W' 0 nan]
+ ['YJL001W' 'YBR160W' 1 nan]]
+Are we attempting to save
+Testing GO Term: GO:0051603 (51 / 53)
+[['YJR102C' 'YLR224W']
+ ['YJL001W' 'YOR124C']
+ ['YDL091C' 'YLR417W']
+ ['YDL008W' 'YOL038W']
+ ['YIL075C' 'YDR069C']]
+[['YLR410W-A' 'YMR109W']
+ ['YGL014W' 'YAL019W']
+ ['YKR034W' 'YOR226C']
+ ['YKL197C' 'YBR045C']
+ ['YGL063W' 'YNL036W']]
+Sorted Data: [['YJL003W' 'YHR066W' 0 nan]
+ ['YKL135C' 'YLR234W' 0 nan]
+ ['YHR010W' 'YPL220W' 0 nan]
+ ...
+ ['YOR247W' 'YBR150C' 0 nan]
+ ['YJR057W' 'YOL151W' 0 nan]
+ ['YJR102C' 'YLR224W' 1 nan]]
+Are we attempting to save
+Testing GO Term: GO:0051726 (52 / 53)
+[['YHR153C' 'YGL158W']
+ ['YDL101C' 'YMR048W']
+ ['YER177W' 'YPR120C']
+ ['YJR066W' 'YMR048W']
+ ['YMR036C' 'YDR260C']]
+[['YHL036W' 'YDR400W']
+ ['YDL130W' 'YML109W']
+ ['YPL171C' 'YGL053W']
+ ['YER139C' 'YLR289W']
+ ['YDL060W' 'YPL223C']]
+Sorted Data: [['YLR099C' 'YCL067C' 0 nan]
+ ['YHR101C' 'YLR008C' 0 nan]
+ ['YDR508C' 'YBL041W' 0 nan]
+ ...
+ ['YHR077C' 'YDL017W' 0 nan]
+ ['YPR035W' 'YBR247C' 0 nan]
+ ['YHR153C' 'YGL158W' 1 nan]]
+Are we attempting to save

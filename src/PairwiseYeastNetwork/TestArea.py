@@ -8,10 +8,10 @@ import sys
 sys.path.insert(0,'./obopy')
 from Leaf import getLeaves, getGenes
 
-labels = np.array([[1,2,3],[4,5,6],[7,8,9],[10,11,12],[13,14,15]])
-randomized = np.random.permutation(labels)
-print(f'Labels:\n{labels}')
-print(f'Randomized:\n{randomized}')
+# labels = np.array([[1,2,3],[4,5,6],[7,8,9],[10,11,12],[13,14,15]])
+# randomized = np.random.permutation(labels)
+# print(f'Labels:\n{labels}')
+# print(f'Randomized:\n{randomized}')
 
 # interactionsList = pd.read_csv('./GeneticInteractions_Original.csv').to_numpy().flatten()
 # print(interactionsList)
@@ -29,3 +29,7 @@ print(f'Randomized:\n{randomized}')
 # for system, num in map.items():
 #     if num >= 5000:
 #         print(f'{system}: {num}')
+
+genes = pd.read_csv('./src/PairwiseYeastNetwork/geneIndexDictionary_full.csv').to_numpy()
+indexDict = {gene[0]: gene[1] for gene in genes}
+print(len(indexDict))

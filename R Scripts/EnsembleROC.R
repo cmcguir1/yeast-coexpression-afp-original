@@ -32,6 +32,9 @@ ensembleROC <- function(dataFile,graphName) {
   
   lines(c(0,1),c(0,1),lwd=w,col="#000000")
   
+  
+  
+  
   legendLabels <- c()
   legendLabels <- append(legendLabels,paste("bioPIXIE (AUC =",getAUC(pixie),")"))
   legendLabels <- append(legendLabels,paste("MEFIT (AUC =",getAUC(mefit),")"))
@@ -50,4 +53,5 @@ graphName <- "AllGO bioPIXIE_Data Modern"
 pdf("EnsembleComparision_AG_bioPIXIEData_Modern_ROC.pdf",width=6,height=6)
 ensembleROC(dataFile=dataFile,graphName=graphName)
 dev.off()
+
 
