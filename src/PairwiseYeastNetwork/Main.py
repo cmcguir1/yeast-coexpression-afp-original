@@ -19,9 +19,9 @@ ssl._create_default_https_context = ssl._create_unverified_context
 def main():
 
     
-
-    GOTest = AllGoModel(int(sys.argv[1]),'25000','WeightedCrossEntropy_Alpha','Original',foldFile='./src/PairwiseYeastNetwork/AllGOGeneFold1.csv',ontologyDataset='original',resetNet=True,inputVector='x',cuda=False,batch=50,regularize=False,lossFunc='WCE',weighted=True,alpha=float(sys.argv[2]))
-    GOTest.trainNetwork(150000,track=100)
+    
+    GOTest = AllGoModel(int(sys.argv[1]),sys.argv[2],'LossFunc_Redo','BCE',foldFile='./src/PairwiseYeastNetwork/AllGOGeneFold1.csv',ontologyDataset='original',resetNet=True,verbose='f',lossFunc='BCE')
+    GOTest.trainNetwork(50000,track=100)
     GOTest.testNetworkAll(runAll=True)
     GOTest.testNetworkAll(runAll=True,validation=False)
 
