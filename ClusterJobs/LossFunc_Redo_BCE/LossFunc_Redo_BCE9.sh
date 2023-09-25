@@ -11,4 +11,4 @@
 
 cd data/SummerResearch2022
 
-/data/hibbslab/anaconda3/bin/python src/PairwiseYeastNetwork/Main.py 1 20    > ClusterJobs/LossFunc_Redo_BCE/LossFunc_Redo_BCE1_output.txt
+/data/hibbslab/anaconda3/bin/python src/PairwiseYeastNetwork/Main.py 1 200    > ClusterJobs/LossFunc_Redo_BCE/LossFunc_Redo_BCE9_output.txt

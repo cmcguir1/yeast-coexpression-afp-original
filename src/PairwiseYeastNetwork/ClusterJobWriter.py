@@ -111,7 +111,7 @@ def writeJobs(JobName,pythonFile,arg1=['0','1','2','3'],arg2=None,arg3=None,arg4
 # writeJobs('SmallStruct_WD','Main.py',arg1=['100','50','30','20'],arg2=['0.01','0.001','0.0001'])
 # writeJobs('Dropout_Small','Main2.py',arg1=['100','50','30','20'],arg2=['0.1','0.3','0.5'])
 #writeJobs('Deep_SmallStruct','Main3.py',arg1=['20x10','15x10','20x10x10x10x10'])
-writeJobs('LossFunc_Redo_BCE','Main.py',arg1=['20','100','200'],arg2=['BCE'])
+writeJobs('LossFunc_Redo_BCE','Main.py',arg2=['20','100','200'])
 # writeJobs('CE_NegativeNode','Main2.py',arg1=['20','100','200'])
 # writeJobs('Opt_Dropout','Main3.py',arg1=['20','100','200'],arg2=['0.1','0.3','0.5'])
 # writeJobs('Opt_WeightDecay','Main4.py',arg1=['20','100','200'],arg2=['0.1','0.01','0.001','0.0001'])
