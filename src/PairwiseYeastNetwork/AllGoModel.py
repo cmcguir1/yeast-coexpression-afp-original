@@ -400,7 +400,7 @@ class AllGoModel():
 
                 #     testOutput = self.net(testFeatures.float())
 
-                #     testLoss = self.lossFunc(testOutput.float(),labels.float()).item() * track
+                #     testLoss = self.lossFunc(testOutput.float(),labels.float()).item() * track 
 
 
 
