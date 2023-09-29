@@ -9,6 +9,7 @@ Yeast\ Resources/Pairwise/Spell/AllGO_Original_Sigmoid/**/*
 Yeast\ Resources/Pairwise/Spell/AllGO_Original_ParaSearch/**/*
 Yeast\ Resources/Pairwise/Spell/Dropout/**
 Yeast\ Resources/Pairwise/Spell/DropoutRedo/**
+Yeast\ Resources/Pairwise/Spell/RandomInputs_original/**/*
 Yeast\ Resources/Yeast\ Graphs/**
 Yeast\ Resources/Pairwise/Spell/Overfit/*.pth
 Yeast\ Resources/Pairwise/Spell/Overfit_LargeNet/*
