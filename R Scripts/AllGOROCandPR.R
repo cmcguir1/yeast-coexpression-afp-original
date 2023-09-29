@@ -38,7 +38,7 @@ replaceTest <- function(str) {
 
 #Gets all files from Working directory
 wd <- getwd()
-saveDir <- "C:/Users/colem/Yeast Graphs/SmallerStruct"
+saveDir <- "C:/Users/colem/Yeast Graphs/SwapBack"
 if(!dir.exists(saveDir)) dir.create(saveDir)
 
 
@@ -54,8 +54,13 @@ plotAll <- FALSE
 desiredTerms <- c("GO-0007005","GO-0042273","GO-0032196","GO-0009451","GO-0006897","GO-0006979","GO-0006325","GO-0000278","GO-0051321","GO-0003700","GO-0000747","GO-0006470","GO-0007033")
 
 
+<<<<<<< HEAD
 
 netTypes <- c("AG_10","AG_20","AG_30","AG_5")
+=======
+netType <- "AllGO_Modern_phys_gene"
+netTypes <- c("SwapGenes_Redo")
+>>>>>>> 5ff3177fb48782f38673524226af2c09a7b921c5
 dataset <- "Original"
 
 if(plotAll) { terms <- scrapeGoTerms(files)

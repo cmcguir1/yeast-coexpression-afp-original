@@ -20,8 +20,13 @@ def main():
 
     
 
+<<<<<<< HEAD
     GOTest = AllGoModel(int(sys.argv[1]),sys.argv[2],'Random_Control','Control',foldFile='./src/PairwiseYeastNetwork/AllGOGeneFold1.csv',ontologyDataset='original',resetNet=False,inputVector='x',cuda=False,batch=50)
     # GOTest.trainNetwork(100000,track=100,onlyPos=True)
+=======
+    GOTest = AllGoModel(int(sys.argv[1]),'25000','Random_Control','Control',foldFile='./src/PairwiseYeastNetwork/AllGOGeneFold1.csv',ontologyDataset='original',resetNet=True,inputVector='x',cuda=False,batch=50)
+    GOTest.trainNetwork(100000,track=100,onlyPos=True)
+>>>>>>> 5ff3177fb48782f38673524226af2c09a7b921c5
     GOTest.testNetworkAll(runAll=True)
     GOTest.testNetworkAll(runAll=True,validation=False)
 

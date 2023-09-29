@@ -250,6 +250,7 @@ class AllGoModel():
             self.lossFunc = torch.nn.CrossEntropyLoss(weight=self.weights)
         elif lossFunc in ['BCE','binaryCrossEntropy','binary_cross_entropy']:
             self.lossFunc = torch.nn.BCEWithLogitsLoss(weight=self.weights)
+            self.trainNegatives = True
         elif lossFunc in ['SF_MSE']:
             self.lossFunc = SM_MSE()
         elif lossFunc in ['MSE']:
@@ -401,7 +402,7 @@ class AllGoModel():
                     testLoss = 0
                     for i in range(numTest):
                         if self.trainNegatives:
-                            testBatch - self.makeBatchArrayPartitioned(testPairs,negTest)
+                            testBatch = self.makeBatchArrayPartitioned(testPairs,negTest)
                         else:
                             testBatch = self.makeBatchArray(testPairs)
                         testFeatures, testLabels = self.makeBatchTensors(testBatch)

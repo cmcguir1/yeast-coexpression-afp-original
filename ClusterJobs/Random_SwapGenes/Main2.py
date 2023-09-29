@@ -21,7 +21,11 @@ def main():
     start = time.time()
 
     
+<<<<<<< HEAD
     GOTest = AllGoModel(int(sys.argv[1]),sys.argv[2],'SwapGenes_ProperSwapBack',f'Original',foldFile='./src/PairwiseYeastNetwork/AllGOGeneFold1.csv',ontologyDataset='original',resetNet=False,inputVector='x',outputVector='b',cuda=False,lossFunc='CE',swapGenes=True)
+=======
+    GOTest = AllGoModel(int(sys.argv[1]),'25000','SwapGenes_ProperSwapBack',f'Original',foldFile='./src/PairwiseYeastNetwork/AllGOGeneFold1.csv',ontologyDataset='original',resetNet=False,inputVector='x',outputVector='b',cuda=False,lossFunc='CE',swapGenes=True)
+>>>>>>> 5ff3177fb48782f38673524226af2c09a7b921c5
     # GOTest.trainNetwork(100000,track=100,onlyPos=True)
     GOTest.testNetworkAll(runAll=True)
     GOTest.testNetworkAll(runAll=True,validation=False)

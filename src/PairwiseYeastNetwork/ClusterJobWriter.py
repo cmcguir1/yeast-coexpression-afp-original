@@ -117,6 +117,3 @@ writeJobs('Opt_Dropout','Main3.py',arg1=['20','100','200'],arg2=['0.1','0.3','0.
 writeJobs('Opt_WeightDecay','Main4.py',arg1=['20','100','200'],arg2=['0.1','0.01','0.001','0.0001'])
 
 
-
-
-

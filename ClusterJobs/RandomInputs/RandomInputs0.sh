@@ -1,6 +1,10 @@
 #!/usr/bin/sh
 
+<<<<<<< HEAD
 ## Job Created Jul-17-2023
+=======
+## Job Created Jul-15-2023
+>>>>>>> 5ff3177fb48782f38673524226af2c09a7b921c5
 
 ##Place PBS directives here
 #PBS -N RandomInputs
@@ -11,4 +15,8 @@
 
 cd data/SummerResearch2022
 
+<<<<<<< HEAD
 /data/hibbslab/anaconda3/bin/python src/PairwiseYeastNetwork/Main3.py 0 200    > ClusterJobs/RandomInputs/RandomInputs0_output.txt
+=======
+/data/hibbslab/anaconda3/bin/python src/PairwiseYeastNetwork/Main3.py 0     > ClusterJobs/RandomInputs/RandomInputs0_output.txt
+>>>>>>> 5ff3177fb48782f38673524226af2c09a7b921c5
