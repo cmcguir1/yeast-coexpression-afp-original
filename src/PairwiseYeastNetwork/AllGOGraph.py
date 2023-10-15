@@ -144,6 +144,9 @@ class AllGoGraph(AllGoModel):
         if self.unrelated:
             self.outputSize += 1
 
+        self.randomizeFeatures = False
+        self.randomizeLabels = False
+
 
         genes = pd.read_csv('./src/PairwiseYeastNetwork/geneIndexDictionary_full.csv').to_numpy()
         self.indexDict = {gene[0]: gene[1] for gene in genes}
