@@ -268,7 +268,7 @@ class AllGoGraph(AllGoModel):
                             print(f'Calculated {ratio*100}% of pairs\nTime Spent: {((time.time()-start)/60)}\nEstimated Time Remaining: {((time.time()-start)/60) * ((self.memMapLen - (i+1))) / (i+1)}')
                 
             if calcAgn:
-                if not batch:
+                if not runBatch:
                     for i,pair in enumerate(agnPairs,len(pairs)):
                         scoresMemmap[i+self.agnOffset,:] = scoresMemmap[i+self.agnOffset,:] + (calcPair(pair) / self.numFolds)
                         pairsMemap[i+self.agnOffset,:] = np.array(pair,dtype='U10')
@@ -276,17 +276,18 @@ class AllGoGraph(AllGoModel):
                             ratio = (i)/len(pairs)
                             print(f'Calculated {ratio*100}% of pairs\nEstimated Time Remaining: {((time.time()-start)/60) * (((len(pairs)+len(agnPairs)) - (i+i)) / (i+1))}')
                 else:
-                    if i > pairLen - batchSize:
-                        batch = pairs[i:]
-                        batchOffset = len(batch)
-                    else:
-                        batch = pairs[i:i+batchSize]
-                        batchOffset = batchSize
-                    scoresMemmap[i+self.agnOffset:i+self.agnOffset+batchOffset,:] = scoresMemmap[i+self.agnOffset:i+self.agnOffset+batchOffset,:] + (calcBatch(batch) / self.numFolds)
-                    pairsMemap[i+self.agnOffset:i+self.agnOffset+batchOffset,:] =  np.array(batch,dtype='U10') 
-                    if i % (10000 / batchSize) == 0 and i != 0:
-                        ratio = (i+self.agnOffset)/len(pairs)
-                        print(f'Calculated {ratio*100}% of pairs\nTime Spent: {((time.time()-start)/60)}\nEstimated Time Remaining: {((time.time()-start)/60) * ((self.memMapLen - (i+1))) / (i+1)}')
+                    for i in range(0,len(agnPairs),batchSize):
+                        if i > pairLen - batchSize:
+                            batch = pairs[i:]
+                            batchOffset = len(batch)
+                        else:
+                            batch = pairs[i:i+batchSize]
+                            batchOffset = batchSize
+                        scoresMemmap[i+self.agnOffset:i+self.agnOffset+batchOffset,:] = scoresMemmap[i+self.agnOffset:i+self.agnOffset+batchOffset,:] + (calcBatch(batch) / self.numFolds)
+                        pairsMemap[i+self.agnOffset:i+self.agnOffset+batchOffset,:] =  np.array(batch,dtype='U10') 
+                        if i % (10000 / batchSize) == 0 and i != 0:
+                            ratio = (i+self.agnOffset)/len(pairs)
+                            print(f'Calculated {ratio*100}% of pairs\nTime Spent: {((time.time()-start)/60)}\nEstimated Time Remaining: {((time.time()-start)/60) * ((self.memMapLen - (i+1))) / (i+1)}')
 
 
     #rankGenes takes all of the calculated pair scores then ranks the genes by their involvment in a given process
