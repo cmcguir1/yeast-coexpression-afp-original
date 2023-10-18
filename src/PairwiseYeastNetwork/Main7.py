@@ -21,7 +21,7 @@ def main():
 
     
     
-    graph = AllGoGraph(f'./Yeast Resources/Pairwise/Spell/LossFunc_Redo/CE_x_b_113x20x53_lr0.01_batch50_Net_fold',f'113x20x53','CE_20',ontologyDataset='original',inputVector='xlpg')
+    graph = AllGoGraph(f'./Yeast Resources/Pairwise/Spell/LossFunc_Redo/CE_x_b_113x20x53_lr0.01_batch50_Net_fold',f'113x20x53','CE_20',ontologyDataset='original',inputVector='x')
     # graph.rankGenes()
     graph.feedForward(int(sys.argv[1]),saveAll=True,runBatch=True)
 
