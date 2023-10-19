@@ -11,4 +11,4 @@
 
 cd data/SummerResearch2022
 
-/data/hibbslab/anaconda3/bin/python src/PairwiseYeastNetwork/Main8.py 0     > ClusterJobs/Heterogeneous_Opt/Heterogeneous_Opt0_output.txt
+/data/hibbslab/anaconda3/bin/python src/PairwiseYeastNetwork/Main8.py 20     > ClusterJobs/Heterogeneous_Opt/Heterogeneous_Opt0_output.txt

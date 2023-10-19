@@ -125,8 +125,8 @@ def writeJobs(JobName,pythonFile,arg1=['0','1','2','3'],arg2=None,arg3=None,arg4
 # writeJobs('CE_100','Main6.py')
 # writeJobs('CE_20','Main7.py')
 
-writeJobs('Heterogeneous_Opt','Main8.py')
-writeJobs('Heterogeneous_Opt_Baseline','Main9.py')
+writeJobs('Heterogeneous_Opt','Main8.py',arg1=['20','100'])
+writeJobs('Heterogeneous_Opt_Baseline','Main9.py',arg1=['20','100'])
 
 
 
