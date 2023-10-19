@@ -236,6 +236,7 @@ class AllGoGraph(AllGoModel):
             agnPairs = AllGoGraph.makePairs(self.agnGenes,self.allGenes)
         
             pairLen = len(pairs)
+            agnLen = len(agnPairs)
 
             if debug:
                 pairs = pairs[:5]
@@ -277,7 +278,7 @@ class AllGoGraph(AllGoModel):
                             print(f'Calculated {ratio*100}% of pairs\nEstimated Time Remaining: {((time.time()-start)/60) * (((len(pairs)+len(agnPairs)) - (i+i)) / (i+1))}')
                 else:
                     for i in range(0,len(agnPairs),batchSize):
-                        if i > pairLen - batchSize:
+                        if i > agnLen - batchSize:
                             batch = pairs[i:]
                             batchOffset = len(batch)
                         else:

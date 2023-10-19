@@ -116,13 +116,17 @@ def writeJobs(JobName,pythonFile,arg1=['0','1','2','3'],arg2=None,arg3=None,arg4
 # writeJobs('Opt_Dropout','Main3.py',arg1=['20','100','200'],arg2=['0.1','0.3','0.5'])
 # writeJobs('Opt_WeightDecay','Main4.py',arg1=['20','100','200'],arg2=['0.1','0.01','0.001','0.0001'])
 # writeJobs('Opt_Dropout+WD','Main3.py',arg1=['20','100'],arg2=['0.1','0.3','0.5'],arg3=['0.001','0.0025','0.005','0.01'])
-writeJobs('Opt_Net20_WD0.0025_Dropout0.1','Main.py')
-writeJobs('Opt_Net100_WD0.005_Dropout0.5','Main2.py')
-writeJobs('Opt_Net20_WD0.005_Dropout0.5','Main3.py')
-writeJobs('BCE_20','Main4.py')
-writeJobs('BCE_100','Main5.py')
-writeJobs('CE_100','Main6.py')
-writeJobs('CE_20','Main7.py')
+
+# writeJobs('Opt_Net20_WD0.0025_Dropout0.1','Main.py')
+# writeJobs('Opt_Net100_WD0.005_Dropout0.5','Main2.py')
+# writeJobs('Opt_Net20_WD0.005_Dropout0.5','Main3.py')
+# writeJobs('BCE_20','Main4.py')
+# writeJobs('BCE_100','Main5.py')
+# writeJobs('CE_100','Main6.py')
+# writeJobs('CE_20','Main7.py')
+
+writeJobs('Heterogeneous_Opt','Main8.py')
+writeJobs('Heterogeneous_Opt_Baseline','Main9.py')
 
 
 

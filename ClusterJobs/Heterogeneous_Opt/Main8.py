@@ -4,7 +4,6 @@ import numpy as np
 import time
 from GeneFolds import GeneFolds
 from YeastGraph import YeastGraph
-from AllGOGraph import AllGoGraph
 import sys
 from ComplexModel import ComplexModel
 import pandas as pd
@@ -20,10 +19,11 @@ ssl._create_default_https_context = ssl._create_unverified_context
 def main():
 
     
-    
-    graph = AllGoGraph(f'./Yeast Resources/Pairwise/Spell/LossFunc_Redo/BCE_x_b_113x100x53_lr0.01_batch50_lfBCE_Net_fold',f'113x100x53','BCE_100',ontologyDataset='original',inputVector='x')
-    # graph.rankGenes()
-    graph.feedForward(int(sys.argv[1]),saveAll=True,runBatch=True,calcPos=False)
+    for i in range(4):
+        GOTest = AllGoModel(i,sys.argv[1],'HeterogeneousData_Opt','Heterogeneous',foldFile='./src/PairwiseYeastNetwork/AllGOGeneFold1.csv',ontologyDataset='original',resetNet=True,wd=0.005,hiddenDropout=0.5,inputDropout='xlpg')
+        GOTest.trainNetwork(50000,track=100)
+        GOTest.testNetworkAll(runAll=True)
+        GOTest.testNetworkAll(runAll=True,validation=False)
 
 
 
