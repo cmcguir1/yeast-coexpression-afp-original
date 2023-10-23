@@ -348,9 +348,25 @@ class AllGoGraph(AllGoModel):
             if score != 0:
                 scoreTable.append([gene,checkPosNeg(gene),score,totalScore[gene]])
             
-        confMat = ConfusionMatrix.calculateMatrix(np.array(scoreTable,dtype=object),1,2)
+        confMat = np.array(ConfusionMatrix.calculateMatrix(np.array(scoreTable,dtype=object),1,2),dtype=object)
         pd.DataFrame(confMat,columns=['Gene','Label','Score','Background Score','Precision','Recall','False Positive Rate']).to_csv(f'{self.path}/{self.struct}_GeneRanking_{term[0:2]}{term[3:]}.csv',index=False)
+        return (np.mean(confMat[:,5]),AllGoGraph.averagePrecision(confMat[:,4]))
+    
+    def rankAllTerms(self,dataset='original'):
+        summary = []
+        for term,index in self.GOTermDict.items():
+            auc, avgPrec = self.rankGenes(term=term,dataset=dataset)
+            summary.append([term,auc,avgPrec])
+        pd.DataFrame(summary,columns=['GO Term','AUC','Average Precision']).to_csv(f'{self.path}/GOTermDistribution.csv',index=False)
 
+    # Used to caculate convex hull average precision
+    def averagePrecision(inputArray):
+                precisionArray = np.copy(inputArray)
+                for i in range(len(precisionArray)-1,0,-1):
+                    if precisionArray[i] > precisionArray[i-1]:
+                        precisionArray[i-1] = precisionArray[i]
+                return np.mean(precisionArray)
+    
     def makeGraph(self):
         print(f'{self.path}/{self.struct}_Scores.dat')
         print(os.path.exists(f'{self.path}/{self.struct}_Scores.dat'))

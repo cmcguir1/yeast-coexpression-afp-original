@@ -23,7 +23,8 @@ def main():
     
     graph = AllGoGraph(f'./Yeast Resources/Pairwise/Spell/Opt_Dropout+WD/Original_x_b_113x100x53_lr0.01_batch50_wd0.005_hiddenDrop0.5_Net_fold',f'113x100x53','Opt_Net100_WD0.005_Dropout0.5',ontologyDataset='original',inputVector='x')
     # graph.rankGenes()
-    graph.feedForward(int(sys.argv[1]),saveAll=True,runBatch=True,calcPos=False)
+    # graph.feedForward(int(sys.argv[1]),saveAll=True,runBatch=True,calcPos=False)
+    graph.rankAllTerms()
 
 
 
