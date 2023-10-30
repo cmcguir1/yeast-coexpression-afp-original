@@ -21,10 +21,9 @@ def main():
 
     
     
-    graph = AllGoGraph(f'./Yeast Resources/Pairwise/Spell/LossFunc_Redo/BCE_x_b_113x20x53_lr0.01_batch50_lfBCE_Net_fold',f'113x20x53','BCE_20',ontologyDataset='original',inputVector='x')
-    # graph.rankGenes()
-    # graph.feedForward(int(sys.argv[1]),saveAll=True,runBatch=True,calcPos=False)
-    graph.rankAllTerms()
+    graph = AllGoGraph(f'./Yeast Resources/Pairwise/Spell/HeterogeneousData_Opt/Heterogeneous_glpx_b_149x20x53_lr0.01_batch50_wd0.005_hiddenDrop0.5_Net_fold',f'149x20x53','Heterogenous_Reg_20',ontologyDataset='original',inputVector='xlgp')
+    graph.feedForward(int(sys.argv[1]),saveAll=True,runBatch=True,calcPos=True)
+
 
 
 
