@@ -1,6 +1,6 @@
 #!/usr/bin/sh
 
-## Job Created Oct-23-2023
+## Job Created Nov-16-2023
 
 ##Place PBS directives here
 #PBS -N Opt_Net100_WD0.005_Dropout0.5
@@ -11,4 +11,4 @@
 
 cd data/SummerResearch2022
 
-/data/hibbslab/anaconda3/bin/python src/PairwiseYeastNetwork/Main2.py 1     > ClusterJobs/Opt_Net100_WD0.005_Dropout0.5/Opt_Net100_WD0.005_Dropout0.51_output.txt
+/data/hibbslab/anaconda3/bin/python src/PairwiseYeastNetwork/Main6.py 1     > ClusterJobs/Opt_Net100_WD0.005_Dropout0.5/Opt_Net100_WD0.005_Dropout0.51_output.txt

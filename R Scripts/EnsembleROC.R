@@ -1,9 +1,9 @@
-getAUC <- function(data){
-  decimalPlaces <- 3
-  return(format(round(mean(data[,"Recall"]),decimalPlaces) , nsmall=decimalPlaces))
-}
 
 ensembleROC <- function(dataFile,graphName) {
+  getAUC <- function(data){
+    decimalPlaces <- 3
+    return(format(round(mean(data[,"Recall"]),decimalPlaces) , nsmall=decimalPlaces))
+  }
   
   pixie <- read.csv("C:\\Users\\colem\\SummerResearch2022\\Yeast Resources\\ConfusionMatrixPixie.csv")
   mefit <- read.csv("C:\\Users\\colem\\SummerResearch2022\\Yeast Resources\\ConfusionMatrixMefit.csv")
@@ -19,10 +19,11 @@ ensembleROC <- function(dataFile,graphName) {
   spell <- spell[order(spell[,"Rank"],decreasing=FALSE),]
   nn <- nn[order(nn[,"Score"],decreasing = FALSE),]
   
+  
   w <- 4
   colorsList <- c("#FC0303","#14A63B","#5D87F0","#7713BA","#FAEF16","#E09704")
   
-  plot(pixie[,"False.Positive.Rate"],pixie[,"Recall"],type="l",lwd=w,col=colorsList[1],main=graphName,xlab="False Positive Rate",ylab="Recall")
+  plot(pixie[,"False.Positive.Rate"],pixie[,"Recall"],type="l",lwd=w,col=colorsList[1],main=graphName,xlab="False Positive Rate",ylab="Recall",ylim=c(0,1))
   
   lines(mefit[,"False.Positive.Rate"],mefit[,"Recall"],lwd=w,col=colorsList[2])
   
@@ -46,12 +47,77 @@ ensembleROC <- function(dataFile,graphName) {
   
 }
 
+ensemblePR <- function(dataFile,graphName) {
+  getAveragePrecision <- function(precs){
+    decimalPlaces <- 3
+    return(format(round(mean(precs),decimalPlaces) , nsmall=decimalPlaces))
+  }
+  
+  convexHull <- function(vec){
+    for(i in length(vec):2) {
+      if (vec[i] > vec[i-1]) {
+        vec[i-1] <- vec[i]
+      } 
+    }
+    return(vec)
+  }
+  
+  pixie <- read.csv("C:\\Users\\colem\\SummerResearch2022\\Yeast Resources\\ConfusionMatrixPixie.csv")
+  mefit <- read.csv("C:\\Users\\colem\\SummerResearch2022\\Yeast Resources\\ConfusionMatrixMefit.csv")
+  spell <- read.csv("C:\\Users\\colem\\SummerResearch2022\\Yeast Resources\\ConfusionMatrixSpell.csv")
+  
+  #pixie <- read.csv("C:\\Users\\colem\\SummerResearch2022\\Yeast Resources\\ConfusionMatrixPixie_Modern.csv")
+  #mefit <- read.csv("C:\\Users\\colem\\SummerResearch2022\\Yeast Resources\\ConfusionMatrixMefit_Modern.csv")
+  #spell <- read.csv("C:\\Users\\colem\\SummerResearch2022\\Yeast Resources\\ConfusionMatrixSpell_Modern.csv")
+  nn <- read.csv(dataFile)
+  
+  pixie <- pixie[order(pixie[,"Recall"],decreasing=FALSE),]
+  mefit <- mefit[order(mefit[,"Recall"],decreasing=FALSE),]
+  spell <- spell[order(spell[,"Recall"],decreasing=FALSE),]
+  nn <- nn[order(nn[,"Recall"],decreasing = FALSE),]
+  
+  pixie[,"Precision"] <- convexHull(pixie[,"Precision"])
+  mefit[,"Precision"] <- convexHull(mefit[,"Precision"])
+  spell[,"Precision"] <- convexHull(spell[,"Precision"])
+  nn[,"Precision"] <- convexHull(nn[,"Precision"])
+  
+  w <- 4
+  colorsList <- c("#FC0303","#14A63B","#5D87F0","#7713BA","#FAEF16","#E09704")
+  
+  plot(pixie[,"Recall"],pixie[,"Precision"],type="l",lwd=w,col=colorsList[1],main=graphName,xlab="Recall",ylab="Precision",log='x',ylim=c(0,1))
+  
+  lines(mefit[,"Recall"],mefit[,"Precision"],lwd=w,col=colorsList[2])
+  
+  lines(spell[,"Recall"],spell[,"Precision"],lwd=w,col=colorsList[3])
+  
+  lines(nn[,"Recall"],nn[,"Precision"],lwd=w,col=colorsList[4])
+  
+  #lines(c(0,1),c(0,1),lwd=w,col="#000000")
+  
+  
+  
+  
+  legendLabels <- c()
+  legendLabels <- append(legendLabels,paste("bioPIXIE (Avg. Prec. =",getAveragePrecision(pixie[,"Precision"]),")"))
+  legendLabels <- append(legendLabels,paste("MEFIT (Avg. Prec. =",getAveragePrecision(mefit[,"Precision"]),")"))
+  legendLabels <- append(legendLabels,paste("SPELL (Avg. Prec. =",getAveragePrecision(spell[,"Precision"]),")"))
+  legendLabels <- append(legendLabels,paste("Neural Net (Avg. Prec. =",getAveragePrecision(nn[,"Precision"]),")"))
+  
+  legend("bottomleft",legendLabels,lwd=w,col=colorsList,seg.len = 4)
+  
+  
+}
+
 dataFile <- file.choose()
 #dataFile <- "C:\\Users\\colem\\SummerResearch2022\\Yeast Resources\\Pairwise\\Spell\\Test\\Regular430_20x1_fold1_Val.csv"
 
-graphName <- "AllGO BCE 20"
-pdf("EnsembleComparision_AG_BCE20_ROC.pdf",width=6,height=6)
+graphName <- "Opt Net 100, WD 0.005, dropout 0.5"
+pdf("EnsembleComparision_Opt_Net100_wd0.005_dropout0.5_ROC.pdf",width=6,height=12)
+par(mfrow=c(2,1))
 ensembleROC(dataFile=dataFile,graphName=graphName)
+ensemblePR(dataFile=dataFile,graphName=graphName)
 dev.off()
+
+
 
 

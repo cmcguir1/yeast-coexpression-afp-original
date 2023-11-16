@@ -1,6 +1,6 @@
 #!/usr/bin/sh
 
-## Job Created Oct-29-2023
+## Job Created Nov-16-2023
 
 ##Place PBS directives here
 #PBS -N Heterogeneous_Reg_100_Graph
@@ -11,4 +11,4 @@
 
 cd data/SummerResearch2022
 
-/data/hibbslab/anaconda3/bin/python src/PairwiseYeastNetwork/Main.py 2     > ClusterJobs/Heterogeneous_Reg_100_Graph/Heterogeneous_Reg_100_Graph2_output.txt
+/data/hibbslab/anaconda3/bin/python src/PairwiseYeastNetwork/Main3.py 2     > ClusterJobs/Heterogeneous_Reg_100_Graph/Heterogeneous_Reg_100_Graph2_output.txt

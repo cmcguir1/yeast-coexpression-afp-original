@@ -181,7 +181,7 @@ class AllGoGraph(AllGoModel):
         self.agnOffset = offsetTotal
 
 
-    def feedForward(self,fold,term='GO:0007005',dataset='original',calcPos=True,calcAgn=True,saveAll=True,debug=False,resetScores=False,batchSize=50,runBatch=True):
+    def feedForward(self,fold,term='GO:0007005',dataset='original',calcPos=True,calcAgn=True,saveAll=True,debug=False,resetScores=False,batchSize=50,runBatch=True,debugOffsetAgn=0):
         with torch.no_grad():
             def calcPair(pair):
                 features, labels = self.makeBatchTensors(np.array([pair]))
@@ -234,6 +234,7 @@ class AllGoGraph(AllGoModel):
             
             pairs = AllGoGraph.makePairs(self.folds[fold],self.allGenes)
             agnPairs = AllGoGraph.makePairs(self.agnGenes,self.allGenes)
+            print(len(agnPairs))
         
             pairLen = len(pairs)
             agnLen = len(agnPairs)
@@ -257,9 +258,12 @@ class AllGoGraph(AllGoModel):
                 else:
                     for i in range(0,len(pairs),batchSize):
                         if i > pairLen - batchSize:
+                            
                             batch = pairs[i:]
                             batchOffset = len(batch)
+                            
                         else:
+                            
                             batch = pairs[i:i+batchSize]
                             batchOffset = batchSize
                         scoresMemmap[i+self.foldOffsets[fold]:i+self.foldOffsets[fold]+batchOffset,:] = calcBatch(batch)
@@ -277,13 +281,17 @@ class AllGoGraph(AllGoModel):
                             ratio = (i)/len(pairs)
                             print(f'Calculated {ratio*100}% of pairs\nEstimated Time Remaining: {((time.time()-start)/60) * (((len(pairs)+len(agnPairs)) - (i+i)) / (i+1))}')
                 else:
-                    for i in range(0,len(agnPairs),batchSize):
+                    print("Start Agn")
+                    for i in range(0+debugOffsetAgn,len(agnPairs),batchSize):
                         if i > agnLen - batchSize:
-                            batch = pairs[i:]
+                            print(f"end batch\ni: {i}\nagnLen: {agnLen}\nbatchSize: {batchSize}")
+                            batch = agnPairs[i:]
                             batchOffset = len(batch)
+                            print(batchOffset)
                         else:
-                            batch = pairs[i:i+batchSize]
+                            batch = agnPairs[i:i+batchSize]
                             batchOffset = batchSize
+                            print("regular batch")
                         scoresMemmap[i+self.agnOffset:i+self.agnOffset+batchOffset,:] = scoresMemmap[i+self.agnOffset:i+self.agnOffset+batchOffset,:] + (calcBatch(batch) / self.numFolds)
                         pairsMemap[i+self.agnOffset:i+self.agnOffset+batchOffset,:] =  np.array(batch,dtype='U10') 
                         if i % (10000 / batchSize) == 0 and i != 0:
