@@ -10,7 +10,11 @@ import pandas as pd
 import torch
 from AllGoModel import AllGoModel
 from CorrelationDictionary import CorrelationDictionary
+from ExpressionDatasets import ExpressionDatasets
 import os
+
+sys.path.insert(0,'./obopy')
+from Leaf import getLeaves, getGenes
 
 # This import should fix the ssl import verificiation error
 import ssl
@@ -18,19 +22,40 @@ ssl._create_default_https_context = ssl._create_unverified_context
 
 def main():
 
-    #GOTest = AllGoModel(i,sys.argv[1],'AllGO_Original_Parameter','Original',foldFile='./src/PairwiseYeastNetwork/AllGOGeneFold_Orignial_1.csv',ontologyDataset='original',inputDropout=float(sys.argv[2]),hiddenDropout=float(sys.argv[3]))
-    start = time.time()
-    # GOTest = AllGoModel(int(sys.argv[1]),'50000x10000x5000x1000','Overfit_Dropout',f'Dropout_0.3',foldFile='./src/PairwiseYeastNetwork/AllGOGeneFold1.csv',ontologyDataset='original',resetNet=True,cuda=False,hiddenDropout=0.3)
-    # GOTest.trainNetwork(60000,track=100)
-    # GOTest.testNetworkAll(runAll=True)
-    # GOTest.testNetworkAll(runAll=True,validation=False)
+    corr = CorrelationDictionary(dictLoc='../YeastDict_Regularized.npy',datasetType='original')
+    
+        
+    
+    ontDataset = 'original'
+    mitoOrg = getGenes('GO:0007005',dataset=ontDataset)
+    translation = getGenes('GO:0006412',dataset=ontDataset)
+    mitoTrans = getGenes('GO:0032543',dataset=ontDataset)
+    # print(f'Mitochondrial Organization Genes: {len(mitoOrg)}')
+    # print(f'Translation Genes: {len(translation)}')
+    # print(f'Mitochondrial Translation genes: {len(mitoTrans)}')
+    # print(f'MitoOrg and Translation: {len(mitoOrg & translation)}')
+    # print(f'MitoOrg and MitoTrans: {len(mitoOrg & mitoTrans)}')
+    # print(f'MitoTrans and Translation: {len(mitoTrans & translation)}')
 
+    org_org = [(mitoOrg[i],mitoOrg[j]) for i in range(len(mitoOrg)) for j in range(i,len(mitoOrg))]
+    org_trans = [(mitoOrg[i],mitoTrans[j]) for i in range(len(mitoOrg)) for j in range(0,len(mitoTrans))]
+    org_org_table = np.ndarray((len(org_org),len(corr.datasets)))
+    org_trans_table = np.ndarray((len(org_trans),len(corr.datasets)))
+    pd.DataFrame(org_org_table,columns=corr.datasets).to_csv('D:/CorrelationComparison_org_org.csv',index=False)
+    pd.DataFrame(org_trans_table,columns=corr.datasets).to_csv('D:/CorrelationComparison_org_trans.csv',index=False)
+    for i,(geneA, geneB) in enumerate(org_org):
+        for j in range(len(corr.datasets)):
+            org_org_table[i,j] = corr.lookupCorrelation(geneA,geneB,corr.datasets[j])
+    for i,(geneA, geneB) in enumerate(org_trans):
+        for j in range(len(corr.datasets)):
+            org_trans_table[i,j] = corr.lookupCorrelation(geneA,geneB,corr.datasets[j])
 
-    GOTest = AllGoModel(0,'25000','Test',f'Test',foldFile='./src/PairwiseYeastNetwork/AllGOGeneFold1.csv',ontologyDataset='original',inputVector='x',cuda=False)
-    # GOTest.trainNetwork(80000,track=100,cyclicLr=True)
-    GOTest.testNetworkAll(runAll=True)
-    GOTest.testNetworkAll(runAll=True,validation=False)
+    pd.DataFrame(org_org_table,columns=corr.datasets).to_csv('D:/CorrelationComparison_org_org.csv',index=False)
+    pd.DataFrame(org_trans_table,columns=corr.datasets).to_csv('D:/CorrelationComparison_org_trans.csv',index=False)
 
+        
+
+    
 
 
 

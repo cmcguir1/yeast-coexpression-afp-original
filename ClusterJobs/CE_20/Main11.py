@@ -23,8 +23,8 @@ def main():
     
     graph = AllGoGraph(f'./Yeast Resources/Pairwise/Spell/LossFunc_Redo/CE_x_b_113x100x53_lr0.01_batch50_Net_fold',f'113x100x53','CE_100',ontologyDataset='original',inputVector='x')
     # graph.rankGenes()
-    graph.feedForward(int(sys.argv[1]),saveAll=True,runBatch=True,calcPos=True)
-    # graph.rankAllTerms()
+    # graph.feedForward(int(sys.argv[1]),saveAll=True,runBatch=True,calcPos=True)
+    graph.rankAllTerms()
 
 
 
