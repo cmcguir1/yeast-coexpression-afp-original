@@ -21,7 +21,7 @@ def main():
 
     
     
-    graph = AllGoGraph(f'./Yeast Resources/Pairwise/Spell/HeterogeneousData_Opt/Heterogeneous_Reg_BCE_glpx_b_149x20x53_lr0.01_batch50_lfBCE_Net_fold',f'113x20x53','Heterogeneous_Reg_BCE_20',ontologyDataset='original',inputVector='xlgp')
+    graph = AllGoGraph(f'./Yeast Resources/Pairwise/Spell/HeterogeneousData_Opt/Heterogeneous_Reg_BCE_glpx_b_149x20x53_lr0.01_batch50_wd0.005_lfBCE_hiddenDrop0.5_Net_fold',f'149x20x53','Heterogeneous_Reg_BCE_20',ontologyDataset='original',inputVector='xlgp')
     # graph.rankGenes()
     graph.feedForward(int(sys.argv[1]),saveAll=True,runBatch=True,calcPos=True)
     # graph.rankAllTerms()
