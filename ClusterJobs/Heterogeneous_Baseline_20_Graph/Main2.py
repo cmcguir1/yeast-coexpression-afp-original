@@ -22,8 +22,8 @@ def main():
     
     
     graph = AllGoGraph(f'./Yeast Resources/Pairwise/Spell/HeterogeneousData_Opt/HeterogeneousBaseline_glpx_b_149x20x53_lr0.01_batch50_Net_fold',f'149x20x53','Heterogenous_Baseline_20',ontologyDataset='original',inputVector='xlgp')
-    graph.feedForward(int(sys.argv[1]),saveAll=True,runBatch=True,calcPos=True)
-
+    # graph.feedForward(int(sys.argv[1]),saveAll=True,runBatch=True,calcPos=True)
+    graph.rankAllTerms()
 
 
 
