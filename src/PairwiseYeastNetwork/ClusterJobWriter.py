@@ -132,18 +132,18 @@ def writeJobs(JobName,pythonFile,arg1=['0','1','2','3'],arg2=None,arg3=None,arg4
 # writeJobs('Heterogenous_BCE_Baseline_20','Main13.py',arg1=[''])
 
 # writeJobs('Heterogeneous_Baseline_100_Graph','Main.py')
-writeJobs('Heterogeneous_Baseline_20_Graph','Main2.py',arg1=[''])
+# writeJobs('Heterogeneous_Baseline_20_Graph','Main2.py',arg1=[''])
 # writeJobs('Heterogeneous_Reg_100_Graph','Main3.py')
-writeJobs('Heterogeneous_Reg_20_Graph','Main4.py',arg1=[''])
+# writeJobs('Heterogeneous_Reg_20_Graph','Main4.py',arg1=[''])
 # writeJobs('Opt_Net20_WD0.0025_Dropout0.1','Main5.py')
 # writeJobs('Opt_Net100_WD0.005_Dropout0.5','Main6.py')
 # writeJobs('Opt_Net20_WD0.005_Dropout0.5','Main7.py')
-writeJobs('BCE_20','Main8.py',arg1=[''])
-writeJobs('BCE_100','Main9.py',arg1=[''])
-writeJobs('CE_100','Main10.py',arg1=[''])
-writeJobs('CE_20','Main11.py',arg1=[''])
-writeJobs('Heterogenous_BCE_Reg_20','Main12.py',arg1=[''])
-writeJobs('Heterogenous_BCE_Baseline_20','Main13.py',arg1=[''])
+# writeJobs('BCE_20','Main8.py',arg1=[''])
+# writeJobs('BCE_100','Main9.py',arg1=[''])
+# writeJobs('CE_100','Main10.py',arg1=[''])
+# writeJobs('CE_20','Main11.py',arg1=[''])
+# writeJobs('Heterogenous_BCE_Reg_20','Main12.py',arg1=[''])
+# writeJobs('Heterogenous_BCE_Baseline_20','Main13.py',arg1=[''])
 
 
 # writeJobs('Heterogeneous_Opt','Main8.py',arg1=['20','100'])
@@ -152,5 +152,6 @@ writeJobs('Heterogenous_BCE_Baseline_20','Main13.py',arg1=[''])
 # writeJobs('Heterogenous_BCE_Reg','Main8.py',arg1=['20','100'])
 # writeJobs('Heterogenous_BCE_Baseline','Main9.py',arg1=['20','100'])
 
+writeJobs('AllSingleTerms','AllSingleTerms.py',arg1=list(range(0,54)),arg2=['20','100'])
 
 

@@ -63,7 +63,8 @@ PR <- function(dataFile,graphName) {
 }
 
 wd <- getwd()
-saveDir <- "D:/Optimization/ROC_Summary"
+name <- "bioPIXIE_CE_20"
+saveDir <- "D:/Optimization_Redo/ROC_Summary"
 if(!dir.exists(saveDir)) dir.create(saveDir)
 files <- list.files(full.names = TRUE,include.dirs = TRUE,path=getwd())
 stub <- substring(files[1],1,rfind("_",files[1]))
@@ -84,14 +85,14 @@ for(i in 1:nrow(names)){
 }
 
 setwd(saveDir)
-pdf(paste(substring(wd,rfind("/",wd)+1,nchar(wd)),"_ROC_Summary.pdf",sep=""),height=50,width=20)
+pdf(paste(name,"_ROC_Summary.pdf",sep=""),height=50,width=20)
 par(mfrow=c(11,5))
 for(term in goTerms){
    ROC(paste(stub,term,".csv",sep=""),paste(term,"\n",nameMap[[term]]))
 }
 dev.off()
 
-pdf(paste(substring(wd,rfind("/",wd)+1,nchar(wd)),"_PR_Summary.pdf",sep=""),height=50,width=20)
+pdf(paste(name,"_PR_Summary.pdf",sep=""),height=50,width=20)
 par(mfrow=c(11,5))
 for(term in goTerms){
   PR(paste(stub,term,".csv",sep=""),paste(term,"\n",nameMap[[term]]))

@@ -111,8 +111,8 @@ ensemblePR <- function(dataFile,graphName) {
 dataFile <- file.choose()
 #dataFile <- "C:\\Users\\colem\\SummerResearch2022\\Yeast Resources\\Pairwise\\Spell\\Test\\Regular430_20x1_fold1_Val.csv"
 
-graphName <- "Opt Net 100, WD 0.005, dropout 0.5"
-pdf("EnsembleComparision_Opt_Net100_wd0.005_dropout0.5_ROC.pdf",width=6,height=12)
+graphName <- "bioPIXIE BCE 20"
+pdf("EnsembleComparision_bioPIXIE_BCE_20_ROC.pdf",width=6,height=12)
 par(mfrow=c(2,1))
 ensembleROC(dataFile=dataFile,graphName=graphName)
 ensemblePR(dataFile=dataFile,graphName=graphName)

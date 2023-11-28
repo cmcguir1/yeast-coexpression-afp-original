@@ -19,19 +19,22 @@ ssl._create_default_https_context = ssl._create_unverified_context
 
 def main():
     
-    term = sys.argv[1]
+    
     folderName = 'Spell/SingleTerm_lr_0.01'
+
+    terms = pd.read_csv('./src/PairwiseYeastNetwork/GOTermIndexDictionary_BioProcOnly.csv').to_numpy()[:,0]
+    term = terms[int(sys.argv[1])]
 
     
     if sys.argv[4] == 'runAll':
         for i in range(4):
             model = PairwiseModel(i,f'{sys.argv[2]}x1',folderName,f'{term[0:2]}{term[3:]}',lr=float(sys.argv[3]),resetNet=True,batch=50)
-            model.trainNetwork(80000,printLoss=True)
+            model.trainNetwork(20000,printLoss=True)
             model.testNetworkTraining(limitNegative=True)
             model.testNetworkValidation(limitNegative=True)
     else:
         model = PairwiseModel(int(sys.argv[4]),f'{sys.argv[2]}x1',folderName,f'{term[0:2]}{term[3:]}',batch=50,lr=0.01,resetNet=True)
-        model.trainNetwork(100000,printLoss=True)
+        model.trainNetwork(20000,printLoss=True)
         model.testNetworkTraining(limitNegative=True)
         model.testNetworkValidation(limitNegative=True)
 

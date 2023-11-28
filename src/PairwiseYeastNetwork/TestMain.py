@@ -37,7 +37,7 @@ def main():
     # print(f'MitoOrg and MitoTrans: {len(mitoOrg & mitoTrans)}')
     # print(f'MitoTrans and Translation: {len(mitoTrans & translation)}')
 
-    org_org = [(mitoOrg[i],mitoOrg[j]) for i in range(len(mitoOrg)) for j in range(i,len(mitoOrg))]
+    org_org = [(mitoOrg[i],mitoOrg[j]) for i in range(len(mitoOrg)) for j in range(i+1,len(mitoOrg))]
     org_trans = [(mitoOrg[i],mitoTrans[j]) for i in range(len(mitoOrg)) for j in range(0,len(mitoTrans))]
     org_org_table = np.ndarray((len(org_org),len(corr.datasets)))
     org_trans_table = np.ndarray((len(org_trans),len(corr.datasets)))
