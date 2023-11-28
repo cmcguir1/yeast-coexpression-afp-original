@@ -12,7 +12,7 @@ sys.path.insert(0,'./obopy')
 from Leaf import makePosNegFiles
 
 class PairwiseYeastData():
-    def __init__(self,dataset,foldFile,numFolds=4,filterMissingGenes=False,term='GO:0007005',memMapLoc='../YeastDict.dat'):
+    def __init__(self,dataset,foldFile,numFolds=4,filterMissingGenes=False,term='GO:0007005',memMapLoc='YeastDict_Regularized.npy'):
         
         if not os.path.exists(f'./Yeast Resources/GeneSets/{term[0:2] + term[3:]}_Pos_{dataset}.txt'):
             makePosNegFiles(term,dataset=dataset)
