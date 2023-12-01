@@ -32,7 +32,7 @@ def main():
         # model.trainNetwork(20000,printLoss=True)
         # model.testNetworkTraining(limitNegative=True)
         # model.testNetworkValidation(limitNegative=True)
-    graph = YeastGraph(f'GO0000054_{sys.argv[2]}x1_Net_fold',f'113x{sys.argv[2]}',term,f'SingleTerms_{sys.argv[2]}')
+    graph = YeastGraph(f'Yeast Resources/Pairwise/Spell/SingleTerm_{sys.argv[2]}/{term[0:2]}{term[3:]}_{sys.argv[2]}x1_Net_fold',f'113x{sys.argv[2]}x1',term,f'SingleTerms_{sys.argv[2]}')
     graph.feedForward(save=False,calcAll=True,calcAgn=True)
     graph.recombineFolds()
     graph.rankGenes()
