@@ -32,7 +32,7 @@ class YeastGraph(PairwiseModel):
         self.device = 'cuda:0' if torch.cuda.is_available() else 'cpu'
         for i in range(numfolds):
             net = FlexNet(structure=structure)
-            net.load_state_dict(torch.load(f'{networkPath}{i+1}.pth.pth'))
+            net.load_state_dict(torch.load(f'{networkPath}{i+1}.pth'))
             net.to(self.device)
             self.nets.append(net)
 
