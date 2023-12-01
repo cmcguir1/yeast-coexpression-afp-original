@@ -48,7 +48,7 @@ def main():
         else:
             graph.forward(int(sys.argv[2]),calcAll=calcAll,track=1000,batchSize=1000,calcAgn=True)
     else:
-        print('Nope')
+        raise Exception("Network files do not exits")
 
 
 if __name__ == '__main__':

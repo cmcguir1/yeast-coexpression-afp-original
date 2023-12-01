@@ -11,9 +11,10 @@ from ConfusionMatrix import ConfusionMatrix
 
 
 class YeastGraph(PairwiseModel):
-    def __init__(self,networkPath,data,structure,term,folder,includeAll=True,numfolds=4):
+    def __init__(self,networkPath,structure,term,folder,numfolds=4,dataset='original'):
         #Intialize PairwiseYeastData as data
-        self.data : PairwiseYeastData = data
+        foldFile=f'./Yeast Resources/Datasets/All Spell/{term[0:2]}{term[3:]}_Folds_Original_1.csv'
+        self.data : PairwiseYeastData = PairwiseYeastData(dataset=dataset,foldFile=foldFile,term=term)
 
         #Initializes path where data will be saved
         self.path = f'./Yeast Resources/GraphResults/{folder}'
