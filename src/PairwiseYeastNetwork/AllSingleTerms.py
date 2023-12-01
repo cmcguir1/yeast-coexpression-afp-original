@@ -27,11 +27,11 @@ def main():
 
     
     
-    # for i in range(4):
-        # model = PairwiseModel(i,f'{sys.argv[2]}x1',folderName,f'{term[0:2]}{term[3:]}',lr=0.01,resetNet=True,batch=50)
-        # model.trainNetwork(20000,printLoss=True)
-        # model.testNetworkTraining(limitNegative=True)
-        # model.testNetworkValidation(limitNegative=True)
+    for i in range(4):
+        model = PairwiseModel(i,f'{sys.argv[2]}x1',folderName,f'{term[0:2]}{term[3:]}',lr=0.01,resetNet=True,batch=50)
+        model.trainNetwork(20000,printLoss=True)
+        model.testNetworkTraining(limitNegative=True)
+        model.testNetworkValidation(limitNegative=True)
     graph = YeastGraph(f'Yeast Resources/Pairwise/Spell/SingleTerm_{sys.argv[2]}/{term[0:2]}{term[3:]}_{sys.argv[2]}x1_Net_fold',f'113x{sys.argv[2]}x1',term,f'SingleTerms_{sys.argv[2]}')
     graph.feedForward(save=False,calcAll=True,calcAgn=True)
     graph.recombineFolds()
