@@ -57,7 +57,7 @@ class YeastGraph(PairwiseModel):
         posTrain,negTrain,posVal,negVal = self.data.getFold(i)
         self.dataGenes = set(np.concatenate([posTrain,negTrain,posVal,negVal]))
         self.genes = np.array(list(self.posSet | self.negSet | self.agnSet | self.dataGenes))
-        print(self.genes)
+        # self.dataTable = None
         
         #If includeAll is true, make every gene pair
         # if(includeAll):
@@ -74,7 +74,7 @@ class YeastGraph(PairwiseModel):
         # self.batch = len(self.pairs)
 
     #Passes all gene pairs through network, then saves a data table of their outputs
-    def feedForward(self,save=True,fold=None,limitPairs=None,calcAgn=False,calcAll=True):
+    def feedForward(self,save=True,fold=None,limitPairs=None,calcAgn=False,calcAll=True,calcPos=True):
         self.limitPiars = limitPairs
         #If a no fold is specified, calculate all folds, then combine them together into one file
         if fold == None:
@@ -83,7 +83,7 @@ class YeastGraph(PairwiseModel):
             folds = []
             agnFolds = []
             for i, net in enumerate(self.nets,0):
-                outputTable, agnTable = self.forward(i,calcAll=calcAll)
+                outputTable, agnTable = self.forward(i,calcAll=calcAll,calcPos=calcPos,calcAgn=calcAgn)
                 folds.append(outputTable)
                 agnFolds.append(agnTable)
 
@@ -108,7 +108,7 @@ class YeastGraph(PairwiseModel):
         
         #Otherwise, only calculate that fold
         else:
-            self.forward(self.nets[fold],fold)
+            self.forward(self.nets[fold],fold,calcPos=calcPos)
         
     def forward(self,fold,calcAll=True,calcPos=True,calcAgn=False,track=100,batchSize=100):
         with torch.no_grad():  
@@ -188,25 +188,27 @@ class YeastGraph(PairwiseModel):
                 
             return (outputsTable,agnOutputsTable)
     
-    def recombineFolds(self,numFolds=4):
+    def recombineFolds(self,numFolds=4,agn=True):
         folds = []
         agnFolds = []
         for i in range(numFolds):
             folds.append(pd.read_csv(f'{self.path}/{self.term}_AllPairs_Fold{i+1}.csv').to_numpy(dtype=object))
-            agnFolds.append(pd.read_csv(f'{self.path}/{self.term}_Agn_Fold{i+1}.csv').to_numpy(dtype=object))
+            if agn:
+                agnFolds.append(pd.read_csv(f'{self.path}/{self.term}_Agn_Fold{i+1}.csv').to_numpy(dtype=object))
 
-        agnAverage = []
-        agnPairs = self.agnPairs
-        for i in range(len(agnPairs)):
-            #For every fold, add the score of a given pair to total
-            total = 0.0
-            for table in agnFolds:
-                total += table[i,2]
-            #Append the average
-            agnAverage.append([agnPairs[i,0],agnPairs[i,1],total/float(self.numFolds)])
-        agnAverageArray = np.array(agnAverage,dtype=object)
+        if agn:
+            agnAverage = []
+            agnPairs = self.agnPairs
+            for i in range(len(agnPairs)):
+                #For every fold, add the score of a given pair to total
+                total = 0.0
+                for table in agnFolds:
+                    total += table[i,2]
+                #Append the average
+                agnAverage.append([agnPairs[i,0],agnPairs[i,1],total/float(self.numFolds)])
+            agnAverageArray = np.array(agnAverage,dtype=object)
 
-        folds.append(agnAverageArray)
+            folds.append(agnAverageArray)
 
         self.dataTable = np.concatenate(folds,0)
         pd.DataFrame(self.dataTable,columns=['Gene A','Gene B','Score']).to_csv(f'{self.path}/{self.term}_PosPairs_Combined.csv',index=False)
@@ -264,11 +266,11 @@ class YeastGraph(PairwiseModel):
                 
     #Ranks genes by the strength of their connections to positive genes
     def rankGenes(self,dataTablePath=''):
-
-        if(not(dataTablePath=='')):
-            self.dataTable = pd.read_csv(dataTablePath).to_numpy()
-        else:
-            self.dataTable = np.concatenate([pd.read_csv(f'{self.path}/{self.term}_PosPairs_Fold{i}.csv').to_numpy() for i in range(1,5)],0)
+        # if self.dataTable != None:
+        #     if(not(dataTablePath=='')):
+        #         self.dataTable = pd.read_csv(dataTablePath).to_numpy()
+        #     else:
+        #         self.dataTable = np.concatenate([pd.read_csv(f'{self.path}/{self.term}_PosPairs_Fold{i}.csv').to_numpy() for i in range(1,5)],0)
         #Intializes empty dictionary, then makes all genes keys to the number 0
         scoreDict = {}
         totalDict = {}

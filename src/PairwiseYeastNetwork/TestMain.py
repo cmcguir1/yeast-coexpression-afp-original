@@ -12,6 +12,7 @@ from AllGoModel import AllGoModel
 from CorrelationDictionary import CorrelationDictionary
 from ExpressionDatasets import ExpressionDatasets
 import os
+import random
 
 sys.path.insert(0,'./obopy')
 from Leaf import getLeaves, getGenes
@@ -28,8 +29,8 @@ def main():
     
     ontDataset = 'original'
     mitoOrg = getGenes('GO:0007005',dataset=ontDataset)
-    translation = getGenes('GO:0006412',dataset=ontDataset)
     mitoTrans = getGenes('GO:0032543',dataset=ontDataset)
+    bioProc = getGenes('GO:0008159',dataset=ontDataset)
     # print(f'Mitochondrial Organization Genes: {len(mitoOrg)}')
     # print(f'Translation Genes: {len(translation)}')
     # print(f'Mitochondrial Translation genes: {len(mitoTrans)}')
@@ -39,8 +40,16 @@ def main():
 
     org_org = [(mitoOrg[i],mitoOrg[j]) for i in range(len(mitoOrg)) for j in range(i+1,len(mitoOrg))]
     org_trans = [(mitoOrg[i],mitoTrans[j]) for i in range(len(mitoOrg)) for j in range(0,len(mitoTrans))]
+    trans_trans = [(mitoTrans[i],mitoTrans[j]) for i in range(len(mitoTrans)) for j in range(i+1,len(mitoTrans))]
+    background = [(bioProc[i],bioProc[j]) for i in range(len(bioProc)) for j in range(len(bioProc)) if i != j]
+    random.shuffle(background)
+    background = background[:len(org_org)]
+
     org_org_table = np.ndarray((len(org_org),len(corr.datasets)))
     org_trans_table = np.ndarray((len(org_trans),len(corr.datasets)))
+    trans_trans_table = np.ndarray((len(trans_trans),len(corr.datasets)))
+    background_table = np.ndarray((len(background),len(corr.datasets)))
+
     pd.DataFrame(org_org_table,columns=corr.datasets).to_csv('D:/CorrelationComparison_org_org.csv',index=False)
     pd.DataFrame(org_trans_table,columns=corr.datasets).to_csv('D:/CorrelationComparison_org_trans.csv',index=False)
     for i,(geneA, geneB) in enumerate(org_org):
