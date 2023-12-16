@@ -30,7 +30,7 @@ def main():
     ontDataset = 'original'
     mitoOrg = getGenes('GO:0007005',dataset=ontDataset)
     mitoTrans = getGenes('GO:0032543',dataset=ontDataset)
-    bioProc = getGenes('GO:0008159',dataset=ontDataset)
+    bioProc = getGenes('GO:0008150',dataset=ontDataset)
     # print(f'Mitochondrial Organization Genes: {len(mitoOrg)}')
     # print(f'Translation Genes: {len(translation)}')
     # print(f'Mitochondrial Translation genes: {len(mitoTrans)}')
@@ -59,8 +59,18 @@ def main():
         for j in range(len(corr.datasets)):
             org_trans_table[i,j] = corr.lookupCorrelation(geneA,geneB,corr.datasets[j])
 
+    for i,(geneA, geneB) in enumerate(trans_trans):
+        for j in range(len(corr.datasets)):
+            trans_trans_table[i,j] = corr.lookupCorrelation(geneA,geneB,corr.datasets[j])
+    for i,(geneA, geneB) in enumerate(background):
+        for j in range(len(corr.datasets)):
+            background_table[i,j] = corr.lookupCorrelation(geneA,geneB,corr.datasets[j])
+
+
     pd.DataFrame(org_org_table,columns=corr.datasets).to_csv('D:/CorrelationComparison_org_org.csv',index=False)
     pd.DataFrame(org_trans_table,columns=corr.datasets).to_csv('D:/CorrelationComparison_org_trans.csv',index=False)
+    pd.DataFrame(trans_trans_table,columns=corr.datasets).to_csv('D:/CorrelationComparison_trans_trans.csv',index=False)
+    pd.DataFrame(background_table,columns=corr.datasets).to_csv('D:/CorrelationComparison_background.csv',index=False)
 
         
 

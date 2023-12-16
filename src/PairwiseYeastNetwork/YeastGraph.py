@@ -256,10 +256,7 @@ class YeastGraph(PairwiseModel):
             else:
                 fold3 += 1
         print(f'Pairs: {total} / {len(pairTable)}')
-        print(f'Fold0 worst predictions: {fold0} / {len(pairTable)}')
-        print(f'Fold1 worst predictions: {fold1} / {len(pairTable)}')
-        print(f'Fold2 worst predictions: {fold2} / {len(pairTable)}')
-        print(f'Fold3 worst predictions: {fold3} / {len(pairTable)}')
+        
 
         pd.DataFrame(pairTable,columns=['Gene A','Gene B','Fold #','Fold 0 Prediction','Fold 1 Prediction','Fold 2 Prediction','Fold 3 Prediction','Lowest Confidence']).to_csv(saveLoc,index=False)
 
