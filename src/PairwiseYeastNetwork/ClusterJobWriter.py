@@ -152,7 +152,7 @@ def writeJobs(JobName,pythonFile,arg1=['0','1','2','3'],arg2=None,arg3=None,arg4
 # writeJobs('Heterogenous_BCE_Reg','Main8.py',arg1=['20','100'])
 # writeJobs('Heterogenous_BCE_Baseline','Main9.py',arg1=['20','100'])
 
-writeJobs('AllSingleTerms','AllSingleTerms.py',arg1=list(range(30,54)),arg2=['20'])
-writeJobs('AllSingleTerms','AllSingleTerms.py',arg1=list(range(0,10)),arg2=['100'])
+writeJobs('AllSingleTerms_20','AllSingleTerms.py',arg1=list(range(30,54)),arg2=['20'])
+writeJobs('AllSingleTerms_100','AllSingleTerms.py',arg1=list(range(0,10)),arg2=['100'])
 
 
