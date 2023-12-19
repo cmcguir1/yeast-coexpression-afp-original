@@ -1,6 +1,6 @@
 #!/usr/bin/sh
 
-## Job Created Dec-15-2023
+## Job Created Dec-18-2023
 
 ##Place PBS directives here
 #PBS -N AllSingleTerms
@@ -11,4 +11,4 @@
 
 cd data/SummerResearch2022
 
-/data/hibbslab/anaconda3/bin/python src/PairwiseYeastNetwork/AllSingleTerms.py 16 20    > ClusterJobs/AllSingleTerms/AllSingleTerms16_output.txt
+/data/hibbslab/anaconda3/bin/python src/PairwiseYeastNetwork/AllSingleTerms.py 46 20    > ClusterJobs/AllSingleTerms/AllSingleTerms16_output.txt
