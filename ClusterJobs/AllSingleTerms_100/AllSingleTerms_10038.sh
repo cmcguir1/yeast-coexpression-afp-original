@@ -11,4 +11,4 @@
 
 cd data/SummerResearch2022
 
-/data/hibbslab/anaconda3/bin/python src/PairwiseYeastNetwork/AllSingleTerms.py 38 100    > ClusterJobs/AllSingleTerms_100/AllSingleTerms_10038_output.txt
+/data/hibbslab/anaconda3/bin/python src/PairwiseYeastNetwork/AllSingleTerms.py 48 100    > ClusterJobs/AllSingleTerms_100/AllSingleTerms_10038_output.txt
