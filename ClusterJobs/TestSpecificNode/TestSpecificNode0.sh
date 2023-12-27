@@ -4,9 +4,8 @@
 
 ##Place PBS directives here
 #PBS -N TestSpecificNode
-#PBS -l nodes=1:ppn=36
+#PBS -l nodes=n13:ppn=36
 #PBS -l walltime=168:00:00
-#PBS -l node=n3
 #PBS -M cmcguir1@trinity.edu
 #PBS -m ae
 
