@@ -39,6 +39,7 @@ def writeJobs(JobName,pythonFile,arg1=['0','1','2','3'],arg2=None,arg3=None,arg4
                        f.write(f'#PBS -N {JobName}\n')
                        f.write('#PBS -l nodes=1:ppn=36\n')
                        f.write('#PBS -l walltime=168:00:00\n')
+                       f.write('#PBS -l node=n3\n')
                        f.write('#PBS -M cmcguir1@trinity.edu\n')
                        f.write('#PBS -m ae\n\n')
                        f.write('cd data/SummerResearch2022\n\n')
@@ -153,6 +154,7 @@ def writeJobs(JobName,pythonFile,arg1=['0','1','2','3'],arg2=None,arg3=None,arg4
 # writeJobs('Heterogenous_BCE_Baseline','Main9.py',arg1=['20','100'])
 
 # writeJobs('AllSingleTerms_20','AllSingleTerms.py',arg1=list(range(30,54)),arg2=['20'])
-writeJobs('AllSingleTerms_100','AllSingleTerms.py',arg1=list(range(10,54)),arg2=['100'])
+# writeJobs('AllSingleTerms_100','AllSingleTerms.py',arg1=list(range(10,54)),arg2=['100'])
+writeJobs('TestSpecificNode','TestArea.py',arg1=[''])
 
 
