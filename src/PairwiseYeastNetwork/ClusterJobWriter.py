@@ -3,7 +3,7 @@ import sys
 from datetime import date
 import shutil
 
-def writeJobs(JobName,pythonFile,arg1=['0','1','2','3'],arg2=None,arg3=None,arg4=None,arg5=None,command='/data/hibbslab/anaconda3/bin/python',pythonFilePath='src/PairwiseYeastNetwork/'):
+def writeJobs(JobName,pythonFile,node=False,arg1=['0','1','2','3'],arg2=None,arg3=None,arg4=None,arg5=None,command='/data/hibbslab/anaconda3/bin/python',pythonFilePath='src/PairwiseYeastNetwork/'):
     argRanges = []
     args = []
     for arg in [arg1,arg2,arg3,arg4,arg5]:
@@ -22,10 +22,13 @@ def writeJobs(JobName,pythonFile,arg1=['0','1','2','3'],arg2=None,arg3=None,arg4
     
     if not os.path.exists(f'./ClusterJobs/{JobName}'):
         os.makedirs(f'./ClusterJobs/{JobName}')
-    
-    
+
+    # Nodes with high memory errors: 38,39,40,41
+    # Nodes that are down: 0,1,2,5,11,35,37
+    nodes = [3,4,6,7,8,9,10,12,13,14,15,116,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,36,37,41,42]
 
     jobNum = 0
+    nodeNum = 0
     for a5 in argRanges[4]:
         for a4 in argRanges[3]:
             for a3 in argRanges[2]:
@@ -37,9 +40,11 @@ def writeJobs(JobName,pythonFile,arg1=['0','1','2','3'],arg2=None,arg3=None,arg4
                        f.write(f'## Job Created {dateStr}\n\n')
                        f.write('##Place PBS directives here\n')
                        f.write(f'#PBS -N {JobName}\n')
-                       f.write('#PBS -l nodes=n13:ppn=36\n')
+                       if node:
+                           f.write('#PBS -l nodes=n13:ppn=36\n')
+                       else:
+                           f.write(f'#PBS -l nodes=n{nodes[nodeNum]}:ppn=36\n')
                        f.write('#PBS -l walltime=168:00:00\n')
-                    #    f.write('#PBS -l node=n3\n')
                        f.write('#PBS -M cmcguir1@trinity.edu\n')
                        f.write('#PBS -m ae\n\n')
                        f.write('cd data/SummerResearch2022\n\n')
@@ -51,6 +56,7 @@ def writeJobs(JobName,pythonFile,arg1=['0','1','2','3'],arg2=None,arg3=None,arg4
                        f.close()
 
                        jobNum += 1
+                       nodeNum = (nodeNum + 1) % len(nodes)
     f = open(f'./ClusterJobs/{JobName}/SubmitJobs.sh','w')
     f.write('#!/usr/bin/sh\n\n')
     f.write('for i in {0..%s}\n' %f'{jobNum-1}')
@@ -155,6 +161,8 @@ def writeJobs(JobName,pythonFile,arg1=['0','1','2','3'],arg2=None,arg3=None,arg4
 
 # writeJobs('AllSingleTerms_20','AllSingleTerms.py',arg1=list(range(30,54)),arg2=['20'])
 # writeJobs('AllSingleTerms_100','AllSingleTerms.py',arg1=list(range(10,54)),arg2=['100'])
-writeJobs('TestSpecificNode','TestArea.py',arg1=[''])
+# writeJobs('TestSpecificNode','TestArea.py',arg1=[''])
+writeJobs('MitoInheritance','MitoInheritance.py',arg2=['20'])
+writeJobs('AllSingleTerms_100_Leftovers','AllSingleTerms_Leftovers.py',arg1=range(0,15),arg2=['100'])
 
 
