@@ -23,7 +23,7 @@ def main():
     folderName = f'Spell/SingleTerm_{sys.argv[2]}'
 
     
-    term = 'GO:00070005'
+    term = 'GO00070005'
 
     
     

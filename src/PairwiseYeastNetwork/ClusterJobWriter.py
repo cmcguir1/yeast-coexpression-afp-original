@@ -41,9 +41,9 @@ def writeJobs(JobName,pythonFile,node=False,arg1=['0','1','2','3'],arg2=None,arg
                        f.write('##Place PBS directives here\n')
                        f.write(f'#PBS -N {JobName}\n')
                        if node:
-                           f.write('#PBS -l nodes=n13:ppn=36\n')
-                       else:
                            f.write(f'#PBS -l nodes=n{nodes[nodeNum]}:ppn=36\n')
+                       else:
+                           f.write(f'#PBS -l nodes=1:ppn=36\n')
                        f.write('#PBS -l walltime=168:00:00\n')
                        f.write('#PBS -M cmcguir1@trinity.edu\n')
                        f.write('#PBS -m ae\n\n')
