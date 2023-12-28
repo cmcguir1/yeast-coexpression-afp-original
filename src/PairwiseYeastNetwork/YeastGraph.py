@@ -304,7 +304,7 @@ class YeastGraph(PairwiseModel):
         for row in sortedData:
             if(row[1] == 1):
                 pos += 1
-            else:
+            elif(row[1] == -1):
                 neg += 1
         truePos = 0
         falsePos = 0
