@@ -3,7 +3,7 @@ import sys
 from datetime import date
 import shutil
 
-def writeJobs(JobName,pythonFile,node=False,arg1=['0','1','2','3'],arg2=None,arg3=None,arg4=None,arg5=None,command='/data/hibbslab/anaconda3/bin/python',pythonFilePath='src/PairwiseYeastNetwork/'):
+def writeJobs(JobName,pythonFile,node=False,arg1=['0','1','2','3'],arg2=None,arg3=None,arg4=None,arg5=None,argNames=[],command='/data/hibbslab/anaconda3/bin/python',pythonFilePath='src/PairwiseYeastNetwork/'):
     argRanges = []
     args = []
     for arg in [arg1,arg2,arg3,arg4,arg5]:
@@ -15,6 +15,10 @@ def writeJobs(JobName,pythonFile,node=False,arg1=['0','1','2','3'],arg2=None,arg
             args.append(arg)
     
     arg1, arg2, arg3, arg4, arg5 = args
+
+    while len(argNames) < 5:
+        argNames.append('')
+    n1, n2, n3, n4, n5 = argNames
     
 
     today = date.today()
@@ -39,7 +43,7 @@ def writeJobs(JobName,pythonFile,node=False,arg1=['0','1','2','3'],arg2=None,arg
                        f.write('#!/usr/bin/sh\n\n')
                        f.write(f'## Job Created {dateStr}\n\n')
                        f.write('##Place PBS directives here\n')
-                       f.write(f'#PBS -N {JobName}\n')
+                       f.write(f'#PBS -N {JobName}{"" if arg1[a1] == "" else f"_{n1}{arg1[a1]}"}{"" if arg2[a2] == "" else f"_{n2}{arg2[a2]}"}{"" if arg3[a3] == "" else f"_{n3}{arg3[a3]}"}{"" if arg4[a4] == "" else f"_{n4}{arg4[a4]}"}{"" if arg5[a5] == "" else f"_{n5}{arg5[a5]}"}\n')
                        if node:
                            f.write(f'#PBS -l nodes=n{nodes[nodeNum]}:ppn=36\n')
                        else:
@@ -162,7 +166,7 @@ def writeJobs(JobName,pythonFile,node=False,arg1=['0','1','2','3'],arg2=None,arg
 # writeJobs('AllSingleTerms_20','AllSingleTerms.py',arg1=list(range(30,54)),arg2=['20'])
 # writeJobs('AllSingleTerms_100','AllSingleTerms.py',arg1=list(range(10,54)),arg2=['100'])
 # writeJobs('TestSpecificNode','TestArea.py',arg1=[''])
-writeJobs('MitoInheritance','MitoInheritance.py',arg2=['20'])
+writeJobs('MitoInheritance','MitoInheritance.py',arg2=['20'],arg1=['0'])
 writeJobs('AllSingleTerms_100_Leftovers','AllSingleTerms_Leftovers.py',arg1=range(0,15),arg2=['100'])
 
 

@@ -30,9 +30,10 @@ class YeastGraph(PairwiseModel):
         print('Starting to Initialize Networks')
         self.nets = []
         self.device = 'cuda:0' if torch.cuda.is_available() else 'cpu'
+        print(f'Structure: {structure}')
         for i in range(numfolds):
             net = FlexNet(structure=structure)
-            net.load_state_dict(torch.load(f'{networkPath}{i+1}.pth'))
+            # net.load_state_dict(torch.load(f'{networkPath}{i+1}.pth'))
             net.to(self.device)
             self.nets.append(net)
 
@@ -166,9 +167,9 @@ class YeastGraph(PairwiseModel):
             
                 for i in range(0,len(agnPairs),batchSize):
                     if i > pairLen - batchSize:
-                        batch = pairs[i:]
+                        batch = agnPairs[i:]
                     else:
-                        batch = pairs[i:i+batchSize]
+                        batch = agnPairs[i:i+batchSize]
                     features, labels = self.makeBatchTensors(np.array(batch))
                     features = features.to(self.device)
                     out = self.nets[fold](features.float(),test=True).cpu().flatten().tolist()

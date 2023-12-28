@@ -29,9 +29,9 @@ def main():
     
     
     graph = YeastGraph(f'Yeast Resources/Pairwise/Spell/SingleTerm_{sys.argv[2]}/{term[0:2]}{term[3:]}_{sys.argv[2]}x1_Net_fold',f'113x{sys.argv[2]}x1',term,f'SingleTerms_{sys.argv[2]}')
-    graph.forward(int(sys.argv[1]),calcAll=True,calcPos=True,calcAgn=True)
-    # graph.recombineFolds(agn=True)
-    # graph.rankGenes()
+    # graph.forward(int(sys.argv[1]),calcAll=True,calcPos=True,calcAgn=True)
+    graph.recombineFolds(agn=False)
+    graph.rankGenes()
 
 
 
