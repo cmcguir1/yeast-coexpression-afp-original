@@ -163,10 +163,10 @@ def writeJobs(JobName,pythonFile,node=False,arg1=['0','1','2','3'],arg2=None,arg
 # writeJobs('Heterogenous_BCE_Reg','Main8.py',arg1=['20','100'])
 # writeJobs('Heterogenous_BCE_Baseline','Main9.py',arg1=['20','100'])
 
-# writeJobs('AllSingleTerms_20','AllSingleTerms.py',arg1=list(range(30,54)),arg2=['20'])
+writeJobs('AllSingleTerms_20_12.23.2023','AllSingleTerms.py',arg1=list(range(0,54)),arg2=['20'],node=True)
 # writeJobs('AllSingleTerms_100','AllSingleTerms.py',arg1=list(range(10,54)),arg2=['100'])
 # writeJobs('TestSpecificNode','TestArea.py',arg1=[''])
-writeJobs('MitoInheritance','MitoInheritance.py',arg2=['20'],arg1=['0'])
-writeJobs('AllSingleTerms_100_Leftovers','AllSingleTerms_Leftovers.py',arg1=range(0,15),arg2=['100'])
+# writeJobs('MitoInheritance','MitoInheritance.py',arg2=['20'],arg1=['0'])
+# writeJobs('AllSingleTerms_100_Leftovers','AllSingleTerms_Leftovers.py',arg1=range(0,15),arg2=['100'])
 
 
