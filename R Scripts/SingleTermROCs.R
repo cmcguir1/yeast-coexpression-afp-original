@@ -24,7 +24,7 @@ structures <- c("20x1") #List of structures that the scripts will make graphs fo
 
 type <- "Original" #Type specifies whether the modern or original microarray assay datasets were used
 
-setwd("C:/Users/colem/Yeast Graphs/ST_Para")
+setwd("D:/Optimization_Redo/ST_Pairwise_Redo")
 
 #Loops over all structures and GO terms
 for(struct in structures){

@@ -9,24 +9,9 @@ import os
 
 sys.path.insert(0,'./obopy')
 from Leaf import getLeaves, getGenes
-# rng = np.random.default_rng()
-# arr = np.zeros((430,21690990),dtype=np.float16)
-# for i in range(430):
-#     print(i)
-#     for j in range(21690990):
-#         arr[i,j] = rng.standard_normal()
-# np.save('../YeastDict_Random.npy',arr)
 
-<<<<<<< HEAD
-# term = getGenes('GO:0002181',dataset='original')
-# print(term)
-
-leaves = getLeaves(10,dataset='modern')
-for leaf in leaves:
-    print(f'{leaf[0]} - {len(leaf[1])}')
-=======
-lst = [[1],[2],[3,4]]
-print(lst[2,0])
->>>>>>> 5ff3177fb48782f38673524226af2c09a7b921c5
+genes = getGenes('GO:0006869',dataset='original')
+print(genes)
+print(len(genes))
 
 

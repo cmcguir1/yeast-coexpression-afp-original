@@ -15,7 +15,7 @@ class PairwiseModel():
     def __init__(self,fold,structure,folderName,modelName,lr=0.01,momentum=0.9,batch=500,activation='relu',inputDrop=None,hiddenDrop=None,resetNet=False,dataset='original',term='GO:0007005'):
         #Pass in PairwiseYeastData
         foldFile=f'./Yeast Resources/Datasets/All Spell/{term[0:2]}{term[3:]}_Folds_Original_1.csv'
-        self.data : PairwiseYeastData = PairwiseYeastData(dataset=dataset,foldFile=foldFile)
+        self.data : PairwiseYeastData = PairwiseYeastData(dataset=dataset,foldFile=foldFile,term=term)
         self.posTrain, self.negTrain, self.posVal, self.negVal = self.data.getFold(fold)
 
         #Intializes network using number of input datasets and the specified hidden layer structure
