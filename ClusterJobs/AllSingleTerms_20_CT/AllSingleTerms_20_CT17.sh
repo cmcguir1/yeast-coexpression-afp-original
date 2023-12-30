@@ -4,7 +4,7 @@
 
 ##Place PBS directives here
 #PBS -N AllSingleTerms_20_CT_17_20
-#PBS -l nodes=1:ppn=36
+#PBS -l nodes=n22:ppn=36
 #PBS -l walltime=168:00:00
 #PBS -M cmcguir1@trinity.edu
 #PBS -m ae
