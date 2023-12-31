@@ -3,8 +3,10 @@ import pandas as pd
 import numpy as np
 
 def getGenes(goTerm,dataset = 'modern'):
-    if dataset == '2009' or dataset == 'original':
+    if dataset == '2007' or dataset == 'original':
         go = Ontology('./obopy/go-basic.obo','./obopy/gene_association.sgd.20070415/gene_association.sgd',loadLocal=True)
+    elif dataset == '2009':
+        go = Ontology('./obopy/go-basic.obo','./obopy/sgd_2009_Jan_unzip.gaf',loadLocal=True)
     else:
         go = Ontology('./obopy/go-basic.obo','./obopy/sgd.gaf',loadLocal=True)
     term = go.terms[goTerm]
@@ -38,7 +40,7 @@ def getYORF(genes):
 #Get all GO terms that are leaves, each leaf being a tuple of the leaf term name and a set of all genes annotated to that term
 def getLeaves(cutoff,dataset='original',bioProc=True,molFunc=False,cellComp=False):
     #Initialize the datsets that annotations will be pulled from, either the 2009 dataset or the current 2022 dataset
-    if dataset == '2009' or dataset == 'original':
+    if dataset == '2007' or dataset == 'original':
         goAnnos = Ontology('./obopy/go-basic.obo','./obopy/gene_association.sgd.20070415/gene_association.sgd',loadLocal=True)
     else:
         goAnnos = Ontology('./obopy/go-basic.obo','./obopy/sgd.gaf',loadLocal=True)

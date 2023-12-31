@@ -14,10 +14,11 @@ sys.path.insert(0,'./obopy')
 from Leaf import getLeaves, getGenes
 
 class AllGoGraph(AllGoModel):
-    def __init__(self,networkPath,structure,folder,numfolds=4,geneFolds='./src/PairwiseYeastNetwork/AllGOGeneFold1.csv',ontologyDataset='modern',memMapName='YeastDict_Regularized.npy',softmax=False,inputVector='xl',outputVector='b',addTerms=[]):
+    def __init__(self,networkPath,structure,folder,modelName='',numfolds=4,geneFolds='./src/PairwiseYeastNetwork/AllGOGeneFold1.csv',ontologyDataset='modern',memMapName='YeastDict_Regularized.npy',softmax=False,inputVector='x',outputVector='b',addTerms=[]):
         
         #Intialize file path for folder where results will be saved
         self.path = f'./Yeast Resources/GraphResults/{folder}'
+        self.modelName = modelName
         
         if(not os.path.exists(self.path)):
             os.mkdir(self.path)
@@ -181,7 +182,7 @@ class AllGoGraph(AllGoModel):
         self.agnOffset = offsetTotal
 
 
-    def feedForward(self,fold,term='GO:0007005',dataset='original',calcPos=True,calcAgn=True,saveAll=True,debug=False,resetScores=False,batchSize=50,runBatch=True,debugOffsetAgn=0):
+    def feedForward(self,fold,term='GO:0007005',dataset='original',calcPos=True,calcAgn=True,saveAll=True,debug=False,resetScores=False,batchSize=50,runBatch=True,debugOffsetAgn=0,printProgress=False):
         with torch.no_grad():
             def calcPair(pair):
                 features, labels = self.makeBatchTensors(np.array([pair]))
@@ -211,16 +212,16 @@ class AllGoGraph(AllGoModel):
                     #offset is an integer that is used to offest the GOTermDict to evaluate on the wrong term
                     return [pair[0],pair[1],outputs[0,self.GOTermDict[term]].item()]
 
-            if not os.path.exists(f'{self.path}/{self.struct}_Scores.dat') and not(resetScores):
+            if not os.path.exists(f'{self.path}/{"" if self.modelName == "" else f"{self.modelName}_"}{self.struct}_Scores.dat') and not(resetScores):
                 score_mode = 'w+'
             else:
                 score_mode = 'r+'
-            if not os.path.exists(f'{self.path}/{self.struct}_Pairs.dat') and not(resetScores):
+            if not os.path.exists(f'{self.path}/{"" if self.modelName == "" else f"{self.modelName}_"}{self.struct}_Pairs.dat') and not(resetScores):
                 pairs_mode = 'w+'
             else:
                 pairs_mode = 'r+'
-            scoresMemmap = np.memmap(f'{self.path}/{self.struct}_Scores.dat',dtype='float32',shape=(self.memMapLen,len(self.leaves)),mode=score_mode)
-            pairsMemap = np.memmap(f'{self.path}/{self.struct}_Pairs.dat',shape=(self.memMapLen,2),dtype='U10',mode=pairs_mode)
+            scoresMemmap = np.memmap(f'{self.path}/{"" if self.modelName == "" else f"{self.modelName}_"}{self.struct}_Scores.dat',dtype='float32',shape=(self.memMapLen,len(self.leaves)),mode=score_mode)
+            pairsMemap = np.memmap(f'{self.path}/{"" if self.modelName == "" else f"{self.modelName}_"}{self.struct}_Pairs.dat',shape=(self.memMapLen,2),dtype='U10',mode=pairs_mode)
             
             #Set of all genes that are annotated to tested term
             if os.path.exists(f'./Yeast Resources/TermPos/GO-{term[3:]}_Pos_{dataset}.csv'):
@@ -237,7 +238,9 @@ class AllGoGraph(AllGoModel):
             print(len(agnPairs))
         
             pairLen = len(pairs)
+            
             agnLen = len(agnPairs)
+            print(pairLen,agnLen)
 
             if debug:
                 pairs = pairs[:5]
@@ -252,7 +255,7 @@ class AllGoGraph(AllGoModel):
                         pairsMemap[i+self.foldOffsets[fold],:] =  np.array(pair,dtype='U10') 
 
                         
-                        if i % 10000 == 0 and i != 0:
+                        if i % 10000 == 0 and i != 0 and printProgress:
                             ratio = i/(len(pairs)+len(agnPairs))
                             print(f'Calculated {ratio*100}% of pairs\nTime Spent: {((time.time()-start)/60)}\nEstimated Time Remaining: {((time.time()-start)/60) * ((self.memMapLen - (i+1))) / (i+1)}')
                 else:
@@ -268,7 +271,7 @@ class AllGoGraph(AllGoModel):
                             batchOffset = batchSize
                         scoresMemmap[i+self.foldOffsets[fold]:i+self.foldOffsets[fold]+batchOffset,:] = calcBatch(batch)
                         pairsMemap[i+self.foldOffsets[fold]:i+self.foldOffsets[fold]+batchOffset,:] =  np.array(batch,dtype='U10') 
-                        if i % (10000 / batchSize) == 0 and i != 0:
+                        if i % (10000 / batchSize) == 0 and i != 0 and printProgress:
                             ratio = (i)/len(pairs)
                             print(f'Calculated {ratio*100}% of pairs\nTime Spent: {((time.time()-start)/60)}\nEstimated Time Remaining: {((time.time()-start)/60) * ((self.memMapLen - (i+1))) / (i+1)}')
                 
@@ -277,24 +280,21 @@ class AllGoGraph(AllGoModel):
                     for i,pair in enumerate(agnPairs,len(pairs)):
                         scoresMemmap[i+self.agnOffset,:] = scoresMemmap[i+self.agnOffset,:] + (calcPair(pair) / self.numFolds)
                         pairsMemap[i+self.agnOffset,:] = np.array(pair,dtype='U10')
-                        if i % 10000 == 0:
+                        if i % 10000 == 0 and printProgress:
                             ratio = (i)/len(pairs)
                             print(f'Calculated {ratio*100}% of pairs\nEstimated Time Remaining: {((time.time()-start)/60) * (((len(pairs)+len(agnPairs)) - (i+i)) / (i+1))}')
                 else:
                     print("Start Agn")
                     for i in range(0+debugOffsetAgn,len(agnPairs),batchSize):
                         if i > agnLen - batchSize:
-                            print(f"end batch\ni: {i}\nagnLen: {agnLen}\nbatchSize: {batchSize}")
                             batch = agnPairs[i:]
                             batchOffset = len(batch)
-                            print(batchOffset)
                         else:
                             batch = agnPairs[i:i+batchSize]
                             batchOffset = batchSize
-                            print("regular batch")
                         scoresMemmap[i+self.agnOffset:i+self.agnOffset+batchOffset,:] = scoresMemmap[i+self.agnOffset:i+self.agnOffset+batchOffset,:] + (calcBatch(batch) / self.numFolds)
                         pairsMemap[i+self.agnOffset:i+self.agnOffset+batchOffset,:] =  np.array(batch,dtype='U10') 
-                        if i % (10000 / batchSize) == 0 and i != 0:
+                        if i % (10000 / batchSize) == 0 and i != 0 and printProgress:
                             ratio = (i+self.agnOffset)/len(pairs)
                             print(f'Calculated {ratio*100}% of pairs\nTime Spent: {((time.time()-start)/60)}\nEstimated Time Remaining: {((time.time()-start)/60) * ((self.memMapLen - (i+1))) / (i+1)}')
 
@@ -312,8 +312,8 @@ class AllGoGraph(AllGoModel):
 
         termIndex = self.GOTermDict[term]
 
-        scoresMemmap = np.memmap(f'{self.path}/{self.struct}_Scores.dat',dtype='float32',shape=(self.memMapLen,len(self.leaves)),mode='r+')
-        pairsMemMap = np.memmap(f'{self.path}/{self.struct}_Pairs.dat',shape=(self.memMapLen,2),dtype='U10',mode='r+')
+        scoresMemmap = np.memmap(f'{self.path}/{"" if self.modelName == "" else f"{self.modelName}_"}{self.struct}_Scores.dat',dtype='float32',shape=(self.memMapLen,len(self.leaves)),mode='r+')
+        pairsMemMap = np.memmap(f'{self.path}/{"" if self.modelName == "" else f"{self.modelName}_"}{self.struct}_Pairs.dat',shape=(self.memMapLen,2),dtype='U10',mode='r+')
 
 
         def checkPosNeg(gene):
@@ -358,7 +358,7 @@ class AllGoGraph(AllGoModel):
                 scoreTable.append([gene,checkPosNeg(gene),score,totalScore[gene]])
             
         confMat = np.array(ConfusionMatrix.calculateMatrix(np.array(scoreTable,dtype=object),1,2),dtype=object)
-        pd.DataFrame(confMat,columns=['Gene','Label','Score','Background Score','Precision','Recall','False Positive Rate']).to_csv(f'{self.path}/{self.struct}_GeneRanking_{term[0:2]}{term[3:]}_{"sigmoid" if sigmoid else ""}.csv',index=False)
+        pd.DataFrame(confMat,columns=['Gene','Label','Score','Background Score','Precision','Recall','False Positive Rate']).to_csv(f'{self.path}/{"" if self.modelName == "" else f"_{self.modelName}"}{self.struct}_GeneRanking_{term[0:2]}{term[3:]}{"_sigmoid" if sigmoid else ""}.csv',index=False)
         return (np.mean(confMat[:,5]),AllGoGraph.averagePrecision(confMat[:,4]))
     
     def rankAllTerms(self,dataset='original'):
@@ -366,7 +366,7 @@ class AllGoGraph(AllGoModel):
         for term,index in self.GOTermDict.items():
             auc, avgPrec = self.rankGenes(term=term,dataset=dataset)
             summary.append([term,auc,avgPrec])
-        pd.DataFrame(summary,columns=['GO Term','AUC','Average Precision']).to_csv(f'{self.path}/GOTermDistribution.csv',index=False)
+        pd.DataFrame(summary,columns=['GO Term','AUC','Average Precision']).to_csv(f'{self.path}/{"" if self.modelName == "" else f"_{self.modelName}"}GOTermDistribution.csv',index=False)
 
     # Used to caculate convex hull average precision
     def averagePrecision(inputArray):

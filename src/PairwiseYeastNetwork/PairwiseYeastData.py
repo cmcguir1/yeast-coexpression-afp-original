@@ -79,13 +79,6 @@ class PairwiseYeastData():
             for i in range(numFolds):
                 self.folds.append((posList[i],negList[i]))
             
-            for i in range(4):
-                print(f'Fold {i}: {len(self.folds[i][0] | self.folds[i][1])}')
-            for i in range(4):
-                for j in range(i+1,4):
-                    genes_i = self.folds[i][0] | self.folds[i][1]
-                    genes_j = self.folds[j][0] | self.folds[j][1]
-                    print(f'{i} & {j}: {len(genes_i & genes_j)}')
 
         else:
             for i in range(numFolds):

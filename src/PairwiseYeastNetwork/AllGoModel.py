@@ -22,7 +22,7 @@ from Leaf import getLeaves, getGenes
 
 
 class AllGoModel():
-    def __init__(self,fold,structure,folderName,modelName,numFolds=4,lr=0.01,min_lr=1e-7,momentum=0.9,batch=50,gamma=2,alpha=1,weightDecay=0.0,weighted=False,lossFunc='CE',foldFile='./src/PairwiseYeastNetwork/AllGOGeneFold1.csv',ontologyDataset='modern',regularize=False,inputDropout=None,hiddenDropout=None,activation='relu',resetNet=False,cuda=True,inputVector = 'x',outputVector = 'b',verbose='',addTerms=[],memMapName='YeastDict_Regularized.npy',randomizeLabels=False,randomizeFeatures=False,swapGenes=False):
+    def __init__(self,fold,structure,folderName,modelName,numFolds=4,lr=0.01,min_lr=1e-7,momentum=0.9,batch=50,gamma=2,alpha=1,weightDecay=0.0,weighted=False,lossFunc='BCE',foldFile='./src/PairwiseYeastNetwork/AllGOGeneFold1.csv',ontologyDataset='modern',regularize=False,inputDropout=None,hiddenDropout=None,activation='relu',resetNet=False,cuda=True,inputVector = 'x',outputVector = 'b',verbose='',addTerms=[],memMapName='YeastDict_Regularized.npy',randomizeLabels=False,randomizeFeatures=False,swapGenes=False):
         # Handling what data is in the input and output vector of the vector
 
         #   The argument 'inputVector' determines what data is included in the input vector of the network based off of what characters are included in 'inputVector'

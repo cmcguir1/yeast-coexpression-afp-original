@@ -25,8 +25,8 @@ class CorrelationDictionary():
 
 
         #Expression Datasets that will be used to calculate the pair correlations that wil be saved to the memory mapped numpy arrays
-        if datasetType == '2009' or datasetType == 'original':
-            print('Used 2009 Datasets')
+        if datasetType == '2007' or datasetType == 'original':
+            print('Used 2007 Datasets')
             self.expDataset = ExpressionDatasets('./Yeast Resources/Datasets/All Spell/original',sort=False,recur=False,recalc=False)
         else:
             self.expDataset = ExpressionDatasets('./Yeast Resources/Datasets/All Spell/all spell datasets',sort=True,recur=True,recalc=False,statsDictLoc='./Yeast Resources/Datasets/All Spell/revisedStatsDict.csv')
