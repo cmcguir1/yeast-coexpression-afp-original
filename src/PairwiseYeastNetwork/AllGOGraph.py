@@ -339,7 +339,7 @@ class AllGoGraph(AllGoModel):
 
         start = time.time()
         for i in range(self.memMapLen):
-            score = torch.sigmoid(scoresMemmap[i,termIndex]) if sigmoid else scoresMemmap[i,termIndex]
+            score = 1.0 / (1.0+ np.exp(-scoresMemmap[i,termIndex])) if sigmoid else scoresMemmap[i,termIndex]
             if pairsMemMap[i,0] not in posScore or pairsMemMap[i,0] not in totalScore:
                 posScore[pairsMemMap[i,0]] = 0
                 totalScore[pairsMemMap[i,0]] = 0
