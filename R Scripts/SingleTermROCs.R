@@ -24,7 +24,7 @@ structures <- c("20x1") #List of structures that the scripts will make graphs fo
 
 type <- "Original" #Type specifies whether the modern or original microarray assay datasets were used
 
-setwd("D:/Optimization_Redo/ST_Pairwise_Redo")
+setwd("D:/Optimization_Redo/ST_Pairwise_Redo2")
 
 #Loops over all structures and GO terms
 for(struct in structures){
@@ -37,7 +37,7 @@ for(struct in structures){
     #if 
     if(length(testFiles) == 4 & length(trainFiles) == 4) {
       print("Making Graph")
-      modTerm <- paste(substring(term,1,3),"-",substring(term,4,nchar(term)))
+      modTerm <- paste(substring(term,1,2),"-",substring(term,3,nchar(term)))
       pdf(file=paste(term,"_SingleTerm_",struct,"_",type,".pdf",sep=""),height=10,width=10)
       par(mfrow=c(2,2))
       plotROC(testFiles,paste("SingleTerm",modTerm,struct,"Testing"))

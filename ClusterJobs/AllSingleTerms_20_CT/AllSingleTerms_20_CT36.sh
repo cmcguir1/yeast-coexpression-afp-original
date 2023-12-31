@@ -1,10 +1,10 @@
 #!/usr/bin/sh
 
-## Job Created Dec-29-2023
+## Job Created Dec-31-2023
 
 ##Place PBS directives here
 #PBS -N AllSingleTerms_20_CT_36_20
-#PBS -l nodes=n6:ppn=36
+#PBS -l nodes=n8:ppn=36
 #PBS -l walltime=168:00:00
 #PBS -M cmcguir1@trinity.edu
 #PBS -m ae
