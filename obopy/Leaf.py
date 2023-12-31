@@ -4,7 +4,7 @@ import numpy as np
 
 def getGenes(goTerm,dataset = 'modern'):
     if dataset == '2009' or dataset == 'original':
-        go = Ontology('./obopy/go-basic.obo','./obopy/sgd_2009_Jan_unzip.gaf',loadLocal=True)
+        go = Ontology('./obopy/go-basic.obo','./obopy/gene_association.sgd.20070415',loadLocal=True)
     else:
         go = Ontology('./obopy/go-basic.obo','./obopy/sgd.gaf',loadLocal=True)
     term = go.terms[goTerm]
@@ -39,7 +39,7 @@ def getYORF(genes):
 def getLeaves(cutoff,dataset='original',bioProc=True,molFunc=False,cellComp=False):
     #Initialize the datsets that annotations will be pulled from, either the 2009 dataset or the current 2022 dataset
     if dataset == '2009' or dataset == 'original':
-        goAnnos = Ontology('./obopy/go-basic.obo','./obopy/sgd_2009_Jan_unzip.gaf',loadLocal=True)
+        goAnnos = Ontology('./obopy/go-basic.obo','./obopy/gene_association.sgd.20070415',loadLocal=True)
     else:
         goAnnos = Ontology('./obopy/go-basic.obo','./obopy/sgd.gaf',loadLocal=True)
     
