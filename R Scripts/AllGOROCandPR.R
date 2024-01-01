@@ -38,7 +38,7 @@ replaceTest <- function(str) {
 
 #Gets all files from Working directory
 wd <- getwd()
-saveDir <- "D:/Optimization/Heterogeneous"
+saveDir <- "D:/Paper/Pairwise"
 if(!dir.exists(saveDir)) dir.create(saveDir)
 
 
@@ -53,7 +53,7 @@ print(testDirs)
 plotAll <- FALSE
 desiredTerms <- c("GO-0007005","GO-0042273","GO-0032196","GO-0009451","GO-0006897","GO-0006979","GO-0006325","GO-0000278","GO-0051321","GO-0003700","GO-0000747","GO-0006470","GO-0007033")
 
-netTypes <- c("Opt_Net100_wd0.005_dropout0.5","Opt_Net200_wd0.005_dropout0.5","Baseline_Net100","Baseline_Net20")
+netTypes <- c("BCE_100_Hetero","BCE_200_Hetero","BCE_20_Hetero")
 
 dataset <- "Original"
 

@@ -12,7 +12,7 @@ from random import sample
 import os
 
 class PairwiseModel():
-    def __init__(self,fold,structure,folderName,modelName,lr=0.01,momentum=0.9,batch=500,activation='relu',inputDrop=None,hiddenDrop=None,resetNet=False,dataset='original',term='GO:0007005'):
+    def __init__(self,fold,structure,folderName,modelName,lr=0.01,momentum=0.9,batch=500,activation='relu',inputDrop=None,hiddenDrop=None,weightDecay=0.0,resetNet=False,dataset='original',term='GO:0007005'):
         #Pass in PairwiseYeastData
         foldFile=f'./Yeast Resources/Datasets/All Spell/{term[0:2]}{term[3:]}_Folds_Original_1.csv'
         self.data : PairwiseYeastData = PairwiseYeastData(dataset=dataset,foldFile=foldFile,term=term)
@@ -36,7 +36,7 @@ class PairwiseModel():
         #Initializes optimizer variables and optimizer
         self.lr = lr
         self.momentum = momentum       
-        self.opt = optim.SGD(self.net.parameters(),lr=self.lr,momentum=self.momentum)
+        self.opt = optim.SGD(self.net.parameters(),lr=self.lr,momentum=self.momentum,weight_decay=weightDecay)
 
         #Variable for the batch size of training inputs
         self.batch = batch

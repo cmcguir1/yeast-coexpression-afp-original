@@ -173,6 +173,9 @@ def writeJobs(JobName,pythonFile,node=False,arg1=['0','1','2','3'],arg2=None,arg
 # writeJobs('Paper_BCE_20_Reg','Main2.py',arg1=['20','100'],arg2=[0.1,0.5])
 # writeJobs('Paper_BCE_20_Hetero','Main3.py',arg1=['20','100','200'],arg2=[0.1,0.5])
 # writeJobs('Paper_BCE_20_Hetero_Reg','Main4.py',arg1=['20','100','200'],arg2=[0.1,0.5])
-writeJobs('MitoInheritance_Graph','MitoInheritance.py',arg2=['20'],arg1=['0'])
+# writeJobs('MitoInheritance_Graph','MitoInheritance.py',arg2=['20'],arg1=['0'])
+writeJobs('BCE_Reg_PS','Main5.py',arg1=[0,0.0001,0.001,0.01],arg2=[0,0.1,0.5])
+writeJobs('SingleTerm_PS_Struct','Main6.py',arg2=['5','10'])
+writeJobs('SingleTerm_PS_Reg','Main7.py',arg1=[0,0.0001,0.001,0.01],arg2=[0,0.1,0.5])
 
 
