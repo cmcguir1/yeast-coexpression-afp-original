@@ -170,9 +170,9 @@ def writeJobs(JobName,pythonFile,node=False,arg1=['0','1','2','3'],arg2=None,arg
 # writeJobs('AllSingleTerms_100_Leftovers','AllSingleTerms_Leftovers.py',arg1=range(0,15),arg2=['100'])
 # writeJobs('BCE_20_Sigmoid','GraphMain.py',arg1=['True','False'])
 # writeJobs('Paper_BCE_20','Main.py',arg1=['20','100'])
-writeJobs('Paper_BCE_20_Reg','Main2.py',arg1=['20','100'],arg2=[0.1,0.5])
+# writeJobs('Paper_BCE_20_Reg','Main2.py',arg1=['20','100'],arg2=[0.1,0.5])
 # writeJobs('Paper_BCE_20_Hetero','Main3.py',arg1=['20','100','200'],arg2=[0.1,0.5])
 # writeJobs('Paper_BCE_20_Hetero_Reg','Main4.py',arg1=['20','100','200'],arg2=[0.1,0.5])
-# writeJobs('MitoInheritance','MitoInheritance.py',arg2=['20'])
+writeJobs('MitoInheritance_Graph','MitoInheritance.py',arg2=['20'],arg1=['0'])
 
 
