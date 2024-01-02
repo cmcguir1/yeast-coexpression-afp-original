@@ -131,7 +131,7 @@ class AllGoGraph(AllGoModel):
         #       u - unrelated node (not co-annotated to any biological process)
         #   Additional GO terms can be added with 'addTerm'
         
-        self.leaves = getLeaves(10,dataset=ontologyDataset,bioProc=('b' in outputVector),molFunc=('m' in outputVector),cellComp=('c' in outputVector))
+        self.leaves = getLeaves(10,dataset=ontologyDataset,bioProc=('b' in outputVector),molFunc=('m' in outputVector),cellComp=('c' in outputVector),exclude=['GO:0002181','GO:0022857','GO:0032543'])
         for term in addTerms:
             self.leaves.append([term,set(getGenes(term,dataset=ontologyDataset))])
         self.GOTermDict = {term[0]: i for i,term in enumerate(self.leaves)}
@@ -176,7 +176,17 @@ class AllGoGraph(AllGoModel):
         else:
             self.folds = [{gene[0] for gene in foldTable if gene[1] == i} for i in range(numfolds)]
         self.allGenes = pd.read_csv('./Yeast Resources/GeneSets/BiologicalProcessGenes.csv').values.flatten().tolist()
-        self.agnGenes = pd.read_csv('./Yeast Resources/TermPos/AgnosticGenes.csv').to_numpy().flatten()
+        # self.agnGenes = pd.read_csv('./Yeast Resources/TermPos/AgnosticGenes.csv').to_numpy().flatten()
+
+        posGenes = getGenes(term,dataset=ontologyDataset)
+        leaves = getLeaves(10,dataset=ontologyDataset,exclude=['GO:0002181','GO:0022857','GO:0032543'])
+        negTerms = [leaf[1] for leaf in leaves if leaf[0] != term]
+        negGenes = set()
+        for termGenes in negTerms:
+            negGenes = negGenes | termGenes
+        negGenes = negGenes - set(posGenes)
+
+        self.agnGenes = set(self.allGenes) - (set(posGenes) | negGenes)
 
         self.memMapLen = (sum([len(fold) for fold in self.folds]) * len(self.allGenes) - len(foldTable)) + (len(self.agnGenes) * len(self.allGenes)) - len(set(self.agnGenes) & set(self.allGenes))
         self.foldOffsets = []
@@ -229,11 +239,11 @@ class AllGoGraph(AllGoModel):
             pairsMemap = np.memmap(f'{self.path}/{"" if self.modelName == "" else f"{self.modelName}_"}{self.struct}_Pairs.dat',shape=(self.memMapLen,2),dtype='U10',mode=pairs_mode)
             
             #Set of all genes that are annotated to tested term
-            if os.path.exists(f'./Yeast Resources/TermPos/GO-{term[3:]}_Pos_{dataset}.csv'):
+            if os.path.exists(f'./Yeast Resources/TermPos/GO-{term[3:]}_Pos_{dataset}.csv') and False:
                 posGenes = pd.read_csv(f'./Yeast Resources/TermPos/GO-{term[3:]}_Pos_{dataset}.csv').to_numpy().flatten()
             else:
                 posGenes = getGenes(term,dataset=dataset)
-                pd.DataFrame(posGenes,columns=['Gene']).to_csv(f'./Yeast Resources/TermPos/GO-{term[3:]}_Pos_{dataset}.csv',index=False)
+                # pd.DataFrame(posGenes,columns=['Gene']).to_csv(f'./Yeast Resources/TermPos/GO-{term[3:]}_Pos_{dataset}.csv',index=False)
             
 
             
@@ -308,7 +318,7 @@ class AllGoGraph(AllGoModel):
     def rankGenes(self,term='GO:0007005',dataset='original',checkProportion=True,sigmoid=False):
         
         posGenes = getGenes(term,dataset=dataset)
-        leaves = getLeaves(10,dataset=dataset)
+        leaves = getLeaves(10,dataset=dataset,exclude=['GO:0002181','GO:0022857','GO:0032543'])
         negTerms = [leaf[1] for leaf in leaves if leaf[0] != term]
         negGenes = set()
         for termGenes in negTerms:

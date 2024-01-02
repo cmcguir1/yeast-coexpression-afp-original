@@ -181,9 +181,9 @@ def writeJobs(JobName,pythonFile,node=False,arg1=['0','1','2','3'],arg2=None,arg
 
 # writeJobs('Paper_BCE_Graph','Main.py',arg1=['20','100'],arg2=[0,1,2,3])
 # writeJobs('Paper_BCE_Hetero_Graph','Main.py',arg1=['20','100'],arg2=[0,1,2,3])
-# writeJobs('MitoInheritance_Graph','MitoInheritance.py',arg2=['20'])
-writeJobs('CorrectedAnnos','Main.py',arg1=['20','100'])
-writeJobs('CorrectedAnnos_Hetero','Main3.py',arg1=['20','100'])
-writeJobs('Reg_Epoch','Main2.py',arg1=[0,10000,25000,50000,100000])
+writeJobs('MitoInheritance_Graph','MitoInheritance.py',arg2=['20'],arg1=['0'])
+# writeJobs('CorrectedAnnos','Main.py',arg1=['20','100'])
+# writeJobs('CorrectedAnnos_Hetero','Main3.py',arg1=['20','100'])
+# writeJobs('Reg_Epoch','Main2.py',arg1=[0,10000,25000,50000,100000])
 
 
