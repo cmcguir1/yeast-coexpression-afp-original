@@ -14,7 +14,7 @@ sys.path.insert(0,'./obopy')
 from Leaf import getLeaves, getGenes
 
 class AllGoGraph(AllGoModel):
-    def __init__(self,networkPath,structure,folder,modelName='',numfolds=4,geneFolds='./src/PairwiseYeastNetwork/AllGOGeneFold1.csv',ontologyDataset='modern',memMapName='YeastDict_Regularized.npy',softmax=False,inputVector='x',outputVector='b',addTerms=[]):
+    def __init__(self,networkPath,structure,folder,modelName='',numfolds=4,geneFolds='./src/PairwiseYeastNetwork/AllGOGeneFold1.csv',singleTermFolds=False,ontologyDataset='modern',memMapName='YeastDict_Regularized.npy',softmax=False,inputVector='x',outputVector='b',addTerms=[]):
         
         #Intialize file path for folder where results will be saved
         self.path = f'./Yeast Resources/GraphResults/{folder}'
@@ -169,7 +169,12 @@ class AllGoGraph(AllGoModel):
 
         #Reads in folds file, then divides the folds up into sets of genes
         foldTable = pd.read_csv(geneFolds).to_numpy()
-        self.folds = [{gene[0] for gene in foldTable if gene[1] == i} for i in range(numfolds)]
+
+        # Single term folds specify fold number in the column 2 while AllGO folds specify number in column 1
+        if singleTermFolds:
+            self.folds = [{gene[0] for gene in foldTable if gene[2] == i} for i in range(numfolds)]
+        else:
+            self.folds = [{gene[0] for gene in foldTable if gene[1] == i} for i in range(numfolds)]
         self.allGenes = pd.read_csv('./Yeast Resources/GeneSets/BiologicalProcessGenes.csv').values.flatten().tolist()
         self.agnGenes = pd.read_csv('./Yeast Resources/TermPos/AgnosticGenes.csv').to_numpy().flatten()
 

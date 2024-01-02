@@ -36,9 +36,9 @@ def main():
         # model.testNetworkTraining(limitNegative=True)
         # model.testNetworkValidation(limitNegative=True)
 
-    graph = AllGoGraph(f'Yeast Resources/Pairwise/{folderName}/{term[0:2]}{term[3:]}_{sys.argv[2]}x1_Net_fold',f'113x{sys.argv[2]}x1',f'SingleTerm_{sys.argv[2]}_CorrectFolds',modelName=f'{term[0:2]}{term[3:]}',geneFolds=f'./Yeast Resources/Datasets/All Spell/{term[0:2]}{term[3:]}_Folds_Original_1.csv',ontologyDataset='original',outputVector='',addTerms=[term])
-    # graph.feedForward(int(sys.argv[1]),calcAgn=True)
-    graph.rankGenes(term)
+    graph = AllGoGraph(f'Yeast Resources/Pairwise/{folderName}/{term[0:2]}{term[3:]}_{sys.argv[2]}x1_Net_fold',f'113x{sys.argv[2]}x1',f'SingleTerm_{sys.argv[2]}_CorrectFolds',modelName=f'{term[0:2]}{term[3:]}',geneFolds=f'./Yeast Resources/Datasets/All Spell/{term[0:2]}{term[3:]}_Folds_Original_1.csv',singleTermFolds=True,ontologyDataset='original',outputVector='',addTerms=[term])
+    graph.feedForward(int(sys.argv[1]),calcAgn=True)
+    # graph.rankGenes(term)
 
 
 

@@ -509,8 +509,6 @@ class AllGoModel():
                         # negPairs = np.array([[pair[0],pair[1]] for pair in set(allPairs) - set([(pair[0],pair[1]) for pair in posPairs])])
                         np.random.shuffle(negPairs)
                         negPairs = negPairs[:len(posPairs)*proportionNeg]
-                        print(posPairs[0:5])
-                        print(negPairs[0:5])
                         testingPairs = np.concatenate([posPairs,negPairs])
 
                         

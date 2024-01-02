@@ -3,7 +3,7 @@
 ## Job Created Jan-01-2024
 
 ##Place PBS directives here
-#PBS -N Paper_BCE_20_20_0
+#PBS -N Paper_BCE_20_20_2
 #PBS -l nodes=1:ppn=36
 #PBS -l walltime=168:00:00
 #PBS -M cmcguir1@trinity.edu
@@ -11,4 +11,4 @@
 
 cd data/SummerResearch2022
 
-/data/hibbslab/anaconda3/bin/python src/PairwiseYeastNetwork/Main.py 20 0    > ClusterJobs/Paper_BCE_20/Paper_BCE_200_output.txt
+/data/hibbslab/anaconda3/bin/python src/PairwiseYeastNetwork/Main.py 20 2    > ClusterJobs/Paper_BCE_20/Paper_BCE_204_output.txt

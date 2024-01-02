@@ -20,11 +20,14 @@ goTerms <- unique(goTerms)
 print(goTerms)
 
 
-structures <- c("20x1") #List of structures that the scripts will make graphs for
+structures <- c("d0_wd0","d0.1_wd0","d0.5_wd0",
+                "d0_wd0.01","d0.1_wd0.01","d0.5_wd0.01",
+                "d0_wd0.001","d0.1_wd0.001","d0.5_wd0.001",
+                "d0_wd0.0001","d0.1_wd0.0001","d0.5_wd0.0001") #List of structures that the scripts will make graphs for
 
-type <- "Original" #Type specifies whether the modern or original microarray assay datasets were used
+type <- "ST" #Type specifies whether the modern or original microarray assay datasets were used
 
-setwd("D:/Optimization_Redo/ST_Pairwise_Redo2")
+setwd("D:/Paper/SingleTerm_PS/")
 
 #Loops over all structures and GO terms
 for(struct in structures){
