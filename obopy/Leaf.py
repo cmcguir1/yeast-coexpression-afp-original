@@ -2,20 +2,29 @@ from Ontology import Ontology
 import pandas as pd
 import numpy as np
 
-def getGenes(goTerm,dataset = 'modern'):
+def getGenes(goTerm,dataset = 'modern',direct=False):
     if dataset == '2007' or dataset == 'original':
-        go = Ontology('./obopy/go-basic.obo','./obopy/gene_association.sgd.20070415/gene_association.sgd',loadLocal=True)
-    elif dataset == '2009':
-        go = Ontology('./obopy/go-basic.obo','./obopy/sgd_2009_Jan_unzip.gaf',loadLocal=True)
+        go = Ontology('./obopy/gene_ontology_2007_Jan.obo','./obopy/gene_association.sgd.20070415/gene_association.sgd',loadLocal=True)
     else:
         go = Ontology('./obopy/go-basic.obo','./obopy/sgd.gaf',loadLocal=True)
     term = go.terms[goTerm]
-    genes = term.allAnnos()
+    if direct:
+        genes = term.directAnnos()
+    else:
+        genes = term.allAnnos()
     return getYORF(genes)
+
+def printName(goTerm,dataset = 'modern'):
+    if dataset == '2007' or dataset == 'original':
+        go = Ontology('./obopy/gene_ontology_2007_Jan.obo','./obopy/gene_association.sgd.20070415/gene_association.sgd',loadLocal=True)
+    else:
+        go = Ontology('./obopy/go-basic.obo','./obopy/sgd.gaf',loadLocal=True)
+    term = go.terms[goTerm]
+    print(term.name)
     
 def makePosNegFiles(goTerm,dataset='original'):
     termPositives = getGenes(goTerm,dataset=dataset)
-    leaves = getLeaves(0)
+    leaves = getLeaves(10,dataset='original',exclude=['GO:0002181','GO:0022857','GO:0032543'])
     allGenes = set()
     for leaf in leaves:
         allGenes = allGenes | leaf[1]
@@ -38,10 +47,10 @@ def getYORF(genes):
     return yorfList
 
 #Get all GO terms that are leaves, each leaf being a tuple of the leaf term name and a set of all genes annotated to that term
-def getLeaves(cutoff,dataset='original',bioProc=True,molFunc=False,cellComp=False):
+def getLeaves(cutoff,dataset='original',bioProc=True,molFunc=False,cellComp=False,exclude=[]):
     #Initialize the datsets that annotations will be pulled from, either the 2009 dataset or the current 2022 dataset
     if dataset == '2007' or dataset == 'original':
-        goAnnos = Ontology('./obopy/go-basic.obo','./obopy/gene_association.sgd.20070415/gene_association.sgd',loadLocal=True)
+        goAnnos = Ontology('./obopy/gene_ontology_2007_Jan.obo','./obopy/gene_association.sgd.20070415/gene_association.sgd',loadLocal=True)
     else:
         goAnnos = Ontology('./obopy/go-basic.obo','./obopy/sgd.gaf',loadLocal=True)
     
@@ -72,9 +81,8 @@ def getLeaves(cutoff,dataset='original',bioProc=True,molFunc=False,cellComp=Fals
     #Loop over all terms, add all terms with no children to list of leaves
     leaves = []
     for term in goSlim.terms:
-        if(len(goSlim.terms[term].children) == 0):
+        if(len(goSlim.terms[term].children) == 0) and not term in exclude:
             leaves.append(term)
-    
     
     leaves = list(filter(lambda leaf: len(getYORF(goSlim.terms[leaf].allAnnos())) >= cutoff,leaves))
     

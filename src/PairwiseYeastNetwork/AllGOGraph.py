@@ -14,7 +14,7 @@ sys.path.insert(0,'./obopy')
 from Leaf import getLeaves, getGenes
 
 class AllGoGraph(AllGoModel):
-    def __init__(self,networkPath,structure,folder,modelName='',numfolds=4,geneFolds='./src/PairwiseYeastNetwork/AllGOGeneFold1.csv',singleTermFolds=False,ontologyDataset='modern',memMapName='YeastDict_Regularized.npy',softmax=False,inputVector='x',outputVector='b',addTerms=[]):
+    def __init__(self,networkPath,structure,folder,modelName='',numfolds=4,geneFolds='./src/PairwiseYeastNetwork/AllGOGeneFold_Original_1.csv',singleTermFolds=False,ontologyDataset='modern',memMapName='YeastDict_Regularized.npy',softmax=False,inputVector='x',outputVector='b',addTerms=[]):
         
         #Intialize file path for folder where results will be saved
         self.path = f'./Yeast Resources/GraphResults/{folder}'

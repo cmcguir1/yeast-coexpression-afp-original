@@ -20,7 +20,7 @@ def main():
 
     
     for i in range(0,4):
-        GOTest = AllGoModel(i,sys.argv[1],'BCE_Paper_Hetero_Reg','BCE',foldFile='./src/PairwiseYeastNetwork/AllGOGeneFold1.csv',ontologyDataset='original',resetNet=True,verbose='f',lossFunc='BCE',inputVector='xlpg',weightDecay=0.005,hiddenDropout=float(sys.argv[2]))
+        GOTest = AllGoModel(i,sys.argv[1],'BCE_Paper_Hetero_Reg','BCE',foldFile='./src/PairwiseYeastNetwork/AllGOGeneFold_Original_1.csv',ontologyDataset='original',resetNet=True,verbose='f',lossFunc='BCE',inputVector='xlpg',weightDecay=0.005,hiddenDropout=float(sys.argv[2]))
         GOTest.trainNetwork(25000,track=100)
         GOTest.testNetworkAll(runAll=True)
         GOTest.testNetworkAll(runAll=True,validation=False)

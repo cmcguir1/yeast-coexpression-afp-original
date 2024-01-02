@@ -1,10 +1,10 @@
+
 from PairwiseYeastData import PairwiseYeastData
 from PairwiseModel import PairwiseModel
 import numpy as np
 import time
 from GeneFolds import GeneFolds
 from YeastGraph import YeastGraph
-from AllGOGraph import AllGoGraph
 import sys
 from ComplexModel import ComplexModel
 import pandas as pd
@@ -12,26 +12,35 @@ import torch
 from AllGoModel import AllGoModel
 from CorrelationDictionary import CorrelationDictionary
 import os
+from AllGOGraph import AllGoGraph
 
 # This import should fix the ssl import verificiation error
 import ssl
 ssl._create_default_https_context = ssl._create_unverified_context
 
 def main():
-
     
     
-    graph = AllGoGraph(f'./Yeast Resources/Pairwise/Spell/LossFunc_Redo/BCE_x_b_113x100x53_lr0.01_batch50_lfBCE_Net_fold',f'113x100x53','BCE_100',ontologyDataset='original',inputVector='x')
-    # graph.rankGenes()
-    # graph.feedForward(int(sys.argv[1]),saveAll=True,runBatch=True,calcPos=True)
-    graph.rankAllTerms()
 
+    
 
+    terms = pd.read_csv('./src/PairwiseYeastNetwork/GOTermIndexDictionary_BioProcOnly.csv').to_numpy()[:,0]
+    # term = terms[int(sys.argv[1])]
+    # term = 'GO:0007005'
 
+    
+    for term in terms:
+        if not term in ['GO:0002181','GO:0022857','GO:0032543']:
+            model = PairwiseModel(0,f'20x1','Test',f'{term[0:2]}{term[3:]}',lr=0.01,resetNet=True,batch=50,term=term,dataset='original')
+    # model.trainNetwork(10000,printLoss=True)   
+    # model.testNetworkTraining(limitNegative=True)
+    # model.testNetworkValidation(limitNegative=True)
 
+    # graph = AllGoGraph(f'Yeast Resources/Pairwise/{folderName}/{term[0:2]}{term[3:]}_{sys.argv[2]}x1_Net_fold',f'113x{sys.argv[2]}x1',f'SingleTerm_{sys.argv[2]}_CorrectFolds',modelName=f'{term[0:2]}{term[3:]}',geneFolds=f'./Yeast Resources/Datasets/All Spell/{term[0:2]}{term[3:]}_Folds_Original_1.csv',ontologyDataset='original',outputVector='',addTerms=[term])
+    # graph.feedForward(int(sys.argv[1]),calcAgn=True)
+    # graph.rankGenes(term)
 
 
 
 if __name__ == '__main__':
     main()
-

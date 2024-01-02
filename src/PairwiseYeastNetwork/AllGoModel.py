@@ -132,7 +132,7 @@ class AllGoModel():
         #       u - unrelated node (not co-annotated to any biological process)
         #   Additional GO terms can be added with 'addTerm'
         
-        self.leaves = getLeaves(10,dataset=ontologyDataset,bioProc=('b' in outputVector),molFunc=('m' in outputVector),cellComp=('c' in outputVector))
+        self.leaves = getLeaves(10,dataset=ontologyDataset,bioProc=('b' in outputVector),molFunc=('m' in outputVector),cellComp=('c' in outputVector),exclude=['GO:0002181','GO:0022857','GO:0032543'])
         for term in addTerms:
             self.leaves.append([term,set(getGenes(term,dataset=ontologyDataset))])
         self.GOTermDict = {term[0]: i for i,term in enumerate(self.leaves)}
@@ -688,9 +688,13 @@ class AllGoModel():
         genes = list(genes)
         random.shuffle(genes)
         partition = int(len(genes) / self.numFolds)
-        for  i in range(self.numFolds):
-            for gene in genes[i*partition:(i+1)*partition]:
-                folds.append([gene,i])
+        for i in range(self.numFolds):
+            if i == self.numFolds - 1:
+                for gene in genes[i*partition:]:
+                    folds.append([gene,i])
+            else: 
+                for gene in genes[i*partition:(i+1)*partition]:
+                    folds.append([gene,i])
         pd.DataFrame(folds,columns=['Gene','Fold']).to_csv(foldFile,index=False)
         return folds
     

@@ -19,7 +19,7 @@ for(file in files){
 goTerms <- unique(goTerms)
 print(goTerms)
 
-
+structures <- c("d0_wd0")
 structures <- c("d0_wd0","d0.1_wd0","d0.5_wd0",
                 "d0_wd0.01","d0.1_wd0.01","d0.5_wd0.01",
                 "d0_wd0.001","d0.1_wd0.001","d0.5_wd0.001",
