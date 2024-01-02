@@ -322,6 +322,8 @@ class AllGoModel():
         
 
     def trainNetwork(self,epochs,track=100,printTensors=False,numTest=10):
+        self.net.train()
+
         # If swapping genes, train by swapping labels and using normal features
         if self.swapGenes:
             self.randomizeLabels = True
@@ -426,6 +428,7 @@ class AllGoModel():
 
 
     def testNetworkAll(self,proportionNeg=10,saveTerms={'GO:0007005','GO:0006302','GO:0007127'},runAll=True,validation=True):
+        self.net.eval()
         if self.swapGenes:
             self.randomizeLabels = False
             self.randomizeFeatures = True

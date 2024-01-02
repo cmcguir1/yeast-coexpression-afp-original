@@ -245,7 +245,7 @@ class AllGoGraph(AllGoModel):
                 posGenes = getGenes(term,dataset=dataset)
                 # pd.DataFrame(posGenes,columns=['Gene']).to_csv(f'./Yeast Resources/TermPos/GO-{term[3:]}_Pos_{dataset}.csv',index=False)
             
-
+            self.nets[fold].eval()
             
             
             pairs = AllGoGraph.makePairs(self.folds[fold],self.allGenes)

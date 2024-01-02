@@ -14,14 +14,14 @@ class FlexNet(nn.Module):
         # self.layers = []
         self.layers = nn.Sequential()
 
-        if(inputDrop == None):
-            self.dropInput = None
-        else:
-            self.dropInput = nn.Dropout(p=inputDrop)
-        if(hiddenDrop == None):
-            self.dropHidden = None
-        else:
-            self.dropHidden = nn.Dropout(p=hiddenDrop)
+        # if(inputDrop == None):
+        #     self.dropInput = None
+        # else:
+        #     self.dropInput = nn.Dropout(p=inputDrop)
+        # if(hiddenDrop == None):
+        #     self.dropHidden = None
+        # else:
+        #     self.dropHidden = nn.Dropout(p=hiddenDrop)
 
         #Conditional to determine activation function of network
         if(activation == 'relu'):
@@ -35,7 +35,7 @@ class FlexNet(nn.Module):
 
         #If input dropout is specified, add dropout as first layer
         if(inputDrop != None):
-            self.layers.add_module('Input Dropout',self.dropInput)
+            self.layers.add_module('Input Dropout',nn.Dropout(p=inputDrop))
 
         #Loop that adds each layer to the layers list
         for i in range(len(sizes)-1):
@@ -45,15 +45,15 @@ class FlexNet(nn.Module):
             if(i != len(sizes) - 2):
                 self.layers.add_module(f'ReLU',self.activation)
                 if(hiddenDrop != None):
-                    self.layers.add_module('Hidden Layer Dropout',self.dropHidden)
+                    self.layers.add_module('Hidden Layer Dropout',nn.Dropout(p=hiddenDrop))
 
             # self.layers.append(nn.parameter.Parameter(nn.Linear(int(sizes[i]),int(sizes[i+1]))))
 
     def forward(self,x,test=False):
-        if(test):
-            self.eval()
-        else:
-            self.train()
+        # if(test):
+        #     self.eval()
+        # else:
+        #     self.train()
 
         #Applies sequential function
         x = self.layers(x)
