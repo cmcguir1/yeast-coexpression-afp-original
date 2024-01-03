@@ -26,7 +26,7 @@ def main():
     # GOTest.testNetworkAll(runAll=True)
     # GOTest.testNetworkAll(runAll=True,validation=False)
 
-    graph = AllGoGraph(f'./Yeast Resources/Pairwise/Spell/CorrectAnnos_Folds/BCE_glpx_b_149x{sys.argv[1]}x53_lr0.01_batch50_lfBCE_Net_fold',f'149x{sys.argv[1]}x53','BCE_Folds','BCE',ontologyDataset='original',inputVector='xlgp')
+    graph = AllGoGraph(f'./Yeast Resources/Pairwise/Spell/CorrectAnnos_Folds/BCE_glpx_b_149x{sys.argv[1]}x51_lr0.01_batch50_lfBCE_Net_fold',f'149x{sys.argv[1]}x51','BCE_Folds','BCE',ontologyDataset='original',inputVector='xlgp')
     graph.feedForward(int(sys.argv[2]))
 
 
