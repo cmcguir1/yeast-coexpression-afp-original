@@ -180,7 +180,7 @@ class AllGoGraph(AllGoModel):
         # self.agnGenes = pd.read_csv('./Yeast Resources/TermPos/AgnosticGenes.csv').to_numpy().flatten()
 
         leaves = getLeaves(10,dataset=ontologyDataset,exclude=['GO:0002181','GO:0022857','GO:0032543'])
-        negTerms = [leaf[1] for leaf in leaves if leaf[0] != term]
+        negTerms = [leaf[1] for leaf in leaves]
         negGenes = set()
         for termGenes in negTerms:
             negGenes = negGenes | termGenes
