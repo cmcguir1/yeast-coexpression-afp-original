@@ -38,7 +38,7 @@ replaceTest <- function(str) {
 
 #Gets all files from Working directory
 wd <- getwd()
-saveDir <- "D:/Paper/CorrectAnnos_PS"
+saveDir <- "D:/Paper/CorrectAnnos_WD+Dropout"
 if(!dir.exists(saveDir)) dir.create(saveDir)
 
 
@@ -53,7 +53,7 @@ print(testDirs)
 plotAll <- FALSE
 desiredTerms <- c("GO-0007005","GO-0042273","GO-0032196","GO-0009451","GO-0006897","GO-0006979","GO-0006325","GO-0000278","GO-0051321","GO-0003700","GO-0000747","GO-0006470","GO-0007033")
 
-netTypes <- c("Epoch_50000")
+netTypes <- c("Dropout_0.001","Dropout_0.01",'Dropout_0.1')
 
 dataset <- "AllGO"
 
