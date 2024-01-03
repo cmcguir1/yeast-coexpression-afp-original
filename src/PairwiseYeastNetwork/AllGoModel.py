@@ -158,6 +158,7 @@ class AllGoModel():
         # If the foldFile does not exit, make new gene folds; Otherwise, generate val and training data from the foldFile
         if not os.path.exists(foldFile):
             folds = self.makeNewGeneFolds(foldFile=foldFile)
+            print('Making new folds file')
         else:
             #Read in file of gene folds
             folds = pd.read_csv(foldFile).to_numpy()
