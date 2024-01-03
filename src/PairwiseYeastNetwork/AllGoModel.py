@@ -91,7 +91,7 @@ class AllGoModel():
         if self.physical:
             # Dataset of all bioGRID interactions
             if ontologyDataset == 'original':
-                interactions = pd.read_csv('./InteractionData.txt',sep="\t").to_numpy()
+                interactions = pd.read_csv('../BIOGRID-ORGANISM-Saccharomyces_cerevisiae-2.0.25.tab.txt',sep="\t").to_numpy()
                 interactionsList = pd.read_csv('./PhysicalInteractions_Original.csv').to_numpy().flatten()
             else:
                 interactions = pd.read_csv('../BIOGRID-ORGANISM-Saccharomyces_cerevisiae_S288c-4.4.222.tab.txt',sep="\t").to_numpy()

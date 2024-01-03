@@ -20,8 +20,8 @@ def main():
 
     
 
-    GOTest = AllGoModel(int(sys.argv[1]),'100',f'CorrectAnnos_NoReg','BCE',foldFile='./src/PairwiseYeastNetwork/AllGOGeneFold_Original_1.csv',ontologyDataset='original',resetNet=True,verbose='f',lossFunc='BCE')
-    GOTest.trainNetwork(10000,track=100)
+    GOTest = AllGoModel(int(sys.argv[1]),'100',f'CorrectAnnos_NoReg_50000','BCE',foldFile='./src/PairwiseYeastNetwork/AllGOGeneFold_Original_1.csv',ontologyDataset='original',resetNet=True,verbose='f',lossFunc='BCE')
+    GOTest.trainNetwork(50000,track=100)
     GOTest.testNetworkAll(runAll=True)
     GOTest.testNetworkAll(runAll=True,validation=False)
 
