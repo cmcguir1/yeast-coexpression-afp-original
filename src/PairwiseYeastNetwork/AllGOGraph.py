@@ -159,7 +159,8 @@ class AllGoGraph(AllGoModel):
         self.nets = []
         for i in range(numfolds):
             net = FlexNet(structure,sigmoid=False)
-            net.load_state_dict(torch.load(f'{networkPath}{i+1}.pth'))
+            if os.path.exists(f'{networkPath}{i+1}.pth'):
+                net.load_state_dict(torch.load(f'{networkPath}{i+1}.pth'))
             net.to(self.device)
             self.nets.append(net)
         self.struct = structure

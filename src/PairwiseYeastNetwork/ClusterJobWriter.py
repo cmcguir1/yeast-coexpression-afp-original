@@ -188,5 +188,10 @@ def writeJobs(JobName,pythonFile,node=False,arg1=['0','1','2','3'],arg2=None,arg
 # writeJobs('CA_WD','Main2.py')
 # writeJobs('CA_Dropout','Main4.py',arg2=[0.1,0.01,0.001])
 
-writeJobs('CA_NoReg','Main2.py')
+# writeJobs('CA_NoReg','Main2.py')
+
+writeJobs('CorrectedAnnos','Main.py',arg1=['20','100'],arg2=[0,1,2,3])
+writeJobs('CorrectedAnnos_Hetero','Main3.py',arg1=['20','100'],arg2=[0,1,2,3])
+writeJobs('MitoInheritance_Graph','MitoInheritance.py',arg2=['20'])
+writeJobs('Modern_Paper','Main2.py',arg1=['20','100','200'])
 
