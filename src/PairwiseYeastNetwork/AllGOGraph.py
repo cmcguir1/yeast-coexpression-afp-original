@@ -179,15 +179,13 @@ class AllGoGraph(AllGoModel):
         self.allGenes = pd.read_csv('./Yeast Resources/GeneSets/BiologicalProcessGenes.csv').values.flatten().tolist()
         # self.agnGenes = pd.read_csv('./Yeast Resources/TermPos/AgnosticGenes.csv').to_numpy().flatten()
 
-        posGenes = getGenes(term,dataset=ontologyDataset)
         leaves = getLeaves(10,dataset=ontologyDataset,exclude=['GO:0002181','GO:0022857','GO:0032543'])
         negTerms = [leaf[1] for leaf in leaves if leaf[0] != term]
         negGenes = set()
         for termGenes in negTerms:
             negGenes = negGenes | termGenes
-        negGenes = negGenes - set(posGenes)
 
-        self.agnGenes = set(self.allGenes) - (set(posGenes) | negGenes)
+        self.agnGenes = set(self.allGenes) - negGenes
 
         self.memMapLen = (sum([len(fold) for fold in self.folds]) * len(self.allGenes) - len(foldTable)) + (len(self.agnGenes) * len(self.allGenes)) - len(set(self.agnGenes) & set(self.allGenes))
         self.foldOffsets = []
