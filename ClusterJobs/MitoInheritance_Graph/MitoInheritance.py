@@ -29,15 +29,15 @@ def main():
     
     
     # for i in range(4):
-    model = PairwiseModel(int(sys.argv[1]),f'{sys.argv[2]}x1',folderName,f'{term[0:2]}{term[3:]}',lr=0.01,resetNet=True,batch=50,term=term)
-    model.trainNetwork(20000,printLoss=True)
-    model.trainNetwork(10,printLoss=True)        
-    model.testNetworkTraining(limitNegative=True)
-    model.testNetworkValidation(limitNegative=True)
+    # model = PairwiseModel(int(sys.argv[1]),f'{sys.argv[2]}x1',folderName,f'{term[0:2]}{term[3:]}',lr=0.01,resetNet=True,batch=50,term=term)
+    # model.trainNetwork(20000,printLoss=True)
+    # model.trainNetwork(10,printLoss=True)        
+    # model.testNetworkTraining(limitNegative=True)
+    # model.testNetworkValidation(limitNegative=True)
 
     graph = AllGoGraph(f'Yeast Resources/Pairwise/{folderName}/{term[0:2]}{term[3:]}_{sys.argv[2]}x1_Net_fold',f'113x{sys.argv[2]}x1',f'SingleTerm_{sys.argv[2]}_NewFolds',modelName=f'{term[0:2]}{term[3:]}',geneFolds=f'./Yeast Resources/GeneSets/{term[0:2]}{term[3:]}_Folds_Original_1.csv',singleTermFolds=True,ontologyDataset='original',outputVector='',addTerms=[term])
-    graph.feedForward(int(sys.argv[1]),calcAgn=True)
-    # graph.rankGenes(term)
+    # graph.feedForward(int(sys.argv[1]),calcAgn=True)
+    graph.rankGenes(term)
 
 
 

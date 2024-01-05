@@ -190,8 +190,9 @@ def writeJobs(JobName,pythonFile,node=False,arg1=['0','1','2','3'],arg2=None,arg
 
 # writeJobs('CA_NoReg','Main2.py')
 
-writeJobs('CorrectedAnnos','Main.py',arg1=['20','100'],arg2=[0,1,2,3])
-writeJobs('CorrectedAnnos_Hetero','Main3.py',arg1=['20','100'],arg2=[0,1,2,3])
-writeJobs('MitoInheritance_Graph','MitoInheritance.py',arg2=['20'])
-writeJobs('Modern_Paper','Main2.py',arg1=['20','100','200'])
+writeJobs('CorrectedAnnos','Main.py',arg1=['20','100'],arg2=[0])
+writeJobs('CorrectedAnnos_Hetero','Main3.py',arg1=['20','100'],arg2=[0])
+writeJobs('MitoInheritance_Graph','MitoInheritance.py',arg2=['20'],arg1=[0])
+# writeJobs('Modern_Paper','Main2.py',arg1=['20','100','200'])
 
+ 
