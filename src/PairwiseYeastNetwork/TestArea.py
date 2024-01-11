@@ -1,1 +1,2 @@
-print("Everybody Knows That You're Insane")
+import torch
+print(torch.__version__)

@@ -19,7 +19,7 @@ for(file in files){
 goTerms <- unique(goTerms)
 print(goTerms)
 
-structures <- c("d0_wd0")
+structures <- c("ST_20")
 structures <- c("d0_wd0","d0.1_wd0","d0.5_wd0",
                 "d0_wd0.01","d0.1_wd0.01","d0.5_wd0.01",
                 "d0_wd0.001","d0.1_wd0.001","d0.5_wd0.001",
@@ -27,7 +27,7 @@ structures <- c("d0_wd0","d0.1_wd0","d0.5_wd0",
 
 type <- "ST" #Type specifies whether the modern or original microarray assay datasets were used
 
-setwd("D:/Paper/SingleTerm_PS/")
+setwd("D:/Paper/CorrectAnnos_Folds")
 
 #Loops over all structures and GO terms
 for(struct in structures){
