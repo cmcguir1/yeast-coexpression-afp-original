@@ -11,4 +11,4 @@
 
 cd data/SummerResearch2022
 
-/data/hibbslab/anaconda3/bin/python src/PairwiseYeastNetwork/Main.py 100 0    > ClusterJobs/CorrectedAnnos/CorrectedAnnos1_output.txt
+/data/hibbslab/anaconda3/bin/python src/PairwiseYeastNetwork/Main5.py 100 0    > ClusterJobs/CorrectedAnnos/CorrectedAnnos1_output.txt

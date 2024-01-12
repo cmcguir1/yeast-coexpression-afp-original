@@ -11,4 +11,4 @@
 
 cd data/SummerResearch2022
 
-/data/hibbslab/anaconda3/bin/python src/PairwiseYeastNetwork/Main3.py 100 3    > ClusterJobs/CorrectedAnnos_Hetero/CorrectedAnnos_Hetero7_output.txt
+/data/hibbslab/anaconda3/bin/python src/PairwiseYeastNetwork/Main6.py 100 3    > ClusterJobs/CorrectedAnnos_Hetero/CorrectedAnnos_Hetero7_output.txt
