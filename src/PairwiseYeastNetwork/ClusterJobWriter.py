@@ -194,5 +194,9 @@ writeJobs('CorrectedAnnos','Main.py',arg1=['20','100'],arg2=[0,1,2,3])
 writeJobs('CorrectedAnnos_Hetero','Main3.py',arg1=['20','100'],arg2=[0,1,2,3])
 # writeJobs('MitoInheritance_Graph','MitoInheritance.py',arg2=['20'],arg1=[0])
 # writeJobs('Modern_Paper','Main2.py',arg1=['20','100','200'])
+writeJobs('Folds_bce_Original_GeneExp','Main.py')
+writeJobs('Folds_bce_Original_Hetero','Main2.py')
+writeJobs('Folds_bce_Modern_GeneExp','Main3.py')
+writeJobs('Folds_bce_Modern_Hetero','Main4.py')
 
  

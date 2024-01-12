@@ -149,13 +149,14 @@ class AllGoModel():
         
         
         
-        if foldFile or 'original' or foldFile == 'Original' or foldFile == '2009':
+        if foldFile == 'original' or foldFile == 'Original' or foldFile == '2007':
             foldFile = './src/PairwiseYeastNetwork/AllGOGeneFold_Original_1.csv'
         elif foldFile == 'modern' or foldFile == 'Modern' or foldFile == '2023':
             foldFile = './src/PairwiseYeastNetwork/AllGOGeneFold1.csv'
 
 
         # If the foldFile does not exit, make new gene folds; Otherwise, generate val and training data from the foldFile
+        self.numFolds = numFolds
         print(foldFile)
         if not os.path.exists(foldFile):
             folds = self.makeNewGeneFolds(foldFile=foldFile)

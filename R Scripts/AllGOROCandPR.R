@@ -38,7 +38,7 @@ replaceTest <- function(str) {
 
 #Gets all files from Working directory
 wd <- getwd()
-saveDir <- "D:/Paper/NewFolds"
+saveDir <- "D:/Paper/Long_Train"
 if(!dir.exists(saveDir)) dir.create(saveDir)
 
 

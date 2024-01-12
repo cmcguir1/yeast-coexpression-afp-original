@@ -21,12 +21,12 @@ def main():
 
     
     # for i in range(0,4):
-    GOTest = AllGoModel(int(sys.argv[2]),sys.argv[1],'CorrectAnnos_Long','BCE',foldFile='./src/PairwiseYeastNetwork/AllGOGeneFold_Original_1.csv',ontologyDataset='original',resetNet=True,verbose='f',lossFunc='BCE',inputVector='xlpg')
+    GOTest = AllGoModel(int(sys.argv[1]),'100','Folds_bce_Modern','BCE',foldFile='./src/PairwiseYeastNetwork/AllGOGeneFold_Modern_bce_1.csv',ontologyDataset='original',resetNet=True,verbose='f',lossFunc='BCE')
     GOTest.trainNetwork(200000,track=100)
     GOTest.testNetworkAll(runAll=True)
     GOTest.testNetworkAll(runAll=True,validation=False)
 
-    # graph = AllGoGraph(f'./Yeast Resources/Pairwise/Spell/CorrectAnnos_Folds/BCE_glpx_b_149x{sys.argv[1]}x51_lr0.01_batch50_lfBCE_Net_fold',f'149x{sys.argv[1]}x51','BCE_Folds','BCE',ontologyDataset='original',inputVector='xlgp')
+    # graph = AllGoGraph(f'./Yeast Resources/Pairwise/Spell/CorrectAnnos_Folds/BCE_x_b_113x{sys.argv[1]}x51_lr0.01_batch50_lfBCE_Net_fold',f'113x{sys.argv[1]}x51','BCE_Newfolds','BCE',ontologyDataset='original')
     # graph.feedForward(int(sys.argv[2]))
     # graph.rankGenes()
 

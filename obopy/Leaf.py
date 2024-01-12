@@ -48,41 +48,52 @@ def getYORF(genes):
 
 #Get all GO terms that are leaves, each leaf being a tuple of the leaf term name and a set of all genes annotated to that term
 def getLeaves(cutoff,dataset='original',bioProc=True,molFunc=False,cellComp=False,exclude=[]):
-    #Initialize the datsets that annotations will be pulled from, either the 2009 dataset or the current 2022 dataset
+    #Initialize the datsets that annotations will be pulled from, either the 2007 dataset or the current 2023 dataset
     if dataset == '2007' or dataset == 'original':
         goAnnos = Ontology('./obopy/gene_ontology_2007_Jan.obo','./obopy/gene_association.sgd.20070415/gene_association.sgd',loadLocal=True)
+        goSlim = Ontology('./obopy/goslim_yeast_2007_Jan.obo','./obopy/sgd.gaf',loadLocal=True)
     else:
         goAnnos = Ontology('./obopy/go-basic.obo','./obopy/sgd.gaf',loadLocal=True)
+        goSlim = Ontology('./obopy/goslim_yeast.obo','./obopy/sgd.gaf',loadLocal=True)
     
     #Initialize the go slim ontology that terms will be pulled from
-    goSlim = Ontology('./obopy/goslim_yeast.obo','./obopy/sgd.gaf',loadLocal=True)
+    # goSlim = Ontology('./obopy/goslim_yeast.obo','./obopy/sgd.gaf',loadLocal=True)
     #Loop over all terms of the go slim
     for term in goSlim.terms:
         #Loop over all parents of a term and add that term to each parent's set of children
         for parent in goSlim.terms[term].parents():
             parent.children.add(term)
+
+    for term in goAnnos.terms:
+        for parent in goAnnos.terms[term].parents():
+            parent.children.add(term)
     #print(goSlim.terms)
-    def isParent(term,parent,slim):
+    def isParent(term,parent):
         
         if parent in term.is_a:
             return True
         elif len(term.is_a) == 0:
             return False
         else:
-            return True in [isParent(t,parent,slim) for t in term.is_a]            
+            return True in [isParent(t,parent) for t in term.is_a]            
                 
     def typeFilter(term,slim):
-        return ((isParent(term,slim.terms['GO:0008150'],slim) and bioProc) or 
-                (isParent(term,slim.terms['GO:0003674'],slim) and molFunc) or 
-                (isParent(term,slim.terms['GO:0005575'],slim) and cellComp))
+        return ((isParent(term,slim.terms['GO:0008150']) and bioProc) or 
+                (isParent(term,slim.terms['GO:0003674']) and molFunc) or 
+                (isParent(term,slim.terms['GO:0005575']) and cellComp))
 
     
 
     #Loop over all terms, add all terms with no children to list of leaves
+    
+    
     leaves = []
     for term in goSlim.terms:
-        if(len(goSlim.terms[term].children) == 0) and not term in exclude:
+        if (not term in exclude) and (len(goSlim.terms[term].children) == 0):
             leaves.append(term)
+        # if term in goAnnos.terms and (len(goAnnos.terms[term].children) == 0):
+        #     leaves.append(term)
+        
     
     leaves = list(filter(lambda leaf: len(getYORF(goSlim.terms[leaf].allAnnos())) >= cutoff,leaves))
     
@@ -92,6 +103,7 @@ def getLeaves(cutoff,dataset='original',bioProc=True,molFunc=False,cellComp=Fals
     leafGenes = []
     for leaf in leaves:
         leafGenes.append((leaf,set(getYORF(goAnnos.terms[leaf].allAnnos()))))
+        
         #leafGenes.append((leaf,getGenes(leaf)))
     return leafGenes
 

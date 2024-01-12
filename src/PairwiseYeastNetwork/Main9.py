@@ -21,7 +21,7 @@ def main():
 
     
     # for i in range(0,4):
-    GOTest = AllGoModel(int(sys.argv[2]),sys.argv[1],'CorrectAnnos_Folds','BCE',foldFile='./src/PairwiseYeastNetwork/AllGOGeneFold_Original_1.csv',ontologyDataset='original',resetNet=True,verbose='f',lossFunc='BCE')
+    GOTest = AllGoModel(0,'20','Test','BCE',foldFile='./src/PairwiseYeastNetwork/AllGOGeneFold_Modern_bce_1.csv',ontologyDataset='modern',resetNet=True,verbose='f',lossFunc='BCE',outputVector='bcm')
     # GOTest.trainNetwork(50000,track=100)
     # GOTest.testNetworkAll(runAll=True)
     # GOTest.testNetworkAll(runAll=True,validation=False)
