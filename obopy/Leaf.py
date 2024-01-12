@@ -51,13 +51,13 @@ def getLeaves(cutoff,dataset='original',bioProc=True,molFunc=False,cellComp=Fals
     #Initialize the datsets that annotations will be pulled from, either the 2007 dataset or the current 2023 dataset
     if dataset == '2007' or dataset == 'original':
         goAnnos = Ontology('./obopy/gene_ontology_2007_Jan.obo','./obopy/gene_association.sgd.20070415/gene_association.sgd',loadLocal=True)
-        goSlim = Ontology('./obopy/goslim_yeast_2007_Jan.obo','./obopy/sgd.gaf',loadLocal=True)
+        
     else:
         goAnnos = Ontology('./obopy/go-basic.obo','./obopy/sgd.gaf',loadLocal=True)
-        goSlim = Ontology('./obopy/goslim_yeast.obo','./obopy/sgd.gaf',loadLocal=True)
+        
     
     #Initialize the go slim ontology that terms will be pulled from
-    # goSlim = Ontology('./obopy/goslim_yeast.obo','./obopy/sgd.gaf',loadLocal=True)
+    goSlim = Ontology('./obopy/goslim_yeast.obo','./obopy/sgd.gaf',loadLocal=True)
     #Loop over all terms of the go slim
     for term in goSlim.terms:
         #Loop over all parents of a term and add that term to each parent's set of children
