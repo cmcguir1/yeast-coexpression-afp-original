@@ -21,13 +21,13 @@ def main():
 
     
     # for i in range(0,4):
-    GOTest = AllGoModel(int(sys.argv[1]),'100','Folds_bce_Original','BCE',foldFile='./src/PairwiseYeastNetwork/AllGOGeneFold_Original_bce_1.csv',ontologyDataset='original',resetNet=True,verbose='f',lossFunc='BCE',inputVector='xlpg')
-    GOTest.trainNetwork(200000,track=100)
-    GOTest.testNetworkAll(runAll=True)
-    GOTest.testNetworkAll(runAll=True,validation=False)
+    # GOTest = AllGoModel(int(sys.argv[1]),'100','Folds_bce_Original','BCE',foldFile='./src/PairwiseYeastNetwork/AllGOGeneFold_Original_bce_1.csv',ontologyDataset='original',resetNet=True,verbose='f',lossFunc='BCE',inputVector='xlpg')
+    # GOTest.trainNetwork(200000,track=100)
+    # GOTest.testNetworkAll(runAll=True)
+    # GOTest.testNetworkAll(runAll=True,validation=False)
 
-    # graph = AllGoGraph(f'./Yeast Resources/Pairwise/Spell/CorrectAnnos_Folds/BCE_x_b_113x{sys.argv[1]}x51_lr0.01_batch50_lfBCE_Net_fold',f'113x{sys.argv[1]}x51','BCE_Newfolds','BCE',ontologyDataset='original')
-    # graph.feedForward(int(sys.argv[2]))
+    graph = AllGoGraph(f'./Yeast Resources/Pairwise/Spell/Folds_bce_Original/BCE_x_b_149x{sys.argv[1]}x51_lr0.01_batch50_lfBCE_Net_fold',f'149x{sys.argv[1]}x51','Folds_bce_Original','BCE',ontologyDataset='original',geneFolds='./src/PairwiseYeastNetwork/AllGOGeneFold_Original_bce_1.csv',inputVector='xlpg')
+    graph.feedForward(int(sys.argv[2]))
     # graph.rankGenes()
 
 

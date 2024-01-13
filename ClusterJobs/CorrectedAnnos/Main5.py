@@ -27,8 +27,8 @@ def main():
     # GOTest.testNetworkAll(runAll=True,validation=False)
 
     graph = AllGoGraph(f'./Yeast Resources/Pairwise/Spell/CorrectAnnos_Long/BCE_x_b_113x{sys.argv[1]}x51_lr0.01_batch50_lfBCE_Net_fold',f'113x{sys.argv[1]}x51','BCE_Newfolds','BCE',ontologyDataset='original')
-    graph.feedForward(int(sys.argv[2]))
-    # graph.rankGenes()
+    # graph.feedForward(int(sys.argv[2]))
+    graph.rankGenes()
 
 
 
