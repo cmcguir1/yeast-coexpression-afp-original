@@ -194,9 +194,9 @@ def writeJobs(JobName,pythonFile,node=False,arg1=['0','1','2','3'],arg2=None,arg
 # writeJobs('CorrectedAnnos_Hetero','Main6.py',arg1=['20','100'])
 # writeJobs('MitoInheritance_Graph','MitoInheritance.py',arg2=['20'],arg1=[0])
 # writeJobs('Modern_Paper','Main2.py',arg1=['20','100','200'])
-writeJobs('Folds_bce_Original_GeneExp','Main.py',arg1=['100'],arg2=[0,1,2,3])
-writeJobs('Folds_bce_Original_Hetero','Main2.py',arg1=['100'],arg2=[0,1,2,3])
-writeJobs('Folds_bce_Modern_GeneExp','Main3.py',arg1=['100'],arg2=[0,1,2,3])
-writeJobs('Folds_bce_Modern_Hetero','Main4.py',arg1=['100'],arg2=[0,1,2,3])
+writeJobs('Folds_bce_Original_GeneExp','Main.py',arg1=['100'],arg2=[0])
+writeJobs('Folds_bce_Original_Hetero','Main2.py',arg1=['100'],arg2=[0])
+writeJobs('Folds_bce_Modern_GeneExp','Main3.py',arg1=['100'],arg2=[0])
+writeJobs('Folds_bce_Modern_Hetero','Main4.py',arg1=['100'],arg2=[0])
 
  
