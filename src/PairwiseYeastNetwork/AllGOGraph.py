@@ -314,7 +314,7 @@ class AllGoGraph(AllGoModel):
 
 
     #rankGenes takes all of the calculated pair scores then ranks the genes by their involvment in a given process
-    def rankGenes(self,term='GO:0007005',dataset='original',checkProportion=True,sigmoid=False):
+    def rankGenes(self,term='GO:0007005',dataset='original',checkProportion=True,sigmoid=False,agn=True,fileSuffix=""):
         
         posGenes = getGenes(term,dataset=dataset)
         leaves = getLeaves(10,dataset=dataset,exclude=['GO:0002181','GO:0022857','GO:0032543'])
@@ -352,7 +352,8 @@ class AllGoGraph(AllGoModel):
 
 
         start = time.time()
-        for i in range(self.memMapLen):
+        pairsRange = self.memMapLen if agn else self.agnOffset
+        for i in range(pairsRange):
             score = 1.0 / (1.0+ np.exp(-scoresMemmap[i,termIndex])) if sigmoid else scoresMemmap[i,termIndex]
             if pairsMemMap[i,0] not in posScore or pairsMemMap[i,0] not in totalScore:
                 posScore[pairsMemMap[i,0]] = 0
@@ -370,10 +371,12 @@ class AllGoGraph(AllGoModel):
         for gene,score in posScore.items():
             if score != 0:
                 scoreTable.append([gene,checkPosNeg(gene),score,totalScore[gene]])
+        scoreTable_filt = filter(lambda row: row[1] != 0,scoreTable)
             
         confMat = np.array(ConfusionMatrix.calculateMatrix(np.array(scoreTable,dtype=object),1,2),dtype=object)
-        pd.DataFrame(confMat,columns=['Gene','Label','Score','Background Score','Precision','Recall','False Positive Rate']).to_csv(f'{self.path}/{"" if self.modelName == "" else f"_{self.modelName}"}{self.struct}_GeneRanking_{term[0:2]}{term[3:]}{"_sigmoid" if sigmoid else ""}.csv',index=False)
-        return (np.mean(confMat[:,5]),AllGoGraph.averagePrecision(confMat[:,4]))
+        confMat_filt = np.array(ConfusionMatrix.calculateMatrix(np.array(scoreTable_filt,dtype=object),1,2),dtype=object)
+        pd.DataFrame(confMat,columns=['Gene','Label','Score','Background Score','Precision','Recall','False Positive Rate']).to_csv(f'{self.path}/{"" if self.modelName == "" else f"_{self.modelName}"}{self.struct}_GeneRanking_{term[0:2]}{term[3:]}{"_sigmoid" if sigmoid else ""}{fileSuffix}.csv',index=False)
+        return (np.mean(confMat_filt[:,5]),AllGoGraph.averagePrecision(confMat_filt[:,4]))
     
     def rankAllTerms(self,dataset='original'):
         summary = []

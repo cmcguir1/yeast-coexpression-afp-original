@@ -10,20 +10,34 @@ import os
 sys.path.insert(0,'./obopy')
 from Leaf import getLeaves, getGenes, printName
 
-# leaves = getLeaves(10,dataset='original',exclude=['GO:0002181','GO:0022857','GO:0032543'],molFunc=True,cellComp=True)
-leaves = getLeaves(10,dataset='modern',molFunc=True,cellComp=True)
+# genes = set(getGenes('GO:0007005',dataset='2007'))
+# print(f'Mito Org Genes: {len(genes)}')
+
+# data = pd.read_csv('src\PairwiseYeastNetwork\AllGOGeneFold_Original_bce_1.csv').to_numpy()
+# data = pd.read_csv('src\PairwiseYeastNetwork\AllGOGeneFold_Modern_bce_1.csv').to_numpy()
+
+
+# folds = [set(),set(),set(),set()]
+# for row in data:
+#     folds[row[1]].add(row[0])
+
+# for fold in folds:
+#     print(len(fold & genes))
+name = {row[0]:row[1] for row in pd.read_csv('src\PairwiseYeastNetwork\TermNameDict.csv').to_numpy()}
+
+leaves = getLeaves(10,dataset='2007',exclude=['GO:0002181','GO:0022857','GO:0032543'],molFunc=True,cellComp=True,bioProc=True)
+# leaves = getLeaves(10,dataset='modern',molFunc=True,cellComp=True)
 genes = set()
 for leaf in leaves:
-    # if leaf[0] == 'GO:0007005':
-    #     print(f'Mito: {len(leaf[1])}')
+    # print(name[leaf[0]])
     genes = genes.union(leaf[1])
 
-# print(len(leaves))
-print(len(genes))
+print(f'Terms: {len(leaves)}')
+print(f'Genes: {len(genes)}')
 
 # folds = pd.read_csv('./src/PairwiseYeastNetwork/AllGOGeneFold_Original_1.csv').to_numpy()
 
-# genes = set(getGenes('GO:0007005',dataset='2007'))
+
 
 # lst = [0,0,0,0]
 # for gene in folds:

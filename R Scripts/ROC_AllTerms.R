@@ -12,6 +12,8 @@ ROC <- function(dataFile,graphName) {
   
   nn <- nn[order(nn[,"Score"],decreasing = FALSE),]
   
+  nn <- dplyr::filter(nn,Label!=0)
+  
   w <- 4
   colorsList <- c("#FC0303","#14A63B","#5D87F0","#7713BA","#FAEF16","#E09704")
   
@@ -46,6 +48,7 @@ PR <- function(dataFile,graphName) {
   nn <- read.csv(dataFile)
   
   nn <- nn[order(nn[,"Recall"],decreasing = FALSE),]
+  nn <- dplyr::filter(nn,Label!=0)
   prec_ch <- convexHull(nn[,"Precision"])
   
   w <- 4

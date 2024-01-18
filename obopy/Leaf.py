@@ -51,13 +51,15 @@ def getLeaves(cutoff,dataset='original',bioProc=True,molFunc=False,cellComp=Fals
     #Initialize the datsets that annotations will be pulled from, either the 2007 dataset or the current 2023 dataset
     if dataset == '2007' or dataset == 'original':
         goAnnos = Ontology('./obopy/gene_ontology_2007_Jan.obo','./obopy/gene_association.sgd.20070415/gene_association.sgd',loadLocal=True)
-        
+    elif dataset == '2009':
+        goAnnos = Ontology('obopy/gene_ontology_2009_Jan.obo','./obopy/sgd_2009_Jan_unzip.gaf',loadLocal=True)
     else:
         goAnnos = Ontology('./obopy/go-basic.obo','./obopy/sgd.gaf',loadLocal=True)
         
     
     #Initialize the go slim ontology that terms will be pulled from
     goSlim = Ontology('./obopy/goslim_yeast.obo','./obopy/sgd.gaf',loadLocal=True)
+    # goSlim = Ontology('./obopy/goslim_yeast_2007_Jan.obo','./obopy/sgd.gaf',loadLocal=True)
     #Loop over all terms of the go slim
     for term in goSlim.terms:
         #Loop over all parents of a term and add that term to each parent's set of children
@@ -88,11 +90,20 @@ def getLeaves(cutoff,dataset='original',bioProc=True,molFunc=False,cellComp=Fals
     
     
     leaves = []
-    for term in goSlim.terms:
-        if (not term in exclude) and (len(goSlim.terms[term].children) == 0):
+    
+    print(f'GO Slim Terms: {len(goSlim.terms)}')
+    for term, name in goSlim.terms.items():
+        if (not term in exclude):
             leaves.append(term)
+        # if (not term in exclude) and (len(goSlim.terms[term].children) == 0):
+        #     leaves.append(term)
+        # else:
+        #     print(name.name)
+        #     print(name.children)
+        #     print('-------------------')
         # if term in goAnnos.terms and (len(goAnnos.terms[term].children) == 0):
         #     leaves.append(term)
+    print(f'Leaf Terms: {len(leaves)}')
         
     
     leaves = list(filter(lambda leaf: len(getYORF(goSlim.terms[leaf].allAnnos())) >= cutoff,leaves))

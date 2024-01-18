@@ -1,4 +1,4 @@
-Gene,Rank,Positive,Negative,Agnositc,True Positive,False Positive,True Negative,False Negative,Accuracy,Precision,Recall,False Positive Rate,Selectivity
+Gene,Rank,Positive,Negative,Agnostic,True Positive,False Positive,True Negative,False Negative,Accuracy,Precision,Recall,False Positive Rate,Selectivity
 YPL104W,16,0,0,1,0,0,4063,105,0.974808061,1,0,0,1
 YBR185C,19,1,0,0,1,0,4063,104,0.975047985,1,0.00952381,0,1
 YNL121C,26,1,0,0,2,0,4063,103,0.975287908,1,0.019047619,0,1

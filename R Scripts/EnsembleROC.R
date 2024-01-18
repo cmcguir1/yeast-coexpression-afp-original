@@ -1,6 +1,7 @@
 
 ensembleROC <- function(dataFile,graphName) {
   getAUC <- function(data){
+    
     decimalPlaces <- 3
     return(format(round(mean(data[,"Recall"]),decimalPlaces) , nsmall=decimalPlaces))
   }
@@ -18,6 +19,11 @@ ensembleROC <- function(dataFile,graphName) {
   mefit <- mefit[order(mefit[,"Confidence"],decreasing=FALSE),]
   spell <- spell[order(spell[,"Rank"],decreasing=FALSE),]
   nn <- nn[order(nn[,"Score"],decreasing = FALSE),]
+  
+  pixie <- dplyr::filter(pixie,Agnostic!=1)
+  mefit <- dplyr::filter(mefit,Agnostic!=1)
+  spell <- dplyr::filter(spell,Agnostic!=1)
+  nn <- dplyr::filter(nn,Label!=0)
   
   
   w <- 4
@@ -76,6 +82,11 @@ ensemblePR <- function(dataFile,graphName) {
   spell <- spell[order(spell[,"Recall"],decreasing=FALSE),]
   nn <- nn[order(nn[,"Recall"],decreasing = FALSE),]
   
+  pixie <- dplyr::filter(pixie,Agnostic!=1)
+  mefit <- dplyr::filter(mefit,Agnostic!=1)
+  spell <- dplyr::filter(spell,Agnostic!=1)
+  nn <- dplyr::filter(nn,Label!=0)
+  
   pixie[,"Precision"] <- convexHull(pixie[,"Precision"])
   mefit[,"Precision"] <- convexHull(mefit[,"Precision"])
   spell[,"Precision"] <- convexHull(spell[,"Precision"])
@@ -111,8 +122,8 @@ ensemblePR <- function(dataFile,graphName) {
 dataFile <- file.choose()
 #dataFile <- "C:\\Users\\colem\\SummerResearch2022\\Yeast Resources\\Pairwise\\Spell\\Test\\Regular430_20x1_fold1_Val.csv"
 
-graphName <- "ST 20"
-pdf("EnsembleComparision_SingleTerm_20_ROC.pdf",width=6,height=12)
+graphName <- "GeneExp Modern"
+pdf("EnsembleComparision_GeneExp_Modern_ROC_Redo.pdf",width=6,height=12)
 par(mfrow=c(2,1))
 ensembleROC(dataFile=dataFile,graphName=graphName)
 ensemblePR(dataFile=dataFile,graphName=graphName)
