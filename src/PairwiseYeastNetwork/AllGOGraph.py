@@ -361,7 +361,7 @@ class AllGoGraph(AllGoModel):
             if pairsMemMap[i,1] in posSet:
                 posScore[pairsMemMap[i,0]] = posScore[pairsMemMap[i,0]] + score
             totalScore[pairsMemMap[i,0]] = totalScore[pairsMemMap[i,0]] + score
-            if i % 10000 == 0 and i != 0:
+            if i % 10000 == 0 and i != 0 and False:
                 print(f'Calculated {(i/self.memMapLen)*100}% of the pairs\nTime elapsed: {(time.time() - start) / 60}')
 
 
@@ -371,7 +371,7 @@ class AllGoGraph(AllGoModel):
         for gene,score in posScore.items():
             if score != 0:
                 scoreTable.append([gene,checkPosNeg(gene),score,totalScore[gene]])
-        scoreTable_filt = filter(lambda row: row[1] != 0,scoreTable)
+        scoreTable_filt = list(filter(lambda row: row[1] != 0,scoreTable))
             
         confMat = np.array(ConfusionMatrix.calculateMatrix(np.array(scoreTable,dtype=object),1,2),dtype=object)
         confMat_filt = np.array(ConfusionMatrix.calculateMatrix(np.array(scoreTable_filt,dtype=object),1,2),dtype=object)
