@@ -10,8 +10,11 @@ import os
 sys.path.insert(0,'./obopy')
 from Leaf import getLeaves, getGenes, printName
 
-# genes = set(getGenes('GO:0007005',dataset='2007'))
-# print(f'Mito Org Genes: {len(genes)}')
+trans = set(getGenes('GO:0006412',dataset='2007'))
+print(f'Transation: {len(trans)}')
+mito = set(getGenes('GO:0007005',dataset='2007'))
+print(f'Mito Org Genes: {len(mito)}')
+print(f'Intersect: {mito & trans}')
 
 # data = pd.read_csv('src\PairwiseYeastNetwork\AllGOGeneFold_Original_bce_1.csv').to_numpy()
 # data = pd.read_csv('src\PairwiseYeastNetwork\AllGOGeneFold_Modern_bce_1.csv').to_numpy()
@@ -23,17 +26,17 @@ from Leaf import getLeaves, getGenes, printName
 
 # for fold in folds:
 #     print(len(fold & genes))
-name = {row[0]:row[1] for row in pd.read_csv('src\PairwiseYeastNetwork\TermNameDict.csv').to_numpy()}
+# name = {row[0]:row[1] for row in pd.read_csv('src\PairwiseYeastNetwork\TermNameDict.csv').to_numpy()}
 
-leaves = getLeaves(10,dataset='2007',exclude=['GO:0002181','GO:0022857','GO:0032543'],molFunc=True,cellComp=True,bioProc=True)
-# leaves = getLeaves(10,dataset='modern',molFunc=True,cellComp=True)
-genes = set()
-for leaf in leaves:
-    # print(name[leaf[0]])
-    genes = genes.union(leaf[1])
+# leaves = getLeaves(10,dataset='2007',exclude=['GO:0002181','GO:0022857','GO:0032543'],molFunc=True,cellComp=True,bioProc=True)
+# # leaves = getLeaves(10,dataset='modern',molFunc=True,cellComp=True)
+# genes = set()
+# for leaf in leaves:
+    
+#     genes = genes.union(leaf[1])
 
-print(f'Terms: {len(leaves)}')
-print(f'Genes: {len(genes)}')
+# print(f'Terms: {len(leaves)}')
+# print(f'Genes: {len(genes)}')
 
 # folds = pd.read_csv('./src/PairwiseYeastNetwork/AllGOGeneFold_Original_1.csv').to_numpy()
 
