@@ -91,19 +91,19 @@ def getLeaves(cutoff,dataset='original',bioProc=True,molFunc=False,cellComp=Fals
     
     leaves = []
     
-    print(f'GO Slim Terms: {len(goSlim.terms)}')
+    # print(f'GO Slim Terms: {len(goSlim.terms)}')
     for term, name in goSlim.terms.items():
-        if (not term in exclude):
-            leaves.append(term)
-        # if (not term in exclude) and (len(goSlim.terms[term].children) == 0):
+        # if (not term in exclude):
         #     leaves.append(term)
+        if (not term in exclude) and (len(goSlim.terms[term].children) == 0):
+            leaves.append(term)
         # else:
         #     print(name.name)
         #     print(name.children)
         #     print('-------------------')
         # if term in goAnnos.terms and (len(goAnnos.terms[term].children) == 0):
         #     leaves.append(term)
-    print(f'Leaf Terms: {len(leaves)}')
+    # print(f'Leaf Terms: {len(leaves)}')
         
     
     leaves = list(filter(lambda leaf: len(getYORF(goSlim.terms[leaf].allAnnos())) >= cutoff,leaves))
