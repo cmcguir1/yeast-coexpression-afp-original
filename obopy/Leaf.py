@@ -71,13 +71,13 @@ def getLeaves(cutoff,dataset='original',bioProc=True,molFunc=False,cellComp=Fals
             parent.children.add(term)
     #print(goSlim.terms)
     def isParent(term,parent):
-        
-        if parent in term.is_a:
+        parents = term.parents()
+        if parent in parents:
             return True
-        elif len(term.is_a) == 0:
+        elif len(parents) == 0:
             return False
         else:
-            return True in [isParent(t,parent) for t in term.is_a]            
+            return True in [isParent(t,parent) for t in parents]            
                 
     def typeFilter(term,slim):
         return ((isParent(term,slim.terms['GO:0008150']) and bioProc) or 
@@ -90,12 +90,12 @@ def getLeaves(cutoff,dataset='original',bioProc=True,molFunc=False,cellComp=Fals
     
     
     leaves = []
-    
+    print(f'Term: {len(goSlim.terms)}')
     # print(f'GO Slim Terms: {len(goSlim.terms)}')
     for term, name in goSlim.terms.items():
         # if (not term in exclude):
         #     leaves.append(term)
-        if (not term in exclude) and (len(goSlim.terms[term].children) == 0):
+        if term in goAnnos.terms and (len(goSlim.terms[term].children) == 0):
             leaves.append(term)
         # else:
         #     print(name.name)
@@ -106,7 +106,7 @@ def getLeaves(cutoff,dataset='original',bioProc=True,molFunc=False,cellComp=Fals
     # print(f'Leaf Terms: {len(leaves)}')
         
     
-    leaves = list(filter(lambda leaf: len(getYORF(goSlim.terms[leaf].allAnnos())) >= cutoff,leaves))
+    leaves = list(filter(lambda leaf: len(getYORF(goAnnos.terms[leaf].allAnnos())) >= cutoff,leaves))
     
 
     leaves = list(filter(lambda term: typeFilter(goAnnos.terms[term],goAnnos),leaves))
@@ -125,6 +125,8 @@ def getLeafGenes(cutoff):
     print(len(leaves))
     filter(lambda leaf: len(leaf) >= cutoff)
     print(len(leaves))
+
+
 
 
 

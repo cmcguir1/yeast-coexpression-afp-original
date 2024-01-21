@@ -64,6 +64,7 @@ class Ontology:
             elif interm:
                 if line[0:3] == "id:":
                     uid = line[4:]
+                    # self.terms[uid] = OntoTerm(uid) # My addition
                 elif line[0:5] == "name:":
                     name = line[6:]
                 elif line[0:4] == "def:":
@@ -74,21 +75,25 @@ class Ontology:
                     termid = line[6:16]
                     if termid not in self.terms:
                         self.terms[termid] = OntoTerm(termid)
+                    # self.terms[termid].children.add(self.terms[uid]) # My addition, this should allow for keeping track of terms children easily
                     is_a.add(self.terms[termid])
                 elif line[0:21] == "relationship: part_of":
                     termid = line[22:32]
                     if termid not in self.terms:
-                        self.terms[termid] = OntoTerm(termid)
+                        self.terms[termid] = OntoTerm(termid) 
+                    # self.terms[termid].children.add(self.terms[uid]) # My addition, this should allow for keeping track of terms children easily
                     part_of.add(self.terms[termid])
                 elif line[0:23] == "relationship: regulates":
                     termid = line[24:34]
                     if termid not in self.terms:
                         self.terms[termid] = OntoTerm(termid)
+                    # self.terms[termid].children.add(self.terms[uid]) # My addition, this should allow for keeping track of terms children easily
                     regulates.add(self.terms[termid])
                 elif line[0:34] == "relationship: positively_regulates" or line[0:34] == "relationship: negatively_regulates":
                     termid = line[35:45]
                     if termid not in self.terms:
                         self.terms[termid] = OntoTerm(termid)
+                    # self.terms[termid].children.add(self.terms[uid]) # My addition, this should allow for keeping track of terms children easily
                     regulates.add(self.terms[termid])
         fin.close()
 

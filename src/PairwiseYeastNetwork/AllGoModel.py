@@ -19,6 +19,7 @@ from YeastDataFile import YeastDataFile
 
 sys.path.insert(0,'./obopy')
 from Leaf import getLeaves, getGenes
+from GOParser import GOParser
 
 
 class AllGoModel():
@@ -132,9 +133,11 @@ class AllGoModel():
         #       u - unrelated node (not co-annotated to any biological process)
         #   Additional GO terms can be added with 'addTerm'
         
-        self.leaves = getLeaves(10,dataset=ontologyDataset,bioProc=('b' in outputVector),molFunc=('m' in outputVector),cellComp=('c' in outputVector),exclude=['GO:0002181','GO:0022857','GO:0032543'])
+        self.goParser = GOParser(ontologyDataset)
+        self.leaves = self.goParser.getSlimLeaves(cutoff=10,roots=outputVector,onlyLeaves='l' not in outputVector)
+        # self.leaves = getLeaves(10,dataset=ontologyDataset,bioProc=('b' in outputVector),molFunc=('m' in outputVector),cellComp=('c' in outputVector),exclude=['GO:0002181','GO:0022857','GO:0032543'])
         for term in addTerms:
-            self.leaves.append([term,set(getGenes(term,dataset=ontologyDataset))])
+            self.leaves.append([term,self.goParser.getGenes(term)])
         self.GOTermDict = {term[0]: i for i,term in enumerate(self.leaves)}
         self.outputSize = len(self.leaves)
         
@@ -718,31 +721,31 @@ class AllGoModel():
             return (features, labels)
             
 
-    def compareOverlap(self):
-        pairs = self.makePairs(np.concatenate([self.training,self.validation],axis=0))
-        leaves = getLeaves(10)
-        totals = [0 for i in range(len(leaves))]
-        for pair in pairs:
-            for leaf in leaves:
-                if pair[0] in leaf[1] and pair[1] in leaf[1]:
-                    totals[self.GOTermDict[leaf[0]]] +=1
-        for leaf in leaves:
-            print(f'{leaf[0]} co-annotations: {totals[self.GOTermDict[leaf[0]]]}')
+    # def compareOverlap(self):
+    #     pairs = self.makePairs(np.concatenate([self.training,self.validation],axis=0))
+    #     leaves = getLeaves(10)
+    #     totals = [0 for i in range(len(leaves))]
+    #     for pair in pairs:
+    #         for leaf in leaves:
+    #             if pair[0] in leaf[1] and pair[1] in leaf[1]:
+    #                 totals[self.GOTermDict[leaf[0]]] +=1
+    #     for leaf in leaves:
+    #         print(f'{leaf[0]} co-annotations: {totals[self.GOTermDict[leaf[0]]]}')
     
-    def compareTermOverlap(self):
-        start = time.time()
-        leaves = getLeaves(10)
-        mat = np.zeros(shape=(len(leaves),len(leaves)),dtype=float)
-        allGenes = set(np.concatenate([self.training,self.validation],axis=0))
-        for i,outLeaf in enumerate(leaves):
-            for inLeaf in leaves:
-                pvalue = 1 - stats.hypergeom.cdf(len(outLeaf[1] & inLeaf[1]),len(allGenes),len(inLeaf[1]),len(outLeaf[1]))
-                mat[self.GOTermDict[outLeaf[0]],self.GOTermDict[inLeaf[0]]] = pvalue
-            print(f'Calcualted {i+1}/{len(leaves)}term\nTime take: {(time.time()-start)/60} minutes')
-        terms = ['' for i in range(len(self.GOTermDict))]
-        for term, index in self.GOTermDict.items():
-            terms[index] = term
-        pd.DataFrame(mat,columns=terms).to_csv('./Yeast Resources/OverlapResults/Overlap.csv',index=False)
+    # def compareTermOverlap(self):
+    #     start = time.time()
+    #     leaves = getLeaves(10)
+    #     mat = np.zeros(shape=(len(leaves),len(leaves)),dtype=float)
+    #     allGenes = set(np.concatenate([self.training,self.validation],axis=0))
+    #     for i,outLeaf in enumerate(leaves):
+    #         for inLeaf in leaves:
+    #             pvalue = 1 - stats.hypergeom.cdf(len(outLeaf[1] & inLeaf[1]),len(allGenes),len(inLeaf[1]),len(outLeaf[1]))
+    #             mat[self.GOTermDict[outLeaf[0]],self.GOTermDict[inLeaf[0]]] = pvalue
+    #         print(f'Calcualted {i+1}/{len(leaves)}term\nTime take: {(time.time()-start)/60} minutes')
+    #     terms = ['' for i in range(len(self.GOTermDict))]
+    #     for term, index in self.GOTermDict.items():
+    #         terms[index] = term
+    #     pd.DataFrame(mat,columns=terms).to_csv('./Yeast Resources/OverlapResults/Overlap.csv',index=False)
 
     
         

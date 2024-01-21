@@ -12,6 +12,7 @@ import time
 import sys
 sys.path.insert(0,'./obopy')
 from Leaf import getLeaves, getGenes
+from GOParser import GOParser
 
 class AllGoGraph(AllGoModel):
     def __init__(self,networkPath,structure,folder,modelName='',numfolds=4,geneFolds='./src/PairwiseYeastNetwork/AllGOGeneFold_Original_1.csv',singleTermFolds=False,ontologyDataset='modern',memMapName='YeastDict_Regularized.npy',softmax=False,inputVector='x',outputVector='b',addTerms=[]):
@@ -131,9 +132,11 @@ class AllGoGraph(AllGoModel):
         #       u - unrelated node (not co-annotated to any biological process)
         #   Additional GO terms can be added with 'addTerm'
         
-        self.leaves = getLeaves(10,dataset=ontologyDataset,bioProc=('b' in outputVector),molFunc=('m' in outputVector),cellComp=('c' in outputVector),exclude=['GO:0002181','GO:0022857','GO:0032543'])
+        self.goParser = GOParser(ontologyDataset)
+        self.leaves = self.goParser.getSlimLeaves(cutoff=10,roots=outputVector)
+        # self.leaves = getLeaves(10,dataset=ontologyDataset,bioProc=('b' in outputVector),molFunc=('m' in outputVector),cellComp=('c' in outputVector),exclude=['GO:0002181','GO:0022857','GO:0032543'])
         for term in addTerms:
-            self.leaves.append([term,set(getGenes(term,dataset=ontologyDataset))])
+            self.leaves.append([term,self.goParser.getGenes(term)])
         self.GOTermDict = {term[0]: i for i,term in enumerate(self.leaves)}
         self.outputSize = len(self.leaves)
         
@@ -179,8 +182,8 @@ class AllGoGraph(AllGoModel):
         self.allGenes = pd.read_csv('./Yeast Resources/GeneSets/BiologicalProcessGenes.csv').values.flatten().tolist()
         # self.agnGenes = pd.read_csv('./Yeast Resources/TermPos/AgnosticGenes.csv').to_numpy().flatten()
 
-        leaves = getLeaves(10,dataset=ontologyDataset,exclude=['GO:0002181','GO:0022857','GO:0032543'])
-        negTerms = [leaf[1] for leaf in leaves]
+        # leaves = getLeaves(10,dataset=ontologyDataset,exclude=['GO:0002181','GO:0022857','GO:0032543'])
+        negTerms = [leaf[1] for leaf in self.leaves]
         negGenes = set()
         for termGenes in negTerms:
             negGenes = negGenes | termGenes
@@ -317,8 +320,8 @@ class AllGoGraph(AllGoModel):
     def rankGenes(self,term='GO:0007005',dataset='original',checkProportion=True,sigmoid=False,agn=True,fileSuffix=""):
         
         posGenes = getGenes(term,dataset=dataset)
-        leaves = getLeaves(10,dataset=dataset,exclude=['GO:0002181','GO:0022857','GO:0032543'])
-        negTerms = [leaf[1] for leaf in leaves if leaf[0] != term]
+        # leaves = getLeaves(10,dataset=dataset,exclude=['GO:0002181','GO:0022857','GO:0032543'])
+        negTerms = [leaf[1] for leaf in self.leaves if leaf[0] != term]
         negGenes = set()
         for termGenes in negTerms:
             negGenes = negGenes | termGenes

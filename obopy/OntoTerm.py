@@ -27,6 +27,13 @@ class OntoTerm:
     def parents(self):
         return(self.is_a.union(self.part_of).union(self.regulates))
     
+    def descendants(self):
+        allDescend = self.children.union(set())
+        for term in allDescend:
+            allDescend = allDescend.union(term.descendants())
+        return allDescend
+
+    
     def ancestors(self):
         allAncestors = self.parents()
         for term in self.parents():
