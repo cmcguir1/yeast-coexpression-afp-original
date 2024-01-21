@@ -20,8 +20,8 @@ ssl._create_default_https_context = ssl._create_unverified_context
 def main():
 
     
-    model = AllGoModel(int(sys.argv[1]),'100','Parser','BioProc_nonLeaves',foldFile='./src/PairwiseYeastNetwork/AllGO_2007_b_1.csv',ontologyDataset='2007',outputVector='b',resetNet=True)
-    model.trainNetwork(20000)
+    model = AllGoModel(int(sys.argv[1]),'100','Parser','BioProc_nonLeaves',foldFile='./src/PairwiseYeastNetwork/AllGO_2007_b_1.csv',ontologyDataset='2007',outputVector='b',resetNet=False)
+    model.trainNetwork(100000)
     model.testNetworkAll()
     model.testNetworkAll(validation=False)
 
