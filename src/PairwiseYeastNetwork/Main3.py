@@ -21,7 +21,7 @@ def main():
 
     
     model = AllGoModel(int(sys.argv[1]),'100','Parser','AllRoots',foldFile='./src/PairwiseYeastNetwork/AllGO_2007_bcm_1.csv',ontologyDataset='2007',outputVector='bcm',resetNet=False)
-    model.trainNetwork(100000)
+    model.trainNetwork(200000)
     model.testNetworkAll()
     model.testNetworkAll(validation=False)
 
