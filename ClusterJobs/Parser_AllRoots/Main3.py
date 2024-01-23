@@ -26,7 +26,8 @@ def main():
     # model.testNetworkAll(validation=False)
 
     graph = AllGoGraph('./Yeast Resources/Pairwise/Spell/Parser/AllRoots_x_bcm_113x100x118_lr0.01_batch50_lfBCE_Net_fold','113x100x118','Parser','AllRoots',geneFolds='./src/PairwiseYeastNetwork/AllGO_2007_bcm_1.csv',outputVector='bcm',ontologyDataset='2007')
-    graph.feedForward(int(sys.argv[1]),calcAgn=False,partition=True,partNum=2,calcPart=int(sys.argv[2]))
+    # graph.feedForward(int(sys.argv[1]),calcAgn=False,partition=True,partNum=2,calcPart=int(sys.argv[2]))
+    graph.rankGenes(agn=False)
 
 
 
