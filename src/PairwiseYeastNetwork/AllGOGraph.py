@@ -133,7 +133,7 @@ class AllGoGraph(AllGoModel):
         #   Additional GO terms can be added with 'addTerm'
         
         self.goParser = GOParser(ontologyDataset)
-        self.leaves = self.goParser.getSlimLeaves(cutoff=10,roots=outputVector)
+        self.leaves = self.goParser.getSlimLeaves(cutoff=10,roots=outputVector,onlyLeaves='l' not in outputVector)
         # self.leaves = getLeaves(10,dataset=ontologyDataset,bioProc=('b' in outputVector),molFunc=('m' in outputVector),cellComp=('c' in outputVector),exclude=['GO:0002181','GO:0022857','GO:0032543'])
         for term in addTerms:
             self.leaves.append([term,self.goParser.getGenes(term)])
