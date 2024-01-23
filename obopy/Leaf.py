@@ -126,6 +126,13 @@ def getLeafGenes(cutoff):
     filter(lambda leaf: len(leaf) >= cutoff)
     print(len(leaves))
 
+# leaves = getLeaves(10)
+# genes = set()
+# for term, termGenes in leaves:
+#     genes = genes.union(termGenes)
+# print('Terms:',len(leaves))
+# print('Genes:', len(genes))
+
 
 
 

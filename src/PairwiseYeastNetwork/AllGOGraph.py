@@ -199,7 +199,7 @@ class AllGoGraph(AllGoModel):
         self.agnOffset = offsetTotal
 
 
-    def feedForward(self,fold,term='GO:0007005',dataset='original',calcPos=True,calcAgn=True,saveAll=True,debug=False,resetScores=False,batchSize=50,runBatch=True,debugOffsetAgn=0,printProgress=False):
+    def feedForward(self,fold,term='GO:0007005',dataset='original',calcPos=True,calcAgn=True,saveAll=True,debug=False,resetScores=False,batchSize=50,printProgress=False,partition=False,partNum=0,calcPart=0):
         with torch.no_grad():
             def calcPair(pair):
                 features, labels = self.makeBatchTensors(np.array([pair]))
@@ -227,7 +227,7 @@ class AllGoGraph(AllGoModel):
                     return np.array(outputs.cpu(),dtype='float32')
                 else:
                     #offset is an integer that is used to offest the GOTermDict to evaluate on the wrong term
-                    return [pair[0],pair[1],outputs[0,self.GOTermDict[term]].item()]
+                    return [batch[0],batch[1],outputs[0,self.GOTermDict[term]].item()]
 
             if not os.path.exists(f'{self.path}/{"" if self.modelName == "" else f"{self.modelName}_"}{self.struct}_Scores.dat') and not(resetScores):
                 score_mode = 'w+'
@@ -265,9 +265,24 @@ class AllGoGraph(AllGoModel):
 
             
             start = time.time()
+
+            if partition:
+                posPart = int(len(pairs)/partNum)
+                posStart = calcPart * posPart
+                posEnd = (calcPart+1) * posPart if calcPart + 1 != partNum else len(pairs)
+                posRange = range(posStart,posEnd,batchSize)
+
+                agnPart = int(len(agnPairs)/partNum)
+                agnStart = calcPart * agnPart
+                agnEnd = (calcPart+1) * agnPart if calcPart + 1 != partNum else len(agnPairs)
+                agnRange = range(agnStart,agnEnd,batchSize)
+            else:
+                posRange = range(0,len(pairs),batchSize)
+                agnRange = range(0,len(agnPairs),batchSize)
+
             if calcPos:
             
-                for i in range(0,len(pairs),batchSize):
+                for i in posRange:
                     if i > pairLen - batchSize:
                         
                         batch = pairs[i:]
@@ -286,7 +301,7 @@ class AllGoGraph(AllGoModel):
             if calcAgn:
             
                 print("Start Agn")
-                for i in range(0+debugOffsetAgn,len(agnPairs),batchSize):
+                for i in agnRange:
                     if i > agnLen - batchSize:
                         batch = agnPairs[i:]
                         batchOffset = len(batch)
@@ -415,3 +430,4 @@ class AllGoGraph(AllGoModel):
                 if gene1 != gene2:
                     pairs.append([gene1,gene2])
         return pairs
+    

@@ -20,10 +20,13 @@ ssl._create_default_https_context = ssl._create_unverified_context
 def main():
 
     
-    model = AllGoModel(int(sys.argv[1]),'100','Parser','AllRoots_nonLeaves',foldFile='./src/PairwiseYeastNetwork/AllGO_2007_bcml_1.csv',ontologyDataset='2007',outputVector='bcml',resetNet=False)
-    model.trainNetwork(200000)
-    model.testNetworkAll()
-    model.testNetworkAll(validation=False)
+    # model = AllGoModel(int(sys.argv[1]),'100','Parser','AllRoots_nonLeaves',foldFile='./src/PairwiseYeastNetwork/AllGO_2007_bcml_1.csv',ontologyDataset='2007',outputVector='bcml',resetNet=False)
+    # model.trainNetwork(200000)
+    # model.testNetworkAll()
+    # model.testNetworkAll(validation=False)
+
+    graph = AllGoGraph('./Yeast Resources/Pairwise/Spell/Parser/AllRoots_nonLeaves_x_bclm_113x100x140_lr0.01_batch50_lfBCE_Net_fold','113x100x140','Parser','AllRoots+nonLeaves',geneFolds='./src/PairwiseYeastNetwork/AllGO_2007_bcml_1.csv',outputVector='bcml',ontologyDataset='2007')
+    graph.feedForward(int(sys.argv[1]),calcAgn=False,partition=True,partNum=2,calcPart=int(sys.argv[2]))
 
 
 

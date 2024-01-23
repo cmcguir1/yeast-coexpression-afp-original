@@ -1,9 +1,9 @@
 #!/usr/bin/sh
 
-## Job Created Jan-22-2024
+## Job Created Jan-23-2024
 
 ##Place PBS directives here
-#PBS -N Parser_BioProc_nonLeaves_1
+#PBS -N Parser_BioProc_nonLeaves_1_0
 #PBS -l nodes=1:ppn=36
 #PBS -l walltime=168:00:00
 #PBS -M cmcguir1@trinity.edu
@@ -11,4 +11,4 @@
 
 cd data/SummerResearch2022
 
-/data/hibbslab/anaconda3/bin/python src/PairwiseYeastNetwork/Main2.py 1     > ClusterJobs/Parser_BioProc_nonLeaves/Parser_BioProc_nonLeaves1_output.txt
+/data/hibbslab/anaconda3/bin/python src/PairwiseYeastNetwork/Main2.py 1 0    > ClusterJobs/Parser_BioProc_nonLeaves/Parser_BioProc_nonLeaves1_output.txt

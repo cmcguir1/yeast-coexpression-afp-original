@@ -108,10 +108,10 @@ class GOParser():
 
 
 # go = GOParser('2007')
-# print(len(go.onto.genes))
-# leaves = go.getSlimLeaves(roots='b',childDepth=1)
+# # print(len(go.onto.genes))
+# leaves = go.getSlimLeaves(roots='b')
 # allGenes = set()
 # for (term, genes) in leaves:
 #     allGenes = allGenes.union(genes)
-# print(len(leaves))
-# print(len(allGenes))
+# print('Terms:',len(leaves))
+# print('Genes:',len(allGenes))

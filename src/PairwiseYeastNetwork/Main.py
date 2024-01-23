@@ -20,12 +20,14 @@ ssl._create_default_https_context = ssl._create_unverified_context
 def main():
 
     
-    model = AllGoModel(int(sys.argv[1]),'100','Parser','BioProc',foldFile='./src/PairwiseYeastNetwork/AllGO_2007_bl_1.csv',ontologyDataset='2007',outputVector='bl',resetNet=False)
-    model.trainNetwork(200000)
-    model.testNetworkAll()
-    model.testNetworkAll(validation=False)
+    # model = AllGoModel(int(sys.argv[1]),'100','Parser','BioProc',foldFile='./src/PairwiseYeastNetwork/AllGO_2007_bl_1.csv',ontologyDataset='2007',outputVector='bl',resetNet=False)
+    # model.trainNetwork(200000)
+    # model.testNetworkAll()
+    # model.testNetworkAll(validation=False)
 
-    graph = AllGoGraph()
+    graph = AllGoGraph('./Yeast Resources/Pairwise/Spell/Parser/BioProc_x_bl_113x100x88_lr0.01_batch50_lfBCE_Net_fold','113x100x88','Parser','BioProc+nonLeaves',geneFolds='./src/PairwiseYeastNetwork/AllGO_2007_bl_1.csv',outputVector='bl',ontologyDataset='2007')
+    graph.feedForward(int(sys.argv[1]),calcAgn=False,partition=True,partNum=2,calcPart=int(sys.argv[2]))
+    
 
 
 
