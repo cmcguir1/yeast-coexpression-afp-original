@@ -327,7 +327,7 @@ class AllGoModel():
 
         
 
-    def trainNetwork(self,epochs,track=100,printTensors=False,numTest=10):
+    def trainNetwork(self,epochs,track=100,printTensors=False,numTest=10,hardNegatives=True):
         self.net.train()
 
         # If swapping genes, train by swapping labels and using normal features
@@ -337,8 +337,9 @@ class AllGoModel():
 
         
         # Pairs that will be sampled from during training
-        posPairs, negPairs = self.makePosNegPairs(self.training)
-        testPairs, negTest = self.makePosNegPairs(self.validation)
+        posPairs, negPairs = self.makePosNegPairs(self.training,hardNegatives=hardNegatives)
+        
+        testPairs, negTest = self.makePosNegPairs(self.validation,hardNegatives=hardNegatives)
         
         
 
@@ -355,7 +356,7 @@ class AllGoModel():
         if len(lossList) > 0:
             iterRange = range(int(lossList[len(lossList)-1][0])+track,int(lossList[len(lossList)-1][0]+track+epochs))
         else:
-            iterRange = range(epochs)
+            iterRange = range(int(epochs))
 
         start = time.time()
         #Run training loop epochs number of times
@@ -433,7 +434,7 @@ class AllGoModel():
 
 
 
-    def testNetworkAll(self,proportionNeg=10,saveTerms={'GO:0007005','GO:0006302','GO:0007127'},runAll=True,validation=True):
+    def testNetworkAll(self,proportionNeg=10,saveTerms={'GO:0007005','GO:0006302','GO:0007127'},runAll=True,validation=True,hardNegatives=True):
         self.net.eval()
         if self.swapGenes:
             self.randomizeLabels = False
@@ -491,7 +492,7 @@ class AllGoModel():
             
 
             print("Began Testing the Network")
-            allPairs = [(pair[0],pair[1]) for pair in self.makePairs(self.validation if validation else self.training)]
+            #allPairs = [(pair[0],pair[1]) for pair in self.makePairs(self.validation if validation else self.training)]
             leafStatsDist = []
             columnNames = ['Gene A','Gene B','Label','Score','True Positive','False Negative','True Negative','False Positive','Accuracy','Precision','Recall','False Positive Rate','Selectivity']
             
@@ -514,7 +515,7 @@ class AllGoModel():
                             posPairs = posPairs[:1000]
                         
                         negGenes = [gene for gene in (self.validation if validation else self.training) if not(gene in leaf[1])]
-                        negPairs = self.makePairs(np.array(negGenes))
+                        negPairs = self.makePairs(np.array(negGenes),hardNegatives=hardNegatives)
                         # negPairs = np.array([[pair[0],pair[1]] for pair in set(allPairs) - set([(pair[0],pair[1]) for pair in posPairs])])
                         np.random.shuffle(negPairs)
                         negPairs = negPairs[:len(posPairs)*proportionNeg]
@@ -664,12 +665,12 @@ class AllGoModel():
         
         
     #Returns array of all pairs of gene from given array of genes
-    def makePairs(self,genes):
+    def makePairs(self,genes,hardNegatives=True):
         arr = np.array([(genes[i],genes[j]) for i in range(len(genes)) for j in range(i+1,len(genes))],dtype='U10')
         return arr
     
     # Returns tuple of array of positive pairs (gene pairs with at least one coAnnotation), and negative pairs (gene pair with no coAnnotations)
-    def makePosNegPairs(self,genes):
+    def makePosNegPairs(self,genes,hardNegatives=True):
         posPairs = []
         negPairs = []
         for i in range(len(genes)):

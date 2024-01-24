@@ -22,6 +22,7 @@ class GOParser():
 
         self.onto = Ontology(file,annos,loadLocal=True)
         self.assignChildren(self.onto)
+        self.assginYORF(self.onto)
 
         self.numGenes = len(self.onto.genes)
 
@@ -33,12 +34,20 @@ class GOParser():
 
         self.slim = Ontology(sFile,annos,loadLocal=True)
         self.assignChildren(self.slim)
+        self.assginYORF(self.slim)
 
 
     def assignChildren(self,ontology):
         for id, term in ontology.terms.items():
             for parent in term.parents():
                 parent.children.add(term)
+            
+
+    def assginYORF(self,ontology: Ontology):
+        for id, gene in ontology.genes.items():
+            for alias in gene.aliases:
+                if GOParser.isYORF(alias):
+                    ontology.yorfs[alias] = gene
 
     def getGenes(self,term,direct=False):
         ontoTerm = self.onto.terms[term]
@@ -53,9 +62,13 @@ class GOParser():
             #Loop over all names for that gene
             for name in gene.aliases:
                 #If name matches character requirements, and adds to yorfList
-                if(len(name) >= 7 and name[0] == 'Y' and (name[2] == 'L' or name[2] == 'R') and name[3:5].isdigit() and (name[6] == 'W' or name[6] == 'C')):
+                if GOParser.isYORF(name):
                     yorfList.add(name)
         return yorfList
+    
+    def isYORF(name):
+        return (len(name) >= 7 and name[0] == 'Y' and (name[2] == 'L' or name[2] == 'R') and name[3:5].isdigit() and (name[6] == 'W' or name[6] == 'C'))
+                    
 
 
     def getSlimLeaves(self,cutoff=10,roots='b',childDepth=0,onlyLeaves=True):
@@ -66,13 +79,6 @@ class GOParser():
             ancestors = term.ancestors()
             return (bioProc in ancestors and 'b' in roots) or (cellComp in ancestors and 'c' in roots) or (molFunc in ancestors and 'm' in roots)
         
-        
-        # availableTerms = set(self.slim.terms.values())
-        # for i in range(childDepth):
-        #     temp = availableTerms.copy()
-        #     for term in availableTerms:
-        #         temp = temp.union(term.children)
-        #     availableTerms = temp
 
         leaves = []
         for id, term in self.slim.terms.items():
@@ -85,33 +91,26 @@ class GOParser():
                     leaves.append((id,termGenes))
         return leaves
     
-    def smallestCommonAncestor(self,geneA,geneB,leaves):
-        A_terms = []
-        B_terms = []
-        for term, termGenes in leaves:
-            if geneA in termGenes:
-                A_terms.append(term)
-            if geneB in termGenes:
-                B_terms.append(term)
-        A_ancestors = set.union(*[self.onto.terms[term].ancestors() for term in A_terms])
-        B_ancestors = set.union(*[self.onto.terms[term].ancestors() for term in B_terms])
-        sharedAncestors = A_ancestors.union(B_ancestors)
+    def smallestCommonAncestor(self,geneA,geneB):
+        A_terms = set()
+        for id, terms in self.onto.yorfs[geneA].annos.items():
+            A_terms = A_terms.union(terms)
+        
+        B_terms = set()
+        for id, terms in self.onto.yorfs[geneB].annos.items():
+            B_terms = B_terms.union(terms)
 
-        minGenes = 0
-        for term in sharedAncestors:
-            pass
+        shared = A_terms & B_terms
+        # for term in shared:
+        #     print(term.name)
+        #     print(len(term.allAnnos()))
+        
+        shared_geneNums = list(map(lambda term: len(term.allAnnos()),shared))
+        return min(shared_geneNums)
+
 
 
 
 
             
 
-
-# go = GOParser('2007')
-# # print(len(go.onto.genes))
-# leaves = go.getSlimLeaves(roots='b')
-# allGenes = set()
-# for (term, genes) in leaves:
-#     allGenes = allGenes.union(genes)
-# print('Terms:',len(leaves))
-# print('Genes:',len(allGenes))

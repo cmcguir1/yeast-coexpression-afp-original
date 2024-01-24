@@ -318,7 +318,8 @@ class AllGoGraph(AllGoModel):
     #rankGenes takes all of the calculated pair scores then ranks the genes by their involvment in a given process
     def rankGenes(self,term='GO:0007005',dataset='original',checkProportion=True,sigmoid=False,agn=True,fileSuffix=""):
         
-        posGenes = getGenes(term,dataset=dataset)
+        posGenes = self.goParser.getGenes(term)
+        # posGenes = getGenes(term,dataset=dataset)
         # leaves = getLeaves(10,dataset=dataset,exclude=['GO:0002181','GO:0022857','GO:0032543'])
         negTerms = [leaf[1] for leaf in self.leaves if leaf[0] != term]
         negGenes = set()

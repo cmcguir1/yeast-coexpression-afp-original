@@ -10,6 +10,8 @@ class Ontology:
         self.terms = {} #Term.uid --> Term
         self.roots = [] #Root terms
         self.genes = {} #Gene.uid --> Gene
+
+        self.yorfs = {} #YORF -> Gene
         
         self.aliasGenes = {} #GeneAlias --> Gene.uid
 
