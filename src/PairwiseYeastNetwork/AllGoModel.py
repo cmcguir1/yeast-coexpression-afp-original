@@ -667,7 +667,7 @@ class AllGoModel():
         
     #Returns array of all pairs of gene from given array of genes
     def makePairs(self,genes,hardNegatives=True):
-        arr = np.array([(genes[i],genes[j]) for i in range(len(genes)) for j in range(i+1,len(genes))],dtype='U10')
+        arr = np.array([(genes[i],genes[j]) for i in range(len(genes)) for j in range(i+1,len(genes)) if (hardNegatives or self.goParser.smallestCommonAncestor(genes[i],genes[j]) > self.goParser.numGenes)],dtype='U10')
         return arr
     
     # Returns tuple of array of positive pairs (gene pairs with at least one coAnnotation), and negative pairs (gene pair with no coAnnotations)
@@ -678,7 +678,7 @@ class AllGoModel():
             for j in range(i+1,len(genes)):
                 if self.coAnnotated(genes[i],genes[j]):
                     posPairs.append([genes[i],genes[j]])
-                else:
+                elif hardNegatives or (self.goParser.smallestCommonAncestor(genes[i],genes[j]) > self.goParser.numGenes):
                     negPairs.append([genes[i],genes[j]])
         return (np.array(posPairs,dtype='U10'),np.array(negPairs,dtype='U10'))
 
