@@ -252,6 +252,7 @@ class AllGoModel():
             print('Used Cross Entropy Loss Function')
         elif lossFunc in ['FL','focalLoss','focal_loss']:
             self.lossFunc = FocalLoss(gamma=gamma,alpha=self.weights,nonSpecific='n' in outputVector)
+            self.trainNegatives= True
         elif lossFunc in ['WCE']:
             self.lossFunc = torch.nn.CrossEntropyLoss(weight=self.weights)
         elif lossFunc in ['BCE','binaryCrossEntropy','binary_cross_entropy']:
