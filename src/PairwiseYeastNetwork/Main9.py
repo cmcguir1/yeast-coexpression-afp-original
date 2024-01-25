@@ -22,7 +22,9 @@ def main():
     
     # for i in range(0,4):
     GOTest = AllGoModel(0,'20','Test','BCE',foldFile='./src/PairwiseYeastNetwork/AllGOGeneFold_Modern_bce_1.csv',ontologyDataset='modern',resetNet=True,verbose='f',lossFunc='BCE',outputVector='bcm')
-    GOTest.trainNetwork(100000,hardNegatives=True)
+    start = time.time()
+    GOTest.trainNetwork(0,hardNegatives=False)
+    print(f'Time to make pairs: {(time.time()-start)/60}')
     # GOTest.trainNetwork(50000,track=100)
     # GOTest.testNetworkAll(runAll=True)
     # GOTest.testNetworkAll(runAll=True,validation=False)

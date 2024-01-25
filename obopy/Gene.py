@@ -9,6 +9,7 @@ class Gene:
         self.direct = {} #Code --> set(OntoTerm)
         self.annos = {} #Code --> set(OntoTerm)
         self.children = set()
+        self.allTerms = set()
 
     def __str__(self):
         return(self.symbol)
@@ -58,3 +59,6 @@ class Gene:
         for alias in self.aliases:
             result.add(alias)
         return result
+    
+    def annotateTerms(self):
+        self.allTerms = self.terms()

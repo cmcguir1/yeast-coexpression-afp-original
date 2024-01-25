@@ -23,6 +23,8 @@ class GOParser():
         self.onto = Ontology(file,annos,loadLocal=True)
         self.assignChildren(self.onto)
         self.assginYORF(self.onto)
+        for id, gene in self.onto.genes.items():
+            gene.annotateTerms()
 
         self.numGenes = len(self.onto.genes)
 
@@ -92,13 +94,8 @@ class GOParser():
         return leaves
     
     def smallestCommonAncestor(self,geneA,geneB):
-        A_terms = set()
-        for id, terms in self.onto.yorfs[geneA].annos.items():
-            A_terms = A_terms.union(terms)
-        
-        B_terms = set()
-        for id, terms in self.onto.yorfs[geneB].annos.items():
-            B_terms = B_terms.union(terms)
+        A_terms = self.onto.yorfs[geneA].allTerms
+        B_terms = self.onto.yorfs[geneB].allTerms
 
         shared = A_terms & B_terms
         # for term in shared:
