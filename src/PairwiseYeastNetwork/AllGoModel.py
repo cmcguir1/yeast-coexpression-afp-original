@@ -339,6 +339,8 @@ class AllGoModel():
         
         # Pairs that will be sampled from during training
         posPairs, negPairs = self.makePosNegPairs(self.training,hardNegatives=hardNegatives)
+        print('Positive Pairs:',len(posPairs))
+        print('Negative Pairs:',len(negPairs))
         
         testPairs, negTest = self.makePosNegPairs(self.validation,hardNegatives=hardNegatives)
         
@@ -666,20 +668,37 @@ class AllGoModel():
         
         
     #Returns array of all pairs of gene from given array of genes
-    def makePairs(self,genes,hardNegatives=True):
-        arr = np.array([(genes[i],genes[j]) for i in range(len(genes)) for j in range(i+1,len(genes)) if (hardNegatives or self.goParser.smallestCommonAncestor(genes[i],genes[j]) > self.goParser.numGenes)],dtype='U10')
+    def makePairs(self,genes,hardNegatives=True,cutoff=0.1):
+        geneSet = set(genes)
+        allPairs = np.load('./src/PairwiseYeastNetwork/Pairs_SmallestCommonAncestor.npy',allow_pickle=True)
+        pairs = []
+        for pair in allPairs:
+            if pair[0] in geneSet and pair[1] in geneSet and (hardNegatives or pair[2] / self.goParser.numGenes >= cutoff):
+                pairs.append([pair[0],pair[1]])
+        arr = np.array(pairs,dtype='U10')
+
+        # arr = np.array([(genes[i],genes[j]) for i in range(len(genes)) for j in range(i+1,len(genes)) if (hardNegatives or self.goParser.smallestCommonAncestor(genes[i],genes[j]) > self.goParser.numGenes)],dtype='U10')
         return arr
     
     # Returns tuple of array of positive pairs (gene pairs with at least one coAnnotation), and negative pairs (gene pair with no coAnnotations)
-    def makePosNegPairs(self,genes,hardNegatives=True):
+    def makePosNegPairs(self,genes,hardNegatives=True,cutoff=0.1):
         posPairs = []
         negPairs = []
-        for i in range(len(genes)):
-            for j in range(i+1,len(genes)):
-                if self.coAnnotated(genes[i],genes[j]):
-                    posPairs.append([genes[i],genes[j]])
-                elif hardNegatives or (self.goParser.smallestCommonAncestor(genes[i],genes[j]) > self.goParser.numGenes):
-                    negPairs.append([genes[i],genes[j]])
+        geneSet = set(genes)
+        allPairs = np.load('./src/PairwiseYeastNetwork/Pairs_SmallestCommonAncestor.npy',allow_pickle=True)
+        for pair in allPairs:
+            if pair[0] in geneSet and pair[1] in geneSet:
+                if self.coAnnotated(pair[0],pair[1]):
+                    posPairs.append([pair[0],pair[1]])
+                elif hardNegatives or pair[2] / self.goParser.numGenes > cutoff:
+                    negPairs.append([pair[0],pair[1]])
+
+        # for i in range(len(genes)):
+        #     for j in range(i+1,len(genes)):
+        #         if self.coAnnotated(genes[i],genes[j]):
+        #             posPairs.append([genes[i],genes[j]])
+        #         elif hardNegatives or (self.goParser.smallestCommonAncestor(genes[i],genes[j]) > self.goParser.numGenes):
+        #             negPairs.append([genes[i],genes[j]])
         return (np.array(posPairs,dtype='U10'),np.array(negPairs,dtype='U10'))
 
     def coAnnotated(self,geneA,geneB):

@@ -179,10 +179,10 @@ class AllGoGraph(AllGoModel):
             self.folds = [{gene[0] for gene in foldTable if gene[2] == i} for i in range(numfolds)]
         else:
             self.folds = [{gene[0] for gene in foldTable if gene[1] == i} for i in range(numfolds)]
-        self.allGenes = pd.read_csv('./Yeast Resources/GeneSets/BiologicalProcessGenes.csv').values.flatten().tolist()
-        # self.agnGenes = pd.read_csv('./Yeast Resources/TermPos/AgnosticGenes.csv').to_numpy().flatten()
+        # self.allGenes = pd.read_csv('./Yeast Resources/GeneSets/BiologicalProcessGenes.csv').values.flatten().tolist()
+        self.allGenes = list(self.goParser.onto.yorfs.keys())
+        self.foldGenes = [gene[0] for gene in foldTable]
 
-        # leaves = getLeaves(10,dataset=ontologyDataset,exclude=['GO:0002181','GO:0022857','GO:0032543'])
         negTerms = [leaf[1] for leaf in self.leaves]
         negGenes = set()
         for termGenes in negTerms:
@@ -190,7 +190,8 @@ class AllGoGraph(AllGoModel):
 
         self.agnGenes = set(self.allGenes) - negGenes
 
-        self.memMapLen = (sum([len(fold) for fold in self.folds]) * len(self.allGenes) - len(foldTable)) + (len(self.agnGenes) * len(self.allGenes)) - len(set(self.agnGenes) & set(self.allGenes))
+        # self.memMapLen = (sum([len(fold) for fold in self.folds]) * len(self.allGenes) - len(foldTable)) + (len(self.agnGenes) * len(self.allGenes)) - len(set(self.agnGenes) & set(self.allGenes))
+        self.memMapLen(len(foldTable)*len(foldTable)-len(foldTable)) + (len(self.agnGenes)*len(self.allGenes)-len(self.agnGenes))
         self.foldOffsets = []
         offsetTotal = 0
         for i in range(numfolds):
@@ -250,14 +251,14 @@ class AllGoGraph(AllGoModel):
             self.nets[fold].eval()
             
             
-            pairs = AllGoGraph.makePairs(self.folds[fold],self.allGenes)
+            pairs = AllGoGraph.makePairs(self.folds[fold],self.foldGenes)
             agnPairs = AllGoGraph.makePairs(self.agnGenes,self.allGenes)
-            print(len(agnPairs))
+            
         
             pairLen = len(pairs)
             
             agnLen = len(agnPairs)
-            print(pairLen,agnLen)
+            
 
             if debug:
                 pairs = pairs[:5]
