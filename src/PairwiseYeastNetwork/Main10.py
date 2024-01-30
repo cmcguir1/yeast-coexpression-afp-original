@@ -27,7 +27,7 @@ def main():
 
     graph = AllGoGraph('Yeast Resources/Pairwise/Spell/HardNegatives/EasyNegatives_x_b_113x100x79_lr0.01_batch50_lfBCE_Net_fold','113x100x79','HardNegatives','EasyNegatives',geneFolds='src/PairwiseYeastNetwork/AllGO_2007_b_1.csv',ontologyDataset='2007',outputVector='b')
     # graph.feedForward(int(sys.argv[1]),calcAgn=False)
-    graph.ranlGenes(agn=False)
+    graph.rankGenes(agn=False)
 
 
 
