@@ -198,14 +198,14 @@ def writeJobs(JobName,pythonFile,node=False,arg1=['0','1','2','3'],arg2=None,arg
 # writeJobs('Folds_bce_Original_Hetero','Main2.py',arg1=['100'],arg2=[0])
 # writeJobs('Folds_bce_Modern_GeneExp','Main3.py',arg1=['100'],arg2=[0])
 # writeJobs('Folds_bce_Modern_Hetero','Main4.py',arg1=['100'],arg2=[0])
-writeJobs('Parser_BioProc','Main.py',arg1=[0,1,2,3])
-writeJobs('Parser_BioProc_nonLeaves','Main2.py',arg1=[0,1,2,3])
-writeJobs('Parser_AllRoots','Main3.py',arg1=[0,1,2,3])
-writeJobs('Parser_AllRoots_nonLeaves','Main4.py',arg1=[0,1,2,3])
+writeJobs('Parser_BioProc','Main.py',arg1=[0])
+writeJobs('Parser_BioProc_nonLeaves','Main2.py',arg1=[0])
+writeJobs('Parser_AllRoots','Main3.py',arg1=[0])
+writeJobs('Parser_AllRoots_nonLeaves','Main4.py',arg1=[0])
 
 # writeJobs('Batch_PS','Main5.py',arg1=[50,500,5000],arg2=[1,2,3,4,5])
 # writeJobs('SmallestCommonAncestor','Main10.py',arg1=[''])
-writeJobs('HardNegatives','Main9.py')
-writeJobs('EasyNegatives','Main10.py')
+writeJobs('HardNegatives','Main9.py',arg1=[0])
+writeJobs('EasyNegatives','Main10.py',arg1=[0])
 
  
