@@ -1,6 +1,6 @@
 #!/usr/bin/sh
 
-for i in {0..0}
+for i in {0..3}
 do
 	qsub data/SummerResearch2022/ClusterJobs/Parser_AllRoots/Parser_AllRoots$i.sh 
 done

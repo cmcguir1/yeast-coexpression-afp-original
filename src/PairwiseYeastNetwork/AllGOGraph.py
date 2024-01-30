@@ -181,6 +181,7 @@ class AllGoGraph(AllGoModel):
             self.folds = [{gene[0] for gene in foldTable if gene[1] == i} for i in range(numfolds)]
         # self.allGenes = pd.read_csv('./Yeast Resources/GeneSets/BiologicalProcessGenes.csv').values.flatten().tolist()
         self.allGenes = list(self.goParser.onto.yorfs.keys())
+        print(len(self.allGenes))
         self.foldGenes = [gene[0] for gene in foldTable]
 
         negTerms = [leaf[1] for leaf in self.leaves]
@@ -189,15 +190,22 @@ class AllGoGraph(AllGoModel):
             negGenes = negGenes | termGenes
 
         self.agnGenes = set(self.allGenes) - negGenes
+        print(len(self.agnGenes))
 
         # self.memMapLen = (sum([len(fold) for fold in self.folds]) * len(self.allGenes) - len(foldTable)) + (len(self.agnGenes) * len(self.allGenes)) - len(set(self.agnGenes) & set(self.allGenes))
-        self.memMapLen(len(foldTable)*len(foldTable)-len(foldTable)) + (len(self.agnGenes)*len(self.allGenes)-len(self.agnGenes))
+        self.memMapLen = (len(foldTable)*len(foldTable)-len(foldTable)) + (len(self.agnGenes)*len(self.allGenes)-len(self.agnGenes))
+        print(len(foldTable)*len(foldTable)-len(foldTable))
+        print(len(self.agnGenes)*len(self.allGenes)-len(self.agnGenes))
+        print(self.memMapLen)
+        print(self.folds)
         self.foldOffsets = []
         offsetTotal = 0
         for i in range(numfolds):
             self.foldOffsets.append(offsetTotal)
-            offsetTotal += len(self.folds[i]) * len(self.allGenes) - len(self.folds[i])
+            offsetTotal += len(self.folds[i]) * len(foldTable) - len(self.folds[i])
         self.agnOffset = offsetTotal
+        print(self.foldOffsets)
+        print(self.agnOffset)
 
 
     def feedForward(self,fold,term='GO:0007005',dataset='original',calcPos=True,calcAgn=True,saveAll=True,debug=False,resetScores=False,batchSize=50,printProgress=False,partition=False,partNum=0,calcPart=0):
@@ -320,6 +328,7 @@ class AllGoGraph(AllGoModel):
     def rankGenes(self,term='GO:0007005',dataset='original',checkProportion=True,sigmoid=False,agn=True,fileSuffix=""):
         
         posGenes = self.goParser.getGenes(term)
+        print(posGenes)
         negTerms = [leaf[1] for leaf in self.leaves if leaf[0] != term]
         negGenes = set()
         for termGenes in negTerms:
@@ -357,25 +366,30 @@ class AllGoGraph(AllGoModel):
         pairsRange = self.memMapLen if agn else self.agnOffset
         for i in range(pairsRange):
             score = 1.0 / (1.0+ np.exp(-scoresMemmap[i,termIndex])) if sigmoid else scoresMemmap[i,termIndex]
+            # print(score)
             if pairsMemMap[i,0] not in posScore or pairsMemMap[i,0] not in totalScore:
                 posScore[pairsMemMap[i,0]] = 0
                 totalScore[pairsMemMap[i,0]] = 0
             if pairsMemMap[i,1] in posSet:
                 posScore[pairsMemMap[i,0]] = posScore[pairsMemMap[i,0]] + score
             totalScore[pairsMemMap[i,0]] = totalScore[pairsMemMap[i,0]] + score
-            if i % 10000 == 0 and i != 0 and False:
-                print(f'Calculated {(i/self.memMapLen)*100}% of the pairs\nTime elapsed: {(time.time() - start) / 60}')
+            # print(posScore[pairsMemMap[i,0]])
+            # print(totalScore[pairsMemMap[i,0]])
+            # print('-------------')
+            
 
 
         
         
         scoreTable = []
         for gene,score in posScore.items():
+            # print([gene,checkPosNeg(gene),score,totalScore[gene]])
             if score != 0:
                 scoreTable.append([gene,checkPosNeg(gene),score,totalScore[gene]])
         scoreTable_filt = list(filter(lambda row: row[1] != 0,scoreTable))
             
         confMat = np.array(ConfusionMatrix.calculateMatrix(np.array(scoreTable,dtype=object),1,2),dtype=object)
+        print(confMat)
         confMat_filt = np.array(ConfusionMatrix.calculateMatrix(np.array(scoreTable_filt,dtype=object),1,2),dtype=object)
         pd.DataFrame(confMat,columns=['Gene','Label','Score','Background Score','Precision','Recall','False Positive Rate']).to_csv(f'{self.path}/{"" if self.modelName == "" else f"_{self.modelName}"}{self.struct}_GeneRanking_{term[0:2]}{term[3:]}{"_sigmoid" if sigmoid else ""}{fileSuffix}.csv',index=False)
         return (np.mean(confMat_filt[:,5]),AllGoGraph.averagePrecision(confMat_filt[:,4]))

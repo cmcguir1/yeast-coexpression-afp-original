@@ -26,8 +26,8 @@ def main():
     # model.testNetworkAll(validation=False)
 
     graph = AllGoGraph('./Yeast Resources/Pairwise/Spell/Parser/BioProc_x_bl_113x100x88_lr0.01_batch50_lfBCE_Net_fold','113x100x88','Parser','BioProc+nonLeaves',geneFolds='./src/PairwiseYeastNetwork/AllGO_2007_bl_1.csv',outputVector='bl',ontologyDataset='2007')
-    # graph.feedForward(int(sys.argv[1]),calcAgn=False,partition=True,partNum=2,calcPart=int(sys.argv[2]))
-    graph.rankGenes(agn=False)
+    graph.feedForward(int(sys.argv[1]),calcAgn=False)
+    # graph.rankGenes(agn=False)
     
 
 
