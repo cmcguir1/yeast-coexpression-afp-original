@@ -1,9 +1,9 @@
 #!/usr/bin/sh
 
-## Job Created Jan-25-2024
+## Job Created Jan-30-2024
 
 ##Place PBS directives here
-#PBS -N Batch_PS_5000_2
+#PBS -N Batch_PS_500_3
 #PBS -l nodes=1:ppn=36
 #PBS -l walltime=168:00:00
 #PBS -M cmcguir1@trinity.edu
@@ -11,4 +11,4 @@
 
 cd data/SummerResearch2022
 
-/data/hibbslab/anaconda3/bin/python src/PairwiseYeastNetwork/Main5.py 5000 2    > ClusterJobs/Batch_PS/Batch_PS5_output.txt
+/data/hibbslab/anaconda3/bin/python src/PairwiseYeastNetwork/Main5.py 500 3    > ClusterJobs/Batch_PS/Batch_PS5_output.txt

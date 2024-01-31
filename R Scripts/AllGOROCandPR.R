@@ -38,7 +38,7 @@ replaceTest <- function(str) {
 
 #Gets all files from Working directory
 wd <- getwd()
-saveDir <- "D:/Batch_PS/Pairwise"
+saveDir <- "D:/Batch_PS/Pairwise_EqualEpoch"
 if(!dir.exists(saveDir)) dir.create(saveDir)
 
 
