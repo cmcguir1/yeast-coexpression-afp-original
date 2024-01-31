@@ -22,7 +22,7 @@ def main():
     
     for i in range(0,4):
         GOTest = AllGoModel(i,'100','Batch_PS_Redo',f'Folds{sys.argv[2]}',foldFile=f'./src/PairwiseYeastNetwork/AllGO_2007_b_{sys.argv[2]}.csv',ontologyDataset='original',resetNet=True,verbose='f',lossFunc='BCE',batch=batch)
-        GOTest.trainNetwork(100000,track=100)
+        GOTest.trainNetwork(200000,track=100)
         GOTest.testNetworkAll(runAll=True)
         GOTest.testNetworkAll(runAll=True,validation=False)
 
