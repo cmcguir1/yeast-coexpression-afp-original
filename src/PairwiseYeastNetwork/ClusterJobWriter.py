@@ -207,6 +207,6 @@ def writeJobs(JobName,pythonFile,node=False,arg1=['0','1','2','3'],arg2=None,arg
 # writeJobs('SmallestCommonAncestor','Main10.py',arg1=[''])
 writeJobs('HardNegatives','Main9.py')
 writeJobs('EasyNegatives','Main10.py')
-writeJobs('Parser_PS','Main.py',arg2=['20','100','200','200x100'])
+# writeJobs('Parser_PS','Main.py',arg2=['20','100','200','200x100'])
 
  
