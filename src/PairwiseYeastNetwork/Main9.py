@@ -20,14 +20,14 @@ ssl._create_default_https_context = ssl._create_unverified_context
 def main():
 
     
-    # model = AllGoModel(int(sys.argv[1]),'100','HardNegatives','HardNegatives',ontologyDataset='2007',foldFile='src/PairwiseYeastNetwork/AllGO_2007_b_1.csv',resetNet=True)
-    # model.trainNetwork(100000,hardNegatives=True)
-    # model.testNetworkAll(hardNegatives=True)
-    # model.testNetworkAll(validation=False,hardNegatives=True)
+    model = AllGoModel(int(sys.argv[1]),'100','HardNegatives','HardNegatives_Redo',ontologyDataset='2007',foldFile='src/PairwiseYeastNetwork/AllGO_2007_b_1.csv',resetNet=True)
+    model.trainNetwork(100000,hardNegatives=True)
+    model.testNetworkAll(hardNegatives=True)
+    model.testNetworkAll(validation=False,hardNegatives=True)
 
-    graph = AllGoGraph('Yeast Resources/Pairwise/Spell/HardNegatives/HardNegatives_x_b_113x100x79_lr0.01_batch50_lfBCE_Net_fold','113x100x79','HardNegatives','HardNegatives',geneFolds='src/PairwiseYeastNetwork/AllGO_2007_b_1.csv',ontologyDataset='2007',outputVector='b')
+    # graph = AllGoGraph('Yeast Resources/Pairwise/Spell/HardNegatives/HardNegatives_x_b_113x100x79_lr0.01_batch50_lfBCE_Net_fold','113x100x79','HardNegatives','HardNegatives',geneFolds='src/PairwiseYeastNetwork/AllGO_2007_b_1.csv',ontologyDataset='2007',outputVector='b')
     # graph.feedForward(int(sys.argv[1]),calcAgn=False)
-    graph.rankGenes(agn=False)
+    # graph.rankGenes(agn=False)
 
 
 

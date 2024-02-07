@@ -17,6 +17,7 @@ import random
 
 sys.path.insert(0,'./obopy')
 from Leaf import getLeaves, getGenes
+from GOParser import GOParser
 
 # This import should fix the ssl import verificiation error
 import ssl
@@ -24,10 +25,18 @@ ssl._create_default_https_context = ssl._create_unverified_context
 
 def main():
 
-    graph = AllGoGraph('Test','113x100x79','Debug','Debug',geneFolds='./src/PairwiseYeastNetwork/Test_Folds.csv',ontologyDataset='2007')
-    for i in range(4):
-        graph.feedForward(i,calcAgn=False,resetScores=i==0)
-    graph.rankGenes(agn=False)
+    model = AllGoModel(0,'100','Test','Test',ontologyDataset='2007',foldFile='./src/PairwiseYeastNetwork/AllGO_2007_b_1.csv',resetNet=True)
+    model.trainNetwork(10000,saveTermLoss=True)
+
+    # graph = AllGoGraph('Test','113x100x79','Debug','Debug',geneFolds='./src/PairwiseYeastNetwork/Test_Folds.csv',ontologyDataset='2007')
+    # for i in range(4):
+    #     graph.feedForward(i,calcAgn=False,resetScores=i==0)
+    # graph.rankGenes(agn=False)
+
+    # go = GOParser('2007')
+    # for leaf in go.getSlimLeaves():
+    #     print(leaf[0],go.onto.terms[leaf[0]].name)
+        
     
 
 

@@ -445,3 +445,11 @@ class AllGoGraph(AllGoModel):
                     pairs.append([gene1,gene2])
         return pairs
     
+    def to_csv(self,loc):
+        scoresMemmap = np.memmap(f'{self.path}/{"" if self.modelName == "" else f"{self.modelName}_"}{self.struct}_Scores.dat',dtype='float32',shape=(self.memMapLen,len(self.leaves)),mode='r+')
+        pairsMemMap = np.memmap(f'{self.path}/{"" if self.modelName == "" else f"{self.modelName}_"}{self.struct}_Pairs.dat',shape=(self.memMapLen,2),dtype='U10',mode='r+')
+
+        table = np.concatenate([scoresMemmap,pairsMemMap],axis=1,dtype=object)
+        pd.DataFrame(table,columns=['Gene_A','Gene_B']+[leaf[0] for leaf in self.leaves]).to_csv(loc,index=False)
+
+    

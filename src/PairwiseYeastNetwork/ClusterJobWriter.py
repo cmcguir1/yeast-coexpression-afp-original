@@ -205,8 +205,8 @@ def writeJobs(JobName,pythonFile,node=False,arg1=['0','1','2','3'],arg2=None,arg
 
 # writeJobs('Batch_PS','Main5.py',arg1=[50,500],arg2=[1,2,3,4,5])
 # writeJobs('SmallestCommonAncestor','Main10.py',arg1=[''])
-# writeJobs('HardNegatives','Main9.py',arg1=[0])
-# writeJobs('EasyNegatives','Main10.py',arg1=[0])
+writeJobs('HardNegatives','Main9.py',arg1=[0])
+writeJobs('EasyNegatives','Main10.py',arg1=[0])
 writeJobs('Parser_PS','Main.py',arg2=['20','100','200','200x100'])
 
  

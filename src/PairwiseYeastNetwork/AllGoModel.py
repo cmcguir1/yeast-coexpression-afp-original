@@ -271,6 +271,8 @@ class AllGoModel():
             self.lossFunc = torch.nn.CrossEntropyLoss()
             # self.lossFunc = CustomCrossEntropyLoss(alpha=self.weights,nonSpecific='n' in outputVector)
             print('Used Cross Entropy Loss Function')
+
+        self.lossFunc_unreduced = torch.nn.BCEWithLogitsLoss(weight=self.weights,reduction='none')
         
         
         #Stochastic Gradient Descent Optimizer
@@ -296,6 +298,7 @@ class AllGoModel():
         
 
         self.lossLoc = f'./Yeast Resources/Pairwise/Spell/{folderName}/{model_specification}_Loss_fold{self.fold+1}.csv'
+        self.termLossLoc = f'./Yeast Resources/Pairwise/Spell/{folderName}/{model_specification}_TermLoss_fold{self.fold+1}.csv'
         #The locations for the testing and training data will be folder because they will be storing a csv file for each GO term
         self.trainLoc = f'./Yeast Resources/Pairwise/Spell/{folderName}/{model_specification}_Train_/'
         self.testLoc = f'./Yeast Resources/Pairwise/Spell/{folderName}/{model_specification}_Test_/'
@@ -328,7 +331,7 @@ class AllGoModel():
 
         
 
-    def trainNetwork(self,epochs,track=100,printTensors=False,numTest=10,hardNegatives=True):
+    def trainNetwork(self,epochs,track=100,printTensors=False,numTest=10,hardNegatives=True,saveTermLoss=False):
         self.net.train()
 
         # If swapping genes, train by swapping labels and using normal features
@@ -339,8 +342,6 @@ class AllGoModel():
         
         # Pairs that will be sampled from during training
         posPairs, negPairs = self.makePosNegPairs(self.training,hardNegatives=hardNegatives)
-        print('Positive Pairs:',len(posPairs))
-        print('Negative Pairs:',len(negPairs))
         
         testPairs, negTest = self.makePosNegPairs(self.validation,hardNegatives=hardNegatives)
         
@@ -353,6 +354,8 @@ class AllGoModel():
             print(f'Loss List:\n{lossList}')
         else:
             lossList = []
+        termLossList = []
+        termLoss = torch.zeros((self.outputSize,self.batch),dtype=torch.float32)
 
         
     
@@ -371,6 +374,7 @@ class AllGoModel():
             # Create features and labels for a batch
             if self.trainNegatives:
                 batchArray = self.makeBatchArrayPartitioned(posPairs=posPairs,negPairs=negPairs)
+                
             else:
                 batchArray = self.makeBatchArray(posPairs)
             features, labels = self.makeBatchTensors(batchArray)
@@ -385,6 +389,10 @@ class AllGoModel():
             
             # use outputs and labels to calculate loss for batch
             loss = self.lossFunc(outputs.float(),labels.float())
+            if saveTermLoss:
+                loss_unreduced = self.lossFunc_unreduced(outputs.float(),labels.float())
+                
+                termLoss += torch.transpose(loss_unreduced,0,1)
             
 
             
@@ -407,6 +415,7 @@ class AllGoModel():
                 # If we are tracking the intial loss of the network, we need to scale to the loss as if it were the loss of a set of 'track' batches
                 if iteration == 0:
                     runningLoss *= track
+                    termLoss *= track
                 
                 # Evaluate the network's loss for numTest number of validation examples
                 self.net.eval()
@@ -425,14 +434,24 @@ class AllGoModel():
 
                         testLoss += self.lossFunc(testOutput.float(),labels.float()).item()
                     testLoss *= track / numTest
-
+                
+                if saveTermLoss:
+                    termLossList.append([iteration,runningLoss]+[torch.mean(term).item() for term in termLoss])
+                    termLoss = torch.zeros((self.outputSize,self.batch),dtype=torch.float32)
+                    pd.DataFrame(termLossList,columns=['Batch','Avg Loss']+[leaf[0] for leaf in self.leaves]).to_csv(self.termLossLoc,index=False)
                 
                 lossList.append([iteration,runningLoss,testLoss])
+
                 print(f'{track} Batch Cumulative Loss: {runningLoss}',flush=True)
                 runningLoss = 0.0
-                pd.DataFrame(lossList,columns=['Batch','Training Loss','Validation Loss']).to_csv(self.lossLoc,index=False)
                 print(f'Time for 100 Batches: {(time.time()-start)/60}',flush=True)
                 start = time.time()
+
+                pd.DataFrame(lossList,columns=['Batch','Training Loss','Validation Loss']).to_csv(self.lossLoc,index=False)
+
+
+                
+                
         torch.save(self.net.state_dict(),self.networkLoc)
 
 
@@ -567,7 +586,7 @@ class AllGoModel():
             batchSize = self.batch
         posBatch = posPairs[np.random.choice(len(posPairs),int(batchSize/2),replace=False),:]
         negBatch = negPairs[np.random.choice(len(negPairs),int(batchSize/2),replace=False),:]
-        return np.concatenate([posBatch,negBatch],axis=1)
+        return np.concatenate([posBatch,negBatch],axis=0)
 
     def makeBatchTensors(self,batchArray):
         # First, make an array of the features that are the pearson correlations between the gene pair in every gene expression dataset
