@@ -23,7 +23,7 @@ from GOParser import GOParser
 
 
 class AllGoModel():
-    def __init__(self,fold,structure,folderName,modelName,numFolds=4,lr=0.01,min_lr=1e-7,momentum=0.9,batch=50,gamma=2,alpha=1,weightDecay=0.0,weighted=False,lossFunc='BCE',foldFile='./src/PairwiseYeastNetwork/AllGOGeneFold_Original_1.csv',ontologyDataset='modern',regularize=False,inputDropout=None,hiddenDropout=None,activation='relu',resetNet=False,cuda=True,inputVector = 'x',outputVector = 'b',verbose='',addTerms=[],memMapName='YeastDict_Regularized.npy',randomizeLabels=False,randomizeFeatures=False,swapGenes=False):
+    def __init__(self,fold,structure,folderName,modelName,numFolds=4,lr=0.01,min_lr=1e-7,momentum=0.9,batch=50,gamma=2,alpha=1,weightDecay=0.0,weighted=False,posWeighted=False,pc_scale=1,lossFunc='BCE',foldFile='./src/PairwiseYeastNetwork/AllGOGeneFold_Original_1.csv',ontologyDataset='modern',regularize=False,inputDropout=None,hiddenDropout=None,activation='relu',resetNet=False,cuda=True,inputVector = 'x',outputVector = 'b',verbose='',addTerms=[],memMapName='YeastDict_Regularized.npy',randomizeLabels=False,randomizeFeatures=False,swapGenes=False,hardNegatives=False):
         # Handling what data is in the input and output vector of the vector
 
         #   The argument 'inputVector' determines what data is included in the input vector of the network based off of what characters are included in 'inputVector'
@@ -210,6 +210,7 @@ class AllGoModel():
         
         #Initialize the network, the size of the input layer is the number of expression datasets, and the size of the output is the number of leaf go terms
         self.networkLoc = f'./Yeast Resources/Pairwise/Spell/{folderName}/{model_specification}_Net_fold{self.fold+1}.pth'
+        print(self.networkLoc)
         
         if inputDropout == 0:
             inputDropout = None
@@ -241,6 +242,28 @@ class AllGoModel():
             self.weights = torch.ones((self.outputSize,),dtype=float)
         
         self.weights = self.weights.to(self.device)
+
+        # Pairs that will be sampled from during training
+        self.posPairs, self.negPairs = self.makePosNegPairs(self.training,hardNegatives=hardNegatives)
+        
+        self.testPairs, self.negTest = self.makePosNegPairs(self.validation,hardNegatives=hardNegatives)
+
+        if(posWeighted):
+            posNeg_terms = [0 for term in self.leaves]
+            for geneA, geneB in self.posPairs:
+                for i, (id, genes) in enumerate(self.leaves):
+                    if geneA in genes and geneB in genes:
+                        posNeg_terms[i] += 1
+
+
+            posWeightsLst = [(2*len(self.posPairs) - classPos)/classPos for classPos in posNeg_terms]
+            self.posWeights = torch.tensor(posWeightsLst,dtype=torch.float) * pc_scale
+            print('Pos Weights:',self.posWeights)
+        else:
+            self.posWeights = torch.ones((len(self.leaves),),dtype=torch.float) * pc_scale
+
+
+
         
 
         #Initialize Loss function, we are using CEL because we have multiple outputs that could be true
@@ -256,17 +279,8 @@ class AllGoModel():
         elif lossFunc in ['WCE']:
             self.lossFunc = torch.nn.CrossEntropyLoss(weight=self.weights)
         elif lossFunc in ['BCE','binaryCrossEntropy','binary_cross_entropy']:
-            self.lossFunc = torch.nn.BCEWithLogitsLoss(weight=self.weights)
+            self.lossFunc = torch.nn.BCEWithLogitsLoss(weight=self.weights,pos_weight=self.posWeights)
             self.trainNegatives = True
-        elif lossFunc in ['SF_MSE']:
-            self.lossFunc = SM_MSE()
-        elif lossFunc in ['MSE']:
-            self.lossFunc = torch.nn.MSELoss()
-        elif lossFunc in ['SM_BCE']:
-            self.lossFunc = SM_BCE()
-            self.trainNegatives = True
-        elif lossFunc in ['CCE']:
-            self.lossFunc = ComboCrossEntropy()
         else:
             self.lossFunc = torch.nn.CrossEntropyLoss()
             # self.lossFunc = CustomCrossEntropyLoss(alpha=self.weights,nonSpecific='n' in outputVector)
@@ -340,10 +354,7 @@ class AllGoModel():
             self.randomizeFeatures = False
 
         
-        # Pairs that will be sampled from during training
-        posPairs, negPairs = self.makePosNegPairs(self.training,hardNegatives=hardNegatives)
         
-        testPairs, negTest = self.makePosNegPairs(self.validation,hardNegatives=hardNegatives)
         
         
 
@@ -373,10 +384,10 @@ class AllGoModel():
             
             # Create features and labels for a batch
             if self.trainNegatives:
-                batchArray = self.makeBatchArrayPartitioned(posPairs=posPairs,negPairs=negPairs)
+                batchArray = self.makeBatchArrayPartitioned(posPairs=self.posPairs,negPairs=self.negPairs)
                 
             else:
-                batchArray = self.makeBatchArray(posPairs)
+                batchArray = self.makeBatchArray(self.posPairs)
             features, labels = self.makeBatchTensors(batchArray)
             
             
@@ -423,9 +434,9 @@ class AllGoModel():
                     testLoss = 0
                     for i in range(numTest):
                         if self.trainNegatives:
-                            testBatch = self.makeBatchArrayPartitioned(testPairs,negTest)
+                            testBatch = self.makeBatchArrayPartitioned(self.testPairs,self.negTest)
                         else:
-                            testBatch = self.makeBatchArray(testPairs)
+                            testBatch = self.makeBatchArray(self.testPairs)
                         testFeatures, testLabels = self.makeBatchTensors(testBatch)
                         testFeatures = testFeatures.to(self.device)
                         testLabels = testLabels.to(self.device)

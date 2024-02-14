@@ -21,7 +21,7 @@ def main():
 
     
     model = AllGoModel(int(sys.argv[1]),'100','AllTermLoss','BioProc',foldFile='./src/PairwiseYeastNetwork/AllGO_2007_b_1.csv',ontologyDataset='2007',outputVector='b',resetNet=False)
-    model.trainNetwork(200000,saveTermLoss=True)
+    model.trainNetwork(100000,saveTermLoss=True,track=1000)
     model.testNetworkAll()
     model.testNetworkAll(validation=False)
 

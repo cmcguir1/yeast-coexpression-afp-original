@@ -1,18 +1,19 @@
 
-ensembleROC <- function(dataFile,graphName) {
+ensembleROC <- function(dataFile,graphName,modern=FALSE) {
   getAUC <- function(data){
     
     decimalPlaces <- 3
     return(format(round(mean(data[,"Recall"]),decimalPlaces) , nsmall=decimalPlaces))
   }
-  
-  pixie <- read.csv("C:\\Users\\colem\\SummerResearch2022\\Yeast Resources\\ConfusionMatrixPixie.csv")
-  mefit <- read.csv("C:\\Users\\colem\\SummerResearch2022\\Yeast Resources\\ConfusionMatrixMefit.csv")
-  spell <- read.csv("C:\\Users\\colem\\SummerResearch2022\\Yeast Resources\\ConfusionMatrixSpell.csv")
-  
-  #pixie <- read.csv("C:\\Users\\colem\\SummerResearch2022\\Yeast Resources\\ConfusionMatrixPixie_Modern.csv")
-  #mefit <- read.csv("C:\\Users\\colem\\SummerResearch2022\\Yeast Resources\\ConfusionMatrixMefit_Modern.csv")
-  #spell <- read.csv("C:\\Users\\colem\\SummerResearch2022\\Yeast Resources\\ConfusionMatrixSpell_Modern.csv")
+  if (!modern){
+    pixie <- read.csv("C:\\Users\\colem\\SummerResearch2022\\Yeast Resources\\ConfusionMatrixPixie.csv")
+    mefit <- read.csv("C:\\Users\\colem\\SummerResearch2022\\Yeast Resources\\ConfusionMatrixMefit.csv")
+    spell <- read.csv("C:\\Users\\colem\\SummerResearch2022\\Yeast Resources\\ConfusionMatrixSpell.csv")
+  } else {
+    pixie <- read.csv("C:\\Users\\colem\\SummerResearch2022\\Yeast Resources\\ConfusionMatrixPixie_Modern.csv")
+    mefit <- read.csv("C:\\Users\\colem\\SummerResearch2022\\Yeast Resources\\ConfusionMatrixMefit_Modern.csv")
+    spell <- read.csv("C:\\Users\\colem\\SummerResearch2022\\Yeast Resources\\ConfusionMatrixSpell_Modern.csv")
+  }
   nn <- read.csv(dataFile)
   
   pixie <- pixie[order(pixie[,"Confidence"],decreasing=FALSE),]
@@ -53,7 +54,7 @@ ensembleROC <- function(dataFile,graphName) {
   
 }
 
-ensemblePR <- function(dataFile,graphName) {
+ensemblePR <- function(dataFile,graphName,modern=FALSE) {
   getAveragePrecision <- function(precs){
     decimalPlaces <- 3
     return(format(round(mean(precs),decimalPlaces) , nsmall=decimalPlaces))
@@ -67,14 +68,15 @@ ensemblePR <- function(dataFile,graphName) {
     }
     return(vec)
   }
-  
-  pixie <- read.csv("C:\\Users\\colem\\SummerResearch2022\\Yeast Resources\\ConfusionMatrixPixie.csv")
-  mefit <- read.csv("C:\\Users\\colem\\SummerResearch2022\\Yeast Resources\\ConfusionMatrixMefit.csv")
-  spell <- read.csv("C:\\Users\\colem\\SummerResearch2022\\Yeast Resources\\ConfusionMatrixSpell.csv")
-  
-  #pixie <- read.csv("C:\\Users\\colem\\SummerResearch2022\\Yeast Resources\\ConfusionMatrixPixie_Modern.csv")
-  #mefit <- read.csv("C:\\Users\\colem\\SummerResearch2022\\Yeast Resources\\ConfusionMatrixMefit_Modern.csv")
-  #spell <- read.csv("C:\\Users\\colem\\SummerResearch2022\\Yeast Resources\\ConfusionMatrixSpell_Modern.csv")
+  if(!modern) {
+    pixie <- read.csv("C:\\Users\\colem\\SummerResearch2022\\Yeast Resources\\ConfusionMatrixPixie.csv")
+    mefit <- read.csv("C:\\Users\\colem\\SummerResearch2022\\Yeast Resources\\ConfusionMatrixMefit.csv")
+    spell <- read.csv("C:\\Users\\colem\\SummerResearch2022\\Yeast Resources\\ConfusionMatrixSpell.csv")
+  } else {
+    pixie <- read.csv("C:\\Users\\colem\\SummerResearch2022\\Yeast Resources\\ConfusionMatrixPixie_Modern.csv")
+    mefit <- read.csv("C:\\Users\\colem\\SummerResearch2022\\Yeast Resources\\ConfusionMatrixMefit_Modern.csv")
+    spell <- read.csv("C:\\Users\\colem\\SummerResearch2022\\Yeast Resources\\ConfusionMatrixSpell_Modern.csv")
+  }
   nn <- read.csv(dataFile)
   
   pixie <- pixie[order(pixie[,"Recall"],decreasing=FALSE),]
@@ -122,11 +124,11 @@ ensemblePR <- function(dataFile,graphName) {
 dataFile <- file.choose()
 #dataFile <- "C:\\Users\\colem\\SummerResearch2022\\Yeast Resources\\Pairwise\\Spell\\Test\\Regular430_20x1_fold1_Val.csv"
 
-graphName <- "Hard Negatives"
-pdf("EnsembleComparision_HardNegatives_ROC_Redo.pdf",width=6,height=12)
+graphName <- "Easy Negatives"
+pdf("EnsembleComparision_EasyNegatives_ROC_Redo.pdf",width=6,height=12)
 par(mfrow=c(2,1))
-ensembleROC(dataFile=dataFile,graphName=graphName)
-ensemblePR(dataFile=dataFile,graphName=graphName)
+ensembleROC(dataFile=dataFile,graphName=graphName,modern=F)
+ensemblePR(dataFile=dataFile,graphName=graphName,modern=F)
 dev.off()
 
 
