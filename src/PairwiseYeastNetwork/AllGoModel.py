@@ -758,6 +758,16 @@ class AllGoModel():
         pd.DataFrame(folds,columns=['Gene','Fold']).to_csv(foldFile,index=False)
         return folds
     
+    def posPairsStats(self,saveLoc):
+        print('Start')
+        statistics = [[id,0] for id, genes in self.leaves]
+        for geneA, geneB in self.posPairs:
+            for i, (id, genes) in enumerate(self.leaves):
+                if geneA in genes and geneB in genes:
+                    statistics[i][1] += 1
+        pd.DataFrame(statistics,columns=['GO Term','Pos Pairs']).to_csv(saveLoc,index=False)
+                    
+    
     class CustomDataset(Dataset):
         def __init__(self,outerClass,pairs):
             self.out = outerClass
@@ -797,6 +807,8 @@ class AllGoModel():
     #     for term, index in self.GOTermDict.items():
     #         terms[index] = term
     #     pd.DataFrame(mat,columns=terms).to_csv('./Yeast Resources/OverlapResults/Overlap.csv',index=False)
+        
+    
 
     
         

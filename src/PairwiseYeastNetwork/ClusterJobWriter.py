@@ -207,10 +207,10 @@ def writeJobs(JobName,pythonFile,node=False,arg1=['0','1','2','3'],arg2=None,arg
 # writeJobs('SmallestCommonAncestor','Main10.py',arg1=[''])
 # writeJobs('HardNegatives','Main9.py',arg1=[0])
 # writeJobs('EasyNegatives','Main10.py',arg1=[0])
-writeJobs('Parser_PS','Main.py',arg2=['20','100','200','200x100'],arg1=[0])
+# writeJobs('Parser_PS','Main.py',arg2=['20','100','200','200x100'],arg1=[0])
 # writeJobs('AllTermLoss','Main2.py')
-# writeJobs('PosWeights_Control','Main3.py')
-# writeJobs('PosWeights','Main4.py',arg2=[0.1,1,10])
+writeJobs('PosWeights_Control','Main3.py',arg1=[0])
+writeJobs('PosWeights','Main4.py',arg2=[0.1,1,10],arg1=[0])
 
 
  

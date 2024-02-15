@@ -20,13 +20,14 @@ ssl._create_default_https_context = ssl._create_unverified_context
 def main():
 
     
-    model = AllGoModel(int(sys.argv[1]),'100','PosWeights',f'Scale_{sys.argv[2]}',foldFile='./src/PairwiseYeastNetwork/AllGO_2007_b_1.csv',ontologyDataset='2007',outputVector='b',resetNet=False,hardNegatives=False,posWeighted=True,pc_scale=float(sys.argv[2]))
-    model.trainNetwork(200000,saveTermLoss=True)
-    model.testNetworkAll()
-    model.testNetworkAll(validation=False)
+    # model = AllGoModel(int(sys.argv[1]),'100','PosWeights',f'Scale_{sys.argv[2]}',foldFile='./src/PairwiseYeastNetwork/AllGO_2007_b_1.csv',ontologyDataset='2007',outputVector='b',resetNet=False,hardNegatives=False,posWeighted=True,pc_scale=float(sys.argv[2]))
+    # model.trainNetwork(200000,saveTermLoss=True)
+    # model.testNetworkAll()
+    # model.testNetworkAll(validation=False)
 
     graph = AllGoGraph(f'./Yeast Resources/Pairwise/Spell/PosWeights/{sys.argv[2]}_x_b_113x100x79_lr0.01_batch50_lfBCE_Net_fold','113x100x79','PosWeights',f'Scale_{sys.argv[2]}',geneFolds='./src/PairwiseYeastNetwork/AllGO_2007_b_1.csv',outputVector='b',ontologyDataset='2007')
-    graph.feedForward(int(sys.argv[1]),calcAgn=False)
+    # graph.feedForward(int(sys.argv[1]),calcAgn=False)
+    graph.rankAllTerms(agn=False)
     # graph.rankGenes(agn=False)
 
 
