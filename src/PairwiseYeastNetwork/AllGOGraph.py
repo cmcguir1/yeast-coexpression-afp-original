@@ -15,7 +15,7 @@ from Leaf import getLeaves, getGenes
 from GOParser import GOParser
 
 class AllGoGraph(AllGoModel):
-    def __init__(self,networkPath,structure,folder,modelName='',numfolds=4,geneFolds='./src/PairwiseYeastNetwork/AllGOGeneFold_Original_1.csv',singleTermFolds=False,ontologyDataset='modern',memMapName='YeastDict_Regularized.npy',softmax=False,inputVector='x',outputVector='b',addTerms=[]):
+    def __init__(self,networkPath,structure,folder,modelName='',numfolds=4,geneFolds='./src/PairwiseYeastNetwork/AllGOGeneFold_Original_1.csv',singleTermFolds=False,ontologyDataset='2007',evalDataset='2007',memMapName='YeastDict_Regularized.npy',softmax=False,inputVector='x',outputVector='b',addTerms=[]):
         
         #Intialize file path for folder where results will be saved
         self.path = f'./Yeast Resources/GraphResults/{folder}'
@@ -38,6 +38,10 @@ class AllGoGraph(AllGoModel):
         self.localization = 'l' in inputVector
         self.genomicInteraction = 'g' in inputVector
         self.physical = 'p' in inputVector
+
+
+        self.inputVector = inputVector
+        self.outputVector = outputVector
 
         if self.expression:
             # Correlations Dictionary that will be retrieve precalculated correlation values
@@ -139,6 +143,9 @@ class AllGoGraph(AllGoModel):
             self.leaves.append([term,self.goParser.getGenes(term)])
         self.GOTermDict = {term[0]: i for i,term in enumerate(self.leaves)}
         self.outputSize = len(self.leaves)
+
+        self.evalParser = GOParser(evalDataset)
+        self.evalLeaves = self.evalParser.getSlimLeaves(cutoff=10,roots=self.outputVector,onlyLeaves='l' not in self.outputVector)
         
         self.nonSpecific = 'n' in outputVector
         if self.nonSpecific:
@@ -181,7 +188,7 @@ class AllGoGraph(AllGoModel):
             self.folds = [{gene[0] for gene in foldTable if gene[1] == i} for i in range(numfolds)]
         # self.allGenes = pd.read_csv('./Yeast Resources/GeneSets/BiologicalProcessGenes.csv').values.flatten().tolist()
         self.allGenes = list(self.goParser.onto.yorfs.keys())
-        print(len(self.allGenes))
+        
         self.foldGenes = [gene[0] for gene in foldTable]
 
         negTerms = [leaf[1] for leaf in self.leaves]
@@ -190,22 +197,18 @@ class AllGoGraph(AllGoModel):
             negGenes = negGenes | termGenes
 
         self.agnGenes = set(self.allGenes) - negGenes
-        print(len(self.agnGenes))
+        
 
         # self.memMapLen = (sum([len(fold) for fold in self.folds]) * len(self.allGenes) - len(foldTable)) + (len(self.agnGenes) * len(self.allGenes)) - len(set(self.agnGenes) & set(self.allGenes))
         self.memMapLen = (len(foldTable)*len(foldTable)-len(foldTable)) + (len(self.agnGenes)*len(self.allGenes)-len(self.agnGenes))
-        print(len(foldTable)*len(foldTable)-len(foldTable))
-        print(len(self.agnGenes)*len(self.allGenes)-len(self.agnGenes))
-        print(self.memMapLen)
-        print(self.folds)
+        
         self.foldOffsets = []
         offsetTotal = 0
         for i in range(numfolds):
             self.foldOffsets.append(offsetTotal)
             offsetTotal += len(self.folds[i]) * len(foldTable) - len(self.folds[i])
         self.agnOffset = offsetTotal
-        print(self.foldOffsets)
-        print(self.agnOffset)
+        
 
 
     def feedForward(self,fold,term='GO:0007005',dataset='original',calcPos=True,calcAgn=True,saveAll=True,debug=False,resetScores=False,batchSize=50,printProgress=False,partition=False,partNum=0,calcPart=0):
@@ -325,11 +328,12 @@ class AllGoGraph(AllGoModel):
 
 
     #rankGenes takes all of the calculated pair scores then ranks the genes by their involvment in a given process
-    def rankGenes(self,term='GO:0007005',dataset='original',checkProportion=True,sigmoid=False,agn=True,fileSuffix=""):
+    def rankGenes(self,term='GO:0007005',sigmoid=False,agn=True,fileSuffix=""):
         
-        posGenes = self.goParser.getGenes(term)
+        
+        posGenes = self.evalParser.getGenes(term)
         print(posGenes)
-        negTerms = [leaf[1] for leaf in self.leaves if leaf[0] != term]
+        negTerms = [leaf[1] for leaf in self.evalLeaves if leaf[0] != term]
         negGenes = set()
         for termGenes in negTerms:
             negGenes = negGenes | termGenes
@@ -391,15 +395,15 @@ class AllGoGraph(AllGoModel):
         confMat = np.array(ConfusionMatrix.calculateMatrix(np.array(scoreTable,dtype=object),1,2),dtype=object)
         print(confMat)
         confMat_filt = np.array(ConfusionMatrix.calculateMatrix(np.array(scoreTable_filt,dtype=object),1,2),dtype=object)
-        pd.DataFrame(confMat,columns=['Gene','Label','Score','Background Score','Precision','Recall','False Positive Rate']).to_csv(f'{self.path}/{"" if self.modelName == "" else f"_{self.modelName}"}{self.struct}_GeneRanking_{term[0:2]}{term[3:]}{"_sigmoid" if sigmoid else ""}{fileSuffix}.csv',index=False)
+        pd.DataFrame(confMat,columns=['Gene','Label','Score','Background Score','Precision','Recall','False Positive Rate']).to_csv(f'{self.path}/{"" if self.modelName == "" else f"{self.modelName}"}{self.struct}_GeneRanking_{term[0:2]}{term[3:]}{"_sigmoid" if sigmoid else ""}{fileSuffix}.csv',index=False)
         return (np.mean(confMat_filt[:,5]),AllGoGraph.averagePrecision(confMat_filt[:,4]))
     
-    def rankAllTerms(self,dataset='original',agn=True):
+    def rankAllTerms(self,agn=True,fileSuffix=''):
         summary = []
         for term,index in self.GOTermDict.items():
-            auc, avgPrec = self.rankGenes(term=term,dataset=dataset,agn=agn)
+            auc, avgPrec = self.rankGenes(term=term,agn=agn,fileSuffix=fileSuffix)
             summary.append([term,auc,avgPrec])
-        pd.DataFrame(summary,columns=['GO Term','AUC','Average Precision']).to_csv(f'{self.path}/{"" if self.modelName == "" else f"_{self.modelName}"}{self.struct}GOTermDistribution.csv',index=False)
+        pd.DataFrame(summary,columns=['GO Term','AUC','Average Precision']).to_csv(f'{self.path}/{"" if self.modelName == "" else f"_{self.modelName}"}{self.struct}GOTermDistribution{fileSuffix}.csv',index=False)
 
     # Used to caculate convex hull average precision
     def averagePrecision(inputArray):

@@ -25,12 +25,12 @@ def main():
     # model.testNetworkAll(hardNegatives=True)
     # model.testNetworkAll(validation=False,hardNegatives=True)
 
-    graph = AllGoGraph('Yeast Resources/Pairwise/Spell/HardNegatives_Fixed/HardNegatives_x_b_113x100x79_lr0.01_batch50_lfBCE_Net_fold','113x100x79','HardNegatives','HardNegatives',geneFolds='src/PairwiseYeastNetwork/AllGO_2007_b_1.csv',ontologyDataset='2007',outputVector='b')
+    graph = AllGoGraph('Yeast Resources/Pairwise/Spell/HardNegatives_Fixed/HardNegatives_x_b_113x100x79_lr0.01_batch50_lfBCE_Net_fold','113x100x79','HardNegatives','HardNegatives',geneFolds='src/PairwiseYeastNetwork/AllGO_2007_b_1.csv',ontologyDataset='2007',evalDataset='2007',outputVector='b')
     # graph.feedForward(int(sys.argv[1]),calcAgn=False)
-    graph.rankGenes(agn=False)
+    graph.rankAllTerms(agn=False)
 
-    graph = AllGoGraph('Yeast Resources/Pairwise/Spell/HardNegatives_Fixed/HardNegatives_x_b_113x100x79_lr0.01_batch50_lfBCE_Net_fold','113x100x79','HardNegatives','HardNegatives',geneFolds='src/PairwiseYeastNetwork/AllGO_2007_b_1.csv',ontologyDataset='2023',outputVector='b')
-    graph.rankGenes(agn=True,fileSuffix='Modern')
+    graph = AllGoGraph('Yeast Resources/Pairwise/Spell/HardNegatives_Fixed/HardNegatives_x_b_113x100x79_lr0.01_batch50_lfBCE_Net_fold','113x100x79','HardNegatives','HardNegatives',geneFolds='src/PairwiseYeastNetwork/AllGO_2007_b_1.csv',ontologyDataset='2007',evalDataset='2023',outputVector='b')
+    graph.rankAllTerms(agn=True,fileSuffix='_modern')
 
 
 
