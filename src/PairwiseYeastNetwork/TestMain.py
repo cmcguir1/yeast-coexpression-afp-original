@@ -25,8 +25,8 @@ ssl._create_default_https_context = ssl._create_unverified_context
 
 def main():
 
-    model = AllGoModel(0,'100','Test','Test',ontologyDataset='2007',foldFile='./src/PairwiseYeastNetwork/AllGO_2007_b_1.csv',resetNet=True,outputVector='bcml')
-    model.posPairsStats('./GOTerm_PosPairs.csv')
+    # model = AllGoModel(0,'100','Test','Test',ontologyDataset='2007',foldFile='./src/PairwiseYeastNetwork/AllGO_2007_b_1.csv',resetNet=True,outputVector='bcml')
+    # model.posPairsStats('./GOTerm_PosPairs.csv')
     # model.trainNetwork(10000,saveTermLoss=True)
 
     # graph = AllGoGraph('Test','113x100x79','Debug','Debug',geneFolds='./src/PairwiseYeastNetwork/Test_Folds.csv',ontologyDataset='2007')
@@ -34,7 +34,13 @@ def main():
     #     graph.feedForward(i,calcAgn=False,resetScores=i==0)
     # graph.rankGenes(agn=False)
 
-    # go = GOParser('2023')
+    go = GOParser('2007')
+    print("ribosomal assembly",len(go.getGenes('GO:0042255')))
+    print("Large Subunit",len(go.getGenes('GO:0042273')))
+    print("Small Subunit",len(go.getGenes('GO:0042274')))
+
+
+
     # leaves = go.getSlimLeaves(roots='bcm',onlyLeaves=False)
     # data = []
     # for id, genes in leaves:
