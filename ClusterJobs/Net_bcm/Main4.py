@@ -24,15 +24,19 @@ def main():
     foldFile = './src/PairwiseYeastNetwork/AllGO_2007_bcm_1.csv'
 
     model = AllGoModel(int(sys.argv[1]),sys.argv[2],folder,name,foldFile=foldFile,ontologyDataset='2007',outputVector='bcm',addTerms=[],resetNet=True,hardNegatives=False)
-    model.trainNetwork(500000,saveTermLoss=True)
-    model.testNetworkAll()
-    model.testNetworkAll(validation=False)
+    # model.trainNetwork(500000,saveTermLoss=True)
+    # model.testNetworkAll()
+    # model.testNetworkAll(validation=False)
 
-    # graph = AllGoGraph(model.networkLoc[:-5],f'113x{sys.argv[2]}x1',folder,name,geneFolds=foldFile,outputVector='',addTerms=['GO:0007005'],ontologyDataset='2007')
+    graph = AllGoGraph(model.networkLoc[:-5],f'113x{sys.argv[2]}x118',folder,name,geneFolds=foldFile,outputVector='',addTerms=['GO:0007005'],ontologyDataset='2007',evalDataset='2007')
     # graph.feedForward(int(sys.argv[1]),calcAgn=False)
-    # graph.rankAllTerms(agn=False)
+    graph.rankAllTerms(agn=False)
     # graph.rankGenes(agn=False)
 
+
+    graph = AllGoGraph(model.networkLoc[:-5],f'113x{sys.argv[2]}x118',folder,name,geneFolds=foldFile,outputVector='',addTerms=['GO:0007005'],ontologyDataset='2007',evalDataset='2023')
+    # graph.feedForward(int(sys.argv[1]),calcAgn=False)
+    graph.rankAllTerms(agn=False,fileSuffix='_Modern')
 
 
 

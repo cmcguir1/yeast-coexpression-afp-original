@@ -328,16 +328,21 @@ class AllGoGraph(AllGoModel):
 
 
     #rankGenes takes all of the calculated pair scores then ranks the genes by their involvment in a given process
-    def rankGenes(self,term='GO:0007005',sigmoid=False,agn=True,fileSuffix=""):
+    def rankGenes(self,term='GO:0007005',sigmoid=False,agn=True,fileSuffix="",singleTerm=False):
         
         
         posGenes = self.evalParser.getGenes(term)
         print(posGenes)
-        negTerms = [leaf[1] for leaf in self.evalLeaves if leaf[0] != term]
+
         negGenes = set()
-        for termGenes in negTerms:
-            negGenes = negGenes | termGenes
-        negGenes = negGenes - set(posGenes)
+        if singleTerm:
+            negTerms = [leaf[1] for leaf in self.evalLeaves if leaf[0] != term]
+            for termGenes in negTerms:
+                negGenes = negGenes | termGenes
+            negGenes = negGenes - set(posGenes)
+
+        else:
+            negGenes = set(self.foldGenes) - posGenes
 
         termIndex = self.GOTermDict[term]
 
