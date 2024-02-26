@@ -19,7 +19,7 @@ ssl._create_default_https_context = ssl._create_unverified_context
 
 def main():
 
-    folder = 'ST_MitoOrg'
+    folder = 'ST_MitoOrg_Test'
     name = 'MitoOrg'
     foldFile = './src/PairwiseYeastNetwork/AllGO_2007_GO-0007005_1.csv'
 

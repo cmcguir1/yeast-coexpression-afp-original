@@ -335,7 +335,7 @@ class AllGoGraph(AllGoModel):
         print(posGenes)
 
         negGenes = set()
-        if singleTerm:
+        if not singleTerm:
             negTerms = [leaf[1] for leaf in self.evalLeaves if leaf[0] != term]
             for termGenes in negTerms:
                 negGenes = negGenes | termGenes
