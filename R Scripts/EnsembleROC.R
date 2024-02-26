@@ -125,7 +125,7 @@ dataFile <- file.choose()
 #dataFile <- "C:\\Users\\colem\\SummerResearch2022\\Yeast Resources\\Pairwise\\Spell\\Test\\Regular430_20x1_fold1_Val.csv"
 
 graphName <- "Net 20 Modern Eval"
-pdf("EnsembleComparision_Net_20_Modern_ROC_Redo.pdf",width=6,height=12)
+pdf("EnsembleComparision_Net_20_GO-00070005_Modern_ROC_Redo.pdf",width=6,height=12)
 par(mfrow=c(2,1))
 ensembleROC(dataFile=dataFile,graphName=graphName,modern=T)
 ensemblePR(dataFile=dataFile,graphName=graphName,modern=T)
