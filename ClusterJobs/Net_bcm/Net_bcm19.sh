@@ -1,6 +1,6 @@
 #!/usr/bin/sh
 
-## Job Created Feb-22-2024
+## Job Created Feb-25-2024
 
 ##Place PBS directives here
 #PBS -N Net_bcm_3_500x200x100
