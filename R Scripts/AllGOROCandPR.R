@@ -75,12 +75,12 @@ for(dir in testDirs) {
   testDistFiles <- files[grepl("GOTermDistribution",files,fixed=TRUE)]
   trainDistFiles <- unlist(map(testDistFiles,replaceTest))
   
-  #pdf(paste(netTypes[i],"_",struct,"_",dataset,"_AUCDist.pdf",sep=""),height=10,width=6)
-  #par(mfrow=c(2,1))
-  #plotAUCDist(testDistFiles,paste(netTypes[i],struct,"Testing"))
-  #plotAUCDist(trainDistFiles,paste(netTypes[i],struct,"Training"))
+  pdf(paste(netTypes[i],"_",struct,"_",dataset,"_AUCDist.pdf",sep=""),height=10,width=6)
+  par(mfrow=c(2,1))
+  plotAUCDist(testDistFiles,paste(netTypes[i],struct,"Testing"))
+  plotAUCDist(trainDistFiles,paste(netTypes[i],struct,"Training"))
   
-  #dev.off()
+  dev.off()
   
   
   for(term in terms) {

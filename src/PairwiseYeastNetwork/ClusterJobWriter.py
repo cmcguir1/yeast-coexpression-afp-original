@@ -211,7 +211,7 @@ def writeJobs(JobName,pythonFile,node=False,arg1=['0','1','2','3'],arg2=None,arg
 # writeJobs('AllTermLoss','Main2.py')
 # writeJobs('PosWeights_Control','Main3.py',arg1=[0])
 # writeJobs('PosWeights','Main4.py',arg2=[0.1,1,10],arg1=[0])
-writeJobs('ST_MitoOrg_Small','Main3.py',arg2=['1','3','5','10'])
+writeJobs('ST_MitoOrg_Small','Main3.py',arg2=['1','3','5','10'],arg1=[0])
 writeJobs('ST_MitoOrg_L2','Main5.py',arg2=[0.1,0.01,0.005])
 writeJobs('Net_bcm','Main4.py',arg2=['20','100','200x100','500','500x200x100'],arg1=[0])
 
