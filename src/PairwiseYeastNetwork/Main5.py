@@ -33,7 +33,7 @@ def main():
     # graph.rankAllTerms(agn=False)
     graph.rankGenes(agn=False,singleTerm=True)
 
-    graph = AllGoGraph(model.networkLoc[:-5],f'113x{sys.argv[2]}x1',folder,name,geneFolds=foldFile,outputVector='',addTerms=['GO:0007005'],ontologyDataset='2007',evalDataset='2023')
+    graph = AllGoGraph(model.networkLoc[:-5],f'113x20x1',folder,name,geneFolds=foldFile,outputVector='',addTerms=['GO:0007005'],ontologyDataset='2007',evalDataset='2023')
     graph.rankGenes(agn=False,singleTerm=True,fileSuffix='_Modern')
 
 
