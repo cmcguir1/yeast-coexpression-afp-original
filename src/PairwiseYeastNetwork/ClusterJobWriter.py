@@ -212,9 +212,11 @@ def writeJobs(JobName,pythonFile,node=False,arg1=['0','1','2','3'],arg2=None,arg
 # writeJobs('PosWeights_Control','Main3.py',arg1=[0])
 # writeJobs('PosWeights','Main4.py',arg2=[0.1,1,10],arg1=[0])
 # writeJobs('ST_MitoOrg_Small','Main3.py',arg2=['1','3','5','10'],arg1=[0])
-writeJobs('ST_MitoOrg_L2','Main5.py',arg2=[0.1,0.01,0.005],arg1=[0])
+# writeJobs('ST_MitoOrg_L2','Main5.py',arg2=[0.1,0.01,0.005],arg1=[0])
 # writeJobs('Net_bcm','Main4.py',arg2=['20','100','200x100','500','500x200x100'],arg1=[0])
 # writeJobs('SingleTerm_2.28','Main6.py')
+writeJobs('ST_MitoOrg_L2_PS','Main7.py',arg1=[0.1,0.5,1],arg2=['100','200','500','500x200x100x100'])
+writeJobs('MultiTerm_L2_PS','Main8.py',arg2=[0.1,0.01],arg3=['200','500','500x100x100x100'])
 
 
  
