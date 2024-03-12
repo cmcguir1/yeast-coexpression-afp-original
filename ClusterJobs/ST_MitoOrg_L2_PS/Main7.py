@@ -22,21 +22,21 @@ def main():
     folder = 'ST_MitoOrg_L2_PS'
     name = f'MitoOrg_wd{sys.argv[1]}'
     foldFile = './src/PairwiseYeastNetwork/AllGO_2007_GO-0007005_1.csv'
-    for i in range(4):
-        model = AllGoModel(i,sys.argv[2],folder,name,foldFile=foldFile,ontologyDataset='2007',outputVector='',addTerms=['GO:0007005'],resetNet=True,hardNegatives=False,weightDecay=float(sys.argv[1]))
-        model.trainNetwork(100000,saveTermLoss=True)
-        model.testNetworkAll()
-        model.testNetworkAll(validation=False)
+    # for i in range(4):
+    #     model = AllGoModel(i,sys.argv[2],folder,name,foldFile=foldFile,ontologyDataset='2007',outputVector='',addTerms=['GO:0007005'],resetNet=True,hardNegatives=False,weightDecay=float(sys.argv[1]))
+    #     model.trainNetwork(100000,saveTermLoss=True)
+    #     model.testNetworkAll()
+    #     model.testNetworkAll(validation=False)
     
     model = AllGoModel(0,sys.argv[2],folder,name,foldFile=foldFile,ontologyDataset='2007',outputVector='',addTerms=['GO:0007005'],resetNet=True,hardNegatives=False,weightDecay=float(sys.argv[1]))
 
-    graph = AllGoGraph(model.networkLoc[:-5],f'113x{sys.argv[2]}x1',folder,name,geneFolds=foldFile,outputVector='',addTerms=['GO:0007005'],ontologyDataset='2007')
-    for i in range(4):
-        graph.feedForward(i,calcAgn=False)
+    # graph = AllGoGraph(model.networkLoc[:-5],f'113x{sys.argv[2]}x1',folder,name,geneFolds=foldFile,outputVector='',addTerms=['GO:0007005'],ontologyDataset='2007')
+    # for i in range(4):
+    #     graph.feedForward(i,calcAgn=False)
     # graph.rankAllTerms(agn=False)
-    graph.rankGenes(agn=False,singleTerm=True)
+    # graph.rankGenes(agn=False,singleTerm=True)
 
-    # graph = AllGoGraph(model.networkLoc[:-5],f'113x{sys.argv[3]}x1',folder,name,geneFolds=foldFile,outputVector='',addTerms=['GO:0007005'],ontologyDataset='2007',evalDataset='2023')
+    graph = AllGoGraph(model.networkLoc[:-5],f'113x{sys.argv[2]}x1',folder,name,geneFolds=foldFile,outputVector='',addTerms=['GO:0007005'],ontologyDataset='2007',evalDataset='2023')
     # graph.rankGenes(agn=False,singleTerm=True,fileSuffix='_Modern')
 
 
