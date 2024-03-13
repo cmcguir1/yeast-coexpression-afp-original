@@ -121,15 +121,54 @@ ensemblePR <- function(dataFile,graphName,modern=FALSE) {
   
 }
 
-dataFile <- file.choose()
-#dataFile <- "C:\\Users\\colem\\SummerResearch2022\\Yeast Resources\\Pairwise\\Spell\\Test\\Regular430_20x1_fold1_Val.csv"
+createGraph <- function(dataFile,graphName,fileName,modern) {
+  pdf(fileName,width=6,height=12)
+  par(mfrow=c(2,1))
+  ensembleROC(dataFile=dataFile,graphName=graphName,modern=modern)
+  ensemblePR(dataFile=dataFile,graphName=graphName,modern=modern)
+  dev.off()
+}
 
-graphName <- "Net bcm 200"
-pdf("EnsembleComparision_Net_bcm_200_ROC.pdf",width=6,height=12)
-par(mfrow=c(2,1))
-ensembleROC(dataFile=dataFile,graphName=graphName,modern=F)
-ensemblePR(dataFile=dataFile,graphName=graphName,modern=F)
-dev.off()
+#dataFile <- file.choose()
+
+#graphName <- "Wd 0.01 Modern Eval"
+#modern <- T
+#createGraph(dataFile,graphName,modern)
+
+files <- choose.files()
+
+nets <- c("100","200","500","500x200x100x100")
+wds <- c("0.1","0.5","1")
+i <- 1
+for(t in 1:24) {
+  
+  if(t!=10) {
+    if(t %% 2 == 1) {
+      modern <- F
+      tag <- ""
+      offset <- 1
+    }
+    else {
+      modern <- T
+      tag <-"Modern"
+      offset <- 0
+    }
+    if(t <= 8) wd <- "0.1"
+    else if(t > 8 && t <= 16)wd <- "0.5"
+    else wd <- "1"
+    
+    fileName <- paste("SingleTerm_Net_",nets[(floor(i/2)%%4)+1],"_wd_",wd,"_",tag,".pdf",sep="")
+    graphTitle <- paste("Net",nets[(floor(i/2)%%4)+1],"wd",wd,tag,sep=" ")
+    #print(files[i])
+    createGraph(files[i],graphTitle,fileName,modern)
+    
+    i <- i + 1
+  
+  }
+}
+
+titles <- c("Net_100_wd_0.1","Net_100_wd_0.1")
+fileNames <- c()
 
 
 
