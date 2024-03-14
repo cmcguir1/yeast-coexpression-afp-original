@@ -129,11 +129,17 @@ createGraph <- function(dataFile,graphName,fileName,modern) {
   dev.off()
 }
 
-#dataFile <- file.choose()
+dataFile <- file.choose()
 
-#graphName <- "Wd 0.01 Modern Eval"
-#modern <- T
-#createGraph(dataFile,graphName,modern)
+graphName <- "Multi-term Net 500x100x100x100 wd 0.01"
+fileName <- "MultiTerm_Net_500x100x100x100_wd0.1_Ensemble.pdf"
+modern <- T
+createGraph(dataFile,graphName,fileName,modern)
+
+
+
+
+
 
 files <- choose.files()
 

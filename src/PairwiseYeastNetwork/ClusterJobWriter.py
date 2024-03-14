@@ -216,10 +216,11 @@ def writeJobs(JobName,pythonFile,node=False,arg1=['0','1','2','3'],arg2=None,arg
 # writeJobs('Net_bcm','Main4.py',arg2=['20','100','200x100','500','500x200x100'],arg1=[0])
 # writeJobs('SingleTerm_2.28','Main6.py')
 # writeJobs('ST_MitoOrg_L2_PS','Main7.py',arg1=[0.1,0.5,1],arg2=['100','200','500','500x200x100x100'])
-    # writeJobs('MultiTerm_L2_PS','Main8.py',arg2=[0.1,0.01],arg3=['200','500','500x100x100x100'])
+# writeJobs('MultiTerm_L2_PS','Main8.py',arg2=[0.1,0.01],arg3=['200','500','500x100x100x100'])
 
-writeJobs('MultiTerm_L2_PS_1','Main8.py',arg2=[0.1],arg3=['200'],arg1=[0])
-writeJobs('MultiTerm_L2_PS_2','Main8.py',arg2=[0.1,0.01],arg3=['500x100x100x100'],arg1=[0])
+# writeJobs('MultiTerm_L2_PS_1','Main8.py',arg2=[0.1],arg3=['200'],arg1=[0])
+# writeJobs('MultiTerm_L2_PS_2','Main8.py',arg2=[0.1,0.01],arg3=['500x100x100x100'],arg1=[0])
+writeJobs('MultiTerm_L2_PS_Redo','Main8.py',arg2=[0.05,0.01,0.005,0.001],arg3=['100','100x50x50'])
 
 
  
