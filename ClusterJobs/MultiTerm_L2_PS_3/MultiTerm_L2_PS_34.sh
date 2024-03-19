@@ -1,0 +1,14 @@
+#!/usr/bin/sh
+
+## Job Created Mar-19-2024
+
+##Place PBS directives here
+#PBS -N MultiTerm_L2_PS_3_0_0.0001_100
+#PBS -l nodes=1:ppn=36
+#PBS -l walltime=168:00:00
+#PBS -M cmcguir1@trinity.edu
+#PBS -m ae
+
+cd data/SummerResearch2022
+
+/data/hibbslab/anaconda3/bin/python src/PairwiseYeastNetwork/Main8.py 0 0.0001 100   > ClusterJobs/MultiTerm_L2_PS_3/MultiTerm_L2_PS_34_output.txt

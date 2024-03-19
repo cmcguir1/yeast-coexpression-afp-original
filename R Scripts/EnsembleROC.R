@@ -133,7 +133,7 @@ dataFile <- file.choose()
 
 graphName <- "Multi-term Net 500x100x100x100 wd 0.01"
 fileName <- "MultiTerm_Net_500x100x100x100_wd0.1_Ensemble.pdf"
-modern <- T
+modern <- F
 createGraph(dataFile,graphName,fileName,modern)
 
 
