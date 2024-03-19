@@ -23,8 +23,8 @@ def main():
     name = f'MultiTerm_wd{sys.argv[2]}'
     foldFile = './src/PairwiseYeastNetwork/AllGO_2007_GO-0007005_1.csv'
 
-    model = AllGoModel(int(sys.argv[1]),sys.argv[3],folder,name,foldFile=foldFile,ontologyDataset='2007',outputVector='b',addTerms=[],resetNet=True,hardNegatives=False,weightDecay=float(sys.argv[2]))
-    model.trainNetwork(100000,saveTermLoss=True)
+    model = AllGoModel(int(sys.argv[1]),sys.argv[3],folder,name,foldFile=foldFile,ontologyDataset='2007',outputVector='b',addTerms=[],resetNet=False,hardNegatives=False,weightDecay=float(sys.argv[2]))
+    model.trainNetwork(400000,saveTermLoss=False)
     model.testNetworkAll()
     model.testNetworkAll(validation=False)
 

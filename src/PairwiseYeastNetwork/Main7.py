@@ -24,11 +24,11 @@ def main():
     foldFile = './src/PairwiseYeastNetwork/AllGO_2007_GO-0007005_1.csv'
     # for i in range(4):
     #     model = AllGoModel(i,sys.argv[2],folder,name,foldFile=foldFile,ontologyDataset='2007',outputVector='',addTerms=['GO:0007005'],resetNet=True,hardNegatives=False,weightDecay=float(sys.argv[1]))
-    #     model.trainNetwork(100000,saveTermLoss=True)
+    #     model.trainNetwork(100000,saveTermLoss=False)
     #     model.testNetworkAll()
     #     model.testNetworkAll(validation=False)
     
-    model = AllGoModel(0,sys.argv[2],folder,name,foldFile=foldFile,ontologyDataset='2007',outputVector='',addTerms=['GO:0007005'],resetNet=True,hardNegatives=False,weightDecay=float(sys.argv[1]))
+    model = AllGoModel(0,sys.argv[2],folder,name,foldFile=foldFile,ontologyDataset='2007',outputVector='',addTerms=['GO:0007005'],resetNet=False,hardNegatives=False,weightDecay=float(sys.argv[1]))
 
     # graph = AllGoGraph(model.networkLoc[:-5],f'113x{sys.argv[2]}x1',folder,name,geneFolds=foldFile,outputVector='',addTerms=['GO:0007005'],ontologyDataset='2007')
     # for i in range(4):

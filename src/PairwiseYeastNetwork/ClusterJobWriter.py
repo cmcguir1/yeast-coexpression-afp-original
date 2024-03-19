@@ -221,8 +221,8 @@ def writeJobs(JobName,pythonFile,node=False,arg1=['0','1','2','3'],arg2=None,arg
 # writeJobs('MultiTerm_L2_PS_1','Main8.py',arg2=[0.1],arg3=['200'],arg1=[0])
 # writeJobs('MultiTerm_L2_PS_2','Main8.py',arg2=[0.1,0.01],arg3=['500x100x100x100'],arg1=[0])
 # writeJobs('MultiTerm_L2_PS_Redo','Main8.py',arg2=[0.05,0.01,0.005,0.001],arg3=['100','100x50x50'])
-writeJobs('MultiTerm_L2_PS_3','Main8.py',arg2=[0.0005,0.0001],arg3=['100','100x50x50'])
-writeJobs('MultiTerm_Struct_PS','Main9.py',arg2=['100x50x50','200x100'])
+# writeJobs('MultiTerm_L2_PS_4','Main8.py',arg2=[0.00005,0.00001],arg3=['100','100x50x50'])
+writeJobs('MultiTerm_Struct_PS','Main9.py',arg2=['100x50x50','200x100','200'])
 
 
  
