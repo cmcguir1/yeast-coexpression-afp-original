@@ -129,11 +129,17 @@ createGraph <- function(dataFile,graphName,fileName,modern) {
   dev.off()
 }
 
+displayGraph <- function(dataFile,graphName,fileName,modern) {
+  
+  ensembleROC(dataFile=dataFile,graphName=graphName,modern=modern)
+  ensemblePR(dataFile=dataFile,graphName=graphName,modern=modern)
+}
+
 dataFile <- file.choose()
 
-graphName <- "Multi-term Net 500x100x100x100 wd 0.01"
-fileName <- "MultiTerm_Net_500x100x100x100_wd0.1_Ensemble.pdf"
-modern <- F
+graphName <- "Multi-term Net 100x50x50 Modern"
+fileName <- "MultiTerm_Net_100x50x50_Modern_Ensemble.pdf"
+modern <- T
 createGraph(dataFile,graphName,fileName,modern)
 
 

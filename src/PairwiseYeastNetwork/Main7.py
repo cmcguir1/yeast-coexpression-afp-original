@@ -28,16 +28,16 @@ def main():
     #     model.testNetworkAll()
     #     model.testNetworkAll(validation=False)
     
-    model = AllGoModel(0,sys.argv[2],folder,name,foldFile=foldFile,ontologyDataset='2007',outputVector='',addTerms=['GO:0007005'],resetNet=False,hardNegatives=False,weightDecay=float(sys.argv[1]))
+    model = AllGoModel(0,sys.argv[3],folder,name,foldFile=foldFile,ontologyDataset='2007',outputVector='',addTerms=['GO:0007005'],resetNet=False,hardNegatives=False,weightDecay=float(sys.argv[2]))
 
-    # graph = AllGoGraph(model.networkLoc[:-5],f'113x{sys.argv[2]}x1',folder,name,geneFolds=foldFile,outputVector='',addTerms=['GO:0007005'],ontologyDataset='2007')
+    graph = AllGoGraph(model.networkLoc[:-5],f'113x{sys.argv[3]}x1',folder,name,geneFolds=foldFile,outputVector='',addTerms=['GO:0007005'],ontologyDataset='2007')
     # for i in range(4):
-    #     graph.feedForward(i,calcAgn=False)
+    graph.feedForward(int(sys.argv[1]),calcAgn=False)
     # graph.rankAllTerms(agn=False)
     # graph.rankGenes(agn=False,singleTerm=True)
 
-    graph = AllGoGraph(model.networkLoc[:-5],f'113x{sys.argv[2]}x1',folder,name,geneFolds=foldFile,outputVector='',addTerms=['GO:0007005'],ontologyDataset='2007',evalDataset='2023')
-    graph.rankGenes(agn=False,singleTerm=True,fileSuffix='_Modern')
+    # graph = AllGoGraph(model.networkLoc[:-5],f'113x{sys.argv[2]}x1',folder,name,geneFolds=foldFile,outputVector='',addTerms=['GO:0007005'],ontologyDataset='2007',evalDataset='2023')
+    # graph.rankGenes(agn=False,singleTerm=True,fileSuffix='_Modern')
 
 
 
