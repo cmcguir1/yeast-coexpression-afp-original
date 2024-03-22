@@ -331,18 +331,25 @@ class AllGoGraph(AllGoModel):
     def rankGenes(self,term='GO:0007005',sigmoid=False,agn=True,fileSuffix="",singleTerm=False):
         
         
-        posGenes = self.evalParser.getGenes(term)
+        posGenes = self.goParser.getGenes(term)
+        evalPosGenes = self.evalParser.getGenes(term)
         print(posGenes)
 
         negGenes = set()
         if not singleTerm:
-            negTerms = [leaf[1] for leaf in self.evalLeaves if leaf[0] != term]
+            negTerms = [leaf[1] for leaf in self.leaves if leaf[0] != term]
             for termGenes in negTerms:
                 negGenes = negGenes | termGenes
             negGenes = negGenes - set(posGenes)
 
+            evalNegTerms = [leaf[1] for leaf in self.evalLeaves if leaf[0] != term]
+            for termGenes in evalNegTerms:
+                evalNegGenes = evalNegGenes | termGenes
+            evalNegGenes = evalNegGenes - set(evalPosGenes)
+
         else:
             negGenes = set(self.foldGenes) - posGenes
+            evalNegGenes = set(self.foldGenes) - evalPosGenes
 
         termIndex = self.GOTermDict[term]
 
@@ -351,9 +358,9 @@ class AllGoGraph(AllGoModel):
 
 
         def checkPosNeg(gene):
-            if gene in posGenes: 
+            if gene in evalPosGenes: 
                 return 1
-            elif gene in negGenes:
+            elif gene in evalNegGenes:
                 return -1
             else:
                 return 0

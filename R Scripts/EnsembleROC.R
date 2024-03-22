@@ -137,11 +137,12 @@ displayGraph <- function(dataFile,graphName,fileName,modern) {
 
 dataFile <- file.choose()
 
-graphName <- "Multi-term Net 100x50x50 Modern"
-fileName <- "MultiTerm_Net_100x50x50_Modern_Ensemble.pdf"
-modern <- T
+graphName <- ""
+fileName <- ""
+modern <- F
 createGraph(dataFile,graphName,fileName,modern)
 
+displayGraph(dataFile,graphName,fileName,modern)
 
 
 

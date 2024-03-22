@@ -28,13 +28,13 @@ def main():
     # model.testNetworkAll()
     # model.testNetworkAll(validation=False)
 
-    graph = AllGoGraph(model.networkLoc[:-5],f'113x{sys.argv[2]}x79',folder,name,geneFolds=foldFile,outputVector='b',addTerms=[],ontologyDataset='2007')
-    graph.feedForward(int(sys.argv[1]),calcAgn=True,calcPos=False)
+    # graph = AllGoGraph(model.networkLoc[:-5],f'113x{sys.argv[2]}x79',folder,name,geneFolds=foldFile,outputVector='b',addTerms=[],ontologyDataset='2007')
+    # graph.feedForward(int(sys.argv[1]),calcAgn=True,calcPos=False)
     # graph.rankAllTerms(agn=True)
     # graph.rankGenes(agn=True,singleTerm=False)
 
-    # graph = AllGoGraph(model.networkLoc[:-5],f'113x{sys.argv[2]}x79',folder,name,geneFolds=foldFile,outputVector='b',addTerms=[],ontologyDataset='2007',evalDataset='2023')
-    # graph.rankGenes(agn=True,singleTerm=False,fileSuffix='_Modern')
+    graph = AllGoGraph(model.networkLoc[:-5],f'113x{sys.argv[2]}x79',folder,name,geneFolds=foldFile,outputVector='b',addTerms=[],ontologyDataset='2007',evalDataset='2023')
+    graph.rankGenes(agn=False,singleTerm=False,fileSuffix='_ModernLabelSwap')
 
 
 
