@@ -25,10 +25,10 @@ def main():
     foldFile = f'./src/PairwiseYeastNetwork/AllGO_2007_{term[0:2]}-{term[3:]}_1.csv'
 
     for i in range(4):
-        model = AllGoModel(i,'20',folder,name,foldFile=foldFile,ontologyDataset='2007',outputVector='b',addTerms=[term],resetNet=True,hardNegatives=False,weightDecay=float(sys.argv[2]))
-        # model.trainNetwork(200000,saveTermLoss=False)
-        # model.testNetworkAll()
-        # model.testNetworkAll(validation=False)
+        model = AllGoModel(i,'20',folder,name,foldFile=foldFile,ontologyDataset='2007',outputVector='',addTerms=[term],resetNet=True,hardNegatives=False,weightDecay=float(sys.argv[2]))
+        model.trainNetwork(200000,saveTermLoss=False)
+        model.testNetworkAll()
+        model.testNetworkAll(validation=False)
 
     # graph = AllGoGraph(model.networkLoc[:-5],f'113x20x1',folder,name,geneFolds=foldFile,outputVector='',addTerms=['GO:0007005'],ontologyDataset='2007')
     # graph.feedForward(int(sys.argv[1]),calcAgn=True,calcPos=False)
