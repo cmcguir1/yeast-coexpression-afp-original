@@ -1,9 +1,9 @@
 #!/usr/bin/sh
 
-## Job Created Mar-22-2024
+## Job Created Mar-23-2024
 
 ##Place PBS directives here
-#PBS -N MultiTerm_Struct_PS_0_20
+#PBS -N MultiTerm_Struct_PS_1_500x200x100
 #PBS -l nodes=1:ppn=36
 #PBS -l walltime=168:00:00
 #PBS -M cmcguir1@trinity.edu
@@ -11,4 +11,4 @@
 
 cd data/SummerResearch2022
 
-/data/hibbslab/anaconda3/bin/python src/PairwiseYeastNetwork/Main9.py 0 20    > ClusterJobs/MultiTerm_Struct_PS/MultiTerm_Struct_PS1_output.txt
+/data/hibbslab/anaconda3/bin/python src/PairwiseYeastNetwork/Main9.py 1 500x200x100    > ClusterJobs/MultiTerm_Struct_PS/MultiTerm_Struct_PS1_output.txt

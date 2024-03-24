@@ -3,7 +3,7 @@
 ## Job Created Mar-23-2024
 
 ##Place PBS directives here
-#PBS -N MultiTerm_Struct_PS_0_500x200
+#PBS -N ST_PS_Term_GO:0006869_0.1
 #PBS -l nodes=1:ppn=36
 #PBS -l walltime=168:00:00
 #PBS -M cmcguir1@trinity.edu
@@ -11,4 +11,4 @@
 
 cd data/SummerResearch2022
 
-/data/hibbslab/anaconda3/bin/python src/PairwiseYeastNetwork/Main9.py 0 500x200    > ClusterJobs/MultiTerm_Struct_PS/MultiTerm_Struct_PS4_output.txt
+/data/hibbslab/anaconda3/bin/python src/PairwiseYeastNetwork/Main5.py GO:0006869 0.1    > ClusterJobs/ST_PS_Term/ST_PS_Term5_output.txt

@@ -1,4 +1,4 @@
-
+lt <- 2
 ensembleROC <- function(dataFile,graphName,modern=FALSE) {
   getAUC <- function(data){
     
@@ -30,13 +30,13 @@ ensembleROC <- function(dataFile,graphName,modern=FALSE) {
   w <- 4
   colorsList <- c("#FC0303","#14A63B","#5D87F0","#7713BA","#FAEF16","#E09704")
   
-  plot(pixie[,"False.Positive.Rate"],pixie[,"Recall"],type="l",lwd=w,col=colorsList[1],main=graphName,xlab="False Positive Rate",ylab="Recall",ylim=c(0,1))
+  plot(pixie[,"False.Positive.Rate"],pixie[,"Recall"],type="l",lwd=w,col=colorsList[1],main=graphName,xlab="False Positive Rate",ylab="Recall",ylim=c(0,1),lty=lt)
   
-  lines(mefit[,"False.Positive.Rate"],mefit[,"Recall"],lwd=w,col=colorsList[2])
+  lines(mefit[,"False.Positive.Rate"],mefit[,"Recall"],lwd=w,col=colorsList[2],lty=lt)
   
-  lines(spell[,"False.Positive.Rate"],spell[,"Recall"],lwd=w,col=colorsList[3])
+  lines(spell[,"False.Positive.Rate"],spell[,"Recall"],lwd=w,col=colorsList[3],lty=lt)
   
-  lines(nn[,"False.Positive.Rate"],nn[,"Recall"],lwd=w,col=colorsList[4])
+  lines(nn[,"False.Positive.Rate"],nn[,"Recall"],lwd=w,col=colorsList[4],lty=lt)
   
   lines(c(0,1),c(0,1),lwd=w,col="#000000")
   
@@ -49,7 +49,7 @@ ensembleROC <- function(dataFile,graphName,modern=FALSE) {
   legendLabels <- append(legendLabels,paste("SPELL (AUC =",getAUC(spell),")"))
   legendLabels <- append(legendLabels,paste("Neural Net (AUC =",getAUC(nn),")"))
   
-  legend("bottomright",legendLabels,lwd=w,col=colorsList,seg.len = 4)
+  legend("bottomright",legendLabels,lwd=w,col=colorsList,seg.len = 4,lty=c(1,lt))
   
   
 }
@@ -97,13 +97,13 @@ ensemblePR <- function(dataFile,graphName,modern=FALSE) {
   w <- 4
   colorsList <- c("#FC0303","#14A63B","#5D87F0","#7713BA","#FAEF16","#E09704")
   
-  plot(pixie[,"Recall"],pixie[,"Precision"],type="l",lwd=w,col=colorsList[1],main=graphName,xlab="Recall",ylab="Precision",log='x',ylim=c(0,1))
+  plot(pixie[,"Recall"],pixie[,"Precision"],type="l",lwd=w,col=colorsList[1],main=graphName,xlab="Recall",ylab="Precision",log='x',ylim=c(0,1),lty=lt)
   
-  lines(mefit[,"Recall"],mefit[,"Precision"],lwd=w,col=colorsList[2])
+  lines(mefit[,"Recall"],mefit[,"Precision"],lwd=w,col=colorsList[2],lty=lt)
   
-  lines(spell[,"Recall"],spell[,"Precision"],lwd=w,col=colorsList[3])
+  lines(spell[,"Recall"],spell[,"Precision"],lwd=w,col=colorsList[3],lty=lt)
   
-  lines(nn[,"Recall"],nn[,"Precision"],lwd=w,col=colorsList[4])
+  lines(nn[,"Recall"],nn[,"Precision"],lwd=w,col=colorsList[4],lty=lt)
   
   #lines(c(0,1),c(0,1),lwd=w,col="#000000")
   
@@ -116,7 +116,7 @@ ensemblePR <- function(dataFile,graphName,modern=FALSE) {
   legendLabels <- append(legendLabels,paste("SPELL (Avg. Prec. =",getAveragePrecision(spell[,"Precision"]),")"))
   legendLabels <- append(legendLabels,paste("Neural Net (Avg. Prec. =",getAveragePrecision(nn[,"Precision"]),")"))
   
-  legend("bottomleft",legendLabels,lwd=w,col=colorsList,seg.len = 4)
+  legend("bottomleft",legendLabels,lwd=w,col=colorsList,seg.len = 4,lty=c(lt,lt))
   
   
 }
@@ -138,8 +138,8 @@ displayGraph <- function(dataFile,graphName,fileName,modern) {
 dataFile <- file.choose()
 
 graphName <- ""
-fileName <- ""
-modern <- F
+fileName <- "MultiTerm_Ensemble_ModernEvaluation_dashed_fixed.pdf"
+modern <- T
 createGraph(dataFile,graphName,fileName,modern)
 
 displayGraph(dataFile,graphName,fileName,modern)
