@@ -35,9 +35,14 @@ def main():
     # graph.rankGenes(agn=False)
 
     go = GOParser('2007')
-    print("ribosomal assembly",len(go.getGenes('GO:0042255')))
-    print("Large Subunit",len(go.getGenes('GO:0042273')))
-    print("Small Subunit",len(go.getGenes('GO:0042274')))
+    leaves = go.getSlimLeaves(roots='b',onlyLeaves=False)
+    for id, genes in leaves:
+        print(id)
+        print(go.onto.terms[id].name)
+        print(len(genes))
+        print((len(genes)*(len(genes)-1))/2)
+        print('-------------------')
+    
 
 
 

@@ -25,7 +25,7 @@ def main():
 
     for i in range(4):
         model = AllGoModel(i,sys.argv[3],folder,name,foldFile=foldFile,ontologyDataset='2007',outputVector='b',addTerms=[],resetNet=False,hardNegatives=False,weightDecay=float(sys.argv[2]))
-        model.trainNetwork(20000,saveTermLoss=False)
+        model.trainNetwork(100000,saveTermLoss=False)
         model.testNetworkAll()
         model.testNetworkAll(validation=False)
 

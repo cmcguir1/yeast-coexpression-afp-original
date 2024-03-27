@@ -29,6 +29,7 @@ getStruct <- function(str) {
   return(struct)
 }
 
+
 replaceTest <- function(str) {
   testLoc <- gregexpr("_Test",str)[[1]][1]
   replaced <- paste(substring(str,0,testLoc),"Train",substring(str,testLoc+5,nchar(str)),sep="")
@@ -38,7 +39,7 @@ replaceTest <- function(str) {
 
 #Gets all files from Working directory
 wd <- getwd()
-saveDir <- "D:/MultiTerm_Struct_2/Pairwise"
+saveDir <- "D:/ST_L2_Term_PS/Pairwise"
 if(!dir.exists(saveDir)) dir.create(saveDir)
 
 
@@ -52,8 +53,9 @@ print(testDirs)
 
 plotAll <- FALSE
 desiredTerms <- c("GO-0007005","GO-0042273","GO-0032196","GO-0009451","GO-0006897","GO-0006979","GO-0006325","GO-0000278","GO-0051321","GO-0003700","GO-0000747","GO-0006470","GO-0007033")
-desiredTerms <- c("GO-0007005")
-netTypes <- c("Net_20")
+desiredTerms <- c("GO-0007005","GO-0006260")
+netTypes <- c("GO-0006260_wd_0.05","GO-0006260_wd_0.1","GO-0006260_wd_0.2",
+              "GO-0007005_wd_0.05","GO-0007005_wd_0.1","GO-0007005_wd_0.2")
 
 dataset <- "AllGO"
 
@@ -63,6 +65,7 @@ print(terms)
 terms <- append("AnyCoAnnos",terms)
 
 i <- 1
+goDist <- F
 for(dir in testDirs) {
   setwd(dir)
   files <- list.files(full.names = TRUE,include.dirs = TRUE,path=getwd())
@@ -75,17 +78,19 @@ for(dir in testDirs) {
   testDistFiles <- files[grepl("GOTermDistribution",files,fixed=TRUE)]
   trainDistFiles <- unlist(map(testDistFiles,replaceTest))
   
-  pdf(paste(netTypes[i],"_",struct,"_",dataset,"_AUCDist.pdf",sep=""),height=10,width=6)
-  par(mfrow=c(2,1))
-  plotAUCDist(testDistFiles,paste(netTypes[i],struct,"Testing"))
-  plotAUCDist(trainDistFiles,paste(netTypes[i],struct,"Training"))
-  
-  dev.off()
+  if(goDist){
+    pdf(paste(netTypes[i],"_",struct,"_",dataset,"_AUCDist.pdf",sep=""),height=10,width=6)
+    par(mfrow=c(2,1))
+    plotAUCDist(testDistFiles,paste(netTypes[i],struct,"Testing"))
+    plotAUCDist(trainDistFiles,paste(netTypes[i],struct,"Training"))
+    
+    dev.off()
+  }
   
   
   for(term in terms) {
     #Divides files into testing and training files
-    testFiles <- files[grepl(term,files,fixed=TRUE) & grepl(struct,files,fixed=TRUE)]
+    testFiles <- files[grepl(term,files,fixed=TRUE) & grepl(struct,files,fixed=TRUE) & !grepl("GOTermDistribution",files,fixed=TRUE)]
     trainFiles <- unlist(map(testFiles,replaceTest))
     
     

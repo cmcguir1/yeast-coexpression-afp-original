@@ -227,8 +227,9 @@ def writeJobs(JobName,pythonFile,node=False,arg1=['0','1','2','3'],arg2=None,arg
 # writeJobs('ST_MitoOrg_L2','Main5.py',arg2=[0.1],arg1=[0])
     
 # writeJobs('ST_PS_Term','Main5.py',arg1=['GO:0007005','GO:0006260','GO:0006869'],arg2=[0.05,0.1,0.2])
-writeJobs('MultiTerm_Struct_PS','Main9.py',arg2=['500x200x100','500x200'])
+# writeJobs('MultiTerm_Struct_PS','Main9.py',arg2=['500x200x100','500x200'])
 
-writeJobs('MultiTerm_L2_PS_Redo','Main8.py',arg1=[0],arg2=[0,0.1,0.01,0.001,0.0001,0.00001,0.000001],arg3=['500x200x100'])
+writeJobs('MultiTerm_L2_PS_Redo','Main8.py',arg1=[0],arg2=[0,0.0001,0.00001,0.000001],arg3=['500x200x100'])
+writeJobs('ST_PS_Term','Main5.py',arg1=['GO:0007005','GO:0006486','GO:0015031'],arg2=[0.5,0.1,0.01])
 
  
