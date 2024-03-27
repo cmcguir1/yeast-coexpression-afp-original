@@ -24,6 +24,8 @@ def main():
     name = f'{term[0:2]}-{term[3:]}_wd{sys.argv[2]}'
     foldFile = f'./src/PairwiseYeastNetwork/AllGO_2007_{term[0:2]}-{term[3:]}_1.csv'
 
+    model = AllGoModel(0,'20',folder,name,foldFile=foldFile,ontologyDataset='2007',outputVector='b',addTerms=[],resetNet=True,hardNegatives=False,weightDecay=float(sys.argv[2]))
+
     for i in range(4):
         model = AllGoModel(i,'20',folder,name,foldFile=foldFile,ontologyDataset='2007',outputVector='',addTerms=[term],resetNet=True,hardNegatives=False,weightDecay=float(sys.argv[2]))
         model.trainNetwork(200000,saveTermLoss=False)
