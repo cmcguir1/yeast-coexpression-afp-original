@@ -29,7 +29,7 @@ def main():
     # model.testNetworkAll(validation=False)
 
     graph = AllGoGraph(model.networkLoc[:-5],f'113x{sys.argv[2]}x79',folder,name,geneFolds=foldFile,outputVector='b',addTerms=[],ontologyDataset='2007')
-    graph.feedForward(int(sys.argv[1]),calcAgn=False,calcPos=False)
+    graph.feedForward(int(sys.argv[1]),calcAgn=False,calcPos=True)
     # graph.rankAllTerms(agn=True)
     # graph.rankGenes(agn=True,singleTerm=False)
 
