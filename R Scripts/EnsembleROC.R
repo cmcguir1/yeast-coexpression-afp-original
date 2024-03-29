@@ -1,4 +1,4 @@
-lt <- 2
+lt <- 1
 ensembleROC <- function(dataFile,graphName,modern=FALSE) {
   getAUC <- function(data){
     

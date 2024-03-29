@@ -39,7 +39,7 @@ replaceTest <- function(str) {
 
 #Gets all files from Working directory
 wd <- getwd()
-saveDir <- "D:/MultiTerm_Struct_Large/Pairwise_2"
+saveDir <- "D:/MultiTerm_L2_Large_PS/Pairwise2"
 if(!dir.exists(saveDir)) dir.create(saveDir)
 
 
@@ -54,7 +54,7 @@ print(testDirs)
 plotAll <- FALSE
 desiredTerms <- c("GO-0007005","GO-0042273","GO-0032196","GO-0009451","GO-0006897","GO-0006979","GO-0006325","GO-0000278","GO-0051321","GO-0003700","GO-0000747","GO-0006470","GO-0007033")
 desiredTerms <- c("GO-0007005")
-netTypes <- c("Net_500x200x100","Net_500x200")
+netTypes <- c("Wd_1e-4","Wd_0","Wd_1e-5","Wd_1e-6")
 
 dataset <- "AllGO"
 
