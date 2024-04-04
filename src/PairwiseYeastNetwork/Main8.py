@@ -25,13 +25,13 @@ def main():
 
    
     model = AllGoModel(int(sys.argv[1]),sys.argv[3],folder,name,foldFile=foldFile,ontologyDataset='2007',outputVector='b',addTerms=[],resetNet=False,hardNegatives=False,weightDecay=float(sys.argv[2]))
-    model.trainNetwork(400000,saveTermLoss=False)
-    model.testNetworkAll()
-    model.testNetworkAll(validation=False)
+    # model.trainNetwork(400000,saveTermLoss=False)
+    # model.testNetworkAll()
+    # model.testNetworkAll(validation=False)
 
-    # graph = AllGoGraph(model.networkLoc[:-5],f'113x{sys.argv[3]}x79',folder,name,geneFolds=foldFile,outputVector='b',addTerms=[],ontologyDataset='2007')
+    graph = AllGoGraph(model.networkLoc[:-5],f'113x{sys.argv[3]}x79',folder,name,geneFolds=foldFile,outputVector='b',addTerms=[],ontologyDataset='2007')
     # for i in range(4):
-    #     graph.feedForward(i,calcAgn=False)
+    graph.feedForward(int(sys.argv[1]),calcAgn=False)
     # graph.rankAllTerms(agn=False)
     # graph.rankGenes(agn=False,singleTerm=False)
 
