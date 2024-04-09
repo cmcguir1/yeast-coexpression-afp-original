@@ -137,8 +137,8 @@ displayGraph <- function(dataFile,graphName,fileName,modern) {
 
 dataFile <- file.choose()
 
-graphName <- ""
-fileName <- "MultiTerm_Ensemble_ModernEvaluation_dashed_fixed.pdf"
+graphName <- "Wd 1e-4 Modern"
+fileName <- "MultiTerm_1e-4_ModernEval_Esemble.pdf"
 modern <- T
 createGraph(dataFile,graphName,fileName,modern)
 

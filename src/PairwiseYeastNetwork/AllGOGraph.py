@@ -360,12 +360,29 @@ class AllGoGraph(AllGoModel):
 
 
         def checkPosNeg(gene):
-            if gene in evalPosGenes: 
+            if gene in posGenes: 
                 return 1
-            elif gene in evalNegGenes:
+            elif gene in negGenes:
                 return -1
             else:
                 return 0
+            
+        def annoCompare(gene):
+            if gene in posGenes:
+                ogAnno = '+'
+            elif gene in negGenes:
+                ogAnno = '-'
+            else:
+                ogAnno = '0'
+            
+            if gene in evalPosGenes:
+                modAnno = '+'
+            elif gene in evalNegGenes:
+                modAnno = '-'
+            else:
+                modAnno = '0'
+
+            return ogAnno + '/' + modAnno
         
         posSet = set(posGenes)
         
@@ -403,13 +420,13 @@ class AllGoGraph(AllGoModel):
         for gene,score in posScore.items():
             # print([gene,checkPosNeg(gene),score,totalScore[gene]])
             if score != 0:
-                scoreTable.append([gene,checkPosNeg(gene),score,totalScore[gene]])
+                scoreTable.append([gene,checkPosNeg(gene),annoCompare(gene),score,totalScore[gene]])
         scoreTable_filt = list(filter(lambda row: row[1] != 0,scoreTable))
             
-        confMat = np.array(ConfusionMatrix.calculateMatrix(np.array(scoreTable,dtype=object),1,2),dtype=object)
+        confMat = np.array(ConfusionMatrix.calculateMatrix(np.array(scoreTable,dtype=object),1,3),dtype=object)
         print(confMat)
-        confMat_filt = np.array(ConfusionMatrix.calculateMatrix(np.array(scoreTable_filt,dtype=object),1,2),dtype=object)
-        pd.DataFrame(confMat,columns=['Gene','Label','Score','Background Score','Precision','Recall','False Positive Rate']).to_csv(f'{self.path}/{"" if self.modelName == "" else f"{self.modelName}"}{self.struct}_GeneRanking_{term[0:2]}{term[3:]}{"_sigmoid" if sigmoid else ""}{fileSuffix}.csv',index=False)
+        confMat_filt = np.array(ConfusionMatrix.calculateMatrix(np.array(scoreTable_filt,dtype=object),1,3),dtype=object)
+        pd.DataFrame(confMat,columns=['Gene','Label','Annos','Score','Background Score','Precision','Recall','False Positive Rate']).to_csv(f'{self.path}/{"" if self.modelName == "" else f"{self.modelName}"}{self.struct}_GeneRanking_{term[0:2]}{term[3:]}{"_sigmoid" if sigmoid else ""}{fileSuffix}.csv',index=False)
         return (np.mean(confMat_filt[:,5]),AllGoGraph.averagePrecision(confMat_filt[:,4]))
     
     def rankAllTerms(self,agn=True,fileSuffix=''):
