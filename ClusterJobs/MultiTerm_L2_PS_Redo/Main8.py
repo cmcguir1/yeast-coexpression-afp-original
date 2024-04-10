@@ -31,7 +31,7 @@ def main():
 
     graph = AllGoGraph(model.networkLoc[:-5],f'113x{sys.argv[3]}x79',folder,name,geneFolds=foldFile,outputVector='b',addTerms=[],ontologyDataset='2007')
     # for i in range(4):
-    graph.feedForward(int(sys.argv[1]),calcAgn=False)
+    graph.feedForward(int(sys.argv[1]),calcAgn=True,calcPos=False)
     # graph.rankAllTerms(agn=False)
     # graph.rankGenes(agn=False,singleTerm=False)
 
