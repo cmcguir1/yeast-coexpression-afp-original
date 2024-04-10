@@ -35,10 +35,10 @@ def main():
     model = AllGoModel(0,'20',folder,name,foldFile=foldFile,ontologyDataset='2007',outputVector='',addTerms=[],resetNet=True,hardNegatives=False,weightDecay=float(sys.argv[2]))
 
     graph = AllGoGraph(model.networkLoc[:-5],f'113x20x1',folder,name,geneFolds=foldFile,outputVector='',addTerms=[term],ontologyDataset='2007',evalDataset='2023')
-    for i in range(4):
-        graph.feedForward(i,calcAgn=False,calcPos=True)
+    # for i in range(4):
+    #     graph.feedForward(i,calcAgn=False,calcPos=True)
     # graph.rankAllTerms(agn=True)
-    graph.rankGenes(agn=False,singleTerm=True)
+    graph.rankGenes(agn=False,singleTerm=True,term=term)
 
     # graph = AllGoGraph(model.networkLoc[:-5],f'113x20x1',folder,name,geneFolds=foldFile,outputVector='',addTerms=['GO:0007005'],ontologyDataset='2007',evalDataset='2023')
     # graph.rankGenes(agn=False,singleTerm=True,fileSuffix='_ModernLabelSwap')
