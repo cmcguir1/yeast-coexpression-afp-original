@@ -411,7 +411,7 @@ class AllGoGraph(AllGoModel):
                 numScores[pairsMemMap[i,0]] = 0
             if pairsMemMap[i,1] in posSet:
                 posScore[pairsMemMap[i,0]] = posScore[pairsMemMap[i,0]] + score
-                numScores[gene] += 1
+                numScores[pairsMemMap[i,0]] = numScores[pairsMemMap[i,0]] + 1
             totalScore[pairsMemMap[i,0]] = totalScore[pairsMemMap[i,0]] + score
             # print(posScore[pairsMemMap[i,0]])
             # print(totalScore[pairsMemMap[i,0]])
