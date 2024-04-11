@@ -405,9 +405,10 @@ class AllGoGraph(AllGoModel):
         for i in range(pairsRange):
             score = 1.0 / (1.0+ np.exp(-scoresMemmap[i,termIndex])) if sigmoid else scoresMemmap[i,termIndex]
             # print(score)
-            if pairsMemMap[i,0] not in posScore or pairsMemMap[i,0] not in totalScore:
+            if pairsMemMap[i,0] not in posScore or pairsMemMap[i,0] not in totalScore or pairsMemMap[i,0] not in numScores:
                 posScore[pairsMemMap[i,0]] = 0
                 totalScore[pairsMemMap[i,0]] = 0
+                numScores[pairsMemMap[i,0]] = 0
             if pairsMemMap[i,1] in posSet:
                 posScore[pairsMemMap[i,0]] = posScore[pairsMemMap[i,0]] + score
                 numScores[gene] += 1
