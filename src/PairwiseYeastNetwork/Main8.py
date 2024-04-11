@@ -29,11 +29,11 @@ def main():
     # model.testNetworkAll()
     # model.testNetworkAll(validation=False)
 
-    graph = AllGoGraph(model.networkLoc[:-5],f'113x{sys.argv[3]}x79',folder,name,geneFolds=foldFile,outputVector='b',addTerms=[],ontologyDataset='2007')
+    graph = AllGoGraph(model.networkLoc[:-5],f'113x{sys.argv[3]}x79',folder,name,geneFolds=foldFile,outputVector='b',addTerms=[],ontologyDataset='2007',evalDataset='2023')
     # for i in range(4):
     # graph.feedForward(int(sys.argv[1]),calcAgn=True,calcPos=False)
     graph.rankGenes(agn=True,singleTerm=False)
-    graph.rankAllTerms(agn=True)
+    # graph.rankAllTerms(agn=True)
     
 
     # graph = AllGoGraph(model.networkLoc[:-5],f'113x{sys.argv[3]}x79',folder,name,geneFolds=foldFile,outputVector='b',addTerms=[],ontologyDataset='2007',evalDataset='2023')
