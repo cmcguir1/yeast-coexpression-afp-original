@@ -186,10 +186,10 @@ class AllGoGraph(AllGoModel):
             self.folds = [{gene[0] for gene in foldTable if gene[2] == i} for i in range(numfolds)]
         else:
             self.folds = [{gene[0] for gene in foldTable if gene[1] == i} for i in range(numfolds)]
-        # self.allGenes = pd.read_csv('./Yeast Resources/GeneSets/BiologicalProcessGenes.csv').values.flatten().tolist()
-        self.allGenes = list(self.goParser.onto.yorfs.keys())
         
-        self.foldGenes = [gene[0] for gene in foldTable]
+        self.allGenes = set(self.goParser.onto.yorfs.keys())
+        
+        self.foldGenes = {gene[0] for gene in foldTable}
 
         negTerms = [leaf[1] for leaf in self.leaves]
         negGenes = set()
@@ -197,9 +197,17 @@ class AllGoGraph(AllGoModel):
             negGenes = negGenes | termGenes
 
         self.agnGenes = set(self.allGenes) - negGenes
+
+        print("Neg genes:",len(negGenes))
+        print("Fold table:",len(foldTable))
+        print("Fold table:",sum([len(fold) for fold in self.folds]))
+        print("Agn genes:",len(self.agnGenes))
+        print("Intersection:",len(self.agnGenes & self.allGenes))
+
+        
         
 
-        # self.memMapLen = (sum([len(fold) for fold in self.folds]) * len(self.allGenes) - len(foldTable)) + (len(self.agnGenes) * len(self.allGenes)) - len(set(self.agnGenes) & set(self.allGenes))
+        
         self.memMapLen = (len(foldTable)*len(foldTable)-len(foldTable)) + (len(self.agnGenes)*len(self.allGenes)-len(self.agnGenes))
         
         self.foldOffsets = []
@@ -252,12 +260,7 @@ class AllGoGraph(AllGoModel):
             scoresMemmap = np.memmap(f'{self.path}/{"" if self.modelName == "" else f"{self.modelName}_"}{self.struct}_Scores.dat',dtype='float32',shape=(self.memMapLen,len(self.leaves)),mode=score_mode)
             pairsMemap = np.memmap(f'{self.path}/{"" if self.modelName == "" else f"{self.modelName}_"}{self.struct}_Pairs.dat',shape=(self.memMapLen,2),dtype='U10',mode=pairs_mode)
             
-            #Set of all genes that are annotated to tested term
-            if os.path.exists(f'./Yeast Resources/TermPos/GO-{term[3:]}_Pos_{dataset}.csv') and False:
-                posGenes = pd.read_csv(f'./Yeast Resources/TermPos/GO-{term[3:]}_Pos_{dataset}.csv').to_numpy().flatten()
-            else:
-                posGenes = getGenes(term,dataset=dataset)
-                # pd.DataFrame(posGenes,columns=['Gene']).to_csv(f'./Yeast Resources/TermPos/GO-{term[3:]}_Pos_{dataset}.csv',index=False)
+                
             
             self.nets[fold].eval()
             
@@ -298,6 +301,7 @@ class AllGoGraph(AllGoModel):
                     if i > pairLen - batchSize:
                         
                         batch = pairs[i:]
+                        print(batch)
                         batchOffset = len(batch)
                         
                     else:
@@ -333,7 +337,7 @@ class AllGoGraph(AllGoModel):
         
         posGenes = self.goParser.getGenes(term)
         evalPosGenes = self.evalParser.getGenes(term)
-        print(posGenes)
+        
 
         negGenes = set()
         evalNegGenes = set()
@@ -389,6 +393,7 @@ class AllGoGraph(AllGoModel):
         posScore = {}
         totalScore = {}
         numScores = {}
+        nonGenes = {}
 
         for gene in self.allGenes:
             posScore[gene] = 0
@@ -406,24 +411,23 @@ class AllGoGraph(AllGoModel):
             score = 1.0 / (1.0+ np.exp(-scoresMemmap[i,termIndex])) if sigmoid else scoresMemmap[i,termIndex]
             # print(score)
             if pairsMemMap[i,0] not in posScore or pairsMemMap[i,0] not in totalScore or pairsMemMap[i,0] not in numScores:
-                posScore[pairsMemMap[i,0]] = 0
-                totalScore[pairsMemMap[i,0]] = 0
-                numScores[pairsMemMap[i,0]] = 0
+                if pairsMemMap[i,0] not in nonGenes:
+                    nonGenes[pairsMemMap[i,0]] = 0
+                nonGenes[pairsMemMap[i,0]] += 1
+            
             if pairsMemMap[i,1] in posSet:
                 posScore[pairsMemMap[i,0]] = posScore[pairsMemMap[i,0]] + score
                 numScores[pairsMemMap[i,0]] = numScores[pairsMemMap[i,0]] + 1
             totalScore[pairsMemMap[i,0]] = totalScore[pairsMemMap[i,0]] + score
-            # print(posScore[pairsMemMap[i,0]])
-            # print(totalScore[pairsMemMap[i,0]])
-            # print('-------------')
             
-
+            
+        pd.DataFrame([[gene,num] for gene,num in nonGenes.items()],columns=['Genes','Occurences']).to_csv('NonGenes.csv',index=False)
 
         
         
         scoreTable = []
         for gene,score in posScore.items():
-            # print([gene,checkPosNeg(gene),score,totalScore[gene]])
+            
             if score != 0:
                 scoreTable.append([gene,checkPosNeg(gene),annoCompare(gene),score,totalScore[gene],numScores[gene]])
         scoreTable_filt = list(filter(lambda row: row[1] != 0,scoreTable))
@@ -490,5 +494,68 @@ class AllGoGraph(AllGoModel):
 
         table = np.concatenate([scoresMemmap,pairsMemMap],axis=1,dtype=object)
         pd.DataFrame(table,columns=['Gene_A','Gene_B']+[leaf[0] for leaf in self.leaves]).to_csv(loc,index=False)
+
+
+
+    def debug(self):
+        scoresMemmap = np.memmap(f'{self.path}/{"" if self.modelName == "" else f"{self.modelName}_"}{self.struct}_Scores.dat',dtype='float32',shape=(self.memMapLen,len(self.leaves)),mode='r+')
+        pairsMemMap = np.memmap(f'{self.path}/{"" if self.modelName == "" else f"{self.modelName}_"}{self.struct}_Pairs.dat',shape=(self.memMapLen,2),dtype='U10',mode='r+')
+
+        pairs = AllGoGraph.makePairs(self.foldGenes,self.foldGenes)
+        agnPairs = AllGoGraph.makePairs(self.agnGenes,self.allGenes)
+        
+        print('-------------------------------')
+        print('Fold Genes:',len(self.foldGenes))
+        print('Agn Genes:',len(self.agnGenes))
+        print('All Genes:',len(self.allGenes))
+
+        print('Num Pairs:',len(pairs))
+        print('Num Agn Pairs:',len(agnPairs))
+
+        batch = pairs[-50:]
+        print(batch)
+        print(np.array(batch,dtype='U10') )
+
+        numPairs = {}
+        for gene in self.allGenes:
+            numPairs[gene] = 0
+
+        for i in range(len(pairs)):
+            numPairs[pairs[i][0]] += 1
+            numPairs[pairs[i][1]] += 1
+        for i in range(len(agnPairs)):
+            numPairs[agnPairs[i][0]] += 1
+            numPairs[agnPairs[i][1]] += 1
+
+        occur = {}
+        for i in range(len(pairsMemMap)):
+            if pairsMemMap[i,0] not in occur:
+                occur[pairsMemMap[i,0]] = 0
+            if pairsMemMap[i,1] not in occur:
+                occur[pairsMemMap[i,1]] = 0
+            occur[pairsMemMap[i,0]] += 1
+            occur[pairsMemMap[i,1]] += 1
+        occurLst = [(gene,num) for gene,num in occur.items()]
+        occurLst.sort(key=(lambda x: x[1]))
+
+        pairsLst = [(gene,num) for gene, num in numPairs.items()]
+        pairsLst.sort(key=(lambda x: x[1]))
+        pd.DataFrame(occurLst,columns=["Gene","Occurences in MemMap Pairs"]).to_csv(f'{self.path}/{"" if self.modelName == "" else f"{self.modelName}"}{self.struct}_MemMapOccur.csv',index=False)
+        pd.DataFrame(pairsLst,columns=["Gene","Occurances in pairs"]).to_csv(f'{self.path}/{"" if self.modelName == "" else f"{self.modelName}"}{self.struct}_PairsOccurences.csv',index=False)
+
+    def debugMemMap(self):
+        pairs = AllGoGraph.makePairs(self.foldGenes,self.foldGenes)
+        memMap = np.memmap('TestMemMap.dat',dtype='U10',shape=(100,2))
+        for i in range(5):
+            memMap[i*10:(i+1)*10,:] = np.ndarray(pairs[i*10:(i+1)*10],dtype='U10')
+        print("MemMap:",memMap)
+        print("Pairs",pairs[:50])
+
+    def generateAllGenes(self):
+        pd.DataFrame(self.allGenes,columns=['Genes']).to_csv('AllGenes.csv',index=False)
+        
+
+
+
 
     
