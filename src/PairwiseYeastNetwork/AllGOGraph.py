@@ -528,13 +528,22 @@ class AllGoGraph(AllGoModel):
                 occur[pairsMemMap[i,1]] = 0
             occur[pairsMemMap[i,0]] += 1
             occur[pairsMemMap[i,1]] += 1
-        occurLst = [(gene,num) for gene,num in occur.items()]
+
+        def membership(gene):
+            if gene in self.foldGenes:
+                return "Annotated"
+            elif gene in self.agnGenes:
+                return "Agnostic"
+            else:
+                return "Corrupted"
+
+        occurLst = [(gene,num,membership(gene)) for gene,num in occur.items()]
         occurLst.sort(key=(lambda x: x[1]))
 
-        pairsLst = [(gene,num) for gene, num in numPairs.items()]
+        pairsLst = [(gene,num,membership(gene)) for gene, num in numPairs.items()]
         pairsLst.sort(key=(lambda x: x[1]))
-        pd.DataFrame(occurLst,columns=["Gene","Occurences in MemMap Pairs"]).to_csv(f'{self.path}/{"" if self.modelName == "" else f"{self.modelName}"}{self.struct}_MemMapOccur.csv',index=False)
-        pd.DataFrame(pairsLst,columns=["Gene","Occurances in pairs"]).to_csv(f'{self.path}/{"" if self.modelName == "" else f"{self.modelName}"}{self.struct}_PairsOccurences.csv',index=False)
+        pd.DataFrame(occurLst,columns=["Gene","Occurences in MemMap Pairs","Membership"]).to_csv(f'{self.path}/{"" if self.modelName == "" else f"{self.modelName}"}{self.struct}_MemMapOccur.csv',index=False)
+        pd.DataFrame(pairsLst,columns=["Gene","Occurances in pairs","Membership"]).to_csv(f'{self.path}/{"" if self.modelName == "" else f"{self.modelName}"}{self.struct}_PairsOccurences.csv',index=False)
 
     def debugMemMap(self):
         pairs = AllGoGraph.makePairs(self.foldGenes,self.foldGenes)
