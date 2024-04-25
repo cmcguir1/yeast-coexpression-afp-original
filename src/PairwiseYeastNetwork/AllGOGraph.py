@@ -504,17 +504,10 @@ class AllGoGraph(AllGoModel):
         pairs = AllGoGraph.makePairs(self.foldGenes,self.foldGenes)
         agnPairs = AllGoGraph.makePairs(self.agnGenes,self.allGenes)
         
-        print('-------------------------------')
-        print('Fold Genes:',len(self.foldGenes))
-        print('Agn Genes:',len(self.agnGenes))
-        print('All Genes:',len(self.allGenes))
 
-        print('Num Pairs:',len(pairs))
-        print('Num Agn Pairs:',len(agnPairs))
-
-        batch = pairs[-50:]
-        print(batch)
-        print(np.array(batch,dtype='U10') )
+        # batch = pairs[-50:]
+        # print(batch)
+        # print(np.array(batch,dtype='U10') )
 
         numPairs = {}
         for gene in self.allGenes:
