@@ -19,16 +19,29 @@ ssl._create_default_https_context = ssl._create_unverified_context
 
 def main():
 
-    
-    model = AllGoModel(int(sys.argv[1]),'100','AllTermLoss','BioProc',foldFile='./src/PairwiseYeastNetwork/AllGO_2007_b_1.csv',ontologyDataset='2007',outputVector='b',resetNet=False)
-    model.trainNetwork(100000,saveTermLoss=True,track=1000)
-    model.testNetworkAll()
-    model.testNetworkAll(validation=False)
+    folder = 'MultiTerm_L2_ParaSearch'
+    name = f'MultiTerm_wd{sys.argv[2]}'
+    foldFile = './src/PairwiseYeastNetwork/AllGO_2007_GO-0007005_1.csv'
 
-    # graph = AllGoGraph('./Yeast Resources/Pairwise/Spell/Parser/BioProc_nonLeaves_x_b_113x100x79_lr0.01_batch50_lfBCE_Net_fold','113x100x79','Parser','BioProc',geneFolds='./src/PairwiseYeastNetwork/AllGO_2007_b_1.csv',outputVector='b',ontologyDataset='2007')
-    # graph.feedForward(int(sys.argv[1]),calcAgn=False)
-    # graph.rankGenes(agn=False)
-    # graph.to_csv('./PairScores.csv')
+   
+    model = AllGoModel(int(sys.argv[1]),sys.argv[3],folder,name,foldFile=foldFile,ontologyDataset='2007',outputVector='b',addTerms=[],resetNet=False,hardNegatives=False,weightDecay=float(sys.argv[2]))
+    # model.trainNetwork(400000,saveTermLoss=False)
+    # model.testNetworkAll()
+    # model.testNetworkAll(validation=False)
+
+    graph = AllGoGraph(model.networkLoc[:-5],f'113x{sys.argv[3]}x79',folder,name,geneFolds=foldFile,outputVector='b',addTerms=[],ontologyDataset='2007',evalDataset='2023')
+    # for i in range(4):
+    # graph.feedForward(int(sys.argv[1]),calcAgn=True,calcPos=False)
+    # graph.rankGenes(agn=True,singleTerm=False)
+    # graph.rankAllTerms(agn=True)
+    graph.debug()
+
+    
+
+    # graph = AllGoGraph(model.networkLoc[:-5],f'113x{sys.argv[3]}x79',folder,name,geneFolds=foldFile,outputVector='b',addTerms=[],ontologyDataset='2007',evalDataset='2023')
+    # graph.rankGenes(agn=False,singleTerm=False,fileSuffix='_Modern')
+
+
 
 
 
