@@ -240,5 +240,5 @@ def writeJobs(JobName,pythonFile,node=False,arg1=['0','1','2','3'],arg2=None,arg
 # writeJobs('MemMap_Debug','Main8.py',arg2=[0,0.0001,0.00001,0.000001],arg3=['500x200x100'],arg1=[0])
 
 writeJobs('MultiTerm_LinearEval','Main.py')
-writeJobs('MemMap_StressTest_Scores','TestMain3.py',arg1=['../Cluster_'])
+writeJobs('MemMap_StressTest_Floats','TestMain3.py',arg1=['../Cluster_'])
 writeJobs('MemMap_StressTest_Pairs','TestMain2.py',arg1=['../Cluster_'])
