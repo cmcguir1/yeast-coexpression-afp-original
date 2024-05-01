@@ -22,7 +22,7 @@ def main():
 
     threads  = []
     for i in range(16):
-        t = threading.Thread(target=addToMemMap_Scores,args=(memMapLen))
+        t = threading.Thread(target=addToMemMap_Scores,args=(memMapLen,))
         t.start()
         threads.append(t)
     

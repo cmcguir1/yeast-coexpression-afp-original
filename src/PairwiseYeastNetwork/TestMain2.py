@@ -33,13 +33,18 @@ def main():
     memMap = np.memmap(f'{sys.argv[1]}TestMemMap_Pairs.dat',dtype='U10',shape=(len(pairs)-100,2),mode='r+')
 
     
-    
+    occur = {}
+    for gene in genes:
+        occur[gene] = 0
     for [geneA, geneB] in memMap:
-        print(repr(geneA),repr(geneB))
         if geneA not in genes:
-            print('Not found:',geneA)
+            occur[geneA] = 0
         if geneB not in genes:
-            print('Not found:',geneB)
+            occur[geneB] = 0
+        occur[geneA] += 1
+        occur[geneB] += 1
+    occur_lst = [[gene,num] for gene,num in occur.items()]
+    pd.DataFrame(occur_lst,columns=['Gene','MemMap_Occur']).to_csv(f'{sys.argv[1]}TestMemMap_Pairs_Occur.csv',index=False)
 
     
 
