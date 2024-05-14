@@ -23,17 +23,20 @@ def main():
     name = f'Replicate_{sys.argv[1]}'
     foldFile = './src/PairwiseYeastNetwork/AllGO_2007_GO-0007005_1.csv'
 
-    for i in range(4):
-        model = AllGoModel(i,'200',folder,name,foldFile=foldFile,ontologyDataset='2007',outputVector='b',addTerms=[],resetNet=False,hardNegatives=False)
-        model.trainNetwork(10000,saveTermLoss=False)
-        model.testNetworkAll()
-        model.testNetworkAll(validation=False)
+    model = AllGoModel(0,'200',folder,name,foldFile=foldFile,ontologyDataset='2007',outputVector='b',addTerms=[],resetNet=False,hardNegatives=False)
+
+    # for i in range(4):
+    #     model = AllGoModel(i,'200',folder,name,foldFile=foldFile,ontologyDataset='2007',outputVector='b',addTerms=[],resetNet=False,hardNegatives=False)
+    #     model.trainNetwork(10000,saveTermLoss=False)
+    #     model.testNetworkAll()
+    #     model.testNetworkAll(validation=False)
 
     graph = AllGoGraph(model.networkLoc[:-5],f'113x200x79',folder,name,geneFolds=foldFile,outputVector='b',addTerms=[],ontologyDataset='2007',evalDataset='2023')
-    for i in range(4):
-        graph.feedForward(i,calcAgn=True,calcPos=True)
-        # graph.rankGenes(agn=True,singleTerm=False)
-        # graph.rankAllTerms(agn=True)
+    # for i in range(4):
+        # graph.feedForward(i,calcAgn=True,calcPos=True)
+    graph.rankGenes(agn=True,singleTerm=False)
+    graph.debug()
+    # graph.rankAllTerms(agn=True)
 
     
 
