@@ -310,6 +310,8 @@ class AllGoGraph(AllGoModel):
                         batchOffset = batchSize
                     scoresMemmap[i+self.foldOffsets[fold]:i+self.foldOffsets[fold]+batchOffset,:] = calcBatch(batch)
                     pairsMemap[i+self.foldOffsets[fold]:i+self.foldOffsets[fold]+batchOffset,:] =  np.array(batch,dtype='U10') 
+                    # scoresMemmap.flush()
+                    # pairsMemap.flush()
                     if i % (10000 / batchSize) == 0 and i != 0 and printProgress:
                         ratio = (i)/len(pairs)
                         print(f'Calculated {ratio*100}% of pairs\nTime Spent: {((time.time()-start)/60)}\nEstimated Time Remaining: {((time.time()-start)/60) * ((self.memMapLen - (i+1))) / (i+1)}')

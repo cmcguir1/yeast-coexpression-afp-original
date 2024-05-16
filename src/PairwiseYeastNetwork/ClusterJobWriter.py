@@ -243,4 +243,5 @@ def writeJobs(JobName,pythonFile,node=False,arg1=['0','1','2','3'],arg2=None,arg
 # writeJobs('MemMap_StressTest_Floats','TestMain3.py',arg1=['../Cluster_'])
 # writeJobs('MemMap_StressTest_Pairs','TestMain2.py',arg1=['../Cluster_'])
 
-writeJobs('MultiTerm_LinearEval_Replicate','Main2.py',arg2=['20','200'],arg3=[0,1])
+writeJobs('MultiTerm_LinearEval_Replicate_Linear','Main2.py',arg2=['20','200'],arg3=[0],arg1=[0])
+writeJobs('MultiTerm_LinearEval_Replicate_Parallel','Main3.py',arg2=['20','200'],arg3=[1])
