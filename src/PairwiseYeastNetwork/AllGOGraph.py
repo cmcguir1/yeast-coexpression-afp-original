@@ -335,7 +335,7 @@ class AllGoGraph(AllGoModel):
 
 
     #rankGenes takes all of the calculated pair scores then ranks the genes by their involvment in a given process
-    def rankGenes(self,term='GO:0007005',sigmoid=False,agn=True,fileSuffix="",singleTerm=False):
+    def rankGenes(self,term='GO:0007005',sigmoid=False,agn=True,fileSuffix="",singleTerm=False,modern=False):
         
         
         posGenes = self.goParser.getGenes(term)
@@ -373,6 +373,15 @@ class AllGoGraph(AllGoModel):
                 return -1
             else:
                 return 0
+            
+        def checkPosNegEval(gene):
+            if gene in evalPosGenes:
+                return 1
+            elif gene in evalNegGenes:
+                return -1
+            else:
+                return 0
+
             
         def annoCompare(gene):
             if gene in posGenes:
@@ -432,7 +441,8 @@ class AllGoGraph(AllGoModel):
         for gene,score in posScore.items():
             
             if score != 0:
-                scoreTable.append([gene,checkPosNeg(gene),annoCompare(gene),score,totalScore[gene],numScores[gene]])
+                label =  checkPosNegEval(gene) if modern else checkPosNeg(gene)
+                scoreTable.append([gene,label,annoCompare(gene),score,totalScore[gene],numScores[gene]])
         scoreTable_filt = list(filter(lambda row: row[1] != 0,scoreTable))
             
         confMat = np.array(ConfusionMatrix.calculateMatrix(np.array(scoreTable,dtype=object),1,3),dtype=object)

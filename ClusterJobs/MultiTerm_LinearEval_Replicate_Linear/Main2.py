@@ -33,8 +33,9 @@ def main():
     # for i in range(4):
     #     graph.feedForward(i,calcAgn=True,calcPos=True)
     # graph.rankGenes(agn=True,singleTerm=False)
+    graph.rankGenes(agn=True,singleTerm=False,fileSuffix='_Modern',modern=True)
     # graph.rankAllTerms(agn=True)
-    graph.debug()
+    # graph.debug()
 
     
 
