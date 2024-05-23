@@ -246,4 +246,4 @@ def writeJobs(JobName,pythonFile,node=False,arg1=['0','1','2','3'],arg2=None,arg
 # writeJobs('MultiTerm_LinearEval_Replicate_Linear','Main2.py',arg2=['20','200'],arg3=[0],arg1=[0])
 # writeJobs('MultiTerm_LinearEval_Replicate_Parallel','Main3.py',arg2=['20','200'],arg3=[1],arg1=[0])
 
-writeJobs('MultiTerm_NetStruct_PS','Main.py',arg2=['200','500x200x100','1000'],arg3=[0])
+writeJobs('MultiTerm_NetStruct_PS','Main.py',arg2=['200','500x200x100','1000'],arg3=[0],arg1=[0])
