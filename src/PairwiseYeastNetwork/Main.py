@@ -33,8 +33,10 @@ def main():
     # for i in range(4):
     # graph.feedForward(int(sys.argv[1]),calcAgn=True,calcPos=True,flush=True)
     # graph.rankGenes(agn=True,singleTerm=False)
-    graph.rankGenes(agn=True,singleTerm=False,fileSuffix='_Modern',modern=True)
-    # graph.rankAllTerms(agn=True)
+    # graph.rankGenes(agn=True,singleTerm=False,fileSuffix='_Modern',modern=True)
+    graph.rankAllTerms(agn=True)
+    graph.rankAllTerms(agn=True,fileSuffix='_Modern',modern=True)
+
     # graph.debug()
 
     

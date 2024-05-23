@@ -454,10 +454,10 @@ class AllGoGraph(AllGoModel):
         pd.DataFrame(confMat,columns=['Gene','Label','Annos','Score','Background Score','Num pos pairs','Precision','Recall','False Positive Rate']).to_csv(f'{self.path}/{"" if self.modelName == "" else f"{self.modelName}"}{self.struct}_GeneRanking_{term[0:2]}{term[3:]}{"_sigmoid" if sigmoid else ""}{fileSuffix}.csv',index=False)
         return (np.mean(confMat_filt[:,5]),AllGoGraph.averagePrecision(confMat_filt[:,4]))
     
-    def rankAllTerms(self,agn=True,fileSuffix=''):
+    def rankAllTerms(self,agn=True,fileSuffix='',modern=False):
         summary = []
         for term,index in self.GOTermDict.items():
-            auc, avgPrec = self.rankGenes(term=term,agn=agn,fileSuffix=fileSuffix)
+            auc, avgPrec = self.rankGenes(term=term,agn=agn,fileSuffix=fileSuffix,modern=modern)
             summary.append([term,auc,avgPrec])
         pd.DataFrame(summary,columns=['GO Term','AUC','Average Precision']).to_csv(f'{self.path}/{"" if self.modelName == "" else f"_{self.modelName}"}{self.struct}GOTermDistribution{fileSuffix}.csv',index=False)
 
