@@ -210,12 +210,13 @@ class AllGoGraph(AllGoModel):
         
         self.memMapLen = (len(foldTable)*len(foldTable)-len(foldTable)) + (len(self.agnGenes)*len(self.allGenes)-len(self.agnGenes))
         
-        self.foldOffsets = []
-        offsetTotal = 0
-        for i in range(numfolds):
-            self.foldOffsets.append(offsetTotal)
-            offsetTotal += len(self.folds[i]) * len(foldTable) - len(self.folds[i])
-        self.agnOffset = offsetTotal
+        self.foldMemMapLen = [(len(self.folds[i]) * len(foldTable) - len(self.folds[i])) + (len(self.agnGenes)*len(self.allGenes)-len(self.agnGenes)) for i in range(numfolds)]
+        # self.foldLens = []
+        # offsetTotal = 0
+        # for i in range(numfolds):
+        #     self.foldOffsets.append(offsetTotal)
+        #     offsetTotal += len(self.folds[i]) * len(foldTable) - len(self.folds[i])
+        # self.agnOffset = offsetTotal
         
 
 
@@ -249,16 +250,16 @@ class AllGoGraph(AllGoModel):
                     #offset is an integer that is used to offest the GOTermDict to evaluate on the wrong term
                     return [batch[0],batch[1],outputs[0,self.GOTermDict[term]].item()]
 
-            if not os.path.exists(f'{self.path}/{"" if self.modelName == "" else f"{self.modelName}_"}{self.struct}_Scores.dat') and not(resetScores):
+            if not os.path.exists(f'{self.path}/{"" if self.modelName == "" else f"{self.modelName}_"}{self.struct}_Scores_fold{fold}.dat') and not(resetScores):
                 score_mode = 'w+'
             else:
                 score_mode = 'r+'
-            if not os.path.exists(f'{self.path}/{"" if self.modelName == "" else f"{self.modelName}_"}{self.struct}_Pairs.dat') and not(resetScores):
+            if not os.path.exists(f'{self.path}/{"" if self.modelName == "" else f"{self.modelName}_"}{self.struct}_Pairs_fold{fold}.dat') and not(resetScores):
                 pairs_mode = 'w+'
             else:
                 pairs_mode = 'r+'
-            scoresMemmap = np.memmap(f'{self.path}/{"" if self.modelName == "" else f"{self.modelName}_"}{self.struct}_Scores.dat',dtype='float32',shape=(self.memMapLen,len(self.leaves)),mode=score_mode)
-            pairsMemap = np.memmap(f'{self.path}/{"" if self.modelName == "" else f"{self.modelName}_"}{self.struct}_Pairs.dat',shape=(self.memMapLen,2),dtype='U10',mode=pairs_mode)
+            scoresMemmap = np.memmap(f'{self.path}/{"" if self.modelName == "" else f"{self.modelName}_"}{self.struct}_Scores_fold{fold}.dat',dtype='float32',shape=(self.foldMemMapLen[fold],len(self.leaves)),mode=score_mode)
+            pairsMemap = np.memmap(f'{self.path}/{"" if self.modelName == "" else f"{self.modelName}_"}{self.struct}_Pairs_fold{fold}.dat',shape=(self.foldMemMapLen[fold],2),dtype='U10',mode=pairs_mode)
             
                 
             
@@ -281,19 +282,19 @@ class AllGoGraph(AllGoModel):
             
             start = time.time()
 
-            if partition:
-                posPart = int(len(pairs)/partNum)
-                posStart = calcPart * posPart
-                posEnd = (calcPart+1) * posPart if calcPart + 1 != partNum else len(pairs)
-                posRange = range(posStart,posEnd,batchSize)
+            # if partition:
+            #     posPart = int(len(pairs)/partNum)
+            #     posStart = calcPart * posPart
+            #     posEnd = (calcPart+1) * posPart if calcPart + 1 != partNum else len(pairs)
+            #     posRange = range(posStart,posEnd,batchSize)
 
-                agnPart = int(len(agnPairs)/partNum)
-                agnStart = calcPart * agnPart
-                agnEnd = (calcPart+1) * agnPart if calcPart + 1 != partNum else len(agnPairs)
-                agnRange = range(agnStart,agnEnd,batchSize)
-            else:
-                posRange = range(0,len(pairs),batchSize)
-                agnRange = range(0,len(agnPairs),batchSize)
+            #     agnPart = int(len(agnPairs)/partNum)
+            #     agnStart = calcPart * agnPart
+            #     agnEnd = (calcPart+1) * agnPart if calcPart + 1 != partNum else len(agnPairs)
+            #     agnRange = range(agnStart,agnEnd,batchSize)
+            # else:
+            posRange = range(0,len(pairs),batchSize)
+            agnRange = range(0,len(agnPairs),batchSize)
 
             if calcPos:
             
@@ -308,11 +309,9 @@ class AllGoGraph(AllGoModel):
                         
                         batch = pairs[i:i+batchSize]
                         batchOffset = batchSize
-                    scoresMemmap[i+self.foldOffsets[fold]:i+self.foldOffsets[fold]+batchOffset,:] = calcBatch(batch)
-                    pairsMemap[i+self.foldOffsets[fold]:i+self.foldOffsets[fold]+batchOffset,:] =  np.array(batch,dtype='U10') 
-                    if flush:
-                        scoresMemmap.flush()
-                        pairsMemap.flush()
+                    scoresMemmap[i:i+batchOffset,:] = calcBatch(batch)
+                    pairsMemap[i:i+batchOffset,:] =  np.array(batch,dtype='U10') 
+                        
                     if i % (10000 / batchSize) == 0 and i != 0 and printProgress:
                         ratio = (i)/len(pairs)
                         print(f'Calculated {ratio*100}% of pairs\nTime Spent: {((time.time()-start)/60)}\nEstimated Time Remaining: {((time.time()-start)/60) * ((self.memMapLen - (i+1))) / (i+1)}')
@@ -327,11 +326,13 @@ class AllGoGraph(AllGoModel):
                     else:
                         batch = agnPairs[i:i+batchSize]
                         batchOffset = batchSize
-                    scoresMemmap[i+self.agnOffset:i+self.agnOffset+batchOffset,:] = scoresMemmap[i+self.agnOffset:i+self.agnOffset+batchOffset,:] + (calcBatch(batch) / self.numFolds)
-                    pairsMemap[i+self.agnOffset:i+self.agnOffset+batchOffset,:] =  np.array(batch,dtype='U10') 
+                    scoresMemmap[i+pairLen:i+pairLen+batchOffset,:] = (calcBatch(batch) / self.numFolds)
+                    pairsMemap[i+pairLen:i+pairLen+batchOffset,:] =  np.array(batch,dtype='U10') 
                     if i % (10000 / batchSize) == 0 and i != 0 and printProgress:
                         ratio = (i+self.agnOffset)/len(pairs)
                         print(f'Calculated {ratio*100}% of pairs\nTime Spent: {((time.time()-start)/60)}\nEstimated Time Remaining: {((time.time()-start)/60) * ((self.memMapLen - (i+1))) / (i+1)}')
+            scoresMemmap.flush()
+            pairsMemap.flush()
 
 
     #rankGenes takes all of the calculated pair scores then ranks the genes by their involvment in a given process
@@ -362,9 +363,7 @@ class AllGoGraph(AllGoModel):
 
         termIndex = self.GOTermDict[term]
 
-        scoresMemmap = np.memmap(f'{self.path}/{"" if self.modelName == "" else f"{self.modelName}_"}{self.struct}_Scores.dat',dtype='float32',shape=(self.memMapLen,len(self.leaves)),mode='r+')
-        pairsMemMap = np.memmap(f'{self.path}/{"" if self.modelName == "" else f"{self.modelName}_"}{self.struct}_Pairs.dat',shape=(self.memMapLen,2),dtype='U10',mode='r+')
-
+        
 
         def checkPosNeg(gene):
             if gene in posGenes: 
@@ -418,22 +417,27 @@ class AllGoGraph(AllGoModel):
 
 
         start = time.time()
-        pairsRange = self.memMapLen if agn else self.agnOffset
-        for i in range(pairsRange):
-            score = 1.0 / (1.0+ np.exp(-scoresMemmap[i,termIndex])) if sigmoid else scoresMemmap[i,termIndex]
-            # print(score)
-            if pairsMemMap[i,0] not in posScore or pairsMemMap[i,0] not in totalScore or pairsMemMap[i,0] not in numScores:
-                if pairsMemMap[i,0] not in nonGenes:
-                    nonGenes[pairsMemMap[i,0]] = 0
-                nonGenes[pairsMemMap[i,0]] += 1
+        
+
+        for fold in range(self.numFolds):
+            scoresMemmap = np.memmap(f'{self.path}/{"" if self.modelName == "" else f"{self.modelName}_"}{self.struct}_Scores_fold{fold}.dat',dtype='float32',shape=(self.foldMemMapLen[fold],len(self.leaves)),mode='r+')
+            pairsMemMap = np.memmap(f'{self.path}/{"" if self.modelName == "" else f"{self.modelName}_"}{self.struct}_Pairs_fold{fold}.dat',shape=(self.foldMemMapLen[fold],2),dtype='U10',mode='r+')
+
+            for i in range(self.foldMemMapLen[fold]):
+                score = 1.0 / (1.0+ np.exp(-scoresMemmap[i,termIndex])) if sigmoid else scoresMemmap[i,termIndex]
+                
+                if pairsMemMap[i,0] not in posScore or pairsMemMap[i,0] not in totalScore or pairsMemMap[i,0] not in numScores:
+                    if pairsMemMap[i,0] not in nonGenes:
+                        nonGenes[pairsMemMap[i,0]] = 0
+                    nonGenes[pairsMemMap[i,0]] += 1
+                
+                if pairsMemMap[i,1] in posSet:
+                    posScore[pairsMemMap[i,0]] = posScore[pairsMemMap[i,0]] + score
+                    numScores[pairsMemMap[i,0]] = numScores[pairsMemMap[i,0]] + 1
+                totalScore[pairsMemMap[i,0]] = totalScore[pairsMemMap[i,0]] + score
             
-            if pairsMemMap[i,1] in posSet:
-                posScore[pairsMemMap[i,0]] = posScore[pairsMemMap[i,0]] + score
-                numScores[pairsMemMap[i,0]] = numScores[pairsMemMap[i,0]] + 1
-            totalScore[pairsMemMap[i,0]] = totalScore[pairsMemMap[i,0]] + score
             
-            
-        pd.DataFrame([[gene,num] for gene,num in nonGenes.items()],columns=['Genes','Occurences']).to_csv('NonGenes.csv',index=False)
+        # pd.DataFrame([[gene,num] for gene,num in nonGenes.items()],columns=['Genes','Occurences']).to_csv('NonGenes.csv',index=False)
 
         
         

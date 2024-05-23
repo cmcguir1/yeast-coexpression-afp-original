@@ -19,23 +19,24 @@ ssl._create_default_https_context = ssl._create_unverified_context
 
 def main():
 
-    folder = 'MultiTerm_L2_ParaSearch'
-    name = f'MultiTerm_wd{0}'
+    folder = 'Test_2'
+    name = f'Test'
     foldFile = './src/PairwiseYeastNetwork/AllGO_2007_GO-0007005_1.csv'
 
    
-    # model = AllGoModel(0,'500x200x100',folder,name,foldFile=foldFile,ontologyDataset='2007',outputVector='b',addTerms=[],resetNet=False,hardNegatives=False,weightDecay=0.0)
-    # model.trainNetwork(400000,saveTermLoss=False)
+    model = AllGoModel(0,'20',folder,name,foldFile=foldFile,ontologyDataset='2007',outputVector='b',addTerms=[],resetNet=False,hardNegatives=False)
+    # model.trainNetwork(600000,saveTermLoss=False)
     # model.testNetworkAll()
     # model.testNetworkAll(validation=False)
 
-    graph = AllGoGraph("./Yeast Resources/Pairwise/Spell/MultiTerm_L2_ParaSearch/MultiTerm_wd0_x_b_113x500x200x100x79_lr0.01_batch50_lfBCE_Net_fold",f'113x500x200x100x79',folder,name,geneFolds=foldFile,outputVector='b',addTerms=[],ontologyDataset='2007',evalDataset='2023')
+    graph = AllGoGraph(model.networkLoc[:-5],f'113x20x79',folder,name,geneFolds=foldFile,outputVector='b',addTerms=[],ontologyDataset='2007',evalDataset='2023')
     # for i in range(4):
-    # graph.feedForward(int(sys.argv[1]),calcAgn=True,calcPos=False)
+    # graph.feedForward(1,calcAgn=True,calcPos=True)
+    # graph.feedForward(2,calcAgn=True,calcPos=True)
+    # graph.feedForward(3,calcAgn=True,calcPos=True)
     graph.rankGenes(agn=True,singleTerm=False)
     # graph.rankAllTerms(agn=True)
     # graph.debug()
-    # graph.generateAllGenes()
 
     
 
