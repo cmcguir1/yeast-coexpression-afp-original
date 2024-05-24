@@ -452,7 +452,7 @@ class AllGoGraph(AllGoModel):
         confMat = np.array(ConfusionMatrix.calculateMatrix(np.array(scoreTable,dtype=object),1,3),dtype=object)
         confMat_filt = np.array(ConfusionMatrix.calculateMatrix(np.array(scoreTable_filt,dtype=object),1,3),dtype=object)
         pd.DataFrame(confMat,columns=['Gene','Label','Annos','Score','Background Score','Num pos pairs','Precision','Recall','False Positive Rate']).to_csv(f'{self.path}/{"" if self.modelName == "" else f"{self.modelName}"}{self.struct}_GeneRanking_{term[0:2]}{term[3:]}{"_sigmoid" if sigmoid else ""}{fileSuffix}.csv',index=False)
-        return (np.mean(confMat_filt[:,5]),AllGoGraph.averagePrecision(confMat_filt[:,4]))
+        return (np.mean(confMat_filt[:,7]),AllGoGraph.averagePrecision(confMat_filt[:,6]))
     
     def rankAllTerms(self,agn=True,fileSuffix='',modern=False):
         summary = []
