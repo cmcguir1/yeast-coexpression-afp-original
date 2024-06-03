@@ -135,6 +135,11 @@ class AllGoModel():
         
         self.goParser = GOParser(ontologyDataset)
         self.leaves = self.goParser.getSlimLeaves(cutoff=10,roots=outputVector,onlyLeaves='l' not in outputVector)
+        lst = []
+        for leaf in self.leaves:
+            lst.append([leaf[0],self.goParser.onto.terms[leaf[0]].name])
+        pd.DataFrame(lst,columns=['Term','Name']).to_csv('./LeafNames.csv',index=False)
+
         # self.leaves = getLeaves(10,dataset=ontologyDataset,bioProc=('b' in outputVector),molFunc=('m' in outputVector),cellComp=('c' in outputVector),exclude=['GO:0002181','GO:0022857','GO:0032543'])
         for term in addTerms:
             self.leaves.append([term,self.goParser.getGenes(term)])

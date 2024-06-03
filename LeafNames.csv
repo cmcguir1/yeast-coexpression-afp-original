@@ -1,0 +1,80 @@
+Term,Name
+GO:0000054,ribosome export from nucleus
+GO:0000278,mitotic cell cycle
+GO:0000747,conjugation with cellular fusion
+GO:0000902,cell morphogenesis
+GO:0000910,cytokinesis
+GO:0001403,invasive growth (sensu Saccharomyces)
+GO:0003700,transcription factor activity
+GO:0004518,nuclease activity
+GO:0005085,guanyl-nucleotide exchange factor activity
+GO:0006260,DNA replication
+GO:0006281,DNA repair
+GO:0006310,DNA recombination
+GO:0006325,establishment and/or maintenance of chromatin architecture
+GO:0006352,transcription initiation
+GO:0006353,transcription termination
+GO:0006360,transcription from RNA polymerase I promoter
+GO:0006364,rRNA processing
+GO:0006366,transcription from RNA polymerase II promoter
+GO:0006383,transcription from RNA polymerase III promoter
+GO:0006397,mRNA processing
+GO:0006401,RNA catabolic process
+GO:0006413,translational initiation
+GO:0006414,translational elongation
+GO:0006418,tRNA aminoacylation for protein translation
+GO:0006457,protein folding
+GO:0006468,protein amino acid phosphorylation
+GO:0006470,protein amino acid dephosphorylation
+GO:0006486,protein amino acid glycosylation
+GO:0006497,protein amino acid lipidation
+GO:0006605,protein targeting
+GO:0006629,lipid metabolic process
+GO:0006766,vitamin metabolic process
+GO:0006811,ion transport
+GO:0006865,amino acid transport
+GO:0006869,lipid transport
+GO:0006873,cell ion homeostasis
+GO:0006887,exocytosis
+GO:0006897,endocytosis
+GO:0006970,response to osmotic stress
+GO:0006979,response to oxidative stress
+GO:0006997,nuclear organization and biogenesis
+GO:0007005,mitochondrion organization and biogenesis
+GO:0007010,cytoskeleton organization and biogenesis
+GO:0007031,peroxisome organization and biogenesis
+GO:0007033,vacuole organization and biogenesis
+GO:0007059,chromosome segregation
+GO:0007114,cell budding
+GO:0007124,pseudohyphal growth
+GO:0008033,tRNA processing
+GO:0008135,"translation factor activity, nucleic acid binding"
+GO:0008213,protein amino acid alkylation
+GO:0008380,RNA splicing
+GO:0008643,carbohydrate transport
+GO:0009408,response to heat
+GO:0009451,RNA modification
+GO:0010324,membrane invagination
+GO:0015931,"nucleobase, nucleoside, nucleotide and nucleic acid transport"
+GO:0016050,vesicle organization and biogenesis
+GO:0016197,endosome transport
+GO:0016570,histone modification
+GO:0018193,peptidyl-amino acid modification
+GO:0032196,transposition
+GO:0032200,telomere organization and biogenesis
+GO:0032787,monocarboxylic acid metabolic process
+GO:0042221,response to chemical stimulus
+GO:0042255,ribosome assembly
+GO:0042273,ribosomal large subunit biogenesis and assembly
+GO:0042274,ribosomal small subunit biogenesis and assembly
+GO:0042594,response to starvation
+GO:0043543,protein amino acid acylation
+GO:0045333,cellular respiration
+GO:0048193,Golgi vesicle transport
+GO:0048284,organelle fusion
+GO:0048308,organelle inheritance
+GO:0051049,regulation of transport
+GO:0051052,regulation of DNA metabolic process
+GO:0051321,meiotic cell cycle
+GO:0051603,proteolysis involved in cellular protein catabolic process
+GO:0051726,regulation of cell cycle
