@@ -20,6 +20,7 @@ ssl._create_default_https_context = ssl._create_unverified_context
 def main():
 
     folder = 'MultiTerm_Modern_NetStruct'
+    folder = 'Test'
     name = f'Replicate_{sys.argv[3]}_'
     foldFile = f'./src/PairwiseYeastNetwork/AllGO_2023_b_{sys.argv[3]}.csv'
 
