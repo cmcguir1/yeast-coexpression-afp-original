@@ -1,6 +1,6 @@
 #!/usr/bin/sh
 
-## Job Created Jun-03-2024
+## Job Created Jun-10-2024
 
 ##Place PBS directives here
 #PBS -N MultiTerm_Modern_NetStruct_0_1000_0
