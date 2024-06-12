@@ -186,6 +186,7 @@ def GSEA(df,scoreCol,p=1,termCutoff=10,label='',name='GSEA'):
         obs = len([nes_obs for nes_obs in nes_neg_dist if nes_obs <= NES_star]) / len(nes_neg_dist)
         qval = pi / obs
         table.append([term,parser.onto.terms[term].name,len(parser.getGenes(term)),es,pval,nes,qval,les_str.count(';')+1,les_str])
+        
 
 
     # nes_pos_dist.sort()
@@ -211,7 +212,7 @@ def GSEA(df,scoreCol,p=1,termCutoff=10,label='',name='GSEA'):
     #         break
 
     pd.DataFrame(table,columns=['GO Term ID','GO Term Name','Num Annotations','ES','p-value',f'NES','FDR q-value','LES size','Leading-edge subset']).to_csv(f'./Yeast Resources/GSEA_q/{name}_{scoreCol}{"_"+label[0]+ "_" + label[2] if label != "" else ""}.csv',index=False)
-    
+    print('Done')
 
 if __name__ == '__main__':
     freeze_support()
@@ -224,7 +225,7 @@ if __name__ == '__main__':
 
         inputData = inputData.dropna(subset=[sys.argv[1]])
         inputData = inputData[inputData['Anno'] == label]
-        print(inputData)
+        
 
 
 
