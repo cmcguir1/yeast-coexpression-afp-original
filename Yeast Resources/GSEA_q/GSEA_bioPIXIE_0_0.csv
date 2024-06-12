@@ -1,0 +1,2 @@
+GO Term ID,GO Term Name,Num Annotations,ES,p-value,NES,FDR q-value,LES size,Leading-edge subset
+GO:0000003,reproduction,516,-2.043256997455453,0.123,-1.330864962783851,0.123,1,YMR144W
