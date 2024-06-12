@@ -19,7 +19,7 @@ def ES(df,col,term,p=1):
     corrVector = df[col].to_numpy(dtype=np.float32)
     geneVector = df['Gene'].to_numpy(dtype='U10')
     
-    if set(df['Gene']) & genes == 0:
+    if len(set(df['Gene']) & genes) == 0 or len(geneVector) == len(genes):
         return (None,set(),None)
     else:
         
