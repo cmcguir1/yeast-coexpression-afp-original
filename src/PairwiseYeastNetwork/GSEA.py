@@ -19,42 +19,46 @@ def ES(df,col,term,p=1):
     corrVector = df[col].to_numpy(dtype=np.float32)
     geneVector = df['Gene'].to_numpy(dtype='U10')
     
-    table = []
-    
-    # Calculate N_r value
-    N_r = 0
-    for i in range(len(corrVector)):
-        if geneVector[i] in genes:
-            N_r += pow(abs(corrVector[i]),p)
-    
-    
-
-    # Calculate running score and ES value
-    for i in range(len(corrVector)):
-        if geneVector[i] in genes:
-            running += pow(abs(corrVector[i]),p) / N_r
-        else:
-            running -= 1 / (len(corrVector) - len(genes))
-
-        # table.append([i,running,geneVector[i],1 if geneVector[i] in genes else 0])
-
-        if abs(running) > abs(maxES):
-            maxES = running
-            maxES_index = i
-
-    # Generate leading-edge subset based on maxES
-    LES = set()
-    if maxES > 0:
-        for i in range(maxES_index):
-            if geneVector[i] in genes:
-                LES.add(geneVector[i])
+    if set(df['Gene']) & genes == 0:
+        return (None,set(),None)
     else:
-        for i in range(len(geneVector)-1,maxES_index-1,-1):
+        
+        table = []
+        
+        # Calculate N_r value
+        N_r = 0
+        for i in range(len(corrVector)):
             if geneVector[i] in genes:
-                LES.add(geneVector[i])
-    
-    
-    return (maxES,LES,table)
+                N_r += pow(abs(corrVector[i]),p)
+        
+        
+
+        # Calculate running score and ES value
+        for i in range(len(corrVector)):
+            if geneVector[i] in genes:
+                running += pow(abs(corrVector[i]),p) / N_r
+            else:
+                running -= 1 / (len(corrVector) - len(genes))
+
+            # table.append([i,running,geneVector[i],1 if geneVector[i] in genes else 0])
+
+            if abs(running) > abs(maxES):
+                maxES = running
+                maxES_index = i
+
+        # Generate leading-edge subset based on maxES
+        LES = set()
+        if maxES > 0:
+            for i in range(maxES_index):
+                if geneVector[i] in genes:
+                    LES.add(geneVector[i])
+        else:
+            for i in range(len(geneVector)-1,maxES_index-1,-1):
+                if geneVector[i] in genes:
+                    LES.add(geneVector[i])
+        
+        
+        return (maxES,LES,table)
 
 def ES_null(df,col,term,p=1):
     df = df.copy()
@@ -119,20 +123,21 @@ def GSEA(df,scoreCol,fdr,p=1,termCutoff=10,label=''):
 
     for term in bioProcTerms:
         es, les, _ = ES(df,scoreCol,term,p=p)
-        les_str = ';'.join(les)
-        es_pi = ES_null(df,scoreCol,term,p=p)
-        es_pi_pos, es_pi_neg = splitSigns(es_pi)
-        pval = pvalue(es,es_pi_pos,es_pi_neg)
+        if es is not None:
+            les_str = ';'.join(les)
+            es_pi = ES_null(df,scoreCol,term,p=p)
+            es_pi_pos, es_pi_neg = splitSigns(es_pi)
+            pval = pvalue(es,es_pi_pos,es_pi_neg)
 
-        nes, nes_pi_pos, nes_pi_neg = normalizeES(es,es_pi_pos,es_pi_neg)
+            nes, nes_pi_pos, nes_pi_neg = normalizeES(es,es_pi_pos,es_pi_neg)
 
-        if nes > 0: nes_pos_dist.append(nes)
-        else: nes_neg_dist.append(nes)
+            if nes > 0: nes_pos_dist.append(nes)
+            else: nes_neg_dist.append(nes)
 
-        nes_pi_pos_dist += nes_pi_pos
-        nes_pi_neg_dist += nes_pi_neg
+            nes_pi_pos_dist += nes_pi_pos
+            nes_pi_neg_dist += nes_pi_neg
 
-        table.append([term,parser.onto.terms[term].name,es,pval,nes,les_str])
+            table.append([term,parser.onto.terms[term].name,es,pval,nes,les_str])
     
     nes_pos_dist.sort()
     NES_star_pos= None
