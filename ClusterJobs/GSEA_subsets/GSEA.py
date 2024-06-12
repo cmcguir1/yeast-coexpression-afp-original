@@ -210,7 +210,7 @@ def GSEA(df,scoreCol,p=1,termCutoff=10,label='',name='GSEA'):
     #         NES_star_neg = NES_star
     #         break
 
-    pd.DataFrame(table,columns=['GO Term ID','GO Term Name','Num Annotations','ES','p-value',f'NES','FDR q-value','LES size','Leading-edge subset']).to_csv(f'./Yeast Resources/GSEA/{name}_{scoreCol}{"_"+label[0]+ "_" + label[2] if label != "" else ""}.csv',index=False)
+    pd.DataFrame(table,columns=['GO Term ID','GO Term Name','Num Annotations','ES','p-value',f'NES','FDR q-value','LES size','Leading-edge subset']).to_csv(f'./Yeast Resources/GSEA_q/{name}_{scoreCol}{"_"+label[0]+ "_" + label[2] if label != "" else ""}.csv',index=False)
     
 
 if __name__ == '__main__':
@@ -242,7 +242,7 @@ if __name__ == '__main__':
 
 
     start = time.time()
-    GSEA(inputData,sys.argv[1],termCutoff=5,name='Test')
+    GSEA(inputData,sys.argv[1],termCutoff=5,name='GSEA')
     print('Time:',(time.time()-start)/60,'minutes')
 
 
