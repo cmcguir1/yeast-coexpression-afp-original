@@ -161,7 +161,7 @@ def GSEA(df,scoreCol,fdr,p=1,termCutoff=10,label=''):
             NES_star_neg = NES_star
             break
 
-    pd.DataFrame(table,columns=['GO Term ID','GO Term Name','ES','p-value',f'NES (NES*_pos = {NES_star_pos};NES*_neg={NES_star_neg}))','Leading-edge subset']).to_csv(f'./Yeast Resources/GSEA/GSEA_{scoreCol}{"_"+label if label != "" else ""}.csv',index=False)
+    pd.DataFrame(table,columns=['GO Term ID','GO Term Name','ES','p-value',f'NES (NES*_pos = {NES_star_pos};NES*_neg={NES_star_neg}))','Leading-edge subset']).to_csv(f'./Yeast Resources/GSEA/GSEA_{scoreCol}{"_"+label[0]+ "_" + label[2] if label != "" else ""}.csv',index=False)
     
 
 
