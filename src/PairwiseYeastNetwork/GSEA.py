@@ -137,7 +137,7 @@ def GSEA(df,scoreCol,p=1,termCutoff=10,label='',name='GSEA'):
     
     bioProc = parser.onto.terms['GO:0008150']
     terms = parser.onto.terms.values()
-    bioProcTerms = [term.uid for term in terms if bioProc in term.ancestors() and len(parser.getGenes(term.uid)) > termCutoff][:20] 
+    bioProcTerms = [term.uid for term in terms if bioProc in term.ancestors() and len(parser.getGenes(term.uid)) > termCutoff] 
     print('Num Terms:',len(bioProcTerms))
 
     table = []
