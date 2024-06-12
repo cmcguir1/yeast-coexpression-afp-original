@@ -185,7 +185,7 @@ def GSEA(df,scoreCol,p=1,termCutoff=10,label='',name='GSEA'):
         pi = len([nes_pi for nes_pi in nes_pi_neg_dist if nes_pi <= NES_star]) / len(nes_pi_neg_dist)
         obs = len([nes_obs for nes_obs in nes_neg_dist if nes_obs <= NES_star]) / len(nes_neg_dist)
         qval = pi / obs
-        table.append([term,parser.onto.terms[term].name,len(parser.getGenes(term)),es,pval,nes,qval,les_str.count(';'+1),les_str])
+        table.append([term,parser.onto.terms[term].name,len(parser.getGenes(term)),es,pval,nes,qval,les_str.count(';')+1,les_str])
 
 
     # nes_pos_dist.sort()
