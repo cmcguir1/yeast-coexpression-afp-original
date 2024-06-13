@@ -131,8 +131,8 @@ def calcTerm(term,df,scoreCol,p,commonNames=False):
 
 def GSEA(df,scoreCol,p=1,termCutoff=10,label='',name='GSEA',bpOnly=True,commonNames=False,folder='./Yeast Resources/GSEA_q/',fdr=0.05):
     
-    if not os.path.exists(f'{folder}LES/'):
-        os.mkdir(f'{folder}LES/')
+    if not os.path.exists(f'{folder}{name}LES/'):
+        os.mkdir(f'{folder}{name}LES/')
 
     bioProc = parser.onto.terms['GO:0008150']
     cellComp = parser.onto.terms['GO:0005575']
@@ -181,7 +181,7 @@ def GSEA(df,scoreCol,p=1,termCutoff=10,label='',name='GSEA',bpOnly=True,commonNa
         
 
 
-    pos_nes_terms.sort(key=lambda row: row[3],reverse=True)
+    pos_nes_terms.sort(key=lambda row: row[3],reverse=False)
     prev_qval = 1000000
     for [term,es,pval,nes,les] in pos_nes_terms:
         NES_star = nes
@@ -191,7 +191,7 @@ def GSEA(df,scoreCol,p=1,termCutoff=10,label='',name='GSEA',bpOnly=True,commonNa
         if qval > prev_qval: qval = prev_qval
         prev_qval = qval
         if qval <= fdr:
-            pd.DataFrame(les,columns=['Gene','Correlation']).to_csv(f'{folder}LES/{term.replace(":","-")}_LES.csv',index=False)
+            pd.DataFrame(les,columns=['Gene','Correlation']).to_csv(f'{folder}{name}LES/{term.replace(":","-")}_LES.csv',index=False)
         table.append([term,parser.onto.terms[term].name,branch(term),len(parser.getGenes(term)),es,pval,nes,qval,len(les)])
     table.reverse()
 
@@ -205,7 +205,7 @@ def GSEA(df,scoreCol,p=1,termCutoff=10,label='',name='GSEA',bpOnly=True,commonNa
         if qval > prev_qval: qval = prev_qval
         prev_qval = qval
         if qval <= fdr:
-            pd.DataFrame(les,columns=['Gene','Correlation']).to_csv(f'{folder}LES/{term.replace(":","-")}_LES.csv',index=False)
+            pd.DataFrame(les,columns=['Gene','Correlation']).to_csv(f'{folder}{name}LES/{term.replace(":","-")}_LES.csv',index=False)
         table.append([term,parser.onto.terms[term].name,branch(term),len(parser.getGenes(term)),es,pval,nes,qval,len(les)])
         
 

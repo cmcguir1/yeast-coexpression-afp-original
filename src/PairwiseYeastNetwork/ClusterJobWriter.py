@@ -254,5 +254,5 @@ def writeJobs(JobName,pythonFile,node=False,arg1=['0','1','2','3'],arg2=None,arg
 # writeJobs('MultiTerm_Modern_NetStruct','Main.py',arg2=['500x200x100','1000','1000x500x200'],arg3=[0])
 # writeJobs('GSEA','GSEA.py',arg1=['NN','SPELL','MEFIT','bioPIXIE'])
 # writeJobs('GSEA_subsets','GSEA.py',arg1=['NN','SPELL','MEFIT','bioPIXIE'])
-writeJobs('GSEA_Strunk','GSEA_strunk.py',arg1=[0])
+writeJobs('GSEA_Strunk','GSEA_strunk.py',arg1=[0.5,1,2,5])
 
