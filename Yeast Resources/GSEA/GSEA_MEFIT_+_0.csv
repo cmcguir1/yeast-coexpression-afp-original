@@ -1,0 +1,13 @@
+GO Term ID,GO Term Name,ES,p-value,NES (NES*_pos = None;NES*_neg=None)),Leading-edge subset
+GO:0009987,cellular process,1.0,0,1.0,
+GO:0033036,macromolecule localization,1.0,0,1.0,
+GO:0051234,establishment of localization,1.0,0,1.0,
+GO:0006810,transport,1.0,0,1.0,
+GO:0071705,nitrogen compound transport,1.0,0,1.0,
+GO:0071702,organic substance transport,1.0,0,1.0,
+GO:0015031,protein transport,1.0,0,1.0,
+GO:0008104,protein localization,1.0,0,1.0,
+GO:0070727,cellular macromolecule localization,1.0,0,1.0,
+GO:0045184,establishment of protein localization,1.0,0,1.0,
+GO:0051179,localization,1.0,0,1.0,
+GO:0051641,cellular localization,1.0,0,1.0,
