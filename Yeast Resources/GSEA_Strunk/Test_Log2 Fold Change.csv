@@ -1,0 +1,18 @@
+GO Term ID,GO Term Name,GO Branch,Num Annotations,ES,p-value,NES,FDR q-value,LES size
+GO:0005737,cytoplasm,Cellular Component,4502,-0.24645153370780162,0,-1.3420699541120933,0.0,1076
+GO:0003674,molecular_function,Molecular Function,6096,-0.7625777652277088,0,-1.553385020009892,0.0,2102
+GO:0005575,cellular_component,Cellular Component,6105,-0.7776221201539756,0,-1.5625104234578,0.0,2108
+GO:0008150,biological_process,Biological Process,6105,-0.7776221201539756,0,-1.5658531173566954,0.0,2108
+GO:0071704,organic substance metabolic process,Biological Process,3641,-0.28325025497903167,0,-1.7497930402274904,0.0,1197
+GO:0008152,metabolic process,Biological Process,3844,-0.29412039084847424,0,-1.7886835114414195,0.0,1396
+GO:0009987,cellular process,Biological Process,5168,-0.39217885230386706,0,-1.7891619434666486,0.0,1847
+GO:0043231,intracellular membrane-bounded organelle,Cellular Component,4459,-0.32498609288582136,0,-1.7952119436459684,0.0,1554
+GO:0043227,membrane-bounded organelle,Cellular Component,4462,-0.3263930826454222,0,-1.797457227475083,0.0,1557
+GO:0110165,cellular anatomical entity,Cellular Component,5629,-0.4846774852391254,0,-1.808619589048648,0.0,1998
+GO:0044238,primary metabolic process,Biological Process,3446,-0.2966448366038182,0,-1.8450291710494122,0.0,1166
+GO:0044237,cellular metabolic process,Biological Process,3568,-0.3004566453882765,0,-1.8587849084045491,0.0,1327
+GO:0043229,intracellular organelle,Cellular Component,4756,-0.36716789304524927,0,-1.9314273707999503,0.0,1678
+GO:0043226,organelle,Cellular Component,4758,-0.3676791792271791,0,-1.932535447979993,0.0,1679
+GO:0006807,nitrogen compound metabolic process,Biological Process,3239,-0.3101116595587609,0,-1.9413421996926243,0.0,1071
+GO:0005622,intracellular anatomical structure,Cellular Component,5333,-0.4521043272190001,0,-2.0212849322825677,0.0,1949
+GO:0005488,binding,Molecular Function,3082,-0.34484318139649195,0,-2.0955334436881485,0.0,1292
