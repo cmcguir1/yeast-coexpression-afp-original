@@ -25,8 +25,8 @@ def main():
     foldFile = f'./src/PairwiseYeastNetwork/AllGO_2023_b_{sys.argv[3]}.csv'
 
    
-    model = AllGoModel(int(sys.argv[1]),sys.argv[2],folder,name,foldFile=foldFile,ontologyDataset='2023',outputVector='b',addTerms=[],resetNet=False,hardNegatives=False)
-    model.trainNetwork(600000,saveTermLoss=False)
+    model = AllGoModel(0,sys.argv[2],folder,name,foldFile=foldFile,ontologyDataset='2023',outputVector='b',addTerms=[],resetNet=False,hardNegatives=False)
+    # model.trainNetwork(600000,saveTermLoss=False)
     # model.testNetworkAll()
     # model.testNetworkAll(validation=False)
 

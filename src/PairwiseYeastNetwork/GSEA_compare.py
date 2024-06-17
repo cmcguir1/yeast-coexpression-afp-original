@@ -14,13 +14,14 @@ filename2 = './Yeast Resources/GSEA/GSEA_SPELL.csv'
 df1 = pd.read_csv(filename1)
 df2 = pd.read_csv(filename2)
 
+
 dict1 = {}
 dict2 = {}
 for index, row in df1.iterrows():
-    dict1[row['GO Term ID']] = row.iloc[4]
+    dict1[row['GO Term ID']] = row['NES']
 
 for index, row in df2.iterrows():
-    dict2[row['GO Term ID']] = row.iloc[4]
+    dict2[row['GO Term ID']] = row['NES']
 
 table =[]
 for term, nes in dict1.items():

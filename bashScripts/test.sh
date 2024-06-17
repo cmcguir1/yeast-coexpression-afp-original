@@ -1,9 +1,9 @@
-#ssh cmcguir1@janus02.cs.trinity.edu "touch test_shh.txt"
-
-if ssh -qn cmcguir1@janus02.cs.trinity.edu pidof httpd &>/dev/null ; then
-     echo "Janus02 is running";
-     exit 0;
-else
-     echo "Janus02 is not running";
-     exit 1;
-fi
+#!/bin/bash
+ncat -z -w5 janus24.cs.trinity.edu 22
+    if [ $? -eq 0 ]; then
+        echo "SSH is open"
+        exit 0
+    else
+        echo "SSH is not open"
+        exit 1
+    fi
