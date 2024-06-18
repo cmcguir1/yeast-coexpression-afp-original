@@ -238,35 +238,33 @@ def GSEA(df,scoreCol,p=1,termCutoff=10,label='',name='GSEA',bpOnly=True,commonNa
 if __name__ == '__main__':
     freeze_support()
     
-    # for label in ['+/+','+/-','-/+','-/-','0/+','0/-','+/0','+/-','0/0']:
-    #     inputData = pd.read_csv('./AnnoRankData.csv')
-    #     inputData['NN'] = inputData['NN'] - 0.5
-    #     inputData['MEFIT'] = inputData['MEFIT'] - 0.5
-    #     inputData['SPELL'] = inputData['SPELL'] - 0.5
-    #     inputData['bioPIXIE'] = inputData['bioPIXIE'] - 0.5
+    for label in ['+/+','+/-','-/+','-/-','0/+','0/-','+/0','+/-','0/0']:
+        inputData = pd.read_csv('./AnnoRankData.csv')
+        inputData['NN'] = inputData['NN'] - 0.5
+        inputData['MEFIT'] = inputData['MEFIT'] - 0.5
+        inputData['SPELL'] = inputData['SPELL'] - 0.5
+        inputData['bioPIXIE'] = inputData['bioPIXIE'] - 0.5
 
-    #     inputData = inputData.dropna(subset=[sys.argv[1]])
-    #     inputData = inputData[inputData['Anno'] == label]
+        inputData = inputData.dropna(subset=[sys.argv[1]])
+        inputData = inputData[inputData['Anno'] == label]
         
 
+        GSEA(inputData,sys.argv[1],termCutoff=5,label=label,folder='GSEA_redo')
 
+    inputData = pd.read_csv('./AnnoRankData.csv')
+    inputData['NN'] = inputData['NN'] - 0.5
+    inputData['MEFIT'] = inputData['MEFIT'] - 0.5
+    inputData['SPELL'] = inputData['SPELL'] - 0.5
+    inputData['bioPIXIE'] = inputData['bioPIXIE'] - 0.5
 
-    #     GSEA(inputData,sys.argv[1],termCutoff=5,label=label)
-
-    # inputData = pd.read_csv('./AnnoRankData.csv')
-    # inputData['NN'] = inputData['NN'] - 0.5
-    # inputData['MEFIT'] = inputData['MEFIT'] - 0.5
-    # inputData['SPELL'] = inputData['SPELL'] - 0.5
-    # inputData['bioPIXIE'] = inputData['bioPIXIE'] - 0.5
-
-    # inputData = inputData.dropna(subset=[sys.argv[1]])
+    inputData = inputData.dropna(subset=[sys.argv[1]])
 
     
 
 
-    # start = time.time()
-    # GSEA(inputData,sys.argv[1],termCutoff=5,name='GSEA')
-    # print('Time:',(time.time()-start)/60,'minutes')
+    start = time.time()
+    GSEA(inputData,sys.argv[1],termCutoff=5,name='GSEA_redo')
+    print('Time:',(time.time()-start)/60,'minutes')
 
 
 
