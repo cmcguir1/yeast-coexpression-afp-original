@@ -1,0 +1,13 @@
+GO Term ID,GO Term Name,GO Branch,Num Annotations,ES,p-value,NES,FDR q-value,LES size
+GO:0051641,cellular localization,Biological Process,1099,1.0,0,1.0,1.0,0
+GO:0051179,localization,Biological Process,1626,1.0,0,1.0,1.0,0
+GO:0045184,establishment of protein localization,Biological Process,655,1.0,0,1.0,1.0,0
+GO:0070727,cellular macromolecule localization,Biological Process,854,1.0,0,1.0,1.0,0
+GO:0008104,protein localization,Biological Process,834,1.0,0,1.0,1.0,0
+GO:0015031,protein transport,Biological Process,634,1.0,0,1.0,1.0,0
+GO:0071702,organic substance transport,Biological Process,956,1.0,0,1.0,1.0,0
+GO:0071705,nitrogen compound transport,Biological Process,856,1.0,0,1.0,1.0,0
+GO:0006810,transport,Biological Process,1384,1.0,0,1.0,1.0,0
+GO:0051234,establishment of localization,Biological Process,1429,1.0,0,1.0,1.0,0
+GO:0033036,macromolecule localization,Biological Process,984,1.0,0,1.0,1.0,0
+GO:0009987,cellular process,Biological Process,5168,1.0,0,1.0,1.0,0
