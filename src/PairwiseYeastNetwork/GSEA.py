@@ -130,7 +130,10 @@ def calcTerm(term,df,scoreCol,p,commonNames=False):
 
 
 def GSEA(df,scoreCol,p=1,termCutoff=10,label='',name='GSEA',bpOnly=True,commonNames=False,folder='./Yeast Resources/GSEA_q/',fdr=0.05):
-    
+    if not os.path.exists(f'{folder}'):
+        os.mkdir(f'{folder}')
+
+
     if not os.path.exists(f'{folder}{name}LES/'):
         os.mkdir(f'{folder}{name}LES/')
 
@@ -249,7 +252,7 @@ if __name__ == '__main__':
         inputData = inputData[inputData['Anno'] == label]
         
 
-        GSEA(inputData,sys.argv[1],termCutoff=5,label=label,folder='GSEA_redo')
+        GSEA(inputData,sys.argv[1],termCutoff=5,label=label,folder='./Yeast Resources/GSEA_redo2/')
 
     inputData = pd.read_csv('./AnnoRankData.csv')
     inputData['NN'] = inputData['NN'] - 0.5
@@ -263,7 +266,7 @@ if __name__ == '__main__':
 
 
     start = time.time()
-    GSEA(inputData,sys.argv[1],termCutoff=5,name='GSEA_redo')
+    GSEA(inputData,sys.argv[1],termCutoff=5,folder='./Yeast Resources/GSEA_redo2/')
     print('Time:',(time.time()-start)/60,'minutes')
 
 
