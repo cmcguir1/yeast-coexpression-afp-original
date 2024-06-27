@@ -251,8 +251,10 @@ def writeJobs(JobName,pythonFile,node=False,arg1=['0','1','2','3'],arg2=None,arg
 # writeJobs('MultiTerm_NetStruct_PS_Modern','Main2.py',arg2=['500x200x100'],arg3=[0],arg1=[0])
 # writeJobs('MultiTerm_NetStruct_Replicates_Original','Main3.py',arg2=['500x200x100'],arg3=[1,2,3],arg1=[0])
 # writeJobs('MultiTerm_NetStruct_Replicates_Modern','Main4.py',arg2=['500x200x100'],arg3=[1,2,3],arg1=[0])
-writeJobs('MultiTerm_Modern_NetStruct','Main.py',arg2=['500x200x100','1000','1000x500x200'],arg3=[0],arg1=[0])
+# writeJobs('MultiTerm_Modern_NetStruct','Main.py',arg2=['500x200x100','1000','1000x500x200'],arg3=[0],arg1=[0])
 # writeJobs('GSEA','GSEA.py',arg1=['NN','SPELL','MEFIT','bioPIXIE'])
 # writeJobs('GSEA_subsets','GSEA.py',arg1=['NN','SPELL','MEFIT','bioPIXIE'])
 # writeJobs('GSEA_Strunk','GSEA_strunk.py',arg1=[0.5,1,2,5])
+writeJobs('MultiTerm_Modern_NetStruct','Main.py',arg2=['1000x500x200'],arg3=[0],arg1=[0])
+writeJobs('MultiTerm_NetStruct_PS','Main2.py',arg2=['500x200x100'],arg3=[0],arg1=[0])
 

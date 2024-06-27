@@ -11,7 +11,7 @@ class GOParser():
         elif ontoDate == '2009':
             file = 'obopy/gene_ontology_2009_Jan.obo'
             annos = './obopy/sgd_2009_Jan_unzip.gaf'
-        else:
+        elif ontoDate is not None:
             file = './obopy/go-basic.obo'
             annos = './obopy/sgd.gaf'
 

@@ -211,6 +211,8 @@ class AllGoGraph(AllGoModel):
         self.memMapLen = (len(foldTable)*len(foldTable)-len(foldTable)) + (len(self.agnGenes)*len(self.allGenes)-len(self.agnGenes))
         
         self.foldMemMapLen = [(len(self.folds[i]) * len(foldTable) - len(self.folds[i])) + (len(self.agnGenes)*len(self.allGenes)-len(self.agnGenes)) for i in range(numfolds)]
+        self.foldMemMapLen_anno = [(len(self.folds[i]) * len(foldTable)) for i in range(numfolds)]
+        self.agnLen = (len(self.agnGenes)*len(self.allGenes)-len(self.agnGenes))
         # self.foldLens = []
         # offsetTotal = 0
         # for i in range(numfolds):
@@ -505,6 +507,30 @@ class AllGoGraph(AllGoModel):
                     pairs.append([gene1,gene2])
         return pairs
     
+    def combineGraph(self):
+        scoresMemmap_combined = np.memmap(f'{self.path}/{"" if self.modelName == "" else f"{self.modelName}_"}{self.struct}_Scores_Combined.dat',dtype='float32',shape=(self.memMapLen,len(self.leaves)),mode='w+')
+        pairsMemMap_combined = np.memmap(f'{self.path}/{"" if self.modelName == "" else f"{self.modelName}_"}{self.struct}_Pairs_Combined.dat',shape=(self.memMapLen,2),dtype='U10',mode='w+')
+        agnStart = self.memMapLen-self.agnLen
+        offset = 0
+        for fold in range(self.numFolds):
+            scoresMemmap = np.memmap(f'{self.path}/{"" if self.modelName == "" else f"{self.modelName}_"}{self.struct}_Scores_fold{fold}.dat',dtype='float32',shape=(self.foldMemMapLen[fold],len(self.leaves)),mode='r+')
+            pairsMemMap = np.memmap(f'{self.path}/{"" if self.modelName == "" else f"{self.modelName}_"}{self.struct}_Pairs_fold{fold}.dat',shape=(self.foldMemMapLen[fold],2),dtype='U10',mode='r+')
+
+            for i in range(self.foldMemMapLen_anno[fold]):
+                scoresMemmap_combined[i+offset,:] = scoresMemmap[i,:]
+                pairsMemMap_combined[i+offset,:] = pairsMemMap[i,:]
+            offset += self.foldMemMapLen_anno
+
+            for i in range(self.agnLen):
+                scoresMemmap_combined[i+agnStart,:] = (scoresMemmap[i+self.foldMemMapLen_anno[fold]] / self.numFolds)
+                pairsMemMap_combined[i+agnStart,:] = (pairsMemMap[i+self.foldMemMapLen_anno[fold]] / self.numFolds)
+
+
+
+
+
+            
+    
     def to_csv(self,loc):
         scoresMemmap = np.memmap(f'{self.path}/{"" if self.modelName == "" else f"{self.modelName}_"}{self.struct}_Scores.dat',dtype='float32',shape=(self.memMapLen,len(self.leaves)),mode='r+')
         pairsMemMap = np.memmap(f'{self.path}/{"" if self.modelName == "" else f"{self.modelName}_"}{self.struct}_Pairs.dat',shape=(self.memMapLen,2),dtype='U10',mode='r+')
@@ -562,13 +588,7 @@ class AllGoGraph(AllGoModel):
         pd.DataFrame(occurLst,columns=["Gene","Occurences in MemMap Pairs","Membership"]).to_csv(f'{self.path}/{"" if self.modelName == "" else f"{self.modelName}"}{self.struct}_MemMapOccur.csv',index=False)
         pd.DataFrame(pairsLst,columns=["Gene","Occurances in pairs","Membership"]).to_csv(f'{self.path}/{"" if self.modelName == "" else f"{self.modelName}"}{self.struct}_PairsOccurences.csv',index=False)
 
-    def debugMemMap(self):
-        pairs = AllGoGraph.makePairs(self.foldGenes,self.foldGenes)
-        memMap = np.memmap('TestMemMap.dat',dtype='U10',shape=(100,2))
-        for i in range(5):
-            memMap[i*10:(i+1)*10,:] = np.ndarray(pairs[i*10:(i+1)*10],dtype='U10')
-        print("MemMap:",memMap)
-        print("Pairs",pairs[:50])
+    
 
     def generateAllGenes(self):
         pd.DataFrame(self.allGenes,columns=['Genes']).to_csv('AllGenes.csv',index=False)

@@ -33,10 +33,11 @@ def main():
     graph = AllGoGraph(model.networkLoc[:-5],f'430x{sys.argv[2]}x93',folder,name,geneFolds=foldFile,outputVector='b',addTerms=[],ontologyDataset='2023',evalDataset='2023')
     # for i in range(4):
     # graph.feedForward(int(sys.argv[1]),calcAgn=True,calcPos=True,flush=True)
-    graph.rankGenes(agn=True,singleTerm=False)
+    # graph.rankGenes(agn=True,singleTerm=False)
     # graph.rankGenes(agn=True,singleTerm=False,fileSuffix='_Modern',modern=True)
-    graph.rankAllTerms(agn=True)
+    # graph.rankAllTerms(agn=True)
     # graph.rankAllTerms(agn=True,fileSuffix='_Modern',modern=True)
+    graph.combineGraph()
 
     # graph.debug()
 
