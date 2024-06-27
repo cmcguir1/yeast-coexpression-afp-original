@@ -508,6 +508,7 @@ class AllGoGraph(AllGoModel):
         return pairs
     
     def combineGraph(self):
+        print('Combining Graphcs')
         scoresMemmap_combined = np.memmap(f'{self.path}/{"" if self.modelName == "" else f"{self.modelName}_"}{self.struct}_Scores_Combined.dat',dtype='float32',shape=(self.memMapLen,len(self.leaves)),mode='w+')
         pairsMemMap_combined = np.memmap(f'{self.path}/{"" if self.modelName == "" else f"{self.modelName}_"}{self.struct}_Pairs_Combined.dat',shape=(self.memMapLen,2),dtype='U10',mode='w+')
         agnStart = self.memMapLen-self.agnLen
@@ -519,7 +520,7 @@ class AllGoGraph(AllGoModel):
             for i in range(self.foldMemMapLen_anno[fold]):
                 scoresMemmap_combined[i+offset,:] = scoresMemmap[i,:]
                 pairsMemMap_combined[i+offset,:] = pairsMemMap[i,:]
-            offset += self.foldMemMapLen_anno
+            offset += self.foldMemMapLen_anno[fold]
 
             for i in range(self.agnLen):
                 scoresMemmap_combined[i+agnStart,:] = (scoresMemmap[i+self.foldMemMapLen_anno[fold]] / self.numFolds)
