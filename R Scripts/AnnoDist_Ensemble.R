@@ -3,8 +3,8 @@ data <- read.csv("C:\\Users\\colem\\SummerResearch2022\\AnnoRankData.csv")
 plotDist <- function(labels,model,col,add=F,scale=F,xMin=0.8) {
   
   data_vec <- data[data$Anno %in% labels & !is.na(data[[model]]),][[model]]
-  den <- density(data_vec,bw=0.01)
-
+  den <- density(data_vec,bw=0.05)
+  
   if(scale) {
     len <- nrow(data[!is.na(data[[model]]),])
     numAnnos <- length(data_vec)
@@ -12,15 +12,15 @@ plotDist <- function(labels,model,col,add=F,scale=F,xMin=0.8) {
     yMax <- 1
   } else {
     sc <- 1
-    yMax <- 8
+    yMax <- 5
     
   }
-    
+  
   
   if(!add) {
     if(scale) title <- paste(model,"Annotation Distribution (Scaled)")
     else title <- paste(model,"Annotation Distribution")
-    plot(den$x,den$y*sc,type='l',lwd=5,xlim=c(xMin,1),ylim=c(0,yMax),main=title,xlab="Rank\n(0 = low confidence; 1 = high confidence)",ylab="Density")
+    plot(den$x,den$y*sc,type='l',lwd=5,xlim=c(xMin,1),ylim=c(0,yMax),xlab="Rank\n(0 = low confidence; 1 = high confidence)",ylab="Density")
   }
   
   a_col <- adjustcolor(col,alpha.f=0.2)
@@ -29,17 +29,15 @@ plotDist <- function(labels,model,col,add=F,scale=F,xMin=0.8) {
 
 colorsList <- c("#FC0303","#14A63B","#5D87F0","#7713BA","#FAEF16","#E09704")
 
-blue <- "#42cbf5"
-lightGreen <- "#97f09e"
-darkGreen <- "#085e10"
+purple <- "#7713BA"
+green <- "#14A63B"
+blue <- "#5D87F0"
 
-lightRed <- "#fc8385"
-darkRed <- "#a30204"
-
-purple <- "#b905fa"
-orange <- "#fc9003"
-pink <- "#fc03b6"
-
+pdf("FalseNegatives.pdf",height=6,width=10)
+plotDist(c("-/+"),"NN",purple,scale=F,xMin=0)
+plotDist(c("-/+"),"MEFIT",green,scale=F,add=T,xMin=0)
+plotDist(c("-/+"),"SPELL",blue,scale=F,add=T,xMin=0)
+legend("topleft",legend=c("MEFIT","SPELL","Neural Net"),fill=c(green,blue,purple))
 
 for(model in c("NN","MEFIT","SPELL","bioPIXIE")) {
   

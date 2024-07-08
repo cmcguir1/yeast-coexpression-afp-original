@@ -1,5 +1,5 @@
-lt <- 1
-ensembleROC <- function(dataFile,graphName,modern=FALSE) {
+lt <- 2
+ensembleROC <- function(dataFile,graphName,modern=FALSE,bp=T) {
   getAUC <- function(data){
     
     decimalPlaces <- 3
@@ -36,7 +36,7 @@ ensembleROC <- function(dataFile,graphName,modern=FALSE) {
   
   lines(spell[,"False.Positive.Rate"],spell[,"Recall"],lwd=w,col=colorsList[3],lty=lt)
   
-  lines(nn[,"False.Positive.Rate"],nn[,"Recall"],lwd=w,col=colorsList[4],lty=lt)
+  if(bp)lines(nn[,"False.Positive.Rate"],nn[,"Recall"],lwd=w,col=colorsList[4],lty=lt)
   
   lines(c(0,1),c(0,1),lwd=w,col="#000000")
   
@@ -44,7 +44,7 @@ ensembleROC <- function(dataFile,graphName,modern=FALSE) {
   
   
   legendLabels <- c()
-  legendLabels <- append(legendLabels,paste("bioPIXIE (AUC =",getAUC(pixie),")"))
+  if(bp) legendLabels <- append(legendLabels,paste("bioPIXIE (AUC =",getAUC(pixie),")"))
   legendLabels <- append(legendLabels,paste("MEFIT (AUC =",getAUC(mefit),")"))
   legendLabels <- append(legendLabels,paste("SPELL (AUC =",getAUC(spell),")"))
   legendLabels <- append(legendLabels,paste("Neural Net (AUC =",getAUC(nn),")"))
@@ -137,8 +137,8 @@ displayGraph <- function(dataFile,graphName,fileName,modern) {
 
 dataFile <- file.choose()
 
-graphName <- "Net 500x200x100 Rep 2 Modern"
-fileName <- "MultiTerm_Net_500x200x100_Rep_2_Modern_Ensemble.pdf"
+graphName <- ""
+fileName <- "EnsembleROC_Modern.pdf"
 modern <- T
 createGraph(dataFile,graphName,fileName,modern)
 

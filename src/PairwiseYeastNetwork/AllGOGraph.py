@@ -526,11 +526,15 @@ class AllGoGraph(AllGoModel):
                 scoresMemmap_combined[i+agnStart,:] += (scoresMemmap[i+self.foldMemMapLen_anno[fold]] / self.numFolds)
                 pairsMemMap_combined[i+agnStart,:] = pairsMemMap[i+self.foldMemMapLen_anno[fold]] 
 
-    def termSample(self):
+    def termSample(self,sampleSize=100000):
         scoresMemmap = np.memmap(f'{self.path}/{"" if self.modelName == "" else f"{self.modelName}_"}{self.struct}_Scores_Combined.dat',dtype='float32',shape=(self.memMapLen,len(self.leaves)),mode='r+')
         pairsMemMap = np.memmap(f'{self.path}/{"" if self.modelName == "" else f"{self.modelName}_"}{self.struct}_Pairs_Combined.dat',shape=(self.memMapLen,2),dtype='U10',mode='r+')
         for term, genes in self.leaves:
-            pass
+            termPairs = scoresMemmap[:,self.GOTermDict[term]]
+            samp = np.random.choice(termPairs,sampleSize,replace=False)
+            pd.DataFrame(samp,columns=['Scores']).to_csv(f'./Yeast Resources/PairsSample/{term[0:2]}-{term[3:]}_PairsSample.csv',index=False)
+
+            
 
 
 
