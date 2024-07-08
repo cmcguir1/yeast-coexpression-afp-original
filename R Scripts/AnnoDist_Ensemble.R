@@ -3,7 +3,7 @@ data <- read.csv("C:\\Users\\colem\\SummerResearch2022\\AnnoRankData.csv")
 plotDist <- function(labels,model,col,add=F,scale=F,xMin=0.8) {
   
   data_vec <- data[data$Anno %in% labels & !is.na(data[[model]]),][[model]]
-  den <- density(data_vec,bw=0.05)
+  den <- density(data_vec,bw=0.02)
   
   if(scale) {
     len <- nrow(data[!is.na(data[[model]]),])
@@ -12,7 +12,7 @@ plotDist <- function(labels,model,col,add=F,scale=F,xMin=0.8) {
     yMax <- 1
   } else {
     sc <- 1
-    yMax <- 5
+    yMax <- 6
     
   }
   
@@ -38,6 +38,7 @@ plotDist(c("-/+"),"NN",purple,scale=F,xMin=0)
 plotDist(c("-/+"),"MEFIT",green,scale=F,add=T,xMin=0)
 plotDist(c("-/+"),"SPELL",blue,scale=F,add=T,xMin=0)
 legend("topleft",legend=c("MEFIT","SPELL","Neural Net"),fill=c(green,blue,purple))
+dev.off()
 
 for(model in c("NN","MEFIT","SPELL","bioPIXIE")) {
   

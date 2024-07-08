@@ -14,44 +14,59 @@ termNamesData = pd.read_csv('./src/PairwiseYeastNetwork/TermNameDict.csv').to_nu
 termName = {}
 for row in termNamesData:
     termName[row[0]] = row[1]
-    
+
+ 
+
 ogParser = GOParser('2007')
 modernParser = GOParser('2023')
-slim = modernParser.getSlimLeaves()
+slim = ogParser.getSlimLeaves()  
+terms = [term for term, genes in slim]
+
+
+
 negGenes = set()
 for term, geneSet in slim:
     negGenes = negGenes.union(geneSet)
 
-parsers = []
 
-genes = pd.read_csv('./src/PairwiseYeastNetwork/AllYorfs.csv').to_numpy().flatten()
-ogMitoNeg = negGenes - ogParser.getGenes('GO:0007005')
-modernMito = modernParser.getGenes('GO:0007005')
-neg_pos = ogMitoNeg & modernMito
-print(len(neg_pos))
+for (id, _) in slim:
+    scoreDict = {}
+    ranking = pd.read_csv(f'./Yeast Resources/GraphResults/MultiTerm_NetStruct_PS/Replicate_0_113x500x200x100x79_GeneRanking_{id[:2]}{id[3:]}.csv')
+    for _, row in ranking.iterrows():
+        scoreDict[row['Gene']] = row['Score']
 
-table = []
-for gene in ogParser.getGenes('GO:0007005'):
-    ogAnnos = []
-    modernAnnos = []
-    for (term, _) in slim:
-        ogGenes = ogParser.getGenes(term)
-        if gene in ogGenes:
-            ogAnnos.append(f'{term} ({termName[term]})')
-        modernGenes = modernParser.getGenes(term)
-        if gene in modernGenes:
-            modernAnnos.append(f'{term} ({termName[term]})')
-    lostAnnos = set(ogAnnos) - set(modernAnnos)
-    wrongFunc = 1 if len(set(ogAnnos) - lostAnnos) == 0 else 0
-    newFunc = 1 if len(set(ogAnnos) - lostAnnos) > 0 and len(lostAnnos) > 0 else 0
-    sameFunc = 1 if wrongFunc == 0 and newFunc == 0 else 0
-    table.append([gene,';'.join(ogAnnos),';'.join(modernAnnos),';'.join(lostAnnos),wrongFunc,newFunc,sameFunc])
+    genes = pd.read_csv('./src/PairwiseYeastNetwork/AllYorfs.csv').to_numpy().flatten()
+    ogMitoNeg = negGenes - ogParser.getGenes(id)
+    modernMito = modernParser.getGenes(id)
+    neg_pos = ogMitoNeg & modernMito
+    print(id,len(neg_pos))
 
-pd.DataFrame(table,columns=['Gene','Original Annotations','Modern Annotations','Removed Annotations','Wrong Function?','New Function?','Same Function?']).to_csv('./Yeast Resources/GO_Data/Stats/OGMito_Annotations.csv',index=False)
+    table = []
+    reduced = []
+    for gene in neg_pos:
+        ogAnnos = []
+        modernAnnos = []
+        for (term, _) in slim:
+            ogGenes = ogParser.getGenes(term)
+            if gene in ogGenes:
+                ogAnnos.append(f'{term} ({termName[term]})')
+            modernGenes = modernParser.getGenes(term)
+            if gene in modernGenes:
+                modernAnnos.append(f'{term} ({termName[term]})')
+        lostAnnos = set(ogAnnos) - set(modernAnnos)
+        wrongFunc = 1 if len(set(ogAnnos) - lostAnnos) == 0 else 0
+        newFunc = 1 if len(set(ogAnnos) - lostAnnos) > 0 else 0
+        sameFunc = 1 if wrongFunc == 0 and newFunc == 0 else 0
+        table.append([gene,scoreDict[gene],';'.join(ogAnnos),';'.join(modernAnnos),';'.join(lostAnnos),wrongFunc,newFunc,sameFunc])
+        reduced.append([gene,scoreDict[gene],wrongFunc,newFunc,sameFunc])
+
+    pd.DataFrame(table,columns=['Gene','Score','Original Annotations','Modern Annotations','Removed Annotations','Wrong Function?','New Function?','Same Function?']).to_csv(f'./Yeast Resources/GO_Data/Stats/AllTerms/{id[:2]}{id[3:]}_Annotations.csv',index=False)
+    pd.DataFrame(reduced,columns=['Gene','Score','Wrong Function?','New Function?','Same Function?']).to_csv(f'./Yeast Resources/GO_Data/Stats/AllTerms/{id[:2]}{id[3:]}_Annotations_Reduced.csv',index=False)
         
 
 
 
+parsers = []
 
 # for line in dates.readlines():
 #     date = line[:-1]

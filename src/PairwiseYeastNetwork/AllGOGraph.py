@@ -211,7 +211,7 @@ class AllGoGraph(AllGoModel):
         self.memMapLen = (len(foldTable)*len(foldTable)-len(foldTable)) + (len(self.agnGenes)*len(self.allGenes)-len(self.agnGenes))
         
         self.foldMemMapLen = [(len(self.folds[i]) * len(foldTable) - len(self.folds[i])) + (len(self.agnGenes)*len(self.allGenes)-len(self.agnGenes)) for i in range(numfolds)]
-        self.foldMemMapLen_anno = [(len(self.folds[i]) * len(foldTable)) for i in range(numfolds)]
+        self.foldMemMapLen_anno = [(len(self.folds[i]) * len(foldTable) - len(self.folds[i])) for i in range(numfolds)]
         self.agnLen = (len(self.agnGenes)*len(self.allGenes)-len(self.agnGenes))
         # self.foldLens = []
         # offsetTotal = 0
