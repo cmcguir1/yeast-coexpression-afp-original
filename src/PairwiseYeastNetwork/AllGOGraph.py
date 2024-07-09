@@ -487,7 +487,7 @@ class AllGoGraph(AllGoModel):
 
         for i in range(self.memMapLen):
             gi = self.graphIndex(pairsMemMap[i,0],pairsMemMap[i,1])
-            graphs[:,gi] = scoresMemmap[i,:]
+            graphs[:,gi] += scoresMemmap[i,:] / 2
         np.save(f'{self.modelName}_{self.struct}_Graph.npy',graphs)
 
         
