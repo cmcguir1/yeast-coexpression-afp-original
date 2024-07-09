@@ -507,8 +507,11 @@ class AllGoGraph(AllGoModel):
                     pairs.append([gene1,gene2])
         return pairs
     
-    def combineGraph(self):
+    def combineScores(self):
         print('Combining Graphcs')
+
+
+
         scoresMemmap_combined = np.memmap(f'{self.path}/{"" if self.modelName == "" else f"{self.modelName}_"}{self.struct}_Scores_Combined.dat',dtype='float32',shape=(self.memMapLen,len(self.leaves)),mode='w+')
         pairsMemMap_combined = np.memmap(f'{self.path}/{"" if self.modelName == "" else f"{self.modelName}_"}{self.struct}_Pairs_Combined.dat',shape=(self.memMapLen,2),dtype='U10',mode='w+')
         agnStart = self.memMapLen-self.agnLen
@@ -523,7 +526,7 @@ class AllGoGraph(AllGoModel):
             offset += self.foldMemMapLen_anno[fold]
 
             for i in range(self.agnLen):
-                scoresMemmap_combined[i+agnStart,:] += (scoresMemmap[i+self.foldMemMapLen_anno[fold]] / self.numFolds)
+                scoresMemmap_combined[i+agnStart,:] += (scoresMemmap[i+self.foldMemMapLen_anno[fold]])
                 pairsMemMap_combined[i+agnStart,:] = pairsMemMap[i+self.foldMemMapLen_anno[fold]] 
 
     def termSample(self,folder,sampleSize=100000):

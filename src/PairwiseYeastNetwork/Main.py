@@ -37,8 +37,8 @@ def main():
     # graph.rankGenes(agn=True,singleTerm=False,fileSuffix='_Modern',modern=True)
     # graph.rankAllTerms(agn=True)
     # graph.rankAllTerms(agn=True,fileSuffix='_Modern',modern=True)
-    # graph.combineGraph()
-    graph.termSample(folder='MultiTerm_Modern_NetStruct')
+    graph.combineScores()
+    # graph.termSample(folder='MultiTerm_Modern_NetStruct')
 
     # graph.debug()
 
