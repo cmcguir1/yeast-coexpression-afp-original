@@ -483,7 +483,7 @@ class AllGoGraph(AllGoModel):
 
         n = len(self.allGenes)
         graphSize = (n*(n-1))/2
-        graphs = np.zeros((len(self.leaves,graphSize)),dtype='float16')
+        graphs = np.zeros((len(self.leaves),graphSize),dtype='float16')
 
         for i in range(self.memMapLen):
             gi = self.graphIndex(pairsMemMap[i,0],pairsMemMap[i,1])
@@ -503,6 +503,14 @@ class AllGoGraph(AllGoModel):
             termPairs = graphs[self.GOTermDict[term],:]
             samp = np.random.choice(termPairs,sampleSize,replace=False)
             pd.DataFrame(samp,columns=['Scores']).to_csv(f'./Yeast Resources/PairsSample/{folder}/{term[0:2]}-{term[3:]}_PairsSample.csv',index=False)
+
+    def queryConnections(self,querySet):
+        table = []
+
+        for gene in (self.allGenes - set(querySet)):
+            for term, termGenes in self.leaves:
+                for qGene in querySet:
+                    pass
 
         
 
