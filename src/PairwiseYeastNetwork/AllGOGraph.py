@@ -198,6 +198,12 @@ class AllGoGraph(AllGoModel):
 
         self.agnGenes = set(self.allGenes) - negGenes
 
+        genes = list(self.allGenes)
+        genes.sort()
+        self.geneIndex = {}
+        for (i, gene) in enumerate(genes):
+            self.geneIndex[gene] = i
+
         print("Neg genes:",len(negGenes))
         print("Fold table:",len(foldTable))
         print("Fold table:",sum([len(fold) for fold in self.folds]))
@@ -472,19 +478,47 @@ class AllGoGraph(AllGoModel):
                 return np.mean(precisionArray)
     
     def makeGraph(self):
-        print(f'{self.path}/{self.struct}_Scores.dat')
-        print(os.path.exists(f'{self.path}/{self.struct}_Scores.dat'))
-        print(f'{self.path}/{self.struct}_Pairs.dat')
-        print(os.path.exists(f'{self.path}/{self.struct}_Pairs.dat'))
-        if not(os.path.exists(f'{self.path}/{self.struct}_Scores.dat') and os.path.exists(f'{self.path}/{self.struct}_Pairs.dat')):
-            print('Pairs have not been calculated yet')
-        else:
-            scoresMemmap = np.memmap(f'{self.path}/{self.struct}_Scores.dat',dtype='float32',shape=(self.memMapLen,len(self.leaves)),mode='r+')
-            pairsMemap = np.memmap(f'{self.path}/{self.struct}_Pairs.dat',shape=(self.memMapLen,2),dtype='U10',mode='r+')
-            graph = np.zeros(shape=(len(self.leaves),sum(range(len(self.allGenes+1)))),dtype=np.float16)
-            for i in range(len(pairsMemap)):
-                graph[:,self.calcIndex(pairsMemap[i,0],pairsMemap[i,1])] += scoresMemmap[i,:] / 2
-            np.save(f'{self.path}/Graph.npy',arr=graph)
+        scoresMemmap = np.memmap(f'{self.path}/{"" if self.modelName == "" else f"{self.modelName}_"}{self.struct}_Scores_Combined.dat',dtype='float32',shape=(self.memMapLen,len(self.leaves)),mode='r+')
+        pairsMemMap = np.memmap(f'{self.path}/{"" if self.modelName == "" else f"{self.modelName}_"}{self.struct}_Pairs_Combined.dat',shape=(self.memMapLen,2),dtype='U10',mode='r+')
+
+        n = len(self.allGenes)
+        graphSize = (n*(n-1))/2
+        graphs = np.zeros((len(self.leaves,graphSize)),dtype='float16')
+
+        for i in range(self.memMapLen):
+            gi = self.graphIndex(pairsMemMap[i,0],pairsMemMap[i,1])
+            graphs[:,gi] = scoresMemmap[i,:]
+        np.save(f'{self.modelName}_{self.struct}_Graph.npy',graphs)
+
+        
+
+
+    def sampleGraph(self,folder,sampleSize=100000):
+        graphs = np.load(f'{self.modelName}_{self.struct}_Graph.npy')
+
+        if not os.path.exists(f'./Yeast Resources/PairsSample/{folder}'):
+            os.mkdir(f'./Yeast Resources/PairsSample/{folder}')
+
+        for term, genes in self.leaves:
+            termPairs = graphs[self.GOTermDict[term],:]
+            samp = np.random.choice(termPairs,sampleSize,replace=False)
+            pd.DataFrame(samp,columns=['Scores']).to_csv(f'./Yeast Resources/PairsSample/{folder}/{term[0:2]}-{term[3:]}_PairsSample.csv',index=False)
+
+        
+
+    def graphIndex(self,geneA,geneB):
+            if geneA < geneB: # If a comes alphabetically before B
+                row = self.geneIndex[geneA]
+                col = self.geneIndex[geneB]
+            else:
+                row = self.geneIndex[geneB]
+                col = self.geneIndex[geneA]
+            n = len(self.allGenes)
+            i = row * ((n-1) - ((row-1)/2)) + (col - row - 1)
+            return i
+            
+        
+
 
 
     def calcIndex(self,gene1,gene2):
