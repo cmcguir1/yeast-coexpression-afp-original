@@ -482,7 +482,7 @@ class AllGoGraph(AllGoModel):
         pairsMemMap = np.memmap(f'{self.path}/{"" if self.modelName == "" else f"{self.modelName}_"}{self.struct}_Pairs_Combined.dat',shape=(self.memMapLen,2),dtype='U10',mode='r+')
 
         n = len(self.allGenes)
-        graphSize = (n*(n-1))/2
+        graphSize = int((n*(n-1))/2)
         graphs = np.zeros((len(self.leaves),graphSize),dtype='float16')
 
         for i in range(self.memMapLen):
