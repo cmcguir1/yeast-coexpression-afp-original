@@ -32,12 +32,14 @@ colorsList <- c("#FC0303","#14A63B","#5D87F0","#7713BA","#FAEF16","#E09704")
 purple <- "#7713BA"
 green <- "#14A63B"
 blue <- "#5D87F0"
+red <- "#FC0303"
 
-pdf("FalseNegatives.pdf",height=6,width=10)
-plotDist(c("-/+"),"NN",purple,scale=F,xMin=0)
-plotDist(c("-/+"),"MEFIT",green,scale=F,add=T,xMin=0)
-plotDist(c("-/+"),"SPELL",blue,scale=F,add=T,xMin=0)
-legend("topleft",legend=c("MEFIT","SPELL","Neural Net"),fill=c(green,blue,purple))
+pdf("FalseNegatives_HighConfidence.pdf",height=6,width=10)
+plotDist(c("-/+"),"NN",purple,scale=F,xMin=0.8)
+plotDist(c("-/+"),"bioPIXIE",red,scale=F,add=T,xMin=0.8)
+plotDist(c("-/+"),"MEFIT",green,scale=F,add=T,xMin=0.8)
+plotDist(c("-/+"),"SPELL",blue,scale=F,add=T,xMin=0.8)
+legend("topleft",legend=c("bioPIXIE","MEFIT","SPELL","Neural Net"),fill=c(red,green,blue,purple))
 dev.off()
 
 for(model in c("NN","MEFIT","SPELL","bioPIXIE")) {

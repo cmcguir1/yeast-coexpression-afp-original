@@ -7,6 +7,7 @@ from FlexNet import FlexNet
 from ConfusionMatrix import ConfusionMatrix
 from CorrelationDictionary import CorrelationDictionary
 import time
+from random import sample
 
 
 import sys
@@ -15,7 +16,7 @@ from Leaf import getLeaves, getGenes
 from GOParser import GOParser
 
 class AllGoGraph(AllGoModel):
-    def __init__(self,networkPath,structure,folder,modelName='',numfolds=4,geneFolds='./src/PairwiseYeastNetwork/AllGOGeneFold_Original_1.csv',singleTermFolds=False,ontologyDataset='2007',evalDataset='2007',memMapName='YeastDict_Regularized.npy',softmax=False,inputVector='x',outputVector='b',addTerms=[]):
+    def __init__(self,networkPath,structure,folder,modelName='',numfolds=4,geneFolds='./src/PairwiseYeastNetwork/AllGOGeneFold_Original_1.csv',singleTermFolds=False,ontologyDataset='2007',evalDataset='2007',memMapName='YeastDict_Regularized.npy',softmax=False,inputVector='x',outputVector='b',addTerms=[],corr_mm=None):
         
         #Intialize file path for folder where results will be saved
         self.path = f'./Yeast Resources/GraphResults/{folder}'
@@ -46,7 +47,7 @@ class AllGoGraph(AllGoModel):
         if self.expression:
             # Correlations Dictionary that will be retrieve precalculated correlation values
             # self.corrDict = CorrelationDictionary(dictLoc='../YeastMemMap/YeastDict_float16.npy' if (os.path.exists('../YeastMemMap/YeastDict_float16.npy')) else '../YeastDict_float16.npy',datasetType=ontologyDataset)
-            self.corrDict = CorrelationDictionary(dictLoc=f'../YeastMemMap/{memMapName}' if (os.path.exists(f'../YeastMemMap/{memMapName}')) else f'../{memMapName}',datasetType=ontologyDataset)
+            self.corrDict = CorrelationDictionary(dictLoc=f'../YeastMemMap/{memMapName}' if (os.path.exists(f'../YeastMemMap/{memMapName}')) else f'../{memMapName}',datasetType=ontologyDataset,memMap_mode=corr_mm)
             
             self.datasets = self.corrDict.expDataset.datasets
             self.inputSize += len(self.datasets)
@@ -195,6 +196,8 @@ class AllGoGraph(AllGoModel):
         negGenes = set()
         for termGenes in negTerms:
             negGenes = negGenes | termGenes
+        
+        self.negGenes = negGenes
 
         self.agnGenes = set(self.allGenes) - negGenes
 
@@ -203,6 +206,13 @@ class AllGoGraph(AllGoModel):
         self.geneIndex = {}
         for (i, gene) in enumerate(genes):
             self.geneIndex[gene] = i
+
+        self.commonToYorf = {}
+        self.yorfToCommon = {}
+        names = pd.read_csv('./src/PairwiseYeastNetwork/YorfToCommon.csv')
+        for _, row in names.iterrows():
+            self.commonToYorf[row['Common']] = row['YORF']
+            self.yorfToCommon[row['YORF']] = row['Common']
 
         print("Neg genes:",len(negGenes))
         print("Fold table:",len(foldTable))
@@ -477,7 +487,19 @@ class AllGoGraph(AllGoModel):
                         precisionArray[i-1] = precisionArray[i]
                 return np.mean(precisionArray)
     
-    def makeGraph(self):
+    def normalizeGraph(self):
+        graphs = np.load(f'{self.path}/{self.modelName}_{self.struct}_Graph.npy')
+
+        for i in range(len(self.leaves)):
+                termScores = graphs[i,:].astype('float64')
+                mean = np.mean(termScores)
+                std = np.std(termScores)
+                graphs[i,:] = (termScores - mean) /std
+        
+        np.save(f'{self.path}/{self.modelName}_{self.struct}_Graph.npy',graphs)
+        print('Normalized')
+    
+    def makeGraph(self,normalize=True):
         scoresMemmap = np.memmap(f'{self.path}/{"" if self.modelName == "" else f"{self.modelName}_"}{self.struct}_Scores_Combined.dat',dtype='float32',shape=(self.memMapLen,len(self.leaves)),mode='r+')
         pairsMemMap = np.memmap(f'{self.path}/{"" if self.modelName == "" else f"{self.modelName}_"}{self.struct}_Pairs_Combined.dat',shape=(self.memMapLen,2),dtype='U10',mode='r+')
 
@@ -486,15 +508,23 @@ class AllGoGraph(AllGoModel):
         graphs = np.zeros((len(self.leaves),graphSize),dtype='float16')
 
         for i in range(self.memMapLen):
+            if i % 100000 == 0: print(f'{i/self.memMapLen} %')
             gi = self.graphIndex(pairsMemMap[i,0],pairsMemMap[i,1])
             graphs[:,gi] += scoresMemmap[i,:] / 2
-        np.save(f'{self.modelName}_{self.struct}_Graph.npy',graphs)
+        
+        np.save(f'{self.path}/{self.modelName}_{self.struct}_Graph.npy',graphs)
+
+        if normalize: self.normalizeGraph()
+
+            
+
+        
 
         
 
 
     def sampleGraph(self,folder,sampleSize=100000):
-        graphs = np.load(f'{self.modelName}_{self.struct}_Graph.npy')
+        graphs = np.load(f'{self.path}/{self.modelName}_{self.struct}_Graph.npy')
 
         if not os.path.exists(f'./Yeast Resources/PairsSample/{folder}'):
             os.mkdir(f'./Yeast Resources/PairsSample/{folder}')
@@ -504,13 +534,88 @@ class AllGoGraph(AllGoModel):
             samp = np.random.choice(termPairs,sampleSize,replace=False)
             pd.DataFrame(samp,columns=['Scores']).to_csv(f'./Yeast Resources/PairsSample/{folder}/{term[0:2]}-{term[3:]}_PairsSample.csv',index=False)
 
-    def queryConnections(self,querySet):
-        table = []
+    def sampleGraph_PosNeg(self,folder,sampleSize=10000):
+        graphs = np.load(f'{self.path}/{self.modelName}_{self.struct}_Graph.npy')
 
+        if not os.path.exists(f'./Yeast Resources/PairsSample/{folder}'):
+            os.mkdir(f'./Yeast Resources/PairsSample/{folder}')
+        
+        agnPairs = AllGoGraph.makePairs(self.agnGenes,self.agnGenes)
+        for term, termGenes in self.leaves:
+            posPairs = AllGoGraph.makePairs(termGenes,termGenes)
+            termNeg = self.negGenes - termGenes
+            negPairs = AllGoGraph.makePairs(termNeg,termNeg)
+            
+            posSample = [[graphs[self.GOTermDict[term],self.graphIndex(pair[0],pair[1])],'+'] for pair in sample(posPairs,min(len(posPairs),sampleSize))]
+            negSample = [[graphs[self.GOTermDict[term],self.graphIndex(pair[0],pair[1])],'-'] for pair in sample(negPairs,min(len(negPairs),sampleSize))]
+            agnSample = [[graphs[self.GOTermDict[term],self.graphIndex(pair[0],pair[1])],'0'] for pair in sample(agnPairs,min(len(agnPairs),sampleSize))]
+
+            samples = posSample + negSample + agnSample
+            pd.DataFrame(samples,columns=['Scores','Label']).to_csv(f'./Yeast Resources/PairsSample/{folder}/{term[0:2]}-{term[3:]}_PairsSample_Labeled.csv',index=False)
+
+
+
+    def queryConnections(self,query,numSave=2000,saveAll=False):
+        graphs = np.load(f'{self.path}/{self.modelName}_{self.struct}_Graph.npy')
+
+        querySet = []
+        for gene in query:
+            if gene in self.commonToYorf: 
+                querySet.append(self.commonToYorf[gene])
+            elif gene in self.allGenes:
+                querySet.append(gene)
+            else:
+                raise Exception(f'{gene} is not a recognized gene')
+        
+        table = []
         for gene in (self.allGenes - set(querySet)):
             for term, termGenes in self.leaves:
+                scores = []
+                labels = ['+' if gene in termGenes else '-']
                 for qGene in querySet:
-                    pass
+                    scores.append(graphs[self.GOTermDict[term],self.graphIndex(gene,qGene)])
+                    labels.append('+' if qGene in termGenes else '-')
+                table.append([self.yorfToCommon[gene] if gene in self.yorfToCommon else gene,self.goParser.onto.terms[term].name,sum(scores)/len(scores),';'.join([str(s) for s in scores]),' '.join(labels)])
+        table.sort(key=lambda row: row[2],reverse=True)
+        if not saveAll:
+            table = table[:numSave]
+        queryStr = ';'.join(query) + ' Scores'
+        queryLabels = 'gene;' + ';'.join(query) + ' Labels'
+        queryFile = '_'.join(query)
+        pd.DataFrame(table,columns=['Gene','GO Term','Score',queryStr,queryLabels]).to_csv(f'./{self.path}/QueryConnections_{queryFile}.csv',index=False)
+
+    def queryInvolvement(self,query):
+        if len(query) <= 1:
+            raise Exception('Query Involvement requires at least two genes in query')
+
+        graphs = np.load(f'{self.path}/{self.modelName}_{self.struct}_Graph.npy')
+
+        querySet = []
+        for gene in query:
+            if gene in self.commonToYorf: 
+                querySet.append(self.commonToYorf[gene])
+            elif gene in self.allGenes:
+                querySet.append(gene)
+            else:
+                raise Exception(f'{gene} is not a recognized gene')
+            
+        table = []
+        qPairs = [(querySet[i],querySet[j]) for i in range(len(querySet)) for j in range(i+1,len(querySet))]
+        for term, termGenes in self.leaves:
+            scores = []
+            labels = []
+            for geneA, geneB in qPairs:
+                scores.append(graphs[self.GOTermDict[term],self.graphIndex(geneA,geneB)])
+            for qGene in querySet:
+                labels.append('+' if qGene in termGenes else '-')
+            table.append([self.goParser.onto.terms[term].name,sum(scores)/len(scores),';'.join([str(s) for s in scores]),''.join(labels)])
+        table.sort(key=lambda row: row[1],reverse=True)
+
+        pd.DataFrame(table,columns=['GO Term','Score','_'.join(query) + ' Scores','_'.join(query) + ' Labels']).to_csv(f'./{self.path}/QueryInvolvement_{"_".join(query)}.csv',index=False)
+        
+
+    def saveSlim(self):
+        pd.DataFrame([t for t, g in self.leaves],columns=['GO Term']).to_csv('./src/PairwiseYeastNetwork/SlimTerms_2023.csv',index=False)       
 
         
 
@@ -523,7 +628,7 @@ class AllGoGraph(AllGoModel):
                 col = self.geneIndex[geneA]
             n = len(self.allGenes)
             i = row * ((n-1) - ((row-1)/2)) + (col - row - 1)
-            return i
+            return int(i)
             
         
 
@@ -571,6 +676,7 @@ class AllGoGraph(AllGoModel):
                 scoresMemmap_combined[i+agnStart,:] += (scoresMemmap[i+self.foldMemMapLen_anno[fold]])
                 pairsMemMap_combined[i+agnStart,:] = pairsMemMap[i+self.foldMemMapLen_anno[fold]] 
 
+    # Don't use this, use graph sample instead
     def termSample(self,folder,sampleSize=100000):
         if not os.path.exists(f'./Yeast Resources/PairsSample/{folder}'):
             os.mkdir(f'./Yeast Resources/PairsSample/{folder}')
@@ -581,14 +687,7 @@ class AllGoGraph(AllGoModel):
             samp = np.random.choice(termPairs,sampleSize,replace=False)
             pd.DataFrame(samp,columns=['Scores']).to_csv(f'./Yeast Resources/PairsSample/{folder}/{term[0:2]}-{term[3:]}_PairsSample.csv',index=False)
 
-            
-
-
-
-
-
-
-            
+                   
     
     def to_csv(self,loc):
         scoresMemmap = np.memmap(f'{self.path}/{"" if self.modelName == "" else f"{self.modelName}_"}{self.struct}_Scores.dat',dtype='float32',shape=(self.memMapLen,len(self.leaves)),mode='r+')

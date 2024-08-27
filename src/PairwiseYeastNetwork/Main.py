@@ -21,16 +21,16 @@ def main():
 
     folder = 'MultiTerm_Modern_NetStruct'
     folder = 'Test'
-    name = f'Replicate_{sys.argv[3]}_'
-    foldFile = f'./src/PairwiseYeastNetwork/AllGO_2023_b_{sys.argv[3]}.csv'
+    name = f'Replicate_0_'
+    foldFile = f'./src/PairwiseYeastNetwork/AllGO_2023_b_0.csv'
 
    
-    model = AllGoModel(0,sys.argv[2],folder,name,foldFile=foldFile,ontologyDataset='2023',outputVector='b',addTerms=[],resetNet=False,hardNegatives=False)
+    # model = AllGoModel(0,'1000x500x200',folder,name,foldFile=foldFile,ontologyDataset='2023',outputVector='b',addTerms=[],resetNet=False,hardNegatives=False)
     # model.trainNetwork(600000,saveTermLoss=False)
     # model.testNetworkAll()
     # model.testNetworkAll(validation=False)
 
-    graph = AllGoGraph(model.networkLoc[:-5],f'430x{sys.argv[2]}x93',folder,name,geneFolds=foldFile,outputVector='b',addTerms=[],ontologyDataset='2023',evalDataset='2023')
+    graph = AllGoGraph('./Yeast Resources/Pairwise/Spell/Test/Replicate_0__x_b_430x1000x500x200x93_lr0.01_batch50_lfBCE_Net_fold',f'430x1000x500x200x93',folder,name,geneFolds=foldFile,outputVector='b',addTerms=[],ontologyDataset='2023',evalDataset='2023',corr_mm='r+')
     # for i in range(4):
     # graph.feedForward(int(sys.argv[1]),calcAgn=True,calcPos=True,flush=True)
     # graph.rankGenes(agn=True,singleTerm=False)
@@ -38,9 +38,25 @@ def main():
     # graph.rankAllTerms(agn=True)
     # graph.rankAllTerms(agn=True,fileSuffix='_Modern',modern=True)
     # graph.combineScores()
-    graph.makeGraph()
-    graph.sampleGraph()
+    # graph.makeGraph()
+    # graph.sampleGraph()
     # graph.termSample(folder='MultiTerm_Modern_NetStruct')
+    # graph.queryConnections(['VAC14','FAB1','FIG4'])
+    graph.saveSlim()
+    # graph.queryConnections(['VAC14','FAB1'])
+    # graph.queryConnections(['FIG4'])
+    # graph.queryConnections(['SLT2'])
+    # graph.queryInvolvement(['VAC14','FAB1','FIG4'])
+    # graph.queryInvolvement(['FIG4','STE20'])
+
+    # graph.queryConnections(['FIG4','SLT2'])
+    # graph.queryConnections(['FIG4','STE11','STE20'])
+    # graph.queryConnections(['FIG4','MEC1'])
+    # graph.queryConnections(['FIG4','VMA2','VMA3','VMA5'])
+    # graph.queryInvolvement(['FIG4','FAB1','STE20'])
+    # graph.normalizeGraph()
+    # graph.sampleGraph(folder='MultiTerm_Modern_NetStruct')
+    # graph.sampleGraph_PosNeg(folder='MultiTerm_Modern_NetStruct_Labeled')
 
     # graph.debug()
 

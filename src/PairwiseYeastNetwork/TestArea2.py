@@ -1,15 +1,37 @@
-from scipy.stats import kstest, ks_2samp
-from scipy import stats
-from random import random
-import pandas as pd
+import torch
+import torch.nn as nn
+import torch.nn.functional as F
 
-samp2 = [random() for _ in range(1000)]
-samp1 = [random()*0.5 for _ in range(1000)]
+import os
 
-# test = ks_2samp(samp1,samp2,alternative='greater')
-# print(test)
-# test = ks_2samp(samp1,samp2,alternative='less')
-# print(test)
-# test = ks_2samp(samp1,samp2,alternative='two-sided')
-# print(test)
-print(kstest(samp1,'uniform',alternative='less'))
+# outputs = torch.tensor([[-10.0,7.0,-9.0]],dtype=torch.float32)
+
+# targets = torch.tensor([[0.0,0.0,1.0]],dtype=torch.float32)
+
+# outputs = torch.tensor([[5.0,-1.0,4.0],[-10.0,7.0,-9.0]],dtype=torch.float32)
+
+# targets = torch.tensor([[1.0,0.0,1.0],[0.0,0.0,1.0]],dtype=torch.float32)
+
+# bce = nn.BCEWithLogitsLoss(reduction='none')
+
+# pos = targets == 1
+# neg = targets == 0
+
+# print(outputs.size(dim=0))
+
+# pos_scores = [outputs[i][targets[i] == 1] for i in range(outputs.size(dim=0))]
+# neg_scores = [outputs[i][targets[i] == 0] for i in range(outputs.size(dim=0))]
+
+
+
+# zlpr = [torch.log(1 + torch.sum(torch.exp(-pos_scores[i]))) + torch.log(1 + torch.sum(torch.exp(neg_scores[i]))) for i in range(outputs.size(dim=0))]
+# print(1 + torch.sum(torch.exp(-pos_scores)))
+# print(1 + torch.sum(torch.exp(neg_scores)))
+
+# print(zlpr)
+# print(torch.sum(zlpr))
+
+# print(torch.mean(bce(outputs,targets)))
+
+print(os.path.dirname(__file__))
+

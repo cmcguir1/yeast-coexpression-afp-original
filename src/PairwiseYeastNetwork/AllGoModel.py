@@ -8,6 +8,7 @@ import time
 import os
 import random
 from CustomLossFunctions import FocalLoss, CustomCrossEntropyLoss, SM_BCE, SM_MSE, ComboCrossEntropy
+from ZLPRLoss import ZLPRLoss
 import threading
 from torch.utils.data import Dataset
 
@@ -282,6 +283,9 @@ class AllGoModel():
             self.lossFunc = torch.nn.CrossEntropyLoss(weight=self.weights)
         elif lossFunc in ['BCE','binaryCrossEntropy','binary_cross_entropy']:
             self.lossFunc = torch.nn.BCEWithLogitsLoss(weight=self.weights,pos_weight=self.posWeights)
+            self.trainNegatives = True
+        elif lossFunc in ['ZLPR','zlpr']:
+            self.lossFunc = ZLPRLoss()
             self.trainNegatives = True
         else:
             self.lossFunc = torch.nn.CrossEntropyLoss()

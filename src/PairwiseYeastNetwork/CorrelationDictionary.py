@@ -9,7 +9,7 @@ import time
 import sys
 
 class CorrelationDictionary():
-    def __init__(self,dictLoc='../YeastDict_float16.npy',datasetType='modern'):
+    def __init__(self,dictLoc='../YeastDict_float16.npy',datasetType='modern',memMap_mode=None):
         #Dictionary of Gene Name to its index in the correlation dictionary
         self.genes = pd.read_csv('./src/PairwiseYeastNetwork/geneIndexDictionary_full.csv').to_numpy()
         self.indexDict = {gene[0]: gene[1] for gene in self.genes}
@@ -35,7 +35,7 @@ class CorrelationDictionary():
         
         # Correlations dictionary initialization
         # self.memMap = np.random.normal(loc=0.0,,shape=(430,(self.geneNumber*self.geneNumber - sum(range(self.geneNumber))) + self.geneNumber))
-        self.memMap = np.load(dictLoc)
+        self.memMap = np.load(dictLoc,mmap_mode=memMap_mode)
 
 
     def lookupCorrelation(self,gene1,gene2,dataset):

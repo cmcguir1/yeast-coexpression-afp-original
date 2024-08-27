@@ -12,7 +12,7 @@ signifcant <- 0
 num <- 0
 
 pdf("AllTerms_FuncOverTime.pdf",height=58*4,width=6)
-par(mfrow=c(58,1))
+par(mfrow=c(60,1))
 for (term in terms$GO.Term){
 
 
