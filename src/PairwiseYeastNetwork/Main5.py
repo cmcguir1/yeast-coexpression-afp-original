@@ -23,19 +23,20 @@ def main():
     name = f'Replicate{sys.argv[2]}'
     foldFile = f'./src/PairwiseYeastNetwork/AllGO_2007_b_{sys.argv[2]}.csv'
 
-    for i in range(4):
-        model = AllGoModel(i,'500x200x100',folder,name,foldFile=foldFile,ontologyDataset='2007',outputVector='b',addTerms=[],resetNet=False,hardNegatives=False)
-        model.trainNetwork(50000,saveTermLoss=False)
-        model.testNetworkAll()
-        model.testNetworkAll(validation=False)
-
-    # graph = AllGoGraph('./Yeast Resources/Pairwise/Spell/Test/Replicate_0__x_b_430x1000x500x200x93_lr0.01_batch50_lfBCE_Net_fold',f'430x1000x500x200x93',folder,name,geneFolds=foldFile,outputVector='b',addTerms=[],ontologyDataset='2023',evalDataset='2023',corr_mm='r+')
     # for i in range(4):
-    # graph.feedForward(int(sys.argv[1]),calcAgn=True,calcPos=True,flush=True)
+    #     model = AllGoModel(i,'500x200x100',folder,name,foldFile=foldFile,ontologyDataset='2007',outputVector='b',addTerms=[],resetNet=False,hardNegatives=False)
+    #     model.trainNetwork(50000,saveTermLoss=False)
+    #     model.testNetworkAll()
+    #     model.testNetworkAll(validation=False)
+
+    model = AllGoModel(0,'500x200x100',folder,name,foldFile=foldFile,ontologyDataset='2007',outputVector='b',addTerms=[],resetNet=False,hardNegatives=False)
+    graph = AllGoGraph(model.networkLoc[:-5],f'113x500x200x100x93',folder,name,geneFolds=foldFile,outputVector='b',addTerms=[],ontologyDataset='2007',evalDataset='2023')
+    for i in range(4):
+        graph.feedForward(i,calcAgn=True,calcPos=True,flush=True)
     # graph.rankGenes(agn=True,singleTerm=False)
     # graph.rankGenes(agn=True,singleTerm=False,fileSuffix='_Modern',modern=True)
-    # graph.rankAllTerms(agn=True)
-    # graph.rankAllTerms(agn=True,fileSuffix='_Modern',modern=True)
+    graph.rankAllTerms(agn=True)
+    graph.rankAllTerms(agn=True,fileSuffix='_Modern',modern=True)
     # graph.combineScores()
     # graph.makeGraph()
     # graph.sampleGraph()
