@@ -30,7 +30,7 @@ def main():
     #     model.testNetworkAll(validation=False)
 
     model = AllGoModel(0,'500x200x100',folder,name,foldFile=foldFile,ontologyDataset='2007',outputVector='b',addTerms=[],resetNet=False,hardNegatives=False)
-    graph = AllGoGraph(model.networkLoc[:-5],f'113x500x200x100x93',folder,name,geneFolds=foldFile,outputVector='b',addTerms=[],ontologyDataset='2007',evalDataset='2023')
+    graph = AllGoGraph(model.networkLoc[:-5],f'113x500x200x100x79',folder,name,geneFolds=foldFile,outputVector='b',addTerms=[],ontologyDataset='2007',evalDataset='2023')
     for i in range(4):
         graph.feedForward(i,calcAgn=True,calcPos=True,flush=True)
     # graph.rankGenes(agn=True,singleTerm=False)
