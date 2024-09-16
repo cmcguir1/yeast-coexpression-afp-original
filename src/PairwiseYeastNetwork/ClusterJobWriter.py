@@ -258,6 +258,7 @@ def writeJobs(JobName,pythonFile,node=False,arg1=['0','1','2','3'],arg2=None,arg
 # writeJobs('MultiTerm_Modern_NetStruct','Main.py',arg2=['1000x500x200'],arg3=[0],arg1=[0])
 # writeJobs('MultiTerm_NetStruct_PS','Main2.py',arg2=['500x200x100'],arg3=[0],arg1=[0])
 # writeJobs('ZLPR_BCE_Comparison','Main3.py',arg2=['ZLPR','BCE'],arg1=[0,1,2,3])
-writeJobs('ConsistencyReplicates_DiffFold','Main5.py',arg2=[0,1,2,3,4],arg1=[0])
-writeJobs('ConsistencyReplicates_SameFold','Main6.py',arg2=[0,1,2,3,4],arg1=[0])
+# writeJobs('ConsistencyReplicates_DiffFold','Main5.py',arg2=[0,1,2,3,4],arg1=[0])
+# writeJobs('ConsistencyReplicates_SameFold','Main6.py',arg2=[0,1,2,3,4],arg1=[0])
+writeJobs('ConsistencyReplicates_DiffFold','Main5.py',arg2=range(5,20),arg1=[0])
 
