@@ -1,6 +1,6 @@
 #!/usr/bin/sh
 
-for i in {0..4}
+for i in {0..14}
 do
 	qsub data/SummerResearch2022/ClusterJobs/ConsistencyReplicates_SameFold/ConsistencyReplicates_SameFold$i.sh 
 done

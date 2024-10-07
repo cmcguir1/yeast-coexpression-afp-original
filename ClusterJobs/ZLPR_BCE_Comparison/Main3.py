@@ -41,7 +41,7 @@ def main():
     # graph.sampleGraph()
     # graph.termSample(folder='MultiTerm_Modern_NetStruct')
     # graph.queryConnections(['VAC14','FAB1','FIG4'])
-    graph.saveSlim()
+    # graph.saveSlim()
     # graph.queryConnections(['VAC14','FAB1'])
     # graph.queryConnections(['FIG4'])
     # graph.queryConnections(['SLT2'])

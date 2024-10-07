@@ -24,7 +24,7 @@ import ssl
 ssl._create_default_https_context = ssl._create_unverified_context
 
 def main():
-    name = 'DiffFold'
+    name = 'SameFold'
     
     
 
@@ -66,6 +66,18 @@ def main():
         table.append([term, np.mean(score), np.std(score), np.mean(pcorp[term]), np.std(pcorp[term])])
 
     pd.DataFrame(table,columns=['Term','AUC Mean','AUC Std','PCorp Mean','PCorp Std']).to_csv(f'Yeast Resources/GraphResults/ConsistencyReplicates_{name}/SummaryStats.csv',index=False)
+
+    table = []
+    for term, score in auc.items():
+        for score in auc[term]:
+            table.append([term, score])
+    pd.DataFrame(table,columns=['GO Term','AUC']).to_csv(f'Yeast Resources/GraphResults/ConsistencyReplicates_{name}/AUC_Data.csv',index=False)
+
+    table = []
+    for term, score in pcorp.items():
+        for score in pcorp[term]:
+            table.append([term, score])
+    pd.DataFrame(table,columns=['GO Term','PCORP']).to_csv(f'Yeast Resources/GraphResults/ConsistencyReplicates_{name}/PCorp_Data.csv',index=False)
 
 
             

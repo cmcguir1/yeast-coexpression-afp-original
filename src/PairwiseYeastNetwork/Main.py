@@ -26,7 +26,6 @@ ssl._create_default_https_context = ssl._create_unverified_context
 def main():
     name = 'SameFold'
     dataset = 'Test'
-    sg = False
     avg = False
 
     parser = GOParser('2007')
@@ -84,6 +83,19 @@ def main():
         table.append([term, np.mean(score), np.std(score), np.mean(pcorp[term]), np.std(pcorp[term])])
 
     pd.DataFrame(table,columns=['Term','AUC Mean','AUC Std','PCorp Mean','PCorp Std']).to_csv(f'Yeast Resources/Pairwise/Spell/ConsistencyReplicates_{name}/SummaryStats_{"FoldAverages_" if avg else ""}_{dataset}.csv',index=False)
+
+    table = []
+    for term, score in auc.items():
+        for score in auc[term]:
+            table.append([term, score])
+        
+    pd.DataFrame(table,columns=['GO Term','AUC']).to_csv(f'Yeast Resources/Pairwise/Spell/ConsistencyReplicates_{name}/AUC_{"FoldAverages_" if avg else ""}_{dataset}_Data.csv',index=False)
+
+    table = []
+    for term, score in pcorp.items():
+        for score in pcorp[term]:
+            table.append([term, score])
+    pd.DataFrame(table,columns=['GO Term','PCORP']).to_csv(f'Yeast Resources/Pairwise/Spell/ConsistencyReplicates_{name}/PCorp_{"FoldAverages_" if avg else ""}_{dataset}_Data.csv',index=False)
 
 
             
