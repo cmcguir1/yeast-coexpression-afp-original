@@ -36,7 +36,7 @@ plotAUCDist_Single <- function(file,graphName) {
 
 dataFile <- file.choose()
 
-graphName <- "Net 500x200x100 Rep 0"
-pdf("MultiTerm_Net_500x200x100_Rep_0_AUC_Dist.pdf",width=10,height=6)
+graphName <- "Net 500x200x100"
+pdf("MultiTerm_Net_500x200x100_AUC_Dist.pdf",width=10,height=6)
 plotAUCDist_Single(file=dataFile,graphName=graphName)
 dev.off()

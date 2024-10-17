@@ -262,5 +262,6 @@ def writeJobs(JobName,pythonFile,node=False,arg1=['0','1','2','3'],arg2=None,arg
 # writeJobs('ConsistencyReplicates_SameFold','Main6.py',arg2=[0,1,2,3,4],arg1=[0])
 # writeJobs('ConsistencyReplicates_DiffFold','Main5.py',arg2=range(5,20),arg1=[0])
 # writeJobs('ConsistencyReplicates_SameFold','Main6.py',arg2=range(5,20),arg1=[0])
-writeJobs('OverfittingTest','Main3.py',arg2=['500x200x100','200','20','80x80x80'],arg3=[50000,300000])
+# writeJobs('OverfittingTest','Main3.py',arg2=['500x200x100','200','20','80x80x80'],arg3=[50000,300000])
+writeJobs('OverfittingTest2','Main4.py',arg2=['20','80','80x80x80','20x20x20'],arg3=[300000,600000])
 
