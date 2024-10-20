@@ -322,6 +322,7 @@ class AllGoModel():
         #The locations for the testing and training data will be folder because they will be storing a csv file for each GO term
         self.trainLoc = f'./Yeast Resources/Pairwise/Spell/{folderName}/{model_specification}_Train_/'
         self.testLoc = f'./Yeast Resources/Pairwise/Spell/{folderName}/{model_specification}_Test_/'
+        self.folderName = folderName
         print(self.trainLoc)
         print(self.testLoc)
 
@@ -589,6 +590,37 @@ class AllGoModel():
             if runAll:
                 pd.DataFrame(leafStatsDist,columns=['GO Term','AUC','Average Precision']).to_csv(f'{self.testLoc if validation else self.trainLoc}/GOTermDistribution_fold{self.fold}.csv',index=False)
             
+    def assessOverfitting(self):
+        # Intialize dictionaries to store the AUC's and average precisions for each GO term for each fold
+        testAUC = {}
+        testAvgPrec = {}
+        trainAUC = {}
+        trainAvgPrec = {}
+        for term, _ in self.leaves:
+            testAUC[term] = []
+            testAvgPrec[term] = []
+            trainAUC[term] = []
+            trainAvgPrec[term] = []
+        
+        # Loop over all folds of the model
+        for i in range(self.numFolds):
+            foldTest = pd.read_csv(f'{self.testLoc}/GOTermDistribution_fold{i}.csv')
+            foldTrain = pd.read_csv(f'{self.trainLoc}/GOTermDistribution_fold{i}.csv')
+            for row in foldTest.iterrows():
+                term = row['GO Term']
+                testAUC[term].append(row['AUC'])
+                testAvgPrec[term].append(row['Average Precision'])
+            for row in foldTrain.iterrows():
+                trainAUC[term].append(row['AUC'])
+                trainAvgPrec[term].append(row['Average Precision'])
+        
+        table = []
+        for term, _ in self.leaves:
+            table.append([term,np.mean(testAUC[term]),np.mean(trainAUC[term]),np.mean(testAvgPrec[term]),np.mean(trainAvgPrec[term])])
+        pd.DataFrame(table,columns=['GO Term','Test AUC','Train AUC','Test Average Precision','Train Average Precision']).to_csv(f'./Yeast Resources/Pairwise/Spell/{self.folderName}//OverfittingAssessment.csv',index=False)
+
+        
+                
 
 
     #Makes input batches with pairs of genes, each pair being a list of two strings
