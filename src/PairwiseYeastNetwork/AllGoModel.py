@@ -213,6 +213,7 @@ class AllGoModel():
         
         #Initialize the network, the size of the input layer is the number of expression datasets, and the size of the output is the number of leaf go terms
         self.networkLoc = f'./Yeast Resources/Pairwise/Spell/{folderName}/{model_specification}_Net_fold{self.fold+1}.pth'
+        self.model_specification = model_specification
         print(self.networkLoc)
         
         if inputDropout == 0:
@@ -606,18 +607,19 @@ class AllGoModel():
         for i in range(self.numFolds):
             foldTest = pd.read_csv(f'{self.testLoc}/GOTermDistribution_fold{i}.csv')
             foldTrain = pd.read_csv(f'{self.trainLoc}/GOTermDistribution_fold{i}.csv')
-            for row in foldTest.iterrows():
+            for _, row in foldTest.iterrows():
                 term = row['GO Term']
                 testAUC[term].append(row['AUC'])
                 testAvgPrec[term].append(row['Average Precision'])
-            for row in foldTrain.iterrows():
+            for _,row in foldTrain.iterrows():
+                term = row['GO Term']
                 trainAUC[term].append(row['AUC'])
                 trainAvgPrec[term].append(row['Average Precision'])
         
         table = []
         for term, _ in self.leaves:
             table.append([term,np.mean(testAUC[term]),np.mean(trainAUC[term]),np.mean(testAvgPrec[term]),np.mean(trainAvgPrec[term])])
-        pd.DataFrame(table,columns=['GO Term','Test AUC','Train AUC','Test Average Precision','Train Average Precision']).to_csv(f'./Yeast Resources/Pairwise/Spell/{self.folderName}//OverfittingAssessment.csv',index=False)
+        pd.DataFrame(table,columns=['GO Term','Test AUC','Train AUC','Test Average Precision','Train Average Precision']).to_csv(f'./Yeast Resources/Pairwise/Spell/{self.folderName}/{self.model_specification}_OverfittingAssessment.csv',index=False)
 
         
                 
