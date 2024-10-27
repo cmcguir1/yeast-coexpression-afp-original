@@ -24,7 +24,7 @@ from GOParser import GOParser
 
 
 class AllGoModel():
-    def __init__(self,fold,structure,folderName,modelName,numFolds=4,lr=0.01,min_lr=1e-7,momentum=0.9,batch=50,gamma=2,alpha=1,weightDecay=0.0,weighted=False,posWeighted=False,pc_scale=1,lossFunc='BCE',foldFile='./src/PairwiseYeastNetwork/AllGOGeneFold_Original_1.csv',ontologyDataset='modern',regularize=False,inputDropout=None,hiddenDropout=None,activation='relu',resetNet=False,cuda=True,inputVector = 'x',outputVector = 'b',verbose='',addTerms=[],memMapName='YeastDict_Regularized.npy',randomizeLabels=False,randomizeFeatures=False,swapGenes=False,hardNegatives=False):
+    def __init__(self,fold,structure,folderName,modelName,numFolds=4,lr=0.01,min_lr=1e-7,momentum=0.9,batch=50,gamma=2,alpha=1,weightDecay=0.0,weighted=False,posWeighted=False,pc_scale=1,lossFunc='BCE',foldFile='./src/PairwiseYeastNetwork/AllGOGeneFold_Original_1.csv',ontologyDataset='modern',expressionDataset='',regularize=False,inputDropout=None,hiddenDropout=None,activation='relu',resetNet=False,cuda=True,inputVector = 'x',outputVector = 'b',verbose='',addTerms=[],memMapName='YeastDict_Regularized.npy',randomizeLabels=False,randomizeFeatures=False,swapGenes=False,hardNegatives=False):
         # Handling what data is in the input and output vector of the vector
 
         #   The argument 'inputVector' determines what data is included in the input vector of the network based off of what characters are included in 'inputVector'
@@ -44,7 +44,8 @@ class AllGoModel():
         if self.expression:
             # Correlations Dictionary that will be retrieve precalculated correlation values
             # self.corrDict = CorrelationDictionary(dictLoc='../YeastMemMap/YeastDict_float16.npy' if (os.path.exists('../YeastMemMap/YeastDict_float16.npy')) else '../YeastDict_float16.npy',datasetType=ontologyDataset)
-            self.corrDict = CorrelationDictionary(dictLoc=f'../YeastMemMap/{memMapName}' if (os.path.exists(f'../YeastMemMap/{memMapName}')) else f'../{memMapName}',datasetType=ontologyDataset)
+            expDataset = ontologyDataset if expressionDataset == '' else expressionDataset
+            self.corrDict = CorrelationDictionary(dictLoc=f'../YeastMemMap/{memMapName}' if (os.path.exists(f'../YeastMemMap/{memMapName}')) else f'../{memMapName}',datasetType=expDataset)
             
             self.datasets = self.corrDict.expDataset.datasets
             self.inputSize += len(self.datasets)

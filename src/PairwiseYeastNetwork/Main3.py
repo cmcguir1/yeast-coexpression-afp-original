@@ -25,9 +25,10 @@ def main():
 
    
     model = AllGoModel(int(sys.argv[1]),sys.argv[2],folder,name,foldFile=foldFile,ontologyDataset='2007',outputVector='b',addTerms=[],resetNet=False,hardNegatives=False)
-    model.trainNetwork(int(sys.argv[3]),saveTermLoss=False)
-    model.testNetworkAll()
-    model.testNetworkAll(validation=False)
+    # model.trainNetwork(int(sys.argv[3]),saveTermLoss=False)
+    # model.testNetworkAll()
+    # model.testNetworkAll(validation=False)
+    
 
     # graph = AllGoGraph('./Yeast Resources/Pairwise/Spell/Test/Replicate_0__x_b_430x1000x500x200x93_lr0.01_batch50_lfBCE_Net_fold',f'430x1000x500x200x93',folder,name,geneFolds=foldFile,outputVector='b',addTerms=[],ontologyDataset='2023',evalDataset='2023',corr_mm='r+')
     # for i in range(4):

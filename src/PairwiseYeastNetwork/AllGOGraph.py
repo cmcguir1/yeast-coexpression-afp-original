@@ -16,7 +16,7 @@ from Leaf import getLeaves, getGenes
 from GOParser import GOParser
 
 class AllGoGraph(AllGoModel):
-    def __init__(self,networkPath,structure,folder,modelName='',numfolds=4,geneFolds='./src/PairwiseYeastNetwork/AllGOGeneFold_Original_1.csv',singleTermFolds=False,ontologyDataset='2007',evalDataset='2007',memMapName='YeastDict_Regularized.npy',softmax=False,inputVector='x',outputVector='b',addTerms=[],corr_mm=None):
+    def __init__(self,networkPath,structure,folder,modelName='',numfolds=4,geneFolds='./src/PairwiseYeastNetwork/AllGOGeneFold_Original_1.csv',singleTermFolds=False,ontologyDataset='2007',expressionDataset='',evalDataset='2007',memMapName='YeastDict_Regularized.npy',softmax=False,inputVector='x',outputVector='b',addTerms=[],corr_mm=None):
         
         #Intialize file path for folder where results will be saved
         self.path = f'./Yeast Resources/GraphResults/{folder}'
@@ -47,7 +47,8 @@ class AllGoGraph(AllGoModel):
         if self.expression:
             # Correlations Dictionary that will be retrieve precalculated correlation values
             # self.corrDict = CorrelationDictionary(dictLoc='../YeastMemMap/YeastDict_float16.npy' if (os.path.exists('../YeastMemMap/YeastDict_float16.npy')) else '../YeastDict_float16.npy',datasetType=ontologyDataset)
-            self.corrDict = CorrelationDictionary(dictLoc=f'../YeastMemMap/{memMapName}' if (os.path.exists(f'../YeastMemMap/{memMapName}')) else f'../{memMapName}',datasetType=ontologyDataset,memMap_mode=corr_mm)
+            expDataset = ontologyDataset if expressionDataset == '' else expressionDataset
+            self.corrDict = CorrelationDictionary(dictLoc=f'../YeastMemMap/{memMapName}' if (os.path.exists(f'../YeastMemMap/{memMapName}')) else f'../{memMapName}',datasetType=expDataset,memMap_mode=corr_mm)
             
             self.datasets = self.corrDict.expDataset.datasets
             self.inputSize += len(self.datasets)
