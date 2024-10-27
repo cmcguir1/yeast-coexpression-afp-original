@@ -31,6 +31,8 @@ def main():
     model.testNetworkAll()
     model.testNetworkAll(validation=False)
 
+    model.assessOverfitting()
+
     netLoc = model.networkLoc[:-5]
     del model
     
