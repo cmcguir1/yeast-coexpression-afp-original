@@ -22,20 +22,25 @@ def main():
     folder = 'Expression_Ontology_Combinations'
     onto = sys.argv[3]
     expr = sys.argv[2]
+    inputSize = 430 if expr == '2022' else 113
+    outputSize = 93 if onto == '2022' else 79
     name = f'Expr-{expr}_Onto-{onto}'
     foldFile = f'./src/PairwiseYeastNetwork/AllGO_2007_b_1csv'
 
    
     model = AllGoModel(int(sys.argv[1]),sys.argv[4],folder,name,foldFile=foldFile,ontologyDataset=onto,expressionDataset=expr,outputVector='b',addTerms=[],resetNet=False,hardNegatives=False)
-    model.trainNetwork(600000,saveTermLoss=False)
-    model.testNetworkAll()
-    model.testNetworkAll(validation=False)
+    # model.trainNetwork(600000,saveTermLoss=False)
+    # model.testNetworkAll()
+    # model.testNetworkAll(validation=False)
+
+    # model.assessOverfitting()
 
     netLoc = model.networkLoc[:-5]
     del model
     
+    
 
-    graph = AllGoGraph(netLoc,f'430x{sys.argv[4]}x93',folder,name,geneFolds=foldFile,outputVector='b',addTerms=[],ontologyDataset=onto,expressionDataset=expr,evalDataset='2022')
+    graph = AllGoGraph(netLoc,f'{inputSize}x{sys.argv[4]}x{outputSize}',folder,name,geneFolds=foldFile,outputVector='b',addTerms=[],ontologyDataset=onto,expressionDataset=expr,evalDataset=onto)
     # for i in range(4):
     graph.feedForward(int(sys.argv[1]),calcAgn=True,calcPos=True,flush=True)
     # graph.rankGenes(agn=True,singleTerm=False)
