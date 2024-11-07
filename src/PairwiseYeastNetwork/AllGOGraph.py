@@ -16,7 +16,7 @@ from Leaf import getLeaves, getGenes
 from GOParser import GOParser
 
 class AllGoGraph(AllGoModel):
-    def __init__(self,networkPath,structure,folder,modelName='',numfolds=4,geneFolds='./src/PairwiseYeastNetwork/AllGOGeneFold_Original_1.csv',singleTermFolds=False,ontologyDataset='2007',expressionDataset='',evalDataset='2007',memMapName='YeastDict_Regularized.npy',softmax=False,inputVector='x',outputVector='b',addTerms=[],corr_mm=None):
+    def __init__(self,networkPath,structure,folder,modelName='',numfolds=4,geneFolds='./src/PairwiseYeastNetwork/AllGOGeneFold_Original_1.csv',singleTermFolds=False,ontologyDataset='2007',expressionDataset='',evalDataset='2007',memMapName='YeastDict_Regularized.npy',softmax=False,inputVector='x',outputVector='b',addTerms=[],cutoff=10,corr_mm=None):
         
         #Intialize file path for folder where results will be saved
         self.path = f'./Yeast Resources/GraphResults/{folder}'
@@ -139,7 +139,7 @@ class AllGoGraph(AllGoModel):
         #   Additional GO terms can be added with 'addTerm'
         
         self.goParser = GOParser(ontologyDataset)
-        self.leaves = self.goParser.getSlimLeaves(cutoff=10,roots=outputVector,onlyLeaves='l' not in outputVector)
+        self.leaves = self.goParser.getSlimLeaves(cutoff=cutoff,roots=outputVector,onlyLeaves='l' not in outputVector)
         # self.leaves = getLeaves(10,dataset=ontologyDataset,bioProc=('b' in outputVector),molFunc=('m' in outputVector),cellComp=('c' in outputVector),exclude=['GO:0002181','GO:0022857','GO:0032543'])
         for term in addTerms:
             self.leaves.append([term,self.goParser.getGenes(term)])
@@ -147,7 +147,7 @@ class AllGoGraph(AllGoModel):
         self.outputSize = len(self.leaves)
 
         self.evalParser = GOParser(evalDataset)
-        self.evalLeaves = self.evalParser.getSlimLeaves(cutoff=10,roots=self.outputVector,onlyLeaves='l' not in self.outputVector)
+        self.evalLeaves = self.evalParser.getSlimLeaves(cutoff=cutoff,roots=self.outputVector,onlyLeaves='l' not in self.outputVector)
         
         self.nonSpecific = 'n' in outputVector
         if self.nonSpecific:
@@ -475,7 +475,8 @@ class AllGoGraph(AllGoModel):
     
     def rankAllTerms(self,agn=True,fileSuffix='',modern=False):
         summary = []
-        for term,index in self.GOTermDict.items():
+        l = self.evalLeaves if modern else self.leaves
+        for term, _ in l:
             auc, avgPrec = self.rankGenes(term=term,agn=agn,fileSuffix=fileSuffix,modern=modern)
             summary.append([term,auc,avgPrec])
         pd.DataFrame(summary,columns=['GO Term','AUC','Average Precision']).to_csv(f'{self.path}/{"" if self.modelName == "" else f"_{self.modelName}"}{self.struct}GOTermDistribution{fileSuffix}.csv',index=False)

@@ -1,9 +1,9 @@
 #!/usr/bin/sh
 
-## Job Created Nov-05-2024
+## Job Created Nov-07-2024
 
 ##Place PBS directives here
-#PBS -N Expression_Ontology_Combinations_2_2022_2007_80x80x80
+#PBS -N Expression_Ontology_Combinations_0_2007_2022_20x20x20
 #PBS -l nodes=1:ppn=36
 #PBS -l walltime=168:00:00
 #PBS -M cmcguir1@trinity.edu
@@ -11,4 +11,4 @@
 
 cd data/SummerResearch2022
 
-/data/hibbslab/anaconda3/bin/python src/PairwiseYeastNetwork/Main7.py 2 2022 2007 80x80x80  > ClusterJobs/Expression_Ontology_Combinations/Expression_Ontology_Combinations6_output.txt
+/data/hibbslab/anaconda3/bin/python src/PairwiseYeastNetwork/Main7.py 0 2007 2022 20x20x20  > ClusterJobs/Expression_Ontology_Combinations/Expression_Ontology_Combinations6_output.txt
