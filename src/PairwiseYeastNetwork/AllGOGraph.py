@@ -425,11 +425,17 @@ class AllGoGraph(AllGoModel):
         numScores = {}
         nonGenes = {}
 
+        
         for gene in self.allGenes:
             posScore[gene] = 0
             totalScore[gene] = 0
             numScores[gene] = 0
         for gene in self.agnGenes:
+            posScore[gene] = 0
+            totalScore[gene] = 0
+            numScores[gene] = 0
+        # The added set deals with the problem of genes that are no in the 2022 ontology
+        for gene in ['YIL080W', 'YDL118W', 'YLR466C-B']:
             posScore[gene] = 0
             totalScore[gene] = 0
             numScores[gene] = 0

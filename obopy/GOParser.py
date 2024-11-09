@@ -106,19 +106,14 @@ class GOParser():
         return min(shared_geneNums)
     
 model = GOParser('2007')
-ogSlim = model.getSlimLeaves()
 model_modern = GOParser('2022')
-modernSlim = model_modern.getSlimLeaves()
 
-modernSize = {}
-for term, genes in modernSlim:
-    modernSize[term] = len(genes)
+print('2007:',len(model.onto.yorfs.keys()))
+print('2022:',len(model_modern.onto.yorfs.keys()))
 
-table = []
-for term, genes in ogSlim:
-    table.append([term,len(genes),len(model_modern.getGenes(term))])
-import pandas as pd
-pd.DataFrame(table,columns=['Term','Annos2007','Annos2022']).to_csv('src/PairwiseYeastNetwork/GOTerm_NumAnnos.csv',index=False)
+print('YDL118W' in model.onto.yorfs)
+print('YDL118W' in model_modern.onto.yorfs)
+print(model.onto.yorfs.keys() - model_modern.onto.yorfs.keys())
 
 
 
