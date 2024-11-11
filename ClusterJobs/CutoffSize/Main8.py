@@ -39,7 +39,7 @@ def main():
     
     
 
-    graph = AllGoGraph(netLoc,f'{113}x{sys.argv[3]}x{outputSize}',folder,name,geneFolds=foldFile,outputVector='b',addTerms=[],ontologyDataset='2007',expressionDataset='2007',evalDataset='2023')
+    graph = AllGoGraph(netLoc,f'{113}x{sys.argv[3]}x{outputSize}',folder,name,geneFolds=foldFile,outputVector='b',addTerms=[],ontologyDataset='2007',expressionDataset='2007',evalDataset='2023',cutoff=int(sys.argv[2]))
     # for i in range(4):
     graph.feedForward(int(sys.argv[1]),calcAgn=True,calcPos=True,flush=True)
     # graph.rankGenes(agn=True,singleTerm=False)

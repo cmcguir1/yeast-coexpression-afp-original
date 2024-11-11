@@ -33,20 +33,20 @@ def main():
     # model.testNetworkAll()
     # model.testNetworkAll(validation=False)
 
-    model.assessOverfitting()
+    # model.assessOverfitting()
 
     netLoc = model.networkLoc[:-5]
     del model
     
-    
+    ontoInverse = '2022' if onto == '2007' else '2007'
 
-    graph = AllGoGraph(netLoc,f'{inputSize}x{sys.argv[4]}x{outputSize}',folder,name,geneFolds=foldFile,outputVector='b',addTerms=[],ontologyDataset=onto,expressionDataset=expr,evalDataset=onto)
+    graph = AllGoGraph(netLoc,f'{inputSize}x{sys.argv[4]}x{outputSize}',folder,name,geneFolds=foldFile,outputVector='b',addTerms=[],ontologyDataset=onto,expressionDataset=expr,evalDataset=ontoInverse)
     # for i in range(4):
     # graph.feedForward(int(sys.argv[1]),calcAgn=True,calcPos=True,flush=True)
     # graph.rankGenes(agn=True,singleTerm=False)
     # graph.rankGenes(agn=True,singleTerm=False,fileSuffix='_Modern',modern=True)
-    graph.rankAllTerms(agn=True,fileSuffix=f'_{onto}_Trained')
-    ontoInverse = '2022' if onto == '2007' else '2007'
+    # graph.rankAllTerms(agn=True,fileSuffix=f'_{onto}_Trained')
+    
     graph.rankAllTerms(agn=True,fileSuffix=f'_{ontoInverse}_Eval',modern=True)
     # graph.combineScores()
     # graph.makeGraph()

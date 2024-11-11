@@ -265,6 +265,6 @@ def writeJobs(JobName,pythonFile,node=False,arg1=['0','1','2','3'],arg2=None,arg
 # writeJobs('OverfittingTest','Main3.py',arg2=['500x200x100','200','20','80x80x80'],arg3=[50000,300000])
 # writeJobs('OverfittingTest2','Main4.py',arg2=['20','80','80x80x80','20x20x20'],arg3=[300000,600000])
 # writeJobs('OverfittingTest_Graph','Main4.py',arg2=['20','80','80x80x80','20x20x20'],arg3=[300000,600000])
-writeJobs('Expression_Ontology_Combinations','Main7.py',arg2=['2007','2022'],arg3=['2022'],arg4=['80x80x80','20x20x20'],arg1=[0])
-# writeJobs('CutoffSize','Main8.py',arg2=[19,20],arg3=['20x20x20','80x80x80'])
+writeJobs('Expression_Ontology_Combinations','Main7.py',arg2=['2007','2022'],arg3=['2007','2022'],arg4=['80x80x80','20x20x20'],arg1=[0])
+writeJobs('CutoffSize','Main8.py',arg2=[19,20],arg3=['20x20x20','80x80x80'])
 

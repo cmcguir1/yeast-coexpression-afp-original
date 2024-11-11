@@ -139,7 +139,7 @@ dataFile <- file.choose()
 
 graphName <- ""
 fileName <- "EnsembleROC_Modern.pdf"
-modern <- T
+modern <- F
 createGraph(dataFile,graphName,fileName,modern)
 
 displayGraph(dataFile,graphName,fileName,modern)
@@ -148,40 +148,6 @@ displayGraph(dataFile,graphName,fileName,modern)
 
 
 
-files <- choose.files()
-
-nets <- c("100","200","500","500x200x100x100")
-wds <- c("0.1","0.5","1")
-i <- 1
-for(t in 1:24) {
-  
-  if(t!=10) {
-    if(t %% 2 == 1) {
-      modern <- F
-      tag <- ""
-      offset <- 1
-    }
-    else {
-      modern <- T
-      tag <-"Modern"
-      offset <- 0
-    }
-    if(t <= 8) wd <- "0.1"
-    else if(t > 8 && t <= 16)wd <- "0.5"
-    else wd <- "1"
-    
-    fileName <- paste("SingleTerm_Net_",nets[(floor(i/2)%%4)+1],"_wd_",wd,"_",tag,".pdf",sep="")
-    graphTitle <- paste("Net",nets[(floor(i/2)%%4)+1],"wd",wd,tag,sep=" ")
-    #print(files[i])
-    createGraph(files[i],graphTitle,fileName,modern)
-    
-    i <- i + 1
-  
-  }
-}
-
-titles <- c("Net_100_wd_0.1","Net_100_wd_0.1")
-fileNames <- c()
 
 
 
