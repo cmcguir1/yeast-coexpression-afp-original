@@ -483,8 +483,9 @@ class AllGoGraph(AllGoModel):
         summary = []
         l = self.evalLeaves if modern else self.leaves
         for term, _ in l:
-            auc, avgPrec = self.rankGenes(term=term,agn=agn,fileSuffix=fileSuffix,modern=modern)
-            summary.append([term,auc,avgPrec])
+            if term in self.indexDict:
+                auc, avgPrec = self.rankGenes(term=term,agn=agn,fileSuffix=fileSuffix,modern=modern)
+                summary.append([term,auc,avgPrec])
         pd.DataFrame(summary,columns=['GO Term','AUC','Average Precision']).to_csv(f'{self.path}/{"" if self.modelName == "" else f"_{self.modelName}"}{self.struct}GOTermDistribution{fileSuffix}.csv',index=False)
 
     # Used to caculate convex hull average precision
