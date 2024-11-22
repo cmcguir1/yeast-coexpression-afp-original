@@ -12,30 +12,67 @@ from AllGoModel import AllGoModel
 from CorrelationDictionary import CorrelationDictionary
 import os
 from AllGOGraph import AllGoGraph
+import scipy.stats as stats
+import random
+import time
+
+sys.path.insert(0,'./obopy')
+from Leaf import getLeaves, getGenes
+from GOParser import GOParser
 
 # This import should fix the ssl import verificiation error
 import ssl
 ssl._create_default_https_context = ssl._create_unverified_context
 
 def main():
+    ogModel = GOParser('2007')
+    modModel = GOParser('2022')
 
-    folder = 'MultiTerm_Struct_Large'
-    name = f'MultiTerm'
-    foldFile = './src/PairwiseYeastNetwork/AllGO_2007_GO-0007005_1.csv'
+    corrDict = CorrelationDictionary(dictLoc=f'../YeastMemMap/YeastDict_Regularized.npy' if (os.path.exists(f'../YeastMemMap/YeastDict_Regularized.npy')) else f'../YeastDict_Regularized.npy',datasetType='2022')
 
-    model = AllGoModel(int(sys.argv[1]),sys.argv[2],folder,name,foldFile=foldFile,ontologyDataset='2007',outputVector='b',addTerms=[],resetNet=False,hardNegatives=False)
-    # model.trainNetwork(500000,saveTermLoss=False)
-    # model.testNetworkAll()
-    # model.testNetworkAll(validation=False)
+    commonTerms = set([term for term, _ in ogModel.getSlimLeaves()]) & set([term for term, _ in modModel.getSlimLeaves()])
 
-    graph = AllGoGraph(model.networkLoc[:-5],f'113x{sys.argv[2]}x79',folder,name,geneFolds=foldFile,outputVector='b',addTerms=[],ontologyDataset='2007')
-    # graph.feedForward(int(sys.argv[1]),calcAgn=False,calcPos=True)
-    # graph.rankAllTerms(agn=True)
-    graph.rankGenes(agn=False,singleTerm=False)
+    subsetSize = 10000
+    start = time.time()
 
-    graph = AllGoGraph(model.networkLoc[:-5],f'113x{sys.argv[2]}x79',folder,name,geneFolds=foldFile,outputVector='b',addTerms=[],ontologyDataset='2007',evalDataset='2023')
-    graph.rankGenes(agn=False,singleTerm=False,fileSuffix='_ModernLabelSwap')
+    table = []
+    for term in commonTerms - set(['GO:0006360']):
+        print(term)
+        ogGenes = ogModel.getGenes(term)
+        modGenes = modModel.getGenes(term)
+        N = list(modGenes - ogGenes) # Genes newly annotated from 2007 to 2022
+        C = list(modGenes & ogGenes) # Genes consistently annotated in both 2007 and 2022
+        M = list(ogGenes - modGenes) # Genes removed from 2007 to 2022
+        NxN = [corrDict.lookupAverageCorrelation(random.choice(N),random.choice(N)) for _ in range(subsetSize)]
+        CxC = [corrDict.lookupAverageCorrelation(random.choice(C),random.choice(C)) for _ in range(subsetSize)]
+        MxM = [corrDict.lookupAverageCorrelation(random.choice(M),random.choice(M)) for _ in range(subsetSize)]
+        NxC = [corrDict.lookupAverageCorrelation(random.choice(N),random.choice(C)) for _ in range(subsetSize)]
+        NxM = [corrDict.lookupAverageCorrelation(random.choice(N),random.choice(M)) for _ in range(subsetSize)]
+        CxM = [corrDict.lookupAverageCorrelation(random.choice(C),random.choice(M)) for _ in range(subsetSize)]
+        print('Time:',time.time()-start)
+        start = time.time()
 
+        row  = [term, ogModel.onto.terms[term].name,len(ogGenes),len(modGenes),len(N),len(C),len(M),np.mean(NxN),np.mean(CxC),np.mean(MxM),np.mean(NxC),np.mean(NxM),np.mean(CxM)]
+
+        ks_CxC_CxM = stats.ks_2samp(CxC,CxM)
+        ks_MxM_CxM = stats.ks_2samp(MxM,NxC)
+        row += [ks_CxC_CxM.statistic,ks_CxC_CxM.pvalue,ks_MxM_CxM.statistic,ks_MxM_CxM.pvalue]
+
+        ks_CxC_CxN = stats.ks_2samp(CxC,NxC)
+        ks_NxN_CxN = stats.ks_2samp(NxN,NxC)
+        row += [ks_CxC_CxN.statistic,ks_CxC_CxN.pvalue,ks_NxN_CxN.statistic,ks_NxN_CxN.pvalue]
+
+        ks_MxM_NxM = stats.ks_2samp(MxM,NxM)
+        ks_NxN_NxM = stats.ks_2samp(NxN,NxM)
+        row += [ks_MxM_NxM.statistic,ks_MxM_NxM.pvalue,ks_NxN_NxM.statistic,ks_NxN_NxM.pvalue]
+        
+        table.append(row)
+
+    columns = ['Go Term','Name','2007 Annos','2022 Annos','N','C','M','Mean NxN','Mean CxC','Mean MxM','Mean NxC','Mean NxM','Mean CxM','KS CxC CxM Statistic','KS CxC CxM P-Value','KS MxM CxM Statistic','KS MxM CxM P-Value','KS CxC CxN Statistic','KS CxC CxN P-Value','KS NxN CxN Statistic','KS NxN CxN P-Value','KS MxM NxM Statistic','KS MxM NxM P-Value','KS NxN NxM Statistic','KS NxN NxM P-Value']
+    pd.DataFrame(table,columns=columns).to_csv(f'Annotation_Correlation_Comparison_subset-{subsetSize}.csv',index=False)
+
+
+    
 
 
 

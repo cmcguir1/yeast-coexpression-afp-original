@@ -20,15 +20,15 @@ ssl._create_default_https_context = ssl._create_unverified_context
 def main():
 
     folder = 'OverfittingTest'
-    name = f'Batches_{sys.argv[3]}'
+    name = f'Batches_600000'
     foldFile = f'./src/PairwiseYeastNetwork/AllGO_2007_b_1csv'
 
    
     model = AllGoModel(int(sys.argv[1]),sys.argv[2],folder,name,foldFile=foldFile,ontologyDataset='2007',outputVector='b',addTerms=[],resetNet=False,hardNegatives=False)
-    # model.trainNetwork(int(sys.argv[3]),saveTermLoss=False)
-    # model.testNetworkAll()
-    # model.testNetworkAll(validation=False)
-    model.assessOverfitting()
+    model.trainNetwork(600000,saveTermLoss=False)
+    model.testNetworkAll()
+    model.testNetworkAll(validation=False)
+    # model.assessOverfitting()
     netLoc = model.networkLoc[:-5]
     del model
 
@@ -37,8 +37,8 @@ def main():
     graph.feedForward(int(sys.argv[1]),calcAgn=True,calcPos=True,flush=True)
     # graph.rankGenes(agn=True,singleTerm=False)
     # graph.rankGenes(agn=True,singleTerm=False,fileSuffix='_Modern',modern=True)
-    graph.rankAllTerms(agn=True)
-    graph.rankAllTerms(agn=True,fileSuffix='_Modern',modern=True)
+    # graph.rankAllTerms(agn=True)
+    # graph.rankAllTerms(agn=True,fileSuffix='_Modern',modern=True)
 
 
 

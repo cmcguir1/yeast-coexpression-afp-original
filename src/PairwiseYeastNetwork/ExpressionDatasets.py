@@ -34,6 +34,7 @@ class ExpressionDatasets():
         #print(f'Length of sorted files: {len(sortedFiles)}')
         #pd.DataFrame(sortedFiles,columns=['DatasetName']).to_csv('./src/PairwiseYeastNetwork/datasetNames.csv',index=False)
         sortedFiles = sortedFiles[0:numDatasets]
+        self.files = sortedFiles
 
         
 

@@ -105,15 +105,21 @@ class GOParser():
         shared_geneNums = list(map(lambda term: len(term.allAnnos()),shared))
         return min(shared_geneNums)
     
-model = GOParser('2007')
-model_modern = GOParser('2022')
+# model = GOParser('2007')
+# model_modern = GOParser('2022')
 
-print('2007:',len(model.onto.yorfs.keys()))
-print('2022:',len(model_modern.onto.yorfs.keys()))
+# removedTerms = set([term for term, _ in model.getSlimLeaves()]) - set([term for term, _ in model_modern.getSlimLeaves()])
+# for term in removedTerms:
+#     print(term, model.onto.terms[term].name)
+# table = []
+# slim = model.getSlimLeaves()
+# for id, genes in slim:
+#     ogGenes = model.getGenes(id)
+#     modGenes = model_modern.getGenes(id)
+#     table.append([id,model.onto.terms[id].name,len(ogGenes),len(modGenes),len(modGenes)-len(ogGenes),len(ogGenes & modGenes),len(ogGenes - modGenes)])
 
-print('YDL118W' in model.onto.yorfs)
-print('YDL118W' in model_modern.onto.yorfs)
-print(model.onto.yorfs.keys() - model_modern.onto.yorfs.keys())
+# import pandas as pd
+# pd.DataFrame(table,columns=['Term','Name','2007 Annos','2022 Annos','Difference','Shared','Removed']).to_csv('termComparison.csv',index=False)
 
 
 

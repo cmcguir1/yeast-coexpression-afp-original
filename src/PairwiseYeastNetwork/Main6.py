@@ -19,52 +19,24 @@ ssl._create_default_https_context = ssl._create_unverified_context
 
 def main():
 
-    folder = 'ConsistencyReplicates_SameFold'
-    name = f'Replicate{sys.argv[2]}'
-    foldFile = f'./src/PairwiseYeastNetwork/AllGO_2007_b_1.csv'
+    folder = 'MultiTerm_NetStruct_PS'
+    name = f'Replicate_{sys.argv[3]}_'
+    foldFile = './src/PairwiseYeastNetwork/AllGO_2007_GO-0007005_1.csv'
 
-    # for i in range(4):
-    #     model = AllGoModel(i,'500x200x100',folder,name,foldFile=foldFile,ontologyDataset='2007',outputVector='b',addTerms=[],resetNet=False,hardNegatives=False)
-    #     model.trainNetwork(50000,saveTermLoss=False)
-    #     model.testNetworkAll()
-    #     model.testNetworkAll(validation=False)
+   
+    model = AllGoModel(0,sys.argv[2],folder,name,foldFile=foldFile,ontologyDataset='2007',outputVector='b',addTerms=[],resetNet=False,hardNegatives=False)
+    # model.trainNetwork(600000,saveTermLoss=False)
+    # model.testNetworkAll()
+    # model.testNetworkAll(validation=False)
+    model.assessOverfitting()
 
-    model = AllGoModel(0,'500x200x100',folder,name,foldFile=foldFile,ontologyDataset='2007',outputVector='b',addTerms=[],resetNet=False,hardNegatives=False)
-    graph = AllGoGraph(model.networkLoc[:-5],f'113x500x200x100x79',folder,name,geneFolds=foldFile,outputVector='b',addTerms=[],ontologyDataset='2007',evalDataset='2023')
-    for i in range(4):
-        graph.feedForward(i,calcAgn=True,calcPos=True,flush=True)
-    # graph.rankGenes(agn=True,singleTerm=False)
-    # graph.rankGenes(agn=True,singleTerm=False,fileSuffix='_Modern',modern=True)
-    graph.rankAllTerms(agn=True)
-    graph.rankAllTerms(agn=True,fileSuffix='_Modern',modern=True)
-
-    # graph = AllGoGraph('./Yeast Resources/Pairwise/Spell/Test/Replicate_0__x_b_430x1000x500x200x93_lr0.01_batch50_lfBCE_Net_fold',f'430x1000x500x200x93',folder,name,geneFolds=foldFile,outputVector='b',addTerms=[],ontologyDataset='2023',evalDataset='2023',corr_mm='r+')
+    # graph = AllGoGraph(model.networkLoc[:-5],f'113x{sys.argv[2]}x79',folder,name,geneFolds=foldFile,outputVector='b',addTerms=[],ontologyDataset='2007',evalDataset='2023')
     # for i in range(4):
     # graph.feedForward(int(sys.argv[1]),calcAgn=True,calcPos=True,flush=True)
     # graph.rankGenes(agn=True,singleTerm=False)
     # graph.rankGenes(agn=True,singleTerm=False,fileSuffix='_Modern',modern=True)
     # graph.rankAllTerms(agn=True)
     # graph.rankAllTerms(agn=True,fileSuffix='_Modern',modern=True)
-    # graph.combineScores()
-    # graph.makeGraph()
-    # graph.sampleGraph()
-    # graph.termSample(folder='MultiTerm_Modern_NetStruct')
-    # graph.queryConnections(['VAC14','FAB1','FIG4'])
-    # graph.saveSlim()
-    # graph.queryConnections(['VAC14','FAB1'])
-    # graph.queryConnections(['FIG4'])
-    # graph.queryConnections(['SLT2'])
-    # graph.queryInvolvement(['VAC14','FAB1','FIG4'])
-    # graph.queryInvolvement(['FIG4','STE20'])
-
-    # graph.queryConnections(['FIG4','SLT2'])
-    # graph.queryConnections(['FIG4','STE11','STE20'])
-    # graph.queryConnections(['FIG4','MEC1'])
-    # graph.queryConnections(['FIG4','VMA2','VMA3','VMA5'])
-    # graph.queryInvolvement(['FIG4','FAB1','STE20'])
-    # graph.normalizeGraph()
-    # graph.sampleGraph(folder='MultiTerm_Modern_NetStruct')
-    # graph.sampleGraph_PosNeg(folder='MultiTerm_Modern_NetStruct_Labeled')
 
     # graph.debug()
 

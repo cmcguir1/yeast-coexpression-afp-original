@@ -1,0 +1,80 @@
+Term,Name,2007 Genes,2022 Genes,N,C,M,FP,FN
+GO:0000054,ribosome export from nucleus,25,54,35,19,6,6,31
+GO:0000278,mitotic cell cycle,248,386,207,179,69,69,173
+GO:0000747,conjugation with cellular fusion,114,125,39,86,28,28,24
+GO:0000902,cell morphogenesis,259,45,10,35,224,224,7
+GO:0000910,cytokinesis,106,109,52,57,49,49,45
+GO:0001403,invasive growth (sensu Saccharomyces),43,55,21,34,9,9,14
+GO:0003700,transcription factor activity,60,181,127,54,6,6,90
+GO:0004518,nuclease activity,140,151,33,118,22,22,22
+GO:0005085,guanyl-nucleotide exchange factor activity,38,59,23,36,2,2,18
+GO:0006260,DNA replication,112,158,66,92,20,20,62
+GO:0006281,DNA repair,185,314,139,175,10,10,117
+GO:0006310,DNA recombination,109,254,165,89,20,20,147
+GO:0006325,establishment and/or maintenance of chromatin architecture,245,305,88,217,28,28,66
+GO:0006352,transcription initiation,56,87,57,30,26,26,55
+GO:0006353,transcription termination,20,41,25,16,4,4,24
+GO:0006360,transcription from RNA polymerase I promoter,30,72,42,30,0,0,38
+GO:0006364,rRNA processing,171,296,135,161,10,10,67
+GO:0006366,transcription from RNA polymerase II promoter,333,553,242,311,22,22,179
+GO:0006383,transcription from RNA polymerase III promoter,39,46,10,36,3,3,10
+GO:0006397,mRNA processing,149,210,82,128,21,21,60
+GO:0006401,RNA catabolic process,69,166,100,66,3,3,77
+GO:0006413,translational initiation,41,64,27,37,4,4,13
+GO:0006414,translational elongation,20,48,31,17,3,3,16
+GO:0006418,tRNA aminoacylation for protein translation,31,37,7,30,1,1,0
+GO:0006457,protein folding,83,123,51,72,11,11,19
+GO:0006468,protein amino acid phosphorylation,96,218,128,90,6,6,88
+GO:0006470,protein amino acid dephosphorylation,28,55,39,16,12,12,24
+GO:0006486,protein amino acid glycosylation,73,81,15,66,7,7,5
+GO:0006497,protein amino acid lipidation,46,49,13,36,10,10,8
+GO:0006605,protein targeting,244,255,109,146,98,98,75
+GO:0006629,lipid metabolic process,233,349,141,208,25,25,74
+GO:0006766,vitamin metabolic process,87,62,27,35,52,52,8
+GO:0006811,ion transport,108,340,244,96,12,12,146
+GO:0006865,amino acid transport,37,58,23,35,2,2,6
+GO:0006869,lipid transport,34,78,47,31,3,3,25
+GO:0006873,cell ion homeostasis,110,167,68,99,11,11,43
+GO:0006887,exocytosis,45,55,16,39,6,6,14
+GO:0006897,endocytosis,84,140,65,75,9,9,36
+GO:0006970,response to osmotic stress,73,69,27,42,31,31,17
+GO:0006979,response to oxidative stress,67,130,70,60,7,7,37
+GO:0006997,nuclear organization and biogenesis,56,105,62,43,13,13,53
+GO:0007005,mitochondrion organization and biogenesis,106,292,202,90,16,16,117
+GO:0007010,cytoskeleton organization and biogenesis,227,282,117,165,62,62,82
+GO:0007031,peroxisome organization and biogenesis,40,53,19,34,6,6,11
+GO:0007033,vacuole organization and biogenesis,69,115,72,43,26,26,54
+GO:0007059,chromosome segregation,117,224,120,104,13,13,98
+GO:0007114,cell budding,82,61,19,42,40,40,17
+GO:0007124,pseudohyphal growth,65,77,31,46,19,19,22
+GO:0008033,tRNA processing,31,136,111,25,6,6,90
+GO:0008135,"translation factor activity, nucleic acid binding",45,57,14,43,2,2,5
+GO:0008213,protein amino acid alkylation,22,60,39,21,1,1,20
+GO:0008380,RNA splicing,121,146,34,112,9,9,14
+GO:0008643,carbohydrate transport,33,48,17,31,2,2,6
+GO:0009408,response to heat,22,59,45,14,8,8,36
+GO:0009451,RNA modification,65,116,59,57,8,8,34
+GO:0010324,membrane invagination,84,1,1,0,84,84,1
+GO:0015931,"nucleobase, nucleoside, nucleotide and nucleic acid transport",87,185,108,77,10,10,80
+GO:0016050,vesicle organization and biogenesis,15,101,90,11,4,4,75
+GO:0016197,endosome transport,46,114,77,37,9,9,51
+GO:0016570,histone modification,88,139,59,80,8,8,48
+GO:0018193,peptidyl-amino acid modification,27,229,209,20,7,7,161
+GO:0032196,transposition,109,120,12,108,1,1,12
+GO:0032200,telomere organization and biogenesis,274,137,71,66,208,208,65
+GO:0032787,monocarboxylic acid metabolic process,124,168,79,89,35,35,29
+GO:0042221,response to chemical stimulus,371,525,317,208,163,163,194
+GO:0042255,ribosome assembly,62,80,39,41,21,21,23
+GO:0042273,ribosomal large subunit biogenesis and assembly,64,129,73,56,8,8,39
+GO:0042274,ribosomal small subunit biogenesis and assembly,22,145,124,21,1,1,89
+GO:0042594,response to starvation,19,90,73,17,2,2,50
+GO:0043543,protein amino acid acylation,62,86,29,57,5,5,26
+GO:0045333,cellular respiration,80,107,56,51,29,29,26
+GO:0048193,Golgi vesicle transport,161,210,61,149,12,12,35
+GO:0048284,organelle fusion,22,113,96,17,5,5,82
+GO:0048308,organelle inheritance,41,57,25,32,9,9,19
+GO:0051049,regulation of transport,10,102,97,5,5,5,81
+GO:0051052,regulation of DNA metabolic process,31,126,104,22,9,9,98
+GO:0051321,meiotic cell cycle,144,330,200,130,14,14,132
+GO:0051603,proteolysis involved in cellular protein catabolic process,148,270,135,135,13,13,62
+GO:0051726,regulation of cell cycle,165,298,170,128,37,37,135

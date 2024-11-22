@@ -12,25 +12,63 @@ from AllGoModel import AllGoModel
 from CorrelationDictionary import CorrelationDictionary
 import os
 from AllGOGraph import AllGoGraph
+import scipy.stats as stats
+import random
+import time
+
+sys.path.insert(0,'./obopy')
+from Leaf import getLeaves, getGenes
+from GOParser import GOParser
 
 # This import should fix the ssl import verificiation error
 import ssl
 ssl._create_default_https_context = ssl._create_unverified_context
 
 def main():
+    ogModel = GOParser('2007')
+    modModel = GOParser('2022')
+
+    corrDict = CorrelationDictionary(dictLoc=f'../YeastMemMap/YeastDict_Regularized.npy' if (os.path.exists(f'../YeastMemMap/YeastDict_Regularized.npy')) else f'../YeastDict_Regularized.npy',datasetType='2022')
+
+    commonTerms = set([term for term, _ in ogModel.getSlimLeaves()]) & set([term for term, _ in modModel.getSlimLeaves()])
+
+    subsetSize = 10000
+    start = time.time()
+
+    table = []
+    for term in commonTerms - set(['GO:0006360']):
+        print(term)
+        ogGenes = list(ogModel.getGenes(term))
+        modGenes = list(modModel.getGenes(term))
+        
+        
+        ogPairs = []
+        while len(ogPairs) < subsetSize:
+            geneA = random.choice(ogGenes)
+            geneB = random.choice(ogGenes)
+            if geneA != geneB:
+                ogPairs.append(corrDict.lookupAverageCorrelation(geneA,geneB))
+            
+        modPairs = []
+        while len(modPairs) < subsetSize:
+            geneA = random.choice(modGenes)
+            geneB = random.choice(modGenes)
+            if geneA != geneB:
+                modPairs.append(corrDict.lookupAverageCorrelation(geneA,geneB))
+
+        ks = stats.ks_2samp(ogPairs,modPairs)
+        table.append([term, ogModel.onto.terms[term].name,len(ogGenes),len(modGenes),ks.statistic,ks.pvalue])
+        geneData = [[ogPairs[i],modPairs[i]] for i in range(subsetSize)]
+        pd.DataFrame(geneData,columns=['2007','2022']).to_csv(f'./Yeast Resources/CorrelationData/{term[:2]}{term[3:]}_Pairs.csv',index=False)
+        print('Time:',time.time()-start)
+
+
+
+    columns = ['Go Term','Name','2007 Genes','2022 Genes','KS Statistic','KS P-Value']
+    pd.DataFrame(table,columns=columns).to_csv(f'Annotation_Correlation_Comparison_subset-{subsetSize}_Simple.csv',index=False)
+
 
     
-    # model = AllGoModel(int(sys.argv[1]),'100','HardNegatives_Fixed','EasyNegatives',ontologyDataset='2007',foldFile='src/PairwiseYeastNetwork/AllGO_2007_b_1.csv',resetNet=True)
-    # model.trainNetwork(300000,hardNegatives=False)
-    # model.testNetworkAll(hardNegatives=False)
-    # model.testNetworkAll(validation=False,hardNegatives=False)
-
-    graph = AllGoGraph('Yeast Resources/Pairwise/Spell/HardNegatives_Fixed/EasyNegatives_x_b_113x100x79_lr0.01_batch50_lfBCE_Net_fold','113x100x79','HardNegatives','EasyNegatives',geneFolds='src/PairwiseYeastNetwork/AllGO_2007_b_1.csv',ontologyDataset='2007',evalDataset='2007',outputVector='b')
-    # graph.feedForward(int(sys.argv[1]),calcAgn=False)
-    graph.rankAllTerms(agn=False)
-    
-    graph = AllGoGraph('Yeast Resources/Pairwise/Spell/HardNegatives_Fixed/EasyNegatives_x_b_113x100x79_lr0.01_batch50_lfBCE_Net_fold','113x100x79','HardNegatives','EasyNegatives',geneFolds='src/PairwiseYeastNetwork/AllGO_2007_b_1.csv',ontologyDataset='2007',evalDataset='2023',outputVector='b')
-    graph.rankAllTerms(agn=False,fileSuffix='_modern')
 
 
 

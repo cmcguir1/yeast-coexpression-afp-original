@@ -19,7 +19,7 @@ class CorrelationDictionary():
         
 
         #Dictionary of dataset same to index of dataset in gene dictionary
-        datasets = pd.read_csv('./src/PairwiseYeastNetwork/datasetDictionaryRevised.csv' if datasetType != '2009' and datasetType != 'original' else './src/PairwiseYeastNetwork/datasetDictionaryOriginal.csv').to_numpy()
+        datasets = pd.read_csv('./src/PairwiseYeastNetwork/datasetDictionaryRevised.csv' if datasetType != '2007' and datasetType != 'original' else './src/PairwiseYeastNetwork/datasetDictionaryOriginal.csv').to_numpy()
         self.datasetsDict = {data[0]: data[1] for data in datasets}
         self.datasets = datasets[:,0]
 
@@ -31,6 +31,8 @@ class CorrelationDictionary():
         else:
             self.expDataset = ExpressionDatasets('./Yeast Resources/Datasets/All Spell/all spell datasets',sort=True,recur=True,recalc=False,statsDictLoc='./Yeast Resources/Datasets/All Spell/revisedStatsDict.csv')
             print('Used Modern Datasets')
+
+        
 
         
         # Correlations dictionary initialization
@@ -45,6 +47,18 @@ class CorrelationDictionary():
         else:
             #print('This gene pair was not in the correlation dictionary')
             return 0
+        
+    def lookupAverageCorrelation(self,gene1,gene2,allDatasets=False):
+        #print(f'Gene 1: {gene1}\nGene: {gene2}\n------------')
+        if gene1 in self.indexDict and gene2 in self.indexDict:
+            if allDatasets:
+                return np.mean(self.memMap[:,self.calcIndex(gene1,gene2)])
+            else:
+                return np.mean(self.memMap[list(self.datasetsDict.values()),self.calcIndex(gene1,gene2)])
+        else:
+            #print('This gene pair was not in the correlation dictionary')
+            return 0
+        
     
     
     def calculateDataset(self,datasetIndex,location='./RecalcTest.npy'):
