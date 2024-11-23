@@ -19,7 +19,7 @@ ssl._create_default_https_context = ssl._create_unverified_context
 
 def main():
 
-    folder = 'Expression_Ontology_Combinations'
+    folder = 'Expression_Ontology_Combinations_Large'
     onto = sys.argv[3]
     expr = sys.argv[2]
     inputSize = 430 if expr == '2022' else 113
@@ -29,9 +29,9 @@ def main():
 
    
     model = AllGoModel(int(sys.argv[1]),sys.argv[4],folder,name,foldFile=foldFile,ontologyDataset=onto,expressionDataset=expr,outputVector='b',addTerms=[],resetNet=False,hardNegatives=False)
-    # model.trainNetwork(600000,saveTermLoss=False)
-    # model.testNetworkAll()
-    # model.testNetworkAll(validation=False)
+    model.trainNetwork(1000000,saveTermLoss=False)
+    model.testNetworkAll()
+    model.testNetworkAll(validation=False)
 
     # model.assessOverfitting()
 
@@ -42,12 +42,12 @@ def main():
 
     graph = AllGoGraph(netLoc,f'{inputSize}x{sys.argv[4]}x{outputSize}',folder,name,geneFolds=foldFile,outputVector='b',addTerms=[],ontologyDataset=onto,expressionDataset=expr,evalDataset=ontoInverse)
     # for i in range(4):
-    # graph.feedForward(int(sys.argv[1]),calcAgn=True,calcPos=True,flush=True)
+    graph.feedForward(int(sys.argv[1]),calcAgn=True,calcPos=True,flush=True)
     # graph.rankGenes(agn=True,singleTerm=False)
     # graph.rankGenes(agn=True,singleTerm=False,fileSuffix='_Modern',modern=True)
     # graph.rankAllTerms(agn=True,fileSuffix=f'_{onto}_Trained')
     
-    graph.rankAllTerms(agn=True,fileSuffix=f'_{ontoInverse}_Eval',modern=True)
+    # graph.rankAllTerms(agn=True,fileSuffix=f'_{ontoInverse}_Eval',modern=True)
     # graph.combineScores()
     # graph.makeGraph()
     # graph.sampleGraph()

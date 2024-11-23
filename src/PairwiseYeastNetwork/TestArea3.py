@@ -5,8 +5,8 @@ import pandas as pd
 import numpy as np
 
 ensemble = pd.read_csv('./Yeast Resources/ensembleData.csv')
-# nn_table = pd.read_csv('Yeast Resources/GraphResults/OverfittingTest/Batches_600000113x80x80x80x79_GeneRanking_GO0007005.csv')
-nn_table = pd.read_csv('Yeast Resources/GraphResults/MultiTerm_NetStruct_PS/Replicate_0_113x500x200x100x79_GeneRanking_GO0007005.csv')
+nn_table = pd.read_csv('Yeast Resources/GraphResults/OverfittingTest/Batches_600000113x80x80x80x79_GeneRanking_GO0007005.csv')
+# nn_table = pd.read_csv('Yeast Resources/GraphResults/MultiTerm_NetStruct_PS/Replicate_0_113x500x200x100x79_GeneRanking_GO0007005.csv')
 
 
 
@@ -70,10 +70,21 @@ falseNegs = list(filter(lambda x: x[1] == '-/+',combined))
 trueNegs = list(filter(lambda x: x[1] == '-/-',combined))
 
 
+nn_ks = kstest([row[2] for row in falseNegs if row[2] is not None],'uniform',alternative='less')
+spell_ks = kstest([row[3] for row in falseNegs if row[3] is not None],'uniform',alternative='less')
+mefit_ks = kstest([row[4] for row in falseNegs if row[4] is not None],'uniform',alternative='less')
 
-# print(kstest([row[3] for row in falseNegs],'uniform',alternative='less'))
-print(ks_2samp([row[2] for row in falseNegs if row[2] is not None],[row[2] for row in trueNegs if row[2] is not None],alternative='less'))
-print(ks_2samp([row[3] for row in falseNegs if row[3] is not None],[row[3] for row in trueNegs if row[3] is not None],alternative='less'))
+
+print(ks_2samp([row[2] for row in falseNegs if row[2] is not None],[row[3] for row in falseNegs if row[3] is not None],alternative='less'))
+print(ks_2samp([row[2] for row in falseNegs if row[2] is not None],[row[4] for row in falseNegs if row[4] is not None],alternative='less'))
+
+
+print(ks_2samp([row[2] for row in falseNegs if row[2] is not None and row[2] > 0.8],[row[3] for row in falseNegs if row[3] is not None and row[3] > 0.8],alternative='less'))
+print(ks_2samp([row[2] for row in falseNegs if row[2] is not None and row[2] > 0.8],[row[4] for row in falseNegs if row[4] is not None and row[4] > 0.8],alternative='less'))
+
+print('NN:', len([row[2] for row in falseNegs if row[2] is not None and row[2] > 0.8]))
+print('SPELL:', len([row[3] for row in falseNegs if row[3] is not None and row[3] > 0.8]))
+print('MEFIT:', len([row[4] for row in falseNegs if row[4] is not None and row[4] > 0.8]))
 # print(mannwhitneyu([row[2] for row in falseNegs],[row[3] for row in falseNegs if row[3] is not None],alternative='greater'))
  
 
