@@ -2,15 +2,20 @@
 file <- file.choose()
 # This is the current file I have been using for analysis
 file <- "C:\\Users\\colem\\SummerResearch2022\\Yeast Resources\\Pairwise\\Spell\\OverfittingTest\\Batches_600000_x_b_113x80x80x80x79_lr0.01_batch50_lfBCE_OverfittingAssessment.csv"
+file <- "C:\\Users\\colem\\SummerResearch2022\\Yeast Resources\\Pairwise\\Spell\\MultiTerm_NetStruct_PS\\Replicate_0__x_b_113x500x200x100x79_lr0.01_batch50_lfBCE_OverfittingAssessment.csv"
 print(file)
 data <- read.csv(file)
-fileName <- "Batches-600000_Net-80x80x80_Overfitting_Colored.pdf"
-title <- "Batches 600000, Net 80x80x80"
+fileName <- "Net-500200x100_Overfitting_Colored.pdf"
+title <- ""
 
-pdf(fileName,width=12,height=8)
+pdf(fileName,width=8,height=6)
 
 
-
+map <- function(x,xMin,xMax,yMin,yMax) {
+  frac <- (x-xMin)/(xMax-xMin)
+  y <- frac*(yMax-yMin) + yMin
+  return(y)
+}
 
 # Set up layout: two panels - scatter plot and color legend
 layout(matrix(c(1, 2), ncol = 2), widths = c(4, 1))
@@ -28,12 +33,12 @@ i_col <- rgb(intial[1],intial[2],intial[3],maxColorValue = 255)
 f_col <- rgb(final[1],final[2],final[3],maxColorValue = 255)
 
 # Make Scatter Plot
+title <- ""
 plot(c(0,1),c(0,1),type="l",xlim=c(0.5,1),ylim=c(0.5,1),xlab="Testing AUC",ylab="Training AUC",lwd=5,main=title)
 for(i in 1:nrow(data)){
 #for(i in 1:10){  
   t <- (data$SG.AUC[i] * 2) - 1
-  size <- (data$SG.AUC[i] - 0.5) * 6
-  #size <- 2
+  size <- map(t,0,1,0.5,2.5)
   
   r <- intial[1] * (1-t) + final[1] * t
   g <- intial[2] * (1-t) + final[2] * t
@@ -51,7 +56,7 @@ image(
   xaxt = "n", 
   yaxt = "n"
 )
-axis(4, at = seq(0, 1, by = 0.2), labels = round(seq(0.5, 1, length.out = 6), 2), las = 1)
+axis(3, at = seq(0, 1, by = 0.2), labels = round(seq(0.5, 1, length.out = 6), 2), las = 1)
 mtext("Single Gene AUC", side = 1, line = 1)
 
 

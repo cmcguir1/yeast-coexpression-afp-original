@@ -62,12 +62,12 @@ c2022 <- c2022[c2022$GO.Term %in% c2007$GO.Term,]
 ks <- termData$KS.Stat.2022 - termData$KS.Stat.2007
 
 
-plot(c(0,1),c(0,1),type='l',xlim=c(0.5,1),ylim=c(0.5,1),xlab="2007 GO Annotations AUC",ylab="2007 GO Annotations AUC")
+plot(c(0,1),c(0,1),type='l',xlim=c(0.5,1),ylim=c(0.5,1),xlab="2007 GO Annotations AUC",ylab="2022 GO Annotations AUC")
 for(i in 1:nrow(c2007)){
   size <- 1
   
   t <- map(ks[i],min(ks),max(ks),0,1)
-  size <- log2(map(t,0,1,1,2))
+  size <- 1.5
   
   #if (termData$Removed[i] == 0) t <- 0
   #else t <- map(log2(termData$Removed[i]),0,max(log2(termData$Removed)),0,1)

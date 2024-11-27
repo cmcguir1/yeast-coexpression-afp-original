@@ -144,6 +144,9 @@ class YeastDataFile():
         #If gene pair is not in this dataset's dictionary, return 0, i. e. there is no correlation between these genes
         else:
             return 0.0
+        
+    def numberOfConditions(self):
+        return len(self.data[0]) - 1
 
         
 
